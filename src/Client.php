@@ -23,7 +23,13 @@ class Client extends HttpClient {
             $config['credentials'] = [];
         }
         if (is_null($cache)) {
-            $filesystemAdapter = new Local(__DIR__.'/../');
+            if (isset($config['cacheDir'])) {
+                $cacheDir = $config['cacheDir'];
+            } else {
+                $cacheDir = getcwd();
+            }
+             
+            $filesystemAdapter = new Local($cacheDir);
             $filesystem        = new Filesystem($filesystemAdapter);
             $cache = new FilesystemCachePool($filesystem);
         }
