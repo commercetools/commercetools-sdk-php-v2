@@ -1,6 +1,6 @@
 # Commercetools
 
-> Browser and node module for making API requests against [Commercetools](https://api.sphere.io).
+> Client and Request Builder for making API requests against [Commercetools](https://api.sphere.io).
 
 ## Installation
 
