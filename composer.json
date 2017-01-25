@@ -1,5 +1,6 @@
 {
   "name": "commercetools/raml-php-sdk",
+  "license": "MIT",
   "autoload": {
     "files": [
       "classes.php"
