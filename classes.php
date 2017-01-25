@@ -3210,6 +3210,14 @@ final class Resource45GetRequest extends Request {
 final class Resource46 extends Resource {
 
     /**
+     * @return RequestInterface
+     */
+    public function post ($body = null, array $options = []): RequestInterface {
+
+        return $this->buildRequest('post', $this->getUri(), $body, $options);
+    }
+
+    /**
      * @return Resource46GetRequest
      */
     public function get ($query = null, array $options = []): Resource46GetRequest {

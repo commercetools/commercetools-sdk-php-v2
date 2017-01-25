@@ -1105,6 +1105,18 @@ $request = $builder->withProjectKey('projectKey')->productProjections()->withId(
 $response = $client->send($request);
 ```
   
+#### `withProjectKey('projectKey')->productProjections()->search()->post($body = null, $options = [])`
+
+* **projectKey** (type: `string`)
+
+Search Product Projection
+
+```php
+$builder =  new RequestBuilder();
+$request = $builder->withProjectKey('projectKey')->productProjections()->search()->post($body = null, $options = []);
+$response = $client->send($request);
+```
+  
 #### `withProjectKey('projectKey')->productProjections()->search()->get($query = null, $options = [])`
 
 * **projectKey** (type: `string`)
