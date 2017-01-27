@@ -14,8 +14,13 @@ use Psr\Cache\CacheItemPoolInterface;
 
 class Client extends HttpClient {
 
-    public function __construct(array $config = [], AbstractProvider $oauthProvider = null, CacheItemPoolInterface $cache = null)
-    {
+    public function __construct(
+        array $config = [],
+        AbstractProvider $oauthProvider = null,
+        CacheItemPoolInterface $cache = null,
+        LoggerInterface $logger = null,
+        MessageFormatter $formatter = null
+    ) {
         if (!isset($config['handler'])) {
             $config['handler'] = HandlerStack::create();
         }
@@ -51,6 +56,15 @@ class Client extends HttpClient {
             'oauth_2_0'
         );
 
+        if ($logger instanceof LoggerInterface) {
+            if (is_null($formatter)) {
+                $formatter = new MessageFormatter();
+            }
+            $config['handler']->push(
+                Middleware::log($logger, $formatter),
+                'logger'
+            );
+        }
         parent::__construct($config);
     }
     

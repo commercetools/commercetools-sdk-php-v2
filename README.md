@@ -1,6 +1,9 @@
+
+> This package has been generated using [raml-php-generator](https://github.com/jayS-de/raml-php-generator)    
+
 # Commercetools
 
-> Client and Request Builder for making API requests against [Commercetools](https://api.sphere.io).
+Client and Request Builder for making API requests against [Commercetools](https://api.sphere.io).
 
 ## Installation
 
