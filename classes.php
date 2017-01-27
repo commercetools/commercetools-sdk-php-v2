@@ -76,7 +76,10 @@ class Resource
 
 class RequestBuilder extends Resource
 {
-    public function __construct($options = [])
+    /**
+     * @param array $options
+     */
+    public function __construct(array $options = [])
     {
         $baseUriParameters = [];
         if (isset($options['baseUriParameters'])) {
@@ -91,9 +94,13 @@ class RequestBuilder extends Resource
     }
     
     /**
+     * @param string $method
+     * @param string $uri
+     * @param null $body
+     * @param array $options
      * @return RequestInterface
      */
-    final public function buildCustom(string  $method, string  $uri, $body = null, array $options = []): RequestInterface
+    final public function buildCustom(string $method, string $uri, $body = null, array $options = []): RequestInterface
     {
         if (isset($options['uriParameters'])) {
             $uri = $this->template($this->getUri() . $uri, $options['uriParameters']);
@@ -106,9 +113,10 @@ class RequestBuilder extends Resource
 
 
     /**
+     * @param $projectKey
      * @return Resource1
      */
-    public function withProjectKey ($projectKey): Resource1 {
+    public function withProjectKey($projectKey): Resource1 {
       
         $uri = $this->template($this->getUri() . '/{projectKey}', ['projectKey' => $projectKey]);
         return new Resource1($uri);
@@ -293,9 +301,11 @@ final class Resource1 extends Resource {
     }
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -311,9 +321,11 @@ final class Resource1 extends Resource {
 final class Resource2 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource2GetRequest
      */
-    public function get ($query = null, array $options = []): Resource2GetRequest {
+    public function get($query = null, array $options = []): Resource2GetRequest {
 
 
         if (!is_array($query)) {
@@ -327,17 +339,20 @@ final class Resource2 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource3
      */
-    public function withId ($ID): Resource3 {
+    public function withId($ID): Resource3 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource3($uri);
@@ -349,6 +364,7 @@ final class Resource2GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource2GetRequest
      */
     public function withWhere($where): Resource2GetRequest {
@@ -368,6 +384,7 @@ final class Resource2GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource2GetRequest
      */
     public function withSort($sort): Resource2GetRequest {
@@ -387,6 +404,7 @@ final class Resource2GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource2GetRequest
      */
     public function withLimit($limit): Resource2GetRequest {
@@ -406,6 +424,7 @@ final class Resource2GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource2GetRequest
      */
     public function withOffset($offset): Resource2GetRequest {
@@ -427,9 +446,11 @@ final class Resource2GetRequest extends Request {
 final class Resource3 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -443,17 +464,21 @@ final class Resource3 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource3DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource3DeleteRequest {
+    public function delete($body = null, array $options = []): Resource3DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource3DeleteRequest::class);
     }
@@ -464,6 +489,7 @@ final class Resource3DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource3DeleteRequest
      */
     public function withVersion($version): Resource3DeleteRequest {
@@ -485,9 +511,11 @@ final class Resource3DeleteRequest extends Request {
 final class Resource4 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource4GetRequest
      */
-    public function get ($query = null, array $options = []): Resource4GetRequest {
+    public function get($query = null, array $options = []): Resource4GetRequest {
 
 
         if (!is_array($query)) {
@@ -501,17 +529,20 @@ final class Resource4 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource5
      */
-    public function withId ($ID): Resource5 {
+    public function withId($ID): Resource5 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource5($uri);
@@ -523,6 +554,7 @@ final class Resource4GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource4GetRequest
      */
     public function withWhere($where): Resource4GetRequest {
@@ -542,6 +574,7 @@ final class Resource4GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource4GetRequest
      */
     public function withSort($sort): Resource4GetRequest {
@@ -561,6 +594,7 @@ final class Resource4GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource4GetRequest
      */
     public function withLimit($limit): Resource4GetRequest {
@@ -580,6 +614,7 @@ final class Resource4GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource4GetRequest
      */
     public function withOffset($offset): Resource4GetRequest {
@@ -601,9 +636,11 @@ final class Resource4GetRequest extends Request {
 final class Resource5 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -617,17 +654,21 @@ final class Resource5 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource5DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource5DeleteRequest {
+    public function delete($body = null, array $options = []): Resource5DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource5DeleteRequest::class);
     }
@@ -638,6 +679,7 @@ final class Resource5DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource5DeleteRequest
      */
     public function withVersion($version): Resource5DeleteRequest {
@@ -659,9 +701,11 @@ final class Resource5DeleteRequest extends Request {
 final class Resource6 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource6GetRequest
      */
-    public function get ($query = null, array $options = []): Resource6GetRequest {
+    public function get($query = null, array $options = []): Resource6GetRequest {
 
 
         if (!is_array($query)) {
@@ -675,17 +719,20 @@ final class Resource6 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource7
      */
-    public function withId ($ID): Resource7 {
+    public function withId($ID): Resource7 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource7($uri);
@@ -697,6 +744,7 @@ final class Resource6GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource6GetRequest
      */
     public function withWhere($where): Resource6GetRequest {
@@ -716,6 +764,7 @@ final class Resource6GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource6GetRequest
      */
     public function withSort($sort): Resource6GetRequest {
@@ -735,6 +784,7 @@ final class Resource6GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource6GetRequest
      */
     public function withLimit($limit): Resource6GetRequest {
@@ -754,6 +804,7 @@ final class Resource6GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource6GetRequest
      */
     public function withOffset($offset): Resource6GetRequest {
@@ -775,9 +826,11 @@ final class Resource6GetRequest extends Request {
 final class Resource7 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -791,17 +844,21 @@ final class Resource7 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource7DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource7DeleteRequest {
+    public function delete($body = null, array $options = []): Resource7DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource7DeleteRequest::class);
     }
@@ -812,6 +869,7 @@ final class Resource7DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource7DeleteRequest
      */
     public function withVersion($version): Resource7DeleteRequest {
@@ -833,9 +891,11 @@ final class Resource7DeleteRequest extends Request {
 final class Resource8 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource8GetRequest
      */
-    public function get ($query = null, array $options = []): Resource8GetRequest {
+    public function get($query = null, array $options = []): Resource8GetRequest {
 
 
         if (!is_array($query)) {
@@ -849,17 +909,20 @@ final class Resource8 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource9
      */
-    public function withId ($ID): Resource9 {
+    public function withId($ID): Resource9 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource9($uri);
@@ -871,6 +934,7 @@ final class Resource8GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource8GetRequest
      */
     public function withWhere($where): Resource8GetRequest {
@@ -890,6 +954,7 @@ final class Resource8GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource8GetRequest
      */
     public function withSort($sort): Resource8GetRequest {
@@ -909,6 +974,7 @@ final class Resource8GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource8GetRequest
      */
     public function withLimit($limit): Resource8GetRequest {
@@ -928,6 +994,7 @@ final class Resource8GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource8GetRequest
      */
     public function withOffset($offset): Resource8GetRequest {
@@ -949,9 +1016,11 @@ final class Resource8GetRequest extends Request {
 final class Resource9 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -965,17 +1034,21 @@ final class Resource9 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource9DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource9DeleteRequest {
+    public function delete($body = null, array $options = []): Resource9DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource9DeleteRequest::class);
     }
@@ -986,6 +1059,7 @@ final class Resource9DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource9DeleteRequest
      */
     public function withVersion($version): Resource9DeleteRequest {
@@ -1035,9 +1109,11 @@ final class Resource10 extends Resource {
     }
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource10GetRequest
      */
-    public function get ($query = null, array $options = []): Resource10GetRequest {
+    public function get($query = null, array $options = []): Resource10GetRequest {
 
 
         if (!is_array($query)) {
@@ -1051,17 +1127,20 @@ final class Resource10 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource11
      */
-    public function withId ($ID): Resource11 {
+    public function withId($ID): Resource11 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource11($uri);
@@ -1073,6 +1152,7 @@ final class Resource10GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource10GetRequest
      */
     public function withWhere($where): Resource10GetRequest {
@@ -1092,6 +1172,7 @@ final class Resource10GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource10GetRequest
      */
     public function withSort($sort): Resource10GetRequest {
@@ -1111,6 +1192,7 @@ final class Resource10GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource10GetRequest
      */
     public function withLimit($limit): Resource10GetRequest {
@@ -1130,6 +1212,7 @@ final class Resource10GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource10GetRequest
      */
     public function withOffset($offset): Resource10GetRequest {
@@ -1151,9 +1234,11 @@ final class Resource10GetRequest extends Request {
 final class Resource11 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -1167,17 +1252,21 @@ final class Resource11 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource11DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource11DeleteRequest {
+    public function delete($body = null, array $options = []): Resource11DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource11DeleteRequest::class);
     }
@@ -1188,6 +1277,7 @@ final class Resource11DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource11DeleteRequest
      */
     public function withVersion($version): Resource11DeleteRequest {
@@ -1209,9 +1299,11 @@ final class Resource11DeleteRequest extends Request {
 final class Resource12 extends Resource {
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
@@ -1228,9 +1320,11 @@ final class Resource13 extends Resource {
 final class Resource14 extends Resource {
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
@@ -1245,9 +1339,11 @@ final class Resource15 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
@@ -1255,9 +1351,11 @@ final class Resource15 extends Resource {
 final class Resource17 extends Resource {
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
@@ -1265,9 +1363,11 @@ final class Resource17 extends Resource {
 final class Resource16 extends Resource {
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
@@ -1275,9 +1375,11 @@ final class Resource16 extends Resource {
 final class Resource18 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource18GetRequest
      */
-    public function get ($query = null, array $options = []): Resource18GetRequest {
+    public function get($query = null, array $options = []): Resource18GetRequest {
 
 
         if (!is_array($query)) {
@@ -1291,17 +1393,20 @@ final class Resource18 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource19
      */
-    public function withId ($ID): Resource19 {
+    public function withId($ID): Resource19 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource19($uri);
@@ -1313,6 +1418,7 @@ final class Resource18GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource18GetRequest
      */
     public function withWhere($where): Resource18GetRequest {
@@ -1332,6 +1438,7 @@ final class Resource18GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource18GetRequest
      */
     public function withSort($sort): Resource18GetRequest {
@@ -1351,6 +1458,7 @@ final class Resource18GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource18GetRequest
      */
     public function withLimit($limit): Resource18GetRequest {
@@ -1370,6 +1478,7 @@ final class Resource18GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource18GetRequest
      */
     public function withOffset($offset): Resource18GetRequest {
@@ -1391,9 +1500,11 @@ final class Resource18GetRequest extends Request {
 final class Resource19 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -1407,17 +1518,21 @@ final class Resource19 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource19DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource19DeleteRequest {
+    public function delete($body = null, array $options = []): Resource19DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource19DeleteRequest::class);
     }
@@ -1428,6 +1543,7 @@ final class Resource19DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource19DeleteRequest
      */
     public function withVersion($version): Resource19DeleteRequest {
@@ -1449,9 +1565,11 @@ final class Resource19DeleteRequest extends Request {
 final class Resource20 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource20GetRequest
      */
-    public function get ($query = null, array $options = []): Resource20GetRequest {
+    public function get($query = null, array $options = []): Resource20GetRequest {
 
 
         if (!is_array($query)) {
@@ -1465,26 +1583,30 @@ final class Resource20 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $container
      * @return Resource21
      */
-    public function withContainer ($container): Resource21 {
+    public function withContainer($container): Resource21 {
       
         $uri = $this->template($this->getUri() . '/{container}', ['container' => $container]);
         return new Resource21($uri);
     }
 
     /**
+     * @param $ID
      * @return Resource23
      */
-    public function withId ($ID): Resource23 {
+    public function withId($ID): Resource23 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource23($uri);
@@ -1496,6 +1618,7 @@ final class Resource20GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource20GetRequest
      */
     public function withWhere($where): Resource20GetRequest {
@@ -1515,6 +1638,7 @@ final class Resource20GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource20GetRequest
      */
     public function withSort($sort): Resource20GetRequest {
@@ -1534,6 +1658,7 @@ final class Resource20GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource20GetRequest
      */
     public function withLimit($limit): Resource20GetRequest {
@@ -1553,6 +1678,7 @@ final class Resource20GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource20GetRequest
      */
     public function withOffset($offset): Resource20GetRequest {
@@ -1574,9 +1700,10 @@ final class Resource20GetRequest extends Request {
 final class Resource21 extends Resource {
 
     /**
+     * @param $key
      * @return Resource22
      */
-    public function withKey ($key): Resource22 {
+    public function withKey($key): Resource22 {
       
         $uri = $this->template($this->getUri() . '/{key}', ['key' => $key]);
         return new Resource22($uri);
@@ -1585,9 +1712,11 @@ final class Resource21 extends Resource {
 final class Resource22 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -1601,9 +1730,11 @@ final class Resource22 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource22DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource22DeleteRequest {
+    public function delete($body = null, array $options = []): Resource22DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource22DeleteRequest::class);
     }
@@ -1614,6 +1745,7 @@ final class Resource22DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource22DeleteRequest
      */
     public function withVersion($version): Resource22DeleteRequest {
@@ -1635,9 +1767,11 @@ final class Resource22DeleteRequest extends Request {
 final class Resource23 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -1651,9 +1785,11 @@ final class Resource23 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource23DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource23DeleteRequest {
+    public function delete($body = null, array $options = []): Resource23DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource23DeleteRequest::class);
     }
@@ -1664,6 +1800,7 @@ final class Resource23DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource23DeleteRequest
      */
     public function withVersion($version): Resource23DeleteRequest {
@@ -1685,9 +1822,11 @@ final class Resource23DeleteRequest extends Request {
 final class Resource24 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource24GetRequest
      */
-    public function get ($query = null, array $options = []): Resource24GetRequest {
+    public function get($query = null, array $options = []): Resource24GetRequest {
 
 
         if (!is_array($query)) {
@@ -1701,17 +1840,20 @@ final class Resource24 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource25
      */
-    public function withId ($ID): Resource25 {
+    public function withId($ID): Resource25 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource25($uri);
@@ -1723,6 +1865,7 @@ final class Resource24GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource24GetRequest
      */
     public function withWhere($where): Resource24GetRequest {
@@ -1742,6 +1885,7 @@ final class Resource24GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource24GetRequest
      */
     public function withSort($sort): Resource24GetRequest {
@@ -1761,6 +1905,7 @@ final class Resource24GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource24GetRequest
      */
     public function withLimit($limit): Resource24GetRequest {
@@ -1780,6 +1925,7 @@ final class Resource24GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource24GetRequest
      */
     public function withOffset($offset): Resource24GetRequest {
@@ -1801,9 +1947,11 @@ final class Resource24GetRequest extends Request {
 final class Resource25 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -1817,17 +1965,21 @@ final class Resource25 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource25DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource25DeleteRequest {
+    public function delete($body = null, array $options = []): Resource25DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource25DeleteRequest::class);
     }
@@ -1838,6 +1990,7 @@ final class Resource25DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource25DeleteRequest
      */
     public function withVersion($version): Resource25DeleteRequest {
@@ -1859,9 +2012,11 @@ final class Resource25DeleteRequest extends Request {
 final class Resource26 extends Resource {
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
@@ -1869,9 +2024,11 @@ final class Resource26 extends Resource {
 final class Resource27 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource27GetRequest
      */
-    public function get ($query = null, array $options = []): Resource27GetRequest {
+    public function get($query = null, array $options = []): Resource27GetRequest {
 
 
         if (!is_array($query)) {
@@ -1885,17 +2042,20 @@ final class Resource27 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource28
      */
-    public function withId ($ID): Resource28 {
+    public function withId($ID): Resource28 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource28($uri);
@@ -1907,6 +2067,7 @@ final class Resource27GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource27GetRequest
      */
     public function withWhere($where): Resource27GetRequest {
@@ -1926,6 +2087,7 @@ final class Resource27GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource27GetRequest
      */
     public function withSort($sort): Resource27GetRequest {
@@ -1945,6 +2107,7 @@ final class Resource27GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource27GetRequest
      */
     public function withLimit($limit): Resource27GetRequest {
@@ -1964,6 +2127,7 @@ final class Resource27GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource27GetRequest
      */
     public function withOffset($offset): Resource27GetRequest {
@@ -1985,9 +2149,11 @@ final class Resource27GetRequest extends Request {
 final class Resource28 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -2001,17 +2167,21 @@ final class Resource28 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource28DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource28DeleteRequest {
+    public function delete($body = null, array $options = []): Resource28DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource28DeleteRequest::class);
     }
@@ -2022,6 +2192,7 @@ final class Resource28DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource28DeleteRequest
      */
     public function withVersion($version): Resource28DeleteRequest {
@@ -2043,9 +2214,11 @@ final class Resource28DeleteRequest extends Request {
 final class Resource29 extends Resource {
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
@@ -2053,9 +2226,11 @@ final class Resource29 extends Resource {
 final class Resource30 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource30GetRequest
      */
-    public function get ($query = null, array $options = []): Resource30GetRequest {
+    public function get($query = null, array $options = []): Resource30GetRequest {
 
 
         if (!is_array($query)) {
@@ -2069,9 +2244,10 @@ final class Resource30 extends Resource {
     }
 
     /**
+     * @param $ID
      * @return Resource31
      */
-    public function withId ($ID): Resource31 {
+    public function withId($ID): Resource31 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource31($uri);
@@ -2083,6 +2259,7 @@ final class Resource30GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource30GetRequest
      */
     public function withWhere($where): Resource30GetRequest {
@@ -2102,6 +2279,7 @@ final class Resource30GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource30GetRequest
      */
     public function withSort($sort): Resource30GetRequest {
@@ -2121,6 +2299,7 @@ final class Resource30GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource30GetRequest
      */
     public function withLimit($limit): Resource30GetRequest {
@@ -2140,6 +2319,7 @@ final class Resource30GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource30GetRequest
      */
     public function withOffset($offset): Resource30GetRequest {
@@ -2161,9 +2341,11 @@ final class Resource30GetRequest extends Request {
 final class Resource31 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -2186,9 +2368,11 @@ final class Resource32 extends Resource {
     }
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource32GetRequest
      */
-    public function get ($query = null, array $options = []): Resource32GetRequest {
+    public function get($query = null, array $options = []): Resource32GetRequest {
 
 
         if (!is_array($query)) {
@@ -2202,17 +2386,20 @@ final class Resource32 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource33
      */
-    public function withId ($ID): Resource33 {
+    public function withId($ID): Resource33 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource33($uri);
@@ -2224,6 +2411,7 @@ final class Resource32GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource32GetRequest
      */
     public function withWhere($where): Resource32GetRequest {
@@ -2243,6 +2431,7 @@ final class Resource32GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource32GetRequest
      */
     public function withSort($sort): Resource32GetRequest {
@@ -2262,6 +2451,7 @@ final class Resource32GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource32GetRequest
      */
     public function withLimit($limit): Resource32GetRequest {
@@ -2281,6 +2471,7 @@ final class Resource32GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource32GetRequest
      */
     public function withOffset($offset): Resource32GetRequest {
@@ -2302,9 +2493,11 @@ final class Resource32GetRequest extends Request {
 final class Resource33 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -2318,17 +2511,21 @@ final class Resource33 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource33DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource33DeleteRequest {
+    public function delete($body = null, array $options = []): Resource33DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource33DeleteRequest::class);
     }
@@ -2339,6 +2536,7 @@ final class Resource33DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource33DeleteRequest
      */
     public function withVersion($version): Resource33DeleteRequest {
@@ -2360,9 +2558,11 @@ final class Resource33DeleteRequest extends Request {
 final class Resource34 extends Resource {
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
@@ -2370,9 +2570,11 @@ final class Resource34 extends Resource {
 final class Resource35 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource35GetRequest
      */
-    public function get ($query = null, array $options = []): Resource35GetRequest {
+    public function get($query = null, array $options = []): Resource35GetRequest {
 
 
         if (!is_array($query)) {
@@ -2386,17 +2588,20 @@ final class Resource35 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource36
      */
-    public function withId ($ID): Resource36 {
+    public function withId($ID): Resource36 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource36($uri);
@@ -2408,6 +2613,7 @@ final class Resource35GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource35GetRequest
      */
     public function withWhere($where): Resource35GetRequest {
@@ -2427,6 +2633,7 @@ final class Resource35GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource35GetRequest
      */
     public function withSort($sort): Resource35GetRequest {
@@ -2446,6 +2653,7 @@ final class Resource35GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource35GetRequest
      */
     public function withLimit($limit): Resource35GetRequest {
@@ -2465,6 +2673,7 @@ final class Resource35GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource35GetRequest
      */
     public function withOffset($offset): Resource35GetRequest {
@@ -2486,9 +2695,11 @@ final class Resource35GetRequest extends Request {
 final class Resource36 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -2502,17 +2713,21 @@ final class Resource36 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource36DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource36DeleteRequest {
+    public function delete($body = null, array $options = []): Resource36DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource36DeleteRequest::class);
     }
@@ -2523,6 +2738,7 @@ final class Resource36DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource36DeleteRequest
      */
     public function withVersion($version): Resource36DeleteRequest {
@@ -2544,9 +2760,11 @@ final class Resource36DeleteRequest extends Request {
 final class Resource37 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource37GetRequest
      */
-    public function get ($query = null, array $options = []): Resource37GetRequest {
+    public function get($query = null, array $options = []): Resource37GetRequest {
 
 
         if (!is_array($query)) {
@@ -2560,26 +2778,30 @@ final class Resource37 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $key
      * @return Resource38
      */
-    public function withKey ($key): Resource38 {
+    public function withKey($key): Resource38 {
       
         $uri = $this->template($this->getUri() . '/key={key}', ['key' => $key]);
         return new Resource38($uri);
     }
 
     /**
+     * @param $ID
      * @return Resource39
      */
-    public function withId ($ID): Resource39 {
+    public function withId($ID): Resource39 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource39($uri);
@@ -2591,6 +2813,7 @@ final class Resource37GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource37GetRequest
      */
     public function withWhere($where): Resource37GetRequest {
@@ -2610,6 +2833,7 @@ final class Resource37GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource37GetRequest
      */
     public function withSort($sort): Resource37GetRequest {
@@ -2629,6 +2853,7 @@ final class Resource37GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource37GetRequest
      */
     public function withLimit($limit): Resource37GetRequest {
@@ -2648,6 +2873,7 @@ final class Resource37GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource37GetRequest
      */
     public function withOffset($offset): Resource37GetRequest {
@@ -2669,9 +2895,11 @@ final class Resource37GetRequest extends Request {
 final class Resource38 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -2685,17 +2913,21 @@ final class Resource38 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource38DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource38DeleteRequest {
+    public function delete($body = null, array $options = []): Resource38DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource38DeleteRequest::class);
     }
@@ -2706,6 +2938,7 @@ final class Resource38DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource38DeleteRequest
      */
     public function withVersion($version): Resource38DeleteRequest {
@@ -2734,9 +2967,11 @@ final class Resource39 extends Resource {
     }
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -2750,17 +2985,21 @@ final class Resource39 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource39DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource39DeleteRequest {
+    public function delete($body = null, array $options = []): Resource39DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource39DeleteRequest::class);
     }
@@ -2771,6 +3010,7 @@ final class Resource39DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource39DeleteRequest
      */
     public function withVersion($version): Resource39DeleteRequest {
@@ -2792,9 +3032,11 @@ final class Resource39DeleteRequest extends Request {
 final class Resource40 extends Resource {
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
@@ -2802,9 +3044,11 @@ final class Resource40 extends Resource {
 final class Resource41 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource41GetRequest
      */
-    public function get ($query = null, array $options = []): Resource41GetRequest {
+    public function get($query = null, array $options = []): Resource41GetRequest {
 
 
         if (!is_array($query)) {
@@ -2818,17 +3062,20 @@ final class Resource41 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource42
      */
-    public function withId ($ID): Resource42 {
+    public function withId($ID): Resource42 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource42($uri);
@@ -2840,6 +3087,7 @@ final class Resource41GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource41GetRequest
      */
     public function withWhere($where): Resource41GetRequest {
@@ -2859,6 +3107,7 @@ final class Resource41GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource41GetRequest
      */
     public function withSort($sort): Resource41GetRequest {
@@ -2878,6 +3127,7 @@ final class Resource41GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource41GetRequest
      */
     public function withLimit($limit): Resource41GetRequest {
@@ -2897,6 +3147,7 @@ final class Resource41GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource41GetRequest
      */
     public function withOffset($offset): Resource41GetRequest {
@@ -2918,9 +3169,11 @@ final class Resource41GetRequest extends Request {
 final class Resource42 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -2934,17 +3187,21 @@ final class Resource42 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource42DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource42DeleteRequest {
+    public function delete($body = null, array $options = []): Resource42DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource42DeleteRequest::class);
     }
@@ -2955,6 +3212,7 @@ final class Resource42DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource42DeleteRequest
      */
     public function withVersion($version): Resource42DeleteRequest {
@@ -2990,9 +3248,11 @@ final class Resource43 extends Resource {
     }
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource43GetRequest
      */
-    public function get ($query = null, array $options = []): Resource43GetRequest {
+    public function get($query = null, array $options = []): Resource43GetRequest {
 
 
         if (!is_array($query)) {
@@ -3006,18 +3266,20 @@ final class Resource43 extends Resource {
     }
 
     /**
+     * @param $key
      * @return Resource44
      */
-    public function withKey ($key): Resource44 {
+    public function withKey($key): Resource44 {
       
         $uri = $this->template($this->getUri() . '/key={key}', ['key' => $key]);
         return new Resource44($uri);
     }
 
     /**
+     * @param $ID
      * @return Resource45
      */
-    public function withId ($ID): Resource45 {
+    public function withId($ID): Resource45 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource45($uri);
@@ -3029,6 +3291,7 @@ final class Resource43GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $staged
      * @return Resource43GetRequest
      */
     public function withStaged($staged): Resource43GetRequest {
@@ -3048,6 +3311,7 @@ final class Resource43GetRequest extends Request {
                 
 
     /**
+     * @param $where
      * @return Resource43GetRequest
      */
     public function withWhere($where): Resource43GetRequest {
@@ -3067,6 +3331,7 @@ final class Resource43GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource43GetRequest
      */
     public function withSort($sort): Resource43GetRequest {
@@ -3086,6 +3351,7 @@ final class Resource43GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource43GetRequest
      */
     public function withLimit($limit): Resource43GetRequest {
@@ -3105,6 +3371,7 @@ final class Resource43GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource43GetRequest
      */
     public function withOffset($offset): Resource43GetRequest {
@@ -3126,9 +3393,11 @@ final class Resource43GetRequest extends Request {
 final class Resource44 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource44GetRequest
      */
-    public function get ($query = null, array $options = []): Resource44GetRequest {
+    public function get($query = null, array $options = []): Resource44GetRequest {
 
 
         if (!is_array($query)) {
@@ -3147,6 +3416,7 @@ final class Resource44GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $staged
      * @return Resource44GetRequest
      */
     public function withStaged($staged): Resource44GetRequest {
@@ -3168,9 +3438,11 @@ final class Resource44GetRequest extends Request {
 final class Resource45 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource45GetRequest
      */
-    public function get ($query = null, array $options = []): Resource45GetRequest {
+    public function get($query = null, array $options = []): Resource45GetRequest {
 
 
         if (!is_array($query)) {
@@ -3189,6 +3461,7 @@ final class Resource45GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $staged
      * @return Resource45GetRequest
      */
     public function withStaged($staged): Resource45GetRequest {
@@ -3210,17 +3483,21 @@ final class Resource45GetRequest extends Request {
 final class Resource46 extends Resource {
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource46GetRequest
      */
-    public function get ($query = null, array $options = []): Resource46GetRequest {
+    public function get($query = null, array $options = []): Resource46GetRequest {
 
 
         if (!is_array($query)) {
@@ -3239,6 +3516,7 @@ final class Resource46GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $fuzzy
      * @return Resource46GetRequest
      */
     public function withFuzzy($fuzzy): Resource46GetRequest {
@@ -3258,6 +3536,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $fuzzyLevel
      * @return Resource46GetRequest
      */
     public function withFuzzyLevel($fuzzyLevel): Resource46GetRequest {
@@ -3277,6 +3556,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $staged
      * @return Resource46GetRequest
      */
     public function withStaged($staged): Resource46GetRequest {
@@ -3296,6 +3576,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $filter
      * @return Resource46GetRequest
      */
     public function withFilter($filter): Resource46GetRequest {
@@ -3315,6 +3596,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $filterFacets
      * @return Resource46GetRequest
      */
     public function withFilterFacets($filterFacets): Resource46GetRequest {
@@ -3334,6 +3616,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $filterQuery
      * @return Resource46GetRequest
      */
     public function withFilterQuery($filterQuery): Resource46GetRequest {
@@ -3353,6 +3636,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $facet
      * @return Resource46GetRequest
      */
     public function withFacet($facet): Resource46GetRequest {
@@ -3372,6 +3656,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $priceCurrency
      * @return Resource46GetRequest
      */
     public function withPriceCurrency($priceCurrency): Resource46GetRequest {
@@ -3391,6 +3676,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $priceCountry
      * @return Resource46GetRequest
      */
     public function withPriceCountry($priceCountry): Resource46GetRequest {
@@ -3410,6 +3696,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $priceCustomerGroup
      * @return Resource46GetRequest
      */
     public function withPriceCustomerGroup($priceCustomerGroup): Resource46GetRequest {
@@ -3429,6 +3716,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $priceChannel
      * @return Resource46GetRequest
      */
     public function withPriceChannel($priceChannel): Resource46GetRequest {
@@ -3448,6 +3736,8 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $locale
+     * @param $textLocale
      * @return Resource46GetRequest
      */
     public function withTextLocale($locale, $textLocale): Resource46GetRequest {
@@ -3467,6 +3757,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource46GetRequest
      */
     public function withSort($sort): Resource46GetRequest {
@@ -3486,6 +3777,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource46GetRequest
      */
     public function withLimit($limit): Resource46GetRequest {
@@ -3505,6 +3797,7 @@ final class Resource46GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource46GetRequest
      */
     public function withOffset($offset): Resource46GetRequest {
@@ -3526,9 +3819,11 @@ final class Resource46GetRequest extends Request {
 final class Resource47 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource47GetRequest
      */
-    public function get ($query = null, array $options = []): Resource47GetRequest {
+    public function get($query = null, array $options = []): Resource47GetRequest {
 
 
         if (!is_array($query)) {
@@ -3547,6 +3842,7 @@ final class Resource47GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $fuzzy
      * @return Resource47GetRequest
      */
     public function withFuzzy($fuzzy): Resource47GetRequest {
@@ -3566,6 +3862,7 @@ final class Resource47GetRequest extends Request {
                 
 
     /**
+     * @param $staged
      * @return Resource47GetRequest
      */
     public function withStaged($staged): Resource47GetRequest {
@@ -3585,6 +3882,8 @@ final class Resource47GetRequest extends Request {
                 
 
     /**
+     * @param $locale
+     * @param $searchKeywordsLocale
      * @return Resource47GetRequest
      */
     public function withSearchKeywordsLocale($locale, $searchKeywordsLocale): Resource47GetRequest {
@@ -3604,6 +3903,7 @@ final class Resource47GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource47GetRequest
      */
     public function withSort($sort): Resource47GetRequest {
@@ -3623,6 +3923,7 @@ final class Resource47GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource47GetRequest
      */
     public function withLimit($limit): Resource47GetRequest {
@@ -3642,6 +3943,7 @@ final class Resource47GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource47GetRequest
      */
     public function withOffset($offset): Resource47GetRequest {
@@ -3663,9 +3965,11 @@ final class Resource47GetRequest extends Request {
 final class Resource48 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource48GetRequest
      */
-    public function get ($query = null, array $options = []): Resource48GetRequest {
+    public function get($query = null, array $options = []): Resource48GetRequest {
 
 
         if (!is_array($query)) {
@@ -3679,26 +3983,30 @@ final class Resource48 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $key
      * @return Resource49
      */
-    public function withKey ($key): Resource49 {
+    public function withKey($key): Resource49 {
       
         $uri = $this->template($this->getUri() . '/key={key}', ['key' => $key]);
         return new Resource49($uri);
     }
 
     /**
+     * @param $ID
      * @return Resource50
      */
-    public function withId ($ID): Resource50 {
+    public function withId($ID): Resource50 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource50($uri);
@@ -3710,6 +4018,7 @@ final class Resource48GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource48GetRequest
      */
     public function withWhere($where): Resource48GetRequest {
@@ -3729,6 +4038,7 @@ final class Resource48GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource48GetRequest
      */
     public function withSort($sort): Resource48GetRequest {
@@ -3748,6 +4058,7 @@ final class Resource48GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource48GetRequest
      */
     public function withLimit($limit): Resource48GetRequest {
@@ -3767,6 +4078,7 @@ final class Resource48GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource48GetRequest
      */
     public function withOffset($offset): Resource48GetRequest {
@@ -3788,9 +4100,11 @@ final class Resource48GetRequest extends Request {
 final class Resource49 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -3804,17 +4118,21 @@ final class Resource49 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource49DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource49DeleteRequest {
+    public function delete($body = null, array $options = []): Resource49DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource49DeleteRequest::class);
     }
@@ -3825,6 +4143,7 @@ final class Resource49DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource49DeleteRequest
      */
     public function withVersion($version): Resource49DeleteRequest {
@@ -3846,9 +4165,11 @@ final class Resource49DeleteRequest extends Request {
 final class Resource50 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -3862,17 +4183,21 @@ final class Resource50 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource50DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource50DeleteRequest {
+    public function delete($body = null, array $options = []): Resource50DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource50DeleteRequest::class);
     }
@@ -3883,6 +4208,7 @@ final class Resource50DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource50DeleteRequest
      */
     public function withVersion($version): Resource50DeleteRequest {
@@ -3904,9 +4230,11 @@ final class Resource50DeleteRequest extends Request {
 final class Resource51 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource51GetRequest
      */
-    public function get ($query = null, array $options = []): Resource51GetRequest {
+    public function get($query = null, array $options = []): Resource51GetRequest {
 
 
         if (!is_array($query)) {
@@ -3920,26 +4248,30 @@ final class Resource51 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $key
      * @return Resource52
      */
-    public function withKey ($key): Resource52 {
+    public function withKey($key): Resource52 {
       
         $uri = $this->template($this->getUri() . '/key={key}', ['key' => $key]);
         return new Resource52($uri);
     }
 
     /**
+     * @param $ID
      * @return Resource53
      */
-    public function withId ($ID): Resource53 {
+    public function withId($ID): Resource53 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource53($uri);
@@ -3951,6 +4283,7 @@ final class Resource51GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource51GetRequest
      */
     public function withWhere($where): Resource51GetRequest {
@@ -3970,6 +4303,7 @@ final class Resource51GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource51GetRequest
      */
     public function withSort($sort): Resource51GetRequest {
@@ -3989,6 +4323,7 @@ final class Resource51GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource51GetRequest
      */
     public function withLimit($limit): Resource51GetRequest {
@@ -4008,6 +4343,7 @@ final class Resource51GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource51GetRequest
      */
     public function withOffset($offset): Resource51GetRequest {
@@ -4029,9 +4365,11 @@ final class Resource51GetRequest extends Request {
 final class Resource52 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -4045,17 +4383,21 @@ final class Resource52 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource52DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource52DeleteRequest {
+    public function delete($body = null, array $options = []): Resource52DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource52DeleteRequest::class);
     }
@@ -4066,6 +4408,7 @@ final class Resource52DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource52DeleteRequest
      */
     public function withVersion($version): Resource52DeleteRequest {
@@ -4087,9 +4430,11 @@ final class Resource52DeleteRequest extends Request {
 final class Resource53 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -4103,17 +4448,21 @@ final class Resource53 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource53DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource53DeleteRequest {
+    public function delete($body = null, array $options = []): Resource53DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource53DeleteRequest::class);
     }
@@ -4124,6 +4473,7 @@ final class Resource53DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource53DeleteRequest
      */
     public function withVersion($version): Resource53DeleteRequest {
@@ -4145,9 +4495,11 @@ final class Resource53DeleteRequest extends Request {
 final class Resource54 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource54GetRequest
      */
-    public function get ($query = null, array $options = []): Resource54GetRequest {
+    public function get($query = null, array $options = []): Resource54GetRequest {
 
 
         if (!is_array($query)) {
@@ -4161,17 +4513,20 @@ final class Resource54 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource55
      */
-    public function withId ($ID): Resource55 {
+    public function withId($ID): Resource55 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource55($uri);
@@ -4183,6 +4538,7 @@ final class Resource54GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $cartId
      * @return Resource54GetRequest
      */
     public function withCartId($cartId): Resource54GetRequest {
@@ -4202,6 +4558,7 @@ final class Resource54GetRequest extends Request {
                 
 
     /**
+     * @param $country
      * @return Resource54GetRequest
      */
     public function withCountry($country): Resource54GetRequest {
@@ -4221,6 +4578,7 @@ final class Resource54GetRequest extends Request {
                 
 
     /**
+     * @param $state
      * @return Resource54GetRequest
      */
     public function withState($state): Resource54GetRequest {
@@ -4240,6 +4598,7 @@ final class Resource54GetRequest extends Request {
                 
 
     /**
+     * @param $currency
      * @return Resource54GetRequest
      */
     public function withCurrency($currency): Resource54GetRequest {
@@ -4259,6 +4618,7 @@ final class Resource54GetRequest extends Request {
                 
 
     /**
+     * @param $where
      * @return Resource54GetRequest
      */
     public function withWhere($where): Resource54GetRequest {
@@ -4278,6 +4638,7 @@ final class Resource54GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource54GetRequest
      */
     public function withSort($sort): Resource54GetRequest {
@@ -4297,6 +4658,7 @@ final class Resource54GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource54GetRequest
      */
     public function withLimit($limit): Resource54GetRequest {
@@ -4316,6 +4678,7 @@ final class Resource54GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource54GetRequest
      */
     public function withOffset($offset): Resource54GetRequest {
@@ -4337,9 +4700,11 @@ final class Resource54GetRequest extends Request {
 final class Resource55 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -4353,17 +4718,21 @@ final class Resource55 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource55DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource55DeleteRequest {
+    public function delete($body = null, array $options = []): Resource55DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource55DeleteRequest::class);
     }
@@ -4374,6 +4743,7 @@ final class Resource55DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource55DeleteRequest
      */
     public function withVersion($version): Resource55DeleteRequest {
@@ -4395,9 +4765,11 @@ final class Resource55DeleteRequest extends Request {
 final class Resource56 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource56GetRequest
      */
-    public function get ($query = null, array $options = []): Resource56GetRequest {
+    public function get($query = null, array $options = []): Resource56GetRequest {
 
 
         if (!is_array($query)) {
@@ -4411,17 +4783,20 @@ final class Resource56 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource57
      */
-    public function withId ($ID): Resource57 {
+    public function withId($ID): Resource57 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource57($uri);
@@ -4433,6 +4808,7 @@ final class Resource56GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource56GetRequest
      */
     public function withWhere($where): Resource56GetRequest {
@@ -4452,6 +4828,7 @@ final class Resource56GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource56GetRequest
      */
     public function withSort($sort): Resource56GetRequest {
@@ -4471,6 +4848,7 @@ final class Resource56GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource56GetRequest
      */
     public function withLimit($limit): Resource56GetRequest {
@@ -4490,6 +4868,7 @@ final class Resource56GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource56GetRequest
      */
     public function withOffset($offset): Resource56GetRequest {
@@ -4511,9 +4890,11 @@ final class Resource56GetRequest extends Request {
 final class Resource57 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -4527,17 +4908,21 @@ final class Resource57 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource57DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource57DeleteRequest {
+    public function delete($body = null, array $options = []): Resource57DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource57DeleteRequest::class);
     }
@@ -4548,6 +4933,7 @@ final class Resource57DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource57DeleteRequest
      */
     public function withVersion($version): Resource57DeleteRequest {
@@ -4569,9 +4955,11 @@ final class Resource57DeleteRequest extends Request {
 final class Resource58 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource58GetRequest
      */
-    public function get ($query = null, array $options = []): Resource58GetRequest {
+    public function get($query = null, array $options = []): Resource58GetRequest {
 
 
         if (!is_array($query)) {
@@ -4585,26 +4973,30 @@ final class Resource58 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $key
      * @return Resource59
      */
-    public function withKey ($key): Resource59 {
+    public function withKey($key): Resource59 {
       
         $uri = $this->template($this->getUri() . '/key={key}', ['key' => $key]);
         return new Resource59($uri);
     }
 
     /**
+     * @param $ID
      * @return Resource60
      */
-    public function withId ($ID): Resource60 {
+    public function withId($ID): Resource60 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource60($uri);
@@ -4616,6 +5008,7 @@ final class Resource58GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource58GetRequest
      */
     public function withWhere($where): Resource58GetRequest {
@@ -4635,6 +5028,7 @@ final class Resource58GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource58GetRequest
      */
     public function withSort($sort): Resource58GetRequest {
@@ -4654,6 +5048,7 @@ final class Resource58GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource58GetRequest
      */
     public function withLimit($limit): Resource58GetRequest {
@@ -4673,6 +5068,7 @@ final class Resource58GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource58GetRequest
      */
     public function withOffset($offset): Resource58GetRequest {
@@ -4694,9 +5090,11 @@ final class Resource58GetRequest extends Request {
 final class Resource59 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -4710,17 +5108,21 @@ final class Resource59 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource59DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource59DeleteRequest {
+    public function delete($body = null, array $options = []): Resource59DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource59DeleteRequest::class);
     }
@@ -4731,6 +5133,7 @@ final class Resource59DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource59DeleteRequest
      */
     public function withVersion($version): Resource59DeleteRequest {
@@ -4752,9 +5155,11 @@ final class Resource59DeleteRequest extends Request {
 final class Resource60 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -4768,17 +5173,21 @@ final class Resource60 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource60DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource60DeleteRequest {
+    public function delete($body = null, array $options = []): Resource60DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource60DeleteRequest::class);
     }
@@ -4789,6 +5198,7 @@ final class Resource60DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource60DeleteRequest
      */
     public function withVersion($version): Resource60DeleteRequest {
@@ -4810,9 +5220,11 @@ final class Resource60DeleteRequest extends Request {
 final class Resource61 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource61GetRequest
      */
-    public function get ($query = null, array $options = []): Resource61GetRequest {
+    public function get($query = null, array $options = []): Resource61GetRequest {
 
 
         if (!is_array($query)) {
@@ -4826,17 +5238,20 @@ final class Resource61 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource62
      */
-    public function withId ($ID): Resource62 {
+    public function withId($ID): Resource62 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource62($uri);
@@ -4848,6 +5263,7 @@ final class Resource61GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource61GetRequest
      */
     public function withWhere($where): Resource61GetRequest {
@@ -4867,6 +5283,7 @@ final class Resource61GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource61GetRequest
      */
     public function withSort($sort): Resource61GetRequest {
@@ -4886,6 +5303,7 @@ final class Resource61GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource61GetRequest
      */
     public function withLimit($limit): Resource61GetRequest {
@@ -4905,6 +5323,7 @@ final class Resource61GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource61GetRequest
      */
     public function withOffset($offset): Resource61GetRequest {
@@ -4926,9 +5345,11 @@ final class Resource61GetRequest extends Request {
 final class Resource62 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -4942,17 +5363,21 @@ final class Resource62 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource62DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource62DeleteRequest {
+    public function delete($body = null, array $options = []): Resource62DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource62DeleteRequest::class);
     }
@@ -4963,6 +5388,7 @@ final class Resource62DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource62DeleteRequest
      */
     public function withVersion($version): Resource62DeleteRequest {
@@ -4984,9 +5410,11 @@ final class Resource62DeleteRequest extends Request {
 final class Resource63 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource63GetRequest
      */
-    public function get ($query = null, array $options = []): Resource63GetRequest {
+    public function get($query = null, array $options = []): Resource63GetRequest {
 
 
         if (!is_array($query)) {
@@ -5000,26 +5428,30 @@ final class Resource63 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $key
      * @return Resource64
      */
-    public function withKey ($key): Resource64 {
+    public function withKey($key): Resource64 {
       
         $uri = $this->template($this->getUri() . '/key={key}', ['key' => $key]);
         return new Resource64($uri);
     }
 
     /**
+     * @param $ID
      * @return Resource65
      */
-    public function withId ($ID): Resource65 {
+    public function withId($ID): Resource65 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource65($uri);
@@ -5031,6 +5463,7 @@ final class Resource63GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource63GetRequest
      */
     public function withWhere($where): Resource63GetRequest {
@@ -5050,6 +5483,7 @@ final class Resource63GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource63GetRequest
      */
     public function withSort($sort): Resource63GetRequest {
@@ -5069,6 +5503,7 @@ final class Resource63GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource63GetRequest
      */
     public function withLimit($limit): Resource63GetRequest {
@@ -5088,6 +5523,7 @@ final class Resource63GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource63GetRequest
      */
     public function withOffset($offset): Resource63GetRequest {
@@ -5109,9 +5545,11 @@ final class Resource63GetRequest extends Request {
 final class Resource64 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -5125,17 +5563,21 @@ final class Resource64 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource64DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource64DeleteRequest {
+    public function delete($body = null, array $options = []): Resource64DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource64DeleteRequest::class);
     }
@@ -5146,6 +5588,7 @@ final class Resource64DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource64DeleteRequest
      */
     public function withVersion($version): Resource64DeleteRequest {
@@ -5167,9 +5610,11 @@ final class Resource64DeleteRequest extends Request {
 final class Resource65 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -5183,17 +5628,21 @@ final class Resource65 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource65DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource65DeleteRequest {
+    public function delete($body = null, array $options = []): Resource65DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource65DeleteRequest::class);
     }
@@ -5204,6 +5653,7 @@ final class Resource65DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource65DeleteRequest
      */
     public function withVersion($version): Resource65DeleteRequest {
@@ -5225,9 +5675,11 @@ final class Resource65DeleteRequest extends Request {
 final class Resource66 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return Resource66GetRequest
      */
-    public function get ($query = null, array $options = []): Resource66GetRequest {
+    public function get($query = null, array $options = []): Resource66GetRequest {
 
 
         if (!is_array($query)) {
@@ -5241,17 +5693,20 @@ final class Resource66 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $ID
      * @return Resource67
      */
-    public function withId ($ID): Resource67 {
+    public function withId($ID): Resource67 {
       
         $uri = $this->template($this->getUri() . '/{ID}', ['ID' => $ID]);
         return new Resource67($uri);
@@ -5263,6 +5718,7 @@ final class Resource66GetRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $where
      * @return Resource66GetRequest
      */
     public function withWhere($where): Resource66GetRequest {
@@ -5282,6 +5738,7 @@ final class Resource66GetRequest extends Request {
                 
 
     /**
+     * @param $sort
      * @return Resource66GetRequest
      */
     public function withSort($sort): Resource66GetRequest {
@@ -5301,6 +5758,7 @@ final class Resource66GetRequest extends Request {
                 
 
     /**
+     * @param $limit
      * @return Resource66GetRequest
      */
     public function withLimit($limit): Resource66GetRequest {
@@ -5320,6 +5778,7 @@ final class Resource66GetRequest extends Request {
                 
 
     /**
+     * @param $offset
      * @return Resource66GetRequest
      */
     public function withOffset($offset): Resource66GetRequest {
@@ -5341,9 +5800,11 @@ final class Resource66GetRequest extends Request {
 final class Resource67 extends Resource {
 
     /**
+     * @param $query
+     * @param array $options
      * @return RequestInterface
      */
-    public function get ($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): RequestInterface {
 
 
         if (!is_array($query)) {
@@ -5357,17 +5818,21 @@ final class Resource67 extends Resource {
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return RequestInterface
      */
-    public function post ($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): RequestInterface {
 
         return $this->buildRequest('post', $this->getUri(), $body, $options);
     }
 
     /**
+     * @param $body
+     * @param array $options
      * @return Resource67DeleteRequest
      */
-    public function delete ($body = null, array $options = []): Resource67DeleteRequest {
+    public function delete($body = null, array $options = []): Resource67DeleteRequest {
 
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource67DeleteRequest::class);
     }
@@ -5378,6 +5843,7 @@ final class Resource67DeleteRequest extends Request {
     private $queryParts;
 
     /**
+     * @param $version
      * @return Resource67DeleteRequest
      */
     public function withVersion($version): Resource67DeleteRequest {

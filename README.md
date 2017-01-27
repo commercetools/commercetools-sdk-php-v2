@@ -1,5 +1,5 @@
 
-> This package has been generated using [raml-php-generator](https://github.com/jayS-de/raml-php-generator)    
+> This package has been generated using [raml-php-generator](https://github.com/jayS-de/raml-php-generator)
 
 # Commercetools
 
