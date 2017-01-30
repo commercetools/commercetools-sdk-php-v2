@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace Commercetools\Raml;
 
 use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Psr7;
 use Psr\Http\Message\RequestInterface;
 
@@ -53,9 +52,10 @@ class Resource
      * @param $uri
      * @param mixed $body
      * @param array $options
+     * @param string $requestClass
      * @return RequestInterface
      */
-    final protected function buildRequest(string  $method, string  $uri, $body = null, array $options = [], $requestClass = Request::class): RequestInterface
+    final protected function buildRequest(string  $method, string  $uri, $body = null, array $options = [], $requestClass = ApiRequest::class): RequestInterface
     {
         $headers = isset($options['headers']) ? $options['headers'] : [];
         /**
@@ -72,6 +72,10 @@ class Resource
 
         return $request;
     }
+}
+
+class ApiRequest extends Request {
+    const API_PATH = '';
 }
 
 class RequestBuilder extends Resource
@@ -124,6 +128,7 @@ class RequestBuilder extends Resource
 
 }
 final class Resource1 extends Resource {
+    const API_PATH='/{projectKey}';
 
     /**
      * @return Resource2
@@ -303,9 +308,9 @@ final class Resource1 extends Resource {
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource1GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource1GetRequest {
 
 
         if (!is_array($query)) {
@@ -315,10 +320,14 @@ final class Resource1 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource1GetRequest::class);
     }
 }
+final class Resource1GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}';
+}
 final class Resource2 extends Resource {
+    const API_PATH='/{projectKey}/categories';
 
     /**
      * @param $query
@@ -341,11 +350,11 @@ final class Resource2 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource2PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource2PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource2PostRequest::class);
     }
 
     /**
@@ -358,7 +367,8 @@ final class Resource2 extends Resource {
         return new Resource3($uri);
     }
 }
-final class Resource2GetRequest extends Request {
+final class Resource2GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/categories';
 
     private $query;
     private $queryParts;
@@ -443,14 +453,18 @@ final class Resource2GetRequest extends Request {
     }
                 
 }
+final class Resource2PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/categories';
+}
 final class Resource3 extends Resource {
+    const API_PATH='/{projectKey}/categories/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource3GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource3GetRequest {
 
 
         if (!is_array($query)) {
@@ -460,17 +474,17 @@ final class Resource3 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource3GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource3PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource3PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource3PostRequest::class);
     }
 
     /**
@@ -483,7 +497,14 @@ final class Resource3 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource3DeleteRequest::class);
     }
 }
-final class Resource3DeleteRequest extends Request {
+final class Resource3GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/categories/{ID}';
+}
+final class Resource3PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/categories/{ID}';
+}
+final class Resource3DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/categories/{ID}';
 
     private $query;
     private $queryParts;
@@ -509,6 +530,7 @@ final class Resource3DeleteRequest extends Request {
                 
 }
 final class Resource4 extends Resource {
+    const API_PATH='/{projectKey}/carts';
 
     /**
      * @param $query
@@ -531,11 +553,11 @@ final class Resource4 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource4PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource4PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource4PostRequest::class);
     }
 
     /**
@@ -548,7 +570,8 @@ final class Resource4 extends Resource {
         return new Resource5($uri);
     }
 }
-final class Resource4GetRequest extends Request {
+final class Resource4GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/carts';
 
     private $query;
     private $queryParts;
@@ -633,14 +656,18 @@ final class Resource4GetRequest extends Request {
     }
                 
 }
+final class Resource4PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/carts';
+}
 final class Resource5 extends Resource {
+    const API_PATH='/{projectKey}/carts/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource5GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource5GetRequest {
 
 
         if (!is_array($query)) {
@@ -650,17 +677,17 @@ final class Resource5 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource5GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource5PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource5PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource5PostRequest::class);
     }
 
     /**
@@ -673,7 +700,14 @@ final class Resource5 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource5DeleteRequest::class);
     }
 }
-final class Resource5DeleteRequest extends Request {
+final class Resource5GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/carts/{ID}';
+}
+final class Resource5PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/carts/{ID}';
+}
+final class Resource5DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/carts/{ID}';
 
     private $query;
     private $queryParts;
@@ -699,6 +733,7 @@ final class Resource5DeleteRequest extends Request {
                 
 }
 final class Resource6 extends Resource {
+    const API_PATH='/{projectKey}/cart-discounts';
 
     /**
      * @param $query
@@ -721,11 +756,11 @@ final class Resource6 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource6PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource6PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource6PostRequest::class);
     }
 
     /**
@@ -738,7 +773,8 @@ final class Resource6 extends Resource {
         return new Resource7($uri);
     }
 }
-final class Resource6GetRequest extends Request {
+final class Resource6GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/cart-discounts';
 
     private $query;
     private $queryParts;
@@ -823,14 +859,18 @@ final class Resource6GetRequest extends Request {
     }
                 
 }
+final class Resource6PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/cart-discounts';
+}
 final class Resource7 extends Resource {
+    const API_PATH='/{projectKey}/cart-discounts/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource7GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource7GetRequest {
 
 
         if (!is_array($query)) {
@@ -840,17 +880,17 @@ final class Resource7 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource7GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource7PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource7PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource7PostRequest::class);
     }
 
     /**
@@ -863,7 +903,14 @@ final class Resource7 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource7DeleteRequest::class);
     }
 }
-final class Resource7DeleteRequest extends Request {
+final class Resource7GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/cart-discounts/{ID}';
+}
+final class Resource7PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/cart-discounts/{ID}';
+}
+final class Resource7DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/cart-discounts/{ID}';
 
     private $query;
     private $queryParts;
@@ -889,6 +936,7 @@ final class Resource7DeleteRequest extends Request {
                 
 }
 final class Resource8 extends Resource {
+    const API_PATH='/{projectKey}/channels';
 
     /**
      * @param $query
@@ -911,11 +959,11 @@ final class Resource8 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource8PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource8PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource8PostRequest::class);
     }
 
     /**
@@ -928,7 +976,8 @@ final class Resource8 extends Resource {
         return new Resource9($uri);
     }
 }
-final class Resource8GetRequest extends Request {
+final class Resource8GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/channels';
 
     private $query;
     private $queryParts;
@@ -1013,14 +1062,18 @@ final class Resource8GetRequest extends Request {
     }
                 
 }
+final class Resource8PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/channels';
+}
 final class Resource9 extends Resource {
+    const API_PATH='/{projectKey}/channels/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource9GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource9GetRequest {
 
 
         if (!is_array($query)) {
@@ -1030,17 +1083,17 @@ final class Resource9 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource9GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource9PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource9PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource9PostRequest::class);
     }
 
     /**
@@ -1053,7 +1106,14 @@ final class Resource9 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource9DeleteRequest::class);
     }
 }
-final class Resource9DeleteRequest extends Request {
+final class Resource9GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/channels/{ID}';
+}
+final class Resource9PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/channels/{ID}';
+}
+final class Resource9DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/channels/{ID}';
 
     private $query;
     private $queryParts;
@@ -1079,6 +1139,7 @@ final class Resource9DeleteRequest extends Request {
                 
 }
 final class Resource10 extends Resource {
+    const API_PATH='/{projectKey}/customers';
 
     /**
      * @return Resource12
@@ -1129,11 +1190,11 @@ final class Resource10 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource10PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource10PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource10PostRequest::class);
     }
 
     /**
@@ -1146,7 +1207,8 @@ final class Resource10 extends Resource {
         return new Resource11($uri);
     }
 }
-final class Resource10GetRequest extends Request {
+final class Resource10GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/customers';
 
     private $query;
     private $queryParts;
@@ -1231,14 +1293,18 @@ final class Resource10GetRequest extends Request {
     }
                 
 }
+final class Resource10PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/customers';
+}
 final class Resource11 extends Resource {
+    const API_PATH='/{projectKey}/customers/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource11GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource11GetRequest {
 
 
         if (!is_array($query)) {
@@ -1248,17 +1314,17 @@ final class Resource11 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource11GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource11PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource11PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource11PostRequest::class);
     }
 
     /**
@@ -1271,7 +1337,14 @@ final class Resource11 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource11DeleteRequest::class);
     }
 }
-final class Resource11DeleteRequest extends Request {
+final class Resource11GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/customers/{ID}';
+}
+final class Resource11PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/customers/{ID}';
+}
+final class Resource11DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/customers/{ID}';
 
     private $query;
     private $queryParts;
@@ -1297,18 +1370,23 @@ final class Resource11DeleteRequest extends Request {
                 
 }
 final class Resource12 extends Resource {
+    const API_PATH='/{projectKey}/customers/email-token';
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource12PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource12PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource12PostRequest::class);
     }
 }
+final class Resource12PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/customers/email-token';
+}
 final class Resource13 extends Resource {
+    const API_PATH='/{projectKey}/customers/email';
 
     /**
      * @return Resource14
@@ -1318,18 +1396,23 @@ final class Resource13 extends Resource {
     }
 }
 final class Resource14 extends Resource {
+    const API_PATH='/{projectKey}/customers/email/confirm';
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource14PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource14PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource14PostRequest::class);
     }
 }
+final class Resource14PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/customers/email/confirm';
+}
 final class Resource15 extends Resource {
+    const API_PATH='/{projectKey}/customers/password';
 
     /**
      * @return Resource17
@@ -1341,38 +1424,50 @@ final class Resource15 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource15PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource15PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource15PostRequest::class);
     }
+}
+final class Resource15PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/customers/password';
 }
 final class Resource17 extends Resource {
+    const API_PATH='/{projectKey}/customers/password/reset';
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource17PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource17PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource17PostRequest::class);
     }
+}
+final class Resource17PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/customers/password/reset';
 }
 final class Resource16 extends Resource {
+    const API_PATH='/{projectKey}/customers/password-token';
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource16PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource16PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource16PostRequest::class);
     }
 }
+final class Resource16PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/customers/password-token';
+}
 final class Resource18 extends Resource {
+    const API_PATH='/{projectKey}/customer-groups';
 
     /**
      * @param $query
@@ -1395,11 +1490,11 @@ final class Resource18 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource18PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource18PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource18PostRequest::class);
     }
 
     /**
@@ -1412,7 +1507,8 @@ final class Resource18 extends Resource {
         return new Resource19($uri);
     }
 }
-final class Resource18GetRequest extends Request {
+final class Resource18GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/customer-groups';
 
     private $query;
     private $queryParts;
@@ -1497,14 +1593,18 @@ final class Resource18GetRequest extends Request {
     }
                 
 }
+final class Resource18PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/customer-groups';
+}
 final class Resource19 extends Resource {
+    const API_PATH='/{projectKey}/customer-groups/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource19GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource19GetRequest {
 
 
         if (!is_array($query)) {
@@ -1514,17 +1614,17 @@ final class Resource19 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource19GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource19PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource19PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource19PostRequest::class);
     }
 
     /**
@@ -1537,7 +1637,14 @@ final class Resource19 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource19DeleteRequest::class);
     }
 }
-final class Resource19DeleteRequest extends Request {
+final class Resource19GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/customer-groups/{ID}';
+}
+final class Resource19PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/customer-groups/{ID}';
+}
+final class Resource19DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/customer-groups/{ID}';
 
     private $query;
     private $queryParts;
@@ -1563,6 +1670,7 @@ final class Resource19DeleteRequest extends Request {
                 
 }
 final class Resource20 extends Resource {
+    const API_PATH='/{projectKey}/custom-objects';
 
     /**
      * @param $query
@@ -1585,11 +1693,11 @@ final class Resource20 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource20PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource20PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource20PostRequest::class);
     }
 
     /**
@@ -1612,7 +1720,8 @@ final class Resource20 extends Resource {
         return new Resource23($uri);
     }
 }
-final class Resource20GetRequest extends Request {
+final class Resource20GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/custom-objects';
 
     private $query;
     private $queryParts;
@@ -1697,7 +1806,11 @@ final class Resource20GetRequest extends Request {
     }
                 
 }
+final class Resource20PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/custom-objects';
+}
 final class Resource21 extends Resource {
+    const API_PATH='/{projectKey}/custom-objects/{container}';
 
     /**
      * @param $key
@@ -1710,13 +1823,14 @@ final class Resource21 extends Resource {
     }
 }
 final class Resource22 extends Resource {
+    const API_PATH='/{projectKey}/custom-objects/{container}/{key}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource22GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource22GetRequest {
 
 
         if (!is_array($query)) {
@@ -1726,7 +1840,7 @@ final class Resource22 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource22GetRequest::class);
     }
 
     /**
@@ -1739,7 +1853,11 @@ final class Resource22 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource22DeleteRequest::class);
     }
 }
-final class Resource22DeleteRequest extends Request {
+final class Resource22GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/custom-objects/{container}/{key}';
+}
+final class Resource22DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/custom-objects/{container}/{key}';
 
     private $query;
     private $queryParts;
@@ -1765,13 +1883,14 @@ final class Resource22DeleteRequest extends Request {
                 
 }
 final class Resource23 extends Resource {
+    const API_PATH='/{projectKey}/custom-objects/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource23GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource23GetRequest {
 
 
         if (!is_array($query)) {
@@ -1781,7 +1900,7 @@ final class Resource23 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource23GetRequest::class);
     }
 
     /**
@@ -1794,7 +1913,11 @@ final class Resource23 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource23DeleteRequest::class);
     }
 }
-final class Resource23DeleteRequest extends Request {
+final class Resource23GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/custom-objects/{ID}';
+}
+final class Resource23DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/custom-objects/{ID}';
 
     private $query;
     private $queryParts;
@@ -1820,6 +1943,7 @@ final class Resource23DeleteRequest extends Request {
                 
 }
 final class Resource24 extends Resource {
+    const API_PATH='/{projectKey}/discount-codes';
 
     /**
      * @param $query
@@ -1842,11 +1966,11 @@ final class Resource24 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource24PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource24PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource24PostRequest::class);
     }
 
     /**
@@ -1859,7 +1983,8 @@ final class Resource24 extends Resource {
         return new Resource25($uri);
     }
 }
-final class Resource24GetRequest extends Request {
+final class Resource24GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/discount-codes';
 
     private $query;
     private $queryParts;
@@ -1944,14 +2069,18 @@ final class Resource24GetRequest extends Request {
     }
                 
 }
+final class Resource24PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/discount-codes';
+}
 final class Resource25 extends Resource {
+    const API_PATH='/{projectKey}/discount-codes/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource25GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource25GetRequest {
 
 
         if (!is_array($query)) {
@@ -1961,17 +2090,17 @@ final class Resource25 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource25GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource25PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource25PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource25PostRequest::class);
     }
 
     /**
@@ -1984,7 +2113,14 @@ final class Resource25 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource25DeleteRequest::class);
     }
 }
-final class Resource25DeleteRequest extends Request {
+final class Resource25GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/discount-codes/{ID}';
+}
+final class Resource25PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/discount-codes/{ID}';
+}
+final class Resource25DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/discount-codes/{ID}';
 
     private $query;
     private $queryParts;
@@ -2010,18 +2146,23 @@ final class Resource25DeleteRequest extends Request {
                 
 }
 final class Resource26 extends Resource {
+    const API_PATH='/{projectKey}/graphql';
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource26PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource26PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource26PostRequest::class);
     }
 }
+final class Resource26PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/graphql';
+}
 final class Resource27 extends Resource {
+    const API_PATH='/{projectKey}/inventory';
 
     /**
      * @param $query
@@ -2044,11 +2185,11 @@ final class Resource27 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource27PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource27PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource27PostRequest::class);
     }
 
     /**
@@ -2061,7 +2202,8 @@ final class Resource27 extends Resource {
         return new Resource28($uri);
     }
 }
-final class Resource27GetRequest extends Request {
+final class Resource27GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/inventory';
 
     private $query;
     private $queryParts;
@@ -2146,14 +2288,18 @@ final class Resource27GetRequest extends Request {
     }
                 
 }
+final class Resource27PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/inventory';
+}
 final class Resource28 extends Resource {
+    const API_PATH='/{projectKey}/inventory/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource28GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource28GetRequest {
 
 
         if (!is_array($query)) {
@@ -2163,17 +2309,17 @@ final class Resource28 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource28GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource28PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource28PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource28PostRequest::class);
     }
 
     /**
@@ -2186,7 +2332,14 @@ final class Resource28 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource28DeleteRequest::class);
     }
 }
-final class Resource28DeleteRequest extends Request {
+final class Resource28GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/inventory/{ID}';
+}
+final class Resource28PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/inventory/{ID}';
+}
+final class Resource28DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/inventory/{ID}';
 
     private $query;
     private $queryParts;
@@ -2212,18 +2365,23 @@ final class Resource28DeleteRequest extends Request {
                 
 }
 final class Resource29 extends Resource {
+    const API_PATH='/{projectKey}/login';
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource29PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource29PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource29PostRequest::class);
     }
 }
+final class Resource29PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/login';
+}
 final class Resource30 extends Resource {
+    const API_PATH='/{projectKey}/messages';
 
     /**
      * @param $query
@@ -2253,7 +2411,8 @@ final class Resource30 extends Resource {
         return new Resource31($uri);
     }
 }
-final class Resource30GetRequest extends Request {
+final class Resource30GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/messages';
 
     private $query;
     private $queryParts;
@@ -2339,13 +2498,14 @@ final class Resource30GetRequest extends Request {
                 
 }
 final class Resource31 extends Resource {
+    const API_PATH='/{projectKey}/messages/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource31GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource31GetRequest {
 
 
         if (!is_array($query)) {
@@ -2355,10 +2515,14 @@ final class Resource31 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource31GetRequest::class);
     }
 }
+final class Resource31GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/messages/{ID}';
+}
 final class Resource32 extends Resource {
+    const API_PATH='/{projectKey}/orders';
 
     /**
      * @return Resource34
@@ -2388,11 +2552,11 @@ final class Resource32 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource32PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource32PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource32PostRequest::class);
     }
 
     /**
@@ -2405,7 +2569,8 @@ final class Resource32 extends Resource {
         return new Resource33($uri);
     }
 }
-final class Resource32GetRequest extends Request {
+final class Resource32GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/orders';
 
     private $query;
     private $queryParts;
@@ -2490,14 +2655,18 @@ final class Resource32GetRequest extends Request {
     }
                 
 }
+final class Resource32PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/orders';
+}
 final class Resource33 extends Resource {
+    const API_PATH='/{projectKey}/orders/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource33GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource33GetRequest {
 
 
         if (!is_array($query)) {
@@ -2507,17 +2676,17 @@ final class Resource33 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource33GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource33PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource33PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource33PostRequest::class);
     }
 
     /**
@@ -2530,7 +2699,14 @@ final class Resource33 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource33DeleteRequest::class);
     }
 }
-final class Resource33DeleteRequest extends Request {
+final class Resource33GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/orders/{ID}';
+}
+final class Resource33PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/orders/{ID}';
+}
+final class Resource33DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/orders/{ID}';
 
     private $query;
     private $queryParts;
@@ -2556,18 +2732,23 @@ final class Resource33DeleteRequest extends Request {
                 
 }
 final class Resource34 extends Resource {
+    const API_PATH='/{projectKey}/orders/import';
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource34PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource34PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource34PostRequest::class);
     }
 }
+final class Resource34PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/orders/import';
+}
 final class Resource35 extends Resource {
+    const API_PATH='/{projectKey}/payments';
 
     /**
      * @param $query
@@ -2590,11 +2771,11 @@ final class Resource35 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource35PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource35PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource35PostRequest::class);
     }
 
     /**
@@ -2607,7 +2788,8 @@ final class Resource35 extends Resource {
         return new Resource36($uri);
     }
 }
-final class Resource35GetRequest extends Request {
+final class Resource35GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/payments';
 
     private $query;
     private $queryParts;
@@ -2692,14 +2874,18 @@ final class Resource35GetRequest extends Request {
     }
                 
 }
+final class Resource35PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/payments';
+}
 final class Resource36 extends Resource {
+    const API_PATH='/{projectKey}/payments/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource36GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource36GetRequest {
 
 
         if (!is_array($query)) {
@@ -2709,17 +2895,17 @@ final class Resource36 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource36GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource36PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource36PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource36PostRequest::class);
     }
 
     /**
@@ -2732,7 +2918,14 @@ final class Resource36 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource36DeleteRequest::class);
     }
 }
-final class Resource36DeleteRequest extends Request {
+final class Resource36GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/payments/{ID}';
+}
+final class Resource36PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/payments/{ID}';
+}
+final class Resource36DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/payments/{ID}';
 
     private $query;
     private $queryParts;
@@ -2758,6 +2951,7 @@ final class Resource36DeleteRequest extends Request {
                 
 }
 final class Resource37 extends Resource {
+    const API_PATH='/{projectKey}/products';
 
     /**
      * @param $query
@@ -2780,11 +2974,11 @@ final class Resource37 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource37PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource37PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource37PostRequest::class);
     }
 
     /**
@@ -2807,7 +3001,8 @@ final class Resource37 extends Resource {
         return new Resource39($uri);
     }
 }
-final class Resource37GetRequest extends Request {
+final class Resource37GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/products';
 
     private $query;
     private $queryParts;
@@ -2892,14 +3087,18 @@ final class Resource37GetRequest extends Request {
     }
                 
 }
+final class Resource37PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/products';
+}
 final class Resource38 extends Resource {
+    const API_PATH='/{projectKey}/products/key={key}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource38GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource38GetRequest {
 
 
         if (!is_array($query)) {
@@ -2909,17 +3108,17 @@ final class Resource38 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource38GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource38PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource38PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource38PostRequest::class);
     }
 
     /**
@@ -2932,7 +3131,14 @@ final class Resource38 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource38DeleteRequest::class);
     }
 }
-final class Resource38DeleteRequest extends Request {
+final class Resource38GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/products/key={key}';
+}
+final class Resource38PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/products/key={key}';
+}
+final class Resource38DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/products/key={key}';
 
     private $query;
     private $queryParts;
@@ -2958,6 +3164,7 @@ final class Resource38DeleteRequest extends Request {
                 
 }
 final class Resource39 extends Resource {
+    const API_PATH='/{projectKey}/products/{ID}';
 
     /**
      * @return Resource40
@@ -2969,9 +3176,9 @@ final class Resource39 extends Resource {
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource39GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource39GetRequest {
 
 
         if (!is_array($query)) {
@@ -2981,17 +3188,17 @@ final class Resource39 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource39GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource39PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource39PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource39PostRequest::class);
     }
 
     /**
@@ -3004,7 +3211,14 @@ final class Resource39 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource39DeleteRequest::class);
     }
 }
-final class Resource39DeleteRequest extends Request {
+final class Resource39GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/products/{ID}';
+}
+final class Resource39PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/products/{ID}';
+}
+final class Resource39DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/products/{ID}';
 
     private $query;
     private $queryParts;
@@ -3030,18 +3244,23 @@ final class Resource39DeleteRequest extends Request {
                 
 }
 final class Resource40 extends Resource {
+    const API_PATH='/{projectKey}/products/{ID}/images';
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource40PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource40PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource40PostRequest::class);
     }
 }
+final class Resource40PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/products/{ID}/images';
+}
 final class Resource41 extends Resource {
+    const API_PATH='/{projectKey}/product-discounts';
 
     /**
      * @param $query
@@ -3064,11 +3283,11 @@ final class Resource41 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource41PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource41PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource41PostRequest::class);
     }
 
     /**
@@ -3081,7 +3300,8 @@ final class Resource41 extends Resource {
         return new Resource42($uri);
     }
 }
-final class Resource41GetRequest extends Request {
+final class Resource41GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-discounts';
 
     private $query;
     private $queryParts;
@@ -3166,14 +3386,18 @@ final class Resource41GetRequest extends Request {
     }
                 
 }
+final class Resource41PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/product-discounts';
+}
 final class Resource42 extends Resource {
+    const API_PATH='/{projectKey}/product-discounts/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource42GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource42GetRequest {
 
 
         if (!is_array($query)) {
@@ -3183,17 +3407,17 @@ final class Resource42 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource42GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource42PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource42PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource42PostRequest::class);
     }
 
     /**
@@ -3206,7 +3430,14 @@ final class Resource42 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource42DeleteRequest::class);
     }
 }
-final class Resource42DeleteRequest extends Request {
+final class Resource42GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-discounts/{ID}';
+}
+final class Resource42PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/product-discounts/{ID}';
+}
+final class Resource42DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/product-discounts/{ID}';
 
     private $query;
     private $queryParts;
@@ -3232,6 +3463,7 @@ final class Resource42DeleteRequest extends Request {
                 
 }
 final class Resource43 extends Resource {
+    const API_PATH='/{projectKey}/product-projections';
 
     /**
      * @return Resource46
@@ -3285,7 +3517,8 @@ final class Resource43 extends Resource {
         return new Resource45($uri);
     }
 }
-final class Resource43GetRequest extends Request {
+final class Resource43GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-projections';
 
     private $query;
     private $queryParts;
@@ -3391,6 +3624,7 @@ final class Resource43GetRequest extends Request {
                 
 }
 final class Resource44 extends Resource {
+    const API_PATH='/{projectKey}/product-projections/key={key}';
 
     /**
      * @param $query
@@ -3410,7 +3644,8 @@ final class Resource44 extends Resource {
         return $this->buildRequest('get', $this->getUri(), null, $options, Resource44GetRequest::class);
     }
 }
-final class Resource44GetRequest extends Request {
+final class Resource44GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-projections/key={key}';
 
     private $query;
     private $queryParts;
@@ -3436,6 +3671,7 @@ final class Resource44GetRequest extends Request {
                 
 }
 final class Resource45 extends Resource {
+    const API_PATH='/{projectKey}/product-projections/{ID}';
 
     /**
      * @param $query
@@ -3455,7 +3691,8 @@ final class Resource45 extends Resource {
         return $this->buildRequest('get', $this->getUri(), null, $options, Resource45GetRequest::class);
     }
 }
-final class Resource45GetRequest extends Request {
+final class Resource45GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-projections/{ID}';
 
     private $query;
     private $queryParts;
@@ -3481,15 +3718,16 @@ final class Resource45GetRequest extends Request {
                 
 }
 final class Resource46 extends Resource {
+    const API_PATH='/{projectKey}/product-projections/search';
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource46PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource46PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource46PostRequest::class);
     }
 
     /**
@@ -3510,7 +3748,11 @@ final class Resource46 extends Resource {
         return $this->buildRequest('get', $this->getUri(), null, $options, Resource46GetRequest::class);
     }
 }
-final class Resource46GetRequest extends Request {
+final class Resource46PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/product-projections/search';
+}
+final class Resource46GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-projections/search';
 
     private $query;
     private $queryParts;
@@ -3817,6 +4059,7 @@ final class Resource46GetRequest extends Request {
                 
 }
 final class Resource47 extends Resource {
+    const API_PATH='/{projectKey}/product-projections/suggest';
 
     /**
      * @param $query
@@ -3836,7 +4079,8 @@ final class Resource47 extends Resource {
         return $this->buildRequest('get', $this->getUri(), null, $options, Resource47GetRequest::class);
     }
 }
-final class Resource47GetRequest extends Request {
+final class Resource47GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-projections/suggest';
 
     private $query;
     private $queryParts;
@@ -3963,6 +4207,7 @@ final class Resource47GetRequest extends Request {
                 
 }
 final class Resource48 extends Resource {
+    const API_PATH='/{projectKey}/product-types';
 
     /**
      * @param $query
@@ -3985,11 +4230,11 @@ final class Resource48 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource48PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource48PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource48PostRequest::class);
     }
 
     /**
@@ -4012,7 +4257,8 @@ final class Resource48 extends Resource {
         return new Resource50($uri);
     }
 }
-final class Resource48GetRequest extends Request {
+final class Resource48GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-types';
 
     private $query;
     private $queryParts;
@@ -4097,14 +4343,18 @@ final class Resource48GetRequest extends Request {
     }
                 
 }
+final class Resource48PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/product-types';
+}
 final class Resource49 extends Resource {
+    const API_PATH='/{projectKey}/product-types/key={key}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource49GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource49GetRequest {
 
 
         if (!is_array($query)) {
@@ -4114,17 +4364,17 @@ final class Resource49 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource49GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource49PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource49PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource49PostRequest::class);
     }
 
     /**
@@ -4137,7 +4387,14 @@ final class Resource49 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource49DeleteRequest::class);
     }
 }
-final class Resource49DeleteRequest extends Request {
+final class Resource49GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-types/key={key}';
+}
+final class Resource49PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/product-types/key={key}';
+}
+final class Resource49DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/product-types/key={key}';
 
     private $query;
     private $queryParts;
@@ -4163,13 +4420,14 @@ final class Resource49DeleteRequest extends Request {
                 
 }
 final class Resource50 extends Resource {
+    const API_PATH='/{projectKey}/product-types/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource50GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource50GetRequest {
 
 
         if (!is_array($query)) {
@@ -4179,17 +4437,17 @@ final class Resource50 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource50GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource50PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource50PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource50PostRequest::class);
     }
 
     /**
@@ -4202,7 +4460,14 @@ final class Resource50 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource50DeleteRequest::class);
     }
 }
-final class Resource50DeleteRequest extends Request {
+final class Resource50GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/product-types/{ID}';
+}
+final class Resource50PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/product-types/{ID}';
+}
+final class Resource50DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/product-types/{ID}';
 
     private $query;
     private $queryParts;
@@ -4228,6 +4493,7 @@ final class Resource50DeleteRequest extends Request {
                 
 }
 final class Resource51 extends Resource {
+    const API_PATH='/{projectKey}/reviews';
 
     /**
      * @param $query
@@ -4250,11 +4516,11 @@ final class Resource51 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource51PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource51PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource51PostRequest::class);
     }
 
     /**
@@ -4277,7 +4543,8 @@ final class Resource51 extends Resource {
         return new Resource53($uri);
     }
 }
-final class Resource51GetRequest extends Request {
+final class Resource51GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/reviews';
 
     private $query;
     private $queryParts;
@@ -4362,14 +4629,18 @@ final class Resource51GetRequest extends Request {
     }
                 
 }
+final class Resource51PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/reviews';
+}
 final class Resource52 extends Resource {
+    const API_PATH='/{projectKey}/reviews/key={key}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource52GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource52GetRequest {
 
 
         if (!is_array($query)) {
@@ -4379,17 +4650,17 @@ final class Resource52 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource52GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource52PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource52PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource52PostRequest::class);
     }
 
     /**
@@ -4402,7 +4673,14 @@ final class Resource52 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource52DeleteRequest::class);
     }
 }
-final class Resource52DeleteRequest extends Request {
+final class Resource52GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/reviews/key={key}';
+}
+final class Resource52PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/reviews/key={key}';
+}
+final class Resource52DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/reviews/key={key}';
 
     private $query;
     private $queryParts;
@@ -4428,13 +4706,14 @@ final class Resource52DeleteRequest extends Request {
                 
 }
 final class Resource53 extends Resource {
+    const API_PATH='/{projectKey}/reviews/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource53GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource53GetRequest {
 
 
         if (!is_array($query)) {
@@ -4444,17 +4723,17 @@ final class Resource53 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource53GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource53PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource53PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource53PostRequest::class);
     }
 
     /**
@@ -4467,7 +4746,14 @@ final class Resource53 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource53DeleteRequest::class);
     }
 }
-final class Resource53DeleteRequest extends Request {
+final class Resource53GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/reviews/{ID}';
+}
+final class Resource53PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/reviews/{ID}';
+}
+final class Resource53DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/reviews/{ID}';
 
     private $query;
     private $queryParts;
@@ -4493,6 +4779,7 @@ final class Resource53DeleteRequest extends Request {
                 
 }
 final class Resource54 extends Resource {
+    const API_PATH='/{projectKey}/shipping-methods';
 
     /**
      * @param $query
@@ -4515,11 +4802,11 @@ final class Resource54 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource54PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource54PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource54PostRequest::class);
     }
 
     /**
@@ -4532,7 +4819,8 @@ final class Resource54 extends Resource {
         return new Resource55($uri);
     }
 }
-final class Resource54GetRequest extends Request {
+final class Resource54GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/shipping-methods';
 
     private $query;
     private $queryParts;
@@ -4697,14 +4985,18 @@ final class Resource54GetRequest extends Request {
     }
                 
 }
+final class Resource54PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/shipping-methods';
+}
 final class Resource55 extends Resource {
+    const API_PATH='/{projectKey}/shipping-methods/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource55GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource55GetRequest {
 
 
         if (!is_array($query)) {
@@ -4714,17 +5006,17 @@ final class Resource55 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource55GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource55PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource55PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource55PostRequest::class);
     }
 
     /**
@@ -4737,7 +5029,14 @@ final class Resource55 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource55DeleteRequest::class);
     }
 }
-final class Resource55DeleteRequest extends Request {
+final class Resource55GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/shipping-methods/{ID}';
+}
+final class Resource55PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/shipping-methods/{ID}';
+}
+final class Resource55DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/shipping-methods/{ID}';
 
     private $query;
     private $queryParts;
@@ -4763,6 +5062,7 @@ final class Resource55DeleteRequest extends Request {
                 
 }
 final class Resource56 extends Resource {
+    const API_PATH='/{projectKey}/states';
 
     /**
      * @param $query
@@ -4785,11 +5085,11 @@ final class Resource56 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource56PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource56PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource56PostRequest::class);
     }
 
     /**
@@ -4802,7 +5102,8 @@ final class Resource56 extends Resource {
         return new Resource57($uri);
     }
 }
-final class Resource56GetRequest extends Request {
+final class Resource56GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/states';
 
     private $query;
     private $queryParts;
@@ -4887,14 +5188,18 @@ final class Resource56GetRequest extends Request {
     }
                 
 }
+final class Resource56PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/states';
+}
 final class Resource57 extends Resource {
+    const API_PATH='/{projectKey}/states/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource57GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource57GetRequest {
 
 
         if (!is_array($query)) {
@@ -4904,17 +5209,17 @@ final class Resource57 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource57GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource57PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource57PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource57PostRequest::class);
     }
 
     /**
@@ -4927,7 +5232,14 @@ final class Resource57 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource57DeleteRequest::class);
     }
 }
-final class Resource57DeleteRequest extends Request {
+final class Resource57GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/states/{ID}';
+}
+final class Resource57PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/states/{ID}';
+}
+final class Resource57DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/states/{ID}';
 
     private $query;
     private $queryParts;
@@ -4953,6 +5265,7 @@ final class Resource57DeleteRequest extends Request {
                 
 }
 final class Resource58 extends Resource {
+    const API_PATH='/{projectKey}/subscriptions';
 
     /**
      * @param $query
@@ -4975,11 +5288,11 @@ final class Resource58 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource58PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource58PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource58PostRequest::class);
     }
 
     /**
@@ -5002,7 +5315,8 @@ final class Resource58 extends Resource {
         return new Resource60($uri);
     }
 }
-final class Resource58GetRequest extends Request {
+final class Resource58GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/subscriptions';
 
     private $query;
     private $queryParts;
@@ -5087,14 +5401,18 @@ final class Resource58GetRequest extends Request {
     }
                 
 }
+final class Resource58PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/subscriptions';
+}
 final class Resource59 extends Resource {
+    const API_PATH='/{projectKey}/subscriptions/key={key}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource59GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource59GetRequest {
 
 
         if (!is_array($query)) {
@@ -5104,17 +5422,17 @@ final class Resource59 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource59GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource59PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource59PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource59PostRequest::class);
     }
 
     /**
@@ -5127,7 +5445,14 @@ final class Resource59 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource59DeleteRequest::class);
     }
 }
-final class Resource59DeleteRequest extends Request {
+final class Resource59GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/subscriptions/key={key}';
+}
+final class Resource59PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/subscriptions/key={key}';
+}
+final class Resource59DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/subscriptions/key={key}';
 
     private $query;
     private $queryParts;
@@ -5153,13 +5478,14 @@ final class Resource59DeleteRequest extends Request {
                 
 }
 final class Resource60 extends Resource {
+    const API_PATH='/{projectKey}/subscriptions/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource60GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource60GetRequest {
 
 
         if (!is_array($query)) {
@@ -5169,17 +5495,17 @@ final class Resource60 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource60GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource60PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource60PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource60PostRequest::class);
     }
 
     /**
@@ -5192,7 +5518,14 @@ final class Resource60 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource60DeleteRequest::class);
     }
 }
-final class Resource60DeleteRequest extends Request {
+final class Resource60GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/subscriptions/{ID}';
+}
+final class Resource60PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/subscriptions/{ID}';
+}
+final class Resource60DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/subscriptions/{ID}';
 
     private $query;
     private $queryParts;
@@ -5218,6 +5551,7 @@ final class Resource60DeleteRequest extends Request {
                 
 }
 final class Resource61 extends Resource {
+    const API_PATH='/{projectKey}/tax-categories';
 
     /**
      * @param $query
@@ -5240,11 +5574,11 @@ final class Resource61 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource61PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource61PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource61PostRequest::class);
     }
 
     /**
@@ -5257,7 +5591,8 @@ final class Resource61 extends Resource {
         return new Resource62($uri);
     }
 }
-final class Resource61GetRequest extends Request {
+final class Resource61GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/tax-categories';
 
     private $query;
     private $queryParts;
@@ -5342,14 +5677,18 @@ final class Resource61GetRequest extends Request {
     }
                 
 }
+final class Resource61PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/tax-categories';
+}
 final class Resource62 extends Resource {
+    const API_PATH='/{projectKey}/tax-categories/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource62GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource62GetRequest {
 
 
         if (!is_array($query)) {
@@ -5359,17 +5698,17 @@ final class Resource62 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource62GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource62PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource62PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource62PostRequest::class);
     }
 
     /**
@@ -5382,7 +5721,14 @@ final class Resource62 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource62DeleteRequest::class);
     }
 }
-final class Resource62DeleteRequest extends Request {
+final class Resource62GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/tax-categories/{ID}';
+}
+final class Resource62PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/tax-categories/{ID}';
+}
+final class Resource62DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/tax-categories/{ID}';
 
     private $query;
     private $queryParts;
@@ -5408,6 +5754,7 @@ final class Resource62DeleteRequest extends Request {
                 
 }
 final class Resource63 extends Resource {
+    const API_PATH='/{projectKey}/types';
 
     /**
      * @param $query
@@ -5430,11 +5777,11 @@ final class Resource63 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource63PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource63PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource63PostRequest::class);
     }
 
     /**
@@ -5457,7 +5804,8 @@ final class Resource63 extends Resource {
         return new Resource65($uri);
     }
 }
-final class Resource63GetRequest extends Request {
+final class Resource63GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/types';
 
     private $query;
     private $queryParts;
@@ -5542,14 +5890,18 @@ final class Resource63GetRequest extends Request {
     }
                 
 }
+final class Resource63PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/types';
+}
 final class Resource64 extends Resource {
+    const API_PATH='/{projectKey}/types/key={key}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource64GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource64GetRequest {
 
 
         if (!is_array($query)) {
@@ -5559,17 +5911,17 @@ final class Resource64 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource64GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource64PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource64PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource64PostRequest::class);
     }
 
     /**
@@ -5582,7 +5934,14 @@ final class Resource64 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource64DeleteRequest::class);
     }
 }
-final class Resource64DeleteRequest extends Request {
+final class Resource64GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/types/key={key}';
+}
+final class Resource64PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/types/key={key}';
+}
+final class Resource64DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/types/key={key}';
 
     private $query;
     private $queryParts;
@@ -5608,13 +5967,14 @@ final class Resource64DeleteRequest extends Request {
                 
 }
 final class Resource65 extends Resource {
+    const API_PATH='/{projectKey}/types/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource65GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource65GetRequest {
 
 
         if (!is_array($query)) {
@@ -5624,17 +5984,17 @@ final class Resource65 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource65GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource65PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource65PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource65PostRequest::class);
     }
 
     /**
@@ -5647,7 +6007,14 @@ final class Resource65 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource65DeleteRequest::class);
     }
 }
-final class Resource65DeleteRequest extends Request {
+final class Resource65GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/types/{ID}';
+}
+final class Resource65PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/types/{ID}';
+}
+final class Resource65DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/types/{ID}';
 
     private $query;
     private $queryParts;
@@ -5673,6 +6040,7 @@ final class Resource65DeleteRequest extends Request {
                 
 }
 final class Resource66 extends Resource {
+    const API_PATH='/{projectKey}/zones';
 
     /**
      * @param $query
@@ -5695,11 +6063,11 @@ final class Resource66 extends Resource {
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource66PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource66PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource66PostRequest::class);
     }
 
     /**
@@ -5712,7 +6080,8 @@ final class Resource66 extends Resource {
         return new Resource67($uri);
     }
 }
-final class Resource66GetRequest extends Request {
+final class Resource66GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/zones';
 
     private $query;
     private $queryParts;
@@ -5797,14 +6166,18 @@ final class Resource66GetRequest extends Request {
     }
                 
 }
+final class Resource66PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/zones';
+}
 final class Resource67 extends Resource {
+    const API_PATH='/{projectKey}/zones/{ID}';
 
     /**
      * @param $query
      * @param array $options
-     * @return RequestInterface
+     * @return Resource67GetRequest
      */
-    public function get($query = null, array $options = []): RequestInterface {
+    public function get($query = null, array $options = []): Resource67GetRequest {
 
 
         if (!is_array($query)) {
@@ -5814,17 +6187,17 @@ final class Resource67 extends Resource {
             $query = array_merge($options['query'], $query);
         }
         $options['query'] = $query;
-        return $this->buildRequest('get', $this->getUri(), null, $options);
+        return $this->buildRequest('get', $this->getUri(), null, $options, Resource67GetRequest::class);
     }
 
     /**
      * @param $body
      * @param array $options
-     * @return RequestInterface
+     * @return Resource67PostRequest
      */
-    public function post($body = null, array $options = []): RequestInterface {
+    public function post($body = null, array $options = []): Resource67PostRequest {
 
-        return $this->buildRequest('post', $this->getUri(), $body, $options);
+        return $this->buildRequest('post', $this->getUri(), $body, $options, Resource67PostRequest::class);
     }
 
     /**
@@ -5837,7 +6210,14 @@ final class Resource67 extends Resource {
         return $this->buildRequest('delete', $this->getUri(), $body, $options, Resource67DeleteRequest::class);
     }
 }
-final class Resource67DeleteRequest extends Request {
+final class Resource67GetRequest extends ApiRequest {
+    const API_PATH = 'GET /{projectKey}/zones/{ID}';
+}
+final class Resource67PostRequest extends ApiRequest {
+    const API_PATH = 'POST /{projectKey}/zones/{ID}';
+}
+final class Resource67DeleteRequest extends ApiRequest {
+    const API_PATH = 'DELETE /{projectKey}/zones/{ID}';
 
     private $query;
     private $queryParts;
