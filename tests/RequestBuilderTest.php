@@ -999,7 +999,6 @@ class RequestBuilderTest extends TestCase
         $builder = new RequestBuilder();
         $request = $builderFunction($builder);
         
-        $parts = explode(' ', $request::API_PATH);
         $this->assertSame($method, $request->getMethod());
         $this->assertContains(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());
         $this->assertSame($method . ' ' . $relativeUri, $request::API_PATH);
