@@ -14,7 +14,7 @@ class ChannelCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new Channel($data);
+                $data = Mapper::map($data, Channel::class);
             }
             $this->data[$index] = $data;
         }

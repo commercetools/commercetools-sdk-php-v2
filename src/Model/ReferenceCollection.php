@@ -14,7 +14,7 @@ class ReferenceCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new Reference($data);
+                $data = Mapper::map($data, Reference::resolveDiscriminatorClass($data));
             }
             $this->data[$index] = $data;
         }

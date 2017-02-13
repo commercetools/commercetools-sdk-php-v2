@@ -14,7 +14,7 @@ class TypeCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new Type($data);
+                $data = Mapper::map($data, Type::class);
             }
             $this->data[$index] = $data;
         }

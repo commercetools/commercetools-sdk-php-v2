@@ -8,16 +8,16 @@ class AttributeReferenceType extends AttributeType {
     const DISCRIMINATOR_VALUE = 'reference';
 
     /**
-     * @return array
+     * @return string
      */
-    public function getReferenceTypeId(): array
+    public function getReferenceTypeId(): string
     {
         if (is_null($this->referenceTypeId)) {
             $value = $this->raw('referenceTypeId');
             if (!is_null($value)) {
-                $this->referenceTypeId = $value;
+                $this->referenceTypeId = (string)$value;
             } else {
-                return [];
+                return '';
             }
         }
         return $this->referenceTypeId;

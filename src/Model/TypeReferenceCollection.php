@@ -14,7 +14,7 @@ class TypeReferenceCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new TypeReference($data);
+                $data = Mapper::map($data, TypeReference::class);
             }
             $this->data[$index] = $data;
         }

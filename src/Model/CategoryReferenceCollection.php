@@ -14,7 +14,7 @@ class CategoryReferenceCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new CategoryReference($data);
+                $data = Mapper::map($data, CategoryReference::class);
             }
             $this->data[$index] = $data;
         }

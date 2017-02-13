@@ -14,7 +14,7 @@ class CustomFieldsCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new CustomFields($data);
+                $data = Mapper::map($data, CustomFields::class);
             }
             $this->data[$index] = $data;
         }

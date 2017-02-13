@@ -15,7 +15,7 @@ class AttributeSetType extends AttributeType {
         if (is_null($this->elementType)) {
             $value = $this->raw('elementType');
             if (!is_null($value)) {
-                $this->elementType = Mapper::map($value, AttributeType::class);
+                $this->elementType = Mapper::map($value, AttributeType::resolveDiscriminatorClass($value));
             } else {
                 return Mapper::map([], AttributeType::class);
             }

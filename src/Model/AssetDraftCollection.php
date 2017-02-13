@@ -14,7 +14,7 @@ class AssetDraftCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new AssetDraft($data);
+                $data = Mapper::map($data, AssetDraft::class);
             }
             $this->data[$index] = $data;
         }

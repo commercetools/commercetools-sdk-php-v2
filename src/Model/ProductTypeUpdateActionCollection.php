@@ -14,7 +14,7 @@ class ProductTypeUpdateActionCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new ProductTypeUpdateAction($data);
+                $data = Mapper::map($data, ProductTypeUpdateAction::resolveDiscriminatorClass($data));
             }
             $this->data[$index] = $data;
         }

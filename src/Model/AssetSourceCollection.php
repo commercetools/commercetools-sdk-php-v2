@@ -14,7 +14,7 @@ class AssetSourceCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new AssetSource($data);
+                $data = Mapper::map($data, AssetSource::class);
             }
             $this->data[$index] = $data;
         }

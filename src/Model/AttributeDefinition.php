@@ -14,16 +14,16 @@ class AttributeDefinition extends JsonObject {
     protected $isSearchable;
 
     /**
-     * @return array
+     * @return AttributeType
      */
-    public function getType(): array
+    public function getType(): AttributeType
     {
         if (is_null($this->type)) {
             $value = $this->raw('type');
             if (!is_null($value)) {
-                $this->type = $value;
+                $this->type = Mapper::map($value, AttributeType::resolveDiscriminatorClass($value));
             } else {
-                return [];
+                return Mapper::map([], AttributeType::class);
             }
         }
         return $this->type;
@@ -82,16 +82,16 @@ class AttributeDefinition extends JsonObject {
                 
 
     /**
-     * @return array
+     * @return string
      */
-    public function getAttributeConstraint(): array
+    public function getAttributeConstraint(): string
     {
         if (is_null($this->attributeConstraint)) {
             $value = $this->raw('attributeConstraint');
             if (!is_null($value)) {
-                $this->attributeConstraint = $value;
+                $this->attributeConstraint = (string)$value;
             } else {
-                return [];
+                return '';
             }
         }
         return $this->attributeConstraint;

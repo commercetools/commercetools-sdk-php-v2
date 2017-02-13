@@ -21,7 +21,7 @@ class AttributeDefinitionDraft extends JsonObject {
         if (is_null($this->type)) {
             $value = $this->raw('type');
             if (!is_null($value)) {
-                $this->type = Mapper::map($value, AttributeType::class);
+                $this->type = Mapper::map($value, AttributeType::resolveDiscriminatorClass($value));
             } else {
                 return Mapper::map([], AttributeType::class);
             }
@@ -82,16 +82,16 @@ class AttributeDefinitionDraft extends JsonObject {
                 
 
     /**
-     * @return array
+     * @return string
      */
-    public function getAttributeConstraint(): array
+    public function getAttributeConstraint(): string
     {
         if (is_null($this->attributeConstraint)) {
             $value = $this->raw('attributeConstraint');
             if (!is_null($value)) {
-                $this->attributeConstraint = $value;
+                $this->attributeConstraint = (string)$value;
             } else {
-                return [];
+                return '';
             }
         }
         return $this->attributeConstraint;

@@ -14,7 +14,7 @@ class CategoryUpdateActionCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new CategoryUpdateAction($data);
+                $data = Mapper::map($data, CategoryUpdateAction::resolveDiscriminatorClass($data));
             }
             $this->data[$index] = $data;
         }

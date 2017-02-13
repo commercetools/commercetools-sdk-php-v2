@@ -8,22 +8,40 @@ class Reference extends JsonObject {
     protected $id;
 
     const DISCRIMINATOR_VALUE = null;
+    const DISCRIMINATOR_FIELD = 'typeId';
     public function __construct(array $data = []) {
         $this->typeId = static::DISCRIMINATOR_VALUE;
         parent::__construct($data);
     }
 
+    private static $discriminatorClasses = [
+        'category' => CategoryReference::class,
+        'product-type' => ProductTypeReference::class,
+        'type' => TypeReference::class,
+    ];
+    
+    public static function resolveDiscriminatorClass($value)
+    {
+        if (isset($value[static::DISCRIMINATOR_FIELD])) {
+            $discriminatorValue = $value[static::DISCRIMINATOR_FIELD];
+            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
+                return static::$discriminatorClasses[$discriminatorValue];
+            }
+        }
+        return Reference::class;
+    }
+
     /**
-     * @return array
+     * @return string
      */
-    public function getTypeId(): array
+    public function getTypeId(): string
     {
         if (is_null($this->typeId)) {
             $value = $this->raw('typeId');
             if (!is_null($value)) {
-                $this->typeId = $value;
+                $this->typeId = (string)$value;
             } else {
-                return [];
+                return '';
             }
         }
         return $this->typeId;

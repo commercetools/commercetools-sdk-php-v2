@@ -14,7 +14,7 @@ class FieldDefinitionCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new FieldDefinition($data);
+                $data = Mapper::map($data, FieldDefinition::class);
             }
             $this->data[$index] = $data;
         }

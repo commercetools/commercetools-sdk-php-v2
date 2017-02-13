@@ -14,7 +14,7 @@ class UpdateActionCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new UpdateAction($data);
+                $data = Mapper::map($data, UpdateAction::class);
             }
             $this->data[$index] = $data;
         }

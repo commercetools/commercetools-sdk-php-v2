@@ -14,7 +14,7 @@ class AddressCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new Address($data);
+                $data = Mapper::map($data, Address::class);
             }
             $this->data[$index] = $data;
         }

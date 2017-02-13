@@ -14,7 +14,7 @@ class ProductTypeReferenceCollection extends Collection {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = new ProductTypeReference($data);
+                $data = Mapper::map($data, ProductTypeReference::class);
             }
             $this->data[$index] = $data;
         }
