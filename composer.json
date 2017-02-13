@@ -3,8 +3,7 @@
   "license": "MIT",
   "autoload": {
     "files": [
-      "classes.php",
-      "models.php"
+      "classes.php"
     ],
     "psr-4": {
       "Commercetools\\Raml\\": "src/"
