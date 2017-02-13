@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace Commercetools\Raml\Model;
 
-class CategoryUpdate extends Update {
+class ProductTypeUpdate extends Update {
     protected $actions;
 
     /**
-     * @return CategoryUpdateActionCollection
+     * @return ProductTypeUpdateActionCollection
      */
-    public function getActions(): CategoryUpdateActionCollection
+    public function getActions(): ProductTypeUpdateActionCollection
     {
         if (is_null($this->actions)) {
             $value = $this->raw('actions');
             if (!is_null($value)) {
-                $this->actions = Mapper::map($value, CategoryUpdateActionCollection::class);
+                $this->actions = Mapper::map($value, ProductTypeUpdateActionCollection::class);
             } else {
-                return Mapper::map([], CategoryUpdateActionCollection::class);
+                return Mapper::map([], ProductTypeUpdateActionCollection::class);
             }
         }
         return $this->actions;
