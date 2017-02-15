@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Raml\Model;
 
-class ProductTypePagedQueryResponse extends PageQueryResponse {
+class ProductTypePagedQueryResponse extends PagedQueryResponse {
     protected $results;
 
     /**

@@ -14,8 +14,8 @@ class ReferenceTypeId extends JsonObject {
  const KEY_VALUE_DOCUMENT = 'key-value-document';
  const PAYMENT = 'payment';
  const PRODUCT = 'product';
- const PRODUCT_DISCOUNT = 'product-discount';
  const PRODUCT_TYPE = 'product-type';
+ const PRODUCT_DISCOUNT = 'product-discount';
  const ORDER = 'order';
  const REVIEW = 'review';
  const SHIPPING_METHOD = 'shipping-method';
