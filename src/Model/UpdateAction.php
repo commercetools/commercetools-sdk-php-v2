@@ -6,13 +6,6 @@ namespace Commercetools\Raml\Model;
 class UpdateAction extends JsonObject {
     protected $action;
 
-    const DISCRIMINATOR_VALUE = null;
-    const DISCRIMINATOR_FIELD = 'action';
-    public function __construct(array $data = []) {
-        $this->action = static::DISCRIMINATOR_VALUE;
-        parent::__construct($data);
-    }
-
     /**
      * @return string
      */

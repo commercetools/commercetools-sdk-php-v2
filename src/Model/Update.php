@@ -25,16 +25,16 @@ class Update extends JsonObject {
                 
 
     /**
-     * @return UpdateActionCollection
+     * @return array
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw('actions');
             if (!is_null($value)) {
-                $this->actions = Mapper::map($value, UpdateActionCollection::class);
+                $this->actions = $value;
             } else {
-                return Mapper::map([], UpdateActionCollection::class);
+                return [];
             }
         }
         return $this->actions;
