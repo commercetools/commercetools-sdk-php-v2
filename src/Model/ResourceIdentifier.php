@@ -3,38 +3,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Raml\Model;
 
-class Reference extends JsonObject {
+class ResourceIdentifier extends JsonObject {
     protected $typeId;
     protected $id;
+    protected $key;
 
     const DISCRIMINATOR_VALUE = null;
     const DISCRIMINATOR_FIELD = 'typeId';
     public function __construct(array $data = []) {
         $this->typeId = static::DISCRIMINATOR_VALUE;
         parent::__construct($data);
-    }
-
-    private static $discriminatorClasses = [
-        'customer-group' => CustomerGroupReference::class,
-        'category' => CategoryReference::class,
-        'channel' => ChannelReference::class,
-        'product-type' => ProductTypeReference::class,
-        'product-discount' => ProductDiscountReference::class,
-        'tax-category' => TaxCategoryReference::class,
-        'state' => StateReference::class,
-        'type' => TypeReference::class,
-        'zone' => ZoneReference::class,
-    ];
-    
-    public static function resolveDiscriminatorClass($value)
-    {
-        if (isset($value[static::DISCRIMINATOR_FIELD])) {
-            $discriminatorValue = $value[static::DISCRIMINATOR_FIELD];
-            if (isset(static::$discriminatorClasses[$discriminatorValue])) {
-                return static::$discriminatorClasses[$discriminatorValue];
-            }
-        }
-        return Reference::class;
     }
 
     /**
@@ -68,6 +46,23 @@ class Reference extends JsonObject {
             }
         }
         return $this->id;
+    }
+                
+
+    /**
+     * @return string
+     */
+    public function getKey(): string
+    {
+        if (is_null($this->key)) {
+            $value = $this->raw('key');
+            if (!is_null($value)) {
+                $this->key = (string)$value;
+            } else {
+                return '';
+            }
+        }
+        return $this->key;
     }
                 
 }

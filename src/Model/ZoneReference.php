@@ -3,21 +3,21 @@ declare(strict_types=1);
 
 namespace Commercetools\Raml\Model;
 
-class TaxCategoryReference extends Reference {
+class ZoneReference extends Reference {
     protected $obj;
-    const DISCRIMINATOR_VALUE = 'tax-category';
+    const DISCRIMINATOR_VALUE = 'zone';
 
     /**
-     * @return TaxCategory
+     * @return Zone
      */
-    public function getObj(): TaxCategory
+    public function getObj(): Zone
     {
         if (is_null($this->obj)) {
             $value = $this->raw('obj');
             if (!is_null($value)) {
-                $this->obj = Mapper::map($value, TaxCategory::class);
+                $this->obj = Mapper::map($value, Zone::class);
             } else {
-                return Mapper::map([], TaxCategory::class);
+                return Mapper::map([], Zone::class);
             }
         }
         return $this->obj;
