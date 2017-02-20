@@ -3,18 +3,18 @@ declare(strict_types=1);
 
 namespace Commercetools\Raml\Model;
 
-class StateDraftCollection extends Collection {
+class CustomerGroupCollection extends Collection {
 
     /**
      * @param $index
-     * @return StateDraft|null
+     * @return CustomerGroup|null
      */
     public function at($index)
     {
         if (!isset($this->data[$index])) {
             $data = $this->raw($index);
             if (!is_null($data)) {
-                $data = Mapper::map($data, StateDraft::class);
+                $data = Mapper::map($data, CustomerGroup::class);
             }
             $this->data[$index] = $data;
         }
@@ -22,7 +22,7 @@ class StateDraftCollection extends Collection {
     }
     
     /**
-     * @return StateDraft|null
+     * @return CustomerGroup|null
      */
     public function current()
     {

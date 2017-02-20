@@ -15,9 +15,9 @@ class Reference extends JsonObject {
     }
 
     private static $discriminatorClasses = [
+        'customer-group' => CustomerGroupReference::class,
         'category' => CategoryReference::class,
         'channel' => ChannelReference::class,
-        'customer-group' => CustomerGroupReference::class,
         'product-type' => ProductTypeReference::class,
         'product-discount' => ProductDiscountReference::class,
         'tax-category' => TaxCategoryReference::class,
