@@ -8,6 +8,10 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\DiscountCode\DiscountCode;
+use Commercetools\Builder\DiscountCodeUpdateBuilder;
+
 use Commercetools\Types\DiscountCode\DiscountCodeDraft;
 
 
@@ -38,4 +42,14 @@ class Resource26 extends Resource
         return new ByProjectKeyDiscountCodesPost($args['projectKey'], $body);
     }
 
+
+    public function update(DiscountCode $resource)
+    {
+        $builder = new DiscountCodeUpdateBuilder(function (DiscountCodeUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

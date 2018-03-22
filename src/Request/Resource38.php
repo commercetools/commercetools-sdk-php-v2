@@ -8,33 +8,55 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Update;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Payment\Payment;
+use Commercetools\Builder\PaymentUpdateBuilder;
 
+use Commercetools\Types\Payment\PaymentDraft;
 
 
 class Resource38 extends Resource
 {
     /**
-     * @return ByProjectKeyPaymentsKeyByKeyGet
+     * @return Resource39
      */
-    public function get(): ByProjectKeyPaymentsKeyByKeyGet {
-        $args = $this->getArgs();
-        return new ByProjectKeyPaymentsKeyByKeyGet($args['projectKey'], $args['key']);
+    public function keyWithKeyValue($key = null): Resource39 {
+        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
+        return new Resource39($this->getUri() . '/key={key}', $args);
     }
     /**
-     * @param Update $body
-     * @return ByProjectKeyPaymentsKeyByKeyPost
+     * @return Resource40
      */
-    public function post(Update $body): ByProjectKeyPaymentsKeyByKeyPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyPaymentsKeyByKeyPost($args['projectKey'], $args['key'], $body);
-    }
-    /**
-     * @return ByProjectKeyPaymentsKeyByKeyDelete
-     */
-    public function delete(): ByProjectKeyPaymentsKeyByKeyDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeyPaymentsKeyByKeyDelete($args['projectKey'], $args['key']);
+    public function withIDValue($ID = null): Resource40 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource40($this->getUri() . '/{ID}', $args);
     }
 
+
+    /**
+     * @return ByProjectKeyPaymentsGet
+     */
+    public function get(): ByProjectKeyPaymentsGet {
+        $args = $this->getArgs();
+        return new ByProjectKeyPaymentsGet($args['projectKey']);
+    }
+    /**
+     * @param PaymentDraft $body
+     * @return ByProjectKeyPaymentsPost
+     */
+    public function post(PaymentDraft $body): ByProjectKeyPaymentsPost {
+        $args = $this->getArgs();
+        return new ByProjectKeyPaymentsPost($args['projectKey'], $body);
+    }
+
+
+    public function update(Payment $resource)
+    {
+        $builder = new PaymentUpdateBuilder(function (PaymentUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

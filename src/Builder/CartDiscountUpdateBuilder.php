@@ -8,23 +8,25 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\CartDiscount\CartDiscountUpdateAction;
 
-use Commercetools\Types\CartDiscount\CartDiscountSetCustomTypeAction;
-use Commercetools\Types\CartDiscount\CartDiscountChangeTargetAction;
-use Commercetools\Types\CartDiscount\CartDiscountChangeSortOrderAction;
+use Commercetools\Types\CartDiscount\CartDiscountChangeCartPredicateAction;
+use Commercetools\Types\CartDiscount\CartDiscountChangeIsActiveAction;
+use Commercetools\Types\CartDiscount\CartDiscountChangeNameAction;
 use Commercetools\Types\CartDiscount\CartDiscountChangeRequiresDiscountCodeAction;
-use Commercetools\Types\CartDiscount\CartDiscountSetValidUntilAction;
+use Commercetools\Types\CartDiscount\CartDiscountChangeSortOrderAction;
+use Commercetools\Types\CartDiscount\CartDiscountChangeStackingModeAction;
+use Commercetools\Types\CartDiscount\CartDiscountChangeTargetAction;
 use Commercetools\Types\CartDiscount\CartDiscountChangeValueAction;
+use Commercetools\Types\CartDiscount\CartDiscountSetCustomFieldAction;
+use Commercetools\Types\CartDiscount\CartDiscountSetCustomTypeAction;
 use Commercetools\Types\CartDiscount\CartDiscountSetDescriptionAction;
 use Commercetools\Types\CartDiscount\CartDiscountSetValidFromAction;
-use Commercetools\Types\CartDiscount\CartDiscountChangeIsActiveAction;
-use Commercetools\Types\CartDiscount\CartDiscountChangeStackingModeAction;
-use Commercetools\Types\CartDiscount\CartDiscountChangeCartPredicateAction;
-use Commercetools\Types\CartDiscount\CartDiscountChangeNameAction;
-use Commercetools\Types\CartDiscount\CartDiscountSetCustomFieldAction;
+use Commercetools\Types\CartDiscount\CartDiscountSetValidUntilAction;
 use Commercetools\Types\CartDiscount\CartDiscount;
 use Commercetools\Types\CartDiscount\CartDiscountUpdate;
+use Commercetools\Request\ByProjectKeyCartDiscountsByIDPost;
 
 
 class CartDiscountUpdateBuilder extends BaseBuilder {
@@ -38,48 +40,55 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
+    {
+        $this->requestBuilderCallback = $requestBuilderCallback;
+    }
+
     /**
      * @param callable $callback builder function <code>
-     *   function (CartDiscountSetCustomTypeAction $action) {
+     *   function (CartDiscountChangeCartPredicateAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setCustomType(callable $callback = null)
+    public function changeCartPredicate(callable $callback = null)
     {
-        $action = $this->mapData(CartDiscountSetCustomTypeAction::class, null);
+        $action = $this->mapData(CartDiscountChangeCartPredicateAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (CartDiscountChangeTargetAction $action) {
+     *   function (CartDiscountChangeIsActiveAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeTarget(callable $callback = null)
+    public function changeIsActive(callable $callback = null)
     {
-        $action = $this->mapData(CartDiscountChangeTargetAction::class, null);
+        $action = $this->mapData(CartDiscountChangeIsActiveAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (CartDiscountChangeSortOrderAction $action) {
+     *   function (CartDiscountChangeNameAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeSortOrder(callable $callback = null)
+    public function changeName(callable $callback = null)
     {
-        $action = $this->mapData(CartDiscountChangeSortOrderAction::class, null);
+        $action = $this->mapData(CartDiscountChangeNameAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -100,16 +109,46 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (CartDiscountSetValidUntilAction $action) {
+     *   function (CartDiscountChangeSortOrderAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setValidUntil(callable $callback = null)
+    public function changeSortOrder(callable $callback = null)
     {
-        $action = $this->mapData(CartDiscountSetValidUntilAction::class, null);
+        $action = $this->mapData(CartDiscountChangeSortOrderAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (CartDiscountChangeStackingModeAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeStackingMode(callable $callback = null)
+    {
+        $action = $this->mapData(CartDiscountChangeStackingModeAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (CartDiscountChangeTargetAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeTarget(callable $callback = null)
+    {
+        $action = $this->mapData(CartDiscountChangeTargetAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -125,6 +164,36 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     public function changeValue(callable $callback = null)
     {
         $action = $this->mapData(CartDiscountChangeValueAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (CartDiscountSetCustomFieldAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setCustomField(callable $callback = null)
+    {
+        $action = $this->mapData(CartDiscountSetCustomFieldAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (CartDiscountSetCustomTypeAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setCustomType(callable $callback = null)
+    {
+        $action = $this->mapData(CartDiscountSetCustomTypeAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -160,76 +229,16 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (CartDiscountChangeIsActiveAction $action) {
+     *   function (CartDiscountSetValidUntilAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeIsActive(callable $callback = null)
+    public function setValidUntil(callable $callback = null)
     {
-        $action = $this->mapData(CartDiscountChangeIsActiveAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (CartDiscountChangeStackingModeAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeStackingMode(callable $callback = null)
-    {
-        $action = $this->mapData(CartDiscountChangeStackingModeAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (CartDiscountChangeCartPredicateAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeCartPredicate(callable $callback = null)
-    {
-        $action = $this->mapData(CartDiscountChangeCartPredicateAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (CartDiscountChangeNameAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeName(callable $callback = null)
-    {
-        $action = $this->mapData(CartDiscountChangeNameAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (CartDiscountSetCustomFieldAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setCustomField(callable $callback = null)
-    {
-        $action = $this->mapData(CartDiscountSetCustomFieldAction::class, null);
+        $action = $this->mapData(CartDiscountSetValidUntilAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -271,8 +280,13 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?CartDiscount
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build CartDiscountUpdate and delete internal state
+     * Build CartDiscountUpdate
      * @return CartDiscountUpdate
      */
     public function build(): CartDiscountUpdate
@@ -288,5 +302,15 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyCartDiscountsByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

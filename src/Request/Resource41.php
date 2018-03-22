@@ -8,33 +8,55 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Update;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Product\Product;
+use Commercetools\Builder\ProductUpdateBuilder;
 
+use Commercetools\Types\Product\ProductDraft;
 
 
 class Resource41 extends Resource
 {
     /**
-     * @return ByProjectKeyProductsKeyByKeyGet
+     * @return Resource42
      */
-    public function get(): ByProjectKeyProductsKeyByKeyGet {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductsKeyByKeyGet($args['projectKey'], $args['key']);
+    public function keyWithKeyValue($key = null): Resource42 {
+        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
+        return new Resource42($this->getUri() . '/key={key}', $args);
     }
     /**
-     * @param Update $body
-     * @return ByProjectKeyProductsKeyByKeyPost
+     * @return Resource43
      */
-    public function post(Update $body): ByProjectKeyProductsKeyByKeyPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductsKeyByKeyPost($args['projectKey'], $args['key'], $body);
-    }
-    /**
-     * @return ByProjectKeyProductsKeyByKeyDelete
-     */
-    public function delete(): ByProjectKeyProductsKeyByKeyDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductsKeyByKeyDelete($args['projectKey'], $args['key']);
+    public function withIDValue($ID = null): Resource43 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource43($this->getUri() . '/{ID}', $args);
     }
 
+
+    /**
+     * @return ByProjectKeyProductsGet
+     */
+    public function get(): ByProjectKeyProductsGet {
+        $args = $this->getArgs();
+        return new ByProjectKeyProductsGet($args['projectKey']);
+    }
+    /**
+     * @param ProductDraft $body
+     * @return ByProjectKeyProductsPost
+     */
+    public function post(ProductDraft $body): ByProjectKeyProductsPost {
+        $args = $this->getArgs();
+        return new ByProjectKeyProductsPost($args['projectKey'], $body);
+    }
+
+
+    public function update(Product $resource)
+    {
+        $builder = new ProductUpdateBuilder(function (ProductUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

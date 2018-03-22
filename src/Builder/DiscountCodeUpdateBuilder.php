@@ -8,20 +8,22 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateAction;
 
-use Commercetools\Types\DiscountCode\DiscountCodeSetCartPredicateAction;
-use Commercetools\Types\DiscountCode\DiscountCodeSetValidFromAction;
 use Commercetools\Types\DiscountCode\DiscountCodeChangeCartDiscountsAction;
-use Commercetools\Types\DiscountCode\DiscountCodeSetMaxApplicationsAction;
-use Commercetools\Types\DiscountCode\DiscountCodeSetValidUntilAction;
-use Commercetools\Types\DiscountCode\DiscountCodeChangeIsActiveAction;
-use Commercetools\Types\DiscountCode\DiscountCodeSetMaxApplicationsPerCustomerAction;
-use Commercetools\Types\DiscountCode\DiscountCodeSetDescriptionAction;
-use Commercetools\Types\DiscountCode\DiscountCodeSetNameAction;
 use Commercetools\Types\DiscountCode\DiscountCodeChangeGroupsAction;
+use Commercetools\Types\DiscountCode\DiscountCodeChangeIsActiveAction;
+use Commercetools\Types\DiscountCode\DiscountCodeSetCartPredicateAction;
+use Commercetools\Types\DiscountCode\DiscountCodeSetDescriptionAction;
+use Commercetools\Types\DiscountCode\DiscountCodeSetMaxApplicationsAction;
+use Commercetools\Types\DiscountCode\DiscountCodeSetMaxApplicationsPerCustomerAction;
+use Commercetools\Types\DiscountCode\DiscountCodeSetNameAction;
+use Commercetools\Types\DiscountCode\DiscountCodeSetValidFromAction;
+use Commercetools\Types\DiscountCode\DiscountCodeSetValidUntilAction;
 use Commercetools\Types\DiscountCode\DiscountCode;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdate;
+use Commercetools\Request\ByProjectKeyDiscountCodesByIDPost;
 
 
 class DiscountCodeUpdateBuilder extends BaseBuilder {
@@ -35,36 +37,13 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
-    /**
-     * @param callable $callback builder function <code>
-     *   function (DiscountCodeSetCartPredicateAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setCartPredicate(callable $callback = null)
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
     {
-        $action = $this->mapData(DiscountCodeSetCartPredicateAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
+        $this->requestBuilderCallback = $requestBuilderCallback;
     }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (DiscountCodeSetValidFromAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setValidFrom(callable $callback = null)
-    {
-        $action = $this->mapData(DiscountCodeSetValidFromAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
+
     /**
      * @param callable $callback builder function <code>
      *   function (DiscountCodeChangeCartDiscountsAction $action) {
@@ -82,31 +61,16 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (DiscountCodeSetMaxApplicationsAction $action) {
+     *   function (DiscountCodeChangeGroupsAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setMaxApplications(callable $callback = null)
+    public function changeGroups(callable $callback = null)
     {
-        $action = $this->mapData(DiscountCodeSetMaxApplicationsAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (DiscountCodeSetValidUntilAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setValidUntil(callable $callback = null)
-    {
-        $action = $this->mapData(DiscountCodeSetValidUntilAction::class, null);
+        $action = $this->mapData(DiscountCodeChangeGroupsAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -127,16 +91,16 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (DiscountCodeSetMaxApplicationsPerCustomerAction $action) {
+     *   function (DiscountCodeSetCartPredicateAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setMaxApplicationsPerCustomer(callable $callback = null)
+    public function setCartPredicate(callable $callback = null)
     {
-        $action = $this->mapData(DiscountCodeSetMaxApplicationsPerCustomerAction::class, null);
+        $action = $this->mapData(DiscountCodeSetCartPredicateAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -157,6 +121,36 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
+     *   function (DiscountCodeSetMaxApplicationsAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setMaxApplications(callable $callback = null)
+    {
+        $action = $this->mapData(DiscountCodeSetMaxApplicationsAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (DiscountCodeSetMaxApplicationsPerCustomerAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setMaxApplicationsPerCustomer(callable $callback = null)
+    {
+        $action = $this->mapData(DiscountCodeSetMaxApplicationsPerCustomerAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
      *   function (DiscountCodeSetNameAction $action) {
      *     // modify action as needed
      *     return $action;
@@ -172,16 +166,31 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (DiscountCodeChangeGroupsAction $action) {
+     *   function (DiscountCodeSetValidFromAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeGroups(callable $callback = null)
+    public function setValidFrom(callable $callback = null)
     {
-        $action = $this->mapData(DiscountCodeChangeGroupsAction::class, null);
+        $action = $this->mapData(DiscountCodeSetValidFromAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (DiscountCodeSetValidUntilAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setValidUntil(callable $callback = null)
+    {
+        $action = $this->mapData(DiscountCodeSetValidUntilAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -223,8 +232,13 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?DiscountCode
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build DiscountCodeUpdate and delete internal state
+     * Build DiscountCodeUpdate
      * @return DiscountCodeUpdate
      */
     public function build(): DiscountCodeUpdate
@@ -240,5 +254,15 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyDiscountCodesByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

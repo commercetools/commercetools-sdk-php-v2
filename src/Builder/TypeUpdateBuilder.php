@@ -8,22 +8,24 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\Type\TypeUpdateAction;
 
-use Commercetools\Types\Type\TypeAddFieldDefinitionAction;
-use Commercetools\Types\Type\TypeRemoveFieldDefinitionAction;
-use Commercetools\Types\Type\TypeChangeLocalizedEnumValueOrderAction;
-use Commercetools\Types\Type\TypeChangeFieldDefinitionOrderAction;
 use Commercetools\Types\Type\TypeAddEnumValueAction;
-use Commercetools\Types\Type\TypeChangeNameAction;
-use Commercetools\Types\Type\TypeChangeEnumValueOrderAction;
-use Commercetools\Types\Type\TypeChangeKeyAction;
-use Commercetools\Types\Type\TypeSetDescriptionAction;
-use Commercetools\Types\Type\TypeChangeLabelAction;
-use Commercetools\Types\Type\TypeChangeFieldDefinitionLabelAction;
+use Commercetools\Types\Type\TypeAddFieldDefinitionAction;
 use Commercetools\Types\Type\TypeAddLocalizedEnumValueAction;
+use Commercetools\Types\Type\TypeChangeEnumValueOrderAction;
+use Commercetools\Types\Type\TypeChangeFieldDefinitionLabelAction;
+use Commercetools\Types\Type\TypeChangeFieldDefinitionOrderAction;
+use Commercetools\Types\Type\TypeChangeKeyAction;
+use Commercetools\Types\Type\TypeChangeLabelAction;
+use Commercetools\Types\Type\TypeChangeLocalizedEnumValueOrderAction;
+use Commercetools\Types\Type\TypeChangeNameAction;
+use Commercetools\Types\Type\TypeRemoveFieldDefinitionAction;
+use Commercetools\Types\Type\TypeSetDescriptionAction;
 use Commercetools\Types\Type\Type;
 use Commercetools\Types\Type\TypeUpdate;
+use Commercetools\Request\ByProjectKeyTypesByIDPost;
 
 
 class TypeUpdateBuilder extends BaseBuilder {
@@ -37,66 +39,13 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
-    /**
-     * @param callable $callback builder function <code>
-     *   function (TypeAddFieldDefinitionAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function addFieldDefinition(callable $callback = null)
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
     {
-        $action = $this->mapData(TypeAddFieldDefinitionAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
+        $this->requestBuilderCallback = $requestBuilderCallback;
     }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (TypeRemoveFieldDefinitionAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function removeFieldDefinition(callable $callback = null)
-    {
-        $action = $this->mapData(TypeRemoveFieldDefinitionAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (TypeChangeLocalizedEnumValueOrderAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeLocalizedEnumValueOrder(callable $callback = null)
-    {
-        $action = $this->mapData(TypeChangeLocalizedEnumValueOrderAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (TypeChangeFieldDefinitionOrderAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeFieldDefinitionOrder(callable $callback = null)
-    {
-        $action = $this->mapData(TypeChangeFieldDefinitionOrderAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
+
     /**
      * @param callable $callback builder function <code>
      *   function (TypeAddEnumValueAction $action) {
@@ -114,16 +63,31 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (TypeChangeNameAction $action) {
+     *   function (TypeAddFieldDefinitionAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeName(callable $callback = null)
+    public function addFieldDefinition(callable $callback = null)
     {
-        $action = $this->mapData(TypeChangeNameAction::class, null);
+        $action = $this->mapData(TypeAddFieldDefinitionAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (TypeAddLocalizedEnumValueAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function addLocalizedEnumValue(callable $callback = null)
+    {
+        $action = $this->mapData(TypeAddLocalizedEnumValueAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -144,6 +108,36 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
+     *   function (TypeChangeFieldDefinitionLabelAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeFieldDefinitionLabel(callable $callback = null)
+    {
+        $action = $this->mapData(TypeChangeFieldDefinitionLabelAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (TypeChangeFieldDefinitionOrderAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeFieldDefinitionOrder(callable $callback = null)
+    {
+        $action = $this->mapData(TypeChangeFieldDefinitionOrderAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
      *   function (TypeChangeKeyAction $action) {
      *     // modify action as needed
      *     return $action;
@@ -154,21 +148,6 @@ class TypeUpdateBuilder extends BaseBuilder {
     public function changeKey(callable $callback = null)
     {
         $action = $this->mapData(TypeChangeKeyAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (TypeSetDescriptionAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setDescription(callable $callback = null)
-    {
-        $action = $this->mapData(TypeSetDescriptionAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -189,31 +168,61 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (TypeChangeFieldDefinitionLabelAction $action) {
+     *   function (TypeChangeLocalizedEnumValueOrderAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeFieldDefinitionLabel(callable $callback = null)
+    public function changeLocalizedEnumValueOrder(callable $callback = null)
     {
-        $action = $this->mapData(TypeChangeFieldDefinitionLabelAction::class, null);
+        $action = $this->mapData(TypeChangeLocalizedEnumValueOrderAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (TypeAddLocalizedEnumValueAction $action) {
+     *   function (TypeChangeNameAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function addLocalizedEnumValue(callable $callback = null)
+    public function changeName(callable $callback = null)
     {
-        $action = $this->mapData(TypeAddLocalizedEnumValueAction::class, null);
+        $action = $this->mapData(TypeChangeNameAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (TypeRemoveFieldDefinitionAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function removeFieldDefinition(callable $callback = null)
+    {
+        $action = $this->mapData(TypeRemoveFieldDefinitionAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (TypeSetDescriptionAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setDescription(callable $callback = null)
+    {
+        $action = $this->mapData(TypeSetDescriptionAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -255,8 +264,13 @@ class TypeUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?Type
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build TypeUpdate and delete internal state
+     * Build TypeUpdate
      * @return TypeUpdate
      */
     public function build(): TypeUpdate
@@ -272,5 +286,15 @@ class TypeUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyTypesByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

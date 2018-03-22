@@ -14,19 +14,19 @@ use Commercetools\Types;
 interface AttributeType extends JsonObject {
     const DISCRIMINATOR = 'name';
     const SUB_TYPES = [
-        'enum' => Types\ProductType\AttributeEnumType::class,
         'date' => Types\ProductType\AttributeDateType::class,
+        'datetime' => Types\ProductType\AttributeDateTimeType::class,
         'number' => Types\ProductType\AttributeNumberType::class,
         'nested' => Types\ProductType\AttributeNestedType::class,
-        'money' => Types\ProductType\AttributeMoneyType::class,
-        'reference' => Types\ProductType\AttributeReferenceType::class,
-        'ltext' => Types\ProductType\AttributeLocalizableTextType::class,
-        'datetime' => Types\ProductType\AttributeDateTimeType::class,
-        'boolean' => Types\ProductType\AttributeBooleanType::class,
         'time' => Types\ProductType\AttributeTimeType::class,
-        'text' => Types\ProductType\AttributeTextType::class,
+        'boolean' => Types\ProductType\AttributeBooleanType::class,
         'lenum' => Types\ProductType\AttributeLocalizedEnumType::class,
+        'money' => Types\ProductType\AttributeMoneyType::class,
+        'enum' => Types\ProductType\AttributeEnumType::class,
+        'text' => Types\ProductType\AttributeTextType::class,
         'set' => Types\ProductType\AttributeSetType::class,
+        'ltext' => Types\ProductType\AttributeLocalizableTextType::class,
+        'reference' => Types\ProductType\AttributeReferenceType::class,
 
     ];
 

@@ -8,41 +8,25 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Extension\ExtensionDraft;
+use Commercetools\Types\Update;
 
 
 class Resource87 extends Resource
 {
     /**
-     * @return Resource88
+     * @return ByProjectKeyMeOrdersByIDGet
      */
-    public function keyWithKeyValue($key = null): Resource88 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource88($this->getUri() . '/key={key}', $args);
-    }
-    /**
-     * @return Resource89
-     */
-    public function withIDValue($ID = null): Resource89 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource89($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyExtensionsGet
-     */
-    public function get(): ByProjectKeyExtensionsGet {
+    public function get(): ByProjectKeyMeOrdersByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyExtensionsGet($args['projectKey']);
+        return new ByProjectKeyMeOrdersByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param ExtensionDraft $body
-     * @return ByProjectKeyExtensionsPost
+     * @param Update $body
+     * @return ByProjectKeyMeOrdersByIDPost
      */
-    public function post(ExtensionDraft $body): ByProjectKeyExtensionsPost {
+    public function post(Update $body): ByProjectKeyMeOrdersByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyExtensionsPost($args['projectKey'], $body);
+        return new ByProjectKeyMeOrdersByIDPost($args['projectKey'], $args['ID'], $body);
     }
 
 }

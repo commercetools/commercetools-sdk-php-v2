@@ -8,33 +8,48 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Zone\ZoneUpdate;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Zone\Zone;
+use Commercetools\Builder\ZoneUpdateBuilder;
 
+use Commercetools\Types\Zone\ZoneDraft;
 
 
 class Resource74 extends Resource
 {
     /**
-     * @return ByProjectKeyZonesByIDGet
+     * @return Resource75
      */
-    public function get(): ByProjectKeyZonesByIDGet {
-        $args = $this->getArgs();
-        return new ByProjectKeyZonesByIDGet($args['projectKey'], $args['ID']);
-    }
-    /**
-     * @param ZoneUpdate $body
-     * @return ByProjectKeyZonesByIDPost
-     */
-    public function post(ZoneUpdate $body): ByProjectKeyZonesByIDPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyZonesByIDPost($args['projectKey'], $args['ID'], $body);
-    }
-    /**
-     * @return ByProjectKeyZonesByIDDelete
-     */
-    public function delete(): ByProjectKeyZonesByIDDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeyZonesByIDDelete($args['projectKey'], $args['ID']);
+    public function withIDValue($ID = null): Resource75 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource75($this->getUri() . '/{ID}', $args);
     }
 
+
+    /**
+     * @return ByProjectKeyZonesGet
+     */
+    public function get(): ByProjectKeyZonesGet {
+        $args = $this->getArgs();
+        return new ByProjectKeyZonesGet($args['projectKey']);
+    }
+    /**
+     * @param ZoneDraft $body
+     * @return ByProjectKeyZonesPost
+     */
+    public function post(ZoneDraft $body): ByProjectKeyZonesPost {
+        $args = $this->getArgs();
+        return new ByProjectKeyZonesPost($args['projectKey'], $body);
+    }
+
+
+    public function update(Zone $resource)
+    {
+        $builder = new ZoneUpdateBuilder(function (ZoneUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

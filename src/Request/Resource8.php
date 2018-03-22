@@ -8,6 +8,10 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Channel\Channel;
+use Commercetools\Builder\ChannelUpdateBuilder;
+
 use Commercetools\Types\Channel\ChannelDraft;
 
 
@@ -38,4 +42,14 @@ class Resource8 extends Resource
         return new ByProjectKeyChannelsPost($args['projectKey'], $body);
     }
 
+
+    public function update(Channel $resource)
+    {
+        $builder = new ChannelUpdateBuilder(function (ChannelUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

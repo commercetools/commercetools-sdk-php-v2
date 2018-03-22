@@ -8,41 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Review\ReviewDraft;
+use Commercetools\Types\ProductType\ProductTypeUpdate;
+
 
 
 class Resource54 extends Resource
 {
     /**
-     * @return Resource55
+     * @return ByProjectKeyProductTypesByIDGet
      */
-    public function keyWithKeyValue($key = null): Resource55 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource55($this->getUri() . '/key={key}', $args);
-    }
-    /**
-     * @return Resource56
-     */
-    public function withIDValue($ID = null): Resource56 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource56($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyReviewsGet
-     */
-    public function get(): ByProjectKeyReviewsGet {
+    public function get(): ByProjectKeyProductTypesByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyReviewsGet($args['projectKey']);
+        return new ByProjectKeyProductTypesByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param ReviewDraft $body
-     * @return ByProjectKeyReviewsPost
+     * @param ProductTypeUpdate $body
+     * @return ByProjectKeyProductTypesByIDPost
      */
-    public function post(ReviewDraft $body): ByProjectKeyReviewsPost {
+    public function post(ProductTypeUpdate $body): ByProjectKeyProductTypesByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyReviewsPost($args['projectKey'], $body);
+        return new ByProjectKeyProductTypesByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyProductTypesByIDDelete
+     */
+    public function delete(): ByProjectKeyProductTypesByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyProductTypesByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

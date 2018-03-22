@@ -8,20 +8,22 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\Channel\ChannelUpdateAction;
 
-use Commercetools\Types\Channel\ChannelSetRolesAction;
+use Commercetools\Types\Channel\ChannelAddRolesAction;
 use Commercetools\Types\Channel\ChannelChangeDescriptionAction;
+use Commercetools\Types\Channel\ChannelChangeKeyAction;
+use Commercetools\Types\Channel\ChannelChangeNameAction;
 use Commercetools\Types\Channel\ChannelRemoveRolesAction;
+use Commercetools\Types\Channel\ChannelSetAddressAction;
 use Commercetools\Types\Channel\ChannelSetCustomFieldAction;
 use Commercetools\Types\Channel\ChannelSetCustomTypeAction;
-use Commercetools\Types\Channel\ChannelAddRolesAction;
-use Commercetools\Types\Channel\ChannelSetAddressAction;
 use Commercetools\Types\Channel\ChannelSetGeolocationAction;
-use Commercetools\Types\Channel\ChannelChangeNameAction;
-use Commercetools\Types\Channel\ChannelChangeKeyAction;
+use Commercetools\Types\Channel\ChannelSetRolesAction;
 use Commercetools\Types\Channel\Channel;
 use Commercetools\Types\Channel\ChannelUpdate;
+use Commercetools\Request\ByProjectKeyChannelsByIDPost;
 
 
 class ChannelUpdateBuilder extends BaseBuilder {
@@ -35,18 +37,25 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
+    {
+        $this->requestBuilderCallback = $requestBuilderCallback;
+    }
+
     /**
      * @param callable $callback builder function <code>
-     *   function (ChannelSetRolesAction $action) {
+     *   function (ChannelAddRolesAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setRoles(callable $callback = null)
+    public function addRoles(callable $callback = null)
     {
-        $action = $this->mapData(ChannelSetRolesAction::class, null);
+        $action = $this->mapData(ChannelAddRolesAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -67,6 +76,36 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
+     *   function (ChannelChangeKeyAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeKey(callable $callback = null)
+    {
+        $action = $this->mapData(ChannelChangeKeyAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ChannelChangeNameAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeName(callable $callback = null)
+    {
+        $action = $this->mapData(ChannelChangeNameAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
      *   function (ChannelRemoveRolesAction $action) {
      *     // modify action as needed
      *     return $action;
@@ -77,6 +116,21 @@ class ChannelUpdateBuilder extends BaseBuilder {
     public function removeRoles(callable $callback = null)
     {
         $action = $this->mapData(ChannelRemoveRolesAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ChannelSetAddressAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setAddress(callable $callback = null)
+    {
+        $action = $this->mapData(ChannelSetAddressAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -112,36 +166,6 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ChannelAddRolesAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function addRoles(callable $callback = null)
-    {
-        $action = $this->mapData(ChannelAddRolesAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ChannelSetAddressAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setAddress(callable $callback = null)
-    {
-        $action = $this->mapData(ChannelSetAddressAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
      *   function (ChannelSetGeolocationAction $action) {
      *     // modify action as needed
      *     return $action;
@@ -157,31 +181,16 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ChannelChangeNameAction $action) {
+     *   function (ChannelSetRolesAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeName(callable $callback = null)
+    public function setRoles(callable $callback = null)
     {
-        $action = $this->mapData(ChannelChangeNameAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ChannelChangeKeyAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeKey(callable $callback = null)
-    {
-        $action = $this->mapData(ChannelChangeKeyAction::class, null);
+        $action = $this->mapData(ChannelSetRolesAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -223,8 +232,13 @@ class ChannelUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?Channel
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build ChannelUpdate and delete internal state
+     * Build ChannelUpdate
      * @return ChannelUpdate
      */
     public function build(): ChannelUpdate
@@ -240,5 +254,15 @@ class ChannelUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyChannelsByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

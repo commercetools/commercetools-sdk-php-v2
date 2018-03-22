@@ -8,34 +8,15 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Me\MyCartDraft;
-
 
 class Resource83 extends Resource
 {
     /**
-     * @return Resource84
+     * @return ByProjectKeyMeActiveCartGet
      */
-    public function withIDValue($ID = null): Resource84 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource84($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyMeCartsGet
-     */
-    public function get(): ByProjectKeyMeCartsGet {
+    public function get(): ByProjectKeyMeActiveCartGet {
         $args = $this->getArgs();
-        return new ByProjectKeyMeCartsGet($args['projectKey']);
-    }
-    /**
-     * @param MyCartDraft $body
-     * @return ByProjectKeyMeCartsPost
-     */
-    public function post(MyCartDraft $body): ByProjectKeyMeCartsPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyMeCartsPost($args['projectKey'], $body);
+        return new ByProjectKeyMeActiveCartGet($args['projectKey']);
     }
 
 }

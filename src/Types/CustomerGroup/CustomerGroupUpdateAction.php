@@ -13,8 +13,8 @@ use Commercetools\Types;
 interface CustomerGroupUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'setKey' => Types\CustomerGroup\CustomerGroupSetKeyAction::class,
         'changeName' => Types\CustomerGroup\CustomerGroupChangeNameAction::class,
+        'setKey' => Types\CustomerGroup\CustomerGroupSetKeyAction::class,
 
     ];
 

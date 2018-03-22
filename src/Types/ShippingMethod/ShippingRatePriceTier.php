@@ -15,8 +15,8 @@ interface ShippingRatePriceTier extends JsonObject {
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'CartValue' => Types\ShippingMethod\CartValueTier::class,
-        'CartClassification' => Types\ShippingMethod\CartClassificationTier::class,
         'CartScore' => Types\ShippingMethod\CartScoreTier::class,
+        'CartClassification' => Types\ShippingMethod\CartClassificationTier::class,
 
     ];
 

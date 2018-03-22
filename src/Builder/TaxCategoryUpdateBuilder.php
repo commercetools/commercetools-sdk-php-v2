@@ -8,16 +8,18 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\TaxCategory\TaxCategoryUpdateAction;
 
 use Commercetools\Types\TaxCategory\TaxCategoryAddTaxRateAction;
-use Commercetools\Types\TaxCategory\TaxCategorySetDescriptionAction;
 use Commercetools\Types\TaxCategory\TaxCategoryChangeNameAction;
-use Commercetools\Types\TaxCategory\TaxCategorySetKeyAction;
-use Commercetools\Types\TaxCategory\TaxCategoryReplaceTaxRateAction;
 use Commercetools\Types\TaxCategory\TaxCategoryRemoveTaxRateAction;
+use Commercetools\Types\TaxCategory\TaxCategoryReplaceTaxRateAction;
+use Commercetools\Types\TaxCategory\TaxCategorySetDescriptionAction;
+use Commercetools\Types\TaxCategory\TaxCategorySetKeyAction;
 use Commercetools\Types\TaxCategory\TaxCategory;
 use Commercetools\Types\TaxCategory\TaxCategoryUpdate;
+use Commercetools\Request\ByProjectKeyTaxCategoriesByIDPost;
 
 
 class TaxCategoryUpdateBuilder extends BaseBuilder {
@@ -31,6 +33,13 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
+    {
+        $this->requestBuilderCallback = $requestBuilderCallback;
+    }
+
     /**
      * @param callable $callback builder function <code>
      *   function (TaxCategoryAddTaxRateAction $action) {
@@ -43,21 +52,6 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
     public function addTaxRate(callable $callback = null)
     {
         $action = $this->mapData(TaxCategoryAddTaxRateAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (TaxCategorySetDescriptionAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setDescription(callable $callback = null)
-    {
-        $action = $this->mapData(TaxCategorySetDescriptionAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -78,16 +72,16 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (TaxCategorySetKeyAction $action) {
+     *   function (TaxCategoryRemoveTaxRateAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setKey(callable $callback = null)
+    public function removeTaxRate(callable $callback = null)
     {
-        $action = $this->mapData(TaxCategorySetKeyAction::class, null);
+        $action = $this->mapData(TaxCategoryRemoveTaxRateAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -108,16 +102,31 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (TaxCategoryRemoveTaxRateAction $action) {
+     *   function (TaxCategorySetDescriptionAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function removeTaxRate(callable $callback = null)
+    public function setDescription(callable $callback = null)
     {
-        $action = $this->mapData(TaxCategoryRemoveTaxRateAction::class, null);
+        $action = $this->mapData(TaxCategorySetDescriptionAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (TaxCategorySetKeyAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setKey(callable $callback = null)
+    {
+        $action = $this->mapData(TaxCategorySetKeyAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -159,8 +168,13 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?TaxCategory
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build TaxCategoryUpdate and delete internal state
+     * Build TaxCategoryUpdate
      * @return TaxCategoryUpdate
      */
     public function build(): TaxCategoryUpdate
@@ -176,5 +190,15 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyTaxCategoriesByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Update;
+use Commercetools\Types\CustomerGroup\CustomerGroupUpdate;
 
 
 
@@ -22,10 +22,10 @@ class Resource21 extends Resource
         return new ByProjectKeyCustomerGroupsKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
-     * @param Update $body
+     * @param CustomerGroupUpdate $body
      * @return ByProjectKeyCustomerGroupsKeyByKeyPost
      */
-    public function post(Update $body): ByProjectKeyCustomerGroupsKeyByKeyPost {
+    public function post(CustomerGroupUpdate $body): ByProjectKeyCustomerGroupsKeyByKeyPost {
         $args = $this->getArgs();
         return new ByProjectKeyCustomerGroupsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }

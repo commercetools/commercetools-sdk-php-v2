@@ -8,41 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\ShoppingList\ShoppingListDraft;
+use Commercetools\Types\ShippingMethod\ShippingMethodUpdate;
+
 
 
 class Resource60 extends Resource
 {
     /**
-     * @return Resource61
+     * @return ByProjectKeyShippingMethodsByIDGet
      */
-    public function keyWithKeyValue($key = null): Resource61 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource61($this->getUri() . '/key={key}', $args);
-    }
-    /**
-     * @return Resource62
-     */
-    public function withIDValue($ID = null): Resource62 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource62($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyShoppingListsGet
-     */
-    public function get(): ByProjectKeyShoppingListsGet {
+    public function get(): ByProjectKeyShippingMethodsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyShoppingListsGet($args['projectKey']);
+        return new ByProjectKeyShippingMethodsByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param ShoppingListDraft $body
-     * @return ByProjectKeyShoppingListsPost
+     * @param ShippingMethodUpdate $body
+     * @return ByProjectKeyShippingMethodsByIDPost
      */
-    public function post(ShoppingListDraft $body): ByProjectKeyShoppingListsPost {
+    public function post(ShippingMethodUpdate $body): ByProjectKeyShippingMethodsByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyShoppingListsPost($args['projectKey'], $body);
+        return new ByProjectKeyShippingMethodsByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyShippingMethodsByIDDelete
+     */
+    public function delete(): ByProjectKeyShippingMethodsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyShippingMethodsByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

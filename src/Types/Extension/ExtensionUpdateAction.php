@@ -13,8 +13,8 @@ use Commercetools\Types;
 interface ExtensionUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'changeTriggers' => Types\Extension\ExtensionChangeTriggersAction::class,
         'changeDestination' => Types\Extension\ExtensionChangeDestinationAction::class,
+        'changeTriggers' => Types\Extension\ExtensionChangeTriggersAction::class,
         'setKey' => Types\Extension\ExtensionSetKeyAction::class,
 
     ];

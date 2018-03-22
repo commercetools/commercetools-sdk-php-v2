@@ -8,33 +8,55 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Update;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\ShoppingList\ShoppingList;
+use Commercetools\Builder\ShoppingListUpdateBuilder;
 
+use Commercetools\Types\ShoppingList\ShoppingListDraft;
 
 
 class Resource61 extends Resource
 {
     /**
-     * @return ByProjectKeyShoppingListsKeyByKeyGet
+     * @return Resource62
      */
-    public function get(): ByProjectKeyShoppingListsKeyByKeyGet {
-        $args = $this->getArgs();
-        return new ByProjectKeyShoppingListsKeyByKeyGet($args['projectKey'], $args['key']);
+    public function keyWithKeyValue($key = null): Resource62 {
+        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
+        return new Resource62($this->getUri() . '/key={key}', $args);
     }
     /**
-     * @param Update $body
-     * @return ByProjectKeyShoppingListsKeyByKeyPost
+     * @return Resource63
      */
-    public function post(Update $body): ByProjectKeyShoppingListsKeyByKeyPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyShoppingListsKeyByKeyPost($args['projectKey'], $args['key'], $body);
-    }
-    /**
-     * @return ByProjectKeyShoppingListsKeyByKeyDelete
-     */
-    public function delete(): ByProjectKeyShoppingListsKeyByKeyDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeyShoppingListsKeyByKeyDelete($args['projectKey'], $args['key']);
+    public function withIDValue($ID = null): Resource63 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource63($this->getUri() . '/{ID}', $args);
     }
 
+
+    /**
+     * @return ByProjectKeyShoppingListsGet
+     */
+    public function get(): ByProjectKeyShoppingListsGet {
+        $args = $this->getArgs();
+        return new ByProjectKeyShoppingListsGet($args['projectKey']);
+    }
+    /**
+     * @param ShoppingListDraft $body
+     * @return ByProjectKeyShoppingListsPost
+     */
+    public function post(ShoppingListDraft $body): ByProjectKeyShoppingListsPost {
+        $args = $this->getArgs();
+        return new ByProjectKeyShoppingListsPost($args['projectKey'], $body);
+    }
+
+
+    public function update(ShoppingList $resource)
+    {
+        $builder = new ShoppingListUpdateBuilder(function (ShoppingListUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

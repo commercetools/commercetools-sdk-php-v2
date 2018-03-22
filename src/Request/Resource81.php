@@ -8,16 +8,18 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Types\Me\MyCustomerDraft;
+
 
 class Resource81 extends Resource
 {
     /**
-     * @param $body
-     * @return ByProjectKeyMeLoginPost
+     * @param MyCustomerDraft $body
+     * @return ByProjectKeyMeSignupPost
      */
-    public function post($body): ByProjectKeyMeLoginPost {
+    public function post(MyCustomerDraft $body): ByProjectKeyMeSignupPost {
         $args = $this->getArgs();
-        return new ByProjectKeyMeLoginPost($args['projectKey'], $body);
+        return new ByProjectKeyMeSignupPost($args['projectKey'], $body);
     }
 
 }

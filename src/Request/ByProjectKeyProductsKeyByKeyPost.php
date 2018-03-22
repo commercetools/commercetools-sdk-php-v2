@@ -12,7 +12,7 @@ use Commercetools\Types\Product\Product;
 
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
-use Commercetools\Types\Update;
+use Commercetools\Types\Product\ProductUpdate;
 
 
 class ByProjectKeyProductsKeyByKeyPost extends ApiRequest
@@ -25,7 +25,7 @@ class ByProjectKeyProductsKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, Update $body, array $headers = [])
+    public function __construct($projectKey, $key, ProductUpdate $body, array $headers = [])
     {
         $uri = sprintf('/%s/products/key=%s', $projectKey, $key);
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);

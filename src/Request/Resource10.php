@@ -8,6 +8,10 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Customer\Customer;
+use Commercetools\Builder\CustomerUpdateBuilder;
+
 use Commercetools\Types\Customer\CustomerDraft;
 
 
@@ -76,4 +80,14 @@ class Resource10 extends Resource
         return new ByProjectKeyCustomersPost($args['projectKey'], $body);
     }
 
+
+    public function update(Customer $resource)
+    {
+        $builder = new CustomerUpdateBuilder(function (CustomerUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

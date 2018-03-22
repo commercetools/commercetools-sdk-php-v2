@@ -12,7 +12,7 @@ use Commercetools\Types\ShippingMethod\ShippingMethod;
 
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
-use Commercetools\Types\Update;
+use Commercetools\Types\ShippingMethod\ShippingMethodUpdate;
 
 
 class ByProjectKeyShippingMethodsKeyByKeyPost extends ApiRequest
@@ -25,7 +25,7 @@ class ByProjectKeyShippingMethodsKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, Update $body, array $headers = [])
+    public function __construct($projectKey, $key, ShippingMethodUpdate $body, array $headers = [])
     {
         $uri = sprintf('/%s/shipping-methods/key=%s', $projectKey, $key);
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);

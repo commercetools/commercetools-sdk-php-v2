@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Update;
+use Commercetools\Types\Category\CategoryUpdate;
 
 
 
@@ -22,10 +22,10 @@ class Resource2 extends Resource
         return new ByProjectKeyCategoriesKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
-     * @param Update $body
+     * @param CategoryUpdate $body
      * @return ByProjectKeyCategoriesKeyByKeyPost
      */
-    public function post(Update $body): ByProjectKeyCategoriesKeyByKeyPost {
+    public function post(CategoryUpdate $body): ByProjectKeyCategoriesKeyByKeyPost {
         $args = $this->getArgs();
         return new ByProjectKeyCategoriesKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }

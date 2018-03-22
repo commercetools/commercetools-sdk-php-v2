@@ -13,23 +13,23 @@ use Commercetools\Types;
 interface ProductTypeUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'addPlainEnumValue' => Types\ProductType\ProductTypeAddPlainEnumValueAction::class,
-        'changeLocalizedEnumValueLabel' => Types\ProductType\ProductTypeChangeLocalizedEnumValueLabelAction::class,
-        'changeInputHint' => Types\ProductType\ProductTypeChangeInputHintAction::class,
-        'setInputTip' => Types\ProductType\ProductTypeSetInputTipAction::class,
-        'removeAttributeDefinition' => Types\ProductType\ProductTypeRemoveAttributeDefinitionAction::class,
-        'changeName' => Types\ProductType\ProductTypeChangeNameAction::class,
-        'changeIsSearchable' => Types\ProductType\ProductTypeChangeIsSearchableAction::class,
-        'changePlainEnumValueLabel' => Types\ProductType\ProductTypeChangePlainEnumValueLabelAction::class,
-        'addAttributeDefinition' => Types\ProductType\ProductTypeAddAttributeDefinitionAction::class,
         'addLocalizedEnumValue' => Types\ProductType\ProductTypeAddLocalizedEnumValueAction::class,
-        'changeLocalizedEnumValueOrder' => Types\ProductType\ProductTypeChangeLocalizedEnumValueOrderAction::class,
-        'setKey' => Types\ProductType\ProductTypeSetKeyAction::class,
-        'changeDescription' => Types\ProductType\ProductTypeChangeDescriptionAction::class,
-        'changeAttributeConstraint' => Types\ProductType\ProductTypeChangeAttributeConstraintAction::class,
-        'changeAttributeOrder' => Types\ProductType\ProductTypeChangeAttributeOrderAction::class,
-        'changePlainEnumValueOrder' => Types\ProductType\ProductTypeChangePlainEnumValueOrderAction::class,
         'changeLabel' => Types\ProductType\ProductTypeChangeLabelAction::class,
+        'changeDescription' => Types\ProductType\ProductTypeChangeDescriptionAction::class,
+        'removeAttributeDefinition' => Types\ProductType\ProductTypeRemoveAttributeDefinitionAction::class,
+        'changeLocalizedEnumValueOrder' => Types\ProductType\ProductTypeChangeLocalizedEnumValueOrderAction::class,
+        'changeInputHint' => Types\ProductType\ProductTypeChangeInputHintAction::class,
+        'changeName' => Types\ProductType\ProductTypeChangeNameAction::class,
+        'changePlainEnumValueOrder' => Types\ProductType\ProductTypeChangePlainEnumValueOrderAction::class,
+        'addAttributeDefinition' => Types\ProductType\ProductTypeAddAttributeDefinitionAction::class,
+        'changeLocalizedEnumValueLabel' => Types\ProductType\ProductTypeChangeLocalizedEnumValueLabelAction::class,
+        'setKey' => Types\ProductType\ProductTypeSetKeyAction::class,
+        'setInputTip' => Types\ProductType\ProductTypeSetInputTipAction::class,
+        'changeAttributeOrder' => Types\ProductType\ProductTypeChangeAttributeOrderAction::class,
+        'addPlainEnumValue' => Types\ProductType\ProductTypeAddPlainEnumValueAction::class,
+        'changeAttributeConstraint' => Types\ProductType\ProductTypeChangeAttributeConstraintAction::class,
+        'changePlainEnumValueLabel' => Types\ProductType\ProductTypeChangePlainEnumValueLabelAction::class,
+        'changeIsSearchable' => Types\ProductType\ProductTypeChangeIsSearchableAction::class,
 
     ];
 

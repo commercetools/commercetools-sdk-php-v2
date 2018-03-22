@@ -8,33 +8,48 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\ProductDiscount\ProductDiscountUpdate;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\ProductDiscount\ProductDiscount;
+use Commercetools\Builder\ProductDiscountUpdateBuilder;
 
+use Commercetools\Types\ProductDiscount\ProductDiscountDraft;
 
 
 class Resource45 extends Resource
 {
     /**
-     * @return ByProjectKeyProductDiscountsByIDGet
+     * @return Resource46
      */
-    public function get(): ByProjectKeyProductDiscountsByIDGet {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductDiscountsByIDGet($args['projectKey'], $args['ID']);
-    }
-    /**
-     * @param ProductDiscountUpdate $body
-     * @return ByProjectKeyProductDiscountsByIDPost
-     */
-    public function post(ProductDiscountUpdate $body): ByProjectKeyProductDiscountsByIDPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductDiscountsByIDPost($args['projectKey'], $args['ID'], $body);
-    }
-    /**
-     * @return ByProjectKeyProductDiscountsByIDDelete
-     */
-    public function delete(): ByProjectKeyProductDiscountsByIDDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductDiscountsByIDDelete($args['projectKey'], $args['ID']);
+    public function withIDValue($ID = null): Resource46 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource46($this->getUri() . '/{ID}', $args);
     }
 
+
+    /**
+     * @return ByProjectKeyProductDiscountsGet
+     */
+    public function get(): ByProjectKeyProductDiscountsGet {
+        $args = $this->getArgs();
+        return new ByProjectKeyProductDiscountsGet($args['projectKey']);
+    }
+    /**
+     * @param ProductDiscountDraft $body
+     * @return ByProjectKeyProductDiscountsPost
+     */
+    public function post(ProductDiscountDraft $body): ByProjectKeyProductDiscountsPost {
+        $args = $this->getArgs();
+        return new ByProjectKeyProductDiscountsPost($args['projectKey'], $body);
+    }
+
+
+    public function update(ProductDiscount $resource)
+    {
+        $builder = new ProductDiscountUpdateBuilder(function (ProductDiscountUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

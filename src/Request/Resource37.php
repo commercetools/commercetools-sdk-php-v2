@@ -8,41 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Payment\PaymentDraft;
+use Commercetools\Types\Order\OrderUpdate;
+
 
 
 class Resource37 extends Resource
 {
     /**
-     * @return Resource38
+     * @return ByProjectKeyOrdersByIDGet
      */
-    public function keyWithKeyValue($key = null): Resource38 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource38($this->getUri() . '/key={key}', $args);
-    }
-    /**
-     * @return Resource39
-     */
-    public function withIDValue($ID = null): Resource39 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource39($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyPaymentsGet
-     */
-    public function get(): ByProjectKeyPaymentsGet {
+    public function get(): ByProjectKeyOrdersByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyPaymentsGet($args['projectKey']);
+        return new ByProjectKeyOrdersByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param PaymentDraft $body
-     * @return ByProjectKeyPaymentsPost
+     * @param OrderUpdate $body
+     * @return ByProjectKeyOrdersByIDPost
      */
-    public function post(PaymentDraft $body): ByProjectKeyPaymentsPost {
+    public function post(OrderUpdate $body): ByProjectKeyOrdersByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyPaymentsPost($args['projectKey'], $body);
+        return new ByProjectKeyOrdersByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyOrdersByIDDelete
+     */
+    public function delete(): ByProjectKeyOrdersByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyOrdersByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

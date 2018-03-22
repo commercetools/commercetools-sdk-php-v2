@@ -8,6 +8,10 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Inventory\InventoryEntry;
+use Commercetools\Builder\InventoryEntryUpdateBuilder;
+
 use Commercetools\Types\Inventory\InventoryEntryDraft;
 
 
@@ -38,4 +42,14 @@ class Resource29 extends Resource
         return new ByProjectKeyInventoryPost($args['projectKey'], $body);
     }
 
+
+    public function update(InventoryEntry $resource)
+    {
+        $builder = new InventoryEntryUpdateBuilder(function (InventoryEntryUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

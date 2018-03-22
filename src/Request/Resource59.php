@@ -15,26 +15,26 @@ use Commercetools\Types\ShippingMethod\ShippingMethodUpdate;
 class Resource59 extends Resource
 {
     /**
-     * @return ByProjectKeyShippingMethodsByIDGet
+     * @return ByProjectKeyShippingMethodsKeyByKeyGet
      */
-    public function get(): ByProjectKeyShippingMethodsByIDGet {
+    public function get(): ByProjectKeyShippingMethodsKeyByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyShippingMethodsByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyShippingMethodsKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
      * @param ShippingMethodUpdate $body
-     * @return ByProjectKeyShippingMethodsByIDPost
+     * @return ByProjectKeyShippingMethodsKeyByKeyPost
      */
-    public function post(ShippingMethodUpdate $body): ByProjectKeyShippingMethodsByIDPost {
+    public function post(ShippingMethodUpdate $body): ByProjectKeyShippingMethodsKeyByKeyPost {
         $args = $this->getArgs();
-        return new ByProjectKeyShippingMethodsByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyShippingMethodsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }
     /**
-     * @return ByProjectKeyShippingMethodsByIDDelete
+     * @return ByProjectKeyShippingMethodsKeyByKeyDelete
      */
-    public function delete(): ByProjectKeyShippingMethodsByIDDelete {
+    public function delete(): ByProjectKeyShippingMethodsKeyByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyShippingMethodsByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyShippingMethodsKeyByKeyDelete($args['projectKey'], $args['key']);
     }
 
 }

@@ -12,7 +12,7 @@ use Commercetools\Types\ShoppingList\ShoppingList;
 
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
-use Commercetools\Types\Update;
+use Commercetools\Types\ShoppingList\ShoppingListUpdate;
 
 
 class ByProjectKeyShoppingListsKeyByKeyPost extends ApiRequest
@@ -25,7 +25,7 @@ class ByProjectKeyShoppingListsKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, Update $body, array $headers = [])
+    public function __construct($projectKey, $key, ShoppingListUpdate $body, array $headers = [])
     {
         $uri = sprintf('/%s/shopping-lists/key=%s', $projectKey, $key);
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);

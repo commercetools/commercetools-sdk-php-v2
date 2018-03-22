@@ -8,33 +8,55 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Update;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Subscription\Subscription;
+use Commercetools\Builder\SubscriptionUpdateBuilder;
 
+use Commercetools\Types\Subscription\SubscriptionDraft;
 
 
 class Resource66 extends Resource
 {
     /**
-     * @return ByProjectKeySubscriptionsKeyByKeyGet
+     * @return Resource67
      */
-    public function get(): ByProjectKeySubscriptionsKeyByKeyGet {
-        $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsKeyByKeyGet($args['projectKey'], $args['key']);
+    public function keyWithKeyValue($key = null): Resource67 {
+        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
+        return new Resource67($this->getUri() . '/key={key}', $args);
     }
     /**
-     * @param Update $body
-     * @return ByProjectKeySubscriptionsKeyByKeyPost
+     * @return Resource68
      */
-    public function post(Update $body): ByProjectKeySubscriptionsKeyByKeyPost {
-        $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsKeyByKeyPost($args['projectKey'], $args['key'], $body);
-    }
-    /**
-     * @return ByProjectKeySubscriptionsKeyByKeyDelete
-     */
-    public function delete(): ByProjectKeySubscriptionsKeyByKeyDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsKeyByKeyDelete($args['projectKey'], $args['key']);
+    public function withIDValue($ID = null): Resource68 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource68($this->getUri() . '/{ID}', $args);
     }
 
+
+    /**
+     * @return ByProjectKeySubscriptionsGet
+     */
+    public function get(): ByProjectKeySubscriptionsGet {
+        $args = $this->getArgs();
+        return new ByProjectKeySubscriptionsGet($args['projectKey']);
+    }
+    /**
+     * @param SubscriptionDraft $body
+     * @return ByProjectKeySubscriptionsPost
+     */
+    public function post(SubscriptionDraft $body): ByProjectKeySubscriptionsPost {
+        $args = $this->getArgs();
+        return new ByProjectKeySubscriptionsPost($args['projectKey'], $body);
+    }
+
+
+    public function update(Subscription $resource)
+    {
+        $builder = new SubscriptionUpdateBuilder(function (SubscriptionUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

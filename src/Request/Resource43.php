@@ -8,18 +8,41 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Psr\Http\Message\UploadedFileInterface;
+use Commercetools\Types\Product\ProductUpdate;
+
 
 
 class Resource43 extends Resource
 {
     /**
-     * @param UploadedFileInterface $body
-     * @return ByProjectKeyProductsByIDImagesPost
+     * @return Resource44
      */
-    public function post(UploadedFileInterface $body): ByProjectKeyProductsByIDImagesPost {
+    public function images(): Resource44 {
+        return new Resource44($this->getUri() . '/images', $this->getArgs());
+    }
+
+
+    /**
+     * @return ByProjectKeyProductsByIDGet
+     */
+    public function get(): ByProjectKeyProductsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyProductsByIDImagesPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyProductsByIDGet($args['projectKey'], $args['ID']);
+    }
+    /**
+     * @param ProductUpdate $body
+     * @return ByProjectKeyProductsByIDPost
+     */
+    public function post(ProductUpdate $body): ByProjectKeyProductsByIDPost {
+        $args = $this->getArgs();
+        return new ByProjectKeyProductsByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyProductsByIDDelete
+     */
+    public function delete(): ByProjectKeyProductsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyProductsByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

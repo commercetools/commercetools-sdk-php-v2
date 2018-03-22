@@ -8,21 +8,23 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\Review\ReviewUpdateAction;
 
-use Commercetools\Types\Review\ReviewSetLocaleAction;
 use Commercetools\Types\Review\ReviewSetAuthorNameAction;
-use Commercetools\Types\Review\ReviewSetTargetAction;
-use Commercetools\Types\Review\ReviewSetTextAction;
-use Commercetools\Types\Review\ReviewSetKeyAction;
+use Commercetools\Types\Review\ReviewSetCustomFieldAction;
 use Commercetools\Types\Review\ReviewSetCustomTypeAction;
 use Commercetools\Types\Review\ReviewSetCustomerAction;
-use Commercetools\Types\Review\ReviewTransitionStateAction;
-use Commercetools\Types\Review\ReviewSetTitleAction;
+use Commercetools\Types\Review\ReviewSetKeyAction;
+use Commercetools\Types\Review\ReviewSetLocaleAction;
 use Commercetools\Types\Review\ReviewSetRatingAction;
-use Commercetools\Types\Review\ReviewSetCustomFieldAction;
+use Commercetools\Types\Review\ReviewSetTargetAction;
+use Commercetools\Types\Review\ReviewSetTextAction;
+use Commercetools\Types\Review\ReviewSetTitleAction;
+use Commercetools\Types\Review\ReviewTransitionStateAction;
 use Commercetools\Types\Review\Review;
 use Commercetools\Types\Review\ReviewUpdate;
+use Commercetools\Request\ByProjectKeyReviewsByIDPost;
 
 
 class ReviewUpdateBuilder extends BaseBuilder {
@@ -36,21 +38,13 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ReviewSetLocaleAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setLocale(callable $callback = null)
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
     {
-        $action = $this->mapData(ReviewSetLocaleAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
+        $this->requestBuilderCallback = $requestBuilderCallback;
     }
+
     /**
      * @param callable $callback builder function <code>
      *   function (ReviewSetAuthorNameAction $action) {
@@ -68,46 +62,16 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ReviewSetTargetAction $action) {
+     *   function (ReviewSetCustomFieldAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setTarget(callable $callback = null)
+    public function setCustomField(callable $callback = null)
     {
-        $action = $this->mapData(ReviewSetTargetAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ReviewSetTextAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setText(callable $callback = null)
-    {
-        $action = $this->mapData(ReviewSetTextAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ReviewSetKeyAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setKey(callable $callback = null)
-    {
-        $action = $this->mapData(ReviewSetKeyAction::class, null);
+        $action = $this->mapData(ReviewSetCustomFieldAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -143,31 +107,31 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ReviewTransitionStateAction $action) {
+     *   function (ReviewSetKeyAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function transitionState(callable $callback = null)
+    public function setKey(callable $callback = null)
     {
-        $action = $this->mapData(ReviewTransitionStateAction::class, null);
+        $action = $this->mapData(ReviewSetKeyAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ReviewSetTitleAction $action) {
+     *   function (ReviewSetLocaleAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setTitle(callable $callback = null)
+    public function setLocale(callable $callback = null)
     {
-        $action = $this->mapData(ReviewSetTitleAction::class, null);
+        $action = $this->mapData(ReviewSetLocaleAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -188,16 +152,61 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ReviewSetCustomFieldAction $action) {
+     *   function (ReviewSetTargetAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setCustomField(callable $callback = null)
+    public function setTarget(callable $callback = null)
     {
-        $action = $this->mapData(ReviewSetCustomFieldAction::class, null);
+        $action = $this->mapData(ReviewSetTargetAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ReviewSetTextAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setText(callable $callback = null)
+    {
+        $action = $this->mapData(ReviewSetTextAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ReviewSetTitleAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setTitle(callable $callback = null)
+    {
+        $action = $this->mapData(ReviewSetTitleAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ReviewTransitionStateAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function transitionState(callable $callback = null)
+    {
+        $action = $this->mapData(ReviewTransitionStateAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -239,8 +248,13 @@ class ReviewUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?Review
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build ReviewUpdate and delete internal state
+     * Build ReviewUpdate
      * @return ReviewUpdate
      */
     public function build(): ReviewUpdate
@@ -256,5 +270,15 @@ class ReviewUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyReviewsByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

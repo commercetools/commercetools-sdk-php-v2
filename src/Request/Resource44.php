@@ -8,34 +8,18 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\ProductDiscount\ProductDiscountDraft;
+use Commercetools\Psr\Http\Message\UploadedFileInterface;
 
 
 class Resource44 extends Resource
 {
     /**
-     * @return Resource45
+     * @param UploadedFileInterface $body
+     * @return ByProjectKeyProductsByIDImagesPost
      */
-    public function withIDValue($ID = null): Resource45 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource45($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyProductDiscountsGet
-     */
-    public function get(): ByProjectKeyProductDiscountsGet {
+    public function post(UploadedFileInterface $body): ByProjectKeyProductsByIDImagesPost {
         $args = $this->getArgs();
-        return new ByProjectKeyProductDiscountsGet($args['projectKey']);
-    }
-    /**
-     * @param ProductDiscountDraft $body
-     * @return ByProjectKeyProductDiscountsPost
-     */
-    public function post(ProductDiscountDraft $body): ByProjectKeyProductDiscountsPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductDiscountsPost($args['projectKey'], $body);
+        return new ByProjectKeyProductsByIDImagesPost($args['projectKey'], $args['ID'], $body);
     }
 
 }

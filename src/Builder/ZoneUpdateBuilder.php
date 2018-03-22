@@ -8,14 +8,16 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\Zone\ZoneUpdateAction;
 
-use Commercetools\Types\Zone\ZoneSetDescriptionAction;
-use Commercetools\Types\Zone\ZoneRemoveLocationAction;
-use Commercetools\Types\Zone\ZoneChangeNameAction;
 use Commercetools\Types\Zone\ZoneAddLocationAction;
+use Commercetools\Types\Zone\ZoneChangeNameAction;
+use Commercetools\Types\Zone\ZoneRemoveLocationAction;
+use Commercetools\Types\Zone\ZoneSetDescriptionAction;
 use Commercetools\Types\Zone\Zone;
 use Commercetools\Types\Zone\ZoneUpdate;
+use Commercetools\Request\ByProjectKeyZonesByIDPost;
 
 
 class ZoneUpdateBuilder extends BaseBuilder {
@@ -29,33 +31,25 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ZoneSetDescriptionAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setDescription(callable $callback = null)
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
     {
-        $action = $this->mapData(ZoneSetDescriptionAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
+        $this->requestBuilderCallback = $requestBuilderCallback;
     }
+
     /**
      * @param callable $callback builder function <code>
-     *   function (ZoneRemoveLocationAction $action) {
+     *   function (ZoneAddLocationAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function removeLocation(callable $callback = null)
+    public function addLocation(callable $callback = null)
     {
-        $action = $this->mapData(ZoneRemoveLocationAction::class, null);
+        $action = $this->mapData(ZoneAddLocationAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -76,16 +70,31 @@ class ZoneUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ZoneAddLocationAction $action) {
+     *   function (ZoneRemoveLocationAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function addLocation(callable $callback = null)
+    public function removeLocation(callable $callback = null)
     {
-        $action = $this->mapData(ZoneAddLocationAction::class, null);
+        $action = $this->mapData(ZoneRemoveLocationAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ZoneSetDescriptionAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setDescription(callable $callback = null)
+    {
+        $action = $this->mapData(ZoneSetDescriptionAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -127,8 +136,13 @@ class ZoneUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?Zone
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build ZoneUpdate and delete internal state
+     * Build ZoneUpdate
      * @return ZoneUpdate
      */
     public function build(): ZoneUpdate
@@ -144,5 +158,15 @@ class ZoneUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyZonesByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

@@ -8,25 +8,34 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Update;
+use Commercetools\Types\Me\MyOrderFromCartDraft;
 
 
 class Resource86 extends Resource
 {
     /**
-     * @return ByProjectKeyMeOrdersByIDGet
+     * @return Resource87
      */
-    public function get(): ByProjectKeyMeOrdersByIDGet {
+    public function withIDValue($ID = null): Resource87 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource87($this->getUri() . '/{ID}', $args);
+    }
+
+
+    /**
+     * @return ByProjectKeyMeOrdersGet
+     */
+    public function get(): ByProjectKeyMeOrdersGet {
         $args = $this->getArgs();
-        return new ByProjectKeyMeOrdersByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyMeOrdersGet($args['projectKey']);
     }
     /**
-     * @param Update $body
-     * @return ByProjectKeyMeOrdersByIDPost
+     * @param MyOrderFromCartDraft $body
+     * @return ByProjectKeyMeOrdersPost
      */
-    public function post(Update $body): ByProjectKeyMeOrdersByIDPost {
+    public function post(MyOrderFromCartDraft $body): ByProjectKeyMeOrdersPost {
         $args = $this->getArgs();
-        return new ByProjectKeyMeOrdersByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyMeOrdersPost($args['projectKey'], $body);
     }
 
 }

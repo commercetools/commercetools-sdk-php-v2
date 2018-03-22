@@ -8,41 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Type\TypeDraft;
+use Commercetools\Types\TaxCategory\TaxCategoryUpdate;
+
 
 
 class Resource70 extends Resource
 {
     /**
-     * @return Resource71
+     * @return ByProjectKeyTaxCategoriesByIDGet
      */
-    public function keyWithKeyValue($key = null): Resource71 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource71($this->getUri() . '/key={key}', $args);
-    }
-    /**
-     * @return Resource72
-     */
-    public function withIDValue($ID = null): Resource72 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource72($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyTypesGet
-     */
-    public function get(): ByProjectKeyTypesGet {
+    public function get(): ByProjectKeyTaxCategoriesByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyTypesGet($args['projectKey']);
+        return new ByProjectKeyTaxCategoriesByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param TypeDraft $body
-     * @return ByProjectKeyTypesPost
+     * @param TaxCategoryUpdate $body
+     * @return ByProjectKeyTaxCategoriesByIDPost
      */
-    public function post(TypeDraft $body): ByProjectKeyTypesPost {
+    public function post(TaxCategoryUpdate $body): ByProjectKeyTaxCategoriesByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyTypesPost($args['projectKey'], $body);
+        return new ByProjectKeyTaxCategoriesByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyTaxCategoriesByIDDelete
+     */
+    public function delete(): ByProjectKeyTaxCategoriesByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyTaxCategoriesByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

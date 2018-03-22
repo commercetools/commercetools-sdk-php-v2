@@ -13,17 +13,17 @@ use Commercetools\Types;
 interface ReviewUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
+        'setKey' => Types\Review\ReviewSetKeyAction::class,
+        'transitionState' => Types\Review\ReviewTransitionStateAction::class,
+        'setRating' => Types\Review\ReviewSetRatingAction::class,
+        'setTarget' => Types\Review\ReviewSetTargetAction::class,
+        'setCustomer' => Types\Review\ReviewSetCustomerAction::class,
+        'setCustomField' => Types\Review\ReviewSetCustomFieldAction::class,
+        'setCustomType' => Types\Review\ReviewSetCustomTypeAction::class,
+        'setTitle' => Types\Review\ReviewSetTitleAction::class,
+        'setText' => Types\Review\ReviewSetTextAction::class,
         'setLocale' => Types\Review\ReviewSetLocaleAction::class,
         'setAuthorName' => Types\Review\ReviewSetAuthorNameAction::class,
-        'setTarget' => Types\Review\ReviewSetTargetAction::class,
-        'setText' => Types\Review\ReviewSetTextAction::class,
-        'setKey' => Types\Review\ReviewSetKeyAction::class,
-        'setCustomType' => Types\Review\ReviewSetCustomTypeAction::class,
-        'setCustomer' => Types\Review\ReviewSetCustomerAction::class,
-        'transitionState' => Types\Review\ReviewTransitionStateAction::class,
-        'setTitle' => Types\Review\ReviewSetTitleAction::class,
-        'setRating' => Types\Review\ReviewSetRatingAction::class,
-        'setCustomField' => Types\Review\ReviewSetCustomFieldAction::class,
 
     ];
 

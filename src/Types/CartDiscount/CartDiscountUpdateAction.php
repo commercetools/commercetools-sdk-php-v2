@@ -13,19 +13,19 @@ use Commercetools\Types;
 interface CartDiscountUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'setCustomType' => Types\CartDiscount\CartDiscountSetCustomTypeAction::class,
-        'changeTarget' => Types\CartDiscount\CartDiscountChangeTargetAction::class,
-        'changeSortOrder' => Types\CartDiscount\CartDiscountChangeSortOrderAction::class,
-        'changeRequiresDiscountCode' => Types\CartDiscount\CartDiscountChangeRequiresDiscountCodeAction::class,
-        'setValidUntil' => Types\CartDiscount\CartDiscountSetValidUntilAction::class,
-        'changeValue' => Types\CartDiscount\CartDiscountChangeValueAction::class,
-        'setDescription' => Types\CartDiscount\CartDiscountSetDescriptionAction::class,
-        'setValidFrom' => Types\CartDiscount\CartDiscountSetValidFromAction::class,
-        'changeIsActive' => Types\CartDiscount\CartDiscountChangeIsActiveAction::class,
-        'changeStackingMode' => Types\CartDiscount\CartDiscountChangeStackingModeAction::class,
-        'changeCartPredicate' => Types\CartDiscount\CartDiscountChangeCartPredicateAction::class,
-        'changeName' => Types\CartDiscount\CartDiscountChangeNameAction::class,
         'setCustomField' => Types\CartDiscount\CartDiscountSetCustomFieldAction::class,
+        'changeStackingMode' => Types\CartDiscount\CartDiscountChangeStackingModeAction::class,
+        'changeRequiresDiscountCode' => Types\CartDiscount\CartDiscountChangeRequiresDiscountCodeAction::class,
+        'changeName' => Types\CartDiscount\CartDiscountChangeNameAction::class,
+        'setValidUntil' => Types\CartDiscount\CartDiscountSetValidUntilAction::class,
+        'setValidFrom' => Types\CartDiscount\CartDiscountSetValidFromAction::class,
+        'changeTarget' => Types\CartDiscount\CartDiscountChangeTargetAction::class,
+        'setCustomType' => Types\CartDiscount\CartDiscountSetCustomTypeAction::class,
+        'setDescription' => Types\CartDiscount\CartDiscountSetDescriptionAction::class,
+        'changeCartPredicate' => Types\CartDiscount\CartDiscountChangeCartPredicateAction::class,
+        'changeValue' => Types\CartDiscount\CartDiscountChangeValueAction::class,
+        'changeSortOrder' => Types\CartDiscount\CartDiscountChangeSortOrderAction::class,
+        'changeIsActive' => Types\CartDiscount\CartDiscountChangeIsActiveAction::class,
 
     ];
 

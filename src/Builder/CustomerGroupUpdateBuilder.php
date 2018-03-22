@@ -8,12 +8,14 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\CustomerGroup\CustomerGroupUpdateAction;
 
-use Commercetools\Types\CustomerGroup\CustomerGroupSetKeyAction;
 use Commercetools\Types\CustomerGroup\CustomerGroupChangeNameAction;
+use Commercetools\Types\CustomerGroup\CustomerGroupSetKeyAction;
 use Commercetools\Types\CustomerGroup\CustomerGroup;
 use Commercetools\Types\CustomerGroup\CustomerGroupUpdate;
+use Commercetools\Request\ByProjectKeyCustomerGroupsByIDPost;
 
 
 class CustomerGroupUpdateBuilder extends BaseBuilder {
@@ -27,21 +29,13 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
-    /**
-     * @param callable $callback builder function <code>
-     *   function (CustomerGroupSetKeyAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setKey(callable $callback = null)
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
     {
-        $action = $this->mapData(CustomerGroupSetKeyAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
+        $this->requestBuilderCallback = $requestBuilderCallback;
     }
+
     /**
      * @param callable $callback builder function <code>
      *   function (CustomerGroupChangeNameAction $action) {
@@ -54,6 +48,21 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
     public function changeName(callable $callback = null)
     {
         $action = $this->mapData(CustomerGroupChangeNameAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (CustomerGroupSetKeyAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setKey(callable $callback = null)
+    {
+        $action = $this->mapData(CustomerGroupSetKeyAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -95,8 +104,13 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?CustomerGroup
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build CustomerGroupUpdate and delete internal state
+     * Build CustomerGroupUpdate
      * @return CustomerGroupUpdate
      */
     public function build(): CustomerGroupUpdate
@@ -112,5 +126,15 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyCustomerGroupsByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

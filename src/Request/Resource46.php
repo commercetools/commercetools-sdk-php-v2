@@ -8,43 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Types\ProductDiscount\ProductDiscountUpdate;
+
+
 
 class Resource46 extends Resource
 {
     /**
-     * @return Resource47
+     * @return ByProjectKeyProductDiscountsByIDGet
      */
-    public function search(): Resource47 {
-        return new Resource47($this->getUri() . '/search', $this->getArgs());
-    }
-    /**
-     * @return Resource48
-     */
-    public function suggest(): Resource48 {
-        return new Resource48($this->getUri() . '/suggest', $this->getArgs());
-    }
-    /**
-     * @return Resource49
-     */
-    public function keyWithKeyValue($key = null): Resource49 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource49($this->getUri() . '/key={key}', $args);
-    }
-    /**
-     * @return Resource50
-     */
-    public function withIDValue($ID = null): Resource50 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource50($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyProductProjectionsGet
-     */
-    public function get(): ByProjectKeyProductProjectionsGet {
+    public function get(): ByProjectKeyProductDiscountsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyProductProjectionsGet($args['projectKey']);
+        return new ByProjectKeyProductDiscountsByIDGet($args['projectKey'], $args['ID']);
+    }
+    /**
+     * @param ProductDiscountUpdate $body
+     * @return ByProjectKeyProductDiscountsByIDPost
+     */
+    public function post(ProductDiscountUpdate $body): ByProjectKeyProductDiscountsByIDPost {
+        $args = $this->getArgs();
+        return new ByProjectKeyProductDiscountsByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyProductDiscountsByIDDelete
+     */
+    public function delete(): ByProjectKeyProductDiscountsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyProductDiscountsByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

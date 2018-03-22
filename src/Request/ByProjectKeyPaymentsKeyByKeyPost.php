@@ -12,7 +12,7 @@ use Commercetools\Types\Payment\Payment;
 
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
-use Commercetools\Types\Update;
+use Commercetools\Types\Payment\PaymentUpdate;
 
 
 class ByProjectKeyPaymentsKeyByKeyPost extends ApiRequest
@@ -25,7 +25,7 @@ class ByProjectKeyPaymentsKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, Update $body, array $headers = [])
+    public function __construct($projectKey, $key, PaymentUpdate $body, array $headers = [])
     {
         $uri = sprintf('/%s/payments/key=%s', $projectKey, $key);
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);

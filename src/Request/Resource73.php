@@ -8,34 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Zone\ZoneDraft;
+use Commercetools\Types\Type\TypeUpdate;
+
 
 
 class Resource73 extends Resource
 {
     /**
-     * @return Resource74
+     * @return ByProjectKeyTypesByIDGet
      */
-    public function withIDValue($ID = null): Resource74 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource74($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyZonesGet
-     */
-    public function get(): ByProjectKeyZonesGet {
+    public function get(): ByProjectKeyTypesByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyZonesGet($args['projectKey']);
+        return new ByProjectKeyTypesByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param ZoneDraft $body
-     * @return ByProjectKeyZonesPost
+     * @param TypeUpdate $body
+     * @return ByProjectKeyTypesByIDPost
      */
-    public function post(ZoneDraft $body): ByProjectKeyZonesPost {
+    public function post(TypeUpdate $body): ByProjectKeyTypesByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyZonesPost($args['projectKey'], $body);
+        return new ByProjectKeyTypesByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyTypesByIDDelete
+     */
+    public function delete(): ByProjectKeyTypesByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyTypesByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

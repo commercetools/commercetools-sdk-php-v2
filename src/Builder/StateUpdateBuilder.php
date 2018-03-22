@@ -8,19 +8,21 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\State\StateUpdateAction;
 
-use Commercetools\Types\State\StateChangeInitialAction;
-use Commercetools\Types\State\StateSetDescriptionAction;
-use Commercetools\Types\State\StateSetNameAction;
-use Commercetools\Types\State\StateSetTransitionsAction;
 use Commercetools\Types\State\StateAddRolesAction;
-use Commercetools\Types\State\StateRemoveRolesAction;
+use Commercetools\Types\State\StateChangeInitialAction;
 use Commercetools\Types\State\StateChangeKeyAction;
 use Commercetools\Types\State\StateChangeTypeAction;
+use Commercetools\Types\State\StateRemoveRolesAction;
+use Commercetools\Types\State\StateSetDescriptionAction;
+use Commercetools\Types\State\StateSetNameAction;
 use Commercetools\Types\State\StateSetRolesAction;
+use Commercetools\Types\State\StateSetTransitionsAction;
 use Commercetools\Types\State\State;
 use Commercetools\Types\State\StateUpdate;
+use Commercetools\Request\ByProjectKeyStatesByIDPost;
 
 
 class StateUpdateBuilder extends BaseBuilder {
@@ -34,66 +36,13 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
-    /**
-     * @param callable $callback builder function <code>
-     *   function (StateChangeInitialAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeInitial(callable $callback = null)
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
     {
-        $action = $this->mapData(StateChangeInitialAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
+        $this->requestBuilderCallback = $requestBuilderCallback;
     }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (StateSetDescriptionAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setDescription(callable $callback = null)
-    {
-        $action = $this->mapData(StateSetDescriptionAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (StateSetNameAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setName(callable $callback = null)
-    {
-        $action = $this->mapData(StateSetNameAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (StateSetTransitionsAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setTransitions(callable $callback = null)
-    {
-        $action = $this->mapData(StateSetTransitionsAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
+
     /**
      * @param callable $callback builder function <code>
      *   function (StateAddRolesAction $action) {
@@ -111,16 +60,16 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (StateRemoveRolesAction $action) {
+     *   function (StateChangeInitialAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function removeRoles(callable $callback = null)
+    public function changeInitial(callable $callback = null)
     {
-        $action = $this->mapData(StateRemoveRolesAction::class, null);
+        $action = $this->mapData(StateChangeInitialAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -156,6 +105,51 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
+     *   function (StateRemoveRolesAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function removeRoles(callable $callback = null)
+    {
+        $action = $this->mapData(StateRemoveRolesAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (StateSetDescriptionAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setDescription(callable $callback = null)
+    {
+        $action = $this->mapData(StateSetDescriptionAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (StateSetNameAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setName(callable $callback = null)
+    {
+        $action = $this->mapData(StateSetNameAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
      *   function (StateSetRolesAction $action) {
      *     // modify action as needed
      *     return $action;
@@ -166,6 +160,21 @@ class StateUpdateBuilder extends BaseBuilder {
     public function setRoles(callable $callback = null)
     {
         $action = $this->mapData(StateSetRolesAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (StateSetTransitionsAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setTransitions(callable $callback = null)
+    {
+        $action = $this->mapData(StateSetTransitionsAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -207,8 +216,13 @@ class StateUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?State
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build StateUpdate and delete internal state
+     * Build StateUpdate
      * @return StateUpdate
      */
     public function build(): StateUpdate
@@ -224,5 +238,15 @@ class StateUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyStatesByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

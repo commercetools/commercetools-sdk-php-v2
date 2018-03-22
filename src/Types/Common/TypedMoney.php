@@ -12,8 +12,8 @@ use Commercetools\Types;
 interface TypedMoney extends Money {
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
-        'highPrecision' => Types\Common\HighPrecisionMoney::class,
         'centPrecision' => Types\Common\CentPrecisionMoney::class,
+        'highPrecision' => Types\Common\HighPrecisionMoney::class,
 
     ];
 

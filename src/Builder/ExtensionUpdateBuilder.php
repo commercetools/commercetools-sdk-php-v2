@@ -8,13 +8,15 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\Extension\ExtensionUpdateAction;
 
-use Commercetools\Types\Extension\ExtensionChangeTriggersAction;
 use Commercetools\Types\Extension\ExtensionChangeDestinationAction;
+use Commercetools\Types\Extension\ExtensionChangeTriggersAction;
 use Commercetools\Types\Extension\ExtensionSetKeyAction;
 use Commercetools\Types\Extension\Extension;
 use Commercetools\Types\Extension\ExtensionUpdate;
+use Commercetools\Request\ByProjectKeyExtensionsByIDPost;
 
 
 class ExtensionUpdateBuilder extends BaseBuilder {
@@ -28,21 +30,13 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ExtensionChangeTriggersAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeTriggers(callable $callback = null)
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
     {
-        $action = $this->mapData(ExtensionChangeTriggersAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
+        $this->requestBuilderCallback = $requestBuilderCallback;
     }
+
     /**
      * @param callable $callback builder function <code>
      *   function (ExtensionChangeDestinationAction $action) {
@@ -55,6 +49,21 @@ class ExtensionUpdateBuilder extends BaseBuilder {
     public function changeDestination(callable $callback = null)
     {
         $action = $this->mapData(ExtensionChangeDestinationAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ExtensionChangeTriggersAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeTriggers(callable $callback = null)
+    {
+        $action = $this->mapData(ExtensionChangeTriggersAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -111,8 +120,13 @@ class ExtensionUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?Extension
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build ExtensionUpdate and delete internal state
+     * Build ExtensionUpdate
      * @return ExtensionUpdate
      */
     public function build(): ExtensionUpdate
@@ -128,5 +142,15 @@ class ExtensionUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyExtensionsByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

@@ -12,7 +12,7 @@ use Commercetools\Types\Extension\Extension;
 
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
-use Commercetools\Types\Update;
+use Commercetools\Types\Extension\ExtensionUpdate;
 
 
 class ByProjectKeyExtensionsKeyByKeyPost extends ApiRequest
@@ -25,7 +25,7 @@ class ByProjectKeyExtensionsKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, Update $body, array $headers = [])
+    public function __construct($projectKey, $key, ExtensionUpdate $body, array $headers = [])
     {
         $uri = sprintf('/%s/extensions/key=%s', $projectKey, $key);
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);

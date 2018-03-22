@@ -15,26 +15,26 @@ use Commercetools\Types\Payment\PaymentUpdate;
 class Resource39 extends Resource
 {
     /**
-     * @return ByProjectKeyPaymentsByIDGet
+     * @return ByProjectKeyPaymentsKeyByKeyGet
      */
-    public function get(): ByProjectKeyPaymentsByIDGet {
+    public function get(): ByProjectKeyPaymentsKeyByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyPaymentsByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyPaymentsKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
      * @param PaymentUpdate $body
-     * @return ByProjectKeyPaymentsByIDPost
+     * @return ByProjectKeyPaymentsKeyByKeyPost
      */
-    public function post(PaymentUpdate $body): ByProjectKeyPaymentsByIDPost {
+    public function post(PaymentUpdate $body): ByProjectKeyPaymentsKeyByKeyPost {
         $args = $this->getArgs();
-        return new ByProjectKeyPaymentsByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyPaymentsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }
     /**
-     * @return ByProjectKeyPaymentsByIDDelete
+     * @return ByProjectKeyPaymentsKeyByKeyDelete
      */
-    public function delete(): ByProjectKeyPaymentsByIDDelete {
+    public function delete(): ByProjectKeyPaymentsKeyByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyPaymentsByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyPaymentsKeyByKeyDelete($args['projectKey'], $args['key']);
     }
 
 }

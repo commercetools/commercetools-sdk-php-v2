@@ -15,26 +15,26 @@ use Commercetools\Types\Order\OrderUpdate;
 class Resource36 extends Resource
 {
     /**
-     * @return ByProjectKeyOrdersByIDGet
+     * @return ByProjectKeyOrdersOrderNumberByOrderNumberGet
      */
-    public function get(): ByProjectKeyOrdersByIDGet {
+    public function get(): ByProjectKeyOrdersOrderNumberByOrderNumberGet {
         $args = $this->getArgs();
-        return new ByProjectKeyOrdersByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyOrdersOrderNumberByOrderNumberGet($args['projectKey'], $args['orderNumber']);
     }
     /**
      * @param OrderUpdate $body
-     * @return ByProjectKeyOrdersByIDPost
+     * @return ByProjectKeyOrdersOrderNumberByOrderNumberPost
      */
-    public function post(OrderUpdate $body): ByProjectKeyOrdersByIDPost {
+    public function post(OrderUpdate $body): ByProjectKeyOrdersOrderNumberByOrderNumberPost {
         $args = $this->getArgs();
-        return new ByProjectKeyOrdersByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyOrdersOrderNumberByOrderNumberPost($args['projectKey'], $args['orderNumber'], $body);
     }
     /**
-     * @return ByProjectKeyOrdersByIDDelete
+     * @return ByProjectKeyOrdersOrderNumberByOrderNumberDelete
      */
-    public function delete(): ByProjectKeyOrdersByIDDelete {
+    public function delete(): ByProjectKeyOrdersOrderNumberByOrderNumberDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyOrdersByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyOrdersOrderNumberByOrderNumberDelete($args['projectKey'], $args['orderNumber']);
     }
 
 }

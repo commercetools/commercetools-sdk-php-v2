@@ -25,14 +25,14 @@ interface ErrorObject extends JsonObject {
         'PriceChanged' => Types\Error\PriceChangedError::class,
         'RequiredField' => Types\Error\RequiredFieldError::class,
         'ResourceNotFound' => Types\Error\ResourceNotFoundError::class,
-        'DuplicatePriceScope' => Types\Error\DuplicatePriceScopeError::class,
-        'ConcurrentModification' => Types\Error\ConcurrentModificationError::class,
         'DuplicateField' => Types\Error\DuplicateFieldError::class,
         'access_denied' => Types\Error\AccessDeniedError::class,
-        'DuplicateAttributeValue' => Types\Error\DuplicateAttributeValueError::class,
         'DuplicateVariantValues' => Types\Error\DuplicateVariantValuesError::class,
         'DuplicateAttributeValues' => Types\Error\DuplicateAttributeValuesError::class,
         'DiscountCodeNonApplicable' => Types\Error\DiscountCodeNonApplicableError::class,
+        'DuplicatePriceScope' => Types\Error\DuplicatePriceScopeError::class,
+        'DuplicateAttributeValue' => Types\Error\DuplicateAttributeValueError::class,
+        'ConcurrentModification' => Types\Error\ConcurrentModificationError::class,
 
     ];
 

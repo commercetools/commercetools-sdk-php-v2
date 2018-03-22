@@ -8,13 +8,15 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\Subscription\SubscriptionUpdateAction;
 
 use Commercetools\Types\Subscription\SubscriptionSetChangesAction;
-use Commercetools\Types\Subscription\SubscriptionSetMessagesAction;
 use Commercetools\Types\Subscription\SubscriptionSetKeyAction;
+use Commercetools\Types\Subscription\SubscriptionSetMessagesAction;
 use Commercetools\Types\Subscription\Subscription;
 use Commercetools\Types\Subscription\SubscriptionUpdate;
+use Commercetools\Request\ByProjectKeySubscriptionsByIDPost;
 
 
 class SubscriptionUpdateBuilder extends BaseBuilder {
@@ -27,6 +29,13 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      * @var array
      */
     private $actions = [];
+
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
+    {
+        $this->requestBuilderCallback = $requestBuilderCallback;
+    }
 
     /**
      * @param callable $callback builder function <code>
@@ -45,21 +54,6 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (SubscriptionSetMessagesAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setMessages(callable $callback = null)
-    {
-        $action = $this->mapData(SubscriptionSetMessagesAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
      *   function (SubscriptionSetKeyAction $action) {
      *     // modify action as needed
      *     return $action;
@@ -70,6 +64,21 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
     public function setKey(callable $callback = null)
     {
         $action = $this->mapData(SubscriptionSetKeyAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (SubscriptionSetMessagesAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setMessages(callable $callback = null)
+    {
+        $action = $this->mapData(SubscriptionSetMessagesAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -111,8 +120,13 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?Subscription
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build SubscriptionUpdate and delete internal state
+     * Build SubscriptionUpdate
      * @return SubscriptionUpdate
      */
     public function build(): SubscriptionUpdate
@@ -128,5 +142,15 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeySubscriptionsByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

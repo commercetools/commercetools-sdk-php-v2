@@ -8,34 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\State\StateDraft;
+use Commercetools\Types\ShoppingList\ShoppingListUpdate;
+
 
 
 class Resource63 extends Resource
 {
     /**
-     * @return Resource64
+     * @return ByProjectKeyShoppingListsByIDGet
      */
-    public function withIDValue($ID = null): Resource64 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource64($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyStatesGet
-     */
-    public function get(): ByProjectKeyStatesGet {
+    public function get(): ByProjectKeyShoppingListsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyStatesGet($args['projectKey']);
+        return new ByProjectKeyShoppingListsByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param StateDraft $body
-     * @return ByProjectKeyStatesPost
+     * @param ShoppingListUpdate $body
+     * @return ByProjectKeyShoppingListsByIDPost
      */
-    public function post(StateDraft $body): ByProjectKeyStatesPost {
+    public function post(ShoppingListUpdate $body): ByProjectKeyShoppingListsByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyStatesPost($args['projectKey'], $body);
+        return new ByProjectKeyShoppingListsByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyShoppingListsByIDDelete
+     */
+    public function delete(): ByProjectKeyShoppingListsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyShoppingListsByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

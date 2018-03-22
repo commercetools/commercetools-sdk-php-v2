@@ -12,12 +12,11 @@ use Commercetools\Client\Resource;
 class Resource77 extends Resource
 {
     /**
-     * @param $body
-     * @return ByProjectKeyMeEmailConfirmPost
+     * @return Resource78
      */
-    public function post($body): ByProjectKeyMeEmailConfirmPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyMeEmailConfirmPost($args['projectKey'], $body);
+    public function confirm(): Resource78 {
+        return new Resource78($this->getUri() . '/confirm', $this->getArgs());
     }
+
 
 }

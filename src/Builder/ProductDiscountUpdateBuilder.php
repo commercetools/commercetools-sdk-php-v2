@@ -8,18 +8,20 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\ProductDiscount\ProductDiscountUpdateAction;
 
+use Commercetools\Types\ProductDiscount\ProductDiscountChangeIsActiveAction;
 use Commercetools\Types\ProductDiscount\ProductDiscountChangeNameAction;
-use Commercetools\Types\ProductDiscount\ProductDiscountSetValidFromAction;
-use Commercetools\Types\ProductDiscount\ProductDiscountSetDescriptionAction;
-use Commercetools\Types\ProductDiscount\ProductDiscountChangeValueAction;
-use Commercetools\Types\ProductDiscount\ProductDiscountSetValidUntilAction;
 use Commercetools\Types\ProductDiscount\ProductDiscountChangePredicateAction;
 use Commercetools\Types\ProductDiscount\ProductDiscountChangeSortOrderAction;
-use Commercetools\Types\ProductDiscount\ProductDiscountChangeIsActiveAction;
+use Commercetools\Types\ProductDiscount\ProductDiscountChangeValueAction;
+use Commercetools\Types\ProductDiscount\ProductDiscountSetDescriptionAction;
+use Commercetools\Types\ProductDiscount\ProductDiscountSetValidFromAction;
+use Commercetools\Types\ProductDiscount\ProductDiscountSetValidUntilAction;
 use Commercetools\Types\ProductDiscount\ProductDiscount;
 use Commercetools\Types\ProductDiscount\ProductDiscountUpdate;
+use Commercetools\Request\ByProjectKeyProductDiscountsByIDPost;
 
 
 class ProductDiscountUpdateBuilder extends BaseBuilder {
@@ -33,6 +35,28 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
+    {
+        $this->requestBuilderCallback = $requestBuilderCallback;
+    }
+
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ProductDiscountChangeIsActiveAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeIsActive(callable $callback = null)
+    {
+        $action = $this->mapData(ProductDiscountChangeIsActiveAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
     /**
      * @param callable $callback builder function <code>
      *   function (ProductDiscountChangeNameAction $action) {
@@ -45,66 +69,6 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     public function changeName(callable $callback = null)
     {
         $action = $this->mapData(ProductDiscountChangeNameAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ProductDiscountSetValidFromAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setValidFrom(callable $callback = null)
-    {
-        $action = $this->mapData(ProductDiscountSetValidFromAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ProductDiscountSetDescriptionAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setDescription(callable $callback = null)
-    {
-        $action = $this->mapData(ProductDiscountSetDescriptionAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ProductDiscountChangeValueAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeValue(callable $callback = null)
-    {
-        $action = $this->mapData(ProductDiscountChangeValueAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ProductDiscountSetValidUntilAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setValidUntil(callable $callback = null)
-    {
-        $action = $this->mapData(ProductDiscountSetValidUntilAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -140,16 +104,61 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ProductDiscountChangeIsActiveAction $action) {
+     *   function (ProductDiscountChangeValueAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeIsActive(callable $callback = null)
+    public function changeValue(callable $callback = null)
     {
-        $action = $this->mapData(ProductDiscountChangeIsActiveAction::class, null);
+        $action = $this->mapData(ProductDiscountChangeValueAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ProductDiscountSetDescriptionAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setDescription(callable $callback = null)
+    {
+        $action = $this->mapData(ProductDiscountSetDescriptionAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ProductDiscountSetValidFromAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setValidFrom(callable $callback = null)
+    {
+        $action = $this->mapData(ProductDiscountSetValidFromAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ProductDiscountSetValidUntilAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setValidUntil(callable $callback = null)
+    {
+        $action = $this->mapData(ProductDiscountSetValidUntilAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -191,8 +200,13 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?ProductDiscount
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build ProductDiscountUpdate and delete internal state
+     * Build ProductDiscountUpdate
      * @return ProductDiscountUpdate
      */
     public function build(): ProductDiscountUpdate
@@ -208,5 +222,15 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyProductDiscountsByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

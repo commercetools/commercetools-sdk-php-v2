@@ -8,6 +8,10 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\CustomerGroup\CustomerGroup;
+use Commercetools\Builder\CustomerGroupUpdateBuilder;
+
 use Commercetools\Types\CustomerGroup\CustomerGroupDraft;
 
 
@@ -45,4 +49,14 @@ class Resource20 extends Resource
         return new ByProjectKeyCustomerGroupsPost($args['projectKey'], $body);
     }
 
+
+    public function update(CustomerGroup $resource)
+    {
+        $builder = new CustomerGroupUpdateBuilder(function (CustomerGroupUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

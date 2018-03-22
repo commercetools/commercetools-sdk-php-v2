@@ -13,10 +13,10 @@ use Commercetools\Types;
 interface ZoneUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'setDescription' => Types\Zone\ZoneSetDescriptionAction::class,
         'removeLocation' => Types\Zone\ZoneRemoveLocationAction::class,
-        'changeName' => Types\Zone\ZoneChangeNameAction::class,
         'addLocation' => Types\Zone\ZoneAddLocationAction::class,
+        'setDescription' => Types\Zone\ZoneSetDescriptionAction::class,
+        'changeName' => Types\Zone\ZoneChangeNameAction::class,
 
     ];
 

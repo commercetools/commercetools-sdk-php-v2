@@ -8,6 +8,10 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Project\Project;
+use Commercetools\Builder\ProjectUpdateBuilder;
+
 use Commercetools\Types\Project\ProjectUpdate;
 
 
@@ -92,94 +96,94 @@ class Resource0 extends Resource
         return new Resource34($this->getUri() . '/orders', $this->getArgs());
     }
     /**
-     * @return Resource37
+     * @return Resource38
      */
-    public function payments(): Resource37 {
-        return new Resource37($this->getUri() . '/payments', $this->getArgs());
+    public function payments(): Resource38 {
+        return new Resource38($this->getUri() . '/payments', $this->getArgs());
     }
     /**
-     * @return Resource40
+     * @return Resource41
      */
-    public function products(): Resource40 {
-        return new Resource40($this->getUri() . '/products', $this->getArgs());
+    public function products(): Resource41 {
+        return new Resource41($this->getUri() . '/products', $this->getArgs());
     }
     /**
-     * @return Resource44
+     * @return Resource45
      */
-    public function productDiscounts(): Resource44 {
-        return new Resource44($this->getUri() . '/product-discounts', $this->getArgs());
+    public function productDiscounts(): Resource45 {
+        return new Resource45($this->getUri() . '/product-discounts', $this->getArgs());
     }
     /**
-     * @return Resource46
+     * @return Resource47
      */
-    public function productProjections(): Resource46 {
-        return new Resource46($this->getUri() . '/product-projections', $this->getArgs());
+    public function productProjections(): Resource47 {
+        return new Resource47($this->getUri() . '/product-projections', $this->getArgs());
     }
     /**
-     * @return Resource51
+     * @return Resource52
      */
-    public function productTypes(): Resource51 {
-        return new Resource51($this->getUri() . '/product-types', $this->getArgs());
+    public function productTypes(): Resource52 {
+        return new Resource52($this->getUri() . '/product-types', $this->getArgs());
     }
     /**
-     * @return Resource54
+     * @return Resource55
      */
-    public function reviews(): Resource54 {
-        return new Resource54($this->getUri() . '/reviews', $this->getArgs());
+    public function reviews(): Resource55 {
+        return new Resource55($this->getUri() . '/reviews', $this->getArgs());
     }
     /**
-     * @return Resource57
+     * @return Resource58
      */
-    public function shippingMethods(): Resource57 {
-        return new Resource57($this->getUri() . '/shipping-methods', $this->getArgs());
+    public function shippingMethods(): Resource58 {
+        return new Resource58($this->getUri() . '/shipping-methods', $this->getArgs());
     }
     /**
-     * @return Resource60
+     * @return Resource61
      */
-    public function shoppingLists(): Resource60 {
-        return new Resource60($this->getUri() . '/shopping-lists', $this->getArgs());
+    public function shoppingLists(): Resource61 {
+        return new Resource61($this->getUri() . '/shopping-lists', $this->getArgs());
     }
     /**
-     * @return Resource63
+     * @return Resource64
      */
-    public function states(): Resource63 {
-        return new Resource63($this->getUri() . '/states', $this->getArgs());
+    public function states(): Resource64 {
+        return new Resource64($this->getUri() . '/states', $this->getArgs());
     }
     /**
-     * @return Resource65
+     * @return Resource66
      */
-    public function subscriptions(): Resource65 {
-        return new Resource65($this->getUri() . '/subscriptions', $this->getArgs());
+    public function subscriptions(): Resource66 {
+        return new Resource66($this->getUri() . '/subscriptions', $this->getArgs());
     }
     /**
-     * @return Resource68
+     * @return Resource69
      */
-    public function taxCategories(): Resource68 {
-        return new Resource68($this->getUri() . '/tax-categories', $this->getArgs());
+    public function taxCategories(): Resource69 {
+        return new Resource69($this->getUri() . '/tax-categories', $this->getArgs());
     }
     /**
-     * @return Resource70
+     * @return Resource71
      */
-    public function types(): Resource70 {
-        return new Resource70($this->getUri() . '/types', $this->getArgs());
+    public function types(): Resource71 {
+        return new Resource71($this->getUri() . '/types', $this->getArgs());
     }
     /**
-     * @return Resource73
+     * @return Resource74
      */
-    public function zones(): Resource73 {
-        return new Resource73($this->getUri() . '/zones', $this->getArgs());
+    public function zones(): Resource74 {
+        return new Resource74($this->getUri() . '/zones', $this->getArgs());
     }
     /**
-     * @return Resource75
+     * @return Resource76
      */
-    public function me(): Resource75 {
-        return new Resource75($this->getUri() . '/me', $this->getArgs());
+    public function me(): Resource76 {
+        return new Resource76($this->getUri() . '/me', $this->getArgs());
     }
     /**
-     * @return Resource87
+     * @return Resource88
      */
-    public function extensions(): Resource87 {
-        return new Resource87($this->getUri() . '/extensions', $this->getArgs());
+    public function extensions(): Resource88 {
+        return new Resource88($this->getUri() . '/extensions', $this->getArgs());
     }
 
 
@@ -199,4 +203,14 @@ class Resource0 extends Resource
         return new ByProjectKeyPost($args['projectKey'], $body);
     }
 
+
+    public function update(Project $resource)
+    {
+        $builder = new ProjectUpdateBuilder(function (ProjectUpdateBuilder $builder) { return $this->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

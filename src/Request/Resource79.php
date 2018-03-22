@@ -12,12 +12,20 @@ use Commercetools\Client\Resource;
 class Resource79 extends Resource
 {
     /**
-     * @param $body
-     * @return ByProjectKeyMePasswordResetPost
+     * @return Resource80
      */
-    public function post($body): ByProjectKeyMePasswordResetPost {
+    public function reset(): Resource80 {
+        return new Resource80($this->getUri() . '/reset', $this->getArgs());
+    }
+
+
+    /**
+     * @param $body
+     * @return ByProjectKeyMePasswordPost
+     */
+    public function post($body): ByProjectKeyMePasswordPost {
         $args = $this->getArgs();
-        return new ByProjectKeyMePasswordResetPost($args['projectKey'], $body);
+        return new ByProjectKeyMePasswordPost($args['projectKey'], $body);
     }
 
 }

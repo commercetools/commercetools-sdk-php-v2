@@ -8,31 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\Payment\PaymentUpdateAction;
 
-use Commercetools\Types\Payment\PaymentChangeTransactionInteractionIdAction;
-use Commercetools\Types\Payment\PaymentChangeTransactionTimestampAction;
-use Commercetools\Types\Payment\PaymentSetAmountPaidAction;
-use Commercetools\Types\Payment\PaymentSetKeyAction;
-use Commercetools\Types\Payment\PaymentSetMethodInfoInterfaceAction;
-use Commercetools\Types\Payment\PaymentSetStatusInterfaceTextAction;
-use Commercetools\Types\Payment\PaymentChangeTransactionStateAction;
-use Commercetools\Types\Payment\PaymentSetMethodInfoMethodAction;
-use Commercetools\Types\Payment\PaymentSetExternalIdAction;
+use Commercetools\Types\Payment\PaymentAddInterfaceInteractionAction;
 use Commercetools\Types\Payment\PaymentAddTransactionAction;
 use Commercetools\Types\Payment\PaymentChangeAmountPlannedAction;
-use Commercetools\Types\Payment\PaymentTransitionStateAction;
-use Commercetools\Types\Payment\PaymentSetStatusInterfaceCodeAction;
-use Commercetools\Types\Payment\PaymentSetCustomerAction;
+use Commercetools\Types\Payment\PaymentChangeTransactionInteractionIdAction;
+use Commercetools\Types\Payment\PaymentChangeTransactionStateAction;
+use Commercetools\Types\Payment\PaymentChangeTransactionTimestampAction;
+use Commercetools\Types\Payment\PaymentSetAmountPaidAction;
 use Commercetools\Types\Payment\PaymentSetAmountRefundedAction;
-use Commercetools\Types\Payment\PaymentSetCustomTypeAction;
 use Commercetools\Types\Payment\PaymentSetAuthorizationAction;
-use Commercetools\Types\Payment\PaymentAddInterfaceInteractionAction;
-use Commercetools\Types\Payment\PaymentSetMethodInfoNameAction;
 use Commercetools\Types\Payment\PaymentSetCustomFieldAction;
+use Commercetools\Types\Payment\PaymentSetCustomTypeAction;
+use Commercetools\Types\Payment\PaymentSetCustomerAction;
+use Commercetools\Types\Payment\PaymentSetExternalIdAction;
 use Commercetools\Types\Payment\PaymentSetInterfaceIdAction;
+use Commercetools\Types\Payment\PaymentSetKeyAction;
+use Commercetools\Types\Payment\PaymentSetMethodInfoInterfaceAction;
+use Commercetools\Types\Payment\PaymentSetMethodInfoMethodAction;
+use Commercetools\Types\Payment\PaymentSetMethodInfoNameAction;
+use Commercetools\Types\Payment\PaymentSetStatusInterfaceCodeAction;
+use Commercetools\Types\Payment\PaymentSetStatusInterfaceTextAction;
+use Commercetools\Types\Payment\PaymentTransitionStateAction;
 use Commercetools\Types\Payment\Payment;
 use Commercetools\Types\Payment\PaymentUpdate;
+use Commercetools\Request\ByProjectKeyPaymentsByIDPost;
 
 
 class PaymentUpdateBuilder extends BaseBuilder {
@@ -46,138 +48,25 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentChangeTransactionInteractionIdAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeTransactionInteractionId(callable $callback = null)
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
     {
-        $action = $this->mapData(PaymentChangeTransactionInteractionIdAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
+        $this->requestBuilderCallback = $requestBuilderCallback;
     }
+
     /**
      * @param callable $callback builder function <code>
-     *   function (PaymentChangeTransactionTimestampAction $action) {
+     *   function (PaymentAddInterfaceInteractionAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeTransactionTimestamp(callable $callback = null)
+    public function addInterfaceInteraction(callable $callback = null)
     {
-        $action = $this->mapData(PaymentChangeTransactionTimestampAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentSetAmountPaidAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setAmountPaid(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentSetAmountPaidAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentSetKeyAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setKey(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentSetKeyAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentSetMethodInfoInterfaceAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setMethodInfoInterface(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentSetMethodInfoInterfaceAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentSetStatusInterfaceTextAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setStatusInterfaceText(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentSetStatusInterfaceTextAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentChangeTransactionStateAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeTransactionState(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentChangeTransactionStateAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentSetMethodInfoMethodAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setMethodInfoMethod(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentSetMethodInfoMethodAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentSetExternalIdAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setExternalId(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentSetExternalIdAction::class, null);
+        $action = $this->mapData(PaymentAddInterfaceInteractionAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -213,46 +102,61 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (PaymentTransitionStateAction $action) {
+     *   function (PaymentChangeTransactionInteractionIdAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function transitionState(callable $callback = null)
+    public function changeTransactionInteractionId(callable $callback = null)
     {
-        $action = $this->mapData(PaymentTransitionStateAction::class, null);
+        $action = $this->mapData(PaymentChangeTransactionInteractionIdAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (PaymentSetStatusInterfaceCodeAction $action) {
+     *   function (PaymentChangeTransactionStateAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setStatusInterfaceCode(callable $callback = null)
+    public function changeTransactionState(callable $callback = null)
     {
-        $action = $this->mapData(PaymentSetStatusInterfaceCodeAction::class, null);
+        $action = $this->mapData(PaymentChangeTransactionStateAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (PaymentSetCustomerAction $action) {
+     *   function (PaymentChangeTransactionTimestampAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setCustomer(callable $callback = null)
+    public function changeTransactionTimestamp(callable $callback = null)
     {
-        $action = $this->mapData(PaymentSetCustomerAction::class, null);
+        $action = $this->mapData(PaymentChangeTransactionTimestampAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentSetAmountPaidAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setAmountPaid(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetAmountPaidAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -273,21 +177,6 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (PaymentSetCustomTypeAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setCustomType(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentSetCustomTypeAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
      *   function (PaymentSetAuthorizationAction $action) {
      *     // modify action as needed
      *     return $action;
@@ -298,36 +187,6 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setAuthorization(callable $callback = null)
     {
         $action = $this->mapData(PaymentSetAuthorizationAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentAddInterfaceInteractionAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function addInterfaceInteraction(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentAddInterfaceInteractionAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (PaymentSetMethodInfoNameAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function setMethodInfoName(callable $callback = null)
-    {
-        $action = $this->mapData(PaymentSetMethodInfoNameAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -348,6 +207,51 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
+     *   function (PaymentSetCustomTypeAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setCustomType(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetCustomTypeAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentSetCustomerAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setCustomer(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetCustomerAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentSetExternalIdAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setExternalId(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetExternalIdAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
      *   function (PaymentSetInterfaceIdAction $action) {
      *     // modify action as needed
      *     return $action;
@@ -358,6 +262,111 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setInterfaceId(callable $callback = null)
     {
         $action = $this->mapData(PaymentSetInterfaceIdAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentSetKeyAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setKey(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetKeyAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentSetMethodInfoInterfaceAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setMethodInfoInterface(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetMethodInfoInterfaceAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentSetMethodInfoMethodAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setMethodInfoMethod(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetMethodInfoMethodAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentSetMethodInfoNameAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setMethodInfoName(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetMethodInfoNameAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentSetStatusInterfaceCodeAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setStatusInterfaceCode(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetStatusInterfaceCodeAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentSetStatusInterfaceTextAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setStatusInterfaceText(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentSetStatusInterfaceTextAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (PaymentTransitionStateAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function transitionState(callable $callback = null)
+    {
+        $action = $this->mapData(PaymentTransitionStateAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -399,8 +408,13 @@ class PaymentUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?Payment
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build PaymentUpdate and delete internal state
+     * Build PaymentUpdate
      * @return PaymentUpdate
      */
     public function build(): PaymentUpdate
@@ -416,5 +430,15 @@ class PaymentUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyPaymentsByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

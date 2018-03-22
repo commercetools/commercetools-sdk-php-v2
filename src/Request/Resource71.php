@@ -8,33 +8,55 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Update;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Type\Type;
+use Commercetools\Builder\TypeUpdateBuilder;
 
+use Commercetools\Types\Type\TypeDraft;
 
 
 class Resource71 extends Resource
 {
     /**
-     * @return ByProjectKeyTypesKeyByKeyGet
+     * @return Resource72
      */
-    public function get(): ByProjectKeyTypesKeyByKeyGet {
-        $args = $this->getArgs();
-        return new ByProjectKeyTypesKeyByKeyGet($args['projectKey'], $args['key']);
+    public function keyWithKeyValue($key = null): Resource72 {
+        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
+        return new Resource72($this->getUri() . '/key={key}', $args);
     }
     /**
-     * @param Update $body
-     * @return ByProjectKeyTypesKeyByKeyPost
+     * @return Resource73
      */
-    public function post(Update $body): ByProjectKeyTypesKeyByKeyPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyTypesKeyByKeyPost($args['projectKey'], $args['key'], $body);
-    }
-    /**
-     * @return ByProjectKeyTypesKeyByKeyDelete
-     */
-    public function delete(): ByProjectKeyTypesKeyByKeyDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeyTypesKeyByKeyDelete($args['projectKey'], $args['key']);
+    public function withIDValue($ID = null): Resource73 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource73($this->getUri() . '/{ID}', $args);
     }
 
+
+    /**
+     * @return ByProjectKeyTypesGet
+     */
+    public function get(): ByProjectKeyTypesGet {
+        $args = $this->getArgs();
+        return new ByProjectKeyTypesGet($args['projectKey']);
+    }
+    /**
+     * @param TypeDraft $body
+     * @return ByProjectKeyTypesPost
+     */
+    public function post(TypeDraft $body): ByProjectKeyTypesPost {
+        $args = $this->getArgs();
+        return new ByProjectKeyTypesPost($args['projectKey'], $body);
+    }
+
+
+    public function update(Type $resource)
+    {
+        $builder = new TypeUpdateBuilder(function (TypeUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

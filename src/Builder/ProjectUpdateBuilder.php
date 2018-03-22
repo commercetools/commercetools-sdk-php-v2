@@ -8,16 +8,18 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\Project\ProjectUpdateAction;
 
-use Commercetools\Types\Project\ProjectChangeCurrenciesAction;
-use Commercetools\Types\Project\ProjectChangeNameAction;
 use Commercetools\Types\Project\ProjectChangeCountriesAction;
-use Commercetools\Types\Project\ProjectChangeMessagesEnabledAction;
+use Commercetools\Types\Project\ProjectChangeCurrenciesAction;
 use Commercetools\Types\Project\ProjectChangeLanguagesAction;
+use Commercetools\Types\Project\ProjectChangeMessagesEnabledAction;
+use Commercetools\Types\Project\ProjectChangeNameAction;
 use Commercetools\Types\Project\ProjectSetShippingRateInputTypeAction;
 use Commercetools\Types\Project\Project;
 use Commercetools\Types\Project\ProjectUpdate;
+use Commercetools\Request\ByProjectKeyPost;
 
 
 class ProjectUpdateBuilder extends BaseBuilder {
@@ -31,6 +33,28 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
+    {
+        $this->requestBuilderCallback = $requestBuilderCallback;
+    }
+
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ProjectChangeCountriesAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeCountries(callable $callback = null)
+    {
+        $action = $this->mapData(ProjectChangeCountriesAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
     /**
      * @param callable $callback builder function <code>
      *   function (ProjectChangeCurrenciesAction $action) {
@@ -48,31 +72,16 @@ class ProjectUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ProjectChangeNameAction $action) {
+     *   function (ProjectChangeLanguagesAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeName(callable $callback = null)
+    public function changeLanguages(callable $callback = null)
     {
-        $action = $this->mapData(ProjectChangeNameAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ProjectChangeCountriesAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeCountries(callable $callback = null)
-    {
-        $action = $this->mapData(ProjectChangeCountriesAction::class, null);
+        $action = $this->mapData(ProjectChangeLanguagesAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -93,16 +102,16 @@ class ProjectUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ProjectChangeLanguagesAction $action) {
+     *   function (ProjectChangeNameAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function changeLanguages(callable $callback = null)
+    public function changeName(callable $callback = null)
     {
-        $action = $this->mapData(ProjectChangeLanguagesAction::class, null);
+        $action = $this->mapData(ProjectChangeNameAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -159,8 +168,13 @@ class ProjectUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?Project
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build ProjectUpdate and delete internal state
+     * Build ProjectUpdate
      * @return ProjectUpdate
      */
     public function build(): ProjectUpdate
@@ -176,5 +190,15 @@ class ProjectUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

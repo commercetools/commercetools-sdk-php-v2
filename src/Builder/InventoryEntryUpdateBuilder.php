@@ -8,18 +8,20 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\Inventory\InventoryEntryUpdateAction;
 
+use Commercetools\Types\Inventory\InventoryAddQuantityAction;
+use Commercetools\Types\Inventory\InventoryChangeQuantityAction;
 use Commercetools\Types\Inventory\InventoryRemoveQuantityAction;
 use Commercetools\Types\Inventory\InventorySetCustomFieldAction;
 use Commercetools\Types\Inventory\InventorySetCustomTypeAction;
 use Commercetools\Types\Inventory\InventorySetExpectedDeliveryAction;
 use Commercetools\Types\Inventory\InventorySetRestockableInDaysAction;
 use Commercetools\Types\Inventory\InventorySetSupplyChannelAction;
-use Commercetools\Types\Inventory\InventoryChangeQuantityAction;
-use Commercetools\Types\Inventory\InventoryAddQuantityAction;
 use Commercetools\Types\Inventory\InventoryEntry;
 use Commercetools\Types\Inventory\InventoryEntryUpdate;
+use Commercetools\Request\ByProjectKeyInventoryByIDPost;
 
 
 class InventoryEntryUpdateBuilder extends BaseBuilder {
@@ -33,6 +35,43 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
+    {
+        $this->requestBuilderCallback = $requestBuilderCallback;
+    }
+
+    /**
+     * @param callable $callback builder function <code>
+     *   function (InventoryAddQuantityAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function addQuantity(callable $callback = null)
+    {
+        $action = $this->mapData(InventoryAddQuantityAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (InventoryChangeQuantityAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function changeQuantity(callable $callback = null)
+    {
+        $action = $this->mapData(InventoryChangeQuantityAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
     /**
      * @param callable $callback builder function <code>
      *   function (InventoryRemoveQuantityAction $action) {
@@ -123,36 +162,6 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
         $this->callback($action, $callback);
         return $this;
     }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (InventoryChangeQuantityAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeQuantity(callable $callback = null)
-    {
-        $action = $this->mapData(InventoryChangeQuantityAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (InventoryAddQuantityAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function addQuantity(callable $callback = null)
-    {
-        $action = $this->mapData(InventoryAddQuantityAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
 
     /**
      * @param InventoryEntryUpdateAction $action
@@ -191,8 +200,13 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?InventoryEntry
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build InventoryEntryUpdate and delete internal state
+     * Build InventoryEntryUpdate
      * @return InventoryEntryUpdate
      */
     public function build(): InventoryEntryUpdate
@@ -208,5 +222,15 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyInventoryByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

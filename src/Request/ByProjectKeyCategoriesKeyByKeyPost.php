@@ -12,7 +12,7 @@ use Commercetools\Types\Category\Category;
 
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
-use Commercetools\Types\Update;
+use Commercetools\Types\Category\CategoryUpdate;
 
 
 class ByProjectKeyCategoriesKeyByKeyPost extends ApiRequest
@@ -25,7 +25,7 @@ class ByProjectKeyCategoriesKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, Update $body, array $headers = [])
+    public function __construct($projectKey, $key, CategoryUpdate $body, array $headers = [])
     {
         $uri = sprintf('/%s/categories/key=%s', $projectKey, $key);
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);

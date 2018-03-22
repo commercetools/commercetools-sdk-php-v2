@@ -8,34 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Me\MyOrderFromCartDraft;
+use Commercetools\Types\Update;
+
 
 
 class Resource85 extends Resource
 {
     /**
-     * @return Resource86
+     * @return ByProjectKeyMeCartsByIDGet
      */
-    public function withIDValue($ID = null): Resource86 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource86($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyMeOrdersGet
-     */
-    public function get(): ByProjectKeyMeOrdersGet {
+    public function get(): ByProjectKeyMeCartsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyMeOrdersGet($args['projectKey']);
+        return new ByProjectKeyMeCartsByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param MyOrderFromCartDraft $body
-     * @return ByProjectKeyMeOrdersPost
+     * @param Update $body
+     * @return ByProjectKeyMeCartsByIDPost
      */
-    public function post(MyOrderFromCartDraft $body): ByProjectKeyMeOrdersPost {
+    public function post(Update $body): ByProjectKeyMeCartsByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyMeOrdersPost($args['projectKey'], $body);
+        return new ByProjectKeyMeCartsByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyMeCartsByIDDelete
+     */
+    public function delete(): ByProjectKeyMeCartsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyMeCartsByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

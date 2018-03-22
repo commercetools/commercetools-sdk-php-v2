@@ -8,6 +8,10 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Category\Category;
+use Commercetools\Builder\CategoryUpdateBuilder;
+
 use Commercetools\Types\Category\CategoryDraft;
 
 
@@ -45,4 +49,14 @@ class Resource1 extends Resource
         return new ByProjectKeyCategoriesPost($args['projectKey'], $body);
     }
 
+
+    public function update(Category $resource)
+    {
+        $builder = new CategoryUpdateBuilder(function (CategoryUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

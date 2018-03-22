@@ -8,6 +8,10 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\Cart\Cart;
+use Commercetools\Builder\CartUpdateBuilder;
+
 use Commercetools\Types\Cart\CartDraft;
 
 
@@ -38,4 +42,14 @@ class Resource4 extends Resource
         return new ByProjectKeyCartsPost($args['projectKey'], $body);
     }
 
+
+    public function update(Cart $resource)
+    {
+        $builder = new CartUpdateBuilder(function (CartUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

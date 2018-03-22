@@ -8,41 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\ShippingMethod\ShippingMethodDraft;
+use Commercetools\Types\Review\ReviewUpdate;
+
 
 
 class Resource57 extends Resource
 {
     /**
-     * @return Resource58
+     * @return ByProjectKeyReviewsByIDGet
      */
-    public function keyWithKeyValue($key = null): Resource58 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource58($this->getUri() . '/key={key}', $args);
-    }
-    /**
-     * @return Resource59
-     */
-    public function withIDValue($ID = null): Resource59 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource59($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyShippingMethodsGet
-     */
-    public function get(): ByProjectKeyShippingMethodsGet {
+    public function get(): ByProjectKeyReviewsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyShippingMethodsGet($args['projectKey']);
+        return new ByProjectKeyReviewsByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param ShippingMethodDraft $body
-     * @return ByProjectKeyShippingMethodsPost
+     * @param ReviewUpdate $body
+     * @return ByProjectKeyReviewsByIDPost
      */
-    public function post(ShippingMethodDraft $body): ByProjectKeyShippingMethodsPost {
+    public function post(ReviewUpdate $body): ByProjectKeyReviewsByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyShippingMethodsPost($args['projectKey'], $body);
+        return new ByProjectKeyReviewsByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyReviewsByIDDelete
+     */
+    public function delete(): ByProjectKeyReviewsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyReviewsByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

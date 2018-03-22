@@ -16,9 +16,9 @@ interface CartDiscountTarget extends JsonObject {
     const SUB_TYPES = [
         'multiBuyCustomLineItems' => Types\CartDiscount\MultiBuyCustomLineItemsTarget::class,
         'multiBuyLineItems' => Types\CartDiscount\MultiBuyLineItemsTarget::class,
-        'shipping' => Types\CartDiscount\CartDiscountShippingCostTarget::class,
         'lineItems' => Types\CartDiscount\CartDiscountLineItemsTarget::class,
         'customLineItems' => Types\CartDiscount\CartDiscountCustomLineItemsTarget::class,
+        'shipping' => Types\CartDiscount\CartDiscountShippingCostTarget::class,
 
     ];
 

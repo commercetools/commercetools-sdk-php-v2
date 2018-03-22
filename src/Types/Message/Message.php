@@ -49,16 +49,16 @@ interface Message extends JsonObject {
         'ReviewCreated' => Types\Message\ReviewCreatedMessage::class,
         'ReviewRatingSet' => Types\Message\ReviewRatingSetMessage::class,
         'ReviewStateTransition' => Types\Message\ReviewStateTransitionMessage::class,
-        'DeliveryAdded' => Types\Message\DeliveryAddedMessage::class,
-        'CategorySlugChanged' => Types\Message\CategorySlugChangedMessage::class,
-        'LineItemStateTransition' => Types\Message\LineItemStateTransitionMessage::class,
-        'DeliveryItemsUpdated' => Types\Message\DeliveryItemsUpdatedMessage::class,
         'CustomerCreated' => Types\Message\CustomerCreatedMessage::class,
-        'InventoryEntryDeleted' => Types\Message\InventoryEntryDeletedMessage::class,
+        'LineItemStateTransition' => Types\Message\LineItemStateTransitionMessage::class,
         'CategoryCreated' => Types\Message\CategoryCreatedMessage::class,
-        'CustomLineItemStateTransition' => Types\Message\CustomLineItemStateTransitionMessage::class,
+        'InventoryEntryDeleted' => Types\Message\InventoryEntryDeletedMessage::class,
         'DeliveryAddressSet' => Types\Message\DeliveryAddressSetMessage::class,
+        'CustomLineItemStateTransition' => Types\Message\CustomLineItemStateTransitionMessage::class,
         'DeliveryRemoved' => Types\Message\DeliveryRemovedMessage::class,
+        'CategorySlugChanged' => Types\Message\CategorySlugChangedMessage::class,
+        'DeliveryAdded' => Types\Message\DeliveryAddedMessage::class,
+        'DeliveryItemsUpdated' => Types\Message\DeliveryItemsUpdatedMessage::class,
 
     ];
 

@@ -8,6 +8,10 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
+use Commercetools\Base\MapperAware;
+use Commercetools\Types\CartDiscount\CartDiscount;
+use Commercetools\Builder\CartDiscountUpdateBuilder;
+
 use Commercetools\Types\CartDiscount\CartDiscountDraft;
 
 
@@ -38,4 +42,14 @@ class Resource6 extends Resource
         return new ByProjectKeyCartDiscountsPost($args['projectKey'], $body);
     }
 
+
+    public function update(CartDiscount $resource)
+    {
+        $builder = new CartDiscountUpdateBuilder(function (CartDiscountUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($resource);
+        if ($resource instanceof MapperAware) {
+            $builder->setMapper($resource->getMapper());
+        }
+        return $builder;
+    }
 }

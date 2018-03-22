@@ -8,34 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\TaxCategory\TaxCategoryDraft;
+use Commercetools\Types\Subscription\SubscriptionUpdate;
+
 
 
 class Resource68 extends Resource
 {
     /**
-     * @return Resource69
+     * @return ByProjectKeySubscriptionsByIDGet
      */
-    public function withIDValue($ID = null): Resource69 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource69($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeyTaxCategoriesGet
-     */
-    public function get(): ByProjectKeyTaxCategoriesGet {
+    public function get(): ByProjectKeySubscriptionsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyTaxCategoriesGet($args['projectKey']);
+        return new ByProjectKeySubscriptionsByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param TaxCategoryDraft $body
-     * @return ByProjectKeyTaxCategoriesPost
+     * @param SubscriptionUpdate $body
+     * @return ByProjectKeySubscriptionsByIDPost
      */
-    public function post(TaxCategoryDraft $body): ByProjectKeyTaxCategoriesPost {
+    public function post(SubscriptionUpdate $body): ByProjectKeySubscriptionsByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyTaxCategoriesPost($args['projectKey'], $body);
+        return new ByProjectKeySubscriptionsByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeySubscriptionsByIDDelete
+     */
+    public function delete(): ByProjectKeySubscriptionsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeySubscriptionsByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

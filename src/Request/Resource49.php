@@ -12,11 +12,11 @@ use Commercetools\Client\Resource;
 class Resource49 extends Resource
 {
     /**
-     * @return ByProjectKeyProductProjectionsKeyByKeyGet
+     * @return ByProjectKeyProductProjectionsSuggestGet
      */
-    public function get(): ByProjectKeyProductProjectionsKeyByKeyGet {
+    public function get(): ByProjectKeyProductProjectionsSuggestGet {
         $args = $this->getArgs();
-        return new ByProjectKeyProductProjectionsKeyByKeyGet($args['projectKey'], $args['key']);
+        return new ByProjectKeyProductProjectionsSuggestGet($args['projectKey']);
     }
 
 }

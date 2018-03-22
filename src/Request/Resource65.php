@@ -8,41 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Subscription\SubscriptionDraft;
+use Commercetools\Types\State\StateUpdate;
+
 
 
 class Resource65 extends Resource
 {
     /**
-     * @return Resource66
+     * @return ByProjectKeyStatesByIDGet
      */
-    public function keyWithKeyValue($key = null): Resource66 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource66($this->getUri() . '/key={key}', $args);
-    }
-    /**
-     * @return Resource67
-     */
-    public function withIDValue($ID = null): Resource67 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource67($this->getUri() . '/{ID}', $args);
-    }
-
-
-    /**
-     * @return ByProjectKeySubscriptionsGet
-     */
-    public function get(): ByProjectKeySubscriptionsGet {
+    public function get(): ByProjectKeyStatesByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsGet($args['projectKey']);
+        return new ByProjectKeyStatesByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param SubscriptionDraft $body
-     * @return ByProjectKeySubscriptionsPost
+     * @param StateUpdate $body
+     * @return ByProjectKeyStatesByIDPost
      */
-    public function post(SubscriptionDraft $body): ByProjectKeySubscriptionsPost {
+    public function post(StateUpdate $body): ByProjectKeyStatesByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsPost($args['projectKey'], $body);
+        return new ByProjectKeyStatesByIDPost($args['projectKey'], $args['ID'], $body);
+    }
+    /**
+     * @return ByProjectKeyStatesByIDDelete
+     */
+    public function delete(): ByProjectKeyStatesByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyStatesByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

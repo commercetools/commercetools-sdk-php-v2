@@ -8,20 +8,22 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
+use Psr\Http\Message\RequestInterface;
 use Commercetools\Types\ShippingMethod\ShippingMethodUpdateAction;
 
-use Commercetools\Types\ShippingMethod\ShippingMethodChangeNameAction;
 use Commercetools\Types\ShippingMethod\ShippingMethodAddShippingRateAction;
-use Commercetools\Types\ShippingMethod\ShippingMethodRemoveShippingRateAction;
-use Commercetools\Types\ShippingMethod\ShippingMethodChangeIsDefaultAction;
-use Commercetools\Types\ShippingMethod\ShippingMethodSetKeyAction;
-use Commercetools\Types\ShippingMethod\ShippingMethodChangeTaxCategoryAction;
-use Commercetools\Types\ShippingMethod\ShippingMethodSetPredicateAction;
 use Commercetools\Types\ShippingMethod\ShippingMethodAddZoneAction;
+use Commercetools\Types\ShippingMethod\ShippingMethodChangeIsDefaultAction;
+use Commercetools\Types\ShippingMethod\ShippingMethodChangeNameAction;
+use Commercetools\Types\ShippingMethod\ShippingMethodChangeTaxCategoryAction;
+use Commercetools\Types\ShippingMethod\ShippingMethodRemoveShippingRateAction;
 use Commercetools\Types\ShippingMethod\ShippingMethodRemoveZoneAction;
 use Commercetools\Types\ShippingMethod\ShippingMethodSetDescriptionAction;
+use Commercetools\Types\ShippingMethod\ShippingMethodSetKeyAction;
+use Commercetools\Types\ShippingMethod\ShippingMethodSetPredicateAction;
 use Commercetools\Types\ShippingMethod\ShippingMethod;
 use Commercetools\Types\ShippingMethod\ShippingMethodUpdate;
+use Commercetools\Request\ByProjectKeyShippingMethodsByIDPost;
 
 
 class ShippingMethodUpdateBuilder extends BaseBuilder {
@@ -35,21 +37,13 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     private $actions = [];
 
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ShippingMethodChangeNameAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function changeName(callable $callback = null)
+    private $requestBuilderCallback;
+
+    public function __construct(callable $requestBuilderCallback = null)
     {
-        $action = $this->mapData(ShippingMethodChangeNameAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
+        $this->requestBuilderCallback = $requestBuilderCallback;
     }
+
     /**
      * @param callable $callback builder function <code>
      *   function (ShippingMethodAddShippingRateAction $action) {
@@ -67,16 +61,16 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ShippingMethodRemoveShippingRateAction $action) {
+     *   function (ShippingMethodAddZoneAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function removeShippingRate(callable $callback = null)
+    public function addZone(callable $callback = null)
     {
-        $action = $this->mapData(ShippingMethodRemoveShippingRateAction::class, null);
+        $action = $this->mapData(ShippingMethodAddZoneAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -97,16 +91,16 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ShippingMethodSetKeyAction $action) {
+     *   function (ShippingMethodChangeNameAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setKey(callable $callback = null)
+    public function changeName(callable $callback = null)
     {
-        $action = $this->mapData(ShippingMethodSetKeyAction::class, null);
+        $action = $this->mapData(ShippingMethodChangeNameAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -127,31 +121,16 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param callable $callback builder function <code>
-     *   function (ShippingMethodSetPredicateAction $action) {
+     *   function (ShippingMethodRemoveShippingRateAction $action) {
      *     // modify action as needed
      *     return $action;
      *   }
      *   </code>
      * @return $this
      */
-    public function setPredicate(callable $callback = null)
+    public function removeShippingRate(callable $callback = null)
     {
-        $action = $this->mapData(ShippingMethodSetPredicateAction::class, null);
-        $this->callback($action, $callback);
-        return $this;
-    }
-    /**
-     * @param callable $callback builder function <code>
-     *   function (ShippingMethodAddZoneAction $action) {
-     *     // modify action as needed
-     *     return $action;
-     *   }
-     *   </code>
-     * @return $this
-     */
-    public function addZone(callable $callback = null)
-    {
-        $action = $this->mapData(ShippingMethodAddZoneAction::class, null);
+        $action = $this->mapData(ShippingMethodRemoveShippingRateAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -182,6 +161,36 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function setDescription(callable $callback = null)
     {
         $action = $this->mapData(ShippingMethodSetDescriptionAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ShippingMethodSetKeyAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setKey(callable $callback = null)
+    {
+        $action = $this->mapData(ShippingMethodSetKeyAction::class, null);
+        $this->callback($action, $callback);
+        return $this;
+    }
+    /**
+     * @param callable $callback builder function <code>
+     *   function (ShippingMethodSetPredicateAction $action) {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     */
+    public function setPredicate(callable $callback = null)
+    {
+        $action = $this->mapData(ShippingMethodSetPredicateAction::class, null);
         $this->callback($action, $callback);
         return $this;
     }
@@ -223,8 +232,13 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
         $this->resource = null;
     }
 
+    public function getResource(): ?ShippingMethod
+    {
+        return $this->resource;
+    }
+
     /**
-     * Build ShippingMethodUpdate and delete internal state
+     * Build ShippingMethodUpdate
      * @return ShippingMethodUpdate
      */
     public function build(): ShippingMethodUpdate
@@ -240,5 +254,15 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
         }
 
         return $update;
+    }
+
+    public function buildRequest(): ?ByProjectKeyShippingMethodsByIDPost
+    {
+        if (!is_null($this->requestBuilderCallback)) {
+            $callback = $this->requestBuilderCallback;
+            return $callback($this);
+        }
+
+        return null;
     }
 }

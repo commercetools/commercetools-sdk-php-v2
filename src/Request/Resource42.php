@@ -15,34 +15,26 @@ use Commercetools\Types\Product\ProductUpdate;
 class Resource42 extends Resource
 {
     /**
-     * @return Resource43
+     * @return ByProjectKeyProductsKeyByKeyGet
      */
-    public function images(): Resource43 {
-        return new Resource43($this->getUri() . '/images', $this->getArgs());
-    }
-
-
-    /**
-     * @return ByProjectKeyProductsByIDGet
-     */
-    public function get(): ByProjectKeyProductsByIDGet {
+    public function get(): ByProjectKeyProductsKeyByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyProductsByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyProductsKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
      * @param ProductUpdate $body
-     * @return ByProjectKeyProductsByIDPost
+     * @return ByProjectKeyProductsKeyByKeyPost
      */
-    public function post(ProductUpdate $body): ByProjectKeyProductsByIDPost {
+    public function post(ProductUpdate $body): ByProjectKeyProductsKeyByKeyPost {
         $args = $this->getArgs();
-        return new ByProjectKeyProductsByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyProductsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }
     /**
-     * @return ByProjectKeyProductsByIDDelete
+     * @return ByProjectKeyProductsKeyByKeyDelete
      */
-    public function delete(): ByProjectKeyProductsByIDDelete {
+    public function delete(): ByProjectKeyProductsKeyByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyProductsByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyProductsKeyByKeyDelete($args['projectKey'], $args['key']);
     }
 
 }

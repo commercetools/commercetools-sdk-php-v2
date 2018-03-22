@@ -12,7 +12,7 @@ use Commercetools\Types\Subscription\Subscription;
 
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
-use Commercetools\Types\Update;
+use Commercetools\Types\Subscription\SubscriptionUpdate;
 
 
 class ByProjectKeySubscriptionsKeyByKeyPost extends ApiRequest
@@ -25,7 +25,7 @@ class ByProjectKeySubscriptionsKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, Update $body, array $headers = [])
+    public function __construct($projectKey, $key, SubscriptionUpdate $body, array $headers = [])
     {
         $uri = sprintf('/%s/subscriptions/key=%s', $projectKey, $key);
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);

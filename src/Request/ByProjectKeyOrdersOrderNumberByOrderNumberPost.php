@@ -8,44 +8,44 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\ApiRequest;
-use Commercetools\Types\Type\Type;
+use Commercetools\Types\Order\Order;
 
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
-use Commercetools\Types\Type\TypeUpdate;
+use Commercetools\Types\Order\OrderUpdate;
 
 
-class ByProjectKeyTypesKeyByKeyPost extends ApiRequest
+class ByProjectKeyOrdersOrderNumberByOrderNumberPost extends ApiRequest
 {
-    const RESULT_TYPE = Type::class;
+    const RESULT_TYPE = Order::class;
 
     /**
      * @param $projectKey
-     * @param $key
+     * @param $orderNumber
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, TypeUpdate $body, array $headers = [])
+    public function __construct($projectKey, $orderNumber, OrderUpdate $body, array $headers = [])
     {
-        $uri = sprintf('/%s/types/key=%s', $projectKey, $key);
+        $uri = sprintf('/%s/orders/order-number=%s', $projectKey, $orderNumber);
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
     /**
      * @param ResponseInterface $response
      * @param ResultMapper $mapper
-     * @return Type
+     * @return Order
      */
-    public function map(ResponseInterface $response, ResultMapper $mapper):  Type
+    public function map(ResponseInterface $response, ResultMapper $mapper):  Order
     {
         return parent::map($response, $mapper);
     }
 
     /**
      * @param $expand
-     * @return ByProjectKeyTypesKeyByKeyPost
+     * @return ByProjectKeyOrdersOrderNumberByOrderNumberPost
      */
-    public function withExpand($expand): ByProjectKeyTypesKeyByKeyPost
+    public function withExpand($expand): ByProjectKeyOrdersOrderNumberByOrderNumberPost
     {
         return $this->withQueryParam('expand', $expand);
     }

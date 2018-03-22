@@ -13,16 +13,16 @@ use Commercetools\Types;
 interface DiscountCodeUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'setCartPredicate' => Types\DiscountCode\DiscountCodeSetCartPredicateAction::class,
-        'setValidFrom' => Types\DiscountCode\DiscountCodeSetValidFromAction::class,
-        'changeCartDiscounts' => Types\DiscountCode\DiscountCodeChangeCartDiscountsAction::class,
-        'setMaxApplications' => Types\DiscountCode\DiscountCodeSetMaxApplicationsAction::class,
-        'setValidUntil' => Types\DiscountCode\DiscountCodeSetValidUntilAction::class,
-        'changeIsActive' => Types\DiscountCode\DiscountCodeChangeIsActiveAction::class,
-        'setMaxApplicationsPerCustomer' => Types\DiscountCode\DiscountCodeSetMaxApplicationsPerCustomerAction::class,
-        'setDescription' => Types\DiscountCode\DiscountCodeSetDescriptionAction::class,
         'setName' => Types\DiscountCode\DiscountCodeSetNameAction::class,
+        'setDescription' => Types\DiscountCode\DiscountCodeSetDescriptionAction::class,
+        'setValidFrom' => Types\DiscountCode\DiscountCodeSetValidFromAction::class,
+        'changeIsActive' => Types\DiscountCode\DiscountCodeChangeIsActiveAction::class,
         'changeGroups' => Types\DiscountCode\DiscountCodeChangeGroupsAction::class,
+        'setValidUntil' => Types\DiscountCode\DiscountCodeSetValidUntilAction::class,
+        'setMaxApplications' => Types\DiscountCode\DiscountCodeSetMaxApplicationsAction::class,
+        'setCartPredicate' => Types\DiscountCode\DiscountCodeSetCartPredicateAction::class,
+        'setMaxApplicationsPerCustomer' => Types\DiscountCode\DiscountCodeSetMaxApplicationsPerCustomerAction::class,
+        'changeCartDiscounts' => Types\DiscountCode\DiscountCodeChangeCartDiscountsAction::class,
 
     ];
 

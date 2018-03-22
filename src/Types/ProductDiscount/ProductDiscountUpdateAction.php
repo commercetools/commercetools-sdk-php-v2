@@ -13,14 +13,14 @@ use Commercetools\Types;
 interface ProductDiscountUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'changeName' => Types\ProductDiscount\ProductDiscountChangeNameAction::class,
-        'setValidFrom' => Types\ProductDiscount\ProductDiscountSetValidFromAction::class,
-        'setDescription' => Types\ProductDiscount\ProductDiscountSetDescriptionAction::class,
         'changeValue' => Types\ProductDiscount\ProductDiscountChangeValueAction::class,
-        'setValidUntil' => Types\ProductDiscount\ProductDiscountSetValidUntilAction::class,
-        'changePredicate' => Types\ProductDiscount\ProductDiscountChangePredicateAction::class,
-        'changeSortOrder' => Types\ProductDiscount\ProductDiscountChangeSortOrderAction::class,
         'changeIsActive' => Types\ProductDiscount\ProductDiscountChangeIsActiveAction::class,
+        'setDescription' => Types\ProductDiscount\ProductDiscountSetDescriptionAction::class,
+        'setValidUntil' => Types\ProductDiscount\ProductDiscountSetValidUntilAction::class,
+        'changeSortOrder' => Types\ProductDiscount\ProductDiscountChangeSortOrderAction::class,
+        'setValidFrom' => Types\ProductDiscount\ProductDiscountSetValidFromAction::class,
+        'changeName' => Types\ProductDiscount\ProductDiscountChangeNameAction::class,
+        'changePredicate' => Types\ProductDiscount\ProductDiscountChangePredicateAction::class,
 
     ];
 
