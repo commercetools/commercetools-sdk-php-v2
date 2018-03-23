@@ -11,7 +11,7 @@ $builder = new RequestBuilder();
 
 ## Update Project
 
-All update methods can be found [here](ProjectUpdateBuilder.md)
+All Project update methods can be found [here](ProjectUpdateBuilder.md)
 
 ### Example
 ```php
@@ -45,7 +45,7 @@ $response = $client->send($request);
 
 ## Update Category
 
-All update methods can be found [here](CategoryUpdateBuilder.md)
+All Category update methods can be found [here](CategoryUpdateBuilder.md)
 
 ### Example
 ```php
@@ -88,7 +88,7 @@ $response = $client->send($request);
 
 ## Update Cart
 
-All update methods can be found [here](CartUpdateBuilder.md)
+All Cart update methods can be found [here](CartUpdateBuilder.md)
 
 ### Example
 ```php
@@ -131,7 +131,7 @@ $response = $client->send($request);
 
 ## Update CartDiscount
 
-All update methods can be found [here](CartDiscountUpdateBuilder.md)
+All CartDiscount update methods can be found [here](CartDiscountUpdateBuilder.md)
 
 ### Example
 ```php
@@ -174,7 +174,7 @@ $response = $client->send($request);
 
 ## Update Channel
 
-All update methods can be found [here](ChannelUpdateBuilder.md)
+All Channel update methods can be found [here](ChannelUpdateBuilder.md)
 
 ### Example
 ```php
@@ -217,7 +217,7 @@ $response = $client->send($request);
 
 ## Update Customer
 
-All update methods can be found [here](CustomerUpdateBuilder.md)
+All Customer update methods can be found [here](CustomerUpdateBuilder.md)
 
 ### Example
 ```php
@@ -260,7 +260,7 @@ $response = $client->send($request);
 
 ## Update CustomerGroup
 
-All update methods can be found [here](CustomerGroupUpdateBuilder.md)
+All CustomerGroup update methods can be found [here](CustomerGroupUpdateBuilder.md)
 
 ### Example
 ```php
@@ -303,7 +303,7 @@ $response = $client->send($request);
 
 ## Update DiscountCode
 
-All update methods can be found [here](DiscountCodeUpdateBuilder.md)
+All DiscountCode update methods can be found [here](DiscountCodeUpdateBuilder.md)
 
 ### Example
 ```php
@@ -346,7 +346,7 @@ $response = $client->send($request);
 
 ## Update InventoryEntry
 
-All update methods can be found [here](InventoryEntryUpdateBuilder.md)
+All InventoryEntry update methods can be found [here](InventoryEntryUpdateBuilder.md)
 
 ### Example
 ```php
@@ -389,7 +389,7 @@ $response = $client->send($request);
 
 ## Update Order
 
-All update methods can be found [here](OrderUpdateBuilder.md)
+All Order update methods can be found [here](OrderUpdateBuilder.md)
 
 ### Example
 ```php
@@ -432,7 +432,7 @@ $response = $client->send($request);
 
 ## Update Payment
 
-All update methods can be found [here](PaymentUpdateBuilder.md)
+All Payment update methods can be found [here](PaymentUpdateBuilder.md)
 
 ### Example
 ```php
@@ -475,7 +475,7 @@ $response = $client->send($request);
 
 ## Update Product
 
-All update methods can be found [here](ProductUpdateBuilder.md)
+All Product update methods can be found [here](ProductUpdateBuilder.md)
 
 ### Example
 ```php
@@ -518,7 +518,7 @@ $response = $client->send($request);
 
 ## Update ProductDiscount
 
-All update methods can be found [here](ProductDiscountUpdateBuilder.md)
+All ProductDiscount update methods can be found [here](ProductDiscountUpdateBuilder.md)
 
 ### Example
 ```php
@@ -561,7 +561,7 @@ $response = $client->send($request);
 
 ## Update ProductType
 
-All update methods can be found [here](ProductTypeUpdateBuilder.md)
+All ProductType update methods can be found [here](ProductTypeUpdateBuilder.md)
 
 ### Example
 ```php
@@ -604,7 +604,7 @@ $response = $client->send($request);
 
 ## Update Review
 
-All update methods can be found [here](ReviewUpdateBuilder.md)
+All Review update methods can be found [here](ReviewUpdateBuilder.md)
 
 ### Example
 ```php
@@ -647,7 +647,7 @@ $response = $client->send($request);
 
 ## Update ShippingMethod
 
-All update methods can be found [here](ShippingMethodUpdateBuilder.md)
+All ShippingMethod update methods can be found [here](ShippingMethodUpdateBuilder.md)
 
 ### Example
 ```php
@@ -690,7 +690,7 @@ $response = $client->send($request);
 
 ## Update ShoppingList
 
-All update methods can be found [here](ShoppingListUpdateBuilder.md)
+All ShoppingList update methods can be found [here](ShoppingListUpdateBuilder.md)
 
 ### Example
 ```php
@@ -733,7 +733,7 @@ $response = $client->send($request);
 
 ## Update State
 
-All update methods can be found [here](StateUpdateBuilder.md)
+All State update methods can be found [here](StateUpdateBuilder.md)
 
 ### Example
 ```php
@@ -776,7 +776,7 @@ $response = $client->send($request);
 
 ## Update Subscription
 
-All update methods can be found [here](SubscriptionUpdateBuilder.md)
+All Subscription update methods can be found [here](SubscriptionUpdateBuilder.md)
 
 ### Example
 ```php
@@ -819,7 +819,7 @@ $response = $client->send($request);
 
 ## Update TaxCategory
 
-All update methods can be found [here](TaxCategoryUpdateBuilder.md)
+All TaxCategory update methods can be found [here](TaxCategoryUpdateBuilder.md)
 
 ### Example
 ```php
@@ -862,7 +862,7 @@ $response = $client->send($request);
 
 ## Update Type
 
-All update methods can be found [here](TypeUpdateBuilder.md)
+All Type update methods can be found [here](TypeUpdateBuilder.md)
 
 ### Example
 ```php
@@ -905,7 +905,7 @@ $response = $client->send($request);
 
 ## Update Zone
 
-All update methods can be found [here](ZoneUpdateBuilder.md)
+All Zone update methods can be found [here](ZoneUpdateBuilder.md)
 
 ### Example
 ```php
@@ -948,7 +948,7 @@ $response = $client->send($request);
 
 ## Update Extension
 
-All update methods can be found [here](ExtensionUpdateBuilder.md)
+All Extension update methods can be found [here](ExtensionUpdateBuilder.md)
 
 ### Example
 ```php
