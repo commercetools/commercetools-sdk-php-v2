@@ -14,7 +14,7 @@ $builder = new RequestBuilder();
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->update($project)
+$request = $builder->withProjectKeyValue($projectKey)->update($project)
     ->changeCountries(new ProjectChangeCountriesAction())
     // or
     ->changeCountries(function (ProjectChangeCountriesAction $action): ProjectChangeCountriesAction {
@@ -31,9 +31,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->create($categoryDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->categories()->create($categoryDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->categories()->create(
+$request = $builder->withProjectKeyValue($projectKey)->categories()->create(
     function (CategoryDraft $categoryDraft): CategoryDraft {
         // modify $draft as needed
         return $categoryDraft;
@@ -46,7 +46,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->update($category)
+$request = $builder->withProjectKeyValue($projectKey)->categories()->update($category)
     ->addAsset(new CategoryAddAssetAction())
     // or
     ->addAsset(function (CategoryAddAssetAction $action): CategoryAddAssetAction {
@@ -62,7 +62,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->delete($category);
+$request = $builder->withProjectKeyValue($projectKey)->categories()->delete($category);
 $response = $client->send($request);
 ```
 
@@ -72,9 +72,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->carts()->create($cartDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->carts()->create($cartDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->carts()->create(
+$request = $builder->withProjectKeyValue($projectKey)->carts()->create(
     function (CartDraft $cartDraft): CartDraft {
         // modify $draft as needed
         return $cartDraft;
@@ -87,7 +87,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->carts()->update($cart)
+$request = $builder->withProjectKeyValue($projectKey)->carts()->update($cart)
     ->addCustomLineItem(new CartAddCustomLineItemAction())
     // or
     ->addCustomLineItem(function (CartAddCustomLineItemAction $action): CartAddCustomLineItemAction {
@@ -103,7 +103,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->carts()->delete($cart);
+$request = $builder->withProjectKeyValue($projectKey)->carts()->delete($cart);
 $response = $client->send($request);
 ```
 
@@ -113,9 +113,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->cartDiscounts()->create($cartDiscountDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->cartDiscounts()->create($cartDiscountDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->cartDiscounts()->create(
+$request = $builder->withProjectKeyValue($projectKey)->cartDiscounts()->create(
     function (CartDiscountDraft $cartDiscountDraft): CartDiscountDraft {
         // modify $draft as needed
         return $cartDiscountDraft;
@@ -128,7 +128,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->cartDiscounts()->update($cartDiscount)
+$request = $builder->withProjectKeyValue($projectKey)->cartDiscounts()->update($cartDiscount)
     ->changeCartPredicate(new CartDiscountChangeCartPredicateAction())
     // or
     ->changeCartPredicate(function (CartDiscountChangeCartPredicateAction $action): CartDiscountChangeCartPredicateAction {
@@ -144,7 +144,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->cartDiscounts()->delete($cartDiscount);
+$request = $builder->withProjectKeyValue($projectKey)->cartDiscounts()->delete($cartDiscount);
 $response = $client->send($request);
 ```
 
@@ -154,9 +154,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->channels()->create($channelDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->channels()->create($channelDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->channels()->create(
+$request = $builder->withProjectKeyValue($projectKey)->channels()->create(
     function (ChannelDraft $channelDraft): ChannelDraft {
         // modify $draft as needed
         return $channelDraft;
@@ -169,7 +169,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->channels()->update($channel)
+$request = $builder->withProjectKeyValue($projectKey)->channels()->update($channel)
     ->addRoles(new ChannelAddRolesAction())
     // or
     ->addRoles(function (ChannelAddRolesAction $action): ChannelAddRolesAction {
@@ -185,7 +185,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->channels()->delete($channel);
+$request = $builder->withProjectKeyValue($projectKey)->channels()->delete($channel);
 $response = $client->send($request);
 ```
 
@@ -195,9 +195,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->create($customerDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->create($customerDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->customers()->create(
+$request = $builder->withProjectKeyValue($projectKey)->customers()->create(
     function (CustomerDraft $customerDraft): CustomerDraft {
         // modify $draft as needed
         return $customerDraft;
@@ -210,7 +210,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->update($customer)
+$request = $builder->withProjectKeyValue($projectKey)->customers()->update($customer)
     ->addAddress(new CustomerAddAddressAction())
     // or
     ->addAddress(function (CustomerAddAddressAction $action): CustomerAddAddressAction {
@@ -226,7 +226,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->delete($customer);
+$request = $builder->withProjectKeyValue($projectKey)->customers()->delete($customer);
 $response = $client->send($request);
 ```
 
@@ -236,9 +236,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->create($customerGroupDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->create($customerGroupDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->customerGroups()->create(
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->create(
     function (CustomerGroupDraft $customerGroupDraft): CustomerGroupDraft {
         // modify $draft as needed
         return $customerGroupDraft;
@@ -251,7 +251,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->update($customerGroup)
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->update($customerGroup)
     ->changeName(new CustomerGroupChangeNameAction())
     // or
     ->changeName(function (CustomerGroupChangeNameAction $action): CustomerGroupChangeNameAction {
@@ -267,7 +267,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->delete($customerGroup);
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->delete($customerGroup);
 $response = $client->send($request);
 ```
 
@@ -277,9 +277,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->discountCodes()->create($discountCodeDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->discountCodes()->create($discountCodeDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->discountCodes()->create(
+$request = $builder->withProjectKeyValue($projectKey)->discountCodes()->create(
     function (DiscountCodeDraft $discountCodeDraft): DiscountCodeDraft {
         // modify $draft as needed
         return $discountCodeDraft;
@@ -292,7 +292,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->discountCodes()->update($discountCode)
+$request = $builder->withProjectKeyValue($projectKey)->discountCodes()->update($discountCode)
     ->changeCartDiscounts(new DiscountCodeChangeCartDiscountsAction())
     // or
     ->changeCartDiscounts(function (DiscountCodeChangeCartDiscountsAction $action): DiscountCodeChangeCartDiscountsAction {
@@ -308,7 +308,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->discountCodes()->delete($discountCode);
+$request = $builder->withProjectKeyValue($projectKey)->discountCodes()->delete($discountCode);
 $response = $client->send($request);
 ```
 
@@ -318,9 +318,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->inventory()->create($inventoryEntryDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->inventory()->create($inventoryEntryDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->inventory()->create(
+$request = $builder->withProjectKeyValue($projectKey)->inventory()->create(
     function (InventoryEntryDraft $inventoryEntryDraft): InventoryEntryDraft {
         // modify $draft as needed
         return $inventoryEntryDraft;
@@ -333,7 +333,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->inventory()->update($inventoryEntry)
+$request = $builder->withProjectKeyValue($projectKey)->inventory()->update($inventoryEntry)
     ->addQuantity(new InventoryAddQuantityAction())
     // or
     ->addQuantity(function (InventoryAddQuantityAction $action): InventoryAddQuantityAction {
@@ -349,7 +349,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->inventory()->delete($inventoryEntry);
+$request = $builder->withProjectKeyValue($projectKey)->inventory()->delete($inventoryEntry);
 $response = $client->send($request);
 ```
 
@@ -359,9 +359,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->create($orderFromCartDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->create($orderFromCartDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->orders()->create(
+$request = $builder->withProjectKeyValue($projectKey)->orders()->create(
     function (OrderFromCartDraft $orderFromCartDraft): OrderFromCartDraft {
         // modify $draft as needed
         return $orderFromCartDraft;
@@ -374,7 +374,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->update($order)
+$request = $builder->withProjectKeyValue($projectKey)->orders()->update($order)
     ->addDelivery(new OrderAddDeliveryAction())
     // or
     ->addDelivery(function (OrderAddDeliveryAction $action): OrderAddDeliveryAction {
@@ -390,7 +390,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->delete($order);
+$request = $builder->withProjectKeyValue($projectKey)->orders()->delete($order);
 $response = $client->send($request);
 ```
 
@@ -400,9 +400,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->create($paymentDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->payments()->create($paymentDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->payments()->create(
+$request = $builder->withProjectKeyValue($projectKey)->payments()->create(
     function (PaymentDraft $paymentDraft): PaymentDraft {
         // modify $draft as needed
         return $paymentDraft;
@@ -415,7 +415,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->update($payment)
+$request = $builder->withProjectKeyValue($projectKey)->payments()->update($payment)
     ->addInterfaceInteraction(new PaymentAddInterfaceInteractionAction())
     // or
     ->addInterfaceInteraction(function (PaymentAddInterfaceInteractionAction $action): PaymentAddInterfaceInteractionAction {
@@ -431,7 +431,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->delete($payment);
+$request = $builder->withProjectKeyValue($projectKey)->payments()->delete($payment);
 $response = $client->send($request);
 ```
 
@@ -441,9 +441,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->create($productDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->products()->create($productDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->products()->create(
+$request = $builder->withProjectKeyValue($projectKey)->products()->create(
     function (ProductDraft $productDraft): ProductDraft {
         // modify $draft as needed
         return $productDraft;
@@ -456,7 +456,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->update($product)
+$request = $builder->withProjectKeyValue($projectKey)->products()->update($product)
     ->addAsset(new ProductAddAssetAction())
     // or
     ->addAsset(function (ProductAddAssetAction $action): ProductAddAssetAction {
@@ -472,7 +472,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->delete($product);
+$request = $builder->withProjectKeyValue($projectKey)->products()->delete($product);
 $response = $client->send($request);
 ```
 
@@ -482,9 +482,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productDiscounts()->create($productDiscountDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->create($productDiscountDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->productDiscounts()->create(
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->create(
     function (ProductDiscountDraft $productDiscountDraft): ProductDiscountDraft {
         // modify $draft as needed
         return $productDiscountDraft;
@@ -497,7 +497,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productDiscounts()->update($productDiscount)
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->update($productDiscount)
     ->changeIsActive(new ProductDiscountChangeIsActiveAction())
     // or
     ->changeIsActive(function (ProductDiscountChangeIsActiveAction $action): ProductDiscountChangeIsActiveAction {
@@ -513,7 +513,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productDiscounts()->delete($productDiscount);
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->delete($productDiscount);
 $response = $client->send($request);
 ```
 
@@ -523,9 +523,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->create($productTypeDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->create($productTypeDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->productTypes()->create(
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->create(
     function (ProductTypeDraft $productTypeDraft): ProductTypeDraft {
         // modify $draft as needed
         return $productTypeDraft;
@@ -538,7 +538,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->update($productType)
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->update($productType)
     ->addAttributeDefinition(new ProductTypeAddAttributeDefinitionAction())
     // or
     ->addAttributeDefinition(function (ProductTypeAddAttributeDefinitionAction $action): ProductTypeAddAttributeDefinitionAction {
@@ -554,7 +554,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->delete($productType);
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->delete($productType);
 $response = $client->send($request);
 ```
 
@@ -564,9 +564,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->create($reviewDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->create($reviewDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->reviews()->create(
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->create(
     function (ReviewDraft $reviewDraft): ReviewDraft {
         // modify $draft as needed
         return $reviewDraft;
@@ -579,7 +579,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->update($review)
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->update($review)
     ->setAuthorName(new ReviewSetAuthorNameAction())
     // or
     ->setAuthorName(function (ReviewSetAuthorNameAction $action): ReviewSetAuthorNameAction {
@@ -595,7 +595,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->delete($review);
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->delete($review);
 $response = $client->send($request);
 ```
 
@@ -605,9 +605,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->create($shippingMethodDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->create($shippingMethodDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->shippingMethods()->create(
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->create(
     function (ShippingMethodDraft $shippingMethodDraft): ShippingMethodDraft {
         // modify $draft as needed
         return $shippingMethodDraft;
@@ -620,7 +620,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->update($shippingMethod)
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->update($shippingMethod)
     ->addShippingRate(new ShippingMethodAddShippingRateAction())
     // or
     ->addShippingRate(function (ShippingMethodAddShippingRateAction $action): ShippingMethodAddShippingRateAction {
@@ -636,7 +636,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->delete($shippingMethod);
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->delete($shippingMethod);
 $response = $client->send($request);
 ```
 
@@ -646,9 +646,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->create($shoppingListDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->create($shoppingListDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->shoppingLists()->create(
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->create(
     function (ShoppingListDraft $shoppingListDraft): ShoppingListDraft {
         // modify $draft as needed
         return $shoppingListDraft;
@@ -661,7 +661,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->update($shoppingList)
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->update($shoppingList)
     ->addLineItem(new ShoppingListAddLineItemAction())
     // or
     ->addLineItem(function (ShoppingListAddLineItemAction $action): ShoppingListAddLineItemAction {
@@ -677,7 +677,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->delete($shoppingList);
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->delete($shoppingList);
 $response = $client->send($request);
 ```
 
@@ -687,9 +687,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->states()->create($stateDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->states()->create($stateDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->states()->create(
+$request = $builder->withProjectKeyValue($projectKey)->states()->create(
     function (StateDraft $stateDraft): StateDraft {
         // modify $draft as needed
         return $stateDraft;
@@ -702,7 +702,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->states()->update($state)
+$request = $builder->withProjectKeyValue($projectKey)->states()->update($state)
     ->addRoles(new StateAddRolesAction())
     // or
     ->addRoles(function (StateAddRolesAction $action): StateAddRolesAction {
@@ -718,7 +718,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->states()->delete($state);
+$request = $builder->withProjectKeyValue($projectKey)->states()->delete($state);
 $response = $client->send($request);
 ```
 
@@ -728,9 +728,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->create($subscriptionDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->create($subscriptionDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->subscriptions()->create(
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->create(
     function (SubscriptionDraft $subscriptionDraft): SubscriptionDraft {
         // modify $draft as needed
         return $subscriptionDraft;
@@ -743,7 +743,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->update($subscription)
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->update($subscription)
     ->setChanges(new SubscriptionSetChangesAction())
     // or
     ->setChanges(function (SubscriptionSetChangesAction $action): SubscriptionSetChangesAction {
@@ -759,7 +759,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->delete($subscription);
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->delete($subscription);
 $response = $client->send($request);
 ```
 
@@ -769,9 +769,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->taxCategories()->create($taxCategoryDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->taxCategories()->create($taxCategoryDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->taxCategories()->create(
+$request = $builder->withProjectKeyValue($projectKey)->taxCategories()->create(
     function (TaxCategoryDraft $taxCategoryDraft): TaxCategoryDraft {
         // modify $draft as needed
         return $taxCategoryDraft;
@@ -784,7 +784,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->taxCategories()->update($taxCategory)
+$request = $builder->withProjectKeyValue($projectKey)->taxCategories()->update($taxCategory)
     ->addTaxRate(new TaxCategoryAddTaxRateAction())
     // or
     ->addTaxRate(function (TaxCategoryAddTaxRateAction $action): TaxCategoryAddTaxRateAction {
@@ -800,7 +800,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->taxCategories()->delete($taxCategory);
+$request = $builder->withProjectKeyValue($projectKey)->taxCategories()->delete($taxCategory);
 $response = $client->send($request);
 ```
 
@@ -810,9 +810,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->create($typeDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->types()->create($typeDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->types()->create(
+$request = $builder->withProjectKeyValue($projectKey)->types()->create(
     function (TypeDraft $typeDraft): TypeDraft {
         // modify $draft as needed
         return $typeDraft;
@@ -825,7 +825,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->update($type)
+$request = $builder->withProjectKeyValue($projectKey)->types()->update($type)
     ->addEnumValue(new TypeAddEnumValueAction())
     // or
     ->addEnumValue(function (TypeAddEnumValueAction $action): TypeAddEnumValueAction {
@@ -841,7 +841,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->delete($type);
+$request = $builder->withProjectKeyValue($projectKey)->types()->delete($type);
 $response = $client->send($request);
 ```
 
@@ -851,9 +851,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->zones()->create($zoneDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->zones()->create($zoneDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->zones()->create(
+$request = $builder->withProjectKeyValue($projectKey)->zones()->create(
     function (ZoneDraft $zoneDraft): ZoneDraft {
         // modify $draft as needed
         return $zoneDraft;
@@ -866,7 +866,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->zones()->update($zone)
+$request = $builder->withProjectKeyValue($projectKey)->zones()->update($zone)
     ->addLocation(new ZoneAddLocationAction())
     // or
     ->addLocation(function (ZoneAddLocationAction $action): ZoneAddLocationAction {
@@ -882,7 +882,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->zones()->delete($zone);
+$request = $builder->withProjectKeyValue($projectKey)->zones()->delete($zone);
 $response = $client->send($request);
 ```
 
@@ -892,9 +892,9 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->create($extensionDraft)->buildRequest();
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->create($extensionDraft)->buildRequest();
 // or
-$request = $builder->withProjectKeyValue()->extensions()->create(
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->create(
     function (ExtensionDraft $extensionDraft): ExtensionDraft {
         // modify $draft as needed
         return $extensionDraft;
@@ -907,7 +907,7 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->update($extension)
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->update($extension)
     ->changeDestination(new ExtensionChangeDestinationAction())
     // or
     ->changeDestination(function (ExtensionChangeDestinationAction $action): ExtensionChangeDestinationAction {
@@ -923,11 +923,11 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->delete($extension);
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->delete($extension);
 $response = $client->send($request);
 ```
 
-## `withProjectKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->get()`
 
 The Endpoint is responding a limited set of information about settings and configuration of the project.
 
@@ -938,10 +938,10 @@ The Endpoint is responding a limited set of information about settings and confi
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->post()`
 
 Update project
 
@@ -951,10 +951,10 @@ Update project
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->categories()->get()`
+## `withProjectKeyValue($projectKey)->categories()->get()`
 
 Query categories
 
@@ -964,10 +964,10 @@ Query categories
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->get();
+$request = $builder->withProjectKeyValue($projectKey)->categories()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->categories()->post()`
+## `withProjectKeyValue($projectKey)->categories()->post()`
 
 Create Category
 
@@ -977,10 +977,10 @@ Create Category
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->post();
+$request = $builder->withProjectKeyValue($projectKey)->categories()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->categories()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->categories()->keyWithKeyValue($key)->get()`
 
 Get Category by key
 
@@ -991,10 +991,10 @@ Get Category by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->categories()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->categories()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->categories()->keyWithKeyValue($key)->post()`
 
 Update Category by key
 
@@ -1005,10 +1005,10 @@ Update Category by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->categories()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->categories()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->categories()->keyWithKeyValue($key)->delete()`
 
 Delete Category by key
 
@@ -1019,10 +1019,10 @@ Delete Category by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->categories()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->categories()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->categories()->withIDValue($ID)->get()`
 
 Get Category by ID
 
@@ -1033,10 +1033,10 @@ Get Category by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->categories()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->categories()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->categories()->withIDValue($ID)->post()`
 
 Update Category by ID
 
@@ -1047,10 +1047,10 @@ Update Category by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->categories()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->categories()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->categories()->withIDValue($ID)->delete()`
 
 Delete Category by ID
 
@@ -1061,10 +1061,10 @@ Delete Category by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->categories()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->categories()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->carts()->get()`
+## `withProjectKeyValue($projectKey)->carts()->get()`
 
 Query carts
 
@@ -1074,10 +1074,10 @@ Query carts
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->carts()->get();
+$request = $builder->withProjectKeyValue($projectKey)->carts()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->carts()->post()`
+## `withProjectKeyValue($projectKey)->carts()->post()`
 
 Create Cart
 
@@ -1087,10 +1087,10 @@ Create Cart
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->carts()->post();
+$request = $builder->withProjectKeyValue($projectKey)->carts()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->carts()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->carts()->withIDValue($ID)->get()`
 
 Get Cart by ID
 
@@ -1101,10 +1101,10 @@ Get Cart by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->carts()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->carts()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->carts()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->carts()->withIDValue($ID)->post()`
 
 Update Cart by ID
 
@@ -1115,10 +1115,10 @@ Update Cart by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->carts()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->carts()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->carts()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->carts()->withIDValue($ID)->delete()`
 
 Delete Cart by ID
 
@@ -1129,10 +1129,10 @@ Delete Cart by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->carts()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->carts()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->cartDiscounts()->get()`
+## `withProjectKeyValue($projectKey)->cartDiscounts()->get()`
 
 Query cart-discounts
 
@@ -1142,10 +1142,10 @@ Query cart-discounts
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->cartDiscounts()->get();
+$request = $builder->withProjectKeyValue($projectKey)->cartDiscounts()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->cartDiscounts()->post()`
+## `withProjectKeyValue($projectKey)->cartDiscounts()->post()`
 
 Create CartDiscount
 
@@ -1155,10 +1155,10 @@ Create CartDiscount
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->cartDiscounts()->post();
+$request = $builder->withProjectKeyValue($projectKey)->cartDiscounts()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->cartDiscounts()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->cartDiscounts()->withIDValue($ID)->get()`
 
 Get CartDiscount by ID
 
@@ -1169,10 +1169,10 @@ Get CartDiscount by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->cartDiscounts()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->cartDiscounts()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->cartDiscounts()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->cartDiscounts()->withIDValue($ID)->post()`
 
 Update CartDiscount by ID
 
@@ -1183,10 +1183,10 @@ Update CartDiscount by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->cartDiscounts()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->cartDiscounts()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->cartDiscounts()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->cartDiscounts()->withIDValue($ID)->delete()`
 
 Delete CartDiscount by ID
 
@@ -1197,10 +1197,10 @@ Delete CartDiscount by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->cartDiscounts()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->cartDiscounts()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->channels()->get()`
+## `withProjectKeyValue($projectKey)->channels()->get()`
 
 Query channels
 
@@ -1210,10 +1210,10 @@ Query channels
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->channels()->get();
+$request = $builder->withProjectKeyValue($projectKey)->channels()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->channels()->post()`
+## `withProjectKeyValue($projectKey)->channels()->post()`
 
 Create Channel
 
@@ -1223,10 +1223,10 @@ Create Channel
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->channels()->post();
+$request = $builder->withProjectKeyValue($projectKey)->channels()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->channels()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->channels()->withIDValue($ID)->get()`
 
 Get Channel by ID
 
@@ -1237,10 +1237,10 @@ Get Channel by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->channels()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->channels()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->channels()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->channels()->withIDValue($ID)->post()`
 
 Update Channel by ID
 
@@ -1251,10 +1251,10 @@ Update Channel by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->channels()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->channels()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->channels()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->channels()->withIDValue($ID)->delete()`
 
 Delete Channel by ID
 
@@ -1265,10 +1265,10 @@ Delete Channel by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->channels()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->channels()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->get()`
+## `withProjectKeyValue($projectKey)->customers()->get()`
 
 Query customers
 
@@ -1278,10 +1278,10 @@ Query customers
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->post()`
+## `withProjectKeyValue($projectKey)->customers()->post()`
 
 Create Customer
 
@@ -1291,10 +1291,10 @@ Create Customer
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->passwordTokenWithPasswordTokenValue()->get()`
+## `withProjectKeyValue($projectKey)->customers()->passwordTokenWithPasswordTokenValue($passwordToken)->get()`
 
 Get Customer by passwordToken
 
@@ -1305,10 +1305,10 @@ Get Customer by passwordToken
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->passwordTokenWithPasswordTokenValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->passwordTokenWithPasswordTokenValue($passwordToken)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->emailTokenWithEmailTokenValue()->get()`
+## `withProjectKeyValue($projectKey)->customers()->emailTokenWithEmailTokenValue($emailToken)->get()`
 
 Get Customer by emailToken
 
@@ -1319,10 +1319,10 @@ Get Customer by emailToken
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->emailTokenWithEmailTokenValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->emailTokenWithEmailTokenValue($emailToken)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->emailToken()->post()`
+## `withProjectKeyValue($projectKey)->customers()->emailToken()->post()`
 
 Create a Token for verifying the Customer's Email
 
@@ -1332,10 +1332,10 @@ Create a Token for verifying the Customer's Email
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->emailToken()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->emailToken()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->email()->confirm()->post()`
+## `withProjectKeyValue($projectKey)->customers()->email()->confirm()->post()`
 
 Verifies customer's email using a token.
 
@@ -1345,10 +1345,10 @@ Verifies customer's email using a token.
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->email()->confirm()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->email()->confirm()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->password()->post()`
+## `withProjectKeyValue($projectKey)->customers()->password()->post()`
 
 Change a customers password
 
@@ -1358,10 +1358,10 @@ Change a customers password
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->password()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->password()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->password()->reset()->post()`
+## `withProjectKeyValue($projectKey)->customers()->password()->reset()->post()`
 
 Set a new password using a token.
 
@@ -1371,10 +1371,10 @@ Set a new password using a token.
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->password()->reset()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->password()->reset()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->passwordToken()->post()`
+## `withProjectKeyValue($projectKey)->customers()->passwordToken()->post()`
 
 The token value is used to reset the password of the customer with the given email. The token is
 valid only for 10 minutes.
@@ -1386,10 +1386,10 @@ valid only for 10 minutes.
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->passwordToken()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->passwordToken()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->customers()->withIDValue($ID)->get()`
 
 Get Customer by ID
 
@@ -1400,10 +1400,10 @@ Get Customer by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->customers()->withIDValue($ID)->post()`
 
 Update Customer by ID
 
@@ -1414,10 +1414,10 @@ Update Customer by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customers()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->customers()->withIDValue($ID)->delete()`
 
 Delete Customer by ID
 
@@ -1428,10 +1428,10 @@ Delete Customer by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customers()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->customers()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customerGroups()->get()`
+## `withProjectKeyValue($projectKey)->customerGroups()->get()`
 
 Query customer-groups
 
@@ -1441,10 +1441,10 @@ Query customer-groups
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customerGroups()->post()`
+## `withProjectKeyValue($projectKey)->customerGroups()->post()`
 
 Create CustomerGroup
 
@@ -1454,10 +1454,10 @@ Create CustomerGroup
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customerGroups()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->customerGroups()->keyWithKeyValue($key)->get()`
 
 Get CustomerGroup by key
 
@@ -1468,10 +1468,10 @@ Get CustomerGroup by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customerGroups()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->customerGroups()->keyWithKeyValue($key)->post()`
 
 Update CustomerGroup by key
 
@@ -1482,10 +1482,10 @@ Update CustomerGroup by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customerGroups()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->customerGroups()->keyWithKeyValue($key)->delete()`
 
 Delete CustomerGroup by key
 
@@ -1496,10 +1496,10 @@ Delete CustomerGroup by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customerGroups()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->customerGroups()->withIDValue($ID)->get()`
 
 Get CustomerGroup by ID
 
@@ -1510,10 +1510,10 @@ Get CustomerGroup by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customerGroups()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->customerGroups()->withIDValue($ID)->post()`
 
 Update CustomerGroup by ID
 
@@ -1524,10 +1524,10 @@ Update CustomerGroup by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customerGroups()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->customerGroups()->withIDValue($ID)->delete()`
 
 Delete CustomerGroup by ID
 
@@ -1538,10 +1538,10 @@ Delete CustomerGroup by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customerGroups()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->customerGroups()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customObjects()->get()`
+## `withProjectKeyValue($projectKey)->customObjects()->get()`
 
 Query custom-objects
 
@@ -1551,10 +1551,10 @@ Query custom-objects
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customObjects()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customObjects()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customObjects()->post()`
+## `withProjectKeyValue($projectKey)->customObjects()->post()`
 
 Create CustomObject
 
@@ -1564,10 +1564,10 @@ Create CustomObject
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customObjects()->post();
+$request = $builder->withProjectKeyValue($projectKey)->customObjects()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customObjects()->withContainerValue()->get()`
+## `withProjectKeyValue($projectKey)->customObjects()->withContainerValue($container)->get()`
 
 Get CustomObject by container
 
@@ -1578,10 +1578,10 @@ Get CustomObject by container
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customObjects()->withContainerValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customObjects()->withContainerValue($container)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customObjects()->withContainerValue()->delete()`
+## `withProjectKeyValue($projectKey)->customObjects()->withContainerValue($container)->delete()`
 
 Delete CustomObject by container
 
@@ -1592,10 +1592,10 @@ Delete CustomObject by container
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customObjects()->withContainerValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->customObjects()->withContainerValue($container)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customObjects()->withContainerValue()->withKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->customObjects()->withContainerValue($container)->withKeyValue($key)->get()`
 
 Get CustomObject by key
 
@@ -1607,10 +1607,10 @@ Get CustomObject by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customObjects()->withContainerValue()->withKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->customObjects()->withContainerValue($container)->withKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->customObjects()->withContainerValue()->withKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->customObjects()->withContainerValue($container)->withKeyValue($key)->delete()`
 
 Delete CustomObject by key
 
@@ -1622,10 +1622,10 @@ Delete CustomObject by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->customObjects()->withContainerValue()->withKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->customObjects()->withContainerValue($container)->withKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->discountCodes()->get()`
+## `withProjectKeyValue($projectKey)->discountCodes()->get()`
 
 Query discount-codes
 
@@ -1635,10 +1635,10 @@ Query discount-codes
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->discountCodes()->get();
+$request = $builder->withProjectKeyValue($projectKey)->discountCodes()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->discountCodes()->post()`
+## `withProjectKeyValue($projectKey)->discountCodes()->post()`
 
 Create DiscountCode
 
@@ -1648,10 +1648,10 @@ Create DiscountCode
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->discountCodes()->post();
+$request = $builder->withProjectKeyValue($projectKey)->discountCodes()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->discountCodes()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->discountCodes()->withIDValue($ID)->get()`
 
 Get DiscountCode by ID
 
@@ -1662,10 +1662,10 @@ Get DiscountCode by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->discountCodes()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->discountCodes()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->discountCodes()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->discountCodes()->withIDValue($ID)->post()`
 
 Update DiscountCode by ID
 
@@ -1676,10 +1676,10 @@ Update DiscountCode by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->discountCodes()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->discountCodes()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->discountCodes()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->discountCodes()->withIDValue($ID)->delete()`
 
 Delete DiscountCode by ID
 
@@ -1690,10 +1690,10 @@ Delete DiscountCode by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->discountCodes()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->discountCodes()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->graphql()->post()`
+## `withProjectKeyValue($projectKey)->graphql()->post()`
 
 Execute a GraphQL query
 
@@ -1703,10 +1703,10 @@ Execute a GraphQL query
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->graphql()->post();
+$request = $builder->withProjectKeyValue($projectKey)->graphql()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->inventory()->get()`
+## `withProjectKeyValue($projectKey)->inventory()->get()`
 
 Query inventory
 
@@ -1716,10 +1716,10 @@ Query inventory
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->inventory()->get();
+$request = $builder->withProjectKeyValue($projectKey)->inventory()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->inventory()->post()`
+## `withProjectKeyValue($projectKey)->inventory()->post()`
 
 Create InventoryEntry
 
@@ -1729,10 +1729,10 @@ Create InventoryEntry
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->inventory()->post();
+$request = $builder->withProjectKeyValue($projectKey)->inventory()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->inventory()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->inventory()->withIDValue($ID)->get()`
 
 Get InventoryEntry by ID
 
@@ -1743,10 +1743,10 @@ Get InventoryEntry by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->inventory()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->inventory()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->inventory()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->inventory()->withIDValue($ID)->post()`
 
 Update InventoryEntry by ID
 
@@ -1757,10 +1757,10 @@ Update InventoryEntry by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->inventory()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->inventory()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->inventory()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->inventory()->withIDValue($ID)->delete()`
 
 Delete InventoryEntry by ID
 
@@ -1771,10 +1771,10 @@ Delete InventoryEntry by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->inventory()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->inventory()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->login()->post()`
+## `withProjectKeyValue($projectKey)->login()->post()`
 
 Authenticate Customer (Sign In)
 
@@ -1784,10 +1784,10 @@ Authenticate Customer (Sign In)
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->login()->post();
+$request = $builder->withProjectKeyValue($projectKey)->login()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->messages()->get()`
+## `withProjectKeyValue($projectKey)->messages()->get()`
 
 Query messages
 
@@ -1797,10 +1797,10 @@ Query messages
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->messages()->get();
+$request = $builder->withProjectKeyValue($projectKey)->messages()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->messages()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->messages()->withIDValue($ID)->get()`
 
 Get Message by ID
 
@@ -1811,10 +1811,10 @@ Get Message by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->messages()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->messages()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->orders()->get()`
+## `withProjectKeyValue($projectKey)->orders()->get()`
 
 Query orders
 
@@ -1824,10 +1824,10 @@ Query orders
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->get();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->orders()->post()`
+## `withProjectKeyValue($projectKey)->orders()->post()`
 
 Create Order
 
@@ -1837,10 +1837,10 @@ Create Order
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->post();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->orders()->import()->post()`
+## `withProjectKeyValue($projectKey)->orders()->import()->post()`
 
 Create an Order by Import
 
@@ -1850,10 +1850,10 @@ Create an Order by Import
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->import()->post();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->import()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->orders()->orderNumberWithOrderNumberValue()->get()`
+## `withProjectKeyValue($projectKey)->orders()->orderNumberWithOrderNumberValue($orderNumber)->get()`
 
 Get Order by orderNumber
 
@@ -1864,10 +1864,10 @@ Get Order by orderNumber
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->orderNumberWithOrderNumberValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->orderNumberWithOrderNumberValue($orderNumber)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->orders()->orderNumberWithOrderNumberValue()->post()`
+## `withProjectKeyValue($projectKey)->orders()->orderNumberWithOrderNumberValue($orderNumber)->post()`
 
 Update Order by orderNumber
 
@@ -1878,10 +1878,10 @@ Update Order by orderNumber
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->orderNumberWithOrderNumberValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->orderNumberWithOrderNumberValue($orderNumber)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->orders()->orderNumberWithOrderNumberValue()->delete()`
+## `withProjectKeyValue($projectKey)->orders()->orderNumberWithOrderNumberValue($orderNumber)->delete()`
 
 Delete Order by orderNumber
 
@@ -1892,10 +1892,10 @@ Delete Order by orderNumber
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->orderNumberWithOrderNumberValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->orderNumberWithOrderNumberValue($orderNumber)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->orders()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->orders()->withIDValue($ID)->get()`
 
 Get Order by ID
 
@@ -1906,10 +1906,10 @@ Get Order by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->orders()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->orders()->withIDValue($ID)->post()`
 
 Update Order by ID
 
@@ -1920,10 +1920,10 @@ Update Order by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->orders()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->orders()->withIDValue($ID)->delete()`
 
 Delete Order by ID
 
@@ -1934,10 +1934,10 @@ Delete Order by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->orders()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->orders()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->payments()->get()`
+## `withProjectKeyValue($projectKey)->payments()->get()`
 
 Query payments
 
@@ -1947,10 +1947,10 @@ Query payments
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->get();
+$request = $builder->withProjectKeyValue($projectKey)->payments()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->payments()->post()`
+## `withProjectKeyValue($projectKey)->payments()->post()`
 
 Create Payment
 
@@ -1960,10 +1960,10 @@ Create Payment
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->post();
+$request = $builder->withProjectKeyValue($projectKey)->payments()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->payments()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->payments()->keyWithKeyValue($key)->get()`
 
 Get Payment by key
 
@@ -1974,10 +1974,10 @@ Get Payment by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->payments()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->payments()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->payments()->keyWithKeyValue($key)->post()`
 
 Update Payment by key
 
@@ -1988,10 +1988,10 @@ Update Payment by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->payments()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->payments()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->payments()->keyWithKeyValue($key)->delete()`
 
 Delete Payment by key
 
@@ -2002,10 +2002,10 @@ Delete Payment by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->payments()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->payments()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->payments()->withIDValue($ID)->get()`
 
 Get Payment by ID
 
@@ -2016,10 +2016,10 @@ Get Payment by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->payments()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->payments()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->payments()->withIDValue($ID)->post()`
 
 Update Payment by ID
 
@@ -2030,10 +2030,10 @@ Update Payment by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->payments()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->payments()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->payments()->withIDValue($ID)->delete()`
 
 Delete Payment by ID
 
@@ -2044,10 +2044,10 @@ Delete Payment by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->payments()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->payments()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->products()->get()`
+## `withProjectKeyValue($projectKey)->products()->get()`
 
 Query products
 
@@ -2057,10 +2057,10 @@ Query products
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->get();
+$request = $builder->withProjectKeyValue($projectKey)->products()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->products()->post()`
+## `withProjectKeyValue($projectKey)->products()->post()`
 
 Create Product
 
@@ -2070,10 +2070,10 @@ Create Product
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->post();
+$request = $builder->withProjectKeyValue($projectKey)->products()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->products()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->products()->keyWithKeyValue($key)->get()`
 
 Get Product by key
 
@@ -2084,10 +2084,10 @@ Get Product by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->products()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->products()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->products()->keyWithKeyValue($key)->post()`
 
 Update Product by key
 
@@ -2098,10 +2098,10 @@ Update Product by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->products()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->products()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->products()->keyWithKeyValue($key)->delete()`
 
 Delete Product by key
 
@@ -2112,10 +2112,10 @@ Delete Product by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->products()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->products()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->products()->withIDValue($ID)->get()`
 
 Get Product by ID
 
@@ -2126,10 +2126,10 @@ Get Product by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->products()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->products()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->products()->withIDValue($ID)->post()`
 
 Update Product by ID
 
@@ -2140,10 +2140,10 @@ Update Product by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->products()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->products()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->products()->withIDValue($ID)->delete()`
 
 Delete Product by ID
 
@@ -2154,10 +2154,10 @@ Delete Product by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->products()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->products()->withIDValue()->images()->post()`
+## `withProjectKeyValue($projectKey)->products()->withIDValue($ID)->images()->post()`
 
 Uploads a binary image file to a given product variant. The supported image formats are JPEG, PNG and GIF.
 
@@ -2169,10 +2169,10 @@ Uploads a binary image file to a given product variant. The supported image form
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->products()->withIDValue()->images()->post();
+$request = $builder->withProjectKeyValue($projectKey)->products()->withIDValue($ID)->images()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productDiscounts()->get()`
+## `withProjectKeyValue($projectKey)->productDiscounts()->get()`
 
 Query product-discounts
 
@@ -2182,10 +2182,10 @@ Query product-discounts
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productDiscounts()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productDiscounts()->post()`
+## `withProjectKeyValue($projectKey)->productDiscounts()->post()`
 
 Create ProductDiscount
 
@@ -2195,10 +2195,10 @@ Create ProductDiscount
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productDiscounts()->post();
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productDiscounts()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->productDiscounts()->withIDValue($ID)->get()`
 
 Get ProductDiscount by ID
 
@@ -2209,10 +2209,10 @@ Get ProductDiscount by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productDiscounts()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productDiscounts()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->productDiscounts()->withIDValue($ID)->post()`
 
 Update ProductDiscount by ID
 
@@ -2223,10 +2223,10 @@ Update ProductDiscount by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productDiscounts()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productDiscounts()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->productDiscounts()->withIDValue($ID)->delete()`
 
 Delete ProductDiscount by ID
 
@@ -2237,10 +2237,10 @@ Delete ProductDiscount by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productDiscounts()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productProjections()->get()`
+## `withProjectKeyValue($projectKey)->productProjections()->get()`
 
 Query product-projections
 
@@ -2250,10 +2250,10 @@ Query product-projections
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productProjections()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productProjections()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productProjections()->search()->post()`
+## `withProjectKeyValue($projectKey)->productProjections()->search()->post()`
 
 Search Product Projection
 
@@ -2263,10 +2263,10 @@ Search Product Projection
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productProjections()->search()->post();
+$request = $builder->withProjectKeyValue($projectKey)->productProjections()->search()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productProjections()->search()->get()`
+## `withProjectKeyValue($projectKey)->productProjections()->search()->get()`
 
 Search Product Projection
 
@@ -2276,10 +2276,10 @@ Search Product Projection
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productProjections()->search()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productProjections()->search()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productProjections()->suggest()->get()`
+## `withProjectKeyValue($projectKey)->productProjections()->suggest()->get()`
 
 
 ### Parameters
@@ -2288,10 +2288,10 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productProjections()->suggest()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productProjections()->suggest()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productProjections()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->productProjections()->keyWithKeyValue($key)->get()`
 
 Get ProductProjection by key
 
@@ -2302,10 +2302,10 @@ Get ProductProjection by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productProjections()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productProjections()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productProjections()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->productProjections()->withIDValue($ID)->get()`
 
 Get ProductProjection by ID
 
@@ -2316,10 +2316,10 @@ Get ProductProjection by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productProjections()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productProjections()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productTypes()->get()`
+## `withProjectKeyValue($projectKey)->productTypes()->get()`
 
 Query product-types
 
@@ -2329,10 +2329,10 @@ Query product-types
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productTypes()->post()`
+## `withProjectKeyValue($projectKey)->productTypes()->post()`
 
 Create ProductType
 
@@ -2342,10 +2342,10 @@ Create ProductType
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->post();
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productTypes()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->productTypes()->keyWithKeyValue($key)->get()`
 
 Get ProductType by key
 
@@ -2356,10 +2356,10 @@ Get ProductType by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productTypes()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->productTypes()->keyWithKeyValue($key)->post()`
 
 Update ProductType by key
 
@@ -2370,10 +2370,10 @@ Update ProductType by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productTypes()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->productTypes()->keyWithKeyValue($key)->delete()`
 
 Delete ProductType by key
 
@@ -2384,10 +2384,10 @@ Delete ProductType by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productTypes()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->productTypes()->withIDValue($ID)->get()`
 
 Get ProductType by ID
 
@@ -2398,10 +2398,10 @@ Get ProductType by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productTypes()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->productTypes()->withIDValue($ID)->post()`
 
 Update ProductType by ID
 
@@ -2412,10 +2412,10 @@ Update ProductType by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->productTypes()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->productTypes()->withIDValue($ID)->delete()`
 
 Delete ProductType by ID
 
@@ -2426,10 +2426,10 @@ Delete ProductType by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->productTypes()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->productTypes()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->reviews()->get()`
+## `withProjectKeyValue($projectKey)->reviews()->get()`
 
 Query reviews
 
@@ -2439,10 +2439,10 @@ Query reviews
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->get();
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->reviews()->post()`
+## `withProjectKeyValue($projectKey)->reviews()->post()`
 
 Create Review
 
@@ -2452,10 +2452,10 @@ Create Review
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->post();
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->reviews()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->reviews()->keyWithKeyValue($key)->get()`
 
 Get Review by key
 
@@ -2466,10 +2466,10 @@ Get Review by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->reviews()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->reviews()->keyWithKeyValue($key)->post()`
 
 Update Review by key
 
@@ -2480,10 +2480,10 @@ Update Review by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->reviews()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->reviews()->keyWithKeyValue($key)->delete()`
 
 Delete Review by key
 
@@ -2494,10 +2494,10 @@ Delete Review by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->reviews()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->reviews()->withIDValue($ID)->get()`
 
 Get Review by ID
 
@@ -2508,10 +2508,10 @@ Get Review by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->reviews()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->reviews()->withIDValue($ID)->post()`
 
 Update Review by ID
 
@@ -2522,10 +2522,10 @@ Update Review by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->reviews()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->reviews()->withIDValue($ID)->delete()`
 
 Delete Review by ID
 
@@ -2536,10 +2536,10 @@ Delete Review by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->reviews()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->reviews()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shippingMethods()->get()`
+## `withProjectKeyValue($projectKey)->shippingMethods()->get()`
 
 Query shipping-methods
 
@@ -2549,10 +2549,10 @@ Query shipping-methods
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->get();
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shippingMethods()->post()`
+## `withProjectKeyValue($projectKey)->shippingMethods()->post()`
 
 Create ShippingMethod
 
@@ -2562,10 +2562,10 @@ Create ShippingMethod
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->post();
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shippingMethods()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->shippingMethods()->keyWithKeyValue($key)->get()`
 
 Get ShippingMethod by key
 
@@ -2576,10 +2576,10 @@ Get ShippingMethod by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shippingMethods()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->shippingMethods()->keyWithKeyValue($key)->post()`
 
 Update ShippingMethod by key
 
@@ -2590,10 +2590,10 @@ Update ShippingMethod by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shippingMethods()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->shippingMethods()->keyWithKeyValue($key)->delete()`
 
 Delete ShippingMethod by key
 
@@ -2604,10 +2604,10 @@ Delete ShippingMethod by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shippingMethods()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->shippingMethods()->withIDValue($ID)->get()`
 
 Get ShippingMethod by ID
 
@@ -2618,10 +2618,10 @@ Get ShippingMethod by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shippingMethods()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->shippingMethods()->withIDValue($ID)->post()`
 
 Update ShippingMethod by ID
 
@@ -2632,10 +2632,10 @@ Update ShippingMethod by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shippingMethods()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->shippingMethods()->withIDValue($ID)->delete()`
 
 Delete ShippingMethod by ID
 
@@ -2646,10 +2646,10 @@ Delete ShippingMethod by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shippingMethods()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->shippingMethods()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shoppingLists()->get()`
+## `withProjectKeyValue($projectKey)->shoppingLists()->get()`
 
 Query shopping-lists
 
@@ -2659,10 +2659,10 @@ Query shopping-lists
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->get();
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shoppingLists()->post()`
+## `withProjectKeyValue($projectKey)->shoppingLists()->post()`
 
 Create ShoppingList
 
@@ -2672,10 +2672,10 @@ Create ShoppingList
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->post();
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shoppingLists()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->shoppingLists()->keyWithKeyValue($key)->get()`
 
 Get ShoppingList by key
 
@@ -2686,10 +2686,10 @@ Get ShoppingList by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shoppingLists()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->shoppingLists()->keyWithKeyValue($key)->post()`
 
 Update ShoppingList by key
 
@@ -2700,10 +2700,10 @@ Update ShoppingList by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shoppingLists()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->shoppingLists()->keyWithKeyValue($key)->delete()`
 
 Delete ShoppingList by key
 
@@ -2714,10 +2714,10 @@ Delete ShoppingList by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shoppingLists()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->shoppingLists()->withIDValue($ID)->get()`
 
 Get ShoppingList by ID
 
@@ -2728,10 +2728,10 @@ Get ShoppingList by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shoppingLists()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->shoppingLists()->withIDValue($ID)->post()`
 
 Update ShoppingList by ID
 
@@ -2742,10 +2742,10 @@ Update ShoppingList by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->shoppingLists()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->shoppingLists()->withIDValue($ID)->delete()`
 
 Delete ShoppingList by ID
 
@@ -2756,10 +2756,10 @@ Delete ShoppingList by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->shoppingLists()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->shoppingLists()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->states()->get()`
+## `withProjectKeyValue($projectKey)->states()->get()`
 
 Query states
 
@@ -2769,10 +2769,10 @@ Query states
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->states()->get();
+$request = $builder->withProjectKeyValue($projectKey)->states()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->states()->post()`
+## `withProjectKeyValue($projectKey)->states()->post()`
 
 Create State
 
@@ -2782,10 +2782,10 @@ Create State
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->states()->post();
+$request = $builder->withProjectKeyValue($projectKey)->states()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->states()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->states()->withIDValue($ID)->get()`
 
 Get State by ID
 
@@ -2796,10 +2796,10 @@ Get State by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->states()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->states()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->states()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->states()->withIDValue($ID)->post()`
 
 Update State by ID
 
@@ -2810,10 +2810,10 @@ Update State by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->states()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->states()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->states()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->states()->withIDValue($ID)->delete()`
 
 Delete State by ID
 
@@ -2824,10 +2824,10 @@ Delete State by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->states()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->states()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->subscriptions()->get()`
+## `withProjectKeyValue($projectKey)->subscriptions()->get()`
 
 Query subscriptions
 
@@ -2837,10 +2837,10 @@ Query subscriptions
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->get();
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->subscriptions()->post()`
+## `withProjectKeyValue($projectKey)->subscriptions()->post()`
 
 Create Subscription
 
@@ -2850,10 +2850,10 @@ Create Subscription
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->post();
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->subscriptions()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->subscriptions()->keyWithKeyValue($key)->get()`
 
 Get Subscription by key
 
@@ -2864,10 +2864,10 @@ Get Subscription by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->subscriptions()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->subscriptions()->keyWithKeyValue($key)->post()`
 
 Update Subscription by key
 
@@ -2878,10 +2878,10 @@ Update Subscription by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->subscriptions()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->subscriptions()->keyWithKeyValue($key)->delete()`
 
 Delete Subscription by key
 
@@ -2892,10 +2892,10 @@ Delete Subscription by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->subscriptions()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->subscriptions()->withIDValue($ID)->get()`
 
 Get Subscription by ID
 
@@ -2906,10 +2906,10 @@ Get Subscription by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->subscriptions()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->subscriptions()->withIDValue($ID)->post()`
 
 Update Subscription by ID
 
@@ -2920,10 +2920,10 @@ Update Subscription by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->subscriptions()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->subscriptions()->withIDValue($ID)->delete()`
 
 Delete Subscription by ID
 
@@ -2934,10 +2934,10 @@ Delete Subscription by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->subscriptions()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->subscriptions()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->taxCategories()->get()`
+## `withProjectKeyValue($projectKey)->taxCategories()->get()`
 
 Query tax-categories
 
@@ -2947,10 +2947,10 @@ Query tax-categories
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->taxCategories()->get();
+$request = $builder->withProjectKeyValue($projectKey)->taxCategories()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->taxCategories()->post()`
+## `withProjectKeyValue($projectKey)->taxCategories()->post()`
 
 Create TaxCategory
 
@@ -2960,10 +2960,10 @@ Create TaxCategory
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->taxCategories()->post();
+$request = $builder->withProjectKeyValue($projectKey)->taxCategories()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->taxCategories()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->taxCategories()->withIDValue($ID)->get()`
 
 Get TaxCategory by ID
 
@@ -2974,10 +2974,10 @@ Get TaxCategory by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->taxCategories()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->taxCategories()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->taxCategories()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->taxCategories()->withIDValue($ID)->post()`
 
 Update TaxCategory by ID
 
@@ -2988,10 +2988,10 @@ Update TaxCategory by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->taxCategories()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->taxCategories()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->taxCategories()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->taxCategories()->withIDValue($ID)->delete()`
 
 Delete TaxCategory by ID
 
@@ -3002,10 +3002,10 @@ Delete TaxCategory by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->taxCategories()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->taxCategories()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->types()->get()`
+## `withProjectKeyValue($projectKey)->types()->get()`
 
 Query types
 
@@ -3015,10 +3015,10 @@ Query types
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->get();
+$request = $builder->withProjectKeyValue($projectKey)->types()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->types()->post()`
+## `withProjectKeyValue($projectKey)->types()->post()`
 
 Create Type
 
@@ -3028,10 +3028,10 @@ Create Type
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->post();
+$request = $builder->withProjectKeyValue($projectKey)->types()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->types()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->types()->keyWithKeyValue($key)->get()`
 
 Get Type by key
 
@@ -3042,10 +3042,10 @@ Get Type by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->types()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->types()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->types()->keyWithKeyValue($key)->post()`
 
 Update Type by key
 
@@ -3056,10 +3056,10 @@ Update Type by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->types()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->types()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->types()->keyWithKeyValue($key)->delete()`
 
 Delete Type by key
 
@@ -3070,10 +3070,10 @@ Delete Type by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->types()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->types()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->types()->withIDValue($ID)->get()`
 
 Get Type by ID
 
@@ -3084,10 +3084,10 @@ Get Type by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->types()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->types()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->types()->withIDValue($ID)->post()`
 
 Update Type by ID
 
@@ -3098,10 +3098,10 @@ Update Type by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->types()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->types()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->types()->withIDValue($ID)->delete()`
 
 Delete Type by ID
 
@@ -3112,10 +3112,10 @@ Delete Type by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->types()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->types()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->zones()->get()`
+## `withProjectKeyValue($projectKey)->zones()->get()`
 
 Query zones
 
@@ -3125,10 +3125,10 @@ Query zones
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->zones()->get();
+$request = $builder->withProjectKeyValue($projectKey)->zones()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->zones()->post()`
+## `withProjectKeyValue($projectKey)->zones()->post()`
 
 Create Zone
 
@@ -3138,10 +3138,10 @@ Create Zone
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->zones()->post();
+$request = $builder->withProjectKeyValue($projectKey)->zones()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->zones()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->zones()->withIDValue($ID)->get()`
 
 Get Zone by ID
 
@@ -3152,10 +3152,10 @@ Get Zone by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->zones()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->zones()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->zones()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->zones()->withIDValue($ID)->post()`
 
 Update Zone by ID
 
@@ -3166,10 +3166,10 @@ Update Zone by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->zones()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->zones()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->zones()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->zones()->withIDValue($ID)->delete()`
 
 Delete Zone by ID
 
@@ -3180,10 +3180,10 @@ Delete Zone by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->zones()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->zones()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->get()`
+## `withProjectKeyValue($projectKey)->me()->get()`
 
 
 ### Parameters
@@ -3192,10 +3192,10 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->get();
+$request = $builder->withProjectKeyValue($projectKey)->me()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->post()`
+## `withProjectKeyValue($projectKey)->me()->post()`
 
 Create a customer
 
@@ -3205,10 +3205,10 @@ Create a customer
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->delete()`
+## `withProjectKeyValue($projectKey)->me()->delete()`
 
 Delete a Customer
 
@@ -3218,10 +3218,10 @@ Delete a Customer
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->me()->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->email()->confirm()->post()`
+## `withProjectKeyValue($projectKey)->me()->email()->confirm()->post()`
 
 
 ### Parameters
@@ -3230,10 +3230,10 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->email()->confirm()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->email()->confirm()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->password()->post()`
+## `withProjectKeyValue($projectKey)->me()->password()->post()`
 
 
 ### Parameters
@@ -3242,10 +3242,10 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->password()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->password()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->password()->reset()->post()`
+## `withProjectKeyValue($projectKey)->me()->password()->reset()->post()`
 
 
 ### Parameters
@@ -3254,10 +3254,10 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->password()->reset()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->password()->reset()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->signup()->post()`
+## `withProjectKeyValue($projectKey)->me()->signup()->post()`
 
 
 ### Parameters
@@ -3266,10 +3266,10 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->signup()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->signup()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->login()->post()`
+## `withProjectKeyValue($projectKey)->me()->login()->post()`
 
 
 ### Parameters
@@ -3278,10 +3278,10 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->login()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->login()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->activeCart()->get()`
+## `withProjectKeyValue($projectKey)->me()->activeCart()->get()`
 
 
 ### Parameters
@@ -3290,10 +3290,10 @@ $response = $client->send($request);
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->activeCart()->get();
+$request = $builder->withProjectKeyValue($projectKey)->me()->activeCart()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->carts()->get()`
+## `withProjectKeyValue($projectKey)->me()->carts()->get()`
 
 Query carts
 
@@ -3303,10 +3303,10 @@ Query carts
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->carts()->get();
+$request = $builder->withProjectKeyValue($projectKey)->me()->carts()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->carts()->post()`
+## `withProjectKeyValue($projectKey)->me()->carts()->post()`
 
 Create Cart
 
@@ -3316,10 +3316,10 @@ Create Cart
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->carts()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->carts()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->carts()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->me()->carts()->withIDValue($ID)->get()`
 
 Get Cart by ID
 
@@ -3330,10 +3330,10 @@ Get Cart by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->carts()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->me()->carts()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->carts()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->me()->carts()->withIDValue($ID)->post()`
 
 Update Cart by ID
 
@@ -3344,10 +3344,10 @@ Update Cart by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->carts()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->carts()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->carts()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->me()->carts()->withIDValue($ID)->delete()`
 
 Delete Cart by ID
 
@@ -3358,10 +3358,10 @@ Delete Cart by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->carts()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->me()->carts()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->orders()->get()`
+## `withProjectKeyValue($projectKey)->me()->orders()->get()`
 
 Query orders
 
@@ -3371,10 +3371,10 @@ Query orders
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->orders()->get();
+$request = $builder->withProjectKeyValue($projectKey)->me()->orders()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->orders()->post()`
+## `withProjectKeyValue($projectKey)->me()->orders()->post()`
 
 Create Order
 
@@ -3384,10 +3384,10 @@ Create Order
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->orders()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->orders()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->orders()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->me()->orders()->withIDValue($ID)->get()`
 
 Get Order by ID
 
@@ -3398,10 +3398,10 @@ Get Order by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->orders()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->me()->orders()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->me()->orders()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->me()->orders()->withIDValue($ID)->post()`
 
 Update Order by ID
 
@@ -3412,10 +3412,10 @@ Update Order by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->me()->orders()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->me()->orders()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->extensions()->get()`
+## `withProjectKeyValue($projectKey)->extensions()->get()`
 
 Query extensions
 
@@ -3425,10 +3425,10 @@ Query extensions
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->get();
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->extensions()->post()`
+## `withProjectKeyValue($projectKey)->extensions()->post()`
 
 Create Extension
 
@@ -3438,10 +3438,10 @@ Create Extension
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->post();
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->extensions()->keyWithKeyValue()->get()`
+## `withProjectKeyValue($projectKey)->extensions()->keyWithKeyValue($key)->get()`
 
 Get Extension by key
 
@@ -3452,10 +3452,10 @@ Get Extension by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->keyWithKeyValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->keyWithKeyValue($key)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->extensions()->keyWithKeyValue()->post()`
+## `withProjectKeyValue($projectKey)->extensions()->keyWithKeyValue($key)->post()`
 
 Update Extension by key
 
@@ -3466,10 +3466,10 @@ Update Extension by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->keyWithKeyValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->keyWithKeyValue($key)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->extensions()->keyWithKeyValue()->delete()`
+## `withProjectKeyValue($projectKey)->extensions()->keyWithKeyValue($key)->delete()`
 
 Delete Extension by key
 
@@ -3480,10 +3480,10 @@ Delete Extension by key
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->keyWithKeyValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->keyWithKeyValue($key)->delete();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->extensions()->withIDValue()->get()`
+## `withProjectKeyValue($projectKey)->extensions()->withIDValue($ID)->get()`
 
 Get Extension by ID
 
@@ -3494,10 +3494,10 @@ Get Extension by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->withIDValue()->get();
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->withIDValue($ID)->get();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->extensions()->withIDValue()->post()`
+## `withProjectKeyValue($projectKey)->extensions()->withIDValue($ID)->post()`
 
 Update Extension by ID
 
@@ -3508,10 +3508,10 @@ Update Extension by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->withIDValue()->post();
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->withIDValue($ID)->post();
 $response = $client->send($request);
 ```
-## `withProjectKeyValue()->extensions()->withIDValue()->delete()`
+## `withProjectKeyValue($projectKey)->extensions()->withIDValue($ID)->delete()`
 
 Delete Extension by ID
 
@@ -3522,6 +3522,6 @@ Delete Extension by ID
 ### Example
 ```php
 $builder =  new RequestBuilder();
-$request = $builder->withProjectKeyValue()->extensions()->withIDValue()->delete();
+$request = $builder->withProjectKeyValue($projectKey)->extensions()->withIDValue($ID)->delete();
 $response = $client->send($request);
 ```
