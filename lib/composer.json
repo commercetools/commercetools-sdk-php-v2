@@ -1,5 +1,5 @@
 {
-  "name": "commercetools/raml",
+  "name": "commercetools/raml-php-sdk",
   "license": "MIT",
   "type": "library",
   "autoload": {
