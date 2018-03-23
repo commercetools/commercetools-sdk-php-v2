@@ -5,7 +5,7 @@ Client and Request Builder for making API requests against [Commercetools](https
 ## Installation
 
 ```sh
-composer require  commercetools/raml-php-sdk
+composer require commercetools/raml-php-sdk
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ use Commercetools\Client\Config;
 use Commercetools\Client\ClientFactory;
 
 $config = new Config();
-$config->getCredentials()->setClientId()->setClientSecret();
+$config->getCredentials()->setClientId('<client_id>')->setClientSecret('<client_secret>');
 
 $client = ClientFactory::create($config);
 ```
@@ -80,6 +80,10 @@ $builder = new RequestBuilder();
 The Endpoint is responding a limited set of information about settings and configuration of the project.
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->get();
@@ -89,6 +93,10 @@ $response = $client->send($request);
 
 Update project
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->post();
@@ -98,6 +106,10 @@ $response = $client->send($request);
 
 Query categories
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->categories()->get();
@@ -107,6 +119,10 @@ $response = $client->send($request);
 
 Create Category
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->categories()->post();
@@ -116,6 +132,11 @@ $response = $client->send($request);
 
 Get Category by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->categories()->keyWithKeyValue()->get();
@@ -125,6 +146,11 @@ $response = $client->send($request);
 
 Update Category by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->categories()->keyWithKeyValue()->post();
@@ -134,6 +160,11 @@ $response = $client->send($request);
 
 Delete Category by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->categories()->keyWithKeyValue()->delete();
@@ -143,6 +174,11 @@ $response = $client->send($request);
 
 Get Category by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->categories()->withIDValue()->get();
@@ -152,6 +188,11 @@ $response = $client->send($request);
 
 Update Category by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->categories()->withIDValue()->post();
@@ -161,6 +202,11 @@ $response = $client->send($request);
 
 Delete Category by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->categories()->withIDValue()->delete();
@@ -170,6 +216,10 @@ $response = $client->send($request);
 
 Query carts
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->carts()->get();
@@ -179,6 +229,10 @@ $response = $client->send($request);
 
 Create Cart
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->carts()->post();
@@ -188,6 +242,11 @@ $response = $client->send($request);
 
 Get Cart by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->carts()->withIDValue()->get();
@@ -197,6 +256,11 @@ $response = $client->send($request);
 
 Update Cart by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->carts()->withIDValue()->post();
@@ -206,6 +270,11 @@ $response = $client->send($request);
 
 Delete Cart by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->carts()->withIDValue()->delete();
@@ -215,6 +284,10 @@ $response = $client->send($request);
 
 Query cart-discounts
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->cartDiscounts()->get();
@@ -224,6 +297,10 @@ $response = $client->send($request);
 
 Create CartDiscount
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->cartDiscounts()->post();
@@ -233,6 +310,11 @@ $response = $client->send($request);
 
 Get CartDiscount by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->cartDiscounts()->withIDValue()->get();
@@ -242,6 +324,11 @@ $response = $client->send($request);
 
 Update CartDiscount by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->cartDiscounts()->withIDValue()->post();
@@ -251,6 +338,11 @@ $response = $client->send($request);
 
 Delete CartDiscount by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->cartDiscounts()->withIDValue()->delete();
@@ -260,6 +352,10 @@ $response = $client->send($request);
 
 Query channels
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->channels()->get();
@@ -269,6 +365,10 @@ $response = $client->send($request);
 
 Create Channel
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->channels()->post();
@@ -278,6 +378,11 @@ $response = $client->send($request);
 
 Get Channel by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->channels()->withIDValue()->get();
@@ -287,6 +392,11 @@ $response = $client->send($request);
 
 Update Channel by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->channels()->withIDValue()->post();
@@ -296,6 +406,11 @@ $response = $client->send($request);
 
 Delete Channel by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->channels()->withIDValue()->delete();
@@ -305,6 +420,10 @@ $response = $client->send($request);
 
 Query customers
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->get();
@@ -314,6 +433,10 @@ $response = $client->send($request);
 
 Create Customer
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->post();
@@ -323,6 +446,11 @@ $response = $client->send($request);
 
 Get Customer by passwordToken
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **passwordToken** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->passwordTokenWithPasswordTokenValue()->get();
@@ -332,6 +460,11 @@ $response = $client->send($request);
 
 Get Customer by emailToken
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **emailToken** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->emailTokenWithEmailTokenValue()->get();
@@ -341,6 +474,10 @@ $response = $client->send($request);
 
 Create a Token for verifying the Customer's Email
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->emailToken()->post();
@@ -350,6 +487,10 @@ $response = $client->send($request);
 
 Verifies customer's email using a token.
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->email()->confirm()->post();
@@ -359,6 +500,10 @@ $response = $client->send($request);
 
 Change a customers password
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->password()->post();
@@ -368,6 +513,10 @@ $response = $client->send($request);
 
 Set a new password using a token.
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->password()->reset()->post();
@@ -379,6 +528,10 @@ The token value is used to reset the password of the customer with the given ema
 valid only for 10 minutes.
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->passwordToken()->post();
@@ -388,6 +541,11 @@ $response = $client->send($request);
 
 Get Customer by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->withIDValue()->get();
@@ -397,6 +555,11 @@ $response = $client->send($request);
 
 Update Customer by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->withIDValue()->post();
@@ -406,6 +569,11 @@ $response = $client->send($request);
 
 Delete Customer by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customers()->withIDValue()->delete();
@@ -415,6 +583,10 @@ $response = $client->send($request);
 
 Query customer-groups
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customerGroups()->get();
@@ -424,6 +596,10 @@ $response = $client->send($request);
 
 Create CustomerGroup
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customerGroups()->post();
@@ -433,6 +609,11 @@ $response = $client->send($request);
 
 Get CustomerGroup by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customerGroups()->keyWithKeyValue()->get();
@@ -442,6 +623,11 @@ $response = $client->send($request);
 
 Update CustomerGroup by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customerGroups()->keyWithKeyValue()->post();
@@ -451,6 +637,11 @@ $response = $client->send($request);
 
 Delete CustomerGroup by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customerGroups()->keyWithKeyValue()->delete();
@@ -460,6 +651,11 @@ $response = $client->send($request);
 
 Get CustomerGroup by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customerGroups()->withIDValue()->get();
@@ -469,6 +665,11 @@ $response = $client->send($request);
 
 Update CustomerGroup by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customerGroups()->withIDValue()->post();
@@ -478,6 +679,11 @@ $response = $client->send($request);
 
 Delete CustomerGroup by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customerGroups()->withIDValue()->delete();
@@ -487,6 +693,10 @@ $response = $client->send($request);
 
 Query custom-objects
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customObjects()->get();
@@ -496,6 +706,10 @@ $response = $client->send($request);
 
 Create CustomObject
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customObjects()->post();
@@ -505,6 +719,11 @@ $response = $client->send($request);
 
 Get CustomObject by container
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **container** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customObjects()->withContainerValue()->get();
@@ -514,6 +733,11 @@ $response = $client->send($request);
 
 Delete CustomObject by container
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **container** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customObjects()->withContainerValue()->delete();
@@ -523,6 +747,12 @@ $response = $client->send($request);
 
 Get CustomObject by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **container** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customObjects()->withContainerValue()->withKeyValue()->get();
@@ -532,6 +762,12 @@ $response = $client->send($request);
 
 Delete CustomObject by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **container** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->customObjects()->withContainerValue()->withKeyValue()->delete();
@@ -541,6 +777,10 @@ $response = $client->send($request);
 
 Query discount-codes
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->discountCodes()->get();
@@ -550,6 +790,10 @@ $response = $client->send($request);
 
 Create DiscountCode
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->discountCodes()->post();
@@ -559,6 +803,11 @@ $response = $client->send($request);
 
 Get DiscountCode by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->discountCodes()->withIDValue()->get();
@@ -568,6 +817,11 @@ $response = $client->send($request);
 
 Update DiscountCode by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->discountCodes()->withIDValue()->post();
@@ -577,6 +831,11 @@ $response = $client->send($request);
 
 Delete DiscountCode by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->discountCodes()->withIDValue()->delete();
@@ -586,6 +845,10 @@ $response = $client->send($request);
 
 Execute a GraphQL query
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->graphql()->post();
@@ -595,6 +858,10 @@ $response = $client->send($request);
 
 Query inventory
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->inventory()->get();
@@ -604,6 +871,10 @@ $response = $client->send($request);
 
 Create InventoryEntry
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->inventory()->post();
@@ -613,6 +884,11 @@ $response = $client->send($request);
 
 Get InventoryEntry by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->inventory()->withIDValue()->get();
@@ -622,6 +898,11 @@ $response = $client->send($request);
 
 Update InventoryEntry by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->inventory()->withIDValue()->post();
@@ -631,6 +912,11 @@ $response = $client->send($request);
 
 Delete InventoryEntry by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->inventory()->withIDValue()->delete();
@@ -640,6 +926,10 @@ $response = $client->send($request);
 
 Authenticate Customer (Sign In)
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->login()->post();
@@ -649,6 +939,10 @@ $response = $client->send($request);
 
 Query messages
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->messages()->get();
@@ -658,6 +952,11 @@ $response = $client->send($request);
 
 Get Message by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->messages()->withIDValue()->get();
@@ -667,6 +966,10 @@ $response = $client->send($request);
 
 Query orders
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->orders()->get();
@@ -676,6 +979,10 @@ $response = $client->send($request);
 
 Create Order
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->orders()->post();
@@ -685,6 +992,10 @@ $response = $client->send($request);
 
 Create an Order by Import
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->orders()->import()->post();
@@ -694,6 +1005,11 @@ $response = $client->send($request);
 
 Get Order by orderNumber
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **orderNumber** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->orders()->orderNumberWithOrderNumberValue()->get();
@@ -703,6 +1019,11 @@ $response = $client->send($request);
 
 Update Order by orderNumber
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **orderNumber** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->orders()->orderNumberWithOrderNumberValue()->post();
@@ -712,6 +1033,11 @@ $response = $client->send($request);
 
 Delete Order by orderNumber
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **orderNumber** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->orders()->orderNumberWithOrderNumberValue()->delete();
@@ -721,6 +1047,11 @@ $response = $client->send($request);
 
 Get Order by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->orders()->withIDValue()->get();
@@ -730,6 +1061,11 @@ $response = $client->send($request);
 
 Update Order by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->orders()->withIDValue()->post();
@@ -739,6 +1075,11 @@ $response = $client->send($request);
 
 Delete Order by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->orders()->withIDValue()->delete();
@@ -748,6 +1089,10 @@ $response = $client->send($request);
 
 Query payments
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->payments()->get();
@@ -757,6 +1102,10 @@ $response = $client->send($request);
 
 Create Payment
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->payments()->post();
@@ -766,6 +1115,11 @@ $response = $client->send($request);
 
 Get Payment by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->payments()->keyWithKeyValue()->get();
@@ -775,6 +1129,11 @@ $response = $client->send($request);
 
 Update Payment by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->payments()->keyWithKeyValue()->post();
@@ -784,6 +1143,11 @@ $response = $client->send($request);
 
 Delete Payment by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->payments()->keyWithKeyValue()->delete();
@@ -793,6 +1157,11 @@ $response = $client->send($request);
 
 Get Payment by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->payments()->withIDValue()->get();
@@ -802,6 +1171,11 @@ $response = $client->send($request);
 
 Update Payment by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->payments()->withIDValue()->post();
@@ -811,6 +1185,11 @@ $response = $client->send($request);
 
 Delete Payment by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->payments()->withIDValue()->delete();
@@ -820,6 +1199,10 @@ $response = $client->send($request);
 
 Query products
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->products()->get();
@@ -829,6 +1212,10 @@ $response = $client->send($request);
 
 Create Product
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->products()->post();
@@ -838,6 +1225,11 @@ $response = $client->send($request);
 
 Get Product by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->products()->keyWithKeyValue()->get();
@@ -847,6 +1239,11 @@ $response = $client->send($request);
 
 Update Product by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->products()->keyWithKeyValue()->post();
@@ -856,6 +1253,11 @@ $response = $client->send($request);
 
 Delete Product by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->products()->keyWithKeyValue()->delete();
@@ -865,6 +1267,11 @@ $response = $client->send($request);
 
 Get Product by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->products()->withIDValue()->get();
@@ -874,6 +1281,11 @@ $response = $client->send($request);
 
 Update Product by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->products()->withIDValue()->post();
@@ -883,6 +1295,11 @@ $response = $client->send($request);
 
 Delete Product by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->products()->withIDValue()->delete();
@@ -893,6 +1310,11 @@ $response = $client->send($request);
 Uploads a binary image file to a given product variant. The supported image formats are JPEG, PNG and GIF.
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->products()->withIDValue()->images()->post();
@@ -902,6 +1324,10 @@ $response = $client->send($request);
 
 Query product-discounts
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productDiscounts()->get();
@@ -911,6 +1337,10 @@ $response = $client->send($request);
 
 Create ProductDiscount
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productDiscounts()->post();
@@ -920,6 +1350,11 @@ $response = $client->send($request);
 
 Get ProductDiscount by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productDiscounts()->withIDValue()->get();
@@ -929,6 +1364,11 @@ $response = $client->send($request);
 
 Update ProductDiscount by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productDiscounts()->withIDValue()->post();
@@ -938,6 +1378,11 @@ $response = $client->send($request);
 
 Delete ProductDiscount by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productDiscounts()->withIDValue()->delete();
@@ -947,6 +1392,10 @@ $response = $client->send($request);
 
 Query product-projections
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productProjections()->get();
@@ -956,6 +1405,10 @@ $response = $client->send($request);
 
 Search Product Projection
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productProjections()->search()->post();
@@ -965,6 +1418,10 @@ $response = $client->send($request);
 
 Search Product Projection
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productProjections()->search()->get();
@@ -973,6 +1430,10 @@ $response = $client->send($request);
 #### `withProjectKeyValue()->productProjections()->suggest()->get()`
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productProjections()->suggest()->get();
@@ -982,6 +1443,11 @@ $response = $client->send($request);
 
 Get ProductProjection by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productProjections()->keyWithKeyValue()->get();
@@ -991,6 +1457,11 @@ $response = $client->send($request);
 
 Get ProductProjection by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productProjections()->withIDValue()->get();
@@ -1000,6 +1471,10 @@ $response = $client->send($request);
 
 Query product-types
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productTypes()->get();
@@ -1009,6 +1484,10 @@ $response = $client->send($request);
 
 Create ProductType
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productTypes()->post();
@@ -1018,6 +1497,11 @@ $response = $client->send($request);
 
 Get ProductType by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productTypes()->keyWithKeyValue()->get();
@@ -1027,6 +1511,11 @@ $response = $client->send($request);
 
 Update ProductType by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productTypes()->keyWithKeyValue()->post();
@@ -1036,6 +1525,11 @@ $response = $client->send($request);
 
 Delete ProductType by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productTypes()->keyWithKeyValue()->delete();
@@ -1045,6 +1539,11 @@ $response = $client->send($request);
 
 Get ProductType by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productTypes()->withIDValue()->get();
@@ -1054,6 +1553,11 @@ $response = $client->send($request);
 
 Update ProductType by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productTypes()->withIDValue()->post();
@@ -1063,6 +1567,11 @@ $response = $client->send($request);
 
 Delete ProductType by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->productTypes()->withIDValue()->delete();
@@ -1072,6 +1581,10 @@ $response = $client->send($request);
 
 Query reviews
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->reviews()->get();
@@ -1081,6 +1594,10 @@ $response = $client->send($request);
 
 Create Review
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->reviews()->post();
@@ -1090,6 +1607,11 @@ $response = $client->send($request);
 
 Get Review by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->reviews()->keyWithKeyValue()->get();
@@ -1099,6 +1621,11 @@ $response = $client->send($request);
 
 Update Review by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->reviews()->keyWithKeyValue()->post();
@@ -1108,6 +1635,11 @@ $response = $client->send($request);
 
 Delete Review by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->reviews()->keyWithKeyValue()->delete();
@@ -1117,6 +1649,11 @@ $response = $client->send($request);
 
 Get Review by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->reviews()->withIDValue()->get();
@@ -1126,6 +1663,11 @@ $response = $client->send($request);
 
 Update Review by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->reviews()->withIDValue()->post();
@@ -1135,6 +1677,11 @@ $response = $client->send($request);
 
 Delete Review by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->reviews()->withIDValue()->delete();
@@ -1144,6 +1691,10 @@ $response = $client->send($request);
 
 Query shipping-methods
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shippingMethods()->get();
@@ -1153,6 +1704,10 @@ $response = $client->send($request);
 
 Create ShippingMethod
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shippingMethods()->post();
@@ -1162,6 +1717,11 @@ $response = $client->send($request);
 
 Get ShippingMethod by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shippingMethods()->keyWithKeyValue()->get();
@@ -1171,6 +1731,11 @@ $response = $client->send($request);
 
 Update ShippingMethod by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shippingMethods()->keyWithKeyValue()->post();
@@ -1180,6 +1745,11 @@ $response = $client->send($request);
 
 Delete ShippingMethod by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shippingMethods()->keyWithKeyValue()->delete();
@@ -1189,6 +1759,11 @@ $response = $client->send($request);
 
 Get ShippingMethod by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shippingMethods()->withIDValue()->get();
@@ -1198,6 +1773,11 @@ $response = $client->send($request);
 
 Update ShippingMethod by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shippingMethods()->withIDValue()->post();
@@ -1207,6 +1787,11 @@ $response = $client->send($request);
 
 Delete ShippingMethod by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shippingMethods()->withIDValue()->delete();
@@ -1216,6 +1801,10 @@ $response = $client->send($request);
 
 Query shopping-lists
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shoppingLists()->get();
@@ -1225,6 +1814,10 @@ $response = $client->send($request);
 
 Create ShoppingList
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shoppingLists()->post();
@@ -1234,6 +1827,11 @@ $response = $client->send($request);
 
 Get ShoppingList by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shoppingLists()->keyWithKeyValue()->get();
@@ -1243,6 +1841,11 @@ $response = $client->send($request);
 
 Update ShoppingList by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shoppingLists()->keyWithKeyValue()->post();
@@ -1252,6 +1855,11 @@ $response = $client->send($request);
 
 Delete ShoppingList by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shoppingLists()->keyWithKeyValue()->delete();
@@ -1261,6 +1869,11 @@ $response = $client->send($request);
 
 Get ShoppingList by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shoppingLists()->withIDValue()->get();
@@ -1270,6 +1883,11 @@ $response = $client->send($request);
 
 Update ShoppingList by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shoppingLists()->withIDValue()->post();
@@ -1279,6 +1897,11 @@ $response = $client->send($request);
 
 Delete ShoppingList by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->shoppingLists()->withIDValue()->delete();
@@ -1288,6 +1911,10 @@ $response = $client->send($request);
 
 Query states
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->states()->get();
@@ -1297,6 +1924,10 @@ $response = $client->send($request);
 
 Create State
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->states()->post();
@@ -1306,6 +1937,11 @@ $response = $client->send($request);
 
 Get State by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->states()->withIDValue()->get();
@@ -1315,6 +1951,11 @@ $response = $client->send($request);
 
 Update State by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->states()->withIDValue()->post();
@@ -1324,6 +1965,11 @@ $response = $client->send($request);
 
 Delete State by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->states()->withIDValue()->delete();
@@ -1333,6 +1979,10 @@ $response = $client->send($request);
 
 Query subscriptions
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->subscriptions()->get();
@@ -1342,6 +1992,10 @@ $response = $client->send($request);
 
 Create Subscription
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->subscriptions()->post();
@@ -1351,6 +2005,11 @@ $response = $client->send($request);
 
 Get Subscription by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->subscriptions()->keyWithKeyValue()->get();
@@ -1360,6 +2019,11 @@ $response = $client->send($request);
 
 Update Subscription by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->subscriptions()->keyWithKeyValue()->post();
@@ -1369,6 +2033,11 @@ $response = $client->send($request);
 
 Delete Subscription by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->subscriptions()->keyWithKeyValue()->delete();
@@ -1378,6 +2047,11 @@ $response = $client->send($request);
 
 Get Subscription by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->subscriptions()->withIDValue()->get();
@@ -1387,6 +2061,11 @@ $response = $client->send($request);
 
 Update Subscription by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->subscriptions()->withIDValue()->post();
@@ -1396,6 +2075,11 @@ $response = $client->send($request);
 
 Delete Subscription by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->subscriptions()->withIDValue()->delete();
@@ -1405,6 +2089,10 @@ $response = $client->send($request);
 
 Query tax-categories
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->taxCategories()->get();
@@ -1414,6 +2102,10 @@ $response = $client->send($request);
 
 Create TaxCategory
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->taxCategories()->post();
@@ -1423,6 +2115,11 @@ $response = $client->send($request);
 
 Get TaxCategory by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->taxCategories()->withIDValue()->get();
@@ -1432,6 +2129,11 @@ $response = $client->send($request);
 
 Update TaxCategory by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->taxCategories()->withIDValue()->post();
@@ -1441,6 +2143,11 @@ $response = $client->send($request);
 
 Delete TaxCategory by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->taxCategories()->withIDValue()->delete();
@@ -1450,6 +2157,10 @@ $response = $client->send($request);
 
 Query types
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->types()->get();
@@ -1459,6 +2170,10 @@ $response = $client->send($request);
 
 Create Type
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->types()->post();
@@ -1468,6 +2183,11 @@ $response = $client->send($request);
 
 Get Type by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->types()->keyWithKeyValue()->get();
@@ -1477,6 +2197,11 @@ $response = $client->send($request);
 
 Update Type by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->types()->keyWithKeyValue()->post();
@@ -1486,6 +2211,11 @@ $response = $client->send($request);
 
 Delete Type by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->types()->keyWithKeyValue()->delete();
@@ -1495,6 +2225,11 @@ $response = $client->send($request);
 
 Get Type by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->types()->withIDValue()->get();
@@ -1504,6 +2239,11 @@ $response = $client->send($request);
 
 Update Type by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->types()->withIDValue()->post();
@@ -1513,6 +2253,11 @@ $response = $client->send($request);
 
 Delete Type by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->types()->withIDValue()->delete();
@@ -1522,6 +2267,10 @@ $response = $client->send($request);
 
 Query zones
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->zones()->get();
@@ -1531,6 +2280,10 @@ $response = $client->send($request);
 
 Create Zone
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->zones()->post();
@@ -1540,6 +2293,11 @@ $response = $client->send($request);
 
 Get Zone by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->zones()->withIDValue()->get();
@@ -1549,6 +2307,11 @@ $response = $client->send($request);
 
 Update Zone by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->zones()->withIDValue()->post();
@@ -1558,6 +2321,11 @@ $response = $client->send($request);
 
 Delete Zone by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->zones()->withIDValue()->delete();
@@ -1566,6 +2334,10 @@ $response = $client->send($request);
 #### `withProjectKeyValue()->me()->get()`
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->get();
@@ -1575,6 +2347,10 @@ $response = $client->send($request);
 
 Create a customer
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->post();
@@ -1584,6 +2360,10 @@ $response = $client->send($request);
 
 Delete a Customer
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->delete();
@@ -1592,6 +2372,10 @@ $response = $client->send($request);
 #### `withProjectKeyValue()->me()->email()->confirm()->post()`
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->email()->confirm()->post();
@@ -1600,6 +2384,10 @@ $response = $client->send($request);
 #### `withProjectKeyValue()->me()->password()->post()`
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->password()->post();
@@ -1608,6 +2396,10 @@ $response = $client->send($request);
 #### `withProjectKeyValue()->me()->password()->reset()->post()`
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->password()->reset()->post();
@@ -1616,6 +2408,10 @@ $response = $client->send($request);
 #### `withProjectKeyValue()->me()->signup()->post()`
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->signup()->post();
@@ -1624,6 +2420,10 @@ $response = $client->send($request);
 #### `withProjectKeyValue()->me()->login()->post()`
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->login()->post();
@@ -1632,6 +2432,10 @@ $response = $client->send($request);
 #### `withProjectKeyValue()->me()->activeCart()->get()`
 
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->activeCart()->get();
@@ -1641,6 +2445,10 @@ $response = $client->send($request);
 
 Query carts
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->carts()->get();
@@ -1650,6 +2458,10 @@ $response = $client->send($request);
 
 Create Cart
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->carts()->post();
@@ -1659,6 +2471,11 @@ $response = $client->send($request);
 
 Get Cart by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->carts()->withIDValue()->get();
@@ -1668,6 +2485,11 @@ $response = $client->send($request);
 
 Update Cart by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->carts()->withIDValue()->post();
@@ -1677,6 +2499,11 @@ $response = $client->send($request);
 
 Delete Cart by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->carts()->withIDValue()->delete();
@@ -1686,6 +2513,10 @@ $response = $client->send($request);
 
 Query orders
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->orders()->get();
@@ -1695,6 +2526,10 @@ $response = $client->send($request);
 
 Create Order
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->orders()->post();
@@ -1704,6 +2539,11 @@ $response = $client->send($request);
 
 Get Order by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->orders()->withIDValue()->get();
@@ -1713,6 +2553,11 @@ $response = $client->send($request);
 
 Update Order by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->me()->orders()->withIDValue()->post();
@@ -1722,6 +2567,10 @@ $response = $client->send($request);
 
 Query extensions
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->extensions()->get();
@@ -1731,6 +2580,10 @@ $response = $client->send($request);
 
 Create Extension
 
+##### Parameters:
+* **projectKey** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->extensions()->post();
@@ -1740,6 +2593,11 @@ $response = $client->send($request);
 
 Get Extension by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->extensions()->keyWithKeyValue()->get();
@@ -1749,6 +2607,11 @@ $response = $client->send($request);
 
 Update Extension by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->extensions()->keyWithKeyValue()->post();
@@ -1758,6 +2621,11 @@ $response = $client->send($request);
 
 Delete Extension by key
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **key** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->extensions()->keyWithKeyValue()->delete();
@@ -1767,6 +2635,11 @@ $response = $client->send($request);
 
 Get Extension by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->extensions()->withIDValue()->get();
@@ -1776,6 +2649,11 @@ $response = $client->send($request);
 
 Update Extension by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->extensions()->withIDValue()->post();
@@ -1785,6 +2663,11 @@ $response = $client->send($request);
 
 Delete Extension by ID
 
+##### Parameters:
+* **projectKey** (type: `string`)
+* **ID** (type: `string`)
+
+##### Example:
 ```php
 $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue()->extensions()->withIDValue()->delete();

@@ -5,7 +5,7 @@ Client and Request Builder for making API requests against [Commercetools](https
 ## Installation
 
 ```sh
-composer require  commercetools/raml-php-sdk
+composer require commercetools/raml-php-sdk
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ use Commercetools\Client\Config;
 use Commercetools\Client\ClientFactory;
 
 $config = new Config();
-$config->getCredentials()->setClientId()->setClientSecret();
+$config->getCredentials()->setClientId('<client_id>')->setClientSecret('<client_secret>');
 
 $client = ClientFactory::create($config);
 ```
