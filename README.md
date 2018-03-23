@@ -71,7 +71,7 @@ Detailed information of all available methods can be found [here](lib/docs/reque
 
 Examples to retrieve project information
 ```php
-use Commercetools\CtpRequestBuilder;
+use Commercetools\Request\CtpRequestBuilder;
 use Commercetools\Request\RequestBuilder;
 
 $builder =  new CtpRequestBuilder('<project-key>');

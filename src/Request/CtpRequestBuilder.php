@@ -1,13 +1,11 @@
 <?php
 declare(strict_types = 1);
 
-namespace Commercetools;
+namespace Commercetools\Request;
 
 use Commercetools\Base\Mapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Client\Resource;
-use Commercetools\Request\RequestBuilder;
-use Commercetools\Request\Resource0;
 
 class CtpRequestBuilder extends Resource
 {
