@@ -40,14 +40,6 @@ $config = new Config();
 $config->setApiUrl('http://google.com/search']);
 ```
 
-### RequestBuilder
-
-In order to be able to build request objects you can use the RequestBuilder
-
-```php
-$builder = new RequestBuilder();
-```
-
 ### Mapper
 
 To map the result data you can use the ResultMapper
@@ -55,8 +47,7 @@ To map the result data you can use the ResultMapper
 ```php
 
 $mapper = new ResultMapper(new ModelClassMap());
-$request = $builder->withProjectKeyValue()->get();
-
+...
 $response = $client->send($request);
 
 // use one of the following possibilities
@@ -64,7 +55,6 @@ $result = $request->map($response, $mapper);
 $result = $mapper->map($request, $response);
 $result = $mapper->mapData(Project::class, json_decode((string)$response->getBody(), true));
 ```
-
 
 ### RequestBuilder
 
