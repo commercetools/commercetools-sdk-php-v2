@@ -88,7 +88,7 @@ $request = $builder->withProjectKeyValue('<project-key>')->get();
 
 ```
 
-Detailed information of all available methods can be found [here](lib/README.md#requestbuilder)
+Detailed information of all available methods can be found [here](lib/docs/requestbuilder.md)
 
 
 ## License
