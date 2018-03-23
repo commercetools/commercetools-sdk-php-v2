@@ -67,7 +67,7 @@ $result = $mapper->mapData(Project::class, json_decode((string)$response->getBod
 
 ### RequestBuilder
 
-Detailed information of all available methods can be found [here](lib/README.md#requestbuilder)
+Detailed information of all available methods can be found [here](lib/docs/requestbuilder.md)
 
 Examples to retrieve project information
 ```php
@@ -87,9 +87,6 @@ $request = $builder->withProjectKeyValue('<project-key>')->get();
 
 
 ```
-
-Detailed information of all available methods can be found [here](lib/docs/requestbuilder.md)
-
 
 ## License
 
