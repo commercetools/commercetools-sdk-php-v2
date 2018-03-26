@@ -1,0 +1,25 @@
+build:
+    nodes:
+        analysis:
+            project_setup:
+                override:
+                    - 'true'
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    -
+                        command: phpcs-run
+                        use_website_config: true
+            environment:
+                node:
+                    version: 6.0.0
+        tests:
+            tests:
+                override:
+                  -
+                    command: vendor/bin/phpunit --coverage-clover=coverage0
+                    coverage:
+                    file: 'coverage0'
+                    format: 'php-clover'
+checks:
+    php: true
