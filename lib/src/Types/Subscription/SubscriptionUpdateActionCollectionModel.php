@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Subscription;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class SubscriptionUpdateActionCollectionModel extends JsonCollection implements SubscriptionUpdateActionCollection {
 

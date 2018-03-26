@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\CartDiscount;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class CartDiscountUpdateActionCollectionModel extends JsonCollection implements CartDiscountUpdateActionCollection {
 

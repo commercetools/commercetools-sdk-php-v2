@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class ReferenceCollectionModel extends JsonCollection implements ReferenceCollection {
 

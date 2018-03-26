@@ -29,8 +29,8 @@ interface CustomObjectCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return CustomObject
      */
     public function byId($id);
 }

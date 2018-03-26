@@ -29,8 +29,8 @@ interface ChannelCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return Channel
      */
     public function byId($id);
 }

@@ -29,8 +29,8 @@ interface TypeCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return Type
      */
     public function byId($id);
 }

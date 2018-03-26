@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\TaxCategory;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class TaxCategoryUpdateActionCollectionModel extends JsonCollection implements TaxCategoryUpdateActionCollection {
 

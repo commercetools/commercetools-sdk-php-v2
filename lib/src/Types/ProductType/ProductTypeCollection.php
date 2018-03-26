@@ -29,8 +29,8 @@ interface ProductTypeCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return ProductType
      */
     public function byId($id);
 }

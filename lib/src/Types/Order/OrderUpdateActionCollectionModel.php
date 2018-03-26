@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class OrderUpdateActionCollectionModel extends JsonCollection implements OrderUpdateActionCollection {
 

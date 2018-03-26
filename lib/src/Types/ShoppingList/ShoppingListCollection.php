@@ -29,8 +29,8 @@ interface ShoppingListCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return ShoppingList
      */
     public function byId($id);
 }

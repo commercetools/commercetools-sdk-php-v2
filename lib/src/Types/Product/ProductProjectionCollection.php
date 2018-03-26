@@ -29,8 +29,8 @@ interface ProductProjectionCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return ProductProjection
      */
     public function byId($id);
 }

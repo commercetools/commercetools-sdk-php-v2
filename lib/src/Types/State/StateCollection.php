@@ -29,8 +29,8 @@ interface StateCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return State
      */
     public function byId($id);
 }

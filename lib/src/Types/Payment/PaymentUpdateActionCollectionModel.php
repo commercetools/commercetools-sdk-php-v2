@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Payment;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class PaymentUpdateActionCollectionModel extends JsonCollection implements PaymentUpdateActionCollection {
 

@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Inventory;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class InventoryEntryUpdateActionCollectionModel extends JsonCollection implements InventoryEntryUpdateActionCollection {
 

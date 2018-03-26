@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\State;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class StateUpdateActionCollectionModel extends JsonCollection implements StateUpdateActionCollection {
 

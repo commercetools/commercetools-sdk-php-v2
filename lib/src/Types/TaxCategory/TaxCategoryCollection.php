@@ -29,8 +29,8 @@ interface TaxCategoryCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return TaxCategory
      */
     public function byId($id);
 }

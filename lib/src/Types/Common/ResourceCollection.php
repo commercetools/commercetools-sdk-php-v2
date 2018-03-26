@@ -29,8 +29,8 @@ interface ResourceCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return Resource
      */
     public function byId($id);
 }

@@ -29,8 +29,8 @@ interface CustomerCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return Customer
      */
     public function byId($id);
 }

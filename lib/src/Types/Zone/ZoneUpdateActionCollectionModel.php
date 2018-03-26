@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Zone;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class ZoneUpdateActionCollectionModel extends JsonCollection implements ZoneUpdateActionCollection {
 

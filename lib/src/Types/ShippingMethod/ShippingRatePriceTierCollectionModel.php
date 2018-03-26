@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class ShippingRatePriceTierCollectionModel extends JsonCollection implements ShippingRatePriceTierCollection {
 

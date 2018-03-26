@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Channel;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class ChannelUpdateActionCollectionModel extends JsonCollection implements ChannelUpdateActionCollection {
 

@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\CustomerGroup;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class CustomerGroupUpdateActionCollectionModel extends JsonCollection implements CustomerGroupUpdateActionCollection {
 

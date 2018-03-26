@@ -29,8 +29,8 @@ interface InventoryEntryCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return InventoryEntry
      */
     public function byId($id);
 }

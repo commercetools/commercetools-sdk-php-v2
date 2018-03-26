@@ -29,8 +29,8 @@ interface CartCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return Cart
      */
     public function byId($id);
 }

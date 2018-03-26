@@ -29,8 +29,8 @@ interface CategoryCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return Category
      */
     public function byId($id);
 }

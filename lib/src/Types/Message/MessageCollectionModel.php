@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Message;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class MessageCollectionModel extends JsonCollection implements MessageCollection {
 

@@ -29,8 +29,8 @@ interface OrderCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return Order
      */
     public function byId($id);
 }

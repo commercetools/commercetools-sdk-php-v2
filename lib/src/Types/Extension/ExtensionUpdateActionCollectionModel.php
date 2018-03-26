@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Extension;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class ExtensionUpdateActionCollectionModel extends JsonCollection implements ExtensionUpdateActionCollection {
 

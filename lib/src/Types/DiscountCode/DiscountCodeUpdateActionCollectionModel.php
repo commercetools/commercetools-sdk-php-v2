@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Types\DiscountCode;
 
 use Commercetools\Base\JsonCollection;
-use Commercetools\Base\DiscriminatorResolver;
-
 
 class DiscountCodeUpdateActionCollectionModel extends JsonCollection implements DiscountCodeUpdateActionCollection {
 

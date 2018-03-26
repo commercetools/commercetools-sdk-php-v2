@@ -29,8 +29,8 @@ interface ReviewCollection extends Collection {
     public function map($data, $index);
 
     /**
-     * @param $id
-     * @return string
+     * @param string $id
+     * @return Review
      */
     public function byId($id);
 }
