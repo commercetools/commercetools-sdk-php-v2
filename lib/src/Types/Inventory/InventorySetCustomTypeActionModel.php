@@ -9,7 +9,6 @@ namespace Commercetools\Types\Inventory;
 
 use Commercetools\Types\Inventory\InventoryEntryUpdateActionModel;
 
-use Commercetools\Types\object;
 use Commercetools\Types\Type\TypeReference;
 
 class InventorySetCustomTypeActionModel extends InventoryEntryUpdateActionModel implements InventorySetCustomTypeAction {

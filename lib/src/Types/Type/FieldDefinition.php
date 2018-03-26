@@ -9,7 +9,6 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\JsonObject;
 
-use Commercetools\Types\object;
 use Commercetools\Types\Common\LocalizedString;
 
 interface FieldDefinition extends JsonObject {

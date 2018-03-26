@@ -9,7 +9,6 @@ namespace Commercetools\Types\Category;
 
 use Commercetools\Types\Category\CategoryUpdateActionModel;
 
-use Commercetools\Types\object;
 use Commercetools\Types\Type\TypeReference;
 
 class CategorySetCustomTypeActionModel extends CategoryUpdateActionModel implements CategorySetCustomTypeAction {

@@ -7,7 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-use Commercetools\Types\object;
 use Commercetools\Types\Type\TypeReference;
 
 interface CategorySetAssetCustomTypeAction extends CategoryUpdateAction {

@@ -9,8 +9,6 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\JsonObjectModel;
 
-use Commercetools\Types\object;
-
 class CustomerSignInResultModel extends JsonObjectModel implements CustomerSignInResult {
     /**
      * @var Customer

@@ -9,7 +9,6 @@ namespace Commercetools\Types\Channel;
 
 use Commercetools\Types\Channel\ChannelUpdateActionModel;
 
-use Commercetools\Types\object;
 use Commercetools\Types\Type\TypeReference;
 
 class ChannelSetCustomTypeActionModel extends ChannelUpdateActionModel implements ChannelSetCustomTypeAction {

@@ -9,8 +9,6 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\JsonObject;
 
-use Commercetools\Types\object;
-
 interface CustomerSignInResult extends JsonObject {
     const FIELD_CUSTOMER = 'customer';
     const FIELD_CART = 'cart';

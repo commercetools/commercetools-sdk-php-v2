@@ -9,7 +9,6 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
-use Commercetools\Types\object;
 use Commercetools\Types\Type\TypeReference;
 
 class CustomerSetCustomTypeActionModel extends CustomerUpdateActionModel implements CustomerSetCustomTypeAction {

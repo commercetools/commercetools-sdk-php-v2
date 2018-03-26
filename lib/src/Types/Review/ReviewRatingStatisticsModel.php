@@ -9,8 +9,6 @@ namespace Commercetools\Types\Review;
 
 use Commercetools\Base\JsonObjectModel;
 
-use Commercetools\Types\object;
-
 class ReviewRatingStatisticsModel extends JsonObjectModel implements ReviewRatingStatistics {
     /**
      * @var int

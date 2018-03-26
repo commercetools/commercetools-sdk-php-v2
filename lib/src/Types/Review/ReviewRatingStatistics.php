@@ -9,8 +9,6 @@ namespace Commercetools\Types\Review;
 
 use Commercetools\Base\JsonObject;
 
-use Commercetools\Types\object;
-
 interface ReviewRatingStatistics extends JsonObject {
     const FIELD_AVERAGE_RATING = 'averageRating';
     const FIELD_HIGHEST_RATING = 'highestRating';

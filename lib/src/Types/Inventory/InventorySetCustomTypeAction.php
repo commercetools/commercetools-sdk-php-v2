@@ -7,7 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
-use Commercetools\Types\object;
 use Commercetools\Types\Type\TypeReference;
 
 interface InventorySetCustomTypeAction extends InventoryEntryUpdateAction {

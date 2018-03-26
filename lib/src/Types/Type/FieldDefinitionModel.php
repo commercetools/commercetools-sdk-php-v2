@@ -9,7 +9,6 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\JsonObjectModel;
 
-use Commercetools\Types\object;
 use Commercetools\Types\Common\LocalizedString;
 
 class FieldDefinitionModel extends JsonObjectModel implements FieldDefinition {
