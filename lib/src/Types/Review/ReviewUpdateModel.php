@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class ReviewUpdateModel extends UpdateModel implements ReviewUpdate {
     /**
-     * @var array
+     * @var ReviewUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return ReviewUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(ReviewUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(ReviewUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(ReviewUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

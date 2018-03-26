@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface PaymentUpdate extends Update {
     /**
-     * @return array
+     * @return PaymentUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param PaymentUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);

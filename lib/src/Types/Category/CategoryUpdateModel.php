@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class CategoryUpdateModel extends UpdateModel implements CategoryUpdate {
     /**
-     * @var array
+     * @var CategoryUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return CategoryUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(CategoryUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(CategoryUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(CategoryUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

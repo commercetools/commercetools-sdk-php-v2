@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class ShippingMethodUpdateModel extends UpdateModel implements ShippingMethodUpdate {
     /**
-     * @var array
+     * @var ShippingMethodUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return ShippingMethodUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(ShippingMethodUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(ShippingMethodUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(ShippingMethodUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

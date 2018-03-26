@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class TaxCategoryUpdateModel extends UpdateModel implements TaxCategoryUpdate {
     /**
-     * @var array
+     * @var TaxCategoryUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return TaxCategoryUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(TaxCategoryUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(TaxCategoryUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(TaxCategoryUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

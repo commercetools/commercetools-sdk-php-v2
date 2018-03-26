@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface TaxCategoryUpdate extends Update {
     /**
-     * @return array
+     * @return TaxCategoryUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param TaxCategoryUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);

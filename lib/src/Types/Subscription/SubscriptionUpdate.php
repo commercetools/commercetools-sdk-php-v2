@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface SubscriptionUpdate extends Update {
     /**
-     * @return array
+     * @return SubscriptionUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param SubscriptionUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);

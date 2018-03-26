@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class ExtensionUpdateModel extends UpdateModel implements ExtensionUpdate {
     /**
-     * @var array
+     * @var ExtensionUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return ExtensionUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(ExtensionUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(ExtensionUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(ExtensionUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

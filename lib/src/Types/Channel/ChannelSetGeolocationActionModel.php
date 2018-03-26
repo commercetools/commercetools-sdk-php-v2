@@ -40,4 +40,20 @@ class ChannelSetGeolocationActionModel extends ChannelUpdateActionModel implemen
         return $this;
     }
 
+    /**
+     * @return GeoJson
+     */
+    public function getGeoLocationAsGeoJson()
+    {
+        return null;
+    }
+
+    /**
+     * @return GeoJsonPoint
+     */
+    public function getGeoLocationAsGeoJsonPoint()
+    {
+        return null;
+    }
+
 }

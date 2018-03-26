@@ -228,4 +228,108 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
         return $this;
     }
 
+    /**
+     * @return AttributeType
+     */
+    public function getTypeAsAttributeType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeBooleanType
+     */
+    public function getTypeAsAttributeBooleanType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeDateTimeType
+     */
+    public function getTypeAsAttributeDateTimeType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeDateType
+     */
+    public function getTypeAsAttributeDateType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeTimeType
+     */
+    public function getTypeAsAttributeTimeType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeEnumType
+     */
+    public function getTypeAsAttributeEnumType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeLocalizedEnumType
+     */
+    public function getTypeAsAttributeLocalizedEnumType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeMoneyType
+     */
+    public function getTypeAsAttributeMoneyType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeNestedType
+     */
+    public function getTypeAsAttributeNestedType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeNumberType
+     */
+    public function getTypeAsAttributeNumberType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeReferenceType
+     */
+    public function getTypeAsAttributeReferenceType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeSetType
+     */
+    public function getTypeAsAttributeSetType()
+    {
+        return null;
+    }
+
+    /**
+     * @return AttributeTextType
+     */
+    public function getTypeAsAttributeTextType()
+    {
+        return null;
+    }
+
 }

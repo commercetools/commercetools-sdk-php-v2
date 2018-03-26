@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface OrderUpdate extends Update {
     /**
-     * @return array
+     * @return OrderUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param OrderUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);

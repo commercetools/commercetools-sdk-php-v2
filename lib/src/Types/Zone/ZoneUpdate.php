@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface ZoneUpdate extends Update {
     /**
-     * @return array
+     * @return ZoneUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param ZoneUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);

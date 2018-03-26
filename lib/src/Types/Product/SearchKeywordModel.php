@@ -64,4 +64,28 @@ class SearchKeywordModel extends JsonObjectModel implements SearchKeyword {
         return $this;
     }
 
+    /**
+     * @return SuggestTokenizer
+     */
+    public function getSuggestTokenizerAsSuggestTokenizer()
+    {
+        return null;
+    }
+
+    /**
+     * @return WhitespaceTokenizer
+     */
+    public function getSuggestTokenizerAsWhitespaceTokenizer()
+    {
+        return null;
+    }
+
+    /**
+     * @return CustomTokenizer
+     */
+    public function getSuggestTokenizerAsCustomTokenizer()
+    {
+        return null;
+    }
+
 }

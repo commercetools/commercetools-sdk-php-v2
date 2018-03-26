@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class OrderUpdateModel extends UpdateModel implements OrderUpdate {
     /**
-     * @var array
+     * @var OrderUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return OrderUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(OrderUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(OrderUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(OrderUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

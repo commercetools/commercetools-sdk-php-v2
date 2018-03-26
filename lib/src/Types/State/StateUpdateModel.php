@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class StateUpdateModel extends UpdateModel implements StateUpdate {
     /**
-     * @var array
+     * @var StateUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return StateUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(StateUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(StateUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(StateUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

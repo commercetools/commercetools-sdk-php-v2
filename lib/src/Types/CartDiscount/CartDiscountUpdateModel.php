@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class CartDiscountUpdateModel extends UpdateModel implements CartDiscountUpdate {
     /**
-     * @var array
+     * @var CartDiscountUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return CartDiscountUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(CartDiscountUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(CartDiscountUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(CartDiscountUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

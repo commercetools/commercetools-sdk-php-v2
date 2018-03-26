@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class TypeUpdateModel extends UpdateModel implements TypeUpdate {
     /**
-     * @var array
+     * @var TypeUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return TypeUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(TypeUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(TypeUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(TypeUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

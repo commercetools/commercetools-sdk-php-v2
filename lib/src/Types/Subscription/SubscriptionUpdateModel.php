@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class SubscriptionUpdateModel extends UpdateModel implements SubscriptionUpdate {
     /**
-     * @var array
+     * @var SubscriptionUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return SubscriptionUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(SubscriptionUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(SubscriptionUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(SubscriptionUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

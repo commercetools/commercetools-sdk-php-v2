@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface ChannelUpdate extends Update {
     /**
-     * @return array
+     * @return ChannelUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param ChannelUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);

@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class ChannelUpdateModel extends UpdateModel implements ChannelUpdate {
     /**
-     * @var array
+     * @var ChannelUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return ChannelUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(ChannelUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(ChannelUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(ChannelUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface ShippingMethodUpdate extends Update {
     /**
-     * @return array
+     * @return ShippingMethodUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param ShippingMethodUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);

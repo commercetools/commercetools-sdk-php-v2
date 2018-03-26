@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface DiscountCodeUpdate extends Update {
     /**
-     * @return array
+     * @return DiscountCodeUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param DiscountCodeUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);

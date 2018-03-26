@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class ZoneUpdateModel extends UpdateModel implements ZoneUpdate {
     /**
-     * @var array
+     * @var ZoneUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return ZoneUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(ZoneUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(ZoneUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(ZoneUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

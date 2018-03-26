@@ -217,4 +217,20 @@ class ChannelDraftModel extends JsonObjectModel implements ChannelDraft {
         return $this;
     }
 
+    /**
+     * @return GeoJsonPoint
+     */
+    public function getGeoLocationAsGeoJsonPoint()
+    {
+        return null;
+    }
+
+    /**
+     * @return GeoJson
+     */
+    public function getGeoLocationAsGeoJson()
+    {
+        return null;
+    }
+
 }

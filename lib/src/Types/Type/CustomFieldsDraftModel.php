@@ -68,4 +68,20 @@ class CustomFieldsDraftModel extends JsonObjectModel implements CustomFieldsDraf
         return $this;
     }
 
+    /**
+     * @return ResourceIdentifier
+     */
+    public function getTypeAsResourceIdentifier()
+    {
+        return null;
+    }
+
+    /**
+     * @return TypeReference
+     */
+    public function getTypeAsTypeReference()
+    {
+        return null;
+    }
+
 }

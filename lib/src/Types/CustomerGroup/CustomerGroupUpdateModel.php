@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class CustomerGroupUpdateModel extends UpdateModel implements CustomerGroupUpdate {
     /**
-     * @var array
+     * @var CustomerGroupUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return CustomerGroupUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(CustomerGroupUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(CustomerGroupUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(CustomerGroupUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

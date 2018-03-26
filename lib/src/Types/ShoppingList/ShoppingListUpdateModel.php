@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class ShoppingListUpdateModel extends UpdateModel implements ShoppingListUpdate {
     /**
-     * @var array
+     * @var ShoppingListUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return ShoppingListUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(ShoppingListUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(ShoppingListUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(ShoppingListUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

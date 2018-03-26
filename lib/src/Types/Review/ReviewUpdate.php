@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface ReviewUpdate extends Update {
     /**
-     * @return array
+     * @return ReviewUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param ReviewUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);

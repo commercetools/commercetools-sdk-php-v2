@@ -308,4 +308,36 @@ class ReviewDraftModel extends JsonObjectModel implements ReviewDraft {
         return $this;
     }
 
+    /**
+     * @return ProductReference
+     */
+    public function getTargetAsProductReference()
+    {
+        return null;
+    }
+
+    /**
+     * @return ChannelReference
+     */
+    public function getTargetAsChannelReference()
+    {
+        return null;
+    }
+
+    /**
+     * @return ResourceIdentifier
+     */
+    public function getStateAsResourceIdentifier()
+    {
+        return null;
+    }
+
+    /**
+     * @return StateReference
+     */
+    public function getStateAsStateReference()
+    {
+        return null;
+    }
+
 }

@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class InventoryEntryUpdateModel extends UpdateModel implements InventoryEntryUpdate {
     /**
-     * @var array
+     * @var InventoryEntryUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return InventoryEntryUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(InventoryEntryUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(InventoryEntryUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(InventoryEntryUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

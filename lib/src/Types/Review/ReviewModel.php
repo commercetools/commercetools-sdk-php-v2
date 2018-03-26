@@ -341,6 +341,22 @@ class ReviewModel extends ResourceModel implements Review {
         return $this;
     }
 
+    /**
+     * @return ProductReference
+     */
+    public function getTargetAsProductReference()
+    {
+        return null;
+    }
+
+    /**
+     * @return ChannelReference
+     */
+    public function getTargetAsChannelReference()
+    {
+        return null;
+    }
+
 
     /**
      * @return ReviewUpdateBuilder

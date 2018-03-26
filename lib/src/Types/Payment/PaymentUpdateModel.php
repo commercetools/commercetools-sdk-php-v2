@@ -14,18 +14,21 @@ use Commercetools\Types\Update;
 
 class PaymentUpdateModel extends UpdateModel implements PaymentUpdate {
     /**
-     * @var array
+     * @var PaymentUpdateActionCollection
      */
     protected $actions;
 
     /**
-     * @return array
+     * @return PaymentUpdateActionCollection
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(PaymentUpdate::FIELD_ACTIONS);
-            $value = (array)$value;
+            if (is_null($value)) {
+                return $this->mapData(PaymentUpdateActionCollection::class, null);
+            }
+            $value = $this->mapData(PaymentUpdateActionCollection::class, $value);
             $this->actions = $value;
         }
         return $this->actions;

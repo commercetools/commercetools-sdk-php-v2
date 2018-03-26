@@ -12,12 +12,12 @@ use Commercetools\Types\Update;
 
 interface InventoryEntryUpdate extends Update {
     /**
-     * @return array
+     * @return InventoryEntryUpdateActionCollection
      */
     public function getActions();
 
     /**
-     * @param array $actions
+     * @param InventoryEntryUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions);
