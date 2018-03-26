@@ -35,11 +35,14 @@ class ReviewPagedQueryResponseModel extends PagedQueryResponseModel implements R
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param ReviewCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof ReviewCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

@@ -35,11 +35,14 @@ class CartDiscountPagedQueryResponseModel extends PagedQueryResponseModel implem
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param CartDiscountCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof CartDiscountCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

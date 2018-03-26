@@ -35,11 +35,14 @@ class ReviewUpdateModel extends UpdateModel implements ReviewUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param ReviewUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof ReviewUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

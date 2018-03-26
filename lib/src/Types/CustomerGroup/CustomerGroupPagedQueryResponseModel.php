@@ -35,11 +35,14 @@ class CustomerGroupPagedQueryResponseModel extends PagedQueryResponseModel imple
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param CustomerGroupCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof CustomerGroupCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

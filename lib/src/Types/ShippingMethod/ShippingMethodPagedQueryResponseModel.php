@@ -35,11 +35,14 @@ class ShippingMethodPagedQueryResponseModel extends PagedQueryResponseModel impl
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param ShippingMethodCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof ShippingMethodCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

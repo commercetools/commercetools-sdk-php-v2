@@ -35,11 +35,14 @@ class ShippingMethodUpdateModel extends UpdateModel implements ShippingMethodUpd
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param ShippingMethodUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof ShippingMethodUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

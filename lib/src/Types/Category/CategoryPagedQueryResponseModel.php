@@ -35,11 +35,14 @@ class CategoryPagedQueryResponseModel extends PagedQueryResponseModel implements
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param CategoryCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof CategoryCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

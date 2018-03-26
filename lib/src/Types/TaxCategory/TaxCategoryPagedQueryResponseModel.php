@@ -35,11 +35,14 @@ class TaxCategoryPagedQueryResponseModel extends PagedQueryResponseModel impleme
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param TaxCategoryCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof TaxCategoryCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

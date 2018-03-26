@@ -35,11 +35,14 @@ class ProjectUpdateModel extends UpdateModel implements ProjectUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param ProjectUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof ProjectUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

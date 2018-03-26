@@ -35,11 +35,14 @@ class DiscountCodeUpdateModel extends UpdateModel implements DiscountCodeUpdate 
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param DiscountCodeUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof DiscountCodeUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

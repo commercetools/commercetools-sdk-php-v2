@@ -35,11 +35,14 @@ class TypePagedQueryResponseModel extends PagedQueryResponseModel implements Typ
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param TypeCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof TypeCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

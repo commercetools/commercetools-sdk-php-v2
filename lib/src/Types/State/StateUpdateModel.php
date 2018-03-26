@@ -35,11 +35,14 @@ class StateUpdateModel extends UpdateModel implements StateUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param StateUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof StateUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

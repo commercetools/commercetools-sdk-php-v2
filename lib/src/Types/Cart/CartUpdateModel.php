@@ -35,11 +35,14 @@ class CartUpdateModel extends UpdateModel implements CartUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param CartUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof CartUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

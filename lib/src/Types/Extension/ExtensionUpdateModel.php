@@ -35,11 +35,14 @@ class ExtensionUpdateModel extends UpdateModel implements ExtensionUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param ExtensionUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof ExtensionUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

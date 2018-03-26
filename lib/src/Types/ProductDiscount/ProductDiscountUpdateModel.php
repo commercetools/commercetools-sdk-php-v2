@@ -35,11 +35,14 @@ class ProductDiscountUpdateModel extends UpdateModel implements ProductDiscountU
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param ProductDiscountUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof ProductDiscountUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

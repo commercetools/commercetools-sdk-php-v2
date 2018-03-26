@@ -35,11 +35,14 @@ class ChannelPagedQueryResponseModel extends PagedQueryResponseModel implements 
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param ChannelCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof ChannelCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

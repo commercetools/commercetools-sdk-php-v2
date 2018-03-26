@@ -35,11 +35,14 @@ class CustomObjectPagedQueryResponseModel extends PagedQueryResponseModel implem
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param CustomObjectCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof CustomObjectCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

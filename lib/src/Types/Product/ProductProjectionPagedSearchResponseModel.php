@@ -55,11 +55,14 @@ class ProductProjectionPagedSearchResponseModel extends PagedQueryResponseModel 
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param ProductProjectionCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof ProductProjectionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

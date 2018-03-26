@@ -35,11 +35,14 @@ class PaymentUpdateModel extends UpdateModel implements PaymentUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param PaymentUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof PaymentUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

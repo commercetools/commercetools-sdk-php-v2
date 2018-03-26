@@ -35,11 +35,14 @@ class MessagePagedQueryResponseModel extends PagedQueryResponseModel implements 
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param MessageCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof MessageCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

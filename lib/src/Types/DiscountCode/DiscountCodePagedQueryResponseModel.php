@@ -35,11 +35,14 @@ class DiscountCodePagedQueryResponseModel extends PagedQueryResponseModel implem
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param DiscountCodeCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof DiscountCodeCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

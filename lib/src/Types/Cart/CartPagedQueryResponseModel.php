@@ -35,11 +35,14 @@ class CartPagedQueryResponseModel extends PagedQueryResponseModel implements Car
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param CartCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof CartCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

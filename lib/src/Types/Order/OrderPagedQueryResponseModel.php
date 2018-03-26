@@ -35,11 +35,14 @@ class OrderPagedQueryResponseModel extends PagedQueryResponseModel implements Or
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param OrderCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof OrderCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

@@ -35,11 +35,14 @@ class TypeUpdateModel extends UpdateModel implements TypeUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param TypeUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof TypeUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

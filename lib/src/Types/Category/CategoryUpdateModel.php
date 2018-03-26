@@ -35,11 +35,14 @@ class CategoryUpdateModel extends UpdateModel implements CategoryUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param CategoryUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof CategoryUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

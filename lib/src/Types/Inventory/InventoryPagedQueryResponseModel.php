@@ -35,11 +35,14 @@ class InventoryPagedQueryResponseModel extends PagedQueryResponseModel implement
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param InventoryEntryCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof InventoryEntryCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

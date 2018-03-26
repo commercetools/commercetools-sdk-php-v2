@@ -35,11 +35,14 @@ class SubscriptionUpdateModel extends UpdateModel implements SubscriptionUpdate 
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param SubscriptionUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof SubscriptionUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

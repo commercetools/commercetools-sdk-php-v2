@@ -35,11 +35,14 @@ class ProductDiscountPagedQueryResponseModel extends PagedQueryResponseModel imp
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param ProductDiscountCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof ProductDiscountCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

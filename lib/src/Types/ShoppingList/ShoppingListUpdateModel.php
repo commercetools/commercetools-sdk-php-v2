@@ -35,11 +35,14 @@ class ShoppingListUpdateModel extends UpdateModel implements ShoppingListUpdate 
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param ShoppingListUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof ShoppingListUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

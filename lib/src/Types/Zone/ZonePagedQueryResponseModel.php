@@ -35,11 +35,14 @@ class ZonePagedQueryResponseModel extends PagedQueryResponseModel implements Zon
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param ZoneCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof ZoneCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

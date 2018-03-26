@@ -35,11 +35,14 @@ class ProductTypeUpdateModel extends UpdateModel implements ProductTypeUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param ProductTypeUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof ProductTypeUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

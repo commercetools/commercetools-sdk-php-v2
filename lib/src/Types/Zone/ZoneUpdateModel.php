@@ -35,11 +35,14 @@ class ZoneUpdateModel extends UpdateModel implements ZoneUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param ZoneUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof ZoneUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

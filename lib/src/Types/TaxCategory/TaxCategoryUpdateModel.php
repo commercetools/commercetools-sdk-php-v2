@@ -35,11 +35,14 @@ class TaxCategoryUpdateModel extends UpdateModel implements TaxCategoryUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param TaxCategoryUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof TaxCategoryUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

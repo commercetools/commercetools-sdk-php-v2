@@ -35,11 +35,14 @@ class ExtensionPagedQueryResponseModel extends PagedQueryResponseModel implement
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param ExtensionCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof ExtensionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

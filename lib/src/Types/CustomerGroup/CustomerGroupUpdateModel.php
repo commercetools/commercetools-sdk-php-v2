@@ -35,11 +35,14 @@ class CustomerGroupUpdateModel extends UpdateModel implements CustomerGroupUpdat
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param CustomerGroupUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof CustomerGroupUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

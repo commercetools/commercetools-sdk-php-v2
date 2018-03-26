@@ -35,11 +35,14 @@ class ChannelUpdateModel extends UpdateModel implements ChannelUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param ChannelUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof ChannelUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

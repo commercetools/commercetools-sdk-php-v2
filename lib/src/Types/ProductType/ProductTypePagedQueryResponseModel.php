@@ -35,11 +35,14 @@ class ProductTypePagedQueryResponseModel extends PagedQueryResponseModel impleme
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param ProductTypeCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof ProductTypeCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

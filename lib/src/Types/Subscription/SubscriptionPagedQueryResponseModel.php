@@ -35,11 +35,14 @@ class SubscriptionPagedQueryResponseModel extends PagedQueryResponseModel implem
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param SubscriptionCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof SubscriptionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

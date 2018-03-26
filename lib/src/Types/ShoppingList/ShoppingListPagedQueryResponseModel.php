@@ -35,11 +35,14 @@ class ShoppingListPagedQueryResponseModel extends PagedQueryResponseModel implem
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param ShoppingListCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof ShoppingListCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

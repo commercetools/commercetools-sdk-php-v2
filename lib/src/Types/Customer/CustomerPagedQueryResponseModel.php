@@ -35,11 +35,14 @@ class CustomerPagedQueryResponseModel extends PagedQueryResponseModel implements
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param CustomerCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof CustomerCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

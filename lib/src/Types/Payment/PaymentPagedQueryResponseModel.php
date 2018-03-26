@@ -35,11 +35,14 @@ class PaymentPagedQueryResponseModel extends PagedQueryResponseModel implements 
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param PaymentCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof PaymentCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;

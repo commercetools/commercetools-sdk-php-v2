@@ -35,11 +35,14 @@ class OrderUpdateModel extends UpdateModel implements OrderUpdate {
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param OrderUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof OrderUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

@@ -35,11 +35,14 @@ class InventoryEntryUpdateModel extends UpdateModel implements InventoryEntryUpd
     }
 
     /**
-     * @param UpdateActionCollection $actions
+     * @param InventoryEntryUpdateActionCollection $actions
      * @return $this
      */
     public function setActions(UpdateActionCollection $actions)
     {
+        if (!$actions instanceof InventoryEntryUpdateActionCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->actions = $actions;
 
         return $this;

@@ -35,11 +35,14 @@ class StatePagedQueryResponseModel extends PagedQueryResponseModel implements St
     }
 
     /**
-     * @param ResourceCollection $results
+     * @param StateCollection $results
      * @return $this
      */
     public function setResults(ResourceCollection $results)
     {
+        if (!$results instanceof StateCollection) {
+            throw new \InvalidArgumentException();
+        }
         $this->results = $results;
 
         return $this;
