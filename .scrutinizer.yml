@@ -16,10 +16,10 @@ build:
         tests:
             tests:
                 override:
-                  -
-                    command: vendor/bin/phpunit --coverage-clover=coverage0
-                    coverage:
-                    file: 'coverage0'
-                    format: 'php-clover'
+                    -
+                        command: vendor/bin/phpunit --coverage-clover=coverage0
+                        coverage:
+                            file: 'coverage0'
+                            format: 'php-clover'
 checks:
     php: true
