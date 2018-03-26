@@ -36,7 +36,7 @@ class OAuth2HandlerTest extends TestCase
         $request = new Request('get', '/');
         $result = $handler($request);
 
-        $this->assertSame('Bearer tokenValue' , $result->getHeaderLine('Authorization'));
+        $this->assertSame('Bearer tokenValue', $result->getHeaderLine('Authorization'));
     }
 
     public function testCacheHit()
