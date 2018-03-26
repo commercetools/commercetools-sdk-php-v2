@@ -37,7 +37,7 @@ class Resource8 extends Resource
      * @param ChannelDraft $body
      * @return ByProjectKeyChannelsPost
      */
-    public function post(ChannelDraft $body): ByProjectKeyChannelsPost {
+    public function post(ChannelDraft $body = null): ByProjectKeyChannelsPost {
         $args = $this->getArgs();
         return new ByProjectKeyChannelsPost($args['projectKey'], $body);
     }

@@ -15,7 +15,7 @@ class Resource28 extends Resource
      * @param $body
      * @return ByProjectKeyGraphqlPost
      */
-    public function post($body): ByProjectKeyGraphqlPost {
+    public function post($body = null): ByProjectKeyGraphqlPost {
         $args = $this->getArgs();
         return new ByProjectKeyGraphqlPost($args['projectKey'], $body);
     }

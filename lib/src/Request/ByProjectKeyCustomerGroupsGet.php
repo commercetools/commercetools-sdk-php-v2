@@ -24,7 +24,7 @@ class ByProjectKeyCustomerGroupsGet extends ApiRequest
      */
     public function __construct($projectKey, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/customer-groups', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/customer-groups');
         parent::__construct('get', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

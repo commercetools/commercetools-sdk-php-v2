@@ -37,7 +37,7 @@ class Resource6 extends Resource
      * @param CartDiscountDraft $body
      * @return ByProjectKeyCartDiscountsPost
      */
-    public function post(CartDiscountDraft $body): ByProjectKeyCartDiscountsPost {
+    public function post(CartDiscountDraft $body = null): ByProjectKeyCartDiscountsPost {
         $args = $this->getArgs();
         return new ByProjectKeyCartDiscountsPost($args['projectKey'], $body);
     }

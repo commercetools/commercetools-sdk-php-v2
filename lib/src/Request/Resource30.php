@@ -25,7 +25,7 @@ class Resource30 extends Resource
      * @param InventoryEntryUpdate $body
      * @return ByProjectKeyInventoryByIDPost
      */
-    public function post(InventoryEntryUpdate $body): ByProjectKeyInventoryByIDPost {
+    public function post(InventoryEntryUpdate $body = null): ByProjectKeyInventoryByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyInventoryByIDPost($args['projectKey'], $args['ID'], $body);
     }

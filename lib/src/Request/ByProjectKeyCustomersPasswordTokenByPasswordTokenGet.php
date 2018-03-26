@@ -25,7 +25,7 @@ class ByProjectKeyCustomersPasswordTokenByPasswordTokenGet extends ApiRequest
      */
     public function __construct($projectKey, $passwordToken, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/customers/password-token=%s', $projectKey, $passwordToken);
+        $uri = str_replace(['{projectKey}', '{passwordToken}'], [$projectKey, $passwordToken], '/{projectKey}/customers/password-token={passwordToken}');
         parent::__construct('get', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

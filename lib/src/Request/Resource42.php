@@ -25,7 +25,7 @@ class Resource42 extends Resource
      * @param ProductUpdate $body
      * @return ByProjectKeyProductsKeyByKeyPost
      */
-    public function post(ProductUpdate $body): ByProjectKeyProductsKeyByKeyPost {
+    public function post(ProductUpdate $body = null): ByProjectKeyProductsKeyByKeyPost {
         $args = $this->getArgs();
         return new ByProjectKeyProductsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }

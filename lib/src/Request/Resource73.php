@@ -25,7 +25,7 @@ class Resource73 extends Resource
      * @param TypeUpdate $body
      * @return ByProjectKeyTypesByIDPost
      */
-    public function post(TypeUpdate $body): ByProjectKeyTypesByIDPost {
+    public function post(TypeUpdate $body = null): ByProjectKeyTypesByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyTypesByIDPost($args['projectKey'], $args['ID'], $body);
     }

@@ -25,7 +25,7 @@ class Resource65 extends Resource
      * @param StateUpdate $body
      * @return ByProjectKeyStatesByIDPost
      */
-    public function post(StateUpdate $body): ByProjectKeyStatesByIDPost {
+    public function post(StateUpdate $body = null): ByProjectKeyStatesByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyStatesByIDPost($args['projectKey'], $args['ID'], $body);
     }

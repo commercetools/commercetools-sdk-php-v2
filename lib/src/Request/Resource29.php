@@ -37,7 +37,7 @@ class Resource29 extends Resource
      * @param InventoryEntryDraft $body
      * @return ByProjectKeyInventoryPost
      */
-    public function post(InventoryEntryDraft $body): ByProjectKeyInventoryPost {
+    public function post(InventoryEntryDraft $body = null): ByProjectKeyInventoryPost {
         $args = $this->getArgs();
         return new ByProjectKeyInventoryPost($args['projectKey'], $body);
     }

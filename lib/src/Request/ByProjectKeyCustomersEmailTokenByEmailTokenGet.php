@@ -23,9 +23,9 @@ class ByProjectKeyCustomersEmailTokenByEmailTokenGet extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($emailToken, $projectKey, $body = null, array $headers = [])
+    public function __construct($projectKey, $emailToken, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/customers/email-token=%s', $emailToken, $projectKey);
+        $uri = str_replace(['{projectKey}', '{emailToken}'], [$projectKey, $emailToken], '/{projectKey}/customers/email-token={emailToken}');
         parent::__construct('get', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

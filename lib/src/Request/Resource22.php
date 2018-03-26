@@ -25,7 +25,7 @@ class Resource22 extends Resource
      * @param CustomerGroupUpdate $body
      * @return ByProjectKeyCustomerGroupsByIDPost
      */
-    public function post(CustomerGroupUpdate $body): ByProjectKeyCustomerGroupsByIDPost {
+    public function post(CustomerGroupUpdate $body = null): ByProjectKeyCustomerGroupsByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyCustomerGroupsByIDPost($args['projectKey'], $args['ID'], $body);
     }

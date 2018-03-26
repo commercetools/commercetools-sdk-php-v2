@@ -12,7 +12,7 @@ use Commercetools\Types\Product\Product;
 
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
-use Commercetools\Psr\Http\Message\UploadedFileInterface;
+use Psr\Http\Message\UploadedFileInterface;
 
 
 class ByProjectKeyProductsByIDImagesPost extends ApiRequest
@@ -25,11 +25,11 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $ID, UploadedFileInterface $body, array $headers = [])
+    public function __construct($projectKey, $ID, UploadedFileInterface $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/products/%s/images', $projectKey, $ID);
-        $headers = $this->ensureHeader($headers, 'Content-Type', $body->getClientMediaType());
-        parent::__construct('post', $uri, $headers, $body->getStream());
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/products/{ID}/images');
+        if (!is_null($body)) { $headers = $this->ensureHeader($headers, 'Content-Type', $body->getClientMediaType()); }
+        parent::__construct('post', $uri, $headers, !is_null($body) ? $body->getStream() : null);
     }
 
     /**

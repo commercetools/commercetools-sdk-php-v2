@@ -25,7 +25,7 @@ class Resource68 extends Resource
      * @param SubscriptionUpdate $body
      * @return ByProjectKeySubscriptionsByIDPost
      */
-    public function post(SubscriptionUpdate $body): ByProjectKeySubscriptionsByIDPost {
+    public function post(SubscriptionUpdate $body = null): ByProjectKeySubscriptionsByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeySubscriptionsByIDPost($args['projectKey'], $args['ID'], $body);
     }

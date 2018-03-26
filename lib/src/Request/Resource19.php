@@ -25,7 +25,7 @@ class Resource19 extends Resource
      * @param CustomerUpdate $body
      * @return ByProjectKeyCustomersByIDPost
      */
-    public function post(CustomerUpdate $body): ByProjectKeyCustomersByIDPost {
+    public function post(CustomerUpdate $body = null): ByProjectKeyCustomersByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyCustomersByIDPost($args['projectKey'], $args['ID'], $body);
     }

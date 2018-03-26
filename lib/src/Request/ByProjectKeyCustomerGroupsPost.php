@@ -24,9 +24,9 @@ class ByProjectKeyCustomerGroupsPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, CustomerGroupDraft $body, array $headers = [])
+    public function __construct($projectKey, CustomerGroupDraft $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/customer-groups', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/customer-groups');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

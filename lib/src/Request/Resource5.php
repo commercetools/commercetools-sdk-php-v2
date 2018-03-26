@@ -25,7 +25,7 @@ class Resource5 extends Resource
      * @param CartUpdate $body
      * @return ByProjectKeyCartsByIDPost
      */
-    public function post(CartUpdate $body): ByProjectKeyCartsByIDPost {
+    public function post(CartUpdate $body = null): ByProjectKeyCartsByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyCartsByIDPost($args['projectKey'], $args['ID'], $body);
     }

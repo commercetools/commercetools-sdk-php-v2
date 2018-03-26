@@ -25,7 +25,7 @@ class ByProjectKeyInventoryByIDGet extends ApiRequest
      */
     public function __construct($projectKey, $ID, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/inventory/%s', $projectKey, $ID);
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/inventory/{ID}');
         parent::__construct('get', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

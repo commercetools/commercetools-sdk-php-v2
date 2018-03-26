@@ -44,7 +44,7 @@ class Resource41 extends Resource
      * @param ProductDraft $body
      * @return ByProjectKeyProductsPost
      */
-    public function post(ProductDraft $body): ByProjectKeyProductsPost {
+    public function post(ProductDraft $body = null): ByProjectKeyProductsPost {
         $args = $this->getArgs();
         return new ByProjectKeyProductsPost($args['projectKey'], $body);
     }

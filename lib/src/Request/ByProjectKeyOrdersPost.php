@@ -24,9 +24,9 @@ class ByProjectKeyOrdersPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, OrderFromCartDraft $body, array $headers = [])
+    public function __construct($projectKey, OrderFromCartDraft $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/orders', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/orders');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

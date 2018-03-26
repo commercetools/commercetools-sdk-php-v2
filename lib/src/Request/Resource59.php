@@ -25,7 +25,7 @@ class Resource59 extends Resource
      * @param ShippingMethodUpdate $body
      * @return ByProjectKeyShippingMethodsKeyByKeyPost
      */
-    public function post(ShippingMethodUpdate $body): ByProjectKeyShippingMethodsKeyByKeyPost {
+    public function post(ShippingMethodUpdate $body = null): ByProjectKeyShippingMethodsKeyByKeyPost {
         $args = $this->getArgs();
         return new ByProjectKeyShippingMethodsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }

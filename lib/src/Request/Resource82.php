@@ -15,7 +15,7 @@ class Resource82 extends Resource
      * @param $body
      * @return ByProjectKeyMeLoginPost
      */
-    public function post($body): ByProjectKeyMeLoginPost {
+    public function post($body = null): ByProjectKeyMeLoginPost {
         $args = $this->getArgs();
         return new ByProjectKeyMeLoginPost($args['projectKey'], $body);
     }

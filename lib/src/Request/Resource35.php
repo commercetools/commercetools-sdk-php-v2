@@ -17,7 +17,7 @@ class Resource35 extends Resource
      * @param OrderImportDraft $body
      * @return ByProjectKeyOrdersImportPost
      */
-    public function post(OrderImportDraft $body): ByProjectKeyOrdersImportPost {
+    public function post(OrderImportDraft $body = null): ByProjectKeyOrdersImportPost {
         $args = $this->getArgs();
         return new ByProjectKeyOrdersImportPost($args['projectKey'], $body);
     }

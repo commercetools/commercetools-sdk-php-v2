@@ -198,7 +198,7 @@ class Resource0 extends Resource
      * @param ProjectUpdate $body
      * @return ByProjectKeyPost
      */
-    public function post(ProjectUpdate $body): ByProjectKeyPost {
+    public function post(ProjectUpdate $body = null): ByProjectKeyPost {
         $args = $this->getArgs();
         return new ByProjectKeyPost($args['projectKey'], $body);
     }

@@ -17,7 +17,7 @@ class Resource31 extends Resource
      * @param CustomerSignin $body
      * @return ByProjectKeyLoginPost
      */
-    public function post(CustomerSignin $body): ByProjectKeyLoginPost {
+    public function post(CustomerSignin $body = null): ByProjectKeyLoginPost {
         $args = $this->getArgs();
         return new ByProjectKeyLoginPost($args['projectKey'], $body);
     }

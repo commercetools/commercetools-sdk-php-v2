@@ -24,7 +24,7 @@ class ByProjectKeyShippingMethodsGet extends ApiRequest
      */
     public function __construct($projectKey, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/shipping-methods', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/shipping-methods');
         parent::__construct('get', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

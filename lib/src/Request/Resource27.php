@@ -25,7 +25,7 @@ class Resource27 extends Resource
      * @param DiscountCodeUpdate $body
      * @return ByProjectKeyDiscountCodesByIDPost
      */
-    public function post(DiscountCodeUpdate $body): ByProjectKeyDiscountCodesByIDPost {
+    public function post(DiscountCodeUpdate $body = null): ByProjectKeyDiscountCodesByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyDiscountCodesByIDPost($args['projectKey'], $args['ID'], $body);
     }

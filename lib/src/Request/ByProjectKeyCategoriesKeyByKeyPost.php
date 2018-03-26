@@ -25,9 +25,9 @@ class ByProjectKeyCategoriesKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, CategoryUpdate $body, array $headers = [])
+    public function __construct($projectKey, $key, CategoryUpdate $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/categories/key=%s', $projectKey, $key);
+        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '/{projectKey}/categories/key={key}');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

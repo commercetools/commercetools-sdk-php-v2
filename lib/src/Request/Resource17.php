@@ -17,7 +17,7 @@ class Resource17 extends Resource
      * @param CustomerResetPassword $body
      * @return ByProjectKeyCustomersPasswordResetPost
      */
-    public function post(CustomerResetPassword $body): ByProjectKeyCustomersPasswordResetPost {
+    public function post(CustomerResetPassword $body = null): ByProjectKeyCustomersPasswordResetPost {
         $args = $this->getArgs();
         return new ByProjectKeyCustomersPasswordResetPost($args['projectKey'], $body);
     }

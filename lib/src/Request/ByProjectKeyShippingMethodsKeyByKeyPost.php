@@ -25,9 +25,9 @@ class ByProjectKeyShippingMethodsKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, ShippingMethodUpdate $body, array $headers = [])
+    public function __construct($projectKey, $key, ShippingMethodUpdate $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/shipping-methods/key=%s', $projectKey, $key);
+        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '/{projectKey}/shipping-methods/key={key}');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

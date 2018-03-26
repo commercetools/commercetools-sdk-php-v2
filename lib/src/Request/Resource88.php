@@ -44,7 +44,7 @@ class Resource88 extends Resource
      * @param ExtensionDraft $body
      * @return ByProjectKeyExtensionsPost
      */
-    public function post(ExtensionDraft $body): ByProjectKeyExtensionsPost {
+    public function post(ExtensionDraft $body = null): ByProjectKeyExtensionsPost {
         $args = $this->getArgs();
         return new ByProjectKeyExtensionsPost($args['projectKey'], $body);
     }

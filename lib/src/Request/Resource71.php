@@ -44,7 +44,7 @@ class Resource71 extends Resource
      * @param TypeDraft $body
      * @return ByProjectKeyTypesPost
      */
-    public function post(TypeDraft $body): ByProjectKeyTypesPost {
+    public function post(TypeDraft $body = null): ByProjectKeyTypesPost {
         $args = $this->getArgs();
         return new ByProjectKeyTypesPost($args['projectKey'], $body);
     }

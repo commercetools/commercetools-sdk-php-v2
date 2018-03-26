@@ -15,7 +15,7 @@ class Resource48 extends Resource
      * @param $body
      * @return ByProjectKeyProductProjectionsSearchPost
      */
-    public function post($body): ByProjectKeyProductProjectionsSearchPost {
+    public function post($body = null): ByProjectKeyProductProjectionsSearchPost {
         $args = $this->getArgs();
         return new ByProjectKeyProductProjectionsSearchPost($args['projectKey'], $body);
     }

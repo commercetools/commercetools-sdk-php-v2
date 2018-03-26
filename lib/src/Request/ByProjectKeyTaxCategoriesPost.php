@@ -24,9 +24,9 @@ class ByProjectKeyTaxCategoriesPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, TaxCategoryDraft $body, array $headers = [])
+    public function __construct($projectKey, TaxCategoryDraft $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/tax-categories', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/tax-categories');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

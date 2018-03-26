@@ -23,9 +23,9 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($container, $projectKey, $body = null, array $headers = [])
+    public function __construct($projectKey, $container, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/custom-objects/%s', $container, $projectKey);
+        $uri = str_replace(['{projectKey}', '{container}'], [$projectKey, $container], '/{projectKey}/custom-objects/{container}');
         parent::__construct('get', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

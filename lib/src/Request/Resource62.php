@@ -25,7 +25,7 @@ class Resource62 extends Resource
      * @param ShoppingListUpdate $body
      * @return ByProjectKeyShoppingListsKeyByKeyPost
      */
-    public function post(ShoppingListUpdate $body): ByProjectKeyShoppingListsKeyByKeyPost {
+    public function post(ShoppingListUpdate $body = null): ByProjectKeyShoppingListsKeyByKeyPost {
         $args = $this->getArgs();
         return new ByProjectKeyShoppingListsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }

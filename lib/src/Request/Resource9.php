@@ -25,7 +25,7 @@ class Resource9 extends Resource
      * @param ChannelUpdate $body
      * @return ByProjectKeyChannelsByIDPost
      */
-    public function post(ChannelUpdate $body): ByProjectKeyChannelsByIDPost {
+    public function post(ChannelUpdate $body = null): ByProjectKeyChannelsByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyChannelsByIDPost($args['projectKey'], $args['ID'], $body);
     }

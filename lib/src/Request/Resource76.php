@@ -69,7 +69,7 @@ class Resource76 extends Resource
      * @param Update $body
      * @return ByProjectKeyMePost
      */
-    public function post(Update $body): ByProjectKeyMePost {
+    public function post(Update $body = null): ByProjectKeyMePost {
         $args = $this->getArgs();
         return new ByProjectKeyMePost($args['projectKey'], $body);
     }

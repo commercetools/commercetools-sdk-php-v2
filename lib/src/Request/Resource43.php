@@ -33,7 +33,7 @@ class Resource43 extends Resource
      * @param ProductUpdate $body
      * @return ByProjectKeyProductsByIDPost
      */
-    public function post(ProductUpdate $body): ByProjectKeyProductsByIDPost {
+    public function post(ProductUpdate $body = null): ByProjectKeyProductsByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyProductsByIDPost($args['projectKey'], $args['ID'], $body);
     }

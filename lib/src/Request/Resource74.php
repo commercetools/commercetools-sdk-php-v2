@@ -37,7 +37,7 @@ class Resource74 extends Resource
      * @param ZoneDraft $body
      * @return ByProjectKeyZonesPost
      */
-    public function post(ZoneDraft $body): ByProjectKeyZonesPost {
+    public function post(ZoneDraft $body = null): ByProjectKeyZonesPost {
         $args = $this->getArgs();
         return new ByProjectKeyZonesPost($args['projectKey'], $body);
     }

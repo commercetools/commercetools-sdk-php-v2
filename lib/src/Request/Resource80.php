@@ -15,7 +15,7 @@ class Resource80 extends Resource
      * @param $body
      * @return ByProjectKeyMePasswordResetPost
      */
-    public function post($body): ByProjectKeyMePasswordResetPost {
+    public function post($body = null): ByProjectKeyMePasswordResetPost {
         $args = $this->getArgs();
         return new ByProjectKeyMePasswordResetPost($args['projectKey'], $body);
     }

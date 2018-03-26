@@ -17,7 +17,7 @@ class Resource13 extends Resource
      * @param CustomerCreateEmailToken $body
      * @return ByProjectKeyCustomersEmailTokenPost
      */
-    public function post(CustomerCreateEmailToken $body): ByProjectKeyCustomersEmailTokenPost {
+    public function post(CustomerCreateEmailToken $body = null): ByProjectKeyCustomersEmailTokenPost {
         $args = $this->getArgs();
         return new ByProjectKeyCustomersEmailTokenPost($args['projectKey'], $body);
     }

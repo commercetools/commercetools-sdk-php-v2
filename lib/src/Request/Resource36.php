@@ -25,7 +25,7 @@ class Resource36 extends Resource
      * @param OrderUpdate $body
      * @return ByProjectKeyOrdersOrderNumberByOrderNumberPost
      */
-    public function post(OrderUpdate $body): ByProjectKeyOrdersOrderNumberByOrderNumberPost {
+    public function post(OrderUpdate $body = null): ByProjectKeyOrdersOrderNumberByOrderNumberPost {
         $args = $this->getArgs();
         return new ByProjectKeyOrdersOrderNumberByOrderNumberPost($args['projectKey'], $args['orderNumber'], $body);
     }

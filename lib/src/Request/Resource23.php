@@ -33,7 +33,7 @@ class Resource23 extends Resource
      * @param CustomObjectDraft $body
      * @return ByProjectKeyCustomObjectsPost
      */
-    public function post(CustomObjectDraft $body): ByProjectKeyCustomObjectsPost {
+    public function post(CustomObjectDraft $body = null): ByProjectKeyCustomObjectsPost {
         $args = $this->getArgs();
         return new ByProjectKeyCustomObjectsPost($args['projectKey'], $body);
     }

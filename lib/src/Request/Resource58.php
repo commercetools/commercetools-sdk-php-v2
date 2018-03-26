@@ -44,7 +44,7 @@ class Resource58 extends Resource
      * @param ShippingMethodDraft $body
      * @return ByProjectKeyShippingMethodsPost
      */
-    public function post(ShippingMethodDraft $body): ByProjectKeyShippingMethodsPost {
+    public function post(ShippingMethodDraft $body = null): ByProjectKeyShippingMethodsPost {
         $args = $this->getArgs();
         return new ByProjectKeyShippingMethodsPost($args['projectKey'], $body);
     }

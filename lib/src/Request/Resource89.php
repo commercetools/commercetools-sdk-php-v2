@@ -25,7 +25,7 @@ class Resource89 extends Resource
      * @param ExtensionUpdate $body
      * @return ByProjectKeyExtensionsKeyByKeyPost
      */
-    public function post(ExtensionUpdate $body): ByProjectKeyExtensionsKeyByKeyPost {
+    public function post(ExtensionUpdate $body = null): ByProjectKeyExtensionsKeyByKeyPost {
         $args = $this->getArgs();
         return new ByProjectKeyExtensionsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }

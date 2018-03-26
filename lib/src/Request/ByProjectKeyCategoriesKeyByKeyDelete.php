@@ -25,7 +25,7 @@ class ByProjectKeyCategoriesKeyByKeyDelete extends ApiRequest
      */
     public function __construct($projectKey, $key, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/categories/key=%s', $projectKey, $key);
+        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '/{projectKey}/categories/key={key}');
         parent::__construct('delete', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

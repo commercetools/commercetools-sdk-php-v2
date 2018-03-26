@@ -25,7 +25,7 @@ class ByProjectKeyPaymentsByIDDelete extends ApiRequest
      */
     public function __construct($projectKey, $ID, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/payments/%s', $projectKey, $ID);
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/payments/{ID}');
         parent::__construct('delete', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

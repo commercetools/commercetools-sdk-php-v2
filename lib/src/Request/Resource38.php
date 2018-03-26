@@ -44,7 +44,7 @@ class Resource38 extends Resource
      * @param PaymentDraft $body
      * @return ByProjectKeyPaymentsPost
      */
-    public function post(PaymentDraft $body): ByProjectKeyPaymentsPost {
+    public function post(PaymentDraft $body = null): ByProjectKeyPaymentsPost {
         $args = $this->getArgs();
         return new ByProjectKeyPaymentsPost($args['projectKey'], $body);
     }

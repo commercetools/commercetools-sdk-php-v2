@@ -44,7 +44,7 @@ class Resource55 extends Resource
      * @param ReviewDraft $body
      * @return ByProjectKeyReviewsPost
      */
-    public function post(ReviewDraft $body): ByProjectKeyReviewsPost {
+    public function post(ReviewDraft $body = null): ByProjectKeyReviewsPost {
         $args = $this->getArgs();
         return new ByProjectKeyReviewsPost($args['projectKey'], $body);
     }

@@ -44,7 +44,7 @@ class Resource66 extends Resource
      * @param SubscriptionDraft $body
      * @return ByProjectKeySubscriptionsPost
      */
-    public function post(SubscriptionDraft $body): ByProjectKeySubscriptionsPost {
+    public function post(SubscriptionDraft $body = null): ByProjectKeySubscriptionsPost {
         $args = $this->getArgs();
         return new ByProjectKeySubscriptionsPost($args['projectKey'], $body);
     }

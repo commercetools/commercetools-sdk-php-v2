@@ -16,14 +16,14 @@ class Resource25 extends Resource
      */
     public function get(): ByProjectKeyCustomObjectsByContainerByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyCustomObjectsByContainerByKeyGet($args['container'], $args['projectKey'], $args['key']);
+        return new ByProjectKeyCustomObjectsByContainerByKeyGet($args['projectKey'], $args['container'], $args['key']);
     }
     /**
      * @return ByProjectKeyCustomObjectsByContainerByKeyDelete
      */
     public function delete(): ByProjectKeyCustomObjectsByContainerByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyCustomObjectsByContainerByKeyDelete($args['container'], $args['projectKey'], $args['key']);
+        return new ByProjectKeyCustomObjectsByContainerByKeyDelete($args['projectKey'], $args['container'], $args['key']);
     }
 
 }

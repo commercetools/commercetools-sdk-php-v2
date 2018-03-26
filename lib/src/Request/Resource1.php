@@ -44,7 +44,7 @@ class Resource1 extends Resource
      * @param CategoryDraft $body
      * @return ByProjectKeyCategoriesPost
      */
-    public function post(CategoryDraft $body): ByProjectKeyCategoriesPost {
+    public function post(CategoryDraft $body = null): ByProjectKeyCategoriesPost {
         $args = $this->getArgs();
         return new ByProjectKeyCategoriesPost($args['projectKey'], $body);
     }

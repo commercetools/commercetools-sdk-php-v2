@@ -25,7 +25,7 @@ class Resource40 extends Resource
      * @param PaymentUpdate $body
      * @return ByProjectKeyPaymentsByIDPost
      */
-    public function post(PaymentUpdate $body): ByProjectKeyPaymentsByIDPost {
+    public function post(PaymentUpdate $body = null): ByProjectKeyPaymentsByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyPaymentsByIDPost($args['projectKey'], $args['ID'], $body);
     }

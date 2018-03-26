@@ -24,9 +24,9 @@ class ByProjectKeyInventoryPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, InventoryEntryDraft $body, array $headers = [])
+    public function __construct($projectKey, InventoryEntryDraft $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/inventory', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/inventory');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

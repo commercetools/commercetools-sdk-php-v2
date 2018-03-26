@@ -24,9 +24,9 @@ class ByProjectKeyCustomersPasswordResetPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, CustomerResetPassword $body, array $headers = [])
+    public function __construct($projectKey, CustomerResetPassword $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/customers/password/reset', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/customers/password/reset');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

@@ -25,7 +25,7 @@ class ByProjectKeyExtensionsKeyByKeyDelete extends ApiRequest
      */
     public function __construct($projectKey, $key, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/extensions/key=%s', $projectKey, $key);
+        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '/{projectKey}/extensions/key={key}');
         parent::__construct('delete', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

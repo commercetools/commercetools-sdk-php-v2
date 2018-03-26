@@ -37,7 +37,7 @@ class Resource64 extends Resource
      * @param StateDraft $body
      * @return ByProjectKeyStatesPost
      */
-    public function post(StateDraft $body): ByProjectKeyStatesPost {
+    public function post(StateDraft $body = null): ByProjectKeyStatesPost {
         $args = $this->getArgs();
         return new ByProjectKeyStatesPost($args['projectKey'], $body);
     }

@@ -23,7 +23,7 @@ class Resource79 extends Resource
      * @param $body
      * @return ByProjectKeyMePasswordPost
      */
-    public function post($body): ByProjectKeyMePasswordPost {
+    public function post($body = null): ByProjectKeyMePasswordPost {
         $args = $this->getArgs();
         return new ByProjectKeyMePasswordPost($args['projectKey'], $body);
     }

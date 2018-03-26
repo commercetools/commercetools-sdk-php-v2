@@ -25,7 +25,7 @@ class Resource2 extends Resource
      * @param CategoryUpdate $body
      * @return ByProjectKeyCategoriesKeyByKeyPost
      */
-    public function post(CategoryUpdate $body): ByProjectKeyCategoriesKeyByKeyPost {
+    public function post(CategoryUpdate $body = null): ByProjectKeyCategoriesKeyByKeyPost {
         $args = $this->getArgs();
         return new ByProjectKeyCategoriesKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }

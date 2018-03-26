@@ -25,9 +25,9 @@ class ByProjectKeyShoppingListsByIDPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $ID, ShoppingListUpdate $body, array $headers = [])
+    public function __construct($projectKey, $ID, ShoppingListUpdate $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/shopping-lists/%s', $projectKey, $ID);
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/shopping-lists/{ID}');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

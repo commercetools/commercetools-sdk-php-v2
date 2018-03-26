@@ -24,9 +24,9 @@ class ByProjectKeyCustomObjectsPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, CustomObjectDraft $body, array $headers = [])
+    public function __construct($projectKey, CustomObjectDraft $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/custom-objects', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/custom-objects');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

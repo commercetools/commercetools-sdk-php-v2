@@ -37,7 +37,7 @@ class Resource69 extends Resource
      * @param TaxCategoryDraft $body
      * @return ByProjectKeyTaxCategoriesPost
      */
-    public function post(TaxCategoryDraft $body): ByProjectKeyTaxCategoriesPost {
+    public function post(TaxCategoryDraft $body = null): ByProjectKeyTaxCategoriesPost {
         $args = $this->getArgs();
         return new ByProjectKeyTaxCategoriesPost($args['projectKey'], $body);
     }

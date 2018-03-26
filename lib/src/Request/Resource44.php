@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Psr\Http\Message\UploadedFileInterface;
+use Psr\Http\Message\UploadedFileInterface;
 
 
 class Resource44 extends Resource
@@ -17,7 +17,7 @@ class Resource44 extends Resource
      * @param UploadedFileInterface $body
      * @return ByProjectKeyProductsByIDImagesPost
      */
-    public function post(UploadedFileInterface $body): ByProjectKeyProductsByIDImagesPost {
+    public function post(UploadedFileInterface $body = null): ByProjectKeyProductsByIDImagesPost {
         $args = $this->getArgs();
         return new ByProjectKeyProductsByIDImagesPost($args['projectKey'], $args['ID'], $body);
     }

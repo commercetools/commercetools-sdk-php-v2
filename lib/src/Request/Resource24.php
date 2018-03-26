@@ -25,14 +25,14 @@ class Resource24 extends Resource
      */
     public function get(): ByProjectKeyCustomObjectsByContainerGet {
         $args = $this->getArgs();
-        return new ByProjectKeyCustomObjectsByContainerGet($args['container'], $args['projectKey']);
+        return new ByProjectKeyCustomObjectsByContainerGet($args['projectKey'], $args['container']);
     }
     /**
      * @return ByProjectKeyCustomObjectsByContainerDelete
      */
     public function delete(): ByProjectKeyCustomObjectsByContainerDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyCustomObjectsByContainerDelete($args['container'], $args['projectKey']);
+        return new ByProjectKeyCustomObjectsByContainerDelete($args['projectKey'], $args['container']);
     }
 
 }

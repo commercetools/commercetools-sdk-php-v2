@@ -50,7 +50,7 @@ class Resource34 extends Resource
      * @param OrderFromCartDraft $body
      * @return ByProjectKeyOrdersPost
      */
-    public function post(OrderFromCartDraft $body): ByProjectKeyOrdersPost {
+    public function post(OrderFromCartDraft $body = null): ByProjectKeyOrdersPost {
         $args = $this->getArgs();
         return new ByProjectKeyOrdersPost($args['projectKey'], $body);
     }

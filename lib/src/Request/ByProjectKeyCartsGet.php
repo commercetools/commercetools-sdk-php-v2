@@ -24,7 +24,7 @@ class ByProjectKeyCartsGet extends ApiRequest
      */
     public function __construct($projectKey, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/carts', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/carts');
         parent::__construct('get', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

@@ -17,7 +17,7 @@ class Resource15 extends Resource
      * @param CustomerEmailVerify $body
      * @return ByProjectKeyCustomersEmailConfirmPost
      */
-    public function post(CustomerEmailVerify $body): ByProjectKeyCustomersEmailConfirmPost {
+    public function post(CustomerEmailVerify $body = null): ByProjectKeyCustomersEmailConfirmPost {
         $args = $this->getArgs();
         return new ByProjectKeyCustomersEmailConfirmPost($args['projectKey'], $body);
     }

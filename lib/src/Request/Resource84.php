@@ -33,7 +33,7 @@ class Resource84 extends Resource
      * @param MyCartDraft $body
      * @return ByProjectKeyMeCartsPost
      */
-    public function post(MyCartDraft $body): ByProjectKeyMeCartsPost {
+    public function post(MyCartDraft $body = null): ByProjectKeyMeCartsPost {
         $args = $this->getArgs();
         return new ByProjectKeyMeCartsPost($args['projectKey'], $body);
     }

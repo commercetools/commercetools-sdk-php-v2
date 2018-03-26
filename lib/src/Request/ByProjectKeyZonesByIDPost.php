@@ -25,9 +25,9 @@ class ByProjectKeyZonesByIDPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $ID, ZoneUpdate $body, array $headers = [])
+    public function __construct($projectKey, $ID, ZoneUpdate $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/zones/%s', $projectKey, $ID);
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/zones/{ID}');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

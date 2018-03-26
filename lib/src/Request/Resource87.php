@@ -24,7 +24,7 @@ class Resource87 extends Resource
      * @param Update $body
      * @return ByProjectKeyMeOrdersByIDPost
      */
-    public function post(Update $body): ByProjectKeyMeOrdersByIDPost {
+    public function post(Update $body = null): ByProjectKeyMeOrdersByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyMeOrdersByIDPost($args['projectKey'], $args['ID'], $body);
     }

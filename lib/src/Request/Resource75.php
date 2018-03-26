@@ -25,7 +25,7 @@ class Resource75 extends Resource
      * @param ZoneUpdate $body
      * @return ByProjectKeyZonesByIDPost
      */
-    public function post(ZoneUpdate $body): ByProjectKeyZonesByIDPost {
+    public function post(ZoneUpdate $body = null): ByProjectKeyZonesByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyZonesByIDPost($args['projectKey'], $args['ID'], $body);
     }

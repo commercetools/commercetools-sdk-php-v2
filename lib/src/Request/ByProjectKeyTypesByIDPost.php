@@ -25,9 +25,9 @@ class ByProjectKeyTypesByIDPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $ID, TypeUpdate $body, array $headers = [])
+    public function __construct($projectKey, $ID, TypeUpdate $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/types/%s', $projectKey, $ID);
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/types/{ID}');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

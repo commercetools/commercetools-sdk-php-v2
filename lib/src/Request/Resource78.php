@@ -15,7 +15,7 @@ class Resource78 extends Resource
      * @param $body
      * @return ByProjectKeyMeEmailConfirmPost
      */
-    public function post($body): ByProjectKeyMeEmailConfirmPost {
+    public function post($body = null): ByProjectKeyMeEmailConfirmPost {
         $args = $this->getArgs();
         return new ByProjectKeyMeEmailConfirmPost($args['projectKey'], $body);
     }

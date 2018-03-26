@@ -25,7 +25,7 @@ class Resource70 extends Resource
      * @param TaxCategoryUpdate $body
      * @return ByProjectKeyTaxCategoriesByIDPost
      */
-    public function post(TaxCategoryUpdate $body): ByProjectKeyTaxCategoriesByIDPost {
+    public function post(TaxCategoryUpdate $body = null): ByProjectKeyTaxCategoriesByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyTaxCategoriesByIDPost($args['projectKey'], $args['ID'], $body);
     }

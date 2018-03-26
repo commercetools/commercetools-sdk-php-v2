@@ -25,9 +25,9 @@ class ByProjectKeyPaymentsKeyByKeyPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $key, PaymentUpdate $body, array $headers = [])
+    public function __construct($projectKey, $key, PaymentUpdate $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/payments/key=%s', $projectKey, $key);
+        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '/{projectKey}/payments/key={key}');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

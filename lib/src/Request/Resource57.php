@@ -25,7 +25,7 @@ class Resource57 extends Resource
      * @param ReviewUpdate $body
      * @return ByProjectKeyReviewsByIDPost
      */
-    public function post(ReviewUpdate $body): ByProjectKeyReviewsByIDPost {
+    public function post(ReviewUpdate $body = null): ByProjectKeyReviewsByIDPost {
         $args = $this->getArgs();
         return new ByProjectKeyReviewsByIDPost($args['projectKey'], $args['ID'], $body);
     }

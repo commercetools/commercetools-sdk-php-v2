@@ -16,7 +16,7 @@ class Resource12 extends Resource
      */
     public function get(): ByProjectKeyCustomersEmailTokenByEmailTokenGet {
         $args = $this->getArgs();
-        return new ByProjectKeyCustomersEmailTokenByEmailTokenGet($args['emailToken'], $args['projectKey']);
+        return new ByProjectKeyCustomersEmailTokenByEmailTokenGet($args['projectKey'], $args['emailToken']);
     }
 
 }

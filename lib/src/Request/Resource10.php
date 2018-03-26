@@ -75,7 +75,7 @@ class Resource10 extends Resource
      * @param CustomerDraft $body
      * @return ByProjectKeyCustomersPost
      */
-    public function post(CustomerDraft $body): ByProjectKeyCustomersPost {
+    public function post(CustomerDraft $body = null): ByProjectKeyCustomersPost {
         $args = $this->getArgs();
         return new ByProjectKeyCustomersPost($args['projectKey'], $body);
     }

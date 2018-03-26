@@ -22,9 +22,9 @@ class ByProjectKeyMeEmailConfirmPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $body, array $headers = [])
+    public function __construct($projectKey, $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/me/email/confirm', $projectKey);
+        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/me/email/confirm');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

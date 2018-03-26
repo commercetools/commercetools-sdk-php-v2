@@ -25,9 +25,9 @@ class ByProjectKeyOrdersOrderNumberByOrderNumberPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $orderNumber, OrderUpdate $body, array $headers = [])
+    public function __construct($projectKey, $orderNumber, OrderUpdate $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/orders/order-number=%s', $projectKey, $orderNumber);
+        $uri = str_replace(['{projectKey}', '{orderNumber}'], [$projectKey, $orderNumber], '/{projectKey}/orders/order-number={orderNumber}');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

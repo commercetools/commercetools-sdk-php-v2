@@ -25,9 +25,9 @@ class ByProjectKeyChannelsByIDPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $ID, ChannelUpdate $body, array $headers = [])
+    public function __construct($projectKey, $ID, ChannelUpdate $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/channels/%s', $projectKey, $ID);
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/channels/{ID}');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

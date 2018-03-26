@@ -25,9 +25,9 @@ class ByProjectKeyReviewsByIDPost extends ApiRequest
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $ID, ReviewUpdate $body, array $headers = [])
+    public function __construct($projectKey, $ID, ReviewUpdate $body = null, array $headers = [])
     {
-        $uri = sprintf('/%s/reviews/%s', $projectKey, $ID);
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/reviews/{ID}');
         parent::__construct('post', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
