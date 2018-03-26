@@ -42,7 +42,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
 
     /**
      * @param TaxCategoryAddTaxRateAction|callable $action builder function <code>
-     *   function (TaxCategoryAddTaxRateAction $action): TaxCategoryAddTaxRateAction {
+     *   function(TaxCategoryAddTaxRateAction $action): TaxCategoryAddTaxRateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -59,7 +59,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TaxCategoryChangeNameAction|callable $action builder function <code>
-     *   function (TaxCategoryChangeNameAction $action): TaxCategoryChangeNameAction {
+     *   function(TaxCategoryChangeNameAction $action): TaxCategoryChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -76,7 +76,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TaxCategoryRemoveTaxRateAction|callable $action builder function <code>
-     *   function (TaxCategoryRemoveTaxRateAction $action): TaxCategoryRemoveTaxRateAction {
+     *   function(TaxCategoryRemoveTaxRateAction $action): TaxCategoryRemoveTaxRateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -93,7 +93,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TaxCategoryReplaceTaxRateAction|callable $action builder function <code>
-     *   function (TaxCategoryReplaceTaxRateAction $action): TaxCategoryReplaceTaxRateAction {
+     *   function(TaxCategoryReplaceTaxRateAction $action): TaxCategoryReplaceTaxRateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -110,7 +110,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TaxCategorySetDescriptionAction|callable $action builder function <code>
-     *   function (TaxCategorySetDescriptionAction $action): TaxCategorySetDescriptionAction {
+     *   function(TaxCategorySetDescriptionAction $action): TaxCategorySetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -127,7 +127,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TaxCategorySetKeyAction|callable $action builder function <code>
-     *   function (TaxCategorySetKeyAction $action): TaxCategorySetKeyAction {
+     *   function(TaxCategorySetKeyAction $action): TaxCategorySetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }

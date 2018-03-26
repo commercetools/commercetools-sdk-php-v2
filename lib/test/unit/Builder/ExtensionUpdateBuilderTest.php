@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 class ExtensionBuilderTest extends TestCase {
     public function testChangeDestinationCallback() {
         $builder = new ExtensionUpdateBuilder();
-        $builder->changeDestination(function ($action) { static::assertInstanceOf(ExtensionChangeDestinationAction::class, $action); return $action; });
+        $builder->changeDestination(function($action) { static::assertInstanceOf(ExtensionChangeDestinationAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ExtensionUpdate::class, $update);
         static::assertInstanceOf(ExtensionChangeDestinationAction::class, $update->getActions()->current());
@@ -40,7 +40,7 @@ class ExtensionBuilderTest extends TestCase {
 
     public function testChangeTriggersCallback() {
         $builder = new ExtensionUpdateBuilder();
-        $builder->changeTriggers(function ($action) { static::assertInstanceOf(ExtensionChangeTriggersAction::class, $action); return $action; });
+        $builder->changeTriggers(function($action) { static::assertInstanceOf(ExtensionChangeTriggersAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ExtensionUpdate::class, $update);
         static::assertInstanceOf(ExtensionChangeTriggersAction::class, $update->getActions()->current());
@@ -56,7 +56,7 @@ class ExtensionBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new ExtensionUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(ExtensionSetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(ExtensionSetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ExtensionUpdate::class, $update);
         static::assertInstanceOf(ExtensionSetKeyAction::class, $update->getActions()->current());

@@ -44,7 +44,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
 
     /**
      * @param InventoryAddQuantityAction|callable $action builder function <code>
-     *   function (InventoryAddQuantityAction $action): InventoryAddQuantityAction {
+     *   function(InventoryAddQuantityAction $action): InventoryAddQuantityAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -61,7 +61,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param InventoryChangeQuantityAction|callable $action builder function <code>
-     *   function (InventoryChangeQuantityAction $action): InventoryChangeQuantityAction {
+     *   function(InventoryChangeQuantityAction $action): InventoryChangeQuantityAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -78,7 +78,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param InventoryRemoveQuantityAction|callable $action builder function <code>
-     *   function (InventoryRemoveQuantityAction $action): InventoryRemoveQuantityAction {
+     *   function(InventoryRemoveQuantityAction $action): InventoryRemoveQuantityAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -95,7 +95,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param InventorySetCustomFieldAction|callable $action builder function <code>
-     *   function (InventorySetCustomFieldAction $action): InventorySetCustomFieldAction {
+     *   function(InventorySetCustomFieldAction $action): InventorySetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -112,7 +112,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param InventorySetCustomTypeAction|callable $action builder function <code>
-     *   function (InventorySetCustomTypeAction $action): InventorySetCustomTypeAction {
+     *   function(InventorySetCustomTypeAction $action): InventorySetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -129,7 +129,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param InventorySetExpectedDeliveryAction|callable $action builder function <code>
-     *   function (InventorySetExpectedDeliveryAction $action): InventorySetExpectedDeliveryAction {
+     *   function(InventorySetExpectedDeliveryAction $action): InventorySetExpectedDeliveryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -146,7 +146,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param InventorySetRestockableInDaysAction|callable $action builder function <code>
-     *   function (InventorySetRestockableInDaysAction $action): InventorySetRestockableInDaysAction {
+     *   function(InventorySetRestockableInDaysAction $action): InventorySetRestockableInDaysAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -163,7 +163,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param InventorySetSupplyChannelAction|callable $action builder function <code>
-     *   function (InventorySetSupplyChannelAction $action): InventorySetSupplyChannelAction {
+     *   function(InventorySetSupplyChannelAction $action): InventorySetSupplyChannelAction {
      *     // modify action as needed
      *     return $action;
      *   }

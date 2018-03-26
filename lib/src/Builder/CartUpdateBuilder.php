@@ -79,7 +79,7 @@ class CartUpdateBuilder extends BaseBuilder {
 
     /**
      * @param CartAddCustomLineItemAction|callable $action builder function <code>
-     *   function (CartAddCustomLineItemAction $action): CartAddCustomLineItemAction {
+     *   function(CartAddCustomLineItemAction $action): CartAddCustomLineItemAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -96,7 +96,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartAddDiscountCodeAction|callable $action builder function <code>
-     *   function (CartAddDiscountCodeAction $action): CartAddDiscountCodeAction {
+     *   function(CartAddDiscountCodeAction $action): CartAddDiscountCodeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -113,7 +113,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartAddLineItemAction|callable $action builder function <code>
-     *   function (CartAddLineItemAction $action): CartAddLineItemAction {
+     *   function(CartAddLineItemAction $action): CartAddLineItemAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -130,7 +130,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartAddPaymentAction|callable $action builder function <code>
-     *   function (CartAddPaymentAction $action): CartAddPaymentAction {
+     *   function(CartAddPaymentAction $action): CartAddPaymentAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -147,7 +147,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartAddShoppingListAction|callable $action builder function <code>
-     *   function (CartAddShoppingListAction $action): CartAddShoppingListAction {
+     *   function(CartAddShoppingListAction $action): CartAddShoppingListAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -164,7 +164,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartChangeCustomLineItemMoneyAction|callable $action builder function <code>
-     *   function (CartChangeCustomLineItemMoneyAction $action): CartChangeCustomLineItemMoneyAction {
+     *   function(CartChangeCustomLineItemMoneyAction $action): CartChangeCustomLineItemMoneyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -181,7 +181,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartChangeCustomLineItemQuantityAction|callable $action builder function <code>
-     *   function (CartChangeCustomLineItemQuantityAction $action): CartChangeCustomLineItemQuantityAction {
+     *   function(CartChangeCustomLineItemQuantityAction $action): CartChangeCustomLineItemQuantityAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -198,7 +198,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartChangeLineItemQuantityAction|callable $action builder function <code>
-     *   function (CartChangeLineItemQuantityAction $action): CartChangeLineItemQuantityAction {
+     *   function(CartChangeLineItemQuantityAction $action): CartChangeLineItemQuantityAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -215,7 +215,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartChangeTaxCalculationModeAction|callable $action builder function <code>
-     *   function (CartChangeTaxCalculationModeAction $action): CartChangeTaxCalculationModeAction {
+     *   function(CartChangeTaxCalculationModeAction $action): CartChangeTaxCalculationModeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -232,7 +232,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartChangeTaxModeAction|callable $action builder function <code>
-     *   function (CartChangeTaxModeAction $action): CartChangeTaxModeAction {
+     *   function(CartChangeTaxModeAction $action): CartChangeTaxModeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -249,7 +249,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartChangeTaxRoundingModeAction|callable $action builder function <code>
-     *   function (CartChangeTaxRoundingModeAction $action): CartChangeTaxRoundingModeAction {
+     *   function(CartChangeTaxRoundingModeAction $action): CartChangeTaxRoundingModeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -266,7 +266,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartRecalculateAction|callable $action builder function <code>
-     *   function (CartRecalculateAction $action): CartRecalculateAction {
+     *   function(CartRecalculateAction $action): CartRecalculateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -283,7 +283,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartRemoveCustomLineItemAction|callable $action builder function <code>
-     *   function (CartRemoveCustomLineItemAction $action): CartRemoveCustomLineItemAction {
+     *   function(CartRemoveCustomLineItemAction $action): CartRemoveCustomLineItemAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -300,7 +300,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartRemoveDiscountCodeAction|callable $action builder function <code>
-     *   function (CartRemoveDiscountCodeAction $action): CartRemoveDiscountCodeAction {
+     *   function(CartRemoveDiscountCodeAction $action): CartRemoveDiscountCodeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -317,7 +317,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartRemoveLineItemAction|callable $action builder function <code>
-     *   function (CartRemoveLineItemAction $action): CartRemoveLineItemAction {
+     *   function(CartRemoveLineItemAction $action): CartRemoveLineItemAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -334,7 +334,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartRemovePaymentAction|callable $action builder function <code>
-     *   function (CartRemovePaymentAction $action): CartRemovePaymentAction {
+     *   function(CartRemovePaymentAction $action): CartRemovePaymentAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -351,7 +351,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetAnonymousIdAction|callable $action builder function <code>
-     *   function (CartSetAnonymousIdAction $action): CartSetAnonymousIdAction {
+     *   function(CartSetAnonymousIdAction $action): CartSetAnonymousIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -368,7 +368,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetBillingAddressAction|callable $action builder function <code>
-     *   function (CartSetBillingAddressAction $action): CartSetBillingAddressAction {
+     *   function(CartSetBillingAddressAction $action): CartSetBillingAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -385,7 +385,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCartTotalTaxAction|callable $action builder function <code>
-     *   function (CartSetCartTotalTaxAction $action): CartSetCartTotalTaxAction {
+     *   function(CartSetCartTotalTaxAction $action): CartSetCartTotalTaxAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -402,7 +402,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCountryAction|callable $action builder function <code>
-     *   function (CartSetCountryAction $action): CartSetCountryAction {
+     *   function(CartSetCountryAction $action): CartSetCountryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -419,7 +419,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomFieldAction|callable $action builder function <code>
-     *   function (CartSetCustomFieldAction $action): CartSetCustomFieldAction {
+     *   function(CartSetCustomFieldAction $action): CartSetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -436,7 +436,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomLineItemCustomFieldAction|callable $action builder function <code>
-     *   function (CartSetCustomLineItemCustomFieldAction $action): CartSetCustomLineItemCustomFieldAction {
+     *   function(CartSetCustomLineItemCustomFieldAction $action): CartSetCustomLineItemCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -453,7 +453,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomLineItemCustomTypeAction|callable $action builder function <code>
-     *   function (CartSetCustomLineItemCustomTypeAction $action): CartSetCustomLineItemCustomTypeAction {
+     *   function(CartSetCustomLineItemCustomTypeAction $action): CartSetCustomLineItemCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -470,7 +470,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomLineItemTaxAmountAction|callable $action builder function <code>
-     *   function (CartSetCustomLineItemTaxAmountAction $action): CartSetCustomLineItemTaxAmountAction {
+     *   function(CartSetCustomLineItemTaxAmountAction $action): CartSetCustomLineItemTaxAmountAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -487,7 +487,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomLineItemTaxRateAction|callable $action builder function <code>
-     *   function (CartSetCustomLineItemTaxRateAction $action): CartSetCustomLineItemTaxRateAction {
+     *   function(CartSetCustomLineItemTaxRateAction $action): CartSetCustomLineItemTaxRateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -504,7 +504,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomShippingMethodAction|callable $action builder function <code>
-     *   function (CartSetCustomShippingMethodAction $action): CartSetCustomShippingMethodAction {
+     *   function(CartSetCustomShippingMethodAction $action): CartSetCustomShippingMethodAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -521,7 +521,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomTypeAction|callable $action builder function <code>
-     *   function (CartSetCustomTypeAction $action): CartSetCustomTypeAction {
+     *   function(CartSetCustomTypeAction $action): CartSetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -538,7 +538,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomerEmailAction|callable $action builder function <code>
-     *   function (CartSetCustomerEmailAction $action): CartSetCustomerEmailAction {
+     *   function(CartSetCustomerEmailAction $action): CartSetCustomerEmailAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -555,7 +555,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomerGroupAction|callable $action builder function <code>
-     *   function (CartSetCustomerGroupAction $action): CartSetCustomerGroupAction {
+     *   function(CartSetCustomerGroupAction $action): CartSetCustomerGroupAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -572,7 +572,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetCustomerIdAction|callable $action builder function <code>
-     *   function (CartSetCustomerIdAction $action): CartSetCustomerIdAction {
+     *   function(CartSetCustomerIdAction $action): CartSetCustomerIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -589,7 +589,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetDeleteDaysAfterLastModificationAction|callable $action builder function <code>
-     *   function (CartSetDeleteDaysAfterLastModificationAction $action): CartSetDeleteDaysAfterLastModificationAction {
+     *   function(CartSetDeleteDaysAfterLastModificationAction $action): CartSetDeleteDaysAfterLastModificationAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -606,7 +606,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetLineItemCustomFieldAction|callable $action builder function <code>
-     *   function (CartSetLineItemCustomFieldAction $action): CartSetLineItemCustomFieldAction {
+     *   function(CartSetLineItemCustomFieldAction $action): CartSetLineItemCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -623,7 +623,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetLineItemCustomTypeAction|callable $action builder function <code>
-     *   function (CartSetLineItemCustomTypeAction $action): CartSetLineItemCustomTypeAction {
+     *   function(CartSetLineItemCustomTypeAction $action): CartSetLineItemCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -640,7 +640,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetLineItemPriceAction|callable $action builder function <code>
-     *   function (CartSetLineItemPriceAction $action): CartSetLineItemPriceAction {
+     *   function(CartSetLineItemPriceAction $action): CartSetLineItemPriceAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -657,7 +657,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetLineItemTaxAmountAction|callable $action builder function <code>
-     *   function (CartSetLineItemTaxAmountAction $action): CartSetLineItemTaxAmountAction {
+     *   function(CartSetLineItemTaxAmountAction $action): CartSetLineItemTaxAmountAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -674,7 +674,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetLineItemTaxRateAction|callable $action builder function <code>
-     *   function (CartSetLineItemTaxRateAction $action): CartSetLineItemTaxRateAction {
+     *   function(CartSetLineItemTaxRateAction $action): CartSetLineItemTaxRateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -691,7 +691,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetLineItemTotalPriceAction|callable $action builder function <code>
-     *   function (CartSetLineItemTotalPriceAction $action): CartSetLineItemTotalPriceAction {
+     *   function(CartSetLineItemTotalPriceAction $action): CartSetLineItemTotalPriceAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -708,7 +708,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetLocaleAction|callable $action builder function <code>
-     *   function (CartSetLocaleAction $action): CartSetLocaleAction {
+     *   function(CartSetLocaleAction $action): CartSetLocaleAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -725,7 +725,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetShippingAddressAction|callable $action builder function <code>
-     *   function (CartSetShippingAddressAction $action): CartSetShippingAddressAction {
+     *   function(CartSetShippingAddressAction $action): CartSetShippingAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -742,7 +742,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetShippingMethodAction|callable $action builder function <code>
-     *   function (CartSetShippingMethodAction $action): CartSetShippingMethodAction {
+     *   function(CartSetShippingMethodAction $action): CartSetShippingMethodAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -759,7 +759,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetShippingMethodTaxAmountAction|callable $action builder function <code>
-     *   function (CartSetShippingMethodTaxAmountAction $action): CartSetShippingMethodTaxAmountAction {
+     *   function(CartSetShippingMethodTaxAmountAction $action): CartSetShippingMethodTaxAmountAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -776,7 +776,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetShippingMethodTaxRateAction|callable $action builder function <code>
-     *   function (CartSetShippingMethodTaxRateAction $action): CartSetShippingMethodTaxRateAction {
+     *   function(CartSetShippingMethodTaxRateAction $action): CartSetShippingMethodTaxRateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -793,7 +793,7 @@ class CartUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartSetShippingRateInputAction|callable $action builder function <code>
-     *   function (CartSetShippingRateInputAction $action): CartSetShippingRateInputAction {
+     *   function(CartSetShippingRateInputAction $action): CartSetShippingRateInputAction {
      *     // modify action as needed
      *     return $action;
      *   }

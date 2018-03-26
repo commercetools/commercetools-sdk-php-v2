@@ -38,7 +38,7 @@ use PHPUnit\Framework\TestCase;
 class ChannelBuilderTest extends TestCase {
     public function testAddRolesCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->addRoles(function ($action) { static::assertInstanceOf(ChannelAddRolesAction::class, $action); return $action; });
+        $builder->addRoles(function($action) { static::assertInstanceOf(ChannelAddRolesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelAddRolesAction::class, $update->getActions()->current());
@@ -54,7 +54,7 @@ class ChannelBuilderTest extends TestCase {
 
     public function testChangeDescriptionCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->changeDescription(function ($action) { static::assertInstanceOf(ChannelChangeDescriptionAction::class, $action); return $action; });
+        $builder->changeDescription(function($action) { static::assertInstanceOf(ChannelChangeDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelChangeDescriptionAction::class, $update->getActions()->current());
@@ -70,7 +70,7 @@ class ChannelBuilderTest extends TestCase {
 
     public function testChangeKeyCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->changeKey(function ($action) { static::assertInstanceOf(ChannelChangeKeyAction::class, $action); return $action; });
+        $builder->changeKey(function($action) { static::assertInstanceOf(ChannelChangeKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelChangeKeyAction::class, $update->getActions()->current());
@@ -86,7 +86,7 @@ class ChannelBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(ChannelChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(ChannelChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelChangeNameAction::class, $update->getActions()->current());
@@ -102,7 +102,7 @@ class ChannelBuilderTest extends TestCase {
 
     public function testRemoveRolesCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->removeRoles(function ($action) { static::assertInstanceOf(ChannelRemoveRolesAction::class, $action); return $action; });
+        $builder->removeRoles(function($action) { static::assertInstanceOf(ChannelRemoveRolesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelRemoveRolesAction::class, $update->getActions()->current());
@@ -118,7 +118,7 @@ class ChannelBuilderTest extends TestCase {
 
     public function testSetAddressCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->setAddress(function ($action) { static::assertInstanceOf(ChannelSetAddressAction::class, $action); return $action; });
+        $builder->setAddress(function($action) { static::assertInstanceOf(ChannelSetAddressAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelSetAddressAction::class, $update->getActions()->current());
@@ -134,7 +134,7 @@ class ChannelBuilderTest extends TestCase {
 
     public function testSetCustomFieldCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->setCustomField(function ($action) { static::assertInstanceOf(ChannelSetCustomFieldAction::class, $action); return $action; });
+        $builder->setCustomField(function($action) { static::assertInstanceOf(ChannelSetCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelSetCustomFieldAction::class, $update->getActions()->current());
@@ -150,7 +150,7 @@ class ChannelBuilderTest extends TestCase {
 
     public function testSetCustomTypeCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->setCustomType(function ($action) { static::assertInstanceOf(ChannelSetCustomTypeAction::class, $action); return $action; });
+        $builder->setCustomType(function($action) { static::assertInstanceOf(ChannelSetCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelSetCustomTypeAction::class, $update->getActions()->current());
@@ -166,7 +166,7 @@ class ChannelBuilderTest extends TestCase {
 
     public function testSetGeoLocationCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->setGeoLocation(function ($action) { static::assertInstanceOf(ChannelSetGeolocationAction::class, $action); return $action; });
+        $builder->setGeoLocation(function($action) { static::assertInstanceOf(ChannelSetGeolocationAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelSetGeolocationAction::class, $update->getActions()->current());
@@ -182,7 +182,7 @@ class ChannelBuilderTest extends TestCase {
 
     public function testSetRolesCallback() {
         $builder = new ChannelUpdateBuilder();
-        $builder->setRoles(function ($action) { static::assertInstanceOf(ChannelSetRolesAction::class, $action); return $action; });
+        $builder->setRoles(function($action) { static::assertInstanceOf(ChannelSetRolesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ChannelUpdate::class, $update);
         static::assertInstanceOf(ChannelSetRolesAction::class, $update->getActions()->current());

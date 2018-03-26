@@ -46,7 +46,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ChannelAddRolesAction|callable $action builder function <code>
-     *   function (ChannelAddRolesAction $action): ChannelAddRolesAction {
+     *   function(ChannelAddRolesAction $action): ChannelAddRolesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -63,7 +63,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ChannelChangeDescriptionAction|callable $action builder function <code>
-     *   function (ChannelChangeDescriptionAction $action): ChannelChangeDescriptionAction {
+     *   function(ChannelChangeDescriptionAction $action): ChannelChangeDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -80,7 +80,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ChannelChangeKeyAction|callable $action builder function <code>
-     *   function (ChannelChangeKeyAction $action): ChannelChangeKeyAction {
+     *   function(ChannelChangeKeyAction $action): ChannelChangeKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -97,7 +97,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ChannelChangeNameAction|callable $action builder function <code>
-     *   function (ChannelChangeNameAction $action): ChannelChangeNameAction {
+     *   function(ChannelChangeNameAction $action): ChannelChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -114,7 +114,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ChannelRemoveRolesAction|callable $action builder function <code>
-     *   function (ChannelRemoveRolesAction $action): ChannelRemoveRolesAction {
+     *   function(ChannelRemoveRolesAction $action): ChannelRemoveRolesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -131,7 +131,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ChannelSetAddressAction|callable $action builder function <code>
-     *   function (ChannelSetAddressAction $action): ChannelSetAddressAction {
+     *   function(ChannelSetAddressAction $action): ChannelSetAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -148,7 +148,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ChannelSetCustomFieldAction|callable $action builder function <code>
-     *   function (ChannelSetCustomFieldAction $action): ChannelSetCustomFieldAction {
+     *   function(ChannelSetCustomFieldAction $action): ChannelSetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -165,7 +165,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ChannelSetCustomTypeAction|callable $action builder function <code>
-     *   function (ChannelSetCustomTypeAction $action): ChannelSetCustomTypeAction {
+     *   function(ChannelSetCustomTypeAction $action): ChannelSetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -182,7 +182,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ChannelSetGeolocationAction|callable $action builder function <code>
-     *   function (ChannelSetGeolocationAction $action): ChannelSetGeolocationAction {
+     *   function(ChannelSetGeolocationAction $action): ChannelSetGeolocationAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -199,7 +199,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ChannelSetRolesAction|callable $action builder function <code>
-     *   function (ChannelSetRolesAction $action): ChannelSetRolesAction {
+     *   function(ChannelSetRolesAction $action): ChannelSetRolesAction {
      *     // modify action as needed
      *     return $action;
      *   }

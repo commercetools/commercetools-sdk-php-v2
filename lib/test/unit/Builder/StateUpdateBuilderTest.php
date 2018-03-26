@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
 class StateBuilderTest extends TestCase {
     public function testAddRolesCallback() {
         $builder = new StateUpdateBuilder();
-        $builder->addRoles(function ($action) { static::assertInstanceOf(StateAddRolesAction::class, $action); return $action; });
+        $builder->addRoles(function($action) { static::assertInstanceOf(StateAddRolesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(StateUpdate::class, $update);
         static::assertInstanceOf(StateAddRolesAction::class, $update->getActions()->current());
@@ -52,7 +52,7 @@ class StateBuilderTest extends TestCase {
 
     public function testChangeInitialCallback() {
         $builder = new StateUpdateBuilder();
-        $builder->changeInitial(function ($action) { static::assertInstanceOf(StateChangeInitialAction::class, $action); return $action; });
+        $builder->changeInitial(function($action) { static::assertInstanceOf(StateChangeInitialAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(StateUpdate::class, $update);
         static::assertInstanceOf(StateChangeInitialAction::class, $update->getActions()->current());
@@ -68,7 +68,7 @@ class StateBuilderTest extends TestCase {
 
     public function testChangeKeyCallback() {
         $builder = new StateUpdateBuilder();
-        $builder->changeKey(function ($action) { static::assertInstanceOf(StateChangeKeyAction::class, $action); return $action; });
+        $builder->changeKey(function($action) { static::assertInstanceOf(StateChangeKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(StateUpdate::class, $update);
         static::assertInstanceOf(StateChangeKeyAction::class, $update->getActions()->current());
@@ -84,7 +84,7 @@ class StateBuilderTest extends TestCase {
 
     public function testChangeTypeCallback() {
         $builder = new StateUpdateBuilder();
-        $builder->changeType(function ($action) { static::assertInstanceOf(StateChangeTypeAction::class, $action); return $action; });
+        $builder->changeType(function($action) { static::assertInstanceOf(StateChangeTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(StateUpdate::class, $update);
         static::assertInstanceOf(StateChangeTypeAction::class, $update->getActions()->current());
@@ -100,7 +100,7 @@ class StateBuilderTest extends TestCase {
 
     public function testRemoveRolesCallback() {
         $builder = new StateUpdateBuilder();
-        $builder->removeRoles(function ($action) { static::assertInstanceOf(StateRemoveRolesAction::class, $action); return $action; });
+        $builder->removeRoles(function($action) { static::assertInstanceOf(StateRemoveRolesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(StateUpdate::class, $update);
         static::assertInstanceOf(StateRemoveRolesAction::class, $update->getActions()->current());
@@ -116,7 +116,7 @@ class StateBuilderTest extends TestCase {
 
     public function testSetDescriptionCallback() {
         $builder = new StateUpdateBuilder();
-        $builder->setDescription(function ($action) { static::assertInstanceOf(StateSetDescriptionAction::class, $action); return $action; });
+        $builder->setDescription(function($action) { static::assertInstanceOf(StateSetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(StateUpdate::class, $update);
         static::assertInstanceOf(StateSetDescriptionAction::class, $update->getActions()->current());
@@ -132,7 +132,7 @@ class StateBuilderTest extends TestCase {
 
     public function testSetNameCallback() {
         $builder = new StateUpdateBuilder();
-        $builder->setName(function ($action) { static::assertInstanceOf(StateSetNameAction::class, $action); return $action; });
+        $builder->setName(function($action) { static::assertInstanceOf(StateSetNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(StateUpdate::class, $update);
         static::assertInstanceOf(StateSetNameAction::class, $update->getActions()->current());
@@ -148,7 +148,7 @@ class StateBuilderTest extends TestCase {
 
     public function testSetRolesCallback() {
         $builder = new StateUpdateBuilder();
-        $builder->setRoles(function ($action) { static::assertInstanceOf(StateSetRolesAction::class, $action); return $action; });
+        $builder->setRoles(function($action) { static::assertInstanceOf(StateSetRolesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(StateUpdate::class, $update);
         static::assertInstanceOf(StateSetRolesAction::class, $update->getActions()->current());
@@ -164,7 +164,7 @@ class StateBuilderTest extends TestCase {
 
     public function testSetTransitionsCallback() {
         $builder = new StateUpdateBuilder();
-        $builder->setTransitions(function ($action) { static::assertInstanceOf(StateSetTransitionsAction::class, $action); return $action; });
+        $builder->setTransitions(function($action) { static::assertInstanceOf(StateSetTransitionsAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(StateUpdate::class, $update);
         static::assertInstanceOf(StateSetTransitionsAction::class, $update->getActions()->current());

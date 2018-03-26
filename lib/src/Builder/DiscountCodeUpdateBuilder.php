@@ -46,7 +46,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
 
     /**
      * @param DiscountCodeChangeCartDiscountsAction|callable $action builder function <code>
-     *   function (DiscountCodeChangeCartDiscountsAction $action): DiscountCodeChangeCartDiscountsAction {
+     *   function(DiscountCodeChangeCartDiscountsAction $action): DiscountCodeChangeCartDiscountsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -63,7 +63,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param DiscountCodeChangeGroupsAction|callable $action builder function <code>
-     *   function (DiscountCodeChangeGroupsAction $action): DiscountCodeChangeGroupsAction {
+     *   function(DiscountCodeChangeGroupsAction $action): DiscountCodeChangeGroupsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -80,7 +80,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param DiscountCodeChangeIsActiveAction|callable $action builder function <code>
-     *   function (DiscountCodeChangeIsActiveAction $action): DiscountCodeChangeIsActiveAction {
+     *   function(DiscountCodeChangeIsActiveAction $action): DiscountCodeChangeIsActiveAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -97,7 +97,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param DiscountCodeSetCartPredicateAction|callable $action builder function <code>
-     *   function (DiscountCodeSetCartPredicateAction $action): DiscountCodeSetCartPredicateAction {
+     *   function(DiscountCodeSetCartPredicateAction $action): DiscountCodeSetCartPredicateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -114,7 +114,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param DiscountCodeSetDescriptionAction|callable $action builder function <code>
-     *   function (DiscountCodeSetDescriptionAction $action): DiscountCodeSetDescriptionAction {
+     *   function(DiscountCodeSetDescriptionAction $action): DiscountCodeSetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -131,7 +131,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param DiscountCodeSetMaxApplicationsAction|callable $action builder function <code>
-     *   function (DiscountCodeSetMaxApplicationsAction $action): DiscountCodeSetMaxApplicationsAction {
+     *   function(DiscountCodeSetMaxApplicationsAction $action): DiscountCodeSetMaxApplicationsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -148,7 +148,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param DiscountCodeSetMaxApplicationsPerCustomerAction|callable $action builder function <code>
-     *   function (DiscountCodeSetMaxApplicationsPerCustomerAction $action): DiscountCodeSetMaxApplicationsPerCustomerAction {
+     *   function(DiscountCodeSetMaxApplicationsPerCustomerAction $action): DiscountCodeSetMaxApplicationsPerCustomerAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -165,7 +165,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param DiscountCodeSetNameAction|callable $action builder function <code>
-     *   function (DiscountCodeSetNameAction $action): DiscountCodeSetNameAction {
+     *   function(DiscountCodeSetNameAction $action): DiscountCodeSetNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -182,7 +182,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param DiscountCodeSetValidFromAction|callable $action builder function <code>
-     *   function (DiscountCodeSetValidFromAction $action): DiscountCodeSetValidFromAction {
+     *   function(DiscountCodeSetValidFromAction $action): DiscountCodeSetValidFromAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -199,7 +199,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param DiscountCodeSetValidUntilAction|callable $action builder function <code>
-     *   function (DiscountCodeSetValidUntilAction $action): DiscountCodeSetValidUntilAction {
+     *   function(DiscountCodeSetValidUntilAction $action): DiscountCodeSetValidUntilAction {
      *     // modify action as needed
      *     return $action;
      *   }

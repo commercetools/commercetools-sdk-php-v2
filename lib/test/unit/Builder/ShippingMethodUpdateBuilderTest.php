@@ -38,7 +38,7 @@ use PHPUnit\Framework\TestCase;
 class ShippingMethodBuilderTest extends TestCase {
     public function testAddShippingRateCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->addShippingRate(function ($action) { static::assertInstanceOf(ShippingMethodAddShippingRateAction::class, $action); return $action; });
+        $builder->addShippingRate(function($action) { static::assertInstanceOf(ShippingMethodAddShippingRateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodAddShippingRateAction::class, $update->getActions()->current());
@@ -54,7 +54,7 @@ class ShippingMethodBuilderTest extends TestCase {
 
     public function testAddZoneCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->addZone(function ($action) { static::assertInstanceOf(ShippingMethodAddZoneAction::class, $action); return $action; });
+        $builder->addZone(function($action) { static::assertInstanceOf(ShippingMethodAddZoneAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodAddZoneAction::class, $update->getActions()->current());
@@ -70,7 +70,7 @@ class ShippingMethodBuilderTest extends TestCase {
 
     public function testChangeIsDefaultCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->changeIsDefault(function ($action) { static::assertInstanceOf(ShippingMethodChangeIsDefaultAction::class, $action); return $action; });
+        $builder->changeIsDefault(function($action) { static::assertInstanceOf(ShippingMethodChangeIsDefaultAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodChangeIsDefaultAction::class, $update->getActions()->current());
@@ -86,7 +86,7 @@ class ShippingMethodBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(ShippingMethodChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(ShippingMethodChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodChangeNameAction::class, $update->getActions()->current());
@@ -102,7 +102,7 @@ class ShippingMethodBuilderTest extends TestCase {
 
     public function testChangeTaxCategoryCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->changeTaxCategory(function ($action) { static::assertInstanceOf(ShippingMethodChangeTaxCategoryAction::class, $action); return $action; });
+        $builder->changeTaxCategory(function($action) { static::assertInstanceOf(ShippingMethodChangeTaxCategoryAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodChangeTaxCategoryAction::class, $update->getActions()->current());
@@ -118,7 +118,7 @@ class ShippingMethodBuilderTest extends TestCase {
 
     public function testRemoveShippingRateCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->removeShippingRate(function ($action) { static::assertInstanceOf(ShippingMethodRemoveShippingRateAction::class, $action); return $action; });
+        $builder->removeShippingRate(function($action) { static::assertInstanceOf(ShippingMethodRemoveShippingRateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodRemoveShippingRateAction::class, $update->getActions()->current());
@@ -134,7 +134,7 @@ class ShippingMethodBuilderTest extends TestCase {
 
     public function testRemoveZoneCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->removeZone(function ($action) { static::assertInstanceOf(ShippingMethodRemoveZoneAction::class, $action); return $action; });
+        $builder->removeZone(function($action) { static::assertInstanceOf(ShippingMethodRemoveZoneAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodRemoveZoneAction::class, $update->getActions()->current());
@@ -150,7 +150,7 @@ class ShippingMethodBuilderTest extends TestCase {
 
     public function testSetDescriptionCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->setDescription(function ($action) { static::assertInstanceOf(ShippingMethodSetDescriptionAction::class, $action); return $action; });
+        $builder->setDescription(function($action) { static::assertInstanceOf(ShippingMethodSetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodSetDescriptionAction::class, $update->getActions()->current());
@@ -166,7 +166,7 @@ class ShippingMethodBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(ShippingMethodSetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(ShippingMethodSetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodSetKeyAction::class, $update->getActions()->current());
@@ -182,7 +182,7 @@ class ShippingMethodBuilderTest extends TestCase {
 
     public function testSetPredicateCallback() {
         $builder = new ShippingMethodUpdateBuilder();
-        $builder->setPredicate(function ($action) { static::assertInstanceOf(ShippingMethodSetPredicateAction::class, $action); return $action; });
+        $builder->setPredicate(function($action) { static::assertInstanceOf(ShippingMethodSetPredicateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShippingMethodUpdate::class, $update);
         static::assertInstanceOf(ShippingMethodSetPredicateAction::class, $update->getActions()->current());

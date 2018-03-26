@@ -61,7 +61,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
 
     /**
      * @param CustomerAddAddressAction|callable $action builder function <code>
-     *   function (CustomerAddAddressAction $action): CustomerAddAddressAction {
+     *   function(CustomerAddAddressAction $action): CustomerAddAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -78,7 +78,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerAddBillingAddressIdAction|callable $action builder function <code>
-     *   function (CustomerAddBillingAddressIdAction $action): CustomerAddBillingAddressIdAction {
+     *   function(CustomerAddBillingAddressIdAction $action): CustomerAddBillingAddressIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -95,7 +95,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerAddShippingAddressIdAction|callable $action builder function <code>
-     *   function (CustomerAddShippingAddressIdAction $action): CustomerAddShippingAddressIdAction {
+     *   function(CustomerAddShippingAddressIdAction $action): CustomerAddShippingAddressIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -112,7 +112,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerChangeAddressAction|callable $action builder function <code>
-     *   function (CustomerChangeAddressAction $action): CustomerChangeAddressAction {
+     *   function(CustomerChangeAddressAction $action): CustomerChangeAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -129,7 +129,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerChangeEmailAction|callable $action builder function <code>
-     *   function (CustomerChangeEmailAction $action): CustomerChangeEmailAction {
+     *   function(CustomerChangeEmailAction $action): CustomerChangeEmailAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -146,7 +146,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerRemoveAddressAction|callable $action builder function <code>
-     *   function (CustomerRemoveAddressAction $action): CustomerRemoveAddressAction {
+     *   function(CustomerRemoveAddressAction $action): CustomerRemoveAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -163,7 +163,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerRemoveBillingAddressIdAction|callable $action builder function <code>
-     *   function (CustomerRemoveBillingAddressIdAction $action): CustomerRemoveBillingAddressIdAction {
+     *   function(CustomerRemoveBillingAddressIdAction $action): CustomerRemoveBillingAddressIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -180,7 +180,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerRemoveShippingAddressIdAction|callable $action builder function <code>
-     *   function (CustomerRemoveShippingAddressIdAction $action): CustomerRemoveShippingAddressIdAction {
+     *   function(CustomerRemoveShippingAddressIdAction $action): CustomerRemoveShippingAddressIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -197,7 +197,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetCompanyNameAction|callable $action builder function <code>
-     *   function (CustomerSetCompanyNameAction $action): CustomerSetCompanyNameAction {
+     *   function(CustomerSetCompanyNameAction $action): CustomerSetCompanyNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -214,7 +214,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetCustomFieldAction|callable $action builder function <code>
-     *   function (CustomerSetCustomFieldAction $action): CustomerSetCustomFieldAction {
+     *   function(CustomerSetCustomFieldAction $action): CustomerSetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -231,7 +231,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetCustomTypeAction|callable $action builder function <code>
-     *   function (CustomerSetCustomTypeAction $action): CustomerSetCustomTypeAction {
+     *   function(CustomerSetCustomTypeAction $action): CustomerSetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -248,7 +248,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetCustomerGroupAction|callable $action builder function <code>
-     *   function (CustomerSetCustomerGroupAction $action): CustomerSetCustomerGroupAction {
+     *   function(CustomerSetCustomerGroupAction $action): CustomerSetCustomerGroupAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -265,7 +265,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetCustomerNumberAction|callable $action builder function <code>
-     *   function (CustomerSetCustomerNumberAction $action): CustomerSetCustomerNumberAction {
+     *   function(CustomerSetCustomerNumberAction $action): CustomerSetCustomerNumberAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -282,7 +282,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetDateOfBirthAction|callable $action builder function <code>
-     *   function (CustomerSetDateOfBirthAction $action): CustomerSetDateOfBirthAction {
+     *   function(CustomerSetDateOfBirthAction $action): CustomerSetDateOfBirthAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -299,7 +299,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetDefaultBillingAddressAction|callable $action builder function <code>
-     *   function (CustomerSetDefaultBillingAddressAction $action): CustomerSetDefaultBillingAddressAction {
+     *   function(CustomerSetDefaultBillingAddressAction $action): CustomerSetDefaultBillingAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -316,7 +316,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetDefaultShippingAddressAction|callable $action builder function <code>
-     *   function (CustomerSetDefaultShippingAddressAction $action): CustomerSetDefaultShippingAddressAction {
+     *   function(CustomerSetDefaultShippingAddressAction $action): CustomerSetDefaultShippingAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -333,7 +333,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetExternalIdAction|callable $action builder function <code>
-     *   function (CustomerSetExternalIdAction $action): CustomerSetExternalIdAction {
+     *   function(CustomerSetExternalIdAction $action): CustomerSetExternalIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -350,7 +350,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetFirstNameAction|callable $action builder function <code>
-     *   function (CustomerSetFirstNameAction $action): CustomerSetFirstNameAction {
+     *   function(CustomerSetFirstNameAction $action): CustomerSetFirstNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -367,7 +367,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetKeyAction|callable $action builder function <code>
-     *   function (CustomerSetKeyAction $action): CustomerSetKeyAction {
+     *   function(CustomerSetKeyAction $action): CustomerSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -384,7 +384,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetLastNameAction|callable $action builder function <code>
-     *   function (CustomerSetLastNameAction $action): CustomerSetLastNameAction {
+     *   function(CustomerSetLastNameAction $action): CustomerSetLastNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -401,7 +401,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetLocaleAction|callable $action builder function <code>
-     *   function (CustomerSetLocaleAction $action): CustomerSetLocaleAction {
+     *   function(CustomerSetLocaleAction $action): CustomerSetLocaleAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -418,7 +418,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetMiddleNameAction|callable $action builder function <code>
-     *   function (CustomerSetMiddleNameAction $action): CustomerSetMiddleNameAction {
+     *   function(CustomerSetMiddleNameAction $action): CustomerSetMiddleNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -435,7 +435,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetSalutationAction|callable $action builder function <code>
-     *   function (CustomerSetSalutationAction $action): CustomerSetSalutationAction {
+     *   function(CustomerSetSalutationAction $action): CustomerSetSalutationAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -452,7 +452,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetTitleAction|callable $action builder function <code>
-     *   function (CustomerSetTitleAction $action): CustomerSetTitleAction {
+     *   function(CustomerSetTitleAction $action): CustomerSetTitleAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -469,7 +469,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerSetVatIdAction|callable $action builder function <code>
-     *   function (CustomerSetVatIdAction $action): CustomerSetVatIdAction {
+     *   function(CustomerSetVatIdAction $action): CustomerSetVatIdAction {
      *     // modify action as needed
      *     return $action;
      *   }

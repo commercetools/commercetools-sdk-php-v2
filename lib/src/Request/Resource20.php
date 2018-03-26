@@ -52,7 +52,7 @@ class Resource20 extends Resource
 
     public function update(CustomerGroup $customerGroup)
     {
-        $builder = new CustomerGroupUpdateBuilder(function (CustomerGroupUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new CustomerGroupUpdateBuilder(function(CustomerGroupUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($customerGroup);
         if ($customerGroup instanceof MapperAware) {
             $builder->setMapper($customerGroup->getMapper());
@@ -67,7 +67,7 @@ class Resource20 extends Resource
 
     /**
      * @param CustomerGroupDraft|callable $customerGroupDraftDraft builder function <code>
-     *   function (CustomerGroupDraft $customerGroupDraft): CustomerGroupDraft {
+     *   function(CustomerGroupDraft $customerGroupDraft): CustomerGroupDraft {
      *     // modify $draft as needed
      *     return $customerGroupDraft;
      *   }

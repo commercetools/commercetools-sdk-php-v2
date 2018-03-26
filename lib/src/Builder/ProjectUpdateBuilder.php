@@ -42,7 +42,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ProjectChangeCountriesAction|callable $action builder function <code>
-     *   function (ProjectChangeCountriesAction $action): ProjectChangeCountriesAction {
+     *   function(ProjectChangeCountriesAction $action): ProjectChangeCountriesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -59,7 +59,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProjectChangeCurrenciesAction|callable $action builder function <code>
-     *   function (ProjectChangeCurrenciesAction $action): ProjectChangeCurrenciesAction {
+     *   function(ProjectChangeCurrenciesAction $action): ProjectChangeCurrenciesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -76,7 +76,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProjectChangeLanguagesAction|callable $action builder function <code>
-     *   function (ProjectChangeLanguagesAction $action): ProjectChangeLanguagesAction {
+     *   function(ProjectChangeLanguagesAction $action): ProjectChangeLanguagesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -93,7 +93,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProjectChangeMessagesEnabledAction|callable $action builder function <code>
-     *   function (ProjectChangeMessagesEnabledAction $action): ProjectChangeMessagesEnabledAction {
+     *   function(ProjectChangeMessagesEnabledAction $action): ProjectChangeMessagesEnabledAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -110,7 +110,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProjectChangeNameAction|callable $action builder function <code>
-     *   function (ProjectChangeNameAction $action): ProjectChangeNameAction {
+     *   function(ProjectChangeNameAction $action): ProjectChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -127,7 +127,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProjectSetShippingRateInputTypeAction|callable $action builder function <code>
-     *   function (ProjectSetShippingRateInputTypeAction $action): ProjectSetShippingRateInputTypeAction {
+     *   function(ProjectSetShippingRateInputTypeAction $action): ProjectSetShippingRateInputTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }

@@ -180,7 +180,7 @@ class ClientFactory
             }
         }
 
-        $client->getEmitter()->on('before', function (BeforeEvent $e) use ($oauthHandler) {
+        $client->getEmitter()->on('before', function(BeforeEvent $e) use ($oauthHandler) {
             $e->getRequest()->setHeader('Authorization', $oauthHandler->getAuthorizationHeader());
         });
 

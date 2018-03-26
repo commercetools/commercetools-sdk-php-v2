@@ -30,7 +30,7 @@ use PHPUnit\Framework\TestCase;
 class ProjectBuilderTest extends TestCase {
     public function testChangeCountriesCallback() {
         $builder = new ProjectUpdateBuilder();
-        $builder->changeCountries(function ($action) { static::assertInstanceOf(ProjectChangeCountriesAction::class, $action); return $action; });
+        $builder->changeCountries(function($action) { static::assertInstanceOf(ProjectChangeCountriesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeCountriesAction::class, $update->getActions()->current());
@@ -46,7 +46,7 @@ class ProjectBuilderTest extends TestCase {
 
     public function testChangeCurrenciesCallback() {
         $builder = new ProjectUpdateBuilder();
-        $builder->changeCurrencies(function ($action) { static::assertInstanceOf(ProjectChangeCurrenciesAction::class, $action); return $action; });
+        $builder->changeCurrencies(function($action) { static::assertInstanceOf(ProjectChangeCurrenciesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeCurrenciesAction::class, $update->getActions()->current());
@@ -62,7 +62,7 @@ class ProjectBuilderTest extends TestCase {
 
     public function testChangeLanguagesCallback() {
         $builder = new ProjectUpdateBuilder();
-        $builder->changeLanguages(function ($action) { static::assertInstanceOf(ProjectChangeLanguagesAction::class, $action); return $action; });
+        $builder->changeLanguages(function($action) { static::assertInstanceOf(ProjectChangeLanguagesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeLanguagesAction::class, $update->getActions()->current());
@@ -78,7 +78,7 @@ class ProjectBuilderTest extends TestCase {
 
     public function testChangeMessagesEnabledCallback() {
         $builder = new ProjectUpdateBuilder();
-        $builder->changeMessagesEnabled(function ($action) { static::assertInstanceOf(ProjectChangeMessagesEnabledAction::class, $action); return $action; });
+        $builder->changeMessagesEnabled(function($action) { static::assertInstanceOf(ProjectChangeMessagesEnabledAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeMessagesEnabledAction::class, $update->getActions()->current());
@@ -94,7 +94,7 @@ class ProjectBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new ProjectUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(ProjectChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(ProjectChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeNameAction::class, $update->getActions()->current());
@@ -110,7 +110,7 @@ class ProjectBuilderTest extends TestCase {
 
     public function testSetShippingRateInputTypeCallback() {
         $builder = new ProjectUpdateBuilder();
-        $builder->setShippingRateInputType(function ($action) { static::assertInstanceOf(ProjectSetShippingRateInputTypeAction::class, $action); return $action; });
+        $builder->setShippingRateInputType(function($action) { static::assertInstanceOf(ProjectSetShippingRateInputTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectSetShippingRateInputTypeAction::class, $update->getActions()->current());

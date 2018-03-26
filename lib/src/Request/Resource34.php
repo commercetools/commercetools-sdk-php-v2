@@ -58,7 +58,7 @@ class Resource34 extends Resource
 
     public function update(Order $order)
     {
-        $builder = new OrderUpdateBuilder(function (OrderUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new OrderUpdateBuilder(function(OrderUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($order);
         if ($order instanceof MapperAware) {
             $builder->setMapper($order->getMapper());
@@ -73,7 +73,7 @@ class Resource34 extends Resource
 
     /**
      * @param OrderFromCartDraft|callable $orderFromCartDraftDraft builder function <code>
-     *   function (OrderFromCartDraft $orderFromCartDraft): OrderFromCartDraft {
+     *   function(OrderFromCartDraft $orderFromCartDraft): OrderFromCartDraft {
      *     // modify $draft as needed
      *     return $orderFromCartDraft;
      *   }

@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 class SubscriptionBuilderTest extends TestCase {
     public function testSetChangesCallback() {
         $builder = new SubscriptionUpdateBuilder();
-        $builder->setChanges(function ($action) { static::assertInstanceOf(SubscriptionSetChangesAction::class, $action); return $action; });
+        $builder->setChanges(function($action) { static::assertInstanceOf(SubscriptionSetChangesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(SubscriptionUpdate::class, $update);
         static::assertInstanceOf(SubscriptionSetChangesAction::class, $update->getActions()->current());
@@ -40,7 +40,7 @@ class SubscriptionBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new SubscriptionUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(SubscriptionSetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(SubscriptionSetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(SubscriptionUpdate::class, $update);
         static::assertInstanceOf(SubscriptionSetKeyAction::class, $update->getActions()->current());
@@ -56,7 +56,7 @@ class SubscriptionBuilderTest extends TestCase {
 
     public function testSetMessagesCallback() {
         $builder = new SubscriptionUpdateBuilder();
-        $builder->setMessages(function ($action) { static::assertInstanceOf(SubscriptionSetMessagesAction::class, $action); return $action; });
+        $builder->setMessages(function($action) { static::assertInstanceOf(SubscriptionSetMessagesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(SubscriptionUpdate::class, $update);
         static::assertInstanceOf(SubscriptionSetMessagesAction::class, $update->getActions()->current());

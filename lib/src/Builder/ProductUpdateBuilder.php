@@ -81,7 +81,7 @@ class ProductUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ProductAddAssetAction|callable $action builder function <code>
-     *   function (ProductAddAssetAction $action): ProductAddAssetAction {
+     *   function(ProductAddAssetAction $action): ProductAddAssetAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -98,7 +98,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductAddExternalImageAction|callable $action builder function <code>
-     *   function (ProductAddExternalImageAction $action): ProductAddExternalImageAction {
+     *   function(ProductAddExternalImageAction $action): ProductAddExternalImageAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -115,7 +115,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductAddPriceAction|callable $action builder function <code>
-     *   function (ProductAddPriceAction $action): ProductAddPriceAction {
+     *   function(ProductAddPriceAction $action): ProductAddPriceAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -132,7 +132,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductAddToCategoryAction|callable $action builder function <code>
-     *   function (ProductAddToCategoryAction $action): ProductAddToCategoryAction {
+     *   function(ProductAddToCategoryAction $action): ProductAddToCategoryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -149,7 +149,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductAddVariantAction|callable $action builder function <code>
-     *   function (ProductAddVariantAction $action): ProductAddVariantAction {
+     *   function(ProductAddVariantAction $action): ProductAddVariantAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -166,7 +166,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductChangeAssetNameAction|callable $action builder function <code>
-     *   function (ProductChangeAssetNameAction $action): ProductChangeAssetNameAction {
+     *   function(ProductChangeAssetNameAction $action): ProductChangeAssetNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -183,7 +183,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductChangeAssetOrderAction|callable $action builder function <code>
-     *   function (ProductChangeAssetOrderAction $action): ProductChangeAssetOrderAction {
+     *   function(ProductChangeAssetOrderAction $action): ProductChangeAssetOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -200,7 +200,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductChangeMasterVariantAction|callable $action builder function <code>
-     *   function (ProductChangeMasterVariantAction $action): ProductChangeMasterVariantAction {
+     *   function(ProductChangeMasterVariantAction $action): ProductChangeMasterVariantAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -217,7 +217,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductChangeNameAction|callable $action builder function <code>
-     *   function (ProductChangeNameAction $action): ProductChangeNameAction {
+     *   function(ProductChangeNameAction $action): ProductChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -234,7 +234,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductChangePriceAction|callable $action builder function <code>
-     *   function (ProductChangePriceAction $action): ProductChangePriceAction {
+     *   function(ProductChangePriceAction $action): ProductChangePriceAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -251,7 +251,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductChangeSlugAction|callable $action builder function <code>
-     *   function (ProductChangeSlugAction $action): ProductChangeSlugAction {
+     *   function(ProductChangeSlugAction $action): ProductChangeSlugAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -268,7 +268,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductLegacySetSkuAction|callable $action builder function <code>
-     *   function (ProductLegacySetSkuAction $action): ProductLegacySetSkuAction {
+     *   function(ProductLegacySetSkuAction $action): ProductLegacySetSkuAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -285,7 +285,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductMoveImageToPositionAction|callable $action builder function <code>
-     *   function (ProductMoveImageToPositionAction $action): ProductMoveImageToPositionAction {
+     *   function(ProductMoveImageToPositionAction $action): ProductMoveImageToPositionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -302,7 +302,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductPublishAction|callable $action builder function <code>
-     *   function (ProductPublishAction $action): ProductPublishAction {
+     *   function(ProductPublishAction $action): ProductPublishAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -319,7 +319,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductRemoveAssetAction|callable $action builder function <code>
-     *   function (ProductRemoveAssetAction $action): ProductRemoveAssetAction {
+     *   function(ProductRemoveAssetAction $action): ProductRemoveAssetAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -336,7 +336,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductRemoveFromCategoryAction|callable $action builder function <code>
-     *   function (ProductRemoveFromCategoryAction $action): ProductRemoveFromCategoryAction {
+     *   function(ProductRemoveFromCategoryAction $action): ProductRemoveFromCategoryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -353,7 +353,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductRemoveImageAction|callable $action builder function <code>
-     *   function (ProductRemoveImageAction $action): ProductRemoveImageAction {
+     *   function(ProductRemoveImageAction $action): ProductRemoveImageAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -370,7 +370,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductRemovePriceAction|callable $action builder function <code>
-     *   function (ProductRemovePriceAction $action): ProductRemovePriceAction {
+     *   function(ProductRemovePriceAction $action): ProductRemovePriceAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -387,7 +387,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductRemoveVariantAction|callable $action builder function <code>
-     *   function (ProductRemoveVariantAction $action): ProductRemoveVariantAction {
+     *   function(ProductRemoveVariantAction $action): ProductRemoveVariantAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -404,7 +404,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductRevertStagedChangesAction|callable $action builder function <code>
-     *   function (ProductRevertStagedChangesAction $action): ProductRevertStagedChangesAction {
+     *   function(ProductRevertStagedChangesAction $action): ProductRevertStagedChangesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -421,7 +421,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductRevertStagedVariantChangesAction|callable $action builder function <code>
-     *   function (ProductRevertStagedVariantChangesAction $action): ProductRevertStagedVariantChangesAction {
+     *   function(ProductRevertStagedVariantChangesAction $action): ProductRevertStagedVariantChangesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -438,7 +438,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetAssetCustomFieldAction|callable $action builder function <code>
-     *   function (ProductSetAssetCustomFieldAction $action): ProductSetAssetCustomFieldAction {
+     *   function(ProductSetAssetCustomFieldAction $action): ProductSetAssetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -455,7 +455,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetAssetCustomTypeAction|callable $action builder function <code>
-     *   function (ProductSetAssetCustomTypeAction $action): ProductSetAssetCustomTypeAction {
+     *   function(ProductSetAssetCustomTypeAction $action): ProductSetAssetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -472,7 +472,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetAssetDescriptionAction|callable $action builder function <code>
-     *   function (ProductSetAssetDescriptionAction $action): ProductSetAssetDescriptionAction {
+     *   function(ProductSetAssetDescriptionAction $action): ProductSetAssetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -489,7 +489,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetAssetKeyAction|callable $action builder function <code>
-     *   function (ProductSetAssetKeyAction $action): ProductSetAssetKeyAction {
+     *   function(ProductSetAssetKeyAction $action): ProductSetAssetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -506,7 +506,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetAssetSourcesAction|callable $action builder function <code>
-     *   function (ProductSetAssetSourcesAction $action): ProductSetAssetSourcesAction {
+     *   function(ProductSetAssetSourcesAction $action): ProductSetAssetSourcesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -523,7 +523,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetAssetTagsAction|callable $action builder function <code>
-     *   function (ProductSetAssetTagsAction $action): ProductSetAssetTagsAction {
+     *   function(ProductSetAssetTagsAction $action): ProductSetAssetTagsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -540,7 +540,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetAttributeAction|callable $action builder function <code>
-     *   function (ProductSetAttributeAction $action): ProductSetAttributeAction {
+     *   function(ProductSetAttributeAction $action): ProductSetAttributeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -557,7 +557,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetAttributeInAllVariantsAction|callable $action builder function <code>
-     *   function (ProductSetAttributeInAllVariantsAction $action): ProductSetAttributeInAllVariantsAction {
+     *   function(ProductSetAttributeInAllVariantsAction $action): ProductSetAttributeInAllVariantsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -574,7 +574,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetCategoryOrderHintAction|callable $action builder function <code>
-     *   function (ProductSetCategoryOrderHintAction $action): ProductSetCategoryOrderHintAction {
+     *   function(ProductSetCategoryOrderHintAction $action): ProductSetCategoryOrderHintAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -591,7 +591,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetDescriptionAction|callable $action builder function <code>
-     *   function (ProductSetDescriptionAction $action): ProductSetDescriptionAction {
+     *   function(ProductSetDescriptionAction $action): ProductSetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -608,7 +608,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetDiscountedPriceAction|callable $action builder function <code>
-     *   function (ProductSetDiscountedPriceAction $action): ProductSetDiscountedPriceAction {
+     *   function(ProductSetDiscountedPriceAction $action): ProductSetDiscountedPriceAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -625,7 +625,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetKeyAction|callable $action builder function <code>
-     *   function (ProductSetKeyAction $action): ProductSetKeyAction {
+     *   function(ProductSetKeyAction $action): ProductSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -642,7 +642,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetMetaDescriptionAction|callable $action builder function <code>
-     *   function (ProductSetMetaDescriptionAction $action): ProductSetMetaDescriptionAction {
+     *   function(ProductSetMetaDescriptionAction $action): ProductSetMetaDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -659,7 +659,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetMetaKeywordsAction|callable $action builder function <code>
-     *   function (ProductSetMetaKeywordsAction $action): ProductSetMetaKeywordsAction {
+     *   function(ProductSetMetaKeywordsAction $action): ProductSetMetaKeywordsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -676,7 +676,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetMetaTitleAction|callable $action builder function <code>
-     *   function (ProductSetMetaTitleAction $action): ProductSetMetaTitleAction {
+     *   function(ProductSetMetaTitleAction $action): ProductSetMetaTitleAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -693,7 +693,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetPricesAction|callable $action builder function <code>
-     *   function (ProductSetPricesAction $action): ProductSetPricesAction {
+     *   function(ProductSetPricesAction $action): ProductSetPricesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -710,7 +710,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetProductPriceCustomFieldAction|callable $action builder function <code>
-     *   function (ProductSetProductPriceCustomFieldAction $action): ProductSetProductPriceCustomFieldAction {
+     *   function(ProductSetProductPriceCustomFieldAction $action): ProductSetProductPriceCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -727,7 +727,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetProductPriceCustomTypeAction|callable $action builder function <code>
-     *   function (ProductSetProductPriceCustomTypeAction $action): ProductSetProductPriceCustomTypeAction {
+     *   function(ProductSetProductPriceCustomTypeAction $action): ProductSetProductPriceCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -744,7 +744,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetProductVariantKeyAction|callable $action builder function <code>
-     *   function (ProductSetProductVariantKeyAction $action): ProductSetProductVariantKeyAction {
+     *   function(ProductSetProductVariantKeyAction $action): ProductSetProductVariantKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -761,7 +761,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetSearchKeywordsAction|callable $action builder function <code>
-     *   function (ProductSetSearchKeywordsAction $action): ProductSetSearchKeywordsAction {
+     *   function(ProductSetSearchKeywordsAction $action): ProductSetSearchKeywordsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -778,7 +778,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetSkuAction|callable $action builder function <code>
-     *   function (ProductSetSkuAction $action): ProductSetSkuAction {
+     *   function(ProductSetSkuAction $action): ProductSetSkuAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -795,7 +795,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductSetTaxCategoryAction|callable $action builder function <code>
-     *   function (ProductSetTaxCategoryAction $action): ProductSetTaxCategoryAction {
+     *   function(ProductSetTaxCategoryAction $action): ProductSetTaxCategoryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -812,7 +812,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTransitionStateAction|callable $action builder function <code>
-     *   function (ProductTransitionStateAction $action): ProductTransitionStateAction {
+     *   function(ProductTransitionStateAction $action): ProductTransitionStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -829,7 +829,7 @@ class ProductUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductUnpublishAction|callable $action builder function <code>
-     *   function (ProductUnpublishAction $action): ProductUnpublishAction {
+     *   function(ProductUnpublishAction $action): ProductUnpublishAction {
      *     // modify action as needed
      *     return $action;
      *   }

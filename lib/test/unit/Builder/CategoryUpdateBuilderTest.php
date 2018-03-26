@@ -62,7 +62,7 @@ use PHPUnit\Framework\TestCase;
 class CategoryBuilderTest extends TestCase {
     public function testAddAssetCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->addAsset(function ($action) { static::assertInstanceOf(CategoryAddAssetAction::class, $action); return $action; });
+        $builder->addAsset(function($action) { static::assertInstanceOf(CategoryAddAssetAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategoryAddAssetAction::class, $update->getActions()->current());
@@ -78,7 +78,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testChangeAssetNameCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->changeAssetName(function ($action) { static::assertInstanceOf(CategoryChangeAssetNameAction::class, $action); return $action; });
+        $builder->changeAssetName(function($action) { static::assertInstanceOf(CategoryChangeAssetNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategoryChangeAssetNameAction::class, $update->getActions()->current());
@@ -94,7 +94,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testChangeAssetOrderCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->changeAssetOrder(function ($action) { static::assertInstanceOf(CategoryChangeAssetOrderAction::class, $action); return $action; });
+        $builder->changeAssetOrder(function($action) { static::assertInstanceOf(CategoryChangeAssetOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategoryChangeAssetOrderAction::class, $update->getActions()->current());
@@ -110,7 +110,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(CategoryChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(CategoryChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategoryChangeNameAction::class, $update->getActions()->current());
@@ -126,7 +126,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testChangeOrderHintCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->changeOrderHint(function ($action) { static::assertInstanceOf(CategoryChangeOrderHintAction::class, $action); return $action; });
+        $builder->changeOrderHint(function($action) { static::assertInstanceOf(CategoryChangeOrderHintAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategoryChangeOrderHintAction::class, $update->getActions()->current());
@@ -142,7 +142,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testChangeParentCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->changeParent(function ($action) { static::assertInstanceOf(CategoryChangeParentAction::class, $action); return $action; });
+        $builder->changeParent(function($action) { static::assertInstanceOf(CategoryChangeParentAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategoryChangeParentAction::class, $update->getActions()->current());
@@ -158,7 +158,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testChangeSlugCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->changeSlug(function ($action) { static::assertInstanceOf(CategoryChangeSlugAction::class, $action); return $action; });
+        $builder->changeSlug(function($action) { static::assertInstanceOf(CategoryChangeSlugAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategoryChangeSlugAction::class, $update->getActions()->current());
@@ -174,7 +174,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testRemoveAssetCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->removeAsset(function ($action) { static::assertInstanceOf(CategoryRemoveAssetAction::class, $action); return $action; });
+        $builder->removeAsset(function($action) { static::assertInstanceOf(CategoryRemoveAssetAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategoryRemoveAssetAction::class, $update->getActions()->current());
@@ -190,7 +190,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetAssetCustomFieldCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setAssetCustomField(function ($action) { static::assertInstanceOf(CategorySetAssetCustomFieldAction::class, $action); return $action; });
+        $builder->setAssetCustomField(function($action) { static::assertInstanceOf(CategorySetAssetCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetAssetCustomFieldAction::class, $update->getActions()->current());
@@ -206,7 +206,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetAssetCustomTypeCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setAssetCustomType(function ($action) { static::assertInstanceOf(CategorySetAssetCustomTypeAction::class, $action); return $action; });
+        $builder->setAssetCustomType(function($action) { static::assertInstanceOf(CategorySetAssetCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetAssetCustomTypeAction::class, $update->getActions()->current());
@@ -222,7 +222,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetAssetDescriptionCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setAssetDescription(function ($action) { static::assertInstanceOf(CategorySetAssetDescriptionAction::class, $action); return $action; });
+        $builder->setAssetDescription(function($action) { static::assertInstanceOf(CategorySetAssetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetAssetDescriptionAction::class, $update->getActions()->current());
@@ -238,7 +238,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetAssetKeyCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setAssetKey(function ($action) { static::assertInstanceOf(CategorySetAssetKeyAction::class, $action); return $action; });
+        $builder->setAssetKey(function($action) { static::assertInstanceOf(CategorySetAssetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetAssetKeyAction::class, $update->getActions()->current());
@@ -254,7 +254,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetAssetSourcesCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setAssetSources(function ($action) { static::assertInstanceOf(CategorySetAssetSourcesAction::class, $action); return $action; });
+        $builder->setAssetSources(function($action) { static::assertInstanceOf(CategorySetAssetSourcesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetAssetSourcesAction::class, $update->getActions()->current());
@@ -270,7 +270,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetAssetTagsCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setAssetTags(function ($action) { static::assertInstanceOf(CategorySetAssetTagsAction::class, $action); return $action; });
+        $builder->setAssetTags(function($action) { static::assertInstanceOf(CategorySetAssetTagsAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetAssetTagsAction::class, $update->getActions()->current());
@@ -286,7 +286,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetCustomFieldCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setCustomField(function ($action) { static::assertInstanceOf(CategorySetCustomFieldAction::class, $action); return $action; });
+        $builder->setCustomField(function($action) { static::assertInstanceOf(CategorySetCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetCustomFieldAction::class, $update->getActions()->current());
@@ -302,7 +302,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetCustomTypeCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setCustomType(function ($action) { static::assertInstanceOf(CategorySetCustomTypeAction::class, $action); return $action; });
+        $builder->setCustomType(function($action) { static::assertInstanceOf(CategorySetCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetCustomTypeAction::class, $update->getActions()->current());
@@ -318,7 +318,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetDescriptionCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setDescription(function ($action) { static::assertInstanceOf(CategorySetDescriptionAction::class, $action); return $action; });
+        $builder->setDescription(function($action) { static::assertInstanceOf(CategorySetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetDescriptionAction::class, $update->getActions()->current());
@@ -334,7 +334,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetExternalIdCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setExternalId(function ($action) { static::assertInstanceOf(CategorySetExternalIdAction::class, $action); return $action; });
+        $builder->setExternalId(function($action) { static::assertInstanceOf(CategorySetExternalIdAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetExternalIdAction::class, $update->getActions()->current());
@@ -350,7 +350,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(CategorySetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(CategorySetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetKeyAction::class, $update->getActions()->current());
@@ -366,7 +366,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetMetaDescriptionCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setMetaDescription(function ($action) { static::assertInstanceOf(CategorySetMetaDescriptionAction::class, $action); return $action; });
+        $builder->setMetaDescription(function($action) { static::assertInstanceOf(CategorySetMetaDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetMetaDescriptionAction::class, $update->getActions()->current());
@@ -382,7 +382,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetMetaKeywordsCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setMetaKeywords(function ($action) { static::assertInstanceOf(CategorySetMetaKeywordsAction::class, $action); return $action; });
+        $builder->setMetaKeywords(function($action) { static::assertInstanceOf(CategorySetMetaKeywordsAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetMetaKeywordsAction::class, $update->getActions()->current());
@@ -398,7 +398,7 @@ class CategoryBuilderTest extends TestCase {
 
     public function testSetMetaTitleCallback() {
         $builder = new CategoryUpdateBuilder();
-        $builder->setMetaTitle(function ($action) { static::assertInstanceOf(CategorySetMetaTitleAction::class, $action); return $action; });
+        $builder->setMetaTitle(function($action) { static::assertInstanceOf(CategorySetMetaTitleAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CategoryUpdate::class, $update);
         static::assertInstanceOf(CategorySetMetaTitleAction::class, $update->getActions()->current());

@@ -206,7 +206,7 @@ class Resource0 extends Resource
 
     public function update(Project $project)
     {
-        $builder = new ProjectUpdateBuilder(function (ProjectUpdateBuilder $builder) { return $this->post($builder->build()); });
+        $builder = new ProjectUpdateBuilder(function(ProjectUpdateBuilder $builder) { return $this->post($builder->build()); });
         $builder->with($project);
         if ($project instanceof MapperAware) {
             $builder->setMapper($project->getMapper());

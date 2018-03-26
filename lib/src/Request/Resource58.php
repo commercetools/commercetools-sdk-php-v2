@@ -52,7 +52,7 @@ class Resource58 extends Resource
 
     public function update(ShippingMethod $shippingMethod)
     {
-        $builder = new ShippingMethodUpdateBuilder(function (ShippingMethodUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new ShippingMethodUpdateBuilder(function(ShippingMethodUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($shippingMethod);
         if ($shippingMethod instanceof MapperAware) {
             $builder->setMapper($shippingMethod->getMapper());
@@ -67,7 +67,7 @@ class Resource58 extends Resource
 
     /**
      * @param ShippingMethodDraft|callable $shippingMethodDraftDraft builder function <code>
-     *   function (ShippingMethodDraft $shippingMethodDraft): ShippingMethodDraft {
+     *   function(ShippingMethodDraft $shippingMethodDraft): ShippingMethodDraft {
      *     // modify $draft as needed
      *     return $shippingMethodDraft;
      *   }

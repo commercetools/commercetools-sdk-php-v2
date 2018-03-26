@@ -45,7 +45,7 @@ class Resource26 extends Resource
 
     public function update(DiscountCode $discountCode)
     {
-        $builder = new DiscountCodeUpdateBuilder(function (DiscountCodeUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new DiscountCodeUpdateBuilder(function(DiscountCodeUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($discountCode);
         if ($discountCode instanceof MapperAware) {
             $builder->setMapper($discountCode->getMapper());
@@ -60,7 +60,7 @@ class Resource26 extends Resource
 
     /**
      * @param DiscountCodeDraft|callable $discountCodeDraftDraft builder function <code>
-     *   function (DiscountCodeDraft $discountCodeDraft): DiscountCodeDraft {
+     *   function(DiscountCodeDraft $discountCodeDraft): DiscountCodeDraft {
      *     // modify $draft as needed
      *     return $discountCodeDraft;
      *   }

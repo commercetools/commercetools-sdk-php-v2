@@ -96,7 +96,7 @@ class JsonObjectModel implements JsonObject, MapperAware
         $rawData = is_array($this->rawData) ? $this->rawData : [];
         $data = array_filter(
             get_object_vars($this),
-            function ($value, $key) {
+            function($value, $key) {
                 if ($key == 'rawData' || $key == 'resultMapper') {
                     return false;
                 }

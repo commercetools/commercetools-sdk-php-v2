@@ -38,7 +38,7 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
 
     /**
      * @param CustomerGroupChangeNameAction|callable $action builder function <code>
-     *   function (CustomerGroupChangeNameAction $action): CustomerGroupChangeNameAction {
+     *   function(CustomerGroupChangeNameAction $action): CustomerGroupChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -55,7 +55,7 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CustomerGroupSetKeyAction|callable $action builder function <code>
-     *   function (CustomerGroupSetKeyAction $action): CustomerGroupSetKeyAction {
+     *   function(CustomerGroupSetKeyAction $action): CustomerGroupSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }

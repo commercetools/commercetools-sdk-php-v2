@@ -40,7 +40,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ZoneAddLocationAction|callable $action builder function <code>
-     *   function (ZoneAddLocationAction $action): ZoneAddLocationAction {
+     *   function(ZoneAddLocationAction $action): ZoneAddLocationAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -57,7 +57,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ZoneChangeNameAction|callable $action builder function <code>
-     *   function (ZoneChangeNameAction $action): ZoneChangeNameAction {
+     *   function(ZoneChangeNameAction $action): ZoneChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -74,7 +74,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ZoneRemoveLocationAction|callable $action builder function <code>
-     *   function (ZoneRemoveLocationAction $action): ZoneRemoveLocationAction {
+     *   function(ZoneRemoveLocationAction $action): ZoneRemoveLocationAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -91,7 +91,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ZoneSetDescriptionAction|callable $action builder function <code>
-     *   function (ZoneSetDescriptionAction $action): ZoneSetDescriptionAction {
+     *   function(ZoneSetDescriptionAction $action): ZoneSetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }

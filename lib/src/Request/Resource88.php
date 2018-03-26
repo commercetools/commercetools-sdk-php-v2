@@ -52,7 +52,7 @@ class Resource88 extends Resource
 
     public function update(Extension $extension)
     {
-        $builder = new ExtensionUpdateBuilder(function (ExtensionUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new ExtensionUpdateBuilder(function(ExtensionUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($extension);
         if ($extension instanceof MapperAware) {
             $builder->setMapper($extension->getMapper());
@@ -67,7 +67,7 @@ class Resource88 extends Resource
 
     /**
      * @param ExtensionDraft|callable $extensionDraftDraft builder function <code>
-     *   function (ExtensionDraft $extensionDraft): ExtensionDraft {
+     *   function(ExtensionDraft $extensionDraft): ExtensionDraft {
      *     // modify $draft as needed
      *     return $extensionDraft;
      *   }

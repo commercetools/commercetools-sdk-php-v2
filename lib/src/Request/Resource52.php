@@ -52,7 +52,7 @@ class Resource52 extends Resource
 
     public function update(ProductType $productType)
     {
-        $builder = new ProductTypeUpdateBuilder(function (ProductTypeUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new ProductTypeUpdateBuilder(function(ProductTypeUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($productType);
         if ($productType instanceof MapperAware) {
             $builder->setMapper($productType->getMapper());
@@ -67,7 +67,7 @@ class Resource52 extends Resource
 
     /**
      * @param ProductTypeDraft|callable $productTypeDraftDraft builder function <code>
-     *   function (ProductTypeDraft $productTypeDraft): ProductTypeDraft {
+     *   function(ProductTypeDraft $productTypeDraft): ProductTypeDraft {
      *     // modify $draft as needed
      *     return $productTypeDraft;
      *   }

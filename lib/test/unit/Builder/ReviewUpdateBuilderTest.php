@@ -40,7 +40,7 @@ use PHPUnit\Framework\TestCase;
 class ReviewBuilderTest extends TestCase {
     public function testSetAuthorNameCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setAuthorName(function ($action) { static::assertInstanceOf(ReviewSetAuthorNameAction::class, $action); return $action; });
+        $builder->setAuthorName(function($action) { static::assertInstanceOf(ReviewSetAuthorNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetAuthorNameAction::class, $update->getActions()->current());
@@ -56,7 +56,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testSetCustomFieldCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setCustomField(function ($action) { static::assertInstanceOf(ReviewSetCustomFieldAction::class, $action); return $action; });
+        $builder->setCustomField(function($action) { static::assertInstanceOf(ReviewSetCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetCustomFieldAction::class, $update->getActions()->current());
@@ -72,7 +72,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testSetCustomTypeCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setCustomType(function ($action) { static::assertInstanceOf(ReviewSetCustomTypeAction::class, $action); return $action; });
+        $builder->setCustomType(function($action) { static::assertInstanceOf(ReviewSetCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetCustomTypeAction::class, $update->getActions()->current());
@@ -88,7 +88,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testSetCustomerCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setCustomer(function ($action) { static::assertInstanceOf(ReviewSetCustomerAction::class, $action); return $action; });
+        $builder->setCustomer(function($action) { static::assertInstanceOf(ReviewSetCustomerAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetCustomerAction::class, $update->getActions()->current());
@@ -104,7 +104,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(ReviewSetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(ReviewSetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetKeyAction::class, $update->getActions()->current());
@@ -120,7 +120,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testSetLocaleCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setLocale(function ($action) { static::assertInstanceOf(ReviewSetLocaleAction::class, $action); return $action; });
+        $builder->setLocale(function($action) { static::assertInstanceOf(ReviewSetLocaleAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetLocaleAction::class, $update->getActions()->current());
@@ -136,7 +136,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testSetRatingCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setRating(function ($action) { static::assertInstanceOf(ReviewSetRatingAction::class, $action); return $action; });
+        $builder->setRating(function($action) { static::assertInstanceOf(ReviewSetRatingAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetRatingAction::class, $update->getActions()->current());
@@ -152,7 +152,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testSetTargetCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setTarget(function ($action) { static::assertInstanceOf(ReviewSetTargetAction::class, $action); return $action; });
+        $builder->setTarget(function($action) { static::assertInstanceOf(ReviewSetTargetAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetTargetAction::class, $update->getActions()->current());
@@ -168,7 +168,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testSetTextCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setText(function ($action) { static::assertInstanceOf(ReviewSetTextAction::class, $action); return $action; });
+        $builder->setText(function($action) { static::assertInstanceOf(ReviewSetTextAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetTextAction::class, $update->getActions()->current());
@@ -184,7 +184,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testSetTitleCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->setTitle(function ($action) { static::assertInstanceOf(ReviewSetTitleAction::class, $action); return $action; });
+        $builder->setTitle(function($action) { static::assertInstanceOf(ReviewSetTitleAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetTitleAction::class, $update->getActions()->current());
@@ -200,7 +200,7 @@ class ReviewBuilderTest extends TestCase {
 
     public function testTransitionStateCallback() {
         $builder = new ReviewUpdateBuilder();
-        $builder->transitionState(function ($action) { static::assertInstanceOf(ReviewTransitionStateAction::class, $action); return $action; });
+        $builder->transitionState(function($action) { static::assertInstanceOf(ReviewTransitionStateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewTransitionStateAction::class, $update->getActions()->current());

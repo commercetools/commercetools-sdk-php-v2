@@ -39,7 +39,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ExtensionChangeDestinationAction|callable $action builder function <code>
-     *   function (ExtensionChangeDestinationAction $action): ExtensionChangeDestinationAction {
+     *   function(ExtensionChangeDestinationAction $action): ExtensionChangeDestinationAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -56,7 +56,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ExtensionChangeTriggersAction|callable $action builder function <code>
-     *   function (ExtensionChangeTriggersAction $action): ExtensionChangeTriggersAction {
+     *   function(ExtensionChangeTriggersAction $action): ExtensionChangeTriggersAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -73,7 +73,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ExtensionSetKeyAction|callable $action builder function <code>
-     *   function (ExtensionSetKeyAction $action): ExtensionSetKeyAction {
+     *   function(ExtensionSetKeyAction $action): ExtensionSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }

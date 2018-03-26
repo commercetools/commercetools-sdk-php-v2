@@ -47,7 +47,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ReviewSetAuthorNameAction|callable $action builder function <code>
-     *   function (ReviewSetAuthorNameAction $action): ReviewSetAuthorNameAction {
+     *   function(ReviewSetAuthorNameAction $action): ReviewSetAuthorNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -64,7 +64,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewSetCustomFieldAction|callable $action builder function <code>
-     *   function (ReviewSetCustomFieldAction $action): ReviewSetCustomFieldAction {
+     *   function(ReviewSetCustomFieldAction $action): ReviewSetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -81,7 +81,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewSetCustomTypeAction|callable $action builder function <code>
-     *   function (ReviewSetCustomTypeAction $action): ReviewSetCustomTypeAction {
+     *   function(ReviewSetCustomTypeAction $action): ReviewSetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -98,7 +98,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewSetCustomerAction|callable $action builder function <code>
-     *   function (ReviewSetCustomerAction $action): ReviewSetCustomerAction {
+     *   function(ReviewSetCustomerAction $action): ReviewSetCustomerAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -115,7 +115,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewSetKeyAction|callable $action builder function <code>
-     *   function (ReviewSetKeyAction $action): ReviewSetKeyAction {
+     *   function(ReviewSetKeyAction $action): ReviewSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -132,7 +132,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewSetLocaleAction|callable $action builder function <code>
-     *   function (ReviewSetLocaleAction $action): ReviewSetLocaleAction {
+     *   function(ReviewSetLocaleAction $action): ReviewSetLocaleAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -149,7 +149,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewSetRatingAction|callable $action builder function <code>
-     *   function (ReviewSetRatingAction $action): ReviewSetRatingAction {
+     *   function(ReviewSetRatingAction $action): ReviewSetRatingAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -166,7 +166,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewSetTargetAction|callable $action builder function <code>
-     *   function (ReviewSetTargetAction $action): ReviewSetTargetAction {
+     *   function(ReviewSetTargetAction $action): ReviewSetTargetAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -183,7 +183,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewSetTextAction|callable $action builder function <code>
-     *   function (ReviewSetTextAction $action): ReviewSetTextAction {
+     *   function(ReviewSetTextAction $action): ReviewSetTextAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -200,7 +200,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewSetTitleAction|callable $action builder function <code>
-     *   function (ReviewSetTitleAction $action): ReviewSetTitleAction {
+     *   function(ReviewSetTitleAction $action): ReviewSetTitleAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -217,7 +217,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ReviewTransitionStateAction|callable $action builder function <code>
-     *   function (ReviewTransitionStateAction $action): ReviewTransitionStateAction {
+     *   function(ReviewTransitionStateAction $action): ReviewTransitionStateAction {
      *     // modify action as needed
      *     return $action;
      *   }

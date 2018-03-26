@@ -57,7 +57,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
 
     /**
      * @param PaymentAddInterfaceInteractionAction|callable $action builder function <code>
-     *   function (PaymentAddInterfaceInteractionAction $action): PaymentAddInterfaceInteractionAction {
+     *   function(PaymentAddInterfaceInteractionAction $action): PaymentAddInterfaceInteractionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -74,7 +74,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentAddTransactionAction|callable $action builder function <code>
-     *   function (PaymentAddTransactionAction $action): PaymentAddTransactionAction {
+     *   function(PaymentAddTransactionAction $action): PaymentAddTransactionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -91,7 +91,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentChangeAmountPlannedAction|callable $action builder function <code>
-     *   function (PaymentChangeAmountPlannedAction $action): PaymentChangeAmountPlannedAction {
+     *   function(PaymentChangeAmountPlannedAction $action): PaymentChangeAmountPlannedAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -108,7 +108,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentChangeTransactionInteractionIdAction|callable $action builder function <code>
-     *   function (PaymentChangeTransactionInteractionIdAction $action): PaymentChangeTransactionInteractionIdAction {
+     *   function(PaymentChangeTransactionInteractionIdAction $action): PaymentChangeTransactionInteractionIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -125,7 +125,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentChangeTransactionStateAction|callable $action builder function <code>
-     *   function (PaymentChangeTransactionStateAction $action): PaymentChangeTransactionStateAction {
+     *   function(PaymentChangeTransactionStateAction $action): PaymentChangeTransactionStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -142,7 +142,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentChangeTransactionTimestampAction|callable $action builder function <code>
-     *   function (PaymentChangeTransactionTimestampAction $action): PaymentChangeTransactionTimestampAction {
+     *   function(PaymentChangeTransactionTimestampAction $action): PaymentChangeTransactionTimestampAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -159,7 +159,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetAmountPaidAction|callable $action builder function <code>
-     *   function (PaymentSetAmountPaidAction $action): PaymentSetAmountPaidAction {
+     *   function(PaymentSetAmountPaidAction $action): PaymentSetAmountPaidAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -176,7 +176,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetAmountRefundedAction|callable $action builder function <code>
-     *   function (PaymentSetAmountRefundedAction $action): PaymentSetAmountRefundedAction {
+     *   function(PaymentSetAmountRefundedAction $action): PaymentSetAmountRefundedAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -193,7 +193,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetAuthorizationAction|callable $action builder function <code>
-     *   function (PaymentSetAuthorizationAction $action): PaymentSetAuthorizationAction {
+     *   function(PaymentSetAuthorizationAction $action): PaymentSetAuthorizationAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -210,7 +210,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetCustomFieldAction|callable $action builder function <code>
-     *   function (PaymentSetCustomFieldAction $action): PaymentSetCustomFieldAction {
+     *   function(PaymentSetCustomFieldAction $action): PaymentSetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -227,7 +227,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetCustomTypeAction|callable $action builder function <code>
-     *   function (PaymentSetCustomTypeAction $action): PaymentSetCustomTypeAction {
+     *   function(PaymentSetCustomTypeAction $action): PaymentSetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -244,7 +244,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetCustomerAction|callable $action builder function <code>
-     *   function (PaymentSetCustomerAction $action): PaymentSetCustomerAction {
+     *   function(PaymentSetCustomerAction $action): PaymentSetCustomerAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -261,7 +261,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetExternalIdAction|callable $action builder function <code>
-     *   function (PaymentSetExternalIdAction $action): PaymentSetExternalIdAction {
+     *   function(PaymentSetExternalIdAction $action): PaymentSetExternalIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -278,7 +278,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetInterfaceIdAction|callable $action builder function <code>
-     *   function (PaymentSetInterfaceIdAction $action): PaymentSetInterfaceIdAction {
+     *   function(PaymentSetInterfaceIdAction $action): PaymentSetInterfaceIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -295,7 +295,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetKeyAction|callable $action builder function <code>
-     *   function (PaymentSetKeyAction $action): PaymentSetKeyAction {
+     *   function(PaymentSetKeyAction $action): PaymentSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -312,7 +312,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetMethodInfoInterfaceAction|callable $action builder function <code>
-     *   function (PaymentSetMethodInfoInterfaceAction $action): PaymentSetMethodInfoInterfaceAction {
+     *   function(PaymentSetMethodInfoInterfaceAction $action): PaymentSetMethodInfoInterfaceAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -329,7 +329,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetMethodInfoMethodAction|callable $action builder function <code>
-     *   function (PaymentSetMethodInfoMethodAction $action): PaymentSetMethodInfoMethodAction {
+     *   function(PaymentSetMethodInfoMethodAction $action): PaymentSetMethodInfoMethodAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -346,7 +346,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetMethodInfoNameAction|callable $action builder function <code>
-     *   function (PaymentSetMethodInfoNameAction $action): PaymentSetMethodInfoNameAction {
+     *   function(PaymentSetMethodInfoNameAction $action): PaymentSetMethodInfoNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -363,7 +363,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetStatusInterfaceCodeAction|callable $action builder function <code>
-     *   function (PaymentSetStatusInterfaceCodeAction $action): PaymentSetStatusInterfaceCodeAction {
+     *   function(PaymentSetStatusInterfaceCodeAction $action): PaymentSetStatusInterfaceCodeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -380,7 +380,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentSetStatusInterfaceTextAction|callable $action builder function <code>
-     *   function (PaymentSetStatusInterfaceTextAction $action): PaymentSetStatusInterfaceTextAction {
+     *   function(PaymentSetStatusInterfaceTextAction $action): PaymentSetStatusInterfaceTextAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -397,7 +397,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param PaymentTransitionStateAction|callable $action builder function <code>
-     *   function (PaymentTransitionStateAction $action): PaymentTransitionStateAction {
+     *   function(PaymentTransitionStateAction $action): PaymentTransitionStateAction {
      *     // modify action as needed
      *     return $action;
      *   }

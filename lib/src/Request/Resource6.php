@@ -45,7 +45,7 @@ class Resource6 extends Resource
 
     public function update(CartDiscount $cartDiscount)
     {
-        $builder = new CartDiscountUpdateBuilder(function (CartDiscountUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new CartDiscountUpdateBuilder(function(CartDiscountUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($cartDiscount);
         if ($cartDiscount instanceof MapperAware) {
             $builder->setMapper($cartDiscount->getMapper());
@@ -60,7 +60,7 @@ class Resource6 extends Resource
 
     /**
      * @param CartDiscountDraft|callable $cartDiscountDraftDraft builder function <code>
-     *   function (CartDiscountDraft $cartDiscountDraft): CartDiscountDraft {
+     *   function(CartDiscountDraft $cartDiscountDraft): CartDiscountDraft {
      *     // modify $draft as needed
      *     return $cartDiscountDraft;
      *   }

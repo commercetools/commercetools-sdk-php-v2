@@ -48,7 +48,7 @@ class TypeUpdateBuilder extends BaseBuilder {
 
     /**
      * @param TypeAddEnumValueAction|callable $action builder function <code>
-     *   function (TypeAddEnumValueAction $action): TypeAddEnumValueAction {
+     *   function(TypeAddEnumValueAction $action): TypeAddEnumValueAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -65,7 +65,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeAddFieldDefinitionAction|callable $action builder function <code>
-     *   function (TypeAddFieldDefinitionAction $action): TypeAddFieldDefinitionAction {
+     *   function(TypeAddFieldDefinitionAction $action): TypeAddFieldDefinitionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -82,7 +82,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeAddLocalizedEnumValueAction|callable $action builder function <code>
-     *   function (TypeAddLocalizedEnumValueAction $action): TypeAddLocalizedEnumValueAction {
+     *   function(TypeAddLocalizedEnumValueAction $action): TypeAddLocalizedEnumValueAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -99,7 +99,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeChangeEnumValueOrderAction|callable $action builder function <code>
-     *   function (TypeChangeEnumValueOrderAction $action): TypeChangeEnumValueOrderAction {
+     *   function(TypeChangeEnumValueOrderAction $action): TypeChangeEnumValueOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -116,7 +116,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeChangeFieldDefinitionLabelAction|callable $action builder function <code>
-     *   function (TypeChangeFieldDefinitionLabelAction $action): TypeChangeFieldDefinitionLabelAction {
+     *   function(TypeChangeFieldDefinitionLabelAction $action): TypeChangeFieldDefinitionLabelAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -133,7 +133,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeChangeFieldDefinitionOrderAction|callable $action builder function <code>
-     *   function (TypeChangeFieldDefinitionOrderAction $action): TypeChangeFieldDefinitionOrderAction {
+     *   function(TypeChangeFieldDefinitionOrderAction $action): TypeChangeFieldDefinitionOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -150,7 +150,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeChangeKeyAction|callable $action builder function <code>
-     *   function (TypeChangeKeyAction $action): TypeChangeKeyAction {
+     *   function(TypeChangeKeyAction $action): TypeChangeKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -167,7 +167,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeChangeLabelAction|callable $action builder function <code>
-     *   function (TypeChangeLabelAction $action): TypeChangeLabelAction {
+     *   function(TypeChangeLabelAction $action): TypeChangeLabelAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -184,7 +184,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeChangeLocalizedEnumValueOrderAction|callable $action builder function <code>
-     *   function (TypeChangeLocalizedEnumValueOrderAction $action): TypeChangeLocalizedEnumValueOrderAction {
+     *   function(TypeChangeLocalizedEnumValueOrderAction $action): TypeChangeLocalizedEnumValueOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -201,7 +201,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeChangeNameAction|callable $action builder function <code>
-     *   function (TypeChangeNameAction $action): TypeChangeNameAction {
+     *   function(TypeChangeNameAction $action): TypeChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -218,7 +218,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeRemoveFieldDefinitionAction|callable $action builder function <code>
-     *   function (TypeRemoveFieldDefinitionAction $action): TypeRemoveFieldDefinitionAction {
+     *   function(TypeRemoveFieldDefinitionAction $action): TypeRemoveFieldDefinitionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -235,7 +235,7 @@ class TypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param TypeSetDescriptionAction|callable $action builder function <code>
-     *   function (TypeSetDescriptionAction $action): TypeSetDescriptionAction {
+     *   function(TypeSetDescriptionAction $action): TypeSetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }

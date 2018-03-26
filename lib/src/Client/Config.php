@@ -55,7 +55,7 @@ class Config
         if (isset($config[self::OPT_CREDENTIALS])) {
             if ($config[self::OPT_CREDENTIALS] instanceof Credentials) {
                 $this->credentials = $config[self::OPT_CREDENTIALS];
-            } elseif(is_array($config[self::OPT_CREDENTIALS])) {
+            } elseif (is_array($config[self::OPT_CREDENTIALS])) {
                 $this->credentials = new Credentials($config[self::OPT_CREDENTIALS]);
             }
         }

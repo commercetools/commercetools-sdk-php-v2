@@ -44,7 +44,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ProductDiscountChangeIsActiveAction|callable $action builder function <code>
-     *   function (ProductDiscountChangeIsActiveAction $action): ProductDiscountChangeIsActiveAction {
+     *   function(ProductDiscountChangeIsActiveAction $action): ProductDiscountChangeIsActiveAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -61,7 +61,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductDiscountChangeNameAction|callable $action builder function <code>
-     *   function (ProductDiscountChangeNameAction $action): ProductDiscountChangeNameAction {
+     *   function(ProductDiscountChangeNameAction $action): ProductDiscountChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -78,7 +78,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductDiscountChangePredicateAction|callable $action builder function <code>
-     *   function (ProductDiscountChangePredicateAction $action): ProductDiscountChangePredicateAction {
+     *   function(ProductDiscountChangePredicateAction $action): ProductDiscountChangePredicateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -95,7 +95,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductDiscountChangeSortOrderAction|callable $action builder function <code>
-     *   function (ProductDiscountChangeSortOrderAction $action): ProductDiscountChangeSortOrderAction {
+     *   function(ProductDiscountChangeSortOrderAction $action): ProductDiscountChangeSortOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -112,7 +112,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductDiscountChangeValueAction|callable $action builder function <code>
-     *   function (ProductDiscountChangeValueAction $action): ProductDiscountChangeValueAction {
+     *   function(ProductDiscountChangeValueAction $action): ProductDiscountChangeValueAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -129,7 +129,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductDiscountSetDescriptionAction|callable $action builder function <code>
-     *   function (ProductDiscountSetDescriptionAction $action): ProductDiscountSetDescriptionAction {
+     *   function(ProductDiscountSetDescriptionAction $action): ProductDiscountSetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -146,7 +146,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductDiscountSetValidFromAction|callable $action builder function <code>
-     *   function (ProductDiscountSetValidFromAction $action): ProductDiscountSetValidFromAction {
+     *   function(ProductDiscountSetValidFromAction $action): ProductDiscountSetValidFromAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -163,7 +163,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductDiscountSetValidUntilAction|callable $action builder function <code>
-     *   function (ProductDiscountSetValidUntilAction $action): ProductDiscountSetValidUntilAction {
+     *   function(ProductDiscountSetValidUntilAction $action): ProductDiscountSetValidUntilAction {
      *     // modify action as needed
      *     return $action;
      *   }

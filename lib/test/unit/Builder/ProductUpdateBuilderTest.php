@@ -108,7 +108,7 @@ use PHPUnit\Framework\TestCase;
 class ProductBuilderTest extends TestCase {
     public function testAddAssetCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->addAsset(function ($action) { static::assertInstanceOf(ProductAddAssetAction::class, $action); return $action; });
+        $builder->addAsset(function($action) { static::assertInstanceOf(ProductAddAssetAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductAddAssetAction::class, $update->getActions()->current());
@@ -124,7 +124,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testAddExternalImageCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->addExternalImage(function ($action) { static::assertInstanceOf(ProductAddExternalImageAction::class, $action); return $action; });
+        $builder->addExternalImage(function($action) { static::assertInstanceOf(ProductAddExternalImageAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductAddExternalImageAction::class, $update->getActions()->current());
@@ -140,7 +140,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testAddPriceCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->addPrice(function ($action) { static::assertInstanceOf(ProductAddPriceAction::class, $action); return $action; });
+        $builder->addPrice(function($action) { static::assertInstanceOf(ProductAddPriceAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductAddPriceAction::class, $update->getActions()->current());
@@ -156,7 +156,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testAddToCategoryCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->addToCategory(function ($action) { static::assertInstanceOf(ProductAddToCategoryAction::class, $action); return $action; });
+        $builder->addToCategory(function($action) { static::assertInstanceOf(ProductAddToCategoryAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductAddToCategoryAction::class, $update->getActions()->current());
@@ -172,7 +172,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testAddVariantCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->addVariant(function ($action) { static::assertInstanceOf(ProductAddVariantAction::class, $action); return $action; });
+        $builder->addVariant(function($action) { static::assertInstanceOf(ProductAddVariantAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductAddVariantAction::class, $update->getActions()->current());
@@ -188,7 +188,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testChangeAssetNameCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->changeAssetName(function ($action) { static::assertInstanceOf(ProductChangeAssetNameAction::class, $action); return $action; });
+        $builder->changeAssetName(function($action) { static::assertInstanceOf(ProductChangeAssetNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductChangeAssetNameAction::class, $update->getActions()->current());
@@ -204,7 +204,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testChangeAssetOrderCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->changeAssetOrder(function ($action) { static::assertInstanceOf(ProductChangeAssetOrderAction::class, $action); return $action; });
+        $builder->changeAssetOrder(function($action) { static::assertInstanceOf(ProductChangeAssetOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductChangeAssetOrderAction::class, $update->getActions()->current());
@@ -220,7 +220,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testChangeMasterVariantCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->changeMasterVariant(function ($action) { static::assertInstanceOf(ProductChangeMasterVariantAction::class, $action); return $action; });
+        $builder->changeMasterVariant(function($action) { static::assertInstanceOf(ProductChangeMasterVariantAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductChangeMasterVariantAction::class, $update->getActions()->current());
@@ -236,7 +236,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(ProductChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(ProductChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductChangeNameAction::class, $update->getActions()->current());
@@ -252,7 +252,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testChangePriceCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->changePrice(function ($action) { static::assertInstanceOf(ProductChangePriceAction::class, $action); return $action; });
+        $builder->changePrice(function($action) { static::assertInstanceOf(ProductChangePriceAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductChangePriceAction::class, $update->getActions()->current());
@@ -268,7 +268,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testChangeSlugCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->changeSlug(function ($action) { static::assertInstanceOf(ProductChangeSlugAction::class, $action); return $action; });
+        $builder->changeSlug(function($action) { static::assertInstanceOf(ProductChangeSlugAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductChangeSlugAction::class, $update->getActions()->current());
@@ -284,7 +284,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testLegacySetSkuCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->legacySetSku(function ($action) { static::assertInstanceOf(ProductLegacySetSkuAction::class, $action); return $action; });
+        $builder->legacySetSku(function($action) { static::assertInstanceOf(ProductLegacySetSkuAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductLegacySetSkuAction::class, $update->getActions()->current());
@@ -300,7 +300,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testMoveImageToPositionCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->moveImageToPosition(function ($action) { static::assertInstanceOf(ProductMoveImageToPositionAction::class, $action); return $action; });
+        $builder->moveImageToPosition(function($action) { static::assertInstanceOf(ProductMoveImageToPositionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductMoveImageToPositionAction::class, $update->getActions()->current());
@@ -316,7 +316,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testPublishCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->publish(function ($action) { static::assertInstanceOf(ProductPublishAction::class, $action); return $action; });
+        $builder->publish(function($action) { static::assertInstanceOf(ProductPublishAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductPublishAction::class, $update->getActions()->current());
@@ -332,7 +332,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testRemoveAssetCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->removeAsset(function ($action) { static::assertInstanceOf(ProductRemoveAssetAction::class, $action); return $action; });
+        $builder->removeAsset(function($action) { static::assertInstanceOf(ProductRemoveAssetAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductRemoveAssetAction::class, $update->getActions()->current());
@@ -348,7 +348,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testRemoveFromCategoryCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->removeFromCategory(function ($action) { static::assertInstanceOf(ProductRemoveFromCategoryAction::class, $action); return $action; });
+        $builder->removeFromCategory(function($action) { static::assertInstanceOf(ProductRemoveFromCategoryAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductRemoveFromCategoryAction::class, $update->getActions()->current());
@@ -364,7 +364,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testRemoveImageCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->removeImage(function ($action) { static::assertInstanceOf(ProductRemoveImageAction::class, $action); return $action; });
+        $builder->removeImage(function($action) { static::assertInstanceOf(ProductRemoveImageAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductRemoveImageAction::class, $update->getActions()->current());
@@ -380,7 +380,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testRemovePriceCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->removePrice(function ($action) { static::assertInstanceOf(ProductRemovePriceAction::class, $action); return $action; });
+        $builder->removePrice(function($action) { static::assertInstanceOf(ProductRemovePriceAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductRemovePriceAction::class, $update->getActions()->current());
@@ -396,7 +396,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testRemoveVariantCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->removeVariant(function ($action) { static::assertInstanceOf(ProductRemoveVariantAction::class, $action); return $action; });
+        $builder->removeVariant(function($action) { static::assertInstanceOf(ProductRemoveVariantAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductRemoveVariantAction::class, $update->getActions()->current());
@@ -412,7 +412,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testRevertStagedChangesCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->revertStagedChanges(function ($action) { static::assertInstanceOf(ProductRevertStagedChangesAction::class, $action); return $action; });
+        $builder->revertStagedChanges(function($action) { static::assertInstanceOf(ProductRevertStagedChangesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductRevertStagedChangesAction::class, $update->getActions()->current());
@@ -428,7 +428,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testRevertStagedVariantChangesCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->revertStagedVariantChanges(function ($action) { static::assertInstanceOf(ProductRevertStagedVariantChangesAction::class, $action); return $action; });
+        $builder->revertStagedVariantChanges(function($action) { static::assertInstanceOf(ProductRevertStagedVariantChangesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductRevertStagedVariantChangesAction::class, $update->getActions()->current());
@@ -444,7 +444,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetAssetCustomFieldCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setAssetCustomField(function ($action) { static::assertInstanceOf(ProductSetAssetCustomFieldAction::class, $action); return $action; });
+        $builder->setAssetCustomField(function($action) { static::assertInstanceOf(ProductSetAssetCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetAssetCustomFieldAction::class, $update->getActions()->current());
@@ -460,7 +460,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetAssetCustomTypeCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setAssetCustomType(function ($action) { static::assertInstanceOf(ProductSetAssetCustomTypeAction::class, $action); return $action; });
+        $builder->setAssetCustomType(function($action) { static::assertInstanceOf(ProductSetAssetCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetAssetCustomTypeAction::class, $update->getActions()->current());
@@ -476,7 +476,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetAssetDescriptionCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setAssetDescription(function ($action) { static::assertInstanceOf(ProductSetAssetDescriptionAction::class, $action); return $action; });
+        $builder->setAssetDescription(function($action) { static::assertInstanceOf(ProductSetAssetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetAssetDescriptionAction::class, $update->getActions()->current());
@@ -492,7 +492,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetAssetKeyCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setAssetKey(function ($action) { static::assertInstanceOf(ProductSetAssetKeyAction::class, $action); return $action; });
+        $builder->setAssetKey(function($action) { static::assertInstanceOf(ProductSetAssetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetAssetKeyAction::class, $update->getActions()->current());
@@ -508,7 +508,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetAssetSourcesCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setAssetSources(function ($action) { static::assertInstanceOf(ProductSetAssetSourcesAction::class, $action); return $action; });
+        $builder->setAssetSources(function($action) { static::assertInstanceOf(ProductSetAssetSourcesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetAssetSourcesAction::class, $update->getActions()->current());
@@ -524,7 +524,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetAssetTagsCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setAssetTags(function ($action) { static::assertInstanceOf(ProductSetAssetTagsAction::class, $action); return $action; });
+        $builder->setAssetTags(function($action) { static::assertInstanceOf(ProductSetAssetTagsAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetAssetTagsAction::class, $update->getActions()->current());
@@ -540,7 +540,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetAttributeCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setAttribute(function ($action) { static::assertInstanceOf(ProductSetAttributeAction::class, $action); return $action; });
+        $builder->setAttribute(function($action) { static::assertInstanceOf(ProductSetAttributeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetAttributeAction::class, $update->getActions()->current());
@@ -556,7 +556,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetAttributeInAllVariantsCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setAttributeInAllVariants(function ($action) { static::assertInstanceOf(ProductSetAttributeInAllVariantsAction::class, $action); return $action; });
+        $builder->setAttributeInAllVariants(function($action) { static::assertInstanceOf(ProductSetAttributeInAllVariantsAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetAttributeInAllVariantsAction::class, $update->getActions()->current());
@@ -572,7 +572,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetCategoryOrderHintCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setCategoryOrderHint(function ($action) { static::assertInstanceOf(ProductSetCategoryOrderHintAction::class, $action); return $action; });
+        $builder->setCategoryOrderHint(function($action) { static::assertInstanceOf(ProductSetCategoryOrderHintAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetCategoryOrderHintAction::class, $update->getActions()->current());
@@ -588,7 +588,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetDescriptionCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setDescription(function ($action) { static::assertInstanceOf(ProductSetDescriptionAction::class, $action); return $action; });
+        $builder->setDescription(function($action) { static::assertInstanceOf(ProductSetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetDescriptionAction::class, $update->getActions()->current());
@@ -604,7 +604,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetDiscountedPriceCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setDiscountedPrice(function ($action) { static::assertInstanceOf(ProductSetDiscountedPriceAction::class, $action); return $action; });
+        $builder->setDiscountedPrice(function($action) { static::assertInstanceOf(ProductSetDiscountedPriceAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetDiscountedPriceAction::class, $update->getActions()->current());
@@ -620,7 +620,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(ProductSetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(ProductSetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetKeyAction::class, $update->getActions()->current());
@@ -636,7 +636,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetMetaDescriptionCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setMetaDescription(function ($action) { static::assertInstanceOf(ProductSetMetaDescriptionAction::class, $action); return $action; });
+        $builder->setMetaDescription(function($action) { static::assertInstanceOf(ProductSetMetaDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetMetaDescriptionAction::class, $update->getActions()->current());
@@ -652,7 +652,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetMetaKeywordsCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setMetaKeywords(function ($action) { static::assertInstanceOf(ProductSetMetaKeywordsAction::class, $action); return $action; });
+        $builder->setMetaKeywords(function($action) { static::assertInstanceOf(ProductSetMetaKeywordsAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetMetaKeywordsAction::class, $update->getActions()->current());
@@ -668,7 +668,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetMetaTitleCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setMetaTitle(function ($action) { static::assertInstanceOf(ProductSetMetaTitleAction::class, $action); return $action; });
+        $builder->setMetaTitle(function($action) { static::assertInstanceOf(ProductSetMetaTitleAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetMetaTitleAction::class, $update->getActions()->current());
@@ -684,7 +684,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetPricesCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setPrices(function ($action) { static::assertInstanceOf(ProductSetPricesAction::class, $action); return $action; });
+        $builder->setPrices(function($action) { static::assertInstanceOf(ProductSetPricesAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetPricesAction::class, $update->getActions()->current());
@@ -700,7 +700,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetProductPriceCustomFieldCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setProductPriceCustomField(function ($action) { static::assertInstanceOf(ProductSetProductPriceCustomFieldAction::class, $action); return $action; });
+        $builder->setProductPriceCustomField(function($action) { static::assertInstanceOf(ProductSetProductPriceCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetProductPriceCustomFieldAction::class, $update->getActions()->current());
@@ -716,7 +716,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetProductPriceCustomTypeCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setProductPriceCustomType(function ($action) { static::assertInstanceOf(ProductSetProductPriceCustomTypeAction::class, $action); return $action; });
+        $builder->setProductPriceCustomType(function($action) { static::assertInstanceOf(ProductSetProductPriceCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetProductPriceCustomTypeAction::class, $update->getActions()->current());
@@ -732,7 +732,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetProductVariantKeyCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setProductVariantKey(function ($action) { static::assertInstanceOf(ProductSetProductVariantKeyAction::class, $action); return $action; });
+        $builder->setProductVariantKey(function($action) { static::assertInstanceOf(ProductSetProductVariantKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetProductVariantKeyAction::class, $update->getActions()->current());
@@ -748,7 +748,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetSearchKeywordsCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setSearchKeywords(function ($action) { static::assertInstanceOf(ProductSetSearchKeywordsAction::class, $action); return $action; });
+        $builder->setSearchKeywords(function($action) { static::assertInstanceOf(ProductSetSearchKeywordsAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetSearchKeywordsAction::class, $update->getActions()->current());
@@ -764,7 +764,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetSkuCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setSku(function ($action) { static::assertInstanceOf(ProductSetSkuAction::class, $action); return $action; });
+        $builder->setSku(function($action) { static::assertInstanceOf(ProductSetSkuAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetSkuAction::class, $update->getActions()->current());
@@ -780,7 +780,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testSetTaxCategoryCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->setTaxCategory(function ($action) { static::assertInstanceOf(ProductSetTaxCategoryAction::class, $action); return $action; });
+        $builder->setTaxCategory(function($action) { static::assertInstanceOf(ProductSetTaxCategoryAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductSetTaxCategoryAction::class, $update->getActions()->current());
@@ -796,7 +796,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testTransitionStateCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->transitionState(function ($action) { static::assertInstanceOf(ProductTransitionStateAction::class, $action); return $action; });
+        $builder->transitionState(function($action) { static::assertInstanceOf(ProductTransitionStateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductTransitionStateAction::class, $update->getActions()->current());
@@ -812,7 +812,7 @@ class ProductBuilderTest extends TestCase {
 
     public function testUnpublishCallback() {
         $builder = new ProductUpdateBuilder();
-        $builder->unpublish(function ($action) { static::assertInstanceOf(ProductUnpublishAction::class, $action); return $action; });
+        $builder->unpublish(function($action) { static::assertInstanceOf(ProductUnpublishAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductUpdate::class, $update);
         static::assertInstanceOf(ProductUnpublishAction::class, $update->getActions()->current());

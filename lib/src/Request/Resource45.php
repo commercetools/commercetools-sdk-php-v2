@@ -45,7 +45,7 @@ class Resource45 extends Resource
 
     public function update(ProductDiscount $productDiscount)
     {
-        $builder = new ProductDiscountUpdateBuilder(function (ProductDiscountUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new ProductDiscountUpdateBuilder(function(ProductDiscountUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($productDiscount);
         if ($productDiscount instanceof MapperAware) {
             $builder->setMapper($productDiscount->getMapper());
@@ -60,7 +60,7 @@ class Resource45 extends Resource
 
     /**
      * @param ProductDiscountDraft|callable $productDiscountDraftDraft builder function <code>
-     *   function (ProductDiscountDraft $productDiscountDraft): ProductDiscountDraft {
+     *   function(ProductDiscountDraft $productDiscountDraft): ProductDiscountDraft {
      *     // modify $draft as needed
      *     return $productDiscountDraft;
      *   }

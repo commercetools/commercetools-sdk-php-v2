@@ -58,7 +58,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ShoppingListAddLineItemAction|callable $action builder function <code>
-     *   function (ShoppingListAddLineItemAction $action): ShoppingListAddLineItemAction {
+     *   function(ShoppingListAddLineItemAction $action): ShoppingListAddLineItemAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -75,7 +75,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListAddTextLineItemAction|callable $action builder function <code>
-     *   function (ShoppingListAddTextLineItemAction $action): ShoppingListAddTextLineItemAction {
+     *   function(ShoppingListAddTextLineItemAction $action): ShoppingListAddTextLineItemAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -92,7 +92,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListChangeLineItemQuantityAction|callable $action builder function <code>
-     *   function (ShoppingListChangeLineItemQuantityAction $action): ShoppingListChangeLineItemQuantityAction {
+     *   function(ShoppingListChangeLineItemQuantityAction $action): ShoppingListChangeLineItemQuantityAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -109,7 +109,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListChangeLineItemsOrderAction|callable $action builder function <code>
-     *   function (ShoppingListChangeLineItemsOrderAction $action): ShoppingListChangeLineItemsOrderAction {
+     *   function(ShoppingListChangeLineItemsOrderAction $action): ShoppingListChangeLineItemsOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -126,7 +126,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListChangeNameAction|callable $action builder function <code>
-     *   function (ShoppingListChangeNameAction $action): ShoppingListChangeNameAction {
+     *   function(ShoppingListChangeNameAction $action): ShoppingListChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -143,7 +143,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListChangeTextLineItemNameAction|callable $action builder function <code>
-     *   function (ShoppingListChangeTextLineItemNameAction $action): ShoppingListChangeTextLineItemNameAction {
+     *   function(ShoppingListChangeTextLineItemNameAction $action): ShoppingListChangeTextLineItemNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -160,7 +160,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListChangeTextLineItemQuantityAction|callable $action builder function <code>
-     *   function (ShoppingListChangeTextLineItemQuantityAction $action): ShoppingListChangeTextLineItemQuantityAction {
+     *   function(ShoppingListChangeTextLineItemQuantityAction $action): ShoppingListChangeTextLineItemQuantityAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -177,7 +177,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListChangeTextLineItemsOrderAction|callable $action builder function <code>
-     *   function (ShoppingListChangeTextLineItemsOrderAction $action): ShoppingListChangeTextLineItemsOrderAction {
+     *   function(ShoppingListChangeTextLineItemsOrderAction $action): ShoppingListChangeTextLineItemsOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -194,7 +194,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListRemoveLineItemAction|callable $action builder function <code>
-     *   function (ShoppingListRemoveLineItemAction $action): ShoppingListRemoveLineItemAction {
+     *   function(ShoppingListRemoveLineItemAction $action): ShoppingListRemoveLineItemAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -211,7 +211,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListRemoveTextLineItemAction|callable $action builder function <code>
-     *   function (ShoppingListRemoveTextLineItemAction $action): ShoppingListRemoveTextLineItemAction {
+     *   function(ShoppingListRemoveTextLineItemAction $action): ShoppingListRemoveTextLineItemAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -228,7 +228,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetCustomFieldAction|callable $action builder function <code>
-     *   function (ShoppingListSetCustomFieldAction $action): ShoppingListSetCustomFieldAction {
+     *   function(ShoppingListSetCustomFieldAction $action): ShoppingListSetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -245,7 +245,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetCustomTypeAction|callable $action builder function <code>
-     *   function (ShoppingListSetCustomTypeAction $action): ShoppingListSetCustomTypeAction {
+     *   function(ShoppingListSetCustomTypeAction $action): ShoppingListSetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -262,7 +262,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetCustomerAction|callable $action builder function <code>
-     *   function (ShoppingListSetCustomerAction $action): ShoppingListSetCustomerAction {
+     *   function(ShoppingListSetCustomerAction $action): ShoppingListSetCustomerAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -279,7 +279,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetDeleteDaysAfterLastModificationAction|callable $action builder function <code>
-     *   function (ShoppingListSetDeleteDaysAfterLastModificationAction $action): ShoppingListSetDeleteDaysAfterLastModificationAction {
+     *   function(ShoppingListSetDeleteDaysAfterLastModificationAction $action): ShoppingListSetDeleteDaysAfterLastModificationAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -296,7 +296,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetDescriptionAction|callable $action builder function <code>
-     *   function (ShoppingListSetDescriptionAction $action): ShoppingListSetDescriptionAction {
+     *   function(ShoppingListSetDescriptionAction $action): ShoppingListSetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -313,7 +313,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetKeyAction|callable $action builder function <code>
-     *   function (ShoppingListSetKeyAction $action): ShoppingListSetKeyAction {
+     *   function(ShoppingListSetKeyAction $action): ShoppingListSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -330,7 +330,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetLineItemCustomFieldAction|callable $action builder function <code>
-     *   function (ShoppingListSetLineItemCustomFieldAction $action): ShoppingListSetLineItemCustomFieldAction {
+     *   function(ShoppingListSetLineItemCustomFieldAction $action): ShoppingListSetLineItemCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -347,7 +347,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetLineItemCustomTypeAction|callable $action builder function <code>
-     *   function (ShoppingListSetLineItemCustomTypeAction $action): ShoppingListSetLineItemCustomTypeAction {
+     *   function(ShoppingListSetLineItemCustomTypeAction $action): ShoppingListSetLineItemCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -364,7 +364,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetSlugAction|callable $action builder function <code>
-     *   function (ShoppingListSetSlugAction $action): ShoppingListSetSlugAction {
+     *   function(ShoppingListSetSlugAction $action): ShoppingListSetSlugAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -381,7 +381,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetTextLineItemCustomFieldAction|callable $action builder function <code>
-     *   function (ShoppingListSetTextLineItemCustomFieldAction $action): ShoppingListSetTextLineItemCustomFieldAction {
+     *   function(ShoppingListSetTextLineItemCustomFieldAction $action): ShoppingListSetTextLineItemCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -398,7 +398,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetTextLineItemCustomTypeAction|callable $action builder function <code>
-     *   function (ShoppingListSetTextLineItemCustomTypeAction $action): ShoppingListSetTextLineItemCustomTypeAction {
+     *   function(ShoppingListSetTextLineItemCustomTypeAction $action): ShoppingListSetTextLineItemCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -415,7 +415,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShoppingListSetTextLineItemDescriptionAction|callable $action builder function <code>
-     *   function (ShoppingListSetTextLineItemDescriptionAction $action): ShoppingListSetTextLineItemDescriptionAction {
+     *   function(ShoppingListSetTextLineItemDescriptionAction $action): ShoppingListSetTextLineItemDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }

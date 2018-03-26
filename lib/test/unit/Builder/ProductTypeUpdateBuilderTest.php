@@ -52,7 +52,7 @@ use PHPUnit\Framework\TestCase;
 class ProductTypeBuilderTest extends TestCase {
     public function testAddAttributeDefinitionCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->addAttributeDefinition(function ($action) { static::assertInstanceOf(ProductTypeAddAttributeDefinitionAction::class, $action); return $action; });
+        $builder->addAttributeDefinition(function($action) { static::assertInstanceOf(ProductTypeAddAttributeDefinitionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeAddAttributeDefinitionAction::class, $update->getActions()->current());
@@ -68,7 +68,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testAddLocalizedEnumValueCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->addLocalizedEnumValue(function ($action) { static::assertInstanceOf(ProductTypeAddLocalizedEnumValueAction::class, $action); return $action; });
+        $builder->addLocalizedEnumValue(function($action) { static::assertInstanceOf(ProductTypeAddLocalizedEnumValueAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeAddLocalizedEnumValueAction::class, $update->getActions()->current());
@@ -84,7 +84,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testAddPlainEnumValueCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->addPlainEnumValue(function ($action) { static::assertInstanceOf(ProductTypeAddPlainEnumValueAction::class, $action); return $action; });
+        $builder->addPlainEnumValue(function($action) { static::assertInstanceOf(ProductTypeAddPlainEnumValueAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeAddPlainEnumValueAction::class, $update->getActions()->current());
@@ -100,7 +100,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangeAttributeConstraintCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changeAttributeConstraint(function ($action) { static::assertInstanceOf(ProductTypeChangeAttributeConstraintAction::class, $action); return $action; });
+        $builder->changeAttributeConstraint(function($action) { static::assertInstanceOf(ProductTypeChangeAttributeConstraintAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangeAttributeConstraintAction::class, $update->getActions()->current());
@@ -116,7 +116,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangeAttributeOrderCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changeAttributeOrder(function ($action) { static::assertInstanceOf(ProductTypeChangeAttributeOrderAction::class, $action); return $action; });
+        $builder->changeAttributeOrder(function($action) { static::assertInstanceOf(ProductTypeChangeAttributeOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangeAttributeOrderAction::class, $update->getActions()->current());
@@ -132,7 +132,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangeDescriptionCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changeDescription(function ($action) { static::assertInstanceOf(ProductTypeChangeDescriptionAction::class, $action); return $action; });
+        $builder->changeDescription(function($action) { static::assertInstanceOf(ProductTypeChangeDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangeDescriptionAction::class, $update->getActions()->current());
@@ -148,7 +148,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangeInputHintCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changeInputHint(function ($action) { static::assertInstanceOf(ProductTypeChangeInputHintAction::class, $action); return $action; });
+        $builder->changeInputHint(function($action) { static::assertInstanceOf(ProductTypeChangeInputHintAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangeInputHintAction::class, $update->getActions()->current());
@@ -164,7 +164,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangeIsSearchableCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changeIsSearchable(function ($action) { static::assertInstanceOf(ProductTypeChangeIsSearchableAction::class, $action); return $action; });
+        $builder->changeIsSearchable(function($action) { static::assertInstanceOf(ProductTypeChangeIsSearchableAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangeIsSearchableAction::class, $update->getActions()->current());
@@ -180,7 +180,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangeLabelCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changeLabel(function ($action) { static::assertInstanceOf(ProductTypeChangeLabelAction::class, $action); return $action; });
+        $builder->changeLabel(function($action) { static::assertInstanceOf(ProductTypeChangeLabelAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangeLabelAction::class, $update->getActions()->current());
@@ -196,7 +196,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangeLocalizedEnumValueLabelCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changeLocalizedEnumValueLabel(function ($action) { static::assertInstanceOf(ProductTypeChangeLocalizedEnumValueLabelAction::class, $action); return $action; });
+        $builder->changeLocalizedEnumValueLabel(function($action) { static::assertInstanceOf(ProductTypeChangeLocalizedEnumValueLabelAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangeLocalizedEnumValueLabelAction::class, $update->getActions()->current());
@@ -212,7 +212,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangeLocalizedEnumValueOrderCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changeLocalizedEnumValueOrder(function ($action) { static::assertInstanceOf(ProductTypeChangeLocalizedEnumValueOrderAction::class, $action); return $action; });
+        $builder->changeLocalizedEnumValueOrder(function($action) { static::assertInstanceOf(ProductTypeChangeLocalizedEnumValueOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangeLocalizedEnumValueOrderAction::class, $update->getActions()->current());
@@ -228,7 +228,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(ProductTypeChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(ProductTypeChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangeNameAction::class, $update->getActions()->current());
@@ -244,7 +244,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangePlainEnumValueLabelCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changePlainEnumValueLabel(function ($action) { static::assertInstanceOf(ProductTypeChangePlainEnumValueLabelAction::class, $action); return $action; });
+        $builder->changePlainEnumValueLabel(function($action) { static::assertInstanceOf(ProductTypeChangePlainEnumValueLabelAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangePlainEnumValueLabelAction::class, $update->getActions()->current());
@@ -260,7 +260,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testChangePlainEnumValueOrderCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->changePlainEnumValueOrder(function ($action) { static::assertInstanceOf(ProductTypeChangePlainEnumValueOrderAction::class, $action); return $action; });
+        $builder->changePlainEnumValueOrder(function($action) { static::assertInstanceOf(ProductTypeChangePlainEnumValueOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeChangePlainEnumValueOrderAction::class, $update->getActions()->current());
@@ -276,7 +276,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testRemoveAttributeDefinitionCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->removeAttributeDefinition(function ($action) { static::assertInstanceOf(ProductTypeRemoveAttributeDefinitionAction::class, $action); return $action; });
+        $builder->removeAttributeDefinition(function($action) { static::assertInstanceOf(ProductTypeRemoveAttributeDefinitionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeRemoveAttributeDefinitionAction::class, $update->getActions()->current());
@@ -292,7 +292,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testSetInputTipCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->setInputTip(function ($action) { static::assertInstanceOf(ProductTypeSetInputTipAction::class, $action); return $action; });
+        $builder->setInputTip(function($action) { static::assertInstanceOf(ProductTypeSetInputTipAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeSetInputTipAction::class, $update->getActions()->current());
@@ -308,7 +308,7 @@ class ProductTypeBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new ProductTypeUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(ProductTypeSetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(ProductTypeSetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ProductTypeUpdate::class, $update);
         static::assertInstanceOf(ProductTypeSetKeyAction::class, $update->getActions()->current());

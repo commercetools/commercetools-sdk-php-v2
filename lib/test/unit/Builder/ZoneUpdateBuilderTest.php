@@ -26,7 +26,7 @@ use PHPUnit\Framework\TestCase;
 class ZoneBuilderTest extends TestCase {
     public function testAddLocationCallback() {
         $builder = new ZoneUpdateBuilder();
-        $builder->addLocation(function ($action) { static::assertInstanceOf(ZoneAddLocationAction::class, $action); return $action; });
+        $builder->addLocation(function($action) { static::assertInstanceOf(ZoneAddLocationAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ZoneUpdate::class, $update);
         static::assertInstanceOf(ZoneAddLocationAction::class, $update->getActions()->current());
@@ -42,7 +42,7 @@ class ZoneBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new ZoneUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(ZoneChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(ZoneChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ZoneUpdate::class, $update);
         static::assertInstanceOf(ZoneChangeNameAction::class, $update->getActions()->current());
@@ -58,7 +58,7 @@ class ZoneBuilderTest extends TestCase {
 
     public function testRemoveLocationCallback() {
         $builder = new ZoneUpdateBuilder();
-        $builder->removeLocation(function ($action) { static::assertInstanceOf(ZoneRemoveLocationAction::class, $action); return $action; });
+        $builder->removeLocation(function($action) { static::assertInstanceOf(ZoneRemoveLocationAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ZoneUpdate::class, $update);
         static::assertInstanceOf(ZoneRemoveLocationAction::class, $update->getActions()->current());
@@ -74,7 +74,7 @@ class ZoneBuilderTest extends TestCase {
 
     public function testSetDescriptionCallback() {
         $builder = new ZoneUpdateBuilder();
-        $builder->setDescription(function ($action) { static::assertInstanceOf(ZoneSetDescriptionAction::class, $action); return $action; });
+        $builder->setDescription(function($action) { static::assertInstanceOf(ZoneSetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ZoneUpdate::class, $update);
         static::assertInstanceOf(ZoneSetDescriptionAction::class, $update->getActions()->current());

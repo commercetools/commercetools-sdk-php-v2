@@ -32,7 +32,7 @@ class OAuth2Handler {
     public function __construct(TokenProvider $provider, CacheItemPoolInterface $cache = null) {
         $this->provider = $provider;
         if (is_null($cache)) {
-            $filesystemAdapter = new Local(__DIR__.'/');
+            $filesystemAdapter = new Local(__DIR__ . '/');
             $filesystem        = new Filesystem($filesystemAdapter);
             $cache = new FilesystemCachePool($filesystem);
         }

@@ -62,7 +62,7 @@ use PHPUnit\Framework\TestCase;
 class ShoppingListBuilderTest extends TestCase {
     public function testAddLineItemCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->addLineItem(function ($action) { static::assertInstanceOf(ShoppingListAddLineItemAction::class, $action); return $action; });
+        $builder->addLineItem(function($action) { static::assertInstanceOf(ShoppingListAddLineItemAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListAddLineItemAction::class, $update->getActions()->current());
@@ -78,7 +78,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testAddTextLineItemCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->addTextLineItem(function ($action) { static::assertInstanceOf(ShoppingListAddTextLineItemAction::class, $action); return $action; });
+        $builder->addTextLineItem(function($action) { static::assertInstanceOf(ShoppingListAddTextLineItemAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListAddTextLineItemAction::class, $update->getActions()->current());
@@ -94,7 +94,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testChangeLineItemQuantityCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->changeLineItemQuantity(function ($action) { static::assertInstanceOf(ShoppingListChangeLineItemQuantityAction::class, $action); return $action; });
+        $builder->changeLineItemQuantity(function($action) { static::assertInstanceOf(ShoppingListChangeLineItemQuantityAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListChangeLineItemQuantityAction::class, $update->getActions()->current());
@@ -110,7 +110,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testChangeLineItemsOrderCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->changeLineItemsOrder(function ($action) { static::assertInstanceOf(ShoppingListChangeLineItemsOrderAction::class, $action); return $action; });
+        $builder->changeLineItemsOrder(function($action) { static::assertInstanceOf(ShoppingListChangeLineItemsOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListChangeLineItemsOrderAction::class, $update->getActions()->current());
@@ -126,7 +126,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(ShoppingListChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(ShoppingListChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListChangeNameAction::class, $update->getActions()->current());
@@ -142,7 +142,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testChangeTextLineItemNameCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->changeTextLineItemName(function ($action) { static::assertInstanceOf(ShoppingListChangeTextLineItemNameAction::class, $action); return $action; });
+        $builder->changeTextLineItemName(function($action) { static::assertInstanceOf(ShoppingListChangeTextLineItemNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListChangeTextLineItemNameAction::class, $update->getActions()->current());
@@ -158,7 +158,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testChangeTextLineItemQuantityCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->changeTextLineItemQuantity(function ($action) { static::assertInstanceOf(ShoppingListChangeTextLineItemQuantityAction::class, $action); return $action; });
+        $builder->changeTextLineItemQuantity(function($action) { static::assertInstanceOf(ShoppingListChangeTextLineItemQuantityAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListChangeTextLineItemQuantityAction::class, $update->getActions()->current());
@@ -174,7 +174,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testChangeTextLineItemsOrderCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->changeTextLineItemsOrder(function ($action) { static::assertInstanceOf(ShoppingListChangeTextLineItemsOrderAction::class, $action); return $action; });
+        $builder->changeTextLineItemsOrder(function($action) { static::assertInstanceOf(ShoppingListChangeTextLineItemsOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListChangeTextLineItemsOrderAction::class, $update->getActions()->current());
@@ -190,7 +190,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testRemoveLineItemCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->removeLineItem(function ($action) { static::assertInstanceOf(ShoppingListRemoveLineItemAction::class, $action); return $action; });
+        $builder->removeLineItem(function($action) { static::assertInstanceOf(ShoppingListRemoveLineItemAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListRemoveLineItemAction::class, $update->getActions()->current());
@@ -206,7 +206,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testRemoveTextLineItemCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->removeTextLineItem(function ($action) { static::assertInstanceOf(ShoppingListRemoveTextLineItemAction::class, $action); return $action; });
+        $builder->removeTextLineItem(function($action) { static::assertInstanceOf(ShoppingListRemoveTextLineItemAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListRemoveTextLineItemAction::class, $update->getActions()->current());
@@ -222,7 +222,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetCustomFieldCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setCustomField(function ($action) { static::assertInstanceOf(ShoppingListSetCustomFieldAction::class, $action); return $action; });
+        $builder->setCustomField(function($action) { static::assertInstanceOf(ShoppingListSetCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetCustomFieldAction::class, $update->getActions()->current());
@@ -238,7 +238,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetCustomTypeCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setCustomType(function ($action) { static::assertInstanceOf(ShoppingListSetCustomTypeAction::class, $action); return $action; });
+        $builder->setCustomType(function($action) { static::assertInstanceOf(ShoppingListSetCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetCustomTypeAction::class, $update->getActions()->current());
@@ -254,7 +254,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetCustomerCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setCustomer(function ($action) { static::assertInstanceOf(ShoppingListSetCustomerAction::class, $action); return $action; });
+        $builder->setCustomer(function($action) { static::assertInstanceOf(ShoppingListSetCustomerAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetCustomerAction::class, $update->getActions()->current());
@@ -270,7 +270,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetDeleteDaysAfterLastModificationCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setDeleteDaysAfterLastModification(function ($action) { static::assertInstanceOf(ShoppingListSetDeleteDaysAfterLastModificationAction::class, $action); return $action; });
+        $builder->setDeleteDaysAfterLastModification(function($action) { static::assertInstanceOf(ShoppingListSetDeleteDaysAfterLastModificationAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetDeleteDaysAfterLastModificationAction::class, $update->getActions()->current());
@@ -286,7 +286,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetDescriptionCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setDescription(function ($action) { static::assertInstanceOf(ShoppingListSetDescriptionAction::class, $action); return $action; });
+        $builder->setDescription(function($action) { static::assertInstanceOf(ShoppingListSetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetDescriptionAction::class, $update->getActions()->current());
@@ -302,7 +302,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(ShoppingListSetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(ShoppingListSetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetKeyAction::class, $update->getActions()->current());
@@ -318,7 +318,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetLineItemCustomFieldCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setLineItemCustomField(function ($action) { static::assertInstanceOf(ShoppingListSetLineItemCustomFieldAction::class, $action); return $action; });
+        $builder->setLineItemCustomField(function($action) { static::assertInstanceOf(ShoppingListSetLineItemCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetLineItemCustomFieldAction::class, $update->getActions()->current());
@@ -334,7 +334,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetLineItemCustomTypeCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setLineItemCustomType(function ($action) { static::assertInstanceOf(ShoppingListSetLineItemCustomTypeAction::class, $action); return $action; });
+        $builder->setLineItemCustomType(function($action) { static::assertInstanceOf(ShoppingListSetLineItemCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetLineItemCustomTypeAction::class, $update->getActions()->current());
@@ -350,7 +350,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetSlugCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setSlug(function ($action) { static::assertInstanceOf(ShoppingListSetSlugAction::class, $action); return $action; });
+        $builder->setSlug(function($action) { static::assertInstanceOf(ShoppingListSetSlugAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetSlugAction::class, $update->getActions()->current());
@@ -366,7 +366,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetTextLineItemCustomFieldCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setTextLineItemCustomField(function ($action) { static::assertInstanceOf(ShoppingListSetTextLineItemCustomFieldAction::class, $action); return $action; });
+        $builder->setTextLineItemCustomField(function($action) { static::assertInstanceOf(ShoppingListSetTextLineItemCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetTextLineItemCustomFieldAction::class, $update->getActions()->current());
@@ -382,7 +382,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetTextLineItemCustomTypeCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setTextLineItemCustomType(function ($action) { static::assertInstanceOf(ShoppingListSetTextLineItemCustomTypeAction::class, $action); return $action; });
+        $builder->setTextLineItemCustomType(function($action) { static::assertInstanceOf(ShoppingListSetTextLineItemCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetTextLineItemCustomTypeAction::class, $update->getActions()->current());
@@ -398,7 +398,7 @@ class ShoppingListBuilderTest extends TestCase {
 
     public function testSetTextLineItemDescriptionCallback() {
         $builder = new ShoppingListUpdateBuilder();
-        $builder->setTextLineItemDescription(function ($action) { static::assertInstanceOf(ShoppingListSetTextLineItemDescriptionAction::class, $action); return $action; });
+        $builder->setTextLineItemDescription(function($action) { static::assertInstanceOf(ShoppingListSetTextLineItemDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(ShoppingListUpdate::class, $update);
         static::assertInstanceOf(ShoppingListSetTextLineItemDescriptionAction::class, $update->getActions()->current());

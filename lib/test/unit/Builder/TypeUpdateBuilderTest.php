@@ -42,7 +42,7 @@ use PHPUnit\Framework\TestCase;
 class TypeBuilderTest extends TestCase {
     public function testAddEnumValueCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->addEnumValue(function ($action) { static::assertInstanceOf(TypeAddEnumValueAction::class, $action); return $action; });
+        $builder->addEnumValue(function($action) { static::assertInstanceOf(TypeAddEnumValueAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeAddEnumValueAction::class, $update->getActions()->current());
@@ -58,7 +58,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testAddFieldDefinitionCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->addFieldDefinition(function ($action) { static::assertInstanceOf(TypeAddFieldDefinitionAction::class, $action); return $action; });
+        $builder->addFieldDefinition(function($action) { static::assertInstanceOf(TypeAddFieldDefinitionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeAddFieldDefinitionAction::class, $update->getActions()->current());
@@ -74,7 +74,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testAddLocalizedEnumValueCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->addLocalizedEnumValue(function ($action) { static::assertInstanceOf(TypeAddLocalizedEnumValueAction::class, $action); return $action; });
+        $builder->addLocalizedEnumValue(function($action) { static::assertInstanceOf(TypeAddLocalizedEnumValueAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeAddLocalizedEnumValueAction::class, $update->getActions()->current());
@@ -90,7 +90,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testChangeEnumValueOrderCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->changeEnumValueOrder(function ($action) { static::assertInstanceOf(TypeChangeEnumValueOrderAction::class, $action); return $action; });
+        $builder->changeEnumValueOrder(function($action) { static::assertInstanceOf(TypeChangeEnumValueOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeChangeEnumValueOrderAction::class, $update->getActions()->current());
@@ -106,7 +106,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testChangeFieldDefinitionLabelCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->changeFieldDefinitionLabel(function ($action) { static::assertInstanceOf(TypeChangeFieldDefinitionLabelAction::class, $action); return $action; });
+        $builder->changeFieldDefinitionLabel(function($action) { static::assertInstanceOf(TypeChangeFieldDefinitionLabelAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeChangeFieldDefinitionLabelAction::class, $update->getActions()->current());
@@ -122,7 +122,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testChangeFieldDefinitionOrderCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->changeFieldDefinitionOrder(function ($action) { static::assertInstanceOf(TypeChangeFieldDefinitionOrderAction::class, $action); return $action; });
+        $builder->changeFieldDefinitionOrder(function($action) { static::assertInstanceOf(TypeChangeFieldDefinitionOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeChangeFieldDefinitionOrderAction::class, $update->getActions()->current());
@@ -138,7 +138,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testChangeKeyCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->changeKey(function ($action) { static::assertInstanceOf(TypeChangeKeyAction::class, $action); return $action; });
+        $builder->changeKey(function($action) { static::assertInstanceOf(TypeChangeKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeChangeKeyAction::class, $update->getActions()->current());
@@ -154,7 +154,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testChangeLabelCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->changeLabel(function ($action) { static::assertInstanceOf(TypeChangeLabelAction::class, $action); return $action; });
+        $builder->changeLabel(function($action) { static::assertInstanceOf(TypeChangeLabelAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeChangeLabelAction::class, $update->getActions()->current());
@@ -170,7 +170,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testChangeLocalizedEnumValueOrderCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->changeLocalizedEnumValueOrder(function ($action) { static::assertInstanceOf(TypeChangeLocalizedEnumValueOrderAction::class, $action); return $action; });
+        $builder->changeLocalizedEnumValueOrder(function($action) { static::assertInstanceOf(TypeChangeLocalizedEnumValueOrderAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeChangeLocalizedEnumValueOrderAction::class, $update->getActions()->current());
@@ -186,7 +186,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(TypeChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(TypeChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeChangeNameAction::class, $update->getActions()->current());
@@ -202,7 +202,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testRemoveFieldDefinitionCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->removeFieldDefinition(function ($action) { static::assertInstanceOf(TypeRemoveFieldDefinitionAction::class, $action); return $action; });
+        $builder->removeFieldDefinition(function($action) { static::assertInstanceOf(TypeRemoveFieldDefinitionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeRemoveFieldDefinitionAction::class, $update->getActions()->current());
@@ -218,7 +218,7 @@ class TypeBuilderTest extends TestCase {
 
     public function testSetDescriptionCallback() {
         $builder = new TypeUpdateBuilder();
-        $builder->setDescription(function ($action) { static::assertInstanceOf(TypeSetDescriptionAction::class, $action); return $action; });
+        $builder->setDescription(function($action) { static::assertInstanceOf(TypeSetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TypeUpdate::class, $update);
         static::assertInstanceOf(TypeSetDescriptionAction::class, $update->getActions()->current());

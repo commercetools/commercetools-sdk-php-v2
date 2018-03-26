@@ -46,7 +46,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ShippingMethodAddShippingRateAction|callable $action builder function <code>
-     *   function (ShippingMethodAddShippingRateAction $action): ShippingMethodAddShippingRateAction {
+     *   function(ShippingMethodAddShippingRateAction $action): ShippingMethodAddShippingRateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -63,7 +63,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShippingMethodAddZoneAction|callable $action builder function <code>
-     *   function (ShippingMethodAddZoneAction $action): ShippingMethodAddZoneAction {
+     *   function(ShippingMethodAddZoneAction $action): ShippingMethodAddZoneAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -80,7 +80,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShippingMethodChangeIsDefaultAction|callable $action builder function <code>
-     *   function (ShippingMethodChangeIsDefaultAction $action): ShippingMethodChangeIsDefaultAction {
+     *   function(ShippingMethodChangeIsDefaultAction $action): ShippingMethodChangeIsDefaultAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -97,7 +97,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShippingMethodChangeNameAction|callable $action builder function <code>
-     *   function (ShippingMethodChangeNameAction $action): ShippingMethodChangeNameAction {
+     *   function(ShippingMethodChangeNameAction $action): ShippingMethodChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -114,7 +114,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShippingMethodChangeTaxCategoryAction|callable $action builder function <code>
-     *   function (ShippingMethodChangeTaxCategoryAction $action): ShippingMethodChangeTaxCategoryAction {
+     *   function(ShippingMethodChangeTaxCategoryAction $action): ShippingMethodChangeTaxCategoryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -131,7 +131,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShippingMethodRemoveShippingRateAction|callable $action builder function <code>
-     *   function (ShippingMethodRemoveShippingRateAction $action): ShippingMethodRemoveShippingRateAction {
+     *   function(ShippingMethodRemoveShippingRateAction $action): ShippingMethodRemoveShippingRateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -148,7 +148,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShippingMethodRemoveZoneAction|callable $action builder function <code>
-     *   function (ShippingMethodRemoveZoneAction $action): ShippingMethodRemoveZoneAction {
+     *   function(ShippingMethodRemoveZoneAction $action): ShippingMethodRemoveZoneAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -165,7 +165,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShippingMethodSetDescriptionAction|callable $action builder function <code>
-     *   function (ShippingMethodSetDescriptionAction $action): ShippingMethodSetDescriptionAction {
+     *   function(ShippingMethodSetDescriptionAction $action): ShippingMethodSetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -182,7 +182,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShippingMethodSetKeyAction|callable $action builder function <code>
-     *   function (ShippingMethodSetKeyAction $action): ShippingMethodSetKeyAction {
+     *   function(ShippingMethodSetKeyAction $action): ShippingMethodSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -199,7 +199,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ShippingMethodSetPredicateAction|callable $action builder function <code>
-     *   function (ShippingMethodSetPredicateAction $action): ShippingMethodSetPredicateAction {
+     *   function(ShippingMethodSetPredicateAction $action): ShippingMethodSetPredicateAction {
      *     // modify action as needed
      *     return $action;
      *   }

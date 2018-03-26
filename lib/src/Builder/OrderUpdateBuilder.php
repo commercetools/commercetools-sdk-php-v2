@@ -70,7 +70,7 @@ class OrderUpdateBuilder extends BaseBuilder {
 
     /**
      * @param OrderAddDeliveryAction|callable $action builder function <code>
-     *   function (OrderAddDeliveryAction $action): OrderAddDeliveryAction {
+     *   function(OrderAddDeliveryAction $action): OrderAddDeliveryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -87,7 +87,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderAddParcelToDeliveryAction|callable $action builder function <code>
-     *   function (OrderAddParcelToDeliveryAction $action): OrderAddParcelToDeliveryAction {
+     *   function(OrderAddParcelToDeliveryAction $action): OrderAddParcelToDeliveryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -104,7 +104,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderAddPaymentAction|callable $action builder function <code>
-     *   function (OrderAddPaymentAction $action): OrderAddPaymentAction {
+     *   function(OrderAddPaymentAction $action): OrderAddPaymentAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -121,7 +121,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderAddReturnInfoAction|callable $action builder function <code>
-     *   function (OrderAddReturnInfoAction $action): OrderAddReturnInfoAction {
+     *   function(OrderAddReturnInfoAction $action): OrderAddReturnInfoAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -138,7 +138,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderChangeOrderStateAction|callable $action builder function <code>
-     *   function (OrderChangeOrderStateAction $action): OrderChangeOrderStateAction {
+     *   function(OrderChangeOrderStateAction $action): OrderChangeOrderStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -155,7 +155,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderChangePaymentStateAction|callable $action builder function <code>
-     *   function (OrderChangePaymentStateAction $action): OrderChangePaymentStateAction {
+     *   function(OrderChangePaymentStateAction $action): OrderChangePaymentStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -172,7 +172,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderChangeShipmentStateAction|callable $action builder function <code>
-     *   function (OrderChangeShipmentStateAction $action): OrderChangeShipmentStateAction {
+     *   function(OrderChangeShipmentStateAction $action): OrderChangeShipmentStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -189,7 +189,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderImportCustomLineItemStateAction|callable $action builder function <code>
-     *   function (OrderImportCustomLineItemStateAction $action): OrderImportCustomLineItemStateAction {
+     *   function(OrderImportCustomLineItemStateAction $action): OrderImportCustomLineItemStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -206,7 +206,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderImportLineItemStateAction|callable $action builder function <code>
-     *   function (OrderImportLineItemStateAction $action): OrderImportLineItemStateAction {
+     *   function(OrderImportLineItemStateAction $action): OrderImportLineItemStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -223,7 +223,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderRemoveDeliveryAction|callable $action builder function <code>
-     *   function (OrderRemoveDeliveryAction $action): OrderRemoveDeliveryAction {
+     *   function(OrderRemoveDeliveryAction $action): OrderRemoveDeliveryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -240,7 +240,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderRemoveParcelFromDeliveryAction|callable $action builder function <code>
-     *   function (OrderRemoveParcelFromDeliveryAction $action): OrderRemoveParcelFromDeliveryAction {
+     *   function(OrderRemoveParcelFromDeliveryAction $action): OrderRemoveParcelFromDeliveryAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -257,7 +257,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderRemovePaymentAction|callable $action builder function <code>
-     *   function (OrderRemovePaymentAction $action): OrderRemovePaymentAction {
+     *   function(OrderRemovePaymentAction $action): OrderRemovePaymentAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -274,7 +274,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetBillingAddressAction|callable $action builder function <code>
-     *   function (OrderSetBillingAddressAction $action): OrderSetBillingAddressAction {
+     *   function(OrderSetBillingAddressAction $action): OrderSetBillingAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -291,7 +291,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetCustomFieldAction|callable $action builder function <code>
-     *   function (OrderSetCustomFieldAction $action): OrderSetCustomFieldAction {
+     *   function(OrderSetCustomFieldAction $action): OrderSetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -308,7 +308,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetCustomLineItemCustomFieldAction|callable $action builder function <code>
-     *   function (OrderSetCustomLineItemCustomFieldAction $action): OrderSetCustomLineItemCustomFieldAction {
+     *   function(OrderSetCustomLineItemCustomFieldAction $action): OrderSetCustomLineItemCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -325,7 +325,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetCustomLineItemCustomTypeAction|callable $action builder function <code>
-     *   function (OrderSetCustomLineItemCustomTypeAction $action): OrderSetCustomLineItemCustomTypeAction {
+     *   function(OrderSetCustomLineItemCustomTypeAction $action): OrderSetCustomLineItemCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -342,7 +342,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetCustomTypeAction|callable $action builder function <code>
-     *   function (OrderSetCustomTypeAction $action): OrderSetCustomTypeAction {
+     *   function(OrderSetCustomTypeAction $action): OrderSetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -359,7 +359,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetCustomerEmailAction|callable $action builder function <code>
-     *   function (OrderSetCustomerEmailAction $action): OrderSetCustomerEmailAction {
+     *   function(OrderSetCustomerEmailAction $action): OrderSetCustomerEmailAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -376,7 +376,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetDeliveryAddressAction|callable $action builder function <code>
-     *   function (OrderSetDeliveryAddressAction $action): OrderSetDeliveryAddressAction {
+     *   function(OrderSetDeliveryAddressAction $action): OrderSetDeliveryAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -393,7 +393,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetDeliveryItemsAction|callable $action builder function <code>
-     *   function (OrderSetDeliveryItemsAction $action): OrderSetDeliveryItemsAction {
+     *   function(OrderSetDeliveryItemsAction $action): OrderSetDeliveryItemsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -410,7 +410,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetLineItemCustomFieldAction|callable $action builder function <code>
-     *   function (OrderSetLineItemCustomFieldAction $action): OrderSetLineItemCustomFieldAction {
+     *   function(OrderSetLineItemCustomFieldAction $action): OrderSetLineItemCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -427,7 +427,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetLineItemCustomTypeAction|callable $action builder function <code>
-     *   function (OrderSetLineItemCustomTypeAction $action): OrderSetLineItemCustomTypeAction {
+     *   function(OrderSetLineItemCustomTypeAction $action): OrderSetLineItemCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -444,7 +444,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetLocaleAction|callable $action builder function <code>
-     *   function (OrderSetLocaleAction $action): OrderSetLocaleAction {
+     *   function(OrderSetLocaleAction $action): OrderSetLocaleAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -461,7 +461,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetOrderNumberAction|callable $action builder function <code>
-     *   function (OrderSetOrderNumberAction $action): OrderSetOrderNumberAction {
+     *   function(OrderSetOrderNumberAction $action): OrderSetOrderNumberAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -478,7 +478,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetParcelItemsAction|callable $action builder function <code>
-     *   function (OrderSetParcelItemsAction $action): OrderSetParcelItemsAction {
+     *   function(OrderSetParcelItemsAction $action): OrderSetParcelItemsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -495,7 +495,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetParcelMeasurementsAction|callable $action builder function <code>
-     *   function (OrderSetParcelMeasurementsAction $action): OrderSetParcelMeasurementsAction {
+     *   function(OrderSetParcelMeasurementsAction $action): OrderSetParcelMeasurementsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -512,7 +512,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetParcelTrackingDataAction|callable $action builder function <code>
-     *   function (OrderSetParcelTrackingDataAction $action): OrderSetParcelTrackingDataAction {
+     *   function(OrderSetParcelTrackingDataAction $action): OrderSetParcelTrackingDataAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -529,7 +529,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetReturnPaymentStateAction|callable $action builder function <code>
-     *   function (OrderSetReturnPaymentStateAction $action): OrderSetReturnPaymentStateAction {
+     *   function(OrderSetReturnPaymentStateAction $action): OrderSetReturnPaymentStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -546,7 +546,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetReturnShipmentStateAction|callable $action builder function <code>
-     *   function (OrderSetReturnShipmentStateAction $action): OrderSetReturnShipmentStateAction {
+     *   function(OrderSetReturnShipmentStateAction $action): OrderSetReturnShipmentStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -563,7 +563,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderSetShippingAddressAction|callable $action builder function <code>
-     *   function (OrderSetShippingAddressAction $action): OrderSetShippingAddressAction {
+     *   function(OrderSetShippingAddressAction $action): OrderSetShippingAddressAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -580,7 +580,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderTransitionCustomLineItemStateAction|callable $action builder function <code>
-     *   function (OrderTransitionCustomLineItemStateAction $action): OrderTransitionCustomLineItemStateAction {
+     *   function(OrderTransitionCustomLineItemStateAction $action): OrderTransitionCustomLineItemStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -597,7 +597,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderTransitionLineItemStateAction|callable $action builder function <code>
-     *   function (OrderTransitionLineItemStateAction $action): OrderTransitionLineItemStateAction {
+     *   function(OrderTransitionLineItemStateAction $action): OrderTransitionLineItemStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -614,7 +614,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderTransitionStateAction|callable $action builder function <code>
-     *   function (OrderTransitionStateAction $action): OrderTransitionStateAction {
+     *   function(OrderTransitionStateAction $action): OrderTransitionStateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -631,7 +631,7 @@ class OrderUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param OrderUpdateSyncInfoAction|callable $action builder function <code>
-     *   function (OrderUpdateSyncInfoAction $action): OrderUpdateSyncInfoAction {
+     *   function(OrderUpdateSyncInfoAction $action): OrderUpdateSyncInfoAction {
      *     // modify action as needed
      *     return $action;
      *   }

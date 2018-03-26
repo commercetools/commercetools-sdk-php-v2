@@ -39,7 +39,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
 
     /**
      * @param SubscriptionSetChangesAction|callable $action builder function <code>
-     *   function (SubscriptionSetChangesAction $action): SubscriptionSetChangesAction {
+     *   function(SubscriptionSetChangesAction $action): SubscriptionSetChangesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -56,7 +56,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param SubscriptionSetKeyAction|callable $action builder function <code>
-     *   function (SubscriptionSetKeyAction $action): SubscriptionSetKeyAction {
+     *   function(SubscriptionSetKeyAction $action): SubscriptionSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -73,7 +73,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param SubscriptionSetMessagesAction|callable $action builder function <code>
-     *   function (SubscriptionSetMessagesAction $action): SubscriptionSetMessagesAction {
+     *   function(SubscriptionSetMessagesAction $action): SubscriptionSetMessagesAction {
      *     // modify action as needed
      *     return $action;
      *   }

@@ -49,7 +49,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
 
     /**
      * @param CartDiscountChangeCartPredicateAction|callable $action builder function <code>
-     *   function (CartDiscountChangeCartPredicateAction $action): CartDiscountChangeCartPredicateAction {
+     *   function(CartDiscountChangeCartPredicateAction $action): CartDiscountChangeCartPredicateAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -66,7 +66,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountChangeIsActiveAction|callable $action builder function <code>
-     *   function (CartDiscountChangeIsActiveAction $action): CartDiscountChangeIsActiveAction {
+     *   function(CartDiscountChangeIsActiveAction $action): CartDiscountChangeIsActiveAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -83,7 +83,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountChangeNameAction|callable $action builder function <code>
-     *   function (CartDiscountChangeNameAction $action): CartDiscountChangeNameAction {
+     *   function(CartDiscountChangeNameAction $action): CartDiscountChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -100,7 +100,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountChangeRequiresDiscountCodeAction|callable $action builder function <code>
-     *   function (CartDiscountChangeRequiresDiscountCodeAction $action): CartDiscountChangeRequiresDiscountCodeAction {
+     *   function(CartDiscountChangeRequiresDiscountCodeAction $action): CartDiscountChangeRequiresDiscountCodeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -117,7 +117,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountChangeSortOrderAction|callable $action builder function <code>
-     *   function (CartDiscountChangeSortOrderAction $action): CartDiscountChangeSortOrderAction {
+     *   function(CartDiscountChangeSortOrderAction $action): CartDiscountChangeSortOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -134,7 +134,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountChangeStackingModeAction|callable $action builder function <code>
-     *   function (CartDiscountChangeStackingModeAction $action): CartDiscountChangeStackingModeAction {
+     *   function(CartDiscountChangeStackingModeAction $action): CartDiscountChangeStackingModeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -151,7 +151,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountChangeTargetAction|callable $action builder function <code>
-     *   function (CartDiscountChangeTargetAction $action): CartDiscountChangeTargetAction {
+     *   function(CartDiscountChangeTargetAction $action): CartDiscountChangeTargetAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -168,7 +168,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountChangeValueAction|callable $action builder function <code>
-     *   function (CartDiscountChangeValueAction $action): CartDiscountChangeValueAction {
+     *   function(CartDiscountChangeValueAction $action): CartDiscountChangeValueAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -185,7 +185,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountSetCustomFieldAction|callable $action builder function <code>
-     *   function (CartDiscountSetCustomFieldAction $action): CartDiscountSetCustomFieldAction {
+     *   function(CartDiscountSetCustomFieldAction $action): CartDiscountSetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -202,7 +202,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountSetCustomTypeAction|callable $action builder function <code>
-     *   function (CartDiscountSetCustomTypeAction $action): CartDiscountSetCustomTypeAction {
+     *   function(CartDiscountSetCustomTypeAction $action): CartDiscountSetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -219,7 +219,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountSetDescriptionAction|callable $action builder function <code>
-     *   function (CartDiscountSetDescriptionAction $action): CartDiscountSetDescriptionAction {
+     *   function(CartDiscountSetDescriptionAction $action): CartDiscountSetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -236,7 +236,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountSetValidFromAction|callable $action builder function <code>
-     *   function (CartDiscountSetValidFromAction $action): CartDiscountSetValidFromAction {
+     *   function(CartDiscountSetValidFromAction $action): CartDiscountSetValidFromAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -253,7 +253,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CartDiscountSetValidUntilAction|callable $action builder function <code>
-     *   function (CartDiscountSetValidUntilAction $action): CartDiscountSetValidUntilAction {
+     *   function(CartDiscountSetValidUntilAction $action): CartDiscountSetValidUntilAction {
      *     // modify action as needed
      *     return $action;
      *   }

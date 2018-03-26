@@ -45,7 +45,7 @@ class StateUpdateBuilder extends BaseBuilder {
 
     /**
      * @param StateAddRolesAction|callable $action builder function <code>
-     *   function (StateAddRolesAction $action): StateAddRolesAction {
+     *   function(StateAddRolesAction $action): StateAddRolesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -62,7 +62,7 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param StateChangeInitialAction|callable $action builder function <code>
-     *   function (StateChangeInitialAction $action): StateChangeInitialAction {
+     *   function(StateChangeInitialAction $action): StateChangeInitialAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -79,7 +79,7 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param StateChangeKeyAction|callable $action builder function <code>
-     *   function (StateChangeKeyAction $action): StateChangeKeyAction {
+     *   function(StateChangeKeyAction $action): StateChangeKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -96,7 +96,7 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param StateChangeTypeAction|callable $action builder function <code>
-     *   function (StateChangeTypeAction $action): StateChangeTypeAction {
+     *   function(StateChangeTypeAction $action): StateChangeTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -113,7 +113,7 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param StateRemoveRolesAction|callable $action builder function <code>
-     *   function (StateRemoveRolesAction $action): StateRemoveRolesAction {
+     *   function(StateRemoveRolesAction $action): StateRemoveRolesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -130,7 +130,7 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param StateSetDescriptionAction|callable $action builder function <code>
-     *   function (StateSetDescriptionAction $action): StateSetDescriptionAction {
+     *   function(StateSetDescriptionAction $action): StateSetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -147,7 +147,7 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param StateSetNameAction|callable $action builder function <code>
-     *   function (StateSetNameAction $action): StateSetNameAction {
+     *   function(StateSetNameAction $action): StateSetNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -164,7 +164,7 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param StateSetRolesAction|callable $action builder function <code>
-     *   function (StateSetRolesAction $action): StateSetRolesAction {
+     *   function(StateSetRolesAction $action): StateSetRolesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -181,7 +181,7 @@ class StateUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param StateSetTransitionsAction|callable $action builder function <code>
-     *   function (StateSetTransitionsAction $action): StateSetTransitionsAction {
+     *   function(StateSetTransitionsAction $action): StateSetTransitionsAction {
      *     // modify action as needed
      *     return $action;
      *   }

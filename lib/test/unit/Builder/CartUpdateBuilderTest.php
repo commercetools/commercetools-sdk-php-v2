@@ -104,7 +104,7 @@ use PHPUnit\Framework\TestCase;
 class CartBuilderTest extends TestCase {
     public function testAddCustomLineItemCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->addCustomLineItem(function ($action) { static::assertInstanceOf(CartAddCustomLineItemAction::class, $action); return $action; });
+        $builder->addCustomLineItem(function($action) { static::assertInstanceOf(CartAddCustomLineItemAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartAddCustomLineItemAction::class, $update->getActions()->current());
@@ -120,7 +120,7 @@ class CartBuilderTest extends TestCase {
 
     public function testAddDiscountCodeCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->addDiscountCode(function ($action) { static::assertInstanceOf(CartAddDiscountCodeAction::class, $action); return $action; });
+        $builder->addDiscountCode(function($action) { static::assertInstanceOf(CartAddDiscountCodeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartAddDiscountCodeAction::class, $update->getActions()->current());
@@ -136,7 +136,7 @@ class CartBuilderTest extends TestCase {
 
     public function testAddLineItemCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->addLineItem(function ($action) { static::assertInstanceOf(CartAddLineItemAction::class, $action); return $action; });
+        $builder->addLineItem(function($action) { static::assertInstanceOf(CartAddLineItemAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartAddLineItemAction::class, $update->getActions()->current());
@@ -152,7 +152,7 @@ class CartBuilderTest extends TestCase {
 
     public function testAddPaymentCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->addPayment(function ($action) { static::assertInstanceOf(CartAddPaymentAction::class, $action); return $action; });
+        $builder->addPayment(function($action) { static::assertInstanceOf(CartAddPaymentAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartAddPaymentAction::class, $update->getActions()->current());
@@ -168,7 +168,7 @@ class CartBuilderTest extends TestCase {
 
     public function testAddShoppingListCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->addShoppingList(function ($action) { static::assertInstanceOf(CartAddShoppingListAction::class, $action); return $action; });
+        $builder->addShoppingList(function($action) { static::assertInstanceOf(CartAddShoppingListAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartAddShoppingListAction::class, $update->getActions()->current());
@@ -184,7 +184,7 @@ class CartBuilderTest extends TestCase {
 
     public function testChangeCustomLineItemMoneyCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->changeCustomLineItemMoney(function ($action) { static::assertInstanceOf(CartChangeCustomLineItemMoneyAction::class, $action); return $action; });
+        $builder->changeCustomLineItemMoney(function($action) { static::assertInstanceOf(CartChangeCustomLineItemMoneyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartChangeCustomLineItemMoneyAction::class, $update->getActions()->current());
@@ -200,7 +200,7 @@ class CartBuilderTest extends TestCase {
 
     public function testChangeCustomLineItemQuantityCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->changeCustomLineItemQuantity(function ($action) { static::assertInstanceOf(CartChangeCustomLineItemQuantityAction::class, $action); return $action; });
+        $builder->changeCustomLineItemQuantity(function($action) { static::assertInstanceOf(CartChangeCustomLineItemQuantityAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartChangeCustomLineItemQuantityAction::class, $update->getActions()->current());
@@ -216,7 +216,7 @@ class CartBuilderTest extends TestCase {
 
     public function testChangeLineItemQuantityCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->changeLineItemQuantity(function ($action) { static::assertInstanceOf(CartChangeLineItemQuantityAction::class, $action); return $action; });
+        $builder->changeLineItemQuantity(function($action) { static::assertInstanceOf(CartChangeLineItemQuantityAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartChangeLineItemQuantityAction::class, $update->getActions()->current());
@@ -232,7 +232,7 @@ class CartBuilderTest extends TestCase {
 
     public function testChangeTaxCalculationModeCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->changeTaxCalculationMode(function ($action) { static::assertInstanceOf(CartChangeTaxCalculationModeAction::class, $action); return $action; });
+        $builder->changeTaxCalculationMode(function($action) { static::assertInstanceOf(CartChangeTaxCalculationModeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartChangeTaxCalculationModeAction::class, $update->getActions()->current());
@@ -248,7 +248,7 @@ class CartBuilderTest extends TestCase {
 
     public function testChangeTaxModeCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->changeTaxMode(function ($action) { static::assertInstanceOf(CartChangeTaxModeAction::class, $action); return $action; });
+        $builder->changeTaxMode(function($action) { static::assertInstanceOf(CartChangeTaxModeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartChangeTaxModeAction::class, $update->getActions()->current());
@@ -264,7 +264,7 @@ class CartBuilderTest extends TestCase {
 
     public function testChangeTaxRoundingModeCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->changeTaxRoundingMode(function ($action) { static::assertInstanceOf(CartChangeTaxRoundingModeAction::class, $action); return $action; });
+        $builder->changeTaxRoundingMode(function($action) { static::assertInstanceOf(CartChangeTaxRoundingModeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartChangeTaxRoundingModeAction::class, $update->getActions()->current());
@@ -280,7 +280,7 @@ class CartBuilderTest extends TestCase {
 
     public function testRecalculateCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->recalculate(function ($action) { static::assertInstanceOf(CartRecalculateAction::class, $action); return $action; });
+        $builder->recalculate(function($action) { static::assertInstanceOf(CartRecalculateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartRecalculateAction::class, $update->getActions()->current());
@@ -296,7 +296,7 @@ class CartBuilderTest extends TestCase {
 
     public function testRemoveCustomLineItemCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->removeCustomLineItem(function ($action) { static::assertInstanceOf(CartRemoveCustomLineItemAction::class, $action); return $action; });
+        $builder->removeCustomLineItem(function($action) { static::assertInstanceOf(CartRemoveCustomLineItemAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartRemoveCustomLineItemAction::class, $update->getActions()->current());
@@ -312,7 +312,7 @@ class CartBuilderTest extends TestCase {
 
     public function testRemoveDiscountCodeCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->removeDiscountCode(function ($action) { static::assertInstanceOf(CartRemoveDiscountCodeAction::class, $action); return $action; });
+        $builder->removeDiscountCode(function($action) { static::assertInstanceOf(CartRemoveDiscountCodeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartRemoveDiscountCodeAction::class, $update->getActions()->current());
@@ -328,7 +328,7 @@ class CartBuilderTest extends TestCase {
 
     public function testRemoveLineItemCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->removeLineItem(function ($action) { static::assertInstanceOf(CartRemoveLineItemAction::class, $action); return $action; });
+        $builder->removeLineItem(function($action) { static::assertInstanceOf(CartRemoveLineItemAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartRemoveLineItemAction::class, $update->getActions()->current());
@@ -344,7 +344,7 @@ class CartBuilderTest extends TestCase {
 
     public function testRemovePaymentCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->removePayment(function ($action) { static::assertInstanceOf(CartRemovePaymentAction::class, $action); return $action; });
+        $builder->removePayment(function($action) { static::assertInstanceOf(CartRemovePaymentAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartRemovePaymentAction::class, $update->getActions()->current());
@@ -360,7 +360,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetAnonymousIdCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setAnonymousId(function ($action) { static::assertInstanceOf(CartSetAnonymousIdAction::class, $action); return $action; });
+        $builder->setAnonymousId(function($action) { static::assertInstanceOf(CartSetAnonymousIdAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetAnonymousIdAction::class, $update->getActions()->current());
@@ -376,7 +376,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetBillingAddressCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setBillingAddress(function ($action) { static::assertInstanceOf(CartSetBillingAddressAction::class, $action); return $action; });
+        $builder->setBillingAddress(function($action) { static::assertInstanceOf(CartSetBillingAddressAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetBillingAddressAction::class, $update->getActions()->current());
@@ -392,7 +392,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCartTotalTaxCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCartTotalTax(function ($action) { static::assertInstanceOf(CartSetCartTotalTaxAction::class, $action); return $action; });
+        $builder->setCartTotalTax(function($action) { static::assertInstanceOf(CartSetCartTotalTaxAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCartTotalTaxAction::class, $update->getActions()->current());
@@ -408,7 +408,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCountryCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCountry(function ($action) { static::assertInstanceOf(CartSetCountryAction::class, $action); return $action; });
+        $builder->setCountry(function($action) { static::assertInstanceOf(CartSetCountryAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCountryAction::class, $update->getActions()->current());
@@ -424,7 +424,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomFieldCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomField(function ($action) { static::assertInstanceOf(CartSetCustomFieldAction::class, $action); return $action; });
+        $builder->setCustomField(function($action) { static::assertInstanceOf(CartSetCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomFieldAction::class, $update->getActions()->current());
@@ -440,7 +440,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomLineItemCustomFieldCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomLineItemCustomField(function ($action) { static::assertInstanceOf(CartSetCustomLineItemCustomFieldAction::class, $action); return $action; });
+        $builder->setCustomLineItemCustomField(function($action) { static::assertInstanceOf(CartSetCustomLineItemCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomLineItemCustomFieldAction::class, $update->getActions()->current());
@@ -456,7 +456,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomLineItemCustomTypeCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomLineItemCustomType(function ($action) { static::assertInstanceOf(CartSetCustomLineItemCustomTypeAction::class, $action); return $action; });
+        $builder->setCustomLineItemCustomType(function($action) { static::assertInstanceOf(CartSetCustomLineItemCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomLineItemCustomTypeAction::class, $update->getActions()->current());
@@ -472,7 +472,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomLineItemTaxAmountCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomLineItemTaxAmount(function ($action) { static::assertInstanceOf(CartSetCustomLineItemTaxAmountAction::class, $action); return $action; });
+        $builder->setCustomLineItemTaxAmount(function($action) { static::assertInstanceOf(CartSetCustomLineItemTaxAmountAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomLineItemTaxAmountAction::class, $update->getActions()->current());
@@ -488,7 +488,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomLineItemTaxRateCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomLineItemTaxRate(function ($action) { static::assertInstanceOf(CartSetCustomLineItemTaxRateAction::class, $action); return $action; });
+        $builder->setCustomLineItemTaxRate(function($action) { static::assertInstanceOf(CartSetCustomLineItemTaxRateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomLineItemTaxRateAction::class, $update->getActions()->current());
@@ -504,7 +504,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomShippingMethodCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomShippingMethod(function ($action) { static::assertInstanceOf(CartSetCustomShippingMethodAction::class, $action); return $action; });
+        $builder->setCustomShippingMethod(function($action) { static::assertInstanceOf(CartSetCustomShippingMethodAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomShippingMethodAction::class, $update->getActions()->current());
@@ -520,7 +520,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomTypeCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomType(function ($action) { static::assertInstanceOf(CartSetCustomTypeAction::class, $action); return $action; });
+        $builder->setCustomType(function($action) { static::assertInstanceOf(CartSetCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomTypeAction::class, $update->getActions()->current());
@@ -536,7 +536,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomerEmailCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomerEmail(function ($action) { static::assertInstanceOf(CartSetCustomerEmailAction::class, $action); return $action; });
+        $builder->setCustomerEmail(function($action) { static::assertInstanceOf(CartSetCustomerEmailAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomerEmailAction::class, $update->getActions()->current());
@@ -552,7 +552,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomerGroupCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomerGroup(function ($action) { static::assertInstanceOf(CartSetCustomerGroupAction::class, $action); return $action; });
+        $builder->setCustomerGroup(function($action) { static::assertInstanceOf(CartSetCustomerGroupAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomerGroupAction::class, $update->getActions()->current());
@@ -568,7 +568,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetCustomerIdCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setCustomerId(function ($action) { static::assertInstanceOf(CartSetCustomerIdAction::class, $action); return $action; });
+        $builder->setCustomerId(function($action) { static::assertInstanceOf(CartSetCustomerIdAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetCustomerIdAction::class, $update->getActions()->current());
@@ -584,7 +584,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetDeleteDaysAfterLastModificationCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setDeleteDaysAfterLastModification(function ($action) { static::assertInstanceOf(CartSetDeleteDaysAfterLastModificationAction::class, $action); return $action; });
+        $builder->setDeleteDaysAfterLastModification(function($action) { static::assertInstanceOf(CartSetDeleteDaysAfterLastModificationAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetDeleteDaysAfterLastModificationAction::class, $update->getActions()->current());
@@ -600,7 +600,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetLineItemCustomFieldCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setLineItemCustomField(function ($action) { static::assertInstanceOf(CartSetLineItemCustomFieldAction::class, $action); return $action; });
+        $builder->setLineItemCustomField(function($action) { static::assertInstanceOf(CartSetLineItemCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetLineItemCustomFieldAction::class, $update->getActions()->current());
@@ -616,7 +616,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetLineItemCustomTypeCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setLineItemCustomType(function ($action) { static::assertInstanceOf(CartSetLineItemCustomTypeAction::class, $action); return $action; });
+        $builder->setLineItemCustomType(function($action) { static::assertInstanceOf(CartSetLineItemCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetLineItemCustomTypeAction::class, $update->getActions()->current());
@@ -632,7 +632,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetLineItemPriceCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setLineItemPrice(function ($action) { static::assertInstanceOf(CartSetLineItemPriceAction::class, $action); return $action; });
+        $builder->setLineItemPrice(function($action) { static::assertInstanceOf(CartSetLineItemPriceAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetLineItemPriceAction::class, $update->getActions()->current());
@@ -648,7 +648,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetLineItemTaxAmountCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setLineItemTaxAmount(function ($action) { static::assertInstanceOf(CartSetLineItemTaxAmountAction::class, $action); return $action; });
+        $builder->setLineItemTaxAmount(function($action) { static::assertInstanceOf(CartSetLineItemTaxAmountAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetLineItemTaxAmountAction::class, $update->getActions()->current());
@@ -664,7 +664,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetLineItemTaxRateCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setLineItemTaxRate(function ($action) { static::assertInstanceOf(CartSetLineItemTaxRateAction::class, $action); return $action; });
+        $builder->setLineItemTaxRate(function($action) { static::assertInstanceOf(CartSetLineItemTaxRateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetLineItemTaxRateAction::class, $update->getActions()->current());
@@ -680,7 +680,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetLineItemTotalPriceCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setLineItemTotalPrice(function ($action) { static::assertInstanceOf(CartSetLineItemTotalPriceAction::class, $action); return $action; });
+        $builder->setLineItemTotalPrice(function($action) { static::assertInstanceOf(CartSetLineItemTotalPriceAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetLineItemTotalPriceAction::class, $update->getActions()->current());
@@ -696,7 +696,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetLocaleCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setLocale(function ($action) { static::assertInstanceOf(CartSetLocaleAction::class, $action); return $action; });
+        $builder->setLocale(function($action) { static::assertInstanceOf(CartSetLocaleAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetLocaleAction::class, $update->getActions()->current());
@@ -712,7 +712,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetShippingAddressCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setShippingAddress(function ($action) { static::assertInstanceOf(CartSetShippingAddressAction::class, $action); return $action; });
+        $builder->setShippingAddress(function($action) { static::assertInstanceOf(CartSetShippingAddressAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetShippingAddressAction::class, $update->getActions()->current());
@@ -728,7 +728,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetShippingMethodCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setShippingMethod(function ($action) { static::assertInstanceOf(CartSetShippingMethodAction::class, $action); return $action; });
+        $builder->setShippingMethod(function($action) { static::assertInstanceOf(CartSetShippingMethodAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetShippingMethodAction::class, $update->getActions()->current());
@@ -744,7 +744,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetShippingMethodTaxAmountCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setShippingMethodTaxAmount(function ($action) { static::assertInstanceOf(CartSetShippingMethodTaxAmountAction::class, $action); return $action; });
+        $builder->setShippingMethodTaxAmount(function($action) { static::assertInstanceOf(CartSetShippingMethodTaxAmountAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetShippingMethodTaxAmountAction::class, $update->getActions()->current());
@@ -760,7 +760,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetShippingMethodTaxRateCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setShippingMethodTaxRate(function ($action) { static::assertInstanceOf(CartSetShippingMethodTaxRateAction::class, $action); return $action; });
+        $builder->setShippingMethodTaxRate(function($action) { static::assertInstanceOf(CartSetShippingMethodTaxRateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetShippingMethodTaxRateAction::class, $update->getActions()->current());
@@ -776,7 +776,7 @@ class CartBuilderTest extends TestCase {
 
     public function testSetShippingRateInputCallback() {
         $builder = new CartUpdateBuilder();
-        $builder->setShippingRateInput(function ($action) { static::assertInstanceOf(CartSetShippingRateInputAction::class, $action); return $action; });
+        $builder->setShippingRateInput(function($action) { static::assertInstanceOf(CartSetShippingRateInputAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CartUpdate::class, $update);
         static::assertInstanceOf(CartSetShippingRateInputAction::class, $update->getActions()->current());

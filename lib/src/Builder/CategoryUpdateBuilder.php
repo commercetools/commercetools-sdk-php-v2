@@ -58,7 +58,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
 
     /**
      * @param CategoryAddAssetAction|callable $action builder function <code>
-     *   function (CategoryAddAssetAction $action): CategoryAddAssetAction {
+     *   function(CategoryAddAssetAction $action): CategoryAddAssetAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -75,7 +75,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategoryChangeAssetNameAction|callable $action builder function <code>
-     *   function (CategoryChangeAssetNameAction $action): CategoryChangeAssetNameAction {
+     *   function(CategoryChangeAssetNameAction $action): CategoryChangeAssetNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -92,7 +92,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategoryChangeAssetOrderAction|callable $action builder function <code>
-     *   function (CategoryChangeAssetOrderAction $action): CategoryChangeAssetOrderAction {
+     *   function(CategoryChangeAssetOrderAction $action): CategoryChangeAssetOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -109,7 +109,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategoryChangeNameAction|callable $action builder function <code>
-     *   function (CategoryChangeNameAction $action): CategoryChangeNameAction {
+     *   function(CategoryChangeNameAction $action): CategoryChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -126,7 +126,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategoryChangeOrderHintAction|callable $action builder function <code>
-     *   function (CategoryChangeOrderHintAction $action): CategoryChangeOrderHintAction {
+     *   function(CategoryChangeOrderHintAction $action): CategoryChangeOrderHintAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -143,7 +143,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategoryChangeParentAction|callable $action builder function <code>
-     *   function (CategoryChangeParentAction $action): CategoryChangeParentAction {
+     *   function(CategoryChangeParentAction $action): CategoryChangeParentAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -160,7 +160,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategoryChangeSlugAction|callable $action builder function <code>
-     *   function (CategoryChangeSlugAction $action): CategoryChangeSlugAction {
+     *   function(CategoryChangeSlugAction $action): CategoryChangeSlugAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -177,7 +177,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategoryRemoveAssetAction|callable $action builder function <code>
-     *   function (CategoryRemoveAssetAction $action): CategoryRemoveAssetAction {
+     *   function(CategoryRemoveAssetAction $action): CategoryRemoveAssetAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -194,7 +194,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetAssetCustomFieldAction|callable $action builder function <code>
-     *   function (CategorySetAssetCustomFieldAction $action): CategorySetAssetCustomFieldAction {
+     *   function(CategorySetAssetCustomFieldAction $action): CategorySetAssetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -211,7 +211,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetAssetCustomTypeAction|callable $action builder function <code>
-     *   function (CategorySetAssetCustomTypeAction $action): CategorySetAssetCustomTypeAction {
+     *   function(CategorySetAssetCustomTypeAction $action): CategorySetAssetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -228,7 +228,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetAssetDescriptionAction|callable $action builder function <code>
-     *   function (CategorySetAssetDescriptionAction $action): CategorySetAssetDescriptionAction {
+     *   function(CategorySetAssetDescriptionAction $action): CategorySetAssetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -245,7 +245,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetAssetKeyAction|callable $action builder function <code>
-     *   function (CategorySetAssetKeyAction $action): CategorySetAssetKeyAction {
+     *   function(CategorySetAssetKeyAction $action): CategorySetAssetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -262,7 +262,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetAssetSourcesAction|callable $action builder function <code>
-     *   function (CategorySetAssetSourcesAction $action): CategorySetAssetSourcesAction {
+     *   function(CategorySetAssetSourcesAction $action): CategorySetAssetSourcesAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -279,7 +279,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetAssetTagsAction|callable $action builder function <code>
-     *   function (CategorySetAssetTagsAction $action): CategorySetAssetTagsAction {
+     *   function(CategorySetAssetTagsAction $action): CategorySetAssetTagsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -296,7 +296,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetCustomFieldAction|callable $action builder function <code>
-     *   function (CategorySetCustomFieldAction $action): CategorySetCustomFieldAction {
+     *   function(CategorySetCustomFieldAction $action): CategorySetCustomFieldAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -313,7 +313,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetCustomTypeAction|callable $action builder function <code>
-     *   function (CategorySetCustomTypeAction $action): CategorySetCustomTypeAction {
+     *   function(CategorySetCustomTypeAction $action): CategorySetCustomTypeAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -330,7 +330,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetDescriptionAction|callable $action builder function <code>
-     *   function (CategorySetDescriptionAction $action): CategorySetDescriptionAction {
+     *   function(CategorySetDescriptionAction $action): CategorySetDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -347,7 +347,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetExternalIdAction|callable $action builder function <code>
-     *   function (CategorySetExternalIdAction $action): CategorySetExternalIdAction {
+     *   function(CategorySetExternalIdAction $action): CategorySetExternalIdAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -364,7 +364,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetKeyAction|callable $action builder function <code>
-     *   function (CategorySetKeyAction $action): CategorySetKeyAction {
+     *   function(CategorySetKeyAction $action): CategorySetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -381,7 +381,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetMetaDescriptionAction|callable $action builder function <code>
-     *   function (CategorySetMetaDescriptionAction $action): CategorySetMetaDescriptionAction {
+     *   function(CategorySetMetaDescriptionAction $action): CategorySetMetaDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -398,7 +398,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetMetaKeywordsAction|callable $action builder function <code>
-     *   function (CategorySetMetaKeywordsAction $action): CategorySetMetaKeywordsAction {
+     *   function(CategorySetMetaKeywordsAction $action): CategorySetMetaKeywordsAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -415,7 +415,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param CategorySetMetaTitleAction|callable $action builder function <code>
-     *   function (CategorySetMetaTitleAction $action): CategorySetMetaTitleAction {
+     *   function(CategorySetMetaTitleAction $action): CategorySetMetaTitleAction {
      *     // modify action as needed
      *     return $action;
      *   }

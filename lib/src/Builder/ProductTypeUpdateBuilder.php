@@ -53,7 +53,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
 
     /**
      * @param ProductTypeAddAttributeDefinitionAction|callable $action builder function <code>
-     *   function (ProductTypeAddAttributeDefinitionAction $action): ProductTypeAddAttributeDefinitionAction {
+     *   function(ProductTypeAddAttributeDefinitionAction $action): ProductTypeAddAttributeDefinitionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -70,7 +70,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeAddLocalizedEnumValueAction|callable $action builder function <code>
-     *   function (ProductTypeAddLocalizedEnumValueAction $action): ProductTypeAddLocalizedEnumValueAction {
+     *   function(ProductTypeAddLocalizedEnumValueAction $action): ProductTypeAddLocalizedEnumValueAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -87,7 +87,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeAddPlainEnumValueAction|callable $action builder function <code>
-     *   function (ProductTypeAddPlainEnumValueAction $action): ProductTypeAddPlainEnumValueAction {
+     *   function(ProductTypeAddPlainEnumValueAction $action): ProductTypeAddPlainEnumValueAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -104,7 +104,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangeAttributeConstraintAction|callable $action builder function <code>
-     *   function (ProductTypeChangeAttributeConstraintAction $action): ProductTypeChangeAttributeConstraintAction {
+     *   function(ProductTypeChangeAttributeConstraintAction $action): ProductTypeChangeAttributeConstraintAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -121,7 +121,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangeAttributeOrderAction|callable $action builder function <code>
-     *   function (ProductTypeChangeAttributeOrderAction $action): ProductTypeChangeAttributeOrderAction {
+     *   function(ProductTypeChangeAttributeOrderAction $action): ProductTypeChangeAttributeOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -138,7 +138,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangeDescriptionAction|callable $action builder function <code>
-     *   function (ProductTypeChangeDescriptionAction $action): ProductTypeChangeDescriptionAction {
+     *   function(ProductTypeChangeDescriptionAction $action): ProductTypeChangeDescriptionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -155,7 +155,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangeInputHintAction|callable $action builder function <code>
-     *   function (ProductTypeChangeInputHintAction $action): ProductTypeChangeInputHintAction {
+     *   function(ProductTypeChangeInputHintAction $action): ProductTypeChangeInputHintAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -172,7 +172,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangeIsSearchableAction|callable $action builder function <code>
-     *   function (ProductTypeChangeIsSearchableAction $action): ProductTypeChangeIsSearchableAction {
+     *   function(ProductTypeChangeIsSearchableAction $action): ProductTypeChangeIsSearchableAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -189,7 +189,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangeLabelAction|callable $action builder function <code>
-     *   function (ProductTypeChangeLabelAction $action): ProductTypeChangeLabelAction {
+     *   function(ProductTypeChangeLabelAction $action): ProductTypeChangeLabelAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -206,7 +206,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangeLocalizedEnumValueLabelAction|callable $action builder function <code>
-     *   function (ProductTypeChangeLocalizedEnumValueLabelAction $action): ProductTypeChangeLocalizedEnumValueLabelAction {
+     *   function(ProductTypeChangeLocalizedEnumValueLabelAction $action): ProductTypeChangeLocalizedEnumValueLabelAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -223,7 +223,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangeLocalizedEnumValueOrderAction|callable $action builder function <code>
-     *   function (ProductTypeChangeLocalizedEnumValueOrderAction $action): ProductTypeChangeLocalizedEnumValueOrderAction {
+     *   function(ProductTypeChangeLocalizedEnumValueOrderAction $action): ProductTypeChangeLocalizedEnumValueOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -240,7 +240,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangeNameAction|callable $action builder function <code>
-     *   function (ProductTypeChangeNameAction $action): ProductTypeChangeNameAction {
+     *   function(ProductTypeChangeNameAction $action): ProductTypeChangeNameAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -257,7 +257,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangePlainEnumValueLabelAction|callable $action builder function <code>
-     *   function (ProductTypeChangePlainEnumValueLabelAction $action): ProductTypeChangePlainEnumValueLabelAction {
+     *   function(ProductTypeChangePlainEnumValueLabelAction $action): ProductTypeChangePlainEnumValueLabelAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -274,7 +274,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeChangePlainEnumValueOrderAction|callable $action builder function <code>
-     *   function (ProductTypeChangePlainEnumValueOrderAction $action): ProductTypeChangePlainEnumValueOrderAction {
+     *   function(ProductTypeChangePlainEnumValueOrderAction $action): ProductTypeChangePlainEnumValueOrderAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -291,7 +291,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeRemoveAttributeDefinitionAction|callable $action builder function <code>
-     *   function (ProductTypeRemoveAttributeDefinitionAction $action): ProductTypeRemoveAttributeDefinitionAction {
+     *   function(ProductTypeRemoveAttributeDefinitionAction $action): ProductTypeRemoveAttributeDefinitionAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -308,7 +308,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeSetInputTipAction|callable $action builder function <code>
-     *   function (ProductTypeSetInputTipAction $action): ProductTypeSetInputTipAction {
+     *   function(ProductTypeSetInputTipAction $action): ProductTypeSetInputTipAction {
      *     // modify action as needed
      *     return $action;
      *   }
@@ -325,7 +325,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     }
     /**
      * @param ProductTypeSetKeyAction|callable $action builder function <code>
-     *   function (ProductTypeSetKeyAction $action): ProductTypeSetKeyAction {
+     *   function(ProductTypeSetKeyAction $action): ProductTypeSetKeyAction {
      *     // modify action as needed
      *     return $action;
      *   }

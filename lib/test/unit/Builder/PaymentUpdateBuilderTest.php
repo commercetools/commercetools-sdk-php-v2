@@ -60,7 +60,7 @@ use PHPUnit\Framework\TestCase;
 class PaymentBuilderTest extends TestCase {
     public function testAddInterfaceInteractionCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->addInterfaceInteraction(function ($action) { static::assertInstanceOf(PaymentAddInterfaceInteractionAction::class, $action); return $action; });
+        $builder->addInterfaceInteraction(function($action) { static::assertInstanceOf(PaymentAddInterfaceInteractionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentAddInterfaceInteractionAction::class, $update->getActions()->current());
@@ -76,7 +76,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testAddTransactionCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->addTransaction(function ($action) { static::assertInstanceOf(PaymentAddTransactionAction::class, $action); return $action; });
+        $builder->addTransaction(function($action) { static::assertInstanceOf(PaymentAddTransactionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentAddTransactionAction::class, $update->getActions()->current());
@@ -92,7 +92,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testChangeAmountPlannedCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->changeAmountPlanned(function ($action) { static::assertInstanceOf(PaymentChangeAmountPlannedAction::class, $action); return $action; });
+        $builder->changeAmountPlanned(function($action) { static::assertInstanceOf(PaymentChangeAmountPlannedAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentChangeAmountPlannedAction::class, $update->getActions()->current());
@@ -108,7 +108,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testChangeTransactionInteractionIdCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->changeTransactionInteractionId(function ($action) { static::assertInstanceOf(PaymentChangeTransactionInteractionIdAction::class, $action); return $action; });
+        $builder->changeTransactionInteractionId(function($action) { static::assertInstanceOf(PaymentChangeTransactionInteractionIdAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentChangeTransactionInteractionIdAction::class, $update->getActions()->current());
@@ -124,7 +124,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testChangeTransactionStateCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->changeTransactionState(function ($action) { static::assertInstanceOf(PaymentChangeTransactionStateAction::class, $action); return $action; });
+        $builder->changeTransactionState(function($action) { static::assertInstanceOf(PaymentChangeTransactionStateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentChangeTransactionStateAction::class, $update->getActions()->current());
@@ -140,7 +140,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testChangeTransactionTimestampCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->changeTransactionTimestamp(function ($action) { static::assertInstanceOf(PaymentChangeTransactionTimestampAction::class, $action); return $action; });
+        $builder->changeTransactionTimestamp(function($action) { static::assertInstanceOf(PaymentChangeTransactionTimestampAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentChangeTransactionTimestampAction::class, $update->getActions()->current());
@@ -156,7 +156,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetAmountPaidCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setAmountPaid(function ($action) { static::assertInstanceOf(PaymentSetAmountPaidAction::class, $action); return $action; });
+        $builder->setAmountPaid(function($action) { static::assertInstanceOf(PaymentSetAmountPaidAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetAmountPaidAction::class, $update->getActions()->current());
@@ -172,7 +172,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetAmountRefundedCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setAmountRefunded(function ($action) { static::assertInstanceOf(PaymentSetAmountRefundedAction::class, $action); return $action; });
+        $builder->setAmountRefunded(function($action) { static::assertInstanceOf(PaymentSetAmountRefundedAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetAmountRefundedAction::class, $update->getActions()->current());
@@ -188,7 +188,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetAuthorizationCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setAuthorization(function ($action) { static::assertInstanceOf(PaymentSetAuthorizationAction::class, $action); return $action; });
+        $builder->setAuthorization(function($action) { static::assertInstanceOf(PaymentSetAuthorizationAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetAuthorizationAction::class, $update->getActions()->current());
@@ -204,7 +204,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetCustomFieldCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setCustomField(function ($action) { static::assertInstanceOf(PaymentSetCustomFieldAction::class, $action); return $action; });
+        $builder->setCustomField(function($action) { static::assertInstanceOf(PaymentSetCustomFieldAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetCustomFieldAction::class, $update->getActions()->current());
@@ -220,7 +220,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetCustomTypeCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setCustomType(function ($action) { static::assertInstanceOf(PaymentSetCustomTypeAction::class, $action); return $action; });
+        $builder->setCustomType(function($action) { static::assertInstanceOf(PaymentSetCustomTypeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetCustomTypeAction::class, $update->getActions()->current());
@@ -236,7 +236,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetCustomerCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setCustomer(function ($action) { static::assertInstanceOf(PaymentSetCustomerAction::class, $action); return $action; });
+        $builder->setCustomer(function($action) { static::assertInstanceOf(PaymentSetCustomerAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetCustomerAction::class, $update->getActions()->current());
@@ -252,7 +252,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetExternalIdCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setExternalId(function ($action) { static::assertInstanceOf(PaymentSetExternalIdAction::class, $action); return $action; });
+        $builder->setExternalId(function($action) { static::assertInstanceOf(PaymentSetExternalIdAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetExternalIdAction::class, $update->getActions()->current());
@@ -268,7 +268,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetInterfaceIdCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setInterfaceId(function ($action) { static::assertInstanceOf(PaymentSetInterfaceIdAction::class, $action); return $action; });
+        $builder->setInterfaceId(function($action) { static::assertInstanceOf(PaymentSetInterfaceIdAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetInterfaceIdAction::class, $update->getActions()->current());
@@ -284,7 +284,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(PaymentSetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(PaymentSetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetKeyAction::class, $update->getActions()->current());
@@ -300,7 +300,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetMethodInfoInterfaceCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setMethodInfoInterface(function ($action) { static::assertInstanceOf(PaymentSetMethodInfoInterfaceAction::class, $action); return $action; });
+        $builder->setMethodInfoInterface(function($action) { static::assertInstanceOf(PaymentSetMethodInfoInterfaceAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetMethodInfoInterfaceAction::class, $update->getActions()->current());
@@ -316,7 +316,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetMethodInfoMethodCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setMethodInfoMethod(function ($action) { static::assertInstanceOf(PaymentSetMethodInfoMethodAction::class, $action); return $action; });
+        $builder->setMethodInfoMethod(function($action) { static::assertInstanceOf(PaymentSetMethodInfoMethodAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetMethodInfoMethodAction::class, $update->getActions()->current());
@@ -332,7 +332,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetMethodInfoNameCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setMethodInfoName(function ($action) { static::assertInstanceOf(PaymentSetMethodInfoNameAction::class, $action); return $action; });
+        $builder->setMethodInfoName(function($action) { static::assertInstanceOf(PaymentSetMethodInfoNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetMethodInfoNameAction::class, $update->getActions()->current());
@@ -348,7 +348,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetStatusInterfaceCodeCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setStatusInterfaceCode(function ($action) { static::assertInstanceOf(PaymentSetStatusInterfaceCodeAction::class, $action); return $action; });
+        $builder->setStatusInterfaceCode(function($action) { static::assertInstanceOf(PaymentSetStatusInterfaceCodeAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetStatusInterfaceCodeAction::class, $update->getActions()->current());
@@ -364,7 +364,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testSetStatusInterfaceTextCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->setStatusInterfaceText(function ($action) { static::assertInstanceOf(PaymentSetStatusInterfaceTextAction::class, $action); return $action; });
+        $builder->setStatusInterfaceText(function($action) { static::assertInstanceOf(PaymentSetStatusInterfaceTextAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentSetStatusInterfaceTextAction::class, $update->getActions()->current());
@@ -380,7 +380,7 @@ class PaymentBuilderTest extends TestCase {
 
     public function testTransitionStateCallback() {
         $builder = new PaymentUpdateBuilder();
-        $builder->transitionState(function ($action) { static::assertInstanceOf(PaymentTransitionStateAction::class, $action); return $action; });
+        $builder->transitionState(function($action) { static::assertInstanceOf(PaymentTransitionStateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(PaymentUpdate::class, $update);
         static::assertInstanceOf(PaymentTransitionStateAction::class, $update->getActions()->current());

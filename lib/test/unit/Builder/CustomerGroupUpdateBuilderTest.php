@@ -22,7 +22,7 @@ use PHPUnit\Framework\TestCase;
 class CustomerGroupBuilderTest extends TestCase {
     public function testChangeNameCallback() {
         $builder = new CustomerGroupUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(CustomerGroupChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(CustomerGroupChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CustomerGroupUpdate::class, $update);
         static::assertInstanceOf(CustomerGroupChangeNameAction::class, $update->getActions()->current());
@@ -38,7 +38,7 @@ class CustomerGroupBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new CustomerGroupUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(CustomerGroupSetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(CustomerGroupSetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(CustomerGroupUpdate::class, $update);
         static::assertInstanceOf(CustomerGroupSetKeyAction::class, $update->getActions()->current());

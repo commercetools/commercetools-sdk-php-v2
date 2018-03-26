@@ -30,7 +30,7 @@ use PHPUnit\Framework\TestCase;
 class TaxCategoryBuilderTest extends TestCase {
     public function testAddTaxRateCallback() {
         $builder = new TaxCategoryUpdateBuilder();
-        $builder->addTaxRate(function ($action) { static::assertInstanceOf(TaxCategoryAddTaxRateAction::class, $action); return $action; });
+        $builder->addTaxRate(function($action) { static::assertInstanceOf(TaxCategoryAddTaxRateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategoryAddTaxRateAction::class, $update->getActions()->current());
@@ -46,7 +46,7 @@ class TaxCategoryBuilderTest extends TestCase {
 
     public function testChangeNameCallback() {
         $builder = new TaxCategoryUpdateBuilder();
-        $builder->changeName(function ($action) { static::assertInstanceOf(TaxCategoryChangeNameAction::class, $action); return $action; });
+        $builder->changeName(function($action) { static::assertInstanceOf(TaxCategoryChangeNameAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategoryChangeNameAction::class, $update->getActions()->current());
@@ -62,7 +62,7 @@ class TaxCategoryBuilderTest extends TestCase {
 
     public function testRemoveTaxRateCallback() {
         $builder = new TaxCategoryUpdateBuilder();
-        $builder->removeTaxRate(function ($action) { static::assertInstanceOf(TaxCategoryRemoveTaxRateAction::class, $action); return $action; });
+        $builder->removeTaxRate(function($action) { static::assertInstanceOf(TaxCategoryRemoveTaxRateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategoryRemoveTaxRateAction::class, $update->getActions()->current());
@@ -78,7 +78,7 @@ class TaxCategoryBuilderTest extends TestCase {
 
     public function testReplaceTaxRateCallback() {
         $builder = new TaxCategoryUpdateBuilder();
-        $builder->replaceTaxRate(function ($action) { static::assertInstanceOf(TaxCategoryReplaceTaxRateAction::class, $action); return $action; });
+        $builder->replaceTaxRate(function($action) { static::assertInstanceOf(TaxCategoryReplaceTaxRateAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategoryReplaceTaxRateAction::class, $update->getActions()->current());
@@ -94,7 +94,7 @@ class TaxCategoryBuilderTest extends TestCase {
 
     public function testSetDescriptionCallback() {
         $builder = new TaxCategoryUpdateBuilder();
-        $builder->setDescription(function ($action) { static::assertInstanceOf(TaxCategorySetDescriptionAction::class, $action); return $action; });
+        $builder->setDescription(function($action) { static::assertInstanceOf(TaxCategorySetDescriptionAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategorySetDescriptionAction::class, $update->getActions()->current());
@@ -110,7 +110,7 @@ class TaxCategoryBuilderTest extends TestCase {
 
     public function testSetKeyCallback() {
         $builder = new TaxCategoryUpdateBuilder();
-        $builder->setKey(function ($action) { static::assertInstanceOf(TaxCategorySetKeyAction::class, $action); return $action; });
+        $builder->setKey(function($action) { static::assertInstanceOf(TaxCategorySetKeyAction::class, $action); return $action; });
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategorySetKeyAction::class, $update->getActions()->current());
