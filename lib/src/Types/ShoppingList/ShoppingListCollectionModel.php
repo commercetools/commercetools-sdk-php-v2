@@ -46,7 +46,8 @@ class ShoppingListCollectionModel extends JsonCollection implements ShoppingList
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return ShoppingList
      */
     public function byId($id)
     {

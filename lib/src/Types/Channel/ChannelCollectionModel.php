@@ -46,7 +46,8 @@ class ChannelCollectionModel extends JsonCollection implements ChannelCollection
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Channel
      */
     public function byId($id)
     {

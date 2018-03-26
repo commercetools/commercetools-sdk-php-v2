@@ -46,7 +46,8 @@ class ZoneCollectionModel extends JsonCollection implements ZoneCollection {
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Zone
      */
     public function byId($id)
     {

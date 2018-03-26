@@ -46,7 +46,8 @@ class TaxCategoryCollectionModel extends JsonCollection implements TaxCategoryCo
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return TaxCategory
      */
     public function byId($id)
     {

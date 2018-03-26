@@ -46,7 +46,8 @@ class CategoryCollectionModel extends JsonCollection implements CategoryCollecti
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Category
      */
     public function byId($id)
     {

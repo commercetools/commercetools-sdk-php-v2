@@ -46,7 +46,8 @@ class CustomObjectCollectionModel extends JsonCollection implements CustomObject
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return CustomObject
      */
     public function byId($id)
     {

@@ -46,7 +46,8 @@ class CartCollectionModel extends JsonCollection implements CartCollection {
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Cart
      */
     public function byId($id)
     {

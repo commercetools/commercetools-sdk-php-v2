@@ -46,7 +46,8 @@ class TypeCollectionModel extends JsonCollection implements TypeCollection {
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Type
      */
     public function byId($id)
     {

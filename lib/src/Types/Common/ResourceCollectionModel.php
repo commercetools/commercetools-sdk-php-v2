@@ -46,7 +46,8 @@ class ResourceCollectionModel extends JsonCollection implements ResourceCollecti
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Resource
      */
     public function byId($id)
     {

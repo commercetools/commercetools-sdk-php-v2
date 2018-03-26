@@ -46,7 +46,8 @@ class OrderCollectionModel extends JsonCollection implements OrderCollection {
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Order
      */
     public function byId($id)
     {

@@ -46,7 +46,8 @@ class PaymentCollectionModel extends JsonCollection implements PaymentCollection
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Payment
      */
     public function byId($id)
     {

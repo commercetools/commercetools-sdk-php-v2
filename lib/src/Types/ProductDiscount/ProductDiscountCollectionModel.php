@@ -46,7 +46,8 @@ class ProductDiscountCollectionModel extends JsonCollection implements ProductDi
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return ProductDiscount
      */
     public function byId($id)
     {

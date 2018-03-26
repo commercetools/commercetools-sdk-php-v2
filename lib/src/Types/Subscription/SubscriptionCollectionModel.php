@@ -46,7 +46,8 @@ class SubscriptionCollectionModel extends JsonCollection implements Subscription
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Subscription
      */
     public function byId($id)
     {

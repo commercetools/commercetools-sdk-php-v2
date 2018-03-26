@@ -46,7 +46,8 @@ class ExtensionCollectionModel extends JsonCollection implements ExtensionCollec
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Extension
      */
     public function byId($id)
     {

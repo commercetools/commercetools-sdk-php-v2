@@ -46,7 +46,8 @@ class ProductProjectionCollectionModel extends JsonCollection implements Product
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return ProductProjection
      */
     public function byId($id)
     {

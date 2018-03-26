@@ -46,7 +46,8 @@ class InventoryEntryCollectionModel extends JsonCollection implements InventoryE
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return InventoryEntry
      */
     public function byId($id)
     {

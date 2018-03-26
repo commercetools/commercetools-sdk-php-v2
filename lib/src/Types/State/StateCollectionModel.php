@@ -46,7 +46,8 @@ class StateCollectionModel extends JsonCollection implements StateCollection {
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return State
      */
     public function byId($id)
     {

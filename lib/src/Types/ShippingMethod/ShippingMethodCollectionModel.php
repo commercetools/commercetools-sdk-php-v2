@@ -46,7 +46,8 @@ class ShippingMethodCollectionModel extends JsonCollection implements ShippingMe
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return ShippingMethod
      */
     public function byId($id)
     {

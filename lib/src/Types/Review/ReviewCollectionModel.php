@@ -46,7 +46,8 @@ class ReviewCollectionModel extends JsonCollection implements ReviewCollection {
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Review
      */
     public function byId($id)
     {

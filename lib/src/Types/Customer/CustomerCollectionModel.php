@@ -46,7 +46,8 @@ class CustomerCollectionModel extends JsonCollection implements CustomerCollecti
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return Customer
      */
     public function byId($id)
     {

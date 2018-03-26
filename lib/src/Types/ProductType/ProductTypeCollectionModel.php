@@ -46,7 +46,8 @@ class ProductTypeCollectionModel extends JsonCollection implements ProductTypeCo
     }
 
     /**
-     * @return string
+     * @param string $id
+     * @return ProductType
      */
     public function byId($id)
     {
