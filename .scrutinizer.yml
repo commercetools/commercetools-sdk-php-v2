@@ -23,3 +23,11 @@ build:
                             format: 'php-clover'
 checks:
     php: true
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                multiplicative: false
+                concatenation: true
+            other:
+                after_type_cast: false
