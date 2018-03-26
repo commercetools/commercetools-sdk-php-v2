@@ -53,14 +53,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function addQuantity($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(InventoryAddQuantityAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof InventoryAddQuantityAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(InventoryAddQuantityAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -77,14 +70,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function changeQuantity($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(InventoryChangeQuantityAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof InventoryChangeQuantityAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(InventoryChangeQuantityAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -101,14 +87,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function removeQuantity($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(InventoryRemoveQuantityAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof InventoryRemoveQuantityAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(InventoryRemoveQuantityAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -125,14 +104,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(InventorySetCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof InventorySetCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(InventorySetCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -149,14 +121,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(InventorySetCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof InventorySetCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(InventorySetCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -173,14 +138,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setExpectedDelivery($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(InventorySetExpectedDeliveryAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof InventorySetExpectedDeliveryAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(InventorySetExpectedDeliveryAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -197,14 +155,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setRestockableInDays($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(InventorySetRestockableInDaysAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof InventorySetRestockableInDaysAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(InventorySetRestockableInDaysAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -221,14 +172,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setSupplyChannel($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(InventorySetSupplyChannelAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof InventorySetSupplyChannelAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(InventorySetSupplyChannelAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -243,6 +187,19 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

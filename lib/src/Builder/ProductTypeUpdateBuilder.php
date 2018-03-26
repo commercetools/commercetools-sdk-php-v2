@@ -62,14 +62,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function addAttributeDefinition($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeAddAttributeDefinitionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeAddAttributeDefinitionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeAddAttributeDefinitionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -86,14 +79,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function addLocalizedEnumValue($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeAddLocalizedEnumValueAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeAddLocalizedEnumValueAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeAddLocalizedEnumValueAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -110,14 +96,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function addPlainEnumValue($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeAddPlainEnumValueAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeAddPlainEnumValueAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeAddPlainEnumValueAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -134,14 +113,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeAttributeConstraint($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangeAttributeConstraintAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangeAttributeConstraintAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangeAttributeConstraintAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -158,14 +130,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeAttributeOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangeAttributeOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangeAttributeOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangeAttributeOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -182,14 +147,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangeDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangeDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangeDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -206,14 +164,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeInputHint($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangeInputHintAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangeInputHintAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangeInputHintAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -230,14 +181,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeIsSearchable($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangeIsSearchableAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangeIsSearchableAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangeIsSearchableAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -254,14 +198,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLabel($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangeLabelAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangeLabelAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangeLabelAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -278,14 +215,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLocalizedEnumValueLabel($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangeLocalizedEnumValueLabelAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangeLocalizedEnumValueLabelAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangeLocalizedEnumValueLabelAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -302,14 +232,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLocalizedEnumValueOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangeLocalizedEnumValueOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangeLocalizedEnumValueOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangeLocalizedEnumValueOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -326,14 +249,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -350,14 +266,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changePlainEnumValueLabel($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangePlainEnumValueLabelAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangePlainEnumValueLabelAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangePlainEnumValueLabelAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -374,14 +283,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changePlainEnumValueOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeChangePlainEnumValueOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeChangePlainEnumValueOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeChangePlainEnumValueOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -398,14 +300,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function removeAttributeDefinition($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeRemoveAttributeDefinitionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeRemoveAttributeDefinitionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeRemoveAttributeDefinitionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -422,14 +317,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function setInputTip($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeSetInputTipAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeSetInputTipAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeSetInputTipAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -446,14 +334,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTypeSetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTypeSetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTypeSetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -468,6 +349,19 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

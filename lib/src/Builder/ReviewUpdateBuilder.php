@@ -56,14 +56,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setAuthorName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetAuthorNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetAuthorNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetAuthorNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -80,14 +73,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -104,14 +90,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -128,14 +107,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setCustomer($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetCustomerAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetCustomerAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetCustomerAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -152,14 +124,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -176,14 +141,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setLocale($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetLocaleAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetLocaleAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetLocaleAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -200,14 +158,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setRating($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetRatingAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetRatingAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetRatingAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -224,14 +175,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setTarget($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetTargetAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetTargetAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetTargetAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -248,14 +192,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setText($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetTextAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetTextAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetTextAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -272,14 +209,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setTitle($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewSetTitleAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewSetTitleAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewSetTitleAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -296,14 +226,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function transitionState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ReviewTransitionStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ReviewTransitionStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ReviewTransitionStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -318,6 +241,19 @@ class ReviewUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

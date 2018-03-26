@@ -51,14 +51,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function addTaxRate($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TaxCategoryAddTaxRateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TaxCategoryAddTaxRateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TaxCategoryAddTaxRateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -75,14 +68,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TaxCategoryChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TaxCategoryChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TaxCategoryChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -99,14 +85,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function removeTaxRate($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TaxCategoryRemoveTaxRateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TaxCategoryRemoveTaxRateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TaxCategoryRemoveTaxRateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -123,14 +102,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function replaceTaxRate($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TaxCategoryReplaceTaxRateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TaxCategoryReplaceTaxRateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TaxCategoryReplaceTaxRateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -147,14 +119,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TaxCategorySetDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TaxCategorySetDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TaxCategorySetDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -171,14 +136,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TaxCategorySetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TaxCategorySetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TaxCategorySetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -193,6 +151,19 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

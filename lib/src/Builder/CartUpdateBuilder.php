@@ -88,14 +88,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addCustomLineItem($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartAddCustomLineItemAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartAddCustomLineItemAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartAddCustomLineItemAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -112,14 +105,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addDiscountCode($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartAddDiscountCodeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartAddDiscountCodeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartAddDiscountCodeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -136,14 +122,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addLineItem($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartAddLineItemAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartAddLineItemAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartAddLineItemAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -160,14 +139,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addPayment($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartAddPaymentAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartAddPaymentAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartAddPaymentAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -184,14 +156,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addShoppingList($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartAddShoppingListAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartAddShoppingListAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartAddShoppingListAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -208,14 +173,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeCustomLineItemMoney($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartChangeCustomLineItemMoneyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartChangeCustomLineItemMoneyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartChangeCustomLineItemMoneyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -232,14 +190,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeCustomLineItemQuantity($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartChangeCustomLineItemQuantityAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartChangeCustomLineItemQuantityAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartChangeCustomLineItemQuantityAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -256,14 +207,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeLineItemQuantity($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartChangeLineItemQuantityAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartChangeLineItemQuantityAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartChangeLineItemQuantityAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -280,14 +224,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeTaxCalculationMode($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartChangeTaxCalculationModeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartChangeTaxCalculationModeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartChangeTaxCalculationModeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -304,14 +241,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeTaxMode($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartChangeTaxModeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartChangeTaxModeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartChangeTaxModeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -328,14 +258,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeTaxRoundingMode($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartChangeTaxRoundingModeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartChangeTaxRoundingModeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartChangeTaxRoundingModeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -352,14 +275,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function recalculate($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartRecalculateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartRecalculateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartRecalculateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -376,14 +292,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function removeCustomLineItem($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartRemoveCustomLineItemAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartRemoveCustomLineItemAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartRemoveCustomLineItemAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -400,14 +309,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function removeDiscountCode($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartRemoveDiscountCodeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartRemoveDiscountCodeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartRemoveDiscountCodeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -424,14 +326,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function removeLineItem($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartRemoveLineItemAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartRemoveLineItemAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartRemoveLineItemAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -448,14 +343,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function removePayment($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartRemovePaymentAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartRemovePaymentAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartRemovePaymentAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -472,14 +360,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setAnonymousId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetAnonymousIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetAnonymousIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetAnonymousIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -496,14 +377,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setBillingAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetBillingAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetBillingAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetBillingAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -520,14 +394,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCartTotalTax($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCartTotalTaxAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCartTotalTaxAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCartTotalTaxAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -544,14 +411,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCountry($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCountryAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCountryAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCountryAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -568,14 +428,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -592,14 +445,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomLineItemCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomLineItemCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomLineItemCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -616,14 +462,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomLineItemCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomLineItemCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomLineItemCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -640,14 +479,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemTaxAmount($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomLineItemTaxAmountAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomLineItemTaxAmountAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomLineItemTaxAmountAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -664,14 +496,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemTaxRate($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomLineItemTaxRateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomLineItemTaxRateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomLineItemTaxRateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -688,14 +513,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomShippingMethod($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomShippingMethodAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomShippingMethodAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomShippingMethodAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -712,14 +530,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -736,14 +547,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerEmail($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomerEmailAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomerEmailAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomerEmailAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -760,14 +564,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerGroup($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomerGroupAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomerGroupAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomerGroupAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -784,14 +581,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetCustomerIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetCustomerIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetCustomerIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -808,14 +598,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setDeleteDaysAfterLastModification($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetDeleteDaysAfterLastModificationAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetDeleteDaysAfterLastModificationAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetDeleteDaysAfterLastModificationAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -832,14 +615,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetLineItemCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetLineItemCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetLineItemCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -856,14 +632,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetLineItemCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetLineItemCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetLineItemCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -880,14 +649,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemPrice($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetLineItemPriceAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetLineItemPriceAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetLineItemPriceAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -904,14 +666,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemTaxAmount($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetLineItemTaxAmountAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetLineItemTaxAmountAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetLineItemTaxAmountAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -928,14 +683,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemTaxRate($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetLineItemTaxRateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetLineItemTaxRateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetLineItemTaxRateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -952,14 +700,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemTotalPrice($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetLineItemTotalPriceAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetLineItemTotalPriceAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetLineItemTotalPriceAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -976,14 +717,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLocale($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetLocaleAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetLocaleAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetLocaleAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1000,14 +734,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetShippingAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetShippingAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetShippingAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1024,14 +751,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingMethod($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetShippingMethodAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetShippingMethodAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetShippingMethodAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1048,14 +768,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingMethodTaxAmount($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetShippingMethodTaxAmountAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetShippingMethodTaxAmountAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetShippingMethodTaxAmountAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1072,14 +785,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingMethodTaxRate($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetShippingMethodTaxRateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetShippingMethodTaxRateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetShippingMethodTaxRateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1096,14 +802,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingRateInput($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CartSetShippingRateInputAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CartSetShippingRateInputAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CartSetShippingRateInputAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1118,6 +817,19 @@ class CartUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

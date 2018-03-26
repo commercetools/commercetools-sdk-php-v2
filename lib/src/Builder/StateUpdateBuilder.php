@@ -54,14 +54,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function addRoles($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(StateAddRolesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof StateAddRolesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(StateAddRolesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -78,14 +71,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function changeInitial($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(StateChangeInitialAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof StateChangeInitialAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(StateChangeInitialAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -102,14 +88,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function changeKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(StateChangeKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof StateChangeKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(StateChangeKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -126,14 +105,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function changeType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(StateChangeTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof StateChangeTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(StateChangeTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -150,14 +122,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function removeRoles($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(StateRemoveRolesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof StateRemoveRolesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(StateRemoveRolesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -174,14 +139,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(StateSetDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof StateSetDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(StateSetDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -198,14 +156,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(StateSetNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof StateSetNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(StateSetNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -222,14 +173,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setRoles($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(StateSetRolesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof StateSetRolesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(StateSetRolesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -246,14 +190,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setTransitions($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(StateSetTransitionsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof StateSetTransitionsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(StateSetTransitionsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -268,6 +205,19 @@ class StateUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

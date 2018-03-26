@@ -48,14 +48,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     public function changeDestination($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ExtensionChangeDestinationAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ExtensionChangeDestinationAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ExtensionChangeDestinationAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -72,14 +65,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     public function changeTriggers($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ExtensionChangeTriggersAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ExtensionChangeTriggersAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ExtensionChangeTriggersAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -96,14 +82,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ExtensionSetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ExtensionSetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ExtensionSetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -118,6 +97,19 @@ class ExtensionUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

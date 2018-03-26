@@ -53,14 +53,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeIsActive($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductDiscountChangeIsActiveAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductDiscountChangeIsActiveAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductDiscountChangeIsActiveAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -77,14 +70,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductDiscountChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductDiscountChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductDiscountChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -101,14 +87,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changePredicate($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductDiscountChangePredicateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductDiscountChangePredicateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductDiscountChangePredicateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -125,14 +104,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeSortOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductDiscountChangeSortOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductDiscountChangeSortOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductDiscountChangeSortOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -149,14 +121,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeValue($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductDiscountChangeValueAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductDiscountChangeValueAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductDiscountChangeValueAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -173,14 +138,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductDiscountSetDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductDiscountSetDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductDiscountSetDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -197,14 +155,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setValidFrom($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductDiscountSetValidFromAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductDiscountSetValidFromAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductDiscountSetValidFromAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -221,14 +172,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setValidUntil($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductDiscountSetValidUntilAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductDiscountSetValidUntilAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductDiscountSetValidUntilAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -243,6 +187,19 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

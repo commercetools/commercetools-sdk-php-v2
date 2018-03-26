@@ -47,14 +47,7 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerGroupChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerGroupChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerGroupChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -71,14 +64,7 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerGroupSetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerGroupSetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerGroupSetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -93,6 +79,19 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

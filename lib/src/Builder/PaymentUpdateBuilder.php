@@ -66,14 +66,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function addInterfaceInteraction($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentAddInterfaceInteractionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentAddInterfaceInteractionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentAddInterfaceInteractionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -90,14 +83,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function addTransaction($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentAddTransactionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentAddTransactionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentAddTransactionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -114,14 +100,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function changeAmountPlanned($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentChangeAmountPlannedAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentChangeAmountPlannedAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentChangeAmountPlannedAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -138,14 +117,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function changeTransactionInteractionId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentChangeTransactionInteractionIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentChangeTransactionInteractionIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentChangeTransactionInteractionIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -162,14 +134,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function changeTransactionState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentChangeTransactionStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentChangeTransactionStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentChangeTransactionStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -186,14 +151,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function changeTransactionTimestamp($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentChangeTransactionTimestampAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentChangeTransactionTimestampAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentChangeTransactionTimestampAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -210,14 +168,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setAmountPaid($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetAmountPaidAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetAmountPaidAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetAmountPaidAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -234,14 +185,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setAmountRefunded($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetAmountRefundedAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetAmountRefundedAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetAmountRefundedAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -258,14 +202,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setAuthorization($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetAuthorizationAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetAuthorizationAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetAuthorizationAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -282,14 +219,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -306,14 +236,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -330,14 +253,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setCustomer($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetCustomerAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetCustomerAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetCustomerAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -354,14 +270,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setExternalId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetExternalIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetExternalIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetExternalIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -378,14 +287,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setInterfaceId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetInterfaceIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetInterfaceIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetInterfaceIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -402,14 +304,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -426,14 +321,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setMethodInfoInterface($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetMethodInfoInterfaceAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetMethodInfoInterfaceAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetMethodInfoInterfaceAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -450,14 +338,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setMethodInfoMethod($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetMethodInfoMethodAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetMethodInfoMethodAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetMethodInfoMethodAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -474,14 +355,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setMethodInfoName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetMethodInfoNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetMethodInfoNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetMethodInfoNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -498,14 +372,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setStatusInterfaceCode($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetStatusInterfaceCodeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetStatusInterfaceCodeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetStatusInterfaceCodeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -522,14 +389,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setStatusInterfaceText($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentSetStatusInterfaceTextAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentSetStatusInterfaceTextAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentSetStatusInterfaceTextAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -546,14 +406,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function transitionState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(PaymentTransitionStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof PaymentTransitionStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(PaymentTransitionStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -568,6 +421,19 @@ class PaymentUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

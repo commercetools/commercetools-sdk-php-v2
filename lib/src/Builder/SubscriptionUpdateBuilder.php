@@ -48,14 +48,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      */
     public function setChanges($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(SubscriptionSetChangesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof SubscriptionSetChangesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(SubscriptionSetChangesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -72,14 +65,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(SubscriptionSetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof SubscriptionSetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(SubscriptionSetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -96,14 +82,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      */
     public function setMessages($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(SubscriptionSetMessagesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof SubscriptionSetMessagesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(SubscriptionSetMessagesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -118,6 +97,19 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

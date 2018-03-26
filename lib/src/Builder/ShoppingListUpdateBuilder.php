@@ -67,14 +67,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function addLineItem($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListAddLineItemAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListAddLineItemAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListAddLineItemAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -91,14 +84,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function addTextLineItem($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListAddTextLineItemAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListAddTextLineItemAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListAddTextLineItemAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -115,14 +101,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeLineItemQuantity($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListChangeLineItemQuantityAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListChangeLineItemQuantityAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListChangeLineItemQuantityAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -139,14 +118,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeLineItemsOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListChangeLineItemsOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListChangeLineItemsOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListChangeLineItemsOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -163,14 +135,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -187,14 +152,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeTextLineItemName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListChangeTextLineItemNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListChangeTextLineItemNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListChangeTextLineItemNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -211,14 +169,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeTextLineItemQuantity($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListChangeTextLineItemQuantityAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListChangeTextLineItemQuantityAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListChangeTextLineItemQuantityAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -235,14 +186,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeTextLineItemsOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListChangeTextLineItemsOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListChangeTextLineItemsOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListChangeTextLineItemsOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -259,14 +203,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function removeLineItem($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListRemoveLineItemAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListRemoveLineItemAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListRemoveLineItemAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -283,14 +220,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function removeTextLineItem($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListRemoveTextLineItemAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListRemoveTextLineItemAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListRemoveTextLineItemAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -307,14 +237,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -331,14 +254,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -355,14 +271,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setCustomer($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetCustomerAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetCustomerAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetCustomerAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -379,14 +288,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setDeleteDaysAfterLastModification($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetDeleteDaysAfterLastModificationAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetDeleteDaysAfterLastModificationAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetDeleteDaysAfterLastModificationAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -403,14 +305,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -427,14 +322,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -451,14 +339,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetLineItemCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetLineItemCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetLineItemCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -475,14 +356,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetLineItemCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetLineItemCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetLineItemCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -499,14 +373,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setSlug($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetSlugAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetSlugAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetSlugAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -523,14 +390,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setTextLineItemCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetTextLineItemCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetTextLineItemCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetTextLineItemCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -547,14 +407,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setTextLineItemCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetTextLineItemCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetTextLineItemCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetTextLineItemCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -571,14 +424,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setTextLineItemDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ShoppingListSetTextLineItemDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ShoppingListSetTextLineItemDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ShoppingListSetTextLineItemDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -593,6 +439,19 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

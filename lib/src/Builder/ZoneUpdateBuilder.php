@@ -49,14 +49,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function addLocation($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ZoneAddLocationAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ZoneAddLocationAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ZoneAddLocationAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -73,14 +66,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ZoneChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ZoneChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ZoneChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -97,14 +83,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function removeLocation($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ZoneRemoveLocationAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ZoneRemoveLocationAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ZoneRemoveLocationAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -121,14 +100,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ZoneSetDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ZoneSetDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ZoneSetDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -143,6 +115,19 @@ class ZoneUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

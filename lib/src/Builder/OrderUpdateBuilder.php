@@ -79,14 +79,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function addDelivery($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderAddDeliveryAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderAddDeliveryAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderAddDeliveryAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -103,14 +96,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function addParcelToDelivery($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderAddParcelToDeliveryAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderAddParcelToDeliveryAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderAddParcelToDeliveryAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -127,14 +113,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function addPayment($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderAddPaymentAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderAddPaymentAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderAddPaymentAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -151,14 +130,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function addReturnInfo($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderAddReturnInfoAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderAddReturnInfoAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderAddReturnInfoAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -175,14 +147,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function changeOrderState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderChangeOrderStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderChangeOrderStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderChangeOrderStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -199,14 +164,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function changePaymentState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderChangePaymentStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderChangePaymentStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderChangePaymentStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -223,14 +181,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function changeShipmentState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderChangeShipmentStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderChangeShipmentStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderChangeShipmentStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -247,14 +198,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function importCustomLineItemState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderImportCustomLineItemStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderImportCustomLineItemStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderImportCustomLineItemStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -271,14 +215,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function importLineItemState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderImportLineItemStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderImportLineItemStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderImportLineItemStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -295,14 +232,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function removeDelivery($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderRemoveDeliveryAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderRemoveDeliveryAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderRemoveDeliveryAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -319,14 +249,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function removeParcelFromDelivery($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderRemoveParcelFromDeliveryAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderRemoveParcelFromDeliveryAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderRemoveParcelFromDeliveryAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -343,14 +266,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function removePayment($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderRemovePaymentAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderRemovePaymentAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderRemovePaymentAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -367,14 +283,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setBillingAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetBillingAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetBillingAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetBillingAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -391,14 +300,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -415,14 +317,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetCustomLineItemCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetCustomLineItemCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetCustomLineItemCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -439,14 +334,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetCustomLineItemCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetCustomLineItemCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetCustomLineItemCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -463,14 +351,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -487,14 +368,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerEmail($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetCustomerEmailAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetCustomerEmailAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetCustomerEmailAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -511,14 +385,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setDeliveryAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetDeliveryAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetDeliveryAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetDeliveryAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -535,14 +402,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setDeliveryItems($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetDeliveryItemsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetDeliveryItemsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetDeliveryItemsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -559,14 +419,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetLineItemCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetLineItemCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetLineItemCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -583,14 +436,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetLineItemCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetLineItemCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetLineItemCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -607,14 +453,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setLocale($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetLocaleAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetLocaleAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetLocaleAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -631,14 +470,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setOrderNumber($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetOrderNumberAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetOrderNumberAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetOrderNumberAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -655,14 +487,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setParcelItems($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetParcelItemsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetParcelItemsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetParcelItemsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -679,14 +504,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setParcelMeasurements($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetParcelMeasurementsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetParcelMeasurementsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetParcelMeasurementsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -703,14 +521,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setParcelTrackingData($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetParcelTrackingDataAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetParcelTrackingDataAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetParcelTrackingDataAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -727,14 +538,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setReturnPaymentState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetReturnPaymentStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetReturnPaymentStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetReturnPaymentStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -751,14 +555,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setReturnShipmentState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetReturnShipmentStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetReturnShipmentStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetReturnShipmentStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -775,14 +572,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setShippingAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderSetShippingAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderSetShippingAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderSetShippingAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -799,14 +589,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function transitionCustomLineItemState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderTransitionCustomLineItemStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderTransitionCustomLineItemStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderTransitionCustomLineItemStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -823,14 +606,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function transitionLineItemState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderTransitionLineItemStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderTransitionLineItemStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderTransitionLineItemStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -847,14 +623,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function transitionState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderTransitionStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderTransitionStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderTransitionStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -871,14 +640,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function updateSyncInfo($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(OrderUpdateSyncInfoAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof OrderUpdateSyncInfoAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(OrderUpdateSyncInfoAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -893,6 +655,19 @@ class OrderUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

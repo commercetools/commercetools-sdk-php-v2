@@ -55,14 +55,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function addRoles($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelAddRolesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelAddRolesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelAddRolesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -79,14 +72,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function changeDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelChangeDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelChangeDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelChangeDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -103,14 +89,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function changeKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelChangeKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelChangeKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelChangeKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -127,14 +106,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -151,14 +123,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function removeRoles($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelRemoveRolesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelRemoveRolesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelRemoveRolesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -175,14 +140,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelSetAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelSetAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelSetAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -199,14 +157,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelSetCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelSetCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelSetCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -223,14 +174,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelSetCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelSetCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelSetCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -247,14 +191,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setGeoLocation($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelSetGeolocationAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelSetGeolocationAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelSetGeolocationAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -271,14 +208,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setRoles($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ChannelSetRolesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ChannelSetRolesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ChannelSetRolesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -293,6 +223,19 @@ class ChannelUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

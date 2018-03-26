@@ -70,14 +70,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function addAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerAddAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerAddAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerAddAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -94,14 +87,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function addBillingAddressId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerAddBillingAddressIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerAddBillingAddressIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerAddBillingAddressIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -118,14 +104,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function addShippingAddressId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerAddShippingAddressIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerAddShippingAddressIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerAddShippingAddressIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -142,14 +121,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function changeAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerChangeAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerChangeAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerChangeAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -166,14 +138,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function changeEmail($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerChangeEmailAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerChangeEmailAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerChangeEmailAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -190,14 +155,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function removeAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerRemoveAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerRemoveAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerRemoveAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -214,14 +172,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function removeBillingAddressId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerRemoveBillingAddressIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerRemoveBillingAddressIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerRemoveBillingAddressIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -238,14 +189,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function removeShippingAddressId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerRemoveShippingAddressIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerRemoveShippingAddressIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerRemoveShippingAddressIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -262,14 +206,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCompanyName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetCompanyNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetCompanyNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetCompanyNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -286,14 +223,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -310,14 +240,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -334,14 +257,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerGroup($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetCustomerGroupAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetCustomerGroupAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetCustomerGroupAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -358,14 +274,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerNumber($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetCustomerNumberAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetCustomerNumberAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetCustomerNumberAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -382,14 +291,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setDateOfBirth($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetDateOfBirthAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetDateOfBirthAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetDateOfBirthAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -406,14 +308,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setDefaultBillingAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetDefaultBillingAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetDefaultBillingAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetDefaultBillingAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -430,14 +325,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setDefaultShippingAddress($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetDefaultShippingAddressAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetDefaultShippingAddressAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetDefaultShippingAddressAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -454,14 +342,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setExternalId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetExternalIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetExternalIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetExternalIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -478,14 +359,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setFirstName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetFirstNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetFirstNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetFirstNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -502,14 +376,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -526,14 +393,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setLastName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetLastNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetLastNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetLastNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -550,14 +410,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setLocale($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetLocaleAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetLocaleAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetLocaleAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -574,14 +427,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setMiddleName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetMiddleNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetMiddleNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetMiddleNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -598,14 +444,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setSalutation($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetSalutationAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetSalutationAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetSalutationAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -622,14 +461,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setTitle($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetTitleAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetTitleAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetTitleAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -646,14 +478,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setVatId($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(CustomerSetVatIdAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof CustomerSetVatIdAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(CustomerSetVatIdAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -668,6 +493,19 @@ class CustomerUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

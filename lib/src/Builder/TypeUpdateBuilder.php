@@ -57,14 +57,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function addEnumValue($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeAddEnumValueAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeAddEnumValueAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeAddEnumValueAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -81,14 +74,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function addFieldDefinition($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeAddFieldDefinitionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeAddFieldDefinitionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeAddFieldDefinitionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -105,14 +91,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function addLocalizedEnumValue($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeAddLocalizedEnumValueAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeAddLocalizedEnumValueAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeAddLocalizedEnumValueAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -129,14 +108,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeEnumValueOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeChangeEnumValueOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeChangeEnumValueOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeChangeEnumValueOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -153,14 +125,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeFieldDefinitionLabel($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeChangeFieldDefinitionLabelAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeChangeFieldDefinitionLabelAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeChangeFieldDefinitionLabelAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -177,14 +142,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeFieldDefinitionOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeChangeFieldDefinitionOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeChangeFieldDefinitionOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeChangeFieldDefinitionOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -201,14 +159,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeChangeKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeChangeKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeChangeKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -225,14 +176,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLabel($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeChangeLabelAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeChangeLabelAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeChangeLabelAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -249,14 +193,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLocalizedEnumValueOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeChangeLocalizedEnumValueOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeChangeLocalizedEnumValueOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeChangeLocalizedEnumValueOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -273,14 +210,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -297,14 +227,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function removeFieldDefinition($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeRemoveFieldDefinitionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeRemoveFieldDefinitionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeRemoveFieldDefinitionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -321,14 +244,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(TypeSetDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof TypeSetDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(TypeSetDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -343,6 +259,19 @@ class TypeUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

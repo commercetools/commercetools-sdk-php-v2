@@ -51,14 +51,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeCountries($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProjectChangeCountriesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProjectChangeCountriesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProjectChangeCountriesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -75,14 +68,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeCurrencies($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProjectChangeCurrenciesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProjectChangeCurrenciesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProjectChangeCurrenciesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -99,14 +85,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeLanguages($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProjectChangeLanguagesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProjectChangeLanguagesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProjectChangeLanguagesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -123,14 +102,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeMessagesEnabled($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProjectChangeMessagesEnabledAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProjectChangeMessagesEnabledAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProjectChangeMessagesEnabledAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -147,14 +119,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProjectChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProjectChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProjectChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -171,14 +136,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function setShippingRateInputType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProjectSetShippingRateInputTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProjectSetShippingRateInputTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProjectSetShippingRateInputTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -193,6 +151,19 @@ class ProjectUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

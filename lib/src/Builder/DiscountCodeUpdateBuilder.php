@@ -55,14 +55,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function changeCartDiscounts($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeChangeCartDiscountsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeChangeCartDiscountsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeChangeCartDiscountsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -79,14 +72,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function changeGroups($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeChangeGroupsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeChangeGroupsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeChangeGroupsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -103,14 +89,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function changeIsActive($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeChangeIsActiveAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeChangeIsActiveAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeChangeIsActiveAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -127,14 +106,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setCartPredicate($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeSetCartPredicateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeSetCartPredicateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeSetCartPredicateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -151,14 +123,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeSetDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeSetDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeSetDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -175,14 +140,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setMaxApplications($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeSetMaxApplicationsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeSetMaxApplicationsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeSetMaxApplicationsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -199,14 +157,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setMaxApplicationsPerCustomer($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeSetMaxApplicationsPerCustomerAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeSetMaxApplicationsPerCustomerAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeSetMaxApplicationsPerCustomerAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -223,14 +174,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeSetNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeSetNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeSetNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -247,14 +191,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setValidFrom($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeSetValidFromAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeSetValidFromAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeSetValidFromAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -271,14 +208,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setValidUntil($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(DiscountCodeSetValidUntilAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof DiscountCodeSetValidUntilAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(DiscountCodeSetValidUntilAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -293,6 +223,19 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*

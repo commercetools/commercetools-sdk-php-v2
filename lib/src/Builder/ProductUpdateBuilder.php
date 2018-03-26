@@ -90,14 +90,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addAsset($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductAddAssetAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductAddAssetAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductAddAssetAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -114,14 +107,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addExternalImage($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductAddExternalImageAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductAddExternalImageAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductAddExternalImageAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -138,14 +124,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addPrice($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductAddPriceAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductAddPriceAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductAddPriceAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -162,14 +141,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addToCategory($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductAddToCategoryAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductAddToCategoryAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductAddToCategoryAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -186,14 +158,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addVariant($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductAddVariantAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductAddVariantAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductAddVariantAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -210,14 +175,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeAssetName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductChangeAssetNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductChangeAssetNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductChangeAssetNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -234,14 +192,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeAssetOrder($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductChangeAssetOrderAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductChangeAssetOrderAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductChangeAssetOrderAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -258,14 +209,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeMasterVariant($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductChangeMasterVariantAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductChangeMasterVariantAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductChangeMasterVariantAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -282,14 +226,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductChangeNameAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductChangeNameAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductChangeNameAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -306,14 +243,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changePrice($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductChangePriceAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductChangePriceAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductChangePriceAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -330,14 +260,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeSlug($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductChangeSlugAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductChangeSlugAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductChangeSlugAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -354,14 +277,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function legacySetSku($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductLegacySetSkuAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductLegacySetSkuAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductLegacySetSkuAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -378,14 +294,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function moveImageToPosition($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductMoveImageToPositionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductMoveImageToPositionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductMoveImageToPositionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -402,14 +311,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function publish($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductPublishAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductPublishAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductPublishAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -426,14 +328,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removeAsset($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductRemoveAssetAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductRemoveAssetAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductRemoveAssetAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -450,14 +345,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removeFromCategory($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductRemoveFromCategoryAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductRemoveFromCategoryAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductRemoveFromCategoryAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -474,14 +362,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removeImage($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductRemoveImageAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductRemoveImageAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductRemoveImageAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -498,14 +379,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removePrice($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductRemovePriceAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductRemovePriceAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductRemovePriceAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -522,14 +396,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removeVariant($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductRemoveVariantAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductRemoveVariantAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductRemoveVariantAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -546,14 +413,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function revertStagedChanges($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductRevertStagedChangesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductRevertStagedChangesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductRevertStagedChangesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -570,14 +430,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function revertStagedVariantChanges($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductRevertStagedVariantChangesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductRevertStagedVariantChangesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductRevertStagedVariantChangesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -594,14 +447,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetAssetCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetAssetCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetAssetCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -618,14 +464,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetAssetCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetAssetCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetAssetCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -642,14 +481,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetAssetDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetAssetDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetAssetDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -666,14 +498,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetAssetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetAssetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetAssetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -690,14 +515,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetSources($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetAssetSourcesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetAssetSourcesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetAssetSourcesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -714,14 +532,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetTags($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetAssetTagsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetAssetTagsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetAssetTagsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -738,14 +549,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAttribute($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetAttributeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetAttributeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetAttributeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -762,14 +566,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAttributeInAllVariants($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetAttributeInAllVariantsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetAttributeInAllVariantsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetAttributeInAllVariantsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -786,14 +583,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setCategoryOrderHint($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetCategoryOrderHintAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetCategoryOrderHintAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetCategoryOrderHintAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -810,14 +600,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -834,14 +617,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setDiscountedPrice($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetDiscountedPriceAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetDiscountedPriceAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetDiscountedPriceAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -858,14 +634,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -882,14 +651,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setMetaDescription($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetMetaDescriptionAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetMetaDescriptionAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetMetaDescriptionAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -906,14 +668,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setMetaKeywords($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetMetaKeywordsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetMetaKeywordsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetMetaKeywordsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -930,14 +685,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setMetaTitle($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetMetaTitleAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetMetaTitleAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetMetaTitleAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -954,14 +702,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setPrices($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetPricesAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetPricesAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetPricesAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -978,14 +719,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setProductPriceCustomField($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetProductPriceCustomFieldAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetProductPriceCustomFieldAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetProductPriceCustomFieldAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1002,14 +736,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setProductPriceCustomType($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetProductPriceCustomTypeAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetProductPriceCustomTypeAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetProductPriceCustomTypeAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1026,14 +753,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setProductVariantKey($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetProductVariantKeyAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetProductVariantKeyAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetProductVariantKeyAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1050,14 +770,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setSearchKeywords($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetSearchKeywordsAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetSearchKeywordsAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetSearchKeywordsAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1074,14 +787,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setSku($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetSkuAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetSkuAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetSkuAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1098,14 +804,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setTaxCategory($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductSetTaxCategoryAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductSetTaxCategoryAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductSetTaxCategoryAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1122,14 +821,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function transitionState($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductTransitionStateAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductTransitionStateAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductTransitionStateAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1146,14 +838,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function unpublish($action = null)
     {
-        if (is_null($action) || is_callable($action)) {
-            $callback = $action;
-            $emptyAction = $this->mapData(ProductUnpublishAction::class, null);
-            $action = $this->callback($emptyAction, $callback);
-        }
-        if (!$action instanceof ProductUnpublishAction) {
-            throw new \InvalidArgumentException();
-        }
+        $action = $this->resolveAction(ProductUnpublishAction::class, $action);
         if (!is_null($action)) {
             $this->actions[] = $action;
         }
@@ -1168,6 +853,19 @@ class ProductUpdateBuilder extends BaseBuilder {
     {
         $this->actions[] = $action;
         return $this;
+    }
+
+    private function resolveAction($class, $action = null) {
+        if (is_null($action) || is_callable($action)) {
+            $callback = $action;
+            $emptyAction = $this->mapData($class, null);
+            $action = $this->callback($emptyAction, $callback);
+        }
+        if (!$action instanceof $class) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $action;
     }
 
     /*
