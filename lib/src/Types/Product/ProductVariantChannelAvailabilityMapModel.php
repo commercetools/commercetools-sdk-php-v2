@@ -19,7 +19,7 @@ class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel implemen
     {
         if(!isset($this->patternData[$key])) {
             switch (true) {
-                case preg_match('//', $key):
+                case preg_match('//', $key) === 1:
                     $value = $this->raw($key);
                     if (is_null($value)) {
                         return $this->mapData(ProductVariantChannelAvailability::class, null);
@@ -53,7 +53,7 @@ class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel implemen
     private function validKey(string $key): bool
     {
         switch (true) {
-            case preg_match('//', $key):
+            case preg_match('//', $key) === 1:
                 return true;
             default:
                 return false;

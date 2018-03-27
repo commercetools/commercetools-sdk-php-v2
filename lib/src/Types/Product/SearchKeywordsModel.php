@@ -19,7 +19,7 @@ class SearchKeywordsModel extends JsonObjectModel implements SearchKeywords {
     {
         if(!isset($this->patternData[$key])) {
             switch (true) {
-                case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key):
+                case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key) === 1:
                     $value = $this->raw($key);
                     if (is_null($value)) {
                         return $this->mapData(SearchKeywordCollection::class, null);
@@ -52,7 +52,7 @@ class SearchKeywordsModel extends JsonObjectModel implements SearchKeywords {
     private function validKey(string $key): bool
     {
         switch (true) {
-            case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key):
+            case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key) === 1:
                 return true;
             default:
                 return false;

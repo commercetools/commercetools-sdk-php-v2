@@ -19,7 +19,7 @@ class CategoryOrderHintsModel extends JsonObjectModel implements CategoryOrderHi
     {
         if(!isset($this->patternData[$key])) {
             switch (true) {
-                case preg_match('/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/', $key):
+                case preg_match('/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/', $key) === 1:
                     $value = $this->raw($key);
                     $value = (string)$value;
                     break;
@@ -49,7 +49,7 @@ class CategoryOrderHintsModel extends JsonObjectModel implements CategoryOrderHi
     private function validKey(string $key): bool
     {
         switch (true) {
-            case preg_match('/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/', $key):
+            case preg_match('/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/', $key) === 1:
                 return true;
             default:
                 return false;

@@ -19,7 +19,7 @@ class FacetResultsModel extends JsonObjectModel implements FacetResults {
     {
         if(!isset($this->patternData[$key])) {
             switch (true) {
-                case preg_match('/^[a-z].*$/', $key):
+                case preg_match('/^[a-z].*$/', $key) === 1:
                     $value = $this->raw($key);
                     break;
                 default:
@@ -48,7 +48,7 @@ class FacetResultsModel extends JsonObjectModel implements FacetResults {
     private function validKey(string $key): bool
     {
         switch (true) {
-            case preg_match('/^[a-z].*$/', $key):
+            case preg_match('/^[a-z].*$/', $key) === 1:
                 return true;
             default:
                 return false;

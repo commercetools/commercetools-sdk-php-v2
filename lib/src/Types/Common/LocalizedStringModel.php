@@ -19,7 +19,7 @@ class LocalizedStringModel extends JsonObjectModel implements LocalizedString {
     {
         if(!isset($this->patternData[$key])) {
             switch (true) {
-                case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key):
+                case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key) === 1:
                     $value = $this->raw($key);
                     $value = (string)$value;
                     break;
@@ -49,7 +49,7 @@ class LocalizedStringModel extends JsonObjectModel implements LocalizedString {
     private function validKey(string $key): bool
     {
         switch (true) {
-            case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key):
+            case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key) === 1:
                 return true;
             default:
                 return false;
