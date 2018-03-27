@@ -15,7 +15,7 @@ class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTrigger 
      */
     protected $resourceTypeId;
     /**
-     * @var ExtensionUpdateActionCollection
+     * @var array
      */
     protected $actions;
 
@@ -32,16 +32,13 @@ class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTrigger 
         return $this->resourceTypeId;
     }
     /**
-     * @return ExtensionUpdateActionCollection
+     * @return array
      */
     public function getActions()
     {
         if (is_null($this->actions)) {
             $value = $this->raw(ExtensionTrigger::FIELD_ACTIONS);
-            if (is_null($value)) {
-                return $this->mapData(ExtensionUpdateActionCollection::class, null);
-            }
-            $value = $this->mapData(ExtensionUpdateActionCollection::class, $value);
+            $value = (array)$value;
             $this->actions = $value;
         }
         return $this->actions;
@@ -58,10 +55,10 @@ class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTrigger 
         return $this;
     }
     /**
-     * @param ExtensionUpdateActionCollection $actions
+     * @param array $actions
      * @return $this
      */
-    public function setActions(ExtensionUpdateActionCollection $actions)
+    public function setActions(array $actions)
     {
         $this->actions = $actions;
 
