@@ -22,6 +22,8 @@ use Commercetools\Types\Zone\ZoneRemoveLocationActionModel;
 use Commercetools\Types\Zone\ZoneSetDescriptionActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Zone\ZoneModel;
+
 
 class ZoneBuilderTest extends TestCase {
     public function testAddLocationCallback() {
@@ -88,4 +90,34 @@ class ZoneBuilderTest extends TestCase {
         static::assertInstanceOf(ZoneSetDescriptionAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ZoneUpdateBuilder();
+        $builder->addLocation(new ZoneAddLocationActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ZoneUpdate::class, $update);
+        static::assertInstanceOf(ZoneAddLocationAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ZoneUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ZoneUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ZoneModel());
+        static::assertInstanceOf(Zone::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ZoneUpdateBuilder();
+        $builder->with(new ZoneModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ZoneUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

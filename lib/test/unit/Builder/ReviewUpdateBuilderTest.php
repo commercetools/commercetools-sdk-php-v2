@@ -36,6 +36,8 @@ use Commercetools\Types\Review\ReviewSetTitleActionModel;
 use Commercetools\Types\Review\ReviewTransitionStateActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Review\ReviewModel;
+
 
 class ReviewBuilderTest extends TestCase {
     public function testSetAuthorNameCallback() {
@@ -214,4 +216,34 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewTransitionStateAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ReviewUpdateBuilder();
+        $builder->setAuthorName(new ReviewSetAuthorNameActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ReviewUpdate::class, $update);
+        static::assertInstanceOf(ReviewSetAuthorNameAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ReviewUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ReviewUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ReviewModel());
+        static::assertInstanceOf(Review::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ReviewUpdateBuilder();
+        $builder->with(new ReviewModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ReviewUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

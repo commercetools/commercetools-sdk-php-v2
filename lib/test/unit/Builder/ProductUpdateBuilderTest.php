@@ -104,6 +104,8 @@ use Commercetools\Types\Product\ProductTransitionStateActionModel;
 use Commercetools\Types\Product\ProductUnpublishActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Product\ProductModel;
+
 
 class ProductBuilderTest extends TestCase {
     public function testAddAssetCallback() {
@@ -826,4 +828,34 @@ class ProductBuilderTest extends TestCase {
         static::assertInstanceOf(ProductUnpublishAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ProductUpdateBuilder();
+        $builder->addAsset(new ProductAddAssetActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ProductUpdate::class, $update);
+        static::assertInstanceOf(ProductAddAssetAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ProductUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ProductUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ProductModel());
+        static::assertInstanceOf(Product::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ProductUpdateBuilder();
+        $builder->with(new ProductModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ProductUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

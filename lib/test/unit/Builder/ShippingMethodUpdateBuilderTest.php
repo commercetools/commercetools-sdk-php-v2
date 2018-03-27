@@ -34,6 +34,8 @@ use Commercetools\Types\ShippingMethod\ShippingMethodSetKeyActionModel;
 use Commercetools\Types\ShippingMethod\ShippingMethodSetPredicateActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\ShippingMethod\ShippingMethodModel;
+
 
 class ShippingMethodBuilderTest extends TestCase {
     public function testAddShippingRateCallback() {
@@ -196,4 +198,34 @@ class ShippingMethodBuilderTest extends TestCase {
         static::assertInstanceOf(ShippingMethodSetPredicateAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ShippingMethodUpdateBuilder();
+        $builder->addShippingRate(new ShippingMethodAddShippingRateActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ShippingMethodUpdate::class, $update);
+        static::assertInstanceOf(ShippingMethodAddShippingRateAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ShippingMethodUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ShippingMethodUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ShippingMethodModel());
+        static::assertInstanceOf(ShippingMethod::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ShippingMethodUpdateBuilder();
+        $builder->with(new ShippingMethodModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ShippingMethodUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

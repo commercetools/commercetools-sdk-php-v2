@@ -58,6 +58,8 @@ use Commercetools\Types\Category\CategorySetMetaKeywordsActionModel;
 use Commercetools\Types\Category\CategorySetMetaTitleActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Category\CategoryModel;
+
 
 class CategoryBuilderTest extends TestCase {
     public function testAddAssetCallback() {
@@ -412,4 +414,34 @@ class CategoryBuilderTest extends TestCase {
         static::assertInstanceOf(CategorySetMetaTitleAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new CategoryUpdateBuilder();
+        $builder->addAsset(new CategoryAddAssetActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(CategoryUpdate::class, $update);
+        static::assertInstanceOf(CategoryAddAssetAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(CategoryUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new CategoryUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new CategoryModel());
+        static::assertInstanceOf(Category::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new CategoryUpdateBuilder();
+        $builder->with(new CategoryModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(CategoryUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

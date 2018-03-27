@@ -20,6 +20,8 @@ use Commercetools\Types\Extension\ExtensionChangeTriggersActionModel;
 use Commercetools\Types\Extension\ExtensionSetKeyActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Extension\ExtensionModel;
+
 
 class ExtensionBuilderTest extends TestCase {
     public function testChangeDestinationCallback() {
@@ -70,4 +72,34 @@ class ExtensionBuilderTest extends TestCase {
         static::assertInstanceOf(ExtensionSetKeyAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ExtensionUpdateBuilder();
+        $builder->changeDestination(new ExtensionChangeDestinationActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ExtensionUpdate::class, $update);
+        static::assertInstanceOf(ExtensionChangeDestinationAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ExtensionUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ExtensionUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ExtensionModel());
+        static::assertInstanceOf(Extension::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ExtensionUpdateBuilder();
+        $builder->with(new ExtensionModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ExtensionUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

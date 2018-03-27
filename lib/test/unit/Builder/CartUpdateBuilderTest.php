@@ -100,6 +100,8 @@ use Commercetools\Types\Cart\CartSetShippingMethodTaxRateActionModel;
 use Commercetools\Types\Cart\CartSetShippingRateInputActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Cart\CartModel;
+
 
 class CartBuilderTest extends TestCase {
     public function testAddCustomLineItemCallback() {
@@ -790,4 +792,34 @@ class CartBuilderTest extends TestCase {
         static::assertInstanceOf(CartSetShippingRateInputAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new CartUpdateBuilder();
+        $builder->addCustomLineItem(new CartAddCustomLineItemActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(CartUpdate::class, $update);
+        static::assertInstanceOf(CartAddCustomLineItemAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(CartUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new CartUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new CartModel());
+        static::assertInstanceOf(Cart::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new CartUpdateBuilder();
+        $builder->with(new CartModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(CartUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

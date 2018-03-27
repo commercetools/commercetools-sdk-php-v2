@@ -64,6 +64,8 @@ use Commercetools\Types\Customer\CustomerSetTitleActionModel;
 use Commercetools\Types\Customer\CustomerSetVatIdActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Customer\CustomerModel;
+
 
 class CustomerBuilderTest extends TestCase {
     public function testAddAddressCallback() {
@@ -466,4 +468,34 @@ class CustomerBuilderTest extends TestCase {
         static::assertInstanceOf(CustomerSetVatIdAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new CustomerUpdateBuilder();
+        $builder->addAddress(new CustomerAddAddressActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(CustomerUpdate::class, $update);
+        static::assertInstanceOf(CustomerAddAddressAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(CustomerUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new CustomerUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new CustomerModel());
+        static::assertInstanceOf(Customer::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new CustomerUpdateBuilder();
+        $builder->with(new CustomerModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(CustomerUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

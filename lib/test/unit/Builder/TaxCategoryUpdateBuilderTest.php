@@ -26,6 +26,8 @@ use Commercetools\Types\TaxCategory\TaxCategorySetDescriptionActionModel;
 use Commercetools\Types\TaxCategory\TaxCategorySetKeyActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\TaxCategory\TaxCategoryModel;
+
 
 class TaxCategoryBuilderTest extends TestCase {
     public function testAddTaxRateCallback() {
@@ -124,4 +126,34 @@ class TaxCategoryBuilderTest extends TestCase {
         static::assertInstanceOf(TaxCategorySetKeyAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->addTaxRate(new TaxCategoryAddTaxRateActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(TaxCategoryUpdate::class, $update);
+        static::assertInstanceOf(TaxCategoryAddTaxRateAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(TaxCategoryUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new TaxCategoryUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new TaxCategoryModel());
+        static::assertInstanceOf(TaxCategory::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->with(new TaxCategoryModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(TaxCategoryUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

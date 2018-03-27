@@ -20,6 +20,8 @@ use Commercetools\Types\Subscription\SubscriptionSetKeyActionModel;
 use Commercetools\Types\Subscription\SubscriptionSetMessagesActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Subscription\SubscriptionModel;
+
 
 class SubscriptionBuilderTest extends TestCase {
     public function testSetChangesCallback() {
@@ -70,4 +72,34 @@ class SubscriptionBuilderTest extends TestCase {
         static::assertInstanceOf(SubscriptionSetMessagesAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new SubscriptionUpdateBuilder();
+        $builder->setChanges(new SubscriptionSetChangesActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(SubscriptionUpdate::class, $update);
+        static::assertInstanceOf(SubscriptionSetChangesAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(SubscriptionUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new SubscriptionUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new SubscriptionModel());
+        static::assertInstanceOf(Subscription::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new SubscriptionUpdateBuilder();
+        $builder->with(new SubscriptionModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(SubscriptionUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

@@ -48,6 +48,8 @@ use Commercetools\Types\ProductType\ProductTypeSetInputTipActionModel;
 use Commercetools\Types\ProductType\ProductTypeSetKeyActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\ProductType\ProductTypeModel;
+
 
 class ProductTypeBuilderTest extends TestCase {
     public function testAddAttributeDefinitionCallback() {
@@ -322,4 +324,34 @@ class ProductTypeBuilderTest extends TestCase {
         static::assertInstanceOf(ProductTypeSetKeyAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->addAttributeDefinition(new ProductTypeAddAttributeDefinitionActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ProductTypeUpdate::class, $update);
+        static::assertInstanceOf(ProductTypeAddAttributeDefinitionAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ProductTypeUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ProductTypeUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ProductTypeModel());
+        static::assertInstanceOf(ProductType::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->with(new ProductTypeModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ProductTypeUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

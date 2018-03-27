@@ -18,6 +18,8 @@ use Commercetools\Types\CustomerGroup\CustomerGroupChangeNameActionModel;
 use Commercetools\Types\CustomerGroup\CustomerGroupSetKeyActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\CustomerGroup\CustomerGroupModel;
+
 
 class CustomerGroupBuilderTest extends TestCase {
     public function testChangeNameCallback() {
@@ -52,4 +54,34 @@ class CustomerGroupBuilderTest extends TestCase {
         static::assertInstanceOf(CustomerGroupSetKeyAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new CustomerGroupUpdateBuilder();
+        $builder->changeName(new CustomerGroupChangeNameActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(CustomerGroupUpdate::class, $update);
+        static::assertInstanceOf(CustomerGroupChangeNameAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(CustomerGroupUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new CustomerGroupUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new CustomerGroupModel());
+        static::assertInstanceOf(CustomerGroup::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new CustomerGroupUpdateBuilder();
+        $builder->with(new CustomerGroupModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(CustomerGroupUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

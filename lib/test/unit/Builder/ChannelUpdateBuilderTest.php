@@ -34,6 +34,8 @@ use Commercetools\Types\Channel\ChannelSetGeolocationActionModel;
 use Commercetools\Types\Channel\ChannelSetRolesActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Channel\ChannelModel;
+
 
 class ChannelBuilderTest extends TestCase {
     public function testAddRolesCallback() {
@@ -196,4 +198,34 @@ class ChannelBuilderTest extends TestCase {
         static::assertInstanceOf(ChannelSetRolesAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ChannelUpdateBuilder();
+        $builder->addRoles(new ChannelAddRolesActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ChannelUpdate::class, $update);
+        static::assertInstanceOf(ChannelAddRolesAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ChannelUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ChannelUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ChannelModel());
+        static::assertInstanceOf(Channel::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ChannelUpdateBuilder();
+        $builder->with(new ChannelModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ChannelUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

@@ -30,6 +30,8 @@ use Commercetools\Types\Inventory\InventorySetRestockableInDaysActionModel;
 use Commercetools\Types\Inventory\InventorySetSupplyChannelActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Inventory\InventoryEntryModel;
+
 
 class InventoryEntryBuilderTest extends TestCase {
     public function testAddQuantityCallback() {
@@ -160,4 +162,34 @@ class InventoryEntryBuilderTest extends TestCase {
         static::assertInstanceOf(InventorySetSupplyChannelAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->addQuantity(new InventoryAddQuantityActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(InventoryEntryUpdate::class, $update);
+        static::assertInstanceOf(InventoryAddQuantityAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(InventoryEntryUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new InventoryEntryUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new InventoryEntryModel());
+        static::assertInstanceOf(InventoryEntry::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->with(new InventoryEntryModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(InventoryEntryUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

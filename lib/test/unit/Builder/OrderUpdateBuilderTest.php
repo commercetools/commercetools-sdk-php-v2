@@ -82,6 +82,8 @@ use Commercetools\Types\Order\OrderTransitionStateActionModel;
 use Commercetools\Types\Order\OrderUpdateSyncInfoActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Order\OrderModel;
+
 
 class OrderBuilderTest extends TestCase {
     public function testAddDeliveryCallback() {
@@ -628,4 +630,34 @@ class OrderBuilderTest extends TestCase {
         static::assertInstanceOf(OrderUpdateSyncInfoAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new OrderUpdateBuilder();
+        $builder->addDelivery(new OrderAddDeliveryActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(OrderUpdate::class, $update);
+        static::assertInstanceOf(OrderAddDeliveryAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(OrderUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new OrderUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new OrderModel());
+        static::assertInstanceOf(Order::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new OrderUpdateBuilder();
+        $builder->with(new OrderModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(OrderUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

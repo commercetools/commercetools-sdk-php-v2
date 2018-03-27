@@ -32,6 +32,8 @@ use Commercetools\Types\State\StateSetRolesActionModel;
 use Commercetools\Types\State\StateSetTransitionsActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\State\StateModel;
+
 
 class StateBuilderTest extends TestCase {
     public function testAddRolesCallback() {
@@ -178,4 +180,34 @@ class StateBuilderTest extends TestCase {
         static::assertInstanceOf(StateSetTransitionsAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new StateUpdateBuilder();
+        $builder->addRoles(new StateAddRolesActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(StateUpdate::class, $update);
+        static::assertInstanceOf(StateAddRolesAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(StateUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new StateUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new StateModel());
+        static::assertInstanceOf(State::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new StateUpdateBuilder();
+        $builder->with(new StateModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(StateUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

@@ -58,6 +58,8 @@ use Commercetools\Types\ShoppingList\ShoppingListSetTextLineItemCustomTypeAction
 use Commercetools\Types\ShoppingList\ShoppingListSetTextLineItemDescriptionActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\ShoppingList\ShoppingListModel;
+
 
 class ShoppingListBuilderTest extends TestCase {
     public function testAddLineItemCallback() {
@@ -412,4 +414,34 @@ class ShoppingListBuilderTest extends TestCase {
         static::assertInstanceOf(ShoppingListSetTextLineItemDescriptionAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ShoppingListUpdateBuilder();
+        $builder->addLineItem(new ShoppingListAddLineItemActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ShoppingListUpdate::class, $update);
+        static::assertInstanceOf(ShoppingListAddLineItemAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ShoppingListUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ShoppingListUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ShoppingListModel());
+        static::assertInstanceOf(ShoppingList::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ShoppingListUpdateBuilder();
+        $builder->with(new ShoppingListModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ShoppingListUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

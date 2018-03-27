@@ -40,6 +40,8 @@ use Commercetools\Types\CartDiscount\CartDiscountSetValidFromActionModel;
 use Commercetools\Types\CartDiscount\CartDiscountSetValidUntilActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\CartDiscount\CartDiscountModel;
+
 
 class CartDiscountBuilderTest extends TestCase {
     public function testChangeCartPredicateCallback() {
@@ -250,4 +252,34 @@ class CartDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(CartDiscountSetValidUntilAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new CartDiscountUpdateBuilder();
+        $builder->changeCartPredicate(new CartDiscountChangeCartPredicateActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(CartDiscountUpdate::class, $update);
+        static::assertInstanceOf(CartDiscountChangeCartPredicateAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(CartDiscountUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new CartDiscountUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new CartDiscountModel());
+        static::assertInstanceOf(CartDiscount::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new CartDiscountUpdateBuilder();
+        $builder->with(new CartDiscountModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(CartDiscountUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

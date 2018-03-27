@@ -56,6 +56,8 @@ use Commercetools\Types\Payment\PaymentSetStatusInterfaceTextActionModel;
 use Commercetools\Types\Payment\PaymentTransitionStateActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Payment\PaymentModel;
+
 
 class PaymentBuilderTest extends TestCase {
     public function testAddInterfaceInteractionCallback() {
@@ -394,4 +396,34 @@ class PaymentBuilderTest extends TestCase {
         static::assertInstanceOf(PaymentTransitionStateAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new PaymentUpdateBuilder();
+        $builder->addInterfaceInteraction(new PaymentAddInterfaceInteractionActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(PaymentUpdate::class, $update);
+        static::assertInstanceOf(PaymentAddInterfaceInteractionAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(PaymentUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new PaymentUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new PaymentModel());
+        static::assertInstanceOf(Payment::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new PaymentUpdateBuilder();
+        $builder->with(new PaymentModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(PaymentUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

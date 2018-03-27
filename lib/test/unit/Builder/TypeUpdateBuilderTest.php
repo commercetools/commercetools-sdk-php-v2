@@ -38,6 +38,8 @@ use Commercetools\Types\Type\TypeRemoveFieldDefinitionActionModel;
 use Commercetools\Types\Type\TypeSetDescriptionActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Type\TypeModel;
+
 
 class TypeBuilderTest extends TestCase {
     public function testAddEnumValueCallback() {
@@ -232,4 +234,34 @@ class TypeBuilderTest extends TestCase {
         static::assertInstanceOf(TypeSetDescriptionAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new TypeUpdateBuilder();
+        $builder->addEnumValue(new TypeAddEnumValueActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(TypeUpdate::class, $update);
+        static::assertInstanceOf(TypeAddEnumValueAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(TypeUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new TypeUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new TypeModel());
+        static::assertInstanceOf(Type::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new TypeUpdateBuilder();
+        $builder->with(new TypeModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(TypeUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

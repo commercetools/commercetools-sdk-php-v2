@@ -30,6 +30,8 @@ use Commercetools\Types\ProductDiscount\ProductDiscountSetValidFromActionModel;
 use Commercetools\Types\ProductDiscount\ProductDiscountSetValidUntilActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\ProductDiscount\ProductDiscountModel;
+
 
 class ProductDiscountBuilderTest extends TestCase {
     public function testChangeIsActiveCallback() {
@@ -160,4 +162,34 @@ class ProductDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(ProductDiscountSetValidUntilAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changeIsActive(new ProductDiscountChangeIsActiveActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ProductDiscountUpdate::class, $update);
+        static::assertInstanceOf(ProductDiscountChangeIsActiveAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ProductDiscountUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ProductDiscountUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ProductDiscountModel());
+        static::assertInstanceOf(ProductDiscount::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->with(new ProductDiscountModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ProductDiscountUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

@@ -26,6 +26,8 @@ use Commercetools\Types\Project\ProjectChangeNameActionModel;
 use Commercetools\Types\Project\ProjectSetShippingRateInputTypeActionModel;
 
 use PHPUnit\Framework\TestCase;
+use Commercetools\Types\Project\ProjectModel;
+
 
 class ProjectBuilderTest extends TestCase {
     public function testChangeCountriesCallback() {
@@ -124,4 +126,34 @@ class ProjectBuilderTest extends TestCase {
         static::assertInstanceOf(ProjectSetShippingRateInputTypeAction::class, $update->getActions()->current());
     }
 
+
+    public function testReset() {
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeCountries(new ProjectChangeCountriesActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ProjectUpdate::class, $update);
+        static::assertInstanceOf(ProjectChangeCountriesAction::class, $update->getActions()->current());
+
+        $builder->reset();
+        $update = $builder->build();
+        static::assertInstanceOf(ProjectUpdate::class, $update);
+        static::assertCount(0, $update->getActions());
+    }
+
+    public function testWithResource() {
+        $builder = new ProjectUpdateBuilder();
+        static::assertNull($builder->getResource());
+
+        $builder->with(new ProjectModel());
+        static::assertInstanceOf(Project::class, $builder->getResource());
+    }
+
+    public function testBuild() {
+        $builder = new ProjectUpdateBuilder();
+        $builder->with(new ProjectModel(['version' => 3]));
+
+        $update = $builder->build();
+        static::assertInstanceOf(ProjectUpdate::class, $update);
+        static::assertSame(3, $update->getVersion());
+    }
 }

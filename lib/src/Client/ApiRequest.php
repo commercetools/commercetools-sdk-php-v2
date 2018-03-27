@@ -64,6 +64,7 @@ class ApiRequest extends Request
     /**
      * @param string $parameterName
      * @param mixed $value
+     * @return ApiRequest
      */
     public function withQueryParam(string $parameterName, $value): ApiRequest
     {
