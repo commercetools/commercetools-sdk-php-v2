@@ -48,9 +48,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      */
     public function setChanges($action = null)
     {
-        $action = $this->resolveAction(SubscriptionSetChangesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(SubscriptionSetChangesAction::class, $action));
         return $this;
     }
     /**
@@ -64,9 +62,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $action = $this->resolveAction(SubscriptionSetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(SubscriptionSetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -80,9 +76,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      */
     public function setMessages($action = null)
     {
-        $action = $this->resolveAction(SubscriptionSetMessagesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(SubscriptionSetMessagesAction::class, $action));
         return $this;
     }
 
@@ -96,7 +90,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

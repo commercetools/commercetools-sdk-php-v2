@@ -47,9 +47,7 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $action = $this->resolveAction(CustomerGroupChangeNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerGroupChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -63,9 +61,7 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $action = $this->resolveAction(CustomerGroupSetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerGroupSetKeyAction::class, $action));
         return $this;
     }
 
@@ -79,7 +75,7 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

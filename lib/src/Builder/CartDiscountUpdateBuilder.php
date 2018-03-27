@@ -58,9 +58,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeCartPredicate($action = null)
     {
-        $action = $this->resolveAction(CartDiscountChangeCartPredicateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountChangeCartPredicateAction::class, $action));
         return $this;
     }
     /**
@@ -74,9 +72,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeIsActive($action = null)
     {
-        $action = $this->resolveAction(CartDiscountChangeIsActiveAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountChangeIsActiveAction::class, $action));
         return $this;
     }
     /**
@@ -90,9 +86,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $action = $this->resolveAction(CartDiscountChangeNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -106,9 +100,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeRequiresDiscountCode($action = null)
     {
-        $action = $this->resolveAction(CartDiscountChangeRequiresDiscountCodeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountChangeRequiresDiscountCodeAction::class, $action));
         return $this;
     }
     /**
@@ -122,9 +114,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeSortOrder($action = null)
     {
-        $action = $this->resolveAction(CartDiscountChangeSortOrderAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountChangeSortOrderAction::class, $action));
         return $this;
     }
     /**
@@ -138,9 +128,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeStackingMode($action = null)
     {
-        $action = $this->resolveAction(CartDiscountChangeStackingModeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountChangeStackingModeAction::class, $action));
         return $this;
     }
     /**
@@ -154,9 +142,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeTarget($action = null)
     {
-        $action = $this->resolveAction(CartDiscountChangeTargetAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountChangeTargetAction::class, $action));
         return $this;
     }
     /**
@@ -170,9 +156,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeValue($action = null)
     {
-        $action = $this->resolveAction(CartDiscountChangeValueAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountChangeValueAction::class, $action));
         return $this;
     }
     /**
@@ -186,9 +170,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $action = $this->resolveAction(CartDiscountSetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountSetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -202,9 +184,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $action = $this->resolveAction(CartDiscountSetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountSetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -218,9 +198,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $action = $this->resolveAction(CartDiscountSetDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -234,9 +212,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setValidFrom($action = null)
     {
-        $action = $this->resolveAction(CartDiscountSetValidFromAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountSetValidFromAction::class, $action));
         return $this;
     }
     /**
@@ -250,9 +226,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setValidUntil($action = null)
     {
-        $action = $this->resolveAction(CartDiscountSetValidUntilAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartDiscountSetValidUntilAction::class, $action));
         return $this;
     }
 
@@ -266,7 +240,7 @@ class CartDiscountUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

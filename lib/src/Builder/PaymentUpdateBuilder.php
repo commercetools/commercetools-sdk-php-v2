@@ -66,9 +66,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function addInterfaceInteraction($action = null)
     {
-        $action = $this->resolveAction(PaymentAddInterfaceInteractionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentAddInterfaceInteractionAction::class, $action));
         return $this;
     }
     /**
@@ -82,9 +80,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function addTransaction($action = null)
     {
-        $action = $this->resolveAction(PaymentAddTransactionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentAddTransactionAction::class, $action));
         return $this;
     }
     /**
@@ -98,9 +94,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function changeAmountPlanned($action = null)
     {
-        $action = $this->resolveAction(PaymentChangeAmountPlannedAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentChangeAmountPlannedAction::class, $action));
         return $this;
     }
     /**
@@ -114,9 +108,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function changeTransactionInteractionId($action = null)
     {
-        $action = $this->resolveAction(PaymentChangeTransactionInteractionIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentChangeTransactionInteractionIdAction::class, $action));
         return $this;
     }
     /**
@@ -130,9 +122,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function changeTransactionState($action = null)
     {
-        $action = $this->resolveAction(PaymentChangeTransactionStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentChangeTransactionStateAction::class, $action));
         return $this;
     }
     /**
@@ -146,9 +136,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function changeTransactionTimestamp($action = null)
     {
-        $action = $this->resolveAction(PaymentChangeTransactionTimestampAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentChangeTransactionTimestampAction::class, $action));
         return $this;
     }
     /**
@@ -162,9 +150,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setAmountPaid($action = null)
     {
-        $action = $this->resolveAction(PaymentSetAmountPaidAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetAmountPaidAction::class, $action));
         return $this;
     }
     /**
@@ -178,9 +164,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setAmountRefunded($action = null)
     {
-        $action = $this->resolveAction(PaymentSetAmountRefundedAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetAmountRefundedAction::class, $action));
         return $this;
     }
     /**
@@ -194,9 +178,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setAuthorization($action = null)
     {
-        $action = $this->resolveAction(PaymentSetAuthorizationAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetAuthorizationAction::class, $action));
         return $this;
     }
     /**
@@ -210,9 +192,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $action = $this->resolveAction(PaymentSetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -226,9 +206,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $action = $this->resolveAction(PaymentSetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -242,9 +220,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setCustomer($action = null)
     {
-        $action = $this->resolveAction(PaymentSetCustomerAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetCustomerAction::class, $action));
         return $this;
     }
     /**
@@ -258,9 +234,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setExternalId($action = null)
     {
-        $action = $this->resolveAction(PaymentSetExternalIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetExternalIdAction::class, $action));
         return $this;
     }
     /**
@@ -274,9 +248,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setInterfaceId($action = null)
     {
-        $action = $this->resolveAction(PaymentSetInterfaceIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetInterfaceIdAction::class, $action));
         return $this;
     }
     /**
@@ -290,9 +262,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $action = $this->resolveAction(PaymentSetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -306,9 +276,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setMethodInfoInterface($action = null)
     {
-        $action = $this->resolveAction(PaymentSetMethodInfoInterfaceAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetMethodInfoInterfaceAction::class, $action));
         return $this;
     }
     /**
@@ -322,9 +290,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setMethodInfoMethod($action = null)
     {
-        $action = $this->resolveAction(PaymentSetMethodInfoMethodAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetMethodInfoMethodAction::class, $action));
         return $this;
     }
     /**
@@ -338,9 +304,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setMethodInfoName($action = null)
     {
-        $action = $this->resolveAction(PaymentSetMethodInfoNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetMethodInfoNameAction::class, $action));
         return $this;
     }
     /**
@@ -354,9 +318,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setStatusInterfaceCode($action = null)
     {
-        $action = $this->resolveAction(PaymentSetStatusInterfaceCodeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetStatusInterfaceCodeAction::class, $action));
         return $this;
     }
     /**
@@ -370,9 +332,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function setStatusInterfaceText($action = null)
     {
-        $action = $this->resolveAction(PaymentSetStatusInterfaceTextAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentSetStatusInterfaceTextAction::class, $action));
         return $this;
     }
     /**
@@ -386,9 +346,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      */
     public function transitionState($action = null)
     {
-        $action = $this->resolveAction(PaymentTransitionStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(PaymentTransitionStateAction::class, $action));
         return $this;
     }
 
@@ -402,7 +360,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

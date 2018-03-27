@@ -55,9 +55,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function addShippingRate($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodAddShippingRateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodAddShippingRateAction::class, $action));
         return $this;
     }
     /**
@@ -71,9 +69,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function addZone($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodAddZoneAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodAddZoneAction::class, $action));
         return $this;
     }
     /**
@@ -87,9 +83,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function changeIsDefault($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodChangeIsDefaultAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodChangeIsDefaultAction::class, $action));
         return $this;
     }
     /**
@@ -103,9 +97,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodChangeNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -119,9 +111,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function changeTaxCategory($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodChangeTaxCategoryAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodChangeTaxCategoryAction::class, $action));
         return $this;
     }
     /**
@@ -135,9 +125,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function removeShippingRate($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodRemoveShippingRateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodRemoveShippingRateAction::class, $action));
         return $this;
     }
     /**
@@ -151,9 +139,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function removeZone($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodRemoveZoneAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodRemoveZoneAction::class, $action));
         return $this;
     }
     /**
@@ -167,9 +153,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodSetDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -183,9 +167,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodSetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodSetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -199,9 +181,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function setPredicate($action = null)
     {
-        $action = $this->resolveAction(ShippingMethodSetPredicateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ShippingMethodSetPredicateAction::class, $action));
         return $this;
     }
 
@@ -215,7 +195,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

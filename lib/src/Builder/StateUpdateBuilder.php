@@ -54,9 +54,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function addRoles($action = null)
     {
-        $action = $this->resolveAction(StateAddRolesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(StateAddRolesAction::class, $action));
         return $this;
     }
     /**
@@ -70,9 +68,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function changeInitial($action = null)
     {
-        $action = $this->resolveAction(StateChangeInitialAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(StateChangeInitialAction::class, $action));
         return $this;
     }
     /**
@@ -86,9 +82,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function changeKey($action = null)
     {
-        $action = $this->resolveAction(StateChangeKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(StateChangeKeyAction::class, $action));
         return $this;
     }
     /**
@@ -102,9 +96,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function changeType($action = null)
     {
-        $action = $this->resolveAction(StateChangeTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(StateChangeTypeAction::class, $action));
         return $this;
     }
     /**
@@ -118,9 +110,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function removeRoles($action = null)
     {
-        $action = $this->resolveAction(StateRemoveRolesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(StateRemoveRolesAction::class, $action));
         return $this;
     }
     /**
@@ -134,9 +124,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $action = $this->resolveAction(StateSetDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(StateSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -150,9 +138,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setName($action = null)
     {
-        $action = $this->resolveAction(StateSetNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(StateSetNameAction::class, $action));
         return $this;
     }
     /**
@@ -166,9 +152,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setRoles($action = null)
     {
-        $action = $this->resolveAction(StateSetRolesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(StateSetRolesAction::class, $action));
         return $this;
     }
     /**
@@ -182,9 +166,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setTransitions($action = null)
     {
-        $action = $this->resolveAction(StateSetTransitionsAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(StateSetTransitionsAction::class, $action));
         return $this;
     }
 
@@ -198,7 +180,7 @@ class StateUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

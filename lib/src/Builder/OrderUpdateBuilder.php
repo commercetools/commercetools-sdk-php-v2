@@ -79,9 +79,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function addDelivery($action = null)
     {
-        $action = $this->resolveAction(OrderAddDeliveryAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderAddDeliveryAction::class, $action));
         return $this;
     }
     /**
@@ -95,9 +93,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function addParcelToDelivery($action = null)
     {
-        $action = $this->resolveAction(OrderAddParcelToDeliveryAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderAddParcelToDeliveryAction::class, $action));
         return $this;
     }
     /**
@@ -111,9 +107,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function addPayment($action = null)
     {
-        $action = $this->resolveAction(OrderAddPaymentAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderAddPaymentAction::class, $action));
         return $this;
     }
     /**
@@ -127,9 +121,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function addReturnInfo($action = null)
     {
-        $action = $this->resolveAction(OrderAddReturnInfoAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderAddReturnInfoAction::class, $action));
         return $this;
     }
     /**
@@ -143,9 +135,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function changeOrderState($action = null)
     {
-        $action = $this->resolveAction(OrderChangeOrderStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderChangeOrderStateAction::class, $action));
         return $this;
     }
     /**
@@ -159,9 +149,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function changePaymentState($action = null)
     {
-        $action = $this->resolveAction(OrderChangePaymentStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderChangePaymentStateAction::class, $action));
         return $this;
     }
     /**
@@ -175,9 +163,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function changeShipmentState($action = null)
     {
-        $action = $this->resolveAction(OrderChangeShipmentStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderChangeShipmentStateAction::class, $action));
         return $this;
     }
     /**
@@ -191,9 +177,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function importCustomLineItemState($action = null)
     {
-        $action = $this->resolveAction(OrderImportCustomLineItemStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderImportCustomLineItemStateAction::class, $action));
         return $this;
     }
     /**
@@ -207,9 +191,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function importLineItemState($action = null)
     {
-        $action = $this->resolveAction(OrderImportLineItemStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderImportLineItemStateAction::class, $action));
         return $this;
     }
     /**
@@ -223,9 +205,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function removeDelivery($action = null)
     {
-        $action = $this->resolveAction(OrderRemoveDeliveryAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderRemoveDeliveryAction::class, $action));
         return $this;
     }
     /**
@@ -239,9 +219,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function removeParcelFromDelivery($action = null)
     {
-        $action = $this->resolveAction(OrderRemoveParcelFromDeliveryAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderRemoveParcelFromDeliveryAction::class, $action));
         return $this;
     }
     /**
@@ -255,9 +233,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function removePayment($action = null)
     {
-        $action = $this->resolveAction(OrderRemovePaymentAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderRemovePaymentAction::class, $action));
         return $this;
     }
     /**
@@ -271,9 +247,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setBillingAddress($action = null)
     {
-        $action = $this->resolveAction(OrderSetBillingAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetBillingAddressAction::class, $action));
         return $this;
     }
     /**
@@ -287,9 +261,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $action = $this->resolveAction(OrderSetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -303,9 +275,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemCustomField($action = null)
     {
-        $action = $this->resolveAction(OrderSetCustomLineItemCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetCustomLineItemCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -319,9 +289,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemCustomType($action = null)
     {
-        $action = $this->resolveAction(OrderSetCustomLineItemCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetCustomLineItemCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -335,9 +303,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $action = $this->resolveAction(OrderSetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -351,9 +317,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerEmail($action = null)
     {
-        $action = $this->resolveAction(OrderSetCustomerEmailAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetCustomerEmailAction::class, $action));
         return $this;
     }
     /**
@@ -367,9 +331,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setDeliveryAddress($action = null)
     {
-        $action = $this->resolveAction(OrderSetDeliveryAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetDeliveryAddressAction::class, $action));
         return $this;
     }
     /**
@@ -383,9 +345,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setDeliveryItems($action = null)
     {
-        $action = $this->resolveAction(OrderSetDeliveryItemsAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetDeliveryItemsAction::class, $action));
         return $this;
     }
     /**
@@ -399,9 +359,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomField($action = null)
     {
-        $action = $this->resolveAction(OrderSetLineItemCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetLineItemCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -415,9 +373,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomType($action = null)
     {
-        $action = $this->resolveAction(OrderSetLineItemCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetLineItemCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -431,9 +387,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setLocale($action = null)
     {
-        $action = $this->resolveAction(OrderSetLocaleAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetLocaleAction::class, $action));
         return $this;
     }
     /**
@@ -447,9 +401,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setOrderNumber($action = null)
     {
-        $action = $this->resolveAction(OrderSetOrderNumberAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetOrderNumberAction::class, $action));
         return $this;
     }
     /**
@@ -463,9 +415,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setParcelItems($action = null)
     {
-        $action = $this->resolveAction(OrderSetParcelItemsAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetParcelItemsAction::class, $action));
         return $this;
     }
     /**
@@ -479,9 +429,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setParcelMeasurements($action = null)
     {
-        $action = $this->resolveAction(OrderSetParcelMeasurementsAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetParcelMeasurementsAction::class, $action));
         return $this;
     }
     /**
@@ -495,9 +443,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setParcelTrackingData($action = null)
     {
-        $action = $this->resolveAction(OrderSetParcelTrackingDataAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetParcelTrackingDataAction::class, $action));
         return $this;
     }
     /**
@@ -511,9 +457,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setReturnPaymentState($action = null)
     {
-        $action = $this->resolveAction(OrderSetReturnPaymentStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetReturnPaymentStateAction::class, $action));
         return $this;
     }
     /**
@@ -527,9 +471,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setReturnShipmentState($action = null)
     {
-        $action = $this->resolveAction(OrderSetReturnShipmentStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetReturnShipmentStateAction::class, $action));
         return $this;
     }
     /**
@@ -543,9 +485,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function setShippingAddress($action = null)
     {
-        $action = $this->resolveAction(OrderSetShippingAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderSetShippingAddressAction::class, $action));
         return $this;
     }
     /**
@@ -559,9 +499,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function transitionCustomLineItemState($action = null)
     {
-        $action = $this->resolveAction(OrderTransitionCustomLineItemStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderTransitionCustomLineItemStateAction::class, $action));
         return $this;
     }
     /**
@@ -575,9 +513,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function transitionLineItemState($action = null)
     {
-        $action = $this->resolveAction(OrderTransitionLineItemStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderTransitionLineItemStateAction::class, $action));
         return $this;
     }
     /**
@@ -591,9 +527,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function transitionState($action = null)
     {
-        $action = $this->resolveAction(OrderTransitionStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderTransitionStateAction::class, $action));
         return $this;
     }
     /**
@@ -607,9 +541,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      */
     public function updateSyncInfo($action = null)
     {
-        $action = $this->resolveAction(OrderUpdateSyncInfoAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(OrderUpdateSyncInfoAction::class, $action));
         return $this;
     }
 
@@ -623,7 +555,7 @@ class OrderUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

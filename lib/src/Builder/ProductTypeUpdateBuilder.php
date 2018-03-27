@@ -62,9 +62,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function addAttributeDefinition($action = null)
     {
-        $action = $this->resolveAction(ProductTypeAddAttributeDefinitionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeAddAttributeDefinitionAction::class, $action));
         return $this;
     }
     /**
@@ -78,9 +76,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function addLocalizedEnumValue($action = null)
     {
-        $action = $this->resolveAction(ProductTypeAddLocalizedEnumValueAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeAddLocalizedEnumValueAction::class, $action));
         return $this;
     }
     /**
@@ -94,9 +90,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function addPlainEnumValue($action = null)
     {
-        $action = $this->resolveAction(ProductTypeAddPlainEnumValueAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeAddPlainEnumValueAction::class, $action));
         return $this;
     }
     /**
@@ -110,9 +104,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeAttributeConstraint($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangeAttributeConstraintAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangeAttributeConstraintAction::class, $action));
         return $this;
     }
     /**
@@ -126,9 +118,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeAttributeOrder($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangeAttributeOrderAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangeAttributeOrderAction::class, $action));
         return $this;
     }
     /**
@@ -142,9 +132,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeDescription($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangeDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangeDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -158,9 +146,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeInputHint($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangeInputHintAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangeInputHintAction::class, $action));
         return $this;
     }
     /**
@@ -174,9 +160,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeIsSearchable($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangeIsSearchableAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangeIsSearchableAction::class, $action));
         return $this;
     }
     /**
@@ -190,9 +174,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLabel($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangeLabelAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangeLabelAction::class, $action));
         return $this;
     }
     /**
@@ -206,9 +188,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLocalizedEnumValueLabel($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangeLocalizedEnumValueLabelAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangeLocalizedEnumValueLabelAction::class, $action));
         return $this;
     }
     /**
@@ -222,9 +202,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLocalizedEnumValueOrder($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangeLocalizedEnumValueOrderAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangeLocalizedEnumValueOrderAction::class, $action));
         return $this;
     }
     /**
@@ -238,9 +216,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangeNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -254,9 +230,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changePlainEnumValueLabel($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangePlainEnumValueLabelAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangePlainEnumValueLabelAction::class, $action));
         return $this;
     }
     /**
@@ -270,9 +244,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function changePlainEnumValueOrder($action = null)
     {
-        $action = $this->resolveAction(ProductTypeChangePlainEnumValueOrderAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeChangePlainEnumValueOrderAction::class, $action));
         return $this;
     }
     /**
@@ -286,9 +258,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function removeAttributeDefinition($action = null)
     {
-        $action = $this->resolveAction(ProductTypeRemoveAttributeDefinitionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeRemoveAttributeDefinitionAction::class, $action));
         return $this;
     }
     /**
@@ -302,9 +272,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function setInputTip($action = null)
     {
-        $action = $this->resolveAction(ProductTypeSetInputTipAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeSetInputTipAction::class, $action));
         return $this;
     }
     /**
@@ -318,9 +286,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $action = $this->resolveAction(ProductTypeSetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductTypeSetKeyAction::class, $action));
         return $this;
     }
 
@@ -334,7 +300,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

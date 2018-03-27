@@ -53,9 +53,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeIsActive($action = null)
     {
-        $action = $this->resolveAction(ProductDiscountChangeIsActiveAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductDiscountChangeIsActiveAction::class, $action));
         return $this;
     }
     /**
@@ -69,9 +67,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $action = $this->resolveAction(ProductDiscountChangeNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductDiscountChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -85,9 +81,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changePredicate($action = null)
     {
-        $action = $this->resolveAction(ProductDiscountChangePredicateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductDiscountChangePredicateAction::class, $action));
         return $this;
     }
     /**
@@ -101,9 +95,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeSortOrder($action = null)
     {
-        $action = $this->resolveAction(ProductDiscountChangeSortOrderAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductDiscountChangeSortOrderAction::class, $action));
         return $this;
     }
     /**
@@ -117,9 +109,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeValue($action = null)
     {
-        $action = $this->resolveAction(ProductDiscountChangeValueAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductDiscountChangeValueAction::class, $action));
         return $this;
     }
     /**
@@ -133,9 +123,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $action = $this->resolveAction(ProductDiscountSetDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductDiscountSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -149,9 +137,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setValidFrom($action = null)
     {
-        $action = $this->resolveAction(ProductDiscountSetValidFromAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductDiscountSetValidFromAction::class, $action));
         return $this;
     }
     /**
@@ -165,9 +151,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setValidUntil($action = null)
     {
-        $action = $this->resolveAction(ProductDiscountSetValidUntilAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProductDiscountSetValidUntilAction::class, $action));
         return $this;
     }
 
@@ -181,7 +165,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

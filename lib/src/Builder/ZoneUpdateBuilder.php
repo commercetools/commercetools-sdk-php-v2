@@ -49,9 +49,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function addLocation($action = null)
     {
-        $action = $this->resolveAction(ZoneAddLocationAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ZoneAddLocationAction::class, $action));
         return $this;
     }
     /**
@@ -65,9 +63,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $action = $this->resolveAction(ZoneChangeNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ZoneChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -81,9 +77,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function removeLocation($action = null)
     {
-        $action = $this->resolveAction(ZoneRemoveLocationAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ZoneRemoveLocationAction::class, $action));
         return $this;
     }
     /**
@@ -97,9 +91,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $action = $this->resolveAction(ZoneSetDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ZoneSetDescriptionAction::class, $action));
         return $this;
     }
 
@@ -113,7 +105,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

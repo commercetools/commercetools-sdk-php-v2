@@ -56,9 +56,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setAuthorName($action = null)
     {
-        $action = $this->resolveAction(ReviewSetAuthorNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetAuthorNameAction::class, $action));
         return $this;
     }
     /**
@@ -72,9 +70,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $action = $this->resolveAction(ReviewSetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -88,9 +84,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $action = $this->resolveAction(ReviewSetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -104,9 +98,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setCustomer($action = null)
     {
-        $action = $this->resolveAction(ReviewSetCustomerAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetCustomerAction::class, $action));
         return $this;
     }
     /**
@@ -120,9 +112,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $action = $this->resolveAction(ReviewSetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -136,9 +126,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setLocale($action = null)
     {
-        $action = $this->resolveAction(ReviewSetLocaleAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetLocaleAction::class, $action));
         return $this;
     }
     /**
@@ -152,9 +140,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setRating($action = null)
     {
-        $action = $this->resolveAction(ReviewSetRatingAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetRatingAction::class, $action));
         return $this;
     }
     /**
@@ -168,9 +154,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setTarget($action = null)
     {
-        $action = $this->resolveAction(ReviewSetTargetAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetTargetAction::class, $action));
         return $this;
     }
     /**
@@ -184,9 +168,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setText($action = null)
     {
-        $action = $this->resolveAction(ReviewSetTextAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetTextAction::class, $action));
         return $this;
     }
     /**
@@ -200,9 +182,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function setTitle($action = null)
     {
-        $action = $this->resolveAction(ReviewSetTitleAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewSetTitleAction::class, $action));
         return $this;
     }
     /**
@@ -216,9 +196,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
      */
     public function transitionState($action = null)
     {
-        $action = $this->resolveAction(ReviewTransitionStateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ReviewTransitionStateAction::class, $action));
         return $this;
     }
 
@@ -232,7 +210,7 @@ class ReviewUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

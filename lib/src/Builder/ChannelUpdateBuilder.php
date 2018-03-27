@@ -55,9 +55,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function addRoles($action = null)
     {
-        $action = $this->resolveAction(ChannelAddRolesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelAddRolesAction::class, $action));
         return $this;
     }
     /**
@@ -71,9 +69,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function changeDescription($action = null)
     {
-        $action = $this->resolveAction(ChannelChangeDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelChangeDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -87,9 +83,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function changeKey($action = null)
     {
-        $action = $this->resolveAction(ChannelChangeKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelChangeKeyAction::class, $action));
         return $this;
     }
     /**
@@ -103,9 +97,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $action = $this->resolveAction(ChannelChangeNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -119,9 +111,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function removeRoles($action = null)
     {
-        $action = $this->resolveAction(ChannelRemoveRolesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelRemoveRolesAction::class, $action));
         return $this;
     }
     /**
@@ -135,9 +125,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setAddress($action = null)
     {
-        $action = $this->resolveAction(ChannelSetAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelSetAddressAction::class, $action));
         return $this;
     }
     /**
@@ -151,9 +139,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $action = $this->resolveAction(ChannelSetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelSetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -167,9 +153,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $action = $this->resolveAction(ChannelSetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelSetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -183,9 +167,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setGeoLocation($action = null)
     {
-        $action = $this->resolveAction(ChannelSetGeolocationAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelSetGeolocationAction::class, $action));
         return $this;
     }
     /**
@@ -199,9 +181,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setRoles($action = null)
     {
-        $action = $this->resolveAction(ChannelSetRolesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ChannelSetRolesAction::class, $action));
         return $this;
     }
 
@@ -215,7 +195,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

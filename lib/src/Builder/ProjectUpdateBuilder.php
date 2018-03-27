@@ -51,9 +51,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeCountries($action = null)
     {
-        $action = $this->resolveAction(ProjectChangeCountriesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProjectChangeCountriesAction::class, $action));
         return $this;
     }
     /**
@@ -67,9 +65,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeCurrencies($action = null)
     {
-        $action = $this->resolveAction(ProjectChangeCurrenciesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProjectChangeCurrenciesAction::class, $action));
         return $this;
     }
     /**
@@ -83,9 +79,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeLanguages($action = null)
     {
-        $action = $this->resolveAction(ProjectChangeLanguagesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProjectChangeLanguagesAction::class, $action));
         return $this;
     }
     /**
@@ -99,9 +93,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeMessagesEnabled($action = null)
     {
-        $action = $this->resolveAction(ProjectChangeMessagesEnabledAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProjectChangeMessagesEnabledAction::class, $action));
         return $this;
     }
     /**
@@ -115,9 +107,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $action = $this->resolveAction(ProjectChangeNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProjectChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -131,9 +121,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function setShippingRateInputType($action = null)
     {
-        $action = $this->resolveAction(ProjectSetShippingRateInputTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ProjectSetShippingRateInputTypeAction::class, $action));
         return $this;
     }
 
@@ -147,7 +135,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

@@ -88,9 +88,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addCustomLineItem($action = null)
     {
-        $action = $this->resolveAction(CartAddCustomLineItemAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartAddCustomLineItemAction::class, $action));
         return $this;
     }
     /**
@@ -104,9 +102,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addDiscountCode($action = null)
     {
-        $action = $this->resolveAction(CartAddDiscountCodeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartAddDiscountCodeAction::class, $action));
         return $this;
     }
     /**
@@ -120,9 +116,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addLineItem($action = null)
     {
-        $action = $this->resolveAction(CartAddLineItemAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartAddLineItemAction::class, $action));
         return $this;
     }
     /**
@@ -136,9 +130,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addPayment($action = null)
     {
-        $action = $this->resolveAction(CartAddPaymentAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartAddPaymentAction::class, $action));
         return $this;
     }
     /**
@@ -152,9 +144,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function addShoppingList($action = null)
     {
-        $action = $this->resolveAction(CartAddShoppingListAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartAddShoppingListAction::class, $action));
         return $this;
     }
     /**
@@ -168,9 +158,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeCustomLineItemMoney($action = null)
     {
-        $action = $this->resolveAction(CartChangeCustomLineItemMoneyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartChangeCustomLineItemMoneyAction::class, $action));
         return $this;
     }
     /**
@@ -184,9 +172,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeCustomLineItemQuantity($action = null)
     {
-        $action = $this->resolveAction(CartChangeCustomLineItemQuantityAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartChangeCustomLineItemQuantityAction::class, $action));
         return $this;
     }
     /**
@@ -200,9 +186,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeLineItemQuantity($action = null)
     {
-        $action = $this->resolveAction(CartChangeLineItemQuantityAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartChangeLineItemQuantityAction::class, $action));
         return $this;
     }
     /**
@@ -216,9 +200,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeTaxCalculationMode($action = null)
     {
-        $action = $this->resolveAction(CartChangeTaxCalculationModeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartChangeTaxCalculationModeAction::class, $action));
         return $this;
     }
     /**
@@ -232,9 +214,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeTaxMode($action = null)
     {
-        $action = $this->resolveAction(CartChangeTaxModeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartChangeTaxModeAction::class, $action));
         return $this;
     }
     /**
@@ -248,9 +228,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function changeTaxRoundingMode($action = null)
     {
-        $action = $this->resolveAction(CartChangeTaxRoundingModeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartChangeTaxRoundingModeAction::class, $action));
         return $this;
     }
     /**
@@ -264,9 +242,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function recalculate($action = null)
     {
-        $action = $this->resolveAction(CartRecalculateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartRecalculateAction::class, $action));
         return $this;
     }
     /**
@@ -280,9 +256,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function removeCustomLineItem($action = null)
     {
-        $action = $this->resolveAction(CartRemoveCustomLineItemAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartRemoveCustomLineItemAction::class, $action));
         return $this;
     }
     /**
@@ -296,9 +270,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function removeDiscountCode($action = null)
     {
-        $action = $this->resolveAction(CartRemoveDiscountCodeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartRemoveDiscountCodeAction::class, $action));
         return $this;
     }
     /**
@@ -312,9 +284,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function removeLineItem($action = null)
     {
-        $action = $this->resolveAction(CartRemoveLineItemAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartRemoveLineItemAction::class, $action));
         return $this;
     }
     /**
@@ -328,9 +298,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function removePayment($action = null)
     {
-        $action = $this->resolveAction(CartRemovePaymentAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartRemovePaymentAction::class, $action));
         return $this;
     }
     /**
@@ -344,9 +312,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setAnonymousId($action = null)
     {
-        $action = $this->resolveAction(CartSetAnonymousIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetAnonymousIdAction::class, $action));
         return $this;
     }
     /**
@@ -360,9 +326,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setBillingAddress($action = null)
     {
-        $action = $this->resolveAction(CartSetBillingAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetBillingAddressAction::class, $action));
         return $this;
     }
     /**
@@ -376,9 +340,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCartTotalTax($action = null)
     {
-        $action = $this->resolveAction(CartSetCartTotalTaxAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCartTotalTaxAction::class, $action));
         return $this;
     }
     /**
@@ -392,9 +354,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCountry($action = null)
     {
-        $action = $this->resolveAction(CartSetCountryAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCountryAction::class, $action));
         return $this;
     }
     /**
@@ -408,9 +368,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -424,9 +382,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemCustomField($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomLineItemCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomLineItemCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -440,9 +396,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemCustomType($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomLineItemCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomLineItemCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -456,9 +410,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemTaxAmount($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomLineItemTaxAmountAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomLineItemTaxAmountAction::class, $action));
         return $this;
     }
     /**
@@ -472,9 +424,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomLineItemTaxRate($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomLineItemTaxRateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomLineItemTaxRateAction::class, $action));
         return $this;
     }
     /**
@@ -488,9 +438,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomShippingMethod($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomShippingMethodAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomShippingMethodAction::class, $action));
         return $this;
     }
     /**
@@ -504,9 +452,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -520,9 +466,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerEmail($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomerEmailAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomerEmailAction::class, $action));
         return $this;
     }
     /**
@@ -536,9 +480,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerGroup($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomerGroupAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomerGroupAction::class, $action));
         return $this;
     }
     /**
@@ -552,9 +494,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerId($action = null)
     {
-        $action = $this->resolveAction(CartSetCustomerIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetCustomerIdAction::class, $action));
         return $this;
     }
     /**
@@ -568,9 +508,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setDeleteDaysAfterLastModification($action = null)
     {
-        $action = $this->resolveAction(CartSetDeleteDaysAfterLastModificationAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetDeleteDaysAfterLastModificationAction::class, $action));
         return $this;
     }
     /**
@@ -584,9 +522,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomField($action = null)
     {
-        $action = $this->resolveAction(CartSetLineItemCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetLineItemCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -600,9 +536,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomType($action = null)
     {
-        $action = $this->resolveAction(CartSetLineItemCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetLineItemCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -616,9 +550,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemPrice($action = null)
     {
-        $action = $this->resolveAction(CartSetLineItemPriceAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetLineItemPriceAction::class, $action));
         return $this;
     }
     /**
@@ -632,9 +564,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemTaxAmount($action = null)
     {
-        $action = $this->resolveAction(CartSetLineItemTaxAmountAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetLineItemTaxAmountAction::class, $action));
         return $this;
     }
     /**
@@ -648,9 +578,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemTaxRate($action = null)
     {
-        $action = $this->resolveAction(CartSetLineItemTaxRateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetLineItemTaxRateAction::class, $action));
         return $this;
     }
     /**
@@ -664,9 +592,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemTotalPrice($action = null)
     {
-        $action = $this->resolveAction(CartSetLineItemTotalPriceAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetLineItemTotalPriceAction::class, $action));
         return $this;
     }
     /**
@@ -680,9 +606,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setLocale($action = null)
     {
-        $action = $this->resolveAction(CartSetLocaleAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetLocaleAction::class, $action));
         return $this;
     }
     /**
@@ -696,9 +620,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingAddress($action = null)
     {
-        $action = $this->resolveAction(CartSetShippingAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetShippingAddressAction::class, $action));
         return $this;
     }
     /**
@@ -712,9 +634,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingMethod($action = null)
     {
-        $action = $this->resolveAction(CartSetShippingMethodAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetShippingMethodAction::class, $action));
         return $this;
     }
     /**
@@ -728,9 +648,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingMethodTaxAmount($action = null)
     {
-        $action = $this->resolveAction(CartSetShippingMethodTaxAmountAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetShippingMethodTaxAmountAction::class, $action));
         return $this;
     }
     /**
@@ -744,9 +662,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingMethodTaxRate($action = null)
     {
-        $action = $this->resolveAction(CartSetShippingMethodTaxRateAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetShippingMethodTaxRateAction::class, $action));
         return $this;
     }
     /**
@@ -760,9 +676,7 @@ class CartUpdateBuilder extends BaseBuilder {
      */
     public function setShippingRateInput($action = null)
     {
-        $action = $this->resolveAction(CartSetShippingRateInputAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CartSetShippingRateInputAction::class, $action));
         return $this;
     }
 
@@ -776,7 +690,7 @@ class CartUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

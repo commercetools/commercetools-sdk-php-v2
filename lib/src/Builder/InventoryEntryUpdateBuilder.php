@@ -53,9 +53,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function addQuantity($action = null)
     {
-        $action = $this->resolveAction(InventoryAddQuantityAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(InventoryAddQuantityAction::class, $action));
         return $this;
     }
     /**
@@ -69,9 +67,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function changeQuantity($action = null)
     {
-        $action = $this->resolveAction(InventoryChangeQuantityAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(InventoryChangeQuantityAction::class, $action));
         return $this;
     }
     /**
@@ -85,9 +81,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function removeQuantity($action = null)
     {
-        $action = $this->resolveAction(InventoryRemoveQuantityAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(InventoryRemoveQuantityAction::class, $action));
         return $this;
     }
     /**
@@ -101,9 +95,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $action = $this->resolveAction(InventorySetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(InventorySetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -117,9 +109,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $action = $this->resolveAction(InventorySetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(InventorySetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -133,9 +123,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setExpectedDelivery($action = null)
     {
-        $action = $this->resolveAction(InventorySetExpectedDeliveryAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(InventorySetExpectedDeliveryAction::class, $action));
         return $this;
     }
     /**
@@ -149,9 +137,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setRestockableInDays($action = null)
     {
-        $action = $this->resolveAction(InventorySetRestockableInDaysAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(InventorySetRestockableInDaysAction::class, $action));
         return $this;
     }
     /**
@@ -165,9 +151,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
      */
     public function setSupplyChannel($action = null)
     {
-        $action = $this->resolveAction(InventorySetSupplyChannelAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(InventorySetSupplyChannelAction::class, $action));
         return $this;
     }
 
@@ -181,7 +165,7 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

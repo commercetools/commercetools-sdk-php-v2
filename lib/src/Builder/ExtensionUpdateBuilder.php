@@ -48,9 +48,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     public function changeDestination($action = null)
     {
-        $action = $this->resolveAction(ExtensionChangeDestinationAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ExtensionChangeDestinationAction::class, $action));
         return $this;
     }
     /**
@@ -64,9 +62,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     public function changeTriggers($action = null)
     {
-        $action = $this->resolveAction(ExtensionChangeTriggersAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ExtensionChangeTriggersAction::class, $action));
         return $this;
     }
     /**
@@ -80,9 +76,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $action = $this->resolveAction(ExtensionSetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(ExtensionSetKeyAction::class, $action));
         return $this;
     }
 
@@ -96,7 +90,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

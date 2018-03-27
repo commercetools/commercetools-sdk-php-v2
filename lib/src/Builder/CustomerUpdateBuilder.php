@@ -70,9 +70,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function addAddress($action = null)
     {
-        $action = $this->resolveAction(CustomerAddAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerAddAddressAction::class, $action));
         return $this;
     }
     /**
@@ -86,9 +84,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function addBillingAddressId($action = null)
     {
-        $action = $this->resolveAction(CustomerAddBillingAddressIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerAddBillingAddressIdAction::class, $action));
         return $this;
     }
     /**
@@ -102,9 +98,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function addShippingAddressId($action = null)
     {
-        $action = $this->resolveAction(CustomerAddShippingAddressIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerAddShippingAddressIdAction::class, $action));
         return $this;
     }
     /**
@@ -118,9 +112,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function changeAddress($action = null)
     {
-        $action = $this->resolveAction(CustomerChangeAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerChangeAddressAction::class, $action));
         return $this;
     }
     /**
@@ -134,9 +126,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function changeEmail($action = null)
     {
-        $action = $this->resolveAction(CustomerChangeEmailAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerChangeEmailAction::class, $action));
         return $this;
     }
     /**
@@ -150,9 +140,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function removeAddress($action = null)
     {
-        $action = $this->resolveAction(CustomerRemoveAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerRemoveAddressAction::class, $action));
         return $this;
     }
     /**
@@ -166,9 +154,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function removeBillingAddressId($action = null)
     {
-        $action = $this->resolveAction(CustomerRemoveBillingAddressIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerRemoveBillingAddressIdAction::class, $action));
         return $this;
     }
     /**
@@ -182,9 +168,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function removeShippingAddressId($action = null)
     {
-        $action = $this->resolveAction(CustomerRemoveShippingAddressIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerRemoveShippingAddressIdAction::class, $action));
         return $this;
     }
     /**
@@ -198,9 +182,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCompanyName($action = null)
     {
-        $action = $this->resolveAction(CustomerSetCompanyNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetCompanyNameAction::class, $action));
         return $this;
     }
     /**
@@ -214,9 +196,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $action = $this->resolveAction(CustomerSetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -230,9 +210,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $action = $this->resolveAction(CustomerSetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -246,9 +224,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerGroup($action = null)
     {
-        $action = $this->resolveAction(CustomerSetCustomerGroupAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetCustomerGroupAction::class, $action));
         return $this;
     }
     /**
@@ -262,9 +238,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setCustomerNumber($action = null)
     {
-        $action = $this->resolveAction(CustomerSetCustomerNumberAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetCustomerNumberAction::class, $action));
         return $this;
     }
     /**
@@ -278,9 +252,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setDateOfBirth($action = null)
     {
-        $action = $this->resolveAction(CustomerSetDateOfBirthAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetDateOfBirthAction::class, $action));
         return $this;
     }
     /**
@@ -294,9 +266,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setDefaultBillingAddress($action = null)
     {
-        $action = $this->resolveAction(CustomerSetDefaultBillingAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetDefaultBillingAddressAction::class, $action));
         return $this;
     }
     /**
@@ -310,9 +280,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setDefaultShippingAddress($action = null)
     {
-        $action = $this->resolveAction(CustomerSetDefaultShippingAddressAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetDefaultShippingAddressAction::class, $action));
         return $this;
     }
     /**
@@ -326,9 +294,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setExternalId($action = null)
     {
-        $action = $this->resolveAction(CustomerSetExternalIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetExternalIdAction::class, $action));
         return $this;
     }
     /**
@@ -342,9 +308,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setFirstName($action = null)
     {
-        $action = $this->resolveAction(CustomerSetFirstNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetFirstNameAction::class, $action));
         return $this;
     }
     /**
@@ -358,9 +322,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $action = $this->resolveAction(CustomerSetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -374,9 +336,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setLastName($action = null)
     {
-        $action = $this->resolveAction(CustomerSetLastNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetLastNameAction::class, $action));
         return $this;
     }
     /**
@@ -390,9 +350,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setLocale($action = null)
     {
-        $action = $this->resolveAction(CustomerSetLocaleAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetLocaleAction::class, $action));
         return $this;
     }
     /**
@@ -406,9 +364,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setMiddleName($action = null)
     {
-        $action = $this->resolveAction(CustomerSetMiddleNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetMiddleNameAction::class, $action));
         return $this;
     }
     /**
@@ -422,9 +378,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setSalutation($action = null)
     {
-        $action = $this->resolveAction(CustomerSetSalutationAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetSalutationAction::class, $action));
         return $this;
     }
     /**
@@ -438,9 +392,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setTitle($action = null)
     {
-        $action = $this->resolveAction(CustomerSetTitleAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetTitleAction::class, $action));
         return $this;
     }
     /**
@@ -454,9 +406,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      */
     public function setVatId($action = null)
     {
-        $action = $this->resolveAction(CustomerSetVatIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CustomerSetVatIdAction::class, $action));
         return $this;
     }
 
@@ -470,7 +420,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;

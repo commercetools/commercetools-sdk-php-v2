@@ -67,9 +67,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function addAsset($action = null)
     {
-        $action = $this->resolveAction(CategoryAddAssetAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategoryAddAssetAction::class, $action));
         return $this;
     }
     /**
@@ -83,9 +81,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function changeAssetName($action = null)
     {
-        $action = $this->resolveAction(CategoryChangeAssetNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategoryChangeAssetNameAction::class, $action));
         return $this;
     }
     /**
@@ -99,9 +95,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function changeAssetOrder($action = null)
     {
-        $action = $this->resolveAction(CategoryChangeAssetOrderAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategoryChangeAssetOrderAction::class, $action));
         return $this;
     }
     /**
@@ -115,9 +109,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $action = $this->resolveAction(CategoryChangeNameAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategoryChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -131,9 +123,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function changeOrderHint($action = null)
     {
-        $action = $this->resolveAction(CategoryChangeOrderHintAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategoryChangeOrderHintAction::class, $action));
         return $this;
     }
     /**
@@ -147,9 +137,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function changeParent($action = null)
     {
-        $action = $this->resolveAction(CategoryChangeParentAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategoryChangeParentAction::class, $action));
         return $this;
     }
     /**
@@ -163,9 +151,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function changeSlug($action = null)
     {
-        $action = $this->resolveAction(CategoryChangeSlugAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategoryChangeSlugAction::class, $action));
         return $this;
     }
     /**
@@ -179,9 +165,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function removeAsset($action = null)
     {
-        $action = $this->resolveAction(CategoryRemoveAssetAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategoryRemoveAssetAction::class, $action));
         return $this;
     }
     /**
@@ -195,9 +179,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setAssetCustomField($action = null)
     {
-        $action = $this->resolveAction(CategorySetAssetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetAssetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -211,9 +193,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setAssetCustomType($action = null)
     {
-        $action = $this->resolveAction(CategorySetAssetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetAssetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -227,9 +207,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setAssetDescription($action = null)
     {
-        $action = $this->resolveAction(CategorySetAssetDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetAssetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -243,9 +221,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setAssetKey($action = null)
     {
-        $action = $this->resolveAction(CategorySetAssetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetAssetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -259,9 +235,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setAssetSources($action = null)
     {
-        $action = $this->resolveAction(CategorySetAssetSourcesAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetAssetSourcesAction::class, $action));
         return $this;
     }
     /**
@@ -275,9 +249,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setAssetTags($action = null)
     {
-        $action = $this->resolveAction(CategorySetAssetTagsAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetAssetTagsAction::class, $action));
         return $this;
     }
     /**
@@ -291,9 +263,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $action = $this->resolveAction(CategorySetCustomFieldAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -307,9 +277,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $action = $this->resolveAction(CategorySetCustomTypeAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -323,9 +291,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $action = $this->resolveAction(CategorySetDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -339,9 +305,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setExternalId($action = null)
     {
-        $action = $this->resolveAction(CategorySetExternalIdAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetExternalIdAction::class, $action));
         return $this;
     }
     /**
@@ -355,9 +319,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $action = $this->resolveAction(CategorySetKeyAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -371,9 +333,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setMetaDescription($action = null)
     {
-        $action = $this->resolveAction(CategorySetMetaDescriptionAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetMetaDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -387,9 +347,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setMetaKeywords($action = null)
     {
-        $action = $this->resolveAction(CategorySetMetaKeywordsAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetMetaKeywordsAction::class, $action));
         return $this;
     }
     /**
@@ -403,9 +361,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
      */
     public function setMetaTitle($action = null)
     {
-        $action = $this->resolveAction(CategorySetMetaTitleAction::class, $action);
-        $this->tryAddAction($action);
-
+        $this->tryAddAction($this->resolveAction(CategorySetMetaTitleAction::class, $action));
         return $this;
     }
 
@@ -419,7 +375,7 @@ class CategoryUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function addAndResolveAction($class, $action = null)
+    private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
