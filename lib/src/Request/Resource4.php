@@ -55,7 +55,7 @@ class Resource4 extends Resource
 
     public function delete(Cart $cart)
     {
-        return $this->withIDValue($cart->getId())->delete()->withVersion($cart->getVersion());
+        return $this->withId($cart->getId())->delete()->withVersion($cart->getVersion());
     }
 
     /**

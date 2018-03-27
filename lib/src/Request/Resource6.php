@@ -55,7 +55,7 @@ class Resource6 extends Resource
 
     public function delete(CartDiscount $cartDiscount)
     {
-        return $this->withIDValue($cartDiscount->getId())->delete()->withVersion($cartDiscount->getVersion());
+        return $this->withId($cartDiscount->getId())->delete()->withVersion($cartDiscount->getVersion());
     }
 
     /**

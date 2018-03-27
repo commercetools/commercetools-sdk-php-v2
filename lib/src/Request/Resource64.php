@@ -55,7 +55,7 @@ class Resource64 extends Resource
 
     public function delete(State $state)
     {
-        return $this->withIDValue($state->getId())->delete()->withVersion($state->getVersion());
+        return $this->withId($state->getId())->delete()->withVersion($state->getVersion());
     }
 
     /**

@@ -55,7 +55,7 @@ class Resource26 extends Resource
 
     public function delete(DiscountCode $discountCode)
     {
-        return $this->withIDValue($discountCode->getId())->delete()->withVersion($discountCode->getVersion());
+        return $this->withId($discountCode->getId())->delete()->withVersion($discountCode->getVersion());
     }
 
     /**

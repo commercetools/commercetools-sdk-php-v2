@@ -93,7 +93,7 @@ class Resource10 extends Resource
 
     public function delete(Customer $customer)
     {
-        return $this->withIDValue($customer->getId())->delete()->withVersion($customer->getVersion());
+        return $this->withId($customer->getId())->delete()->withVersion($customer->getVersion());
     }
 
     /**

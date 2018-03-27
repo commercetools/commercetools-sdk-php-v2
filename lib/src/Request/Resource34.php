@@ -68,7 +68,7 @@ class Resource34 extends Resource
 
     public function delete(Order $order)
     {
-        return $this->withIDValue($order->getId())->delete()->withVersion($order->getVersion());
+        return $this->withId($order->getId())->delete()->withVersion($order->getVersion());
     }
 
     /**

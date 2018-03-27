@@ -62,7 +62,7 @@ class Resource71 extends Resource
 
     public function delete(Type $type)
     {
-        return $this->withIDValue($type->getId())->delete()->withVersion($type->getVersion());
+        return $this->withId($type->getId())->delete()->withVersion($type->getVersion());
     }
 
     /**

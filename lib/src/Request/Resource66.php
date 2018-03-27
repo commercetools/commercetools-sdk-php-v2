@@ -62,7 +62,7 @@ class Resource66 extends Resource
 
     public function delete(Subscription $subscription)
     {
-        return $this->withIDValue($subscription->getId())->delete()->withVersion($subscription->getVersion());
+        return $this->withId($subscription->getId())->delete()->withVersion($subscription->getVersion());
     }
 
     /**

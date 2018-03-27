@@ -55,7 +55,7 @@ class Resource69 extends Resource
 
     public function delete(TaxCategory $taxCategory)
     {
-        return $this->withIDValue($taxCategory->getId())->delete()->withVersion($taxCategory->getVersion());
+        return $this->withId($taxCategory->getId())->delete()->withVersion($taxCategory->getVersion());
     }
 
     /**

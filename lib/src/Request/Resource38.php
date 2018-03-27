@@ -62,7 +62,7 @@ class Resource38 extends Resource
 
     public function delete(Payment $payment)
     {
-        return $this->withIDValue($payment->getId())->delete()->withVersion($payment->getVersion());
+        return $this->withId($payment->getId())->delete()->withVersion($payment->getVersion());
     }
 
     /**

@@ -55,7 +55,7 @@ class Resource29 extends Resource
 
     public function delete(InventoryEntry $inventoryEntry)
     {
-        return $this->withIDValue($inventoryEntry->getId())->delete()->withVersion($inventoryEntry->getVersion());
+        return $this->withId($inventoryEntry->getId())->delete()->withVersion($inventoryEntry->getVersion());
     }
 
     /**

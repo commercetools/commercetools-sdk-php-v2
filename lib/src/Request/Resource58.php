@@ -62,7 +62,7 @@ class Resource58 extends Resource
 
     public function delete(ShippingMethod $shippingMethod)
     {
-        return $this->withIDValue($shippingMethod->getId())->delete()->withVersion($shippingMethod->getVersion());
+        return $this->withId($shippingMethod->getId())->delete()->withVersion($shippingMethod->getVersion());
     }
 
     /**

@@ -55,7 +55,7 @@ class Resource8 extends Resource
 
     public function delete(Channel $channel)
     {
-        return $this->withIDValue($channel->getId())->delete()->withVersion($channel->getVersion());
+        return $this->withId($channel->getId())->delete()->withVersion($channel->getVersion());
     }
 
     /**

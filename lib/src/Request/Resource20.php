@@ -62,7 +62,7 @@ class Resource20 extends Resource
 
     public function delete(CustomerGroup $customerGroup)
     {
-        return $this->withIDValue($customerGroup->getId())->delete()->withVersion($customerGroup->getVersion());
+        return $this->withId($customerGroup->getId())->delete()->withVersion($customerGroup->getVersion());
     }
 
     /**

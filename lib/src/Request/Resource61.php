@@ -62,7 +62,7 @@ class Resource61 extends Resource
 
     public function delete(ShoppingList $shoppingList)
     {
-        return $this->withIDValue($shoppingList->getId())->delete()->withVersion($shoppingList->getVersion());
+        return $this->withId($shoppingList->getId())->delete()->withVersion($shoppingList->getVersion());
     }
 
     /**

@@ -55,7 +55,7 @@ class Resource74 extends Resource
 
     public function delete(Zone $zone)
     {
-        return $this->withIDValue($zone->getId())->delete()->withVersion($zone->getVersion());
+        return $this->withId($zone->getId())->delete()->withVersion($zone->getVersion());
     }
 
     /**

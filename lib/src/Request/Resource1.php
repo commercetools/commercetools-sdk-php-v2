@@ -62,7 +62,7 @@ class Resource1 extends Resource
 
     public function delete(Category $category)
     {
-        return $this->withIDValue($category->getId())->delete()->withVersion($category->getVersion());
+        return $this->withId($category->getId())->delete()->withVersion($category->getVersion());
     }
 
     /**

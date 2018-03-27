@@ -62,7 +62,7 @@ class Resource55 extends Resource
 
     public function delete(Review $review)
     {
-        return $this->withIDValue($review->getId())->delete()->withVersion($review->getVersion());
+        return $this->withId($review->getId())->delete()->withVersion($review->getVersion());
     }
 
     /**

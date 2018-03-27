@@ -62,7 +62,7 @@ class Resource88 extends Resource
 
     public function delete(Extension $extension)
     {
-        return $this->withIDValue($extension->getId())->delete()->withVersion($extension->getVersion());
+        return $this->withId($extension->getId())->delete()->withVersion($extension->getVersion());
     }
 
     /**

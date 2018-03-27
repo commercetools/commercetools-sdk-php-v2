@@ -62,7 +62,7 @@ class Resource52 extends Resource
 
     public function delete(ProductType $productType)
     {
-        return $this->withIDValue($productType->getId())->delete()->withVersion($productType->getVersion());
+        return $this->withId($productType->getId())->delete()->withVersion($productType->getVersion());
     }
 
     /**

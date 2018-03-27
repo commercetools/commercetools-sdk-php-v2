@@ -55,7 +55,7 @@ class Resource45 extends Resource
 
     public function delete(ProductDiscount $productDiscount)
     {
-        return $this->withIDValue($productDiscount->getId())->delete()->withVersion($productDiscount->getVersion());
+        return $this->withId($productDiscount->getId())->delete()->withVersion($productDiscount->getVersion());
     }
 
     /**
