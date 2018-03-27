@@ -52,7 +52,7 @@ class Resource1 extends Resource
 
     public function update(Category $category)
     {
-        $builder = new CategoryUpdateBuilder(function(CategoryUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new CategoryUpdateBuilder(function(CategoryUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($category);
         if ($category instanceof MapperAware) {
             $builder->setMapper($category->getMapper());

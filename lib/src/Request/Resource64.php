@@ -45,7 +45,7 @@ class Resource64 extends Resource
 
     public function update(State $state)
     {
-        $builder = new StateUpdateBuilder(function(StateUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new StateUpdateBuilder(function(StateUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($state);
         if ($state instanceof MapperAware) {
             $builder->setMapper($state->getMapper());

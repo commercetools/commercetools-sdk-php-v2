@@ -52,7 +52,7 @@ class Resource58 extends Resource
 
     public function update(ShippingMethod $shippingMethod)
     {
-        $builder = new ShippingMethodUpdateBuilder(function(ShippingMethodUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new ShippingMethodUpdateBuilder(function(ShippingMethodUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($shippingMethod);
         if ($shippingMethod instanceof MapperAware) {
             $builder->setMapper($shippingMethod->getMapper());

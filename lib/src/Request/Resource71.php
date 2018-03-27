@@ -52,7 +52,7 @@ class Resource71 extends Resource
 
     public function update(Type $type)
     {
-        $builder = new TypeUpdateBuilder(function(TypeUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new TypeUpdateBuilder(function(TypeUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($type);
         if ($type instanceof MapperAware) {
             $builder->setMapper($type->getMapper());

@@ -52,7 +52,7 @@ class Resource61 extends Resource
 
     public function update(ShoppingList $shoppingList)
     {
-        $builder = new ShoppingListUpdateBuilder(function(ShoppingListUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new ShoppingListUpdateBuilder(function(ShoppingListUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($shoppingList);
         if ($shoppingList instanceof MapperAware) {
             $builder->setMapper($shoppingList->getMapper());

@@ -45,7 +45,7 @@ class Resource69 extends Resource
 
     public function update(TaxCategory $taxCategory)
     {
-        $builder = new TaxCategoryUpdateBuilder(function(TaxCategoryUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new TaxCategoryUpdateBuilder(function(TaxCategoryUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($taxCategory);
         if ($taxCategory instanceof MapperAware) {
             $builder->setMapper($taxCategory->getMapper());

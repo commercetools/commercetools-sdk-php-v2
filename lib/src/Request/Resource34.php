@@ -58,7 +58,7 @@ class Resource34 extends Resource
 
     public function update(Order $order)
     {
-        $builder = new OrderUpdateBuilder(function(OrderUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new OrderUpdateBuilder(function(OrderUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($order);
         if ($order instanceof MapperAware) {
             $builder->setMapper($order->getMapper());

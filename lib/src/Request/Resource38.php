@@ -52,7 +52,7 @@ class Resource38 extends Resource
 
     public function update(Payment $payment)
     {
-        $builder = new PaymentUpdateBuilder(function(PaymentUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new PaymentUpdateBuilder(function(PaymentUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($payment);
         if ($payment instanceof MapperAware) {
             $builder->setMapper($payment->getMapper());

@@ -52,7 +52,7 @@ class Resource55 extends Resource
 
     public function update(Review $review)
     {
-        $builder = new ReviewUpdateBuilder(function(ReviewUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new ReviewUpdateBuilder(function(ReviewUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($review);
         if ($review instanceof MapperAware) {
             $builder->setMapper($review->getMapper());

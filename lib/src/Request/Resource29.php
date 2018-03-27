@@ -45,7 +45,7 @@ class Resource29 extends Resource
 
     public function update(InventoryEntry $inventoryEntry)
     {
-        $builder = new InventoryEntryUpdateBuilder(function(InventoryEntryUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new InventoryEntryUpdateBuilder(function(InventoryEntryUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($inventoryEntry);
         if ($inventoryEntry instanceof MapperAware) {
             $builder->setMapper($inventoryEntry->getMapper());

@@ -52,7 +52,7 @@ class Resource20 extends Resource
 
     public function update(CustomerGroup $customerGroup)
     {
-        $builder = new CustomerGroupUpdateBuilder(function(CustomerGroupUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new CustomerGroupUpdateBuilder(function(CustomerGroupUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($customerGroup);
         if ($customerGroup instanceof MapperAware) {
             $builder->setMapper($customerGroup->getMapper());

@@ -83,7 +83,7 @@ class Resource10 extends Resource
 
     public function update(Customer $customer)
     {
-        $builder = new CustomerUpdateBuilder(function(CustomerUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new CustomerUpdateBuilder(function(CustomerUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($customer);
         if ($customer instanceof MapperAware) {
             $builder->setMapper($customer->getMapper());

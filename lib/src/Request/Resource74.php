@@ -45,7 +45,7 @@ class Resource74 extends Resource
 
     public function update(Zone $zone)
     {
-        $builder = new ZoneUpdateBuilder(function(ZoneUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new ZoneUpdateBuilder(function(ZoneUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($zone);
         if ($zone instanceof MapperAware) {
             $builder->setMapper($zone->getMapper());

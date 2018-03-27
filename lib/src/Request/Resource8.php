@@ -45,7 +45,7 @@ class Resource8 extends Resource
 
     public function update(Channel $channel)
     {
-        $builder = new ChannelUpdateBuilder(function(ChannelUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new ChannelUpdateBuilder(function(ChannelUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($channel);
         if ($channel instanceof MapperAware) {
             $builder->setMapper($channel->getMapper());

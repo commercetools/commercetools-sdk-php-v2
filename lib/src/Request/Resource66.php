@@ -52,7 +52,7 @@ class Resource66 extends Resource
 
     public function update(Subscription $subscription)
     {
-        $builder = new SubscriptionUpdateBuilder(function(SubscriptionUpdateBuilder $builder) { return $this->withIDValue($builder->getResource()->getId())->post($builder->build()); });
+        $builder = new SubscriptionUpdateBuilder(function(SubscriptionUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($subscription);
         if ($subscription instanceof MapperAware) {
             $builder->setMapper($subscription->getMapper());
