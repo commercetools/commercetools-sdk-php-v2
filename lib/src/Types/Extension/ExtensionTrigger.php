@@ -19,7 +19,7 @@ interface ExtensionTrigger extends JsonObject {
     public function getResourceTypeId();
 
     /**
-     * @return ExtensionActionCollection
+     * @return ExtensionUpdateActionCollection
      */
     public function getActions();
 
@@ -30,9 +30,9 @@ interface ExtensionTrigger extends JsonObject {
     public function setResourceTypeId(string $resourceTypeId);
 
     /**
-     * @param ExtensionActionCollection $actions
+     * @param ExtensionUpdateActionCollection $actions
      * @return $this
      */
-    public function setActions(ExtensionActionCollection $actions);
+    public function setActions(ExtensionUpdateActionCollection $actions);
 
 }

@@ -173,11 +173,9 @@ class ClientFactory
             $options
         );
         $client = new HttpClient($options);
-        if (!is_null($logger)) {
-            if ($logger instanceof LoggerInterface) {
-                $formatter = new Formatter();
-                $client->getEmitter()->attach(new LogSubscriber($logger, $formatter, LogLevel::INFO));
-            }
+        if ($logger instanceof LoggerInterface) {
+            $formatter = new Formatter();
+            $client->getEmitter()->attach(new LogSubscriber($logger, $formatter, LogLevel::INFO));
         }
 
         $client->getEmitter()->on('before', function(BeforeEvent $e) use ($oauthHandler) {

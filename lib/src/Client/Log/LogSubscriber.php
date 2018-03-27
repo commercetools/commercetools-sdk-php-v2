@@ -75,7 +75,7 @@ class LogSubscriber implements SubscriberInterface
 
         $this->formatter = $formatter instanceof Formatter
             ? $formatter
-            : new stg($formatter);
+            : new Formatter($formatter);
     }
 
     public function getEvents(): array

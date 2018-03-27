@@ -193,7 +193,7 @@ class JsonCollection implements Collection, MapperAware, \JsonSerializable
      */
     public function offsetExists($offset)
     {
-        return array_key_exists($offset, $this->rawData);
+        return !is_null($this->rawData) && array_key_exists($offset, $this->rawData);
     }
 
     /**
