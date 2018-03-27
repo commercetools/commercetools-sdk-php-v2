@@ -12,27 +12,18 @@ use Commercetools\Client\Resource;
 class Resource24 extends Resource
 {
     /**
-     * @return Resource25
+     * @return ByProjectKeyCustomObjectsByContainerByKeyGet
      */
-    public function withKeyValue($key = null): Resource25 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource25($this->getUri() . '/{key}', $args, $this->getMapper());
-    }
-
-
-    /**
-     * @return ByProjectKeyCustomObjectsByContainerGet
-     */
-    public function get(): ByProjectKeyCustomObjectsByContainerGet {
+    public function get(): ByProjectKeyCustomObjectsByContainerByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyCustomObjectsByContainerGet($args['projectKey'], $args['container']);
+        return new ByProjectKeyCustomObjectsByContainerByKeyGet($args['projectKey'], $args['container'], $args['key']);
     }
     /**
-     * @return ByProjectKeyCustomObjectsByContainerDelete
+     * @return ByProjectKeyCustomObjectsByContainerByKeyDelete
      */
-    public function delete(): ByProjectKeyCustomObjectsByContainerDelete {
+    public function delete(): ByProjectKeyCustomObjectsByContainerByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyCustomObjectsByContainerDelete($args['projectKey'], $args['container']);
+        return new ByProjectKeyCustomObjectsByContainerByKeyDelete($args['projectKey'], $args['container'], $args['key']);
     }
 
 }

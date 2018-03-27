@@ -14,6 +14,14 @@ use Commercetools\Types;
 interface ErrorObject extends JsonObject {
     const DISCRIMINATOR = 'code';
     const SUB_TYPES = [
+        'access_denied' => Types\Error\AccessDeniedError::class,
+        'ConcurrentModification' => Types\Error\ConcurrentModificationError::class,
+        'DiscountCodeNonApplicable' => Types\Error\DiscountCodeNonApplicableError::class,
+        'DuplicateAttributeValue' => Types\Error\DuplicateAttributeValueError::class,
+        'DuplicateAttributeValues' => Types\Error\DuplicateAttributeValuesError::class,
+        'DuplicateField' => Types\Error\DuplicateFieldError::class,
+        'DuplicatePriceScope' => Types\Error\DuplicatePriceScopeError::class,
+        'DuplicateVariantValues' => Types\Error\DuplicateVariantValuesError::class,
         'insufficient_scope' => Types\Error\InsufficientScopeError::class,
         'InvalidCredentials' => Types\Error\InvalidCredentialsError::class,
         'InvalidCurrentPassword' => Types\Error\InvalidCurrentPasswordError::class,
@@ -25,14 +33,6 @@ interface ErrorObject extends JsonObject {
         'PriceChanged' => Types\Error\PriceChangedError::class,
         'RequiredField' => Types\Error\RequiredFieldError::class,
         'ResourceNotFound' => Types\Error\ResourceNotFoundError::class,
-        'DuplicateAttributeValue' => Types\Error\DuplicateAttributeValueError::class,
-        'DuplicateField' => Types\Error\DuplicateFieldError::class,
-        'DiscountCodeNonApplicable' => Types\Error\DiscountCodeNonApplicableError::class,
-        'access_denied' => Types\Error\AccessDeniedError::class,
-        'DuplicatePriceScope' => Types\Error\DuplicatePriceScopeError::class,
-        'DuplicateAttributeValues' => Types\Error\DuplicateAttributeValuesError::class,
-        'DuplicateVariantValues' => Types\Error\DuplicateVariantValuesError::class,
-        'ConcurrentModification' => Types\Error\ConcurrentModificationError::class,
 
     ];
 

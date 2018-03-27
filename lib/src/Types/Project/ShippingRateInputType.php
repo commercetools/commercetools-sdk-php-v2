@@ -15,8 +15,8 @@ interface ShippingRateInputType extends JsonObject {
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'CartClassification' => Types\Project\CartClassificationType::class,
-        'CartValue' => Types\Project\CartValueType::class,
         'CartScore' => Types\Project\CartScoreType::class,
+        'CartValue' => Types\Project\CartValueType::class,
 
     ];
 

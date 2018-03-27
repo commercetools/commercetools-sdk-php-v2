@@ -12,18 +12,18 @@ use Commercetools\Client\Resource;
 class Resource25 extends Resource
 {
     /**
-     * @return ByProjectKeyCustomObjectsByContainerByKeyGet
+     * @return ByProjectKeyCustomObjectsByIDGet
      */
-    public function get(): ByProjectKeyCustomObjectsByContainerByKeyGet {
+    public function get(): ByProjectKeyCustomObjectsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyCustomObjectsByContainerByKeyGet($args['projectKey'], $args['container'], $args['key']);
+        return new ByProjectKeyCustomObjectsByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @return ByProjectKeyCustomObjectsByContainerByKeyDelete
+     * @return ByProjectKeyCustomObjectsByIDDelete
      */
-    public function delete(): ByProjectKeyCustomObjectsByContainerByKeyDelete {
+    public function delete(): ByProjectKeyCustomObjectsByIDDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyCustomObjectsByContainerByKeyDelete($args['projectKey'], $args['container'], $args['key']);
+        return new ByProjectKeyCustomObjectsByIDDelete($args['projectKey'], $args['ID']);
     }
 
 }

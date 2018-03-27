@@ -14,18 +14,18 @@ use Commercetools\Types;
 interface FieldType extends JsonObject {
     const DISCRIMINATOR = 'name';
     const SUB_TYPES = [
-        'Set' => Types\Type\CustomFieldSetType::class,
-        'Money' => Types\Type\CustomFieldMoneyType::class,
+        'Boolean' => Types\Type\CustomFieldBooleanType::class,
+        'DateTime' => Types\Type\CustomFieldDateTimeType::class,
+        'Date' => Types\Type\CustomFieldDateType::class,
+        'Enum' => Types\Type\CustomFieldEnumType::class,
         'LocalizedEnum' => Types\Type\CustomFieldLocalizedEnumType::class,
         'LocalizedString' => Types\Type\CustomFieldLocalizedStringType::class,
-        'Time' => Types\Type\CustomFieldTimeType::class,
-        'Reference' => Types\Type\CustomFieldReferenceType::class,
-        'Enum' => Types\Type\CustomFieldEnumType::class,
-        'Boolean' => Types\Type\CustomFieldBooleanType::class,
-        'String' => Types\Type\CustomFieldStringType::class,
-        'Date' => Types\Type\CustomFieldDateType::class,
-        'DateTime' => Types\Type\CustomFieldDateTimeType::class,
+        'Money' => Types\Type\CustomFieldMoneyType::class,
         'Number' => Types\Type\CustomFieldNumberType::class,
+        'Reference' => Types\Type\CustomFieldReferenceType::class,
+        'Set' => Types\Type\CustomFieldSetType::class,
+        'String' => Types\Type\CustomFieldStringType::class,
+        'Time' => Types\Type\CustomFieldTimeType::class,
 
     ];
 

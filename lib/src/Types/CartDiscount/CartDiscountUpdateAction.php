@@ -13,19 +13,19 @@ use Commercetools\Types;
 interface CartDiscountUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'changeRequiresDiscountCode' => Types\CartDiscount\CartDiscountChangeRequiresDiscountCodeAction::class,
-        'changeIsActive' => Types\CartDiscount\CartDiscountChangeIsActiveAction::class,
         'changeCartPredicate' => Types\CartDiscount\CartDiscountChangeCartPredicateAction::class,
-        'setDescription' => Types\CartDiscount\CartDiscountSetDescriptionAction::class,
-        'changeTarget' => Types\CartDiscount\CartDiscountChangeTargetAction::class,
-        'setCustomType' => Types\CartDiscount\CartDiscountSetCustomTypeAction::class,
-        'setValidFrom' => Types\CartDiscount\CartDiscountSetValidFromAction::class,
-        'setValidUntil' => Types\CartDiscount\CartDiscountSetValidUntilAction::class,
+        'changeIsActive' => Types\CartDiscount\CartDiscountChangeIsActiveAction::class,
+        'changeName' => Types\CartDiscount\CartDiscountChangeNameAction::class,
+        'changeRequiresDiscountCode' => Types\CartDiscount\CartDiscountChangeRequiresDiscountCodeAction::class,
         'changeSortOrder' => Types\CartDiscount\CartDiscountChangeSortOrderAction::class,
+        'changeStackingMode' => Types\CartDiscount\CartDiscountChangeStackingModeAction::class,
+        'changeTarget' => Types\CartDiscount\CartDiscountChangeTargetAction::class,
         'changeValue' => Types\CartDiscount\CartDiscountChangeValueAction::class,
         'setCustomField' => Types\CartDiscount\CartDiscountSetCustomFieldAction::class,
-        'changeStackingMode' => Types\CartDiscount\CartDiscountChangeStackingModeAction::class,
-        'changeName' => Types\CartDiscount\CartDiscountChangeNameAction::class,
+        'setCustomType' => Types\CartDiscount\CartDiscountSetCustomTypeAction::class,
+        'setDescription' => Types\CartDiscount\CartDiscountSetDescriptionAction::class,
+        'setValidFrom' => Types\CartDiscount\CartDiscountSetValidFromAction::class,
+        'setValidUntil' => Types\CartDiscount\CartDiscountSetValidUntilAction::class,
 
     ];
 

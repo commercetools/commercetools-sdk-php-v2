@@ -26,14 +26,14 @@ class Resource34 extends Resource
     /**
      * @return Resource36
      */
-    public function orderNumberWithOrderNumberValue($orderNumber = null): Resource36 {
+    public function withOrderNumber($orderNumber = null): Resource36 {
         $args = array_merge($this->getArgs(), array_filter(['orderNumber' => $orderNumber], function($value) { return !is_null($value); }));
         return new Resource36($this->getUri() . '/order-number={orderNumber}', $args, $this->getMapper());
     }
     /**
      * @return Resource37
      */
-    public function withIDValue($ID = null): Resource37 {
+    public function withId($ID = null): Resource37 {
         $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
         return new Resource37($this->getUri() . '/{ID}', $args, $this->getMapper());
     }

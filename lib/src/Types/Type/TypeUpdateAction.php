@@ -13,18 +13,18 @@ use Commercetools\Types;
 interface TypeUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'changeName' => Types\Type\TypeChangeNameAction::class,
-        'removeFieldDefinition' => Types\Type\TypeRemoveFieldDefinitionAction::class,
-        'changeFieldDefinitionOrder' => Types\Type\TypeChangeFieldDefinitionOrderAction::class,
-        'addLocalizedEnumValue' => Types\Type\TypeAddLocalizedEnumValueAction::class,
-        'setDescription' => Types\Type\TypeSetDescriptionAction::class,
-        'changeLocalizedEnumValueOrder' => Types\Type\TypeChangeLocalizedEnumValueOrderAction::class,
-        'changeKey' => Types\Type\TypeChangeKeyAction::class,
         'addEnumValue' => Types\Type\TypeAddEnumValueAction::class,
+        'addFieldDefinition' => Types\Type\TypeAddFieldDefinitionAction::class,
+        'addLocalizedEnumValue' => Types\Type\TypeAddLocalizedEnumValueAction::class,
         'changeEnumValueOrder' => Types\Type\TypeChangeEnumValueOrderAction::class,
         'changeFieldDefinitionLabel' => Types\Type\TypeChangeFieldDefinitionLabelAction::class,
-        'addFieldDefinition' => Types\Type\TypeAddFieldDefinitionAction::class,
+        'changeFieldDefinitionOrder' => Types\Type\TypeChangeFieldDefinitionOrderAction::class,
+        'changeKey' => Types\Type\TypeChangeKeyAction::class,
         'changeLabel' => Types\Type\TypeChangeLabelAction::class,
+        'changeLocalizedEnumValueOrder' => Types\Type\TypeChangeLocalizedEnumValueOrderAction::class,
+        'changeName' => Types\Type\TypeChangeNameAction::class,
+        'removeFieldDefinition' => Types\Type\TypeRemoveFieldDefinitionAction::class,
+        'setDescription' => Types\Type\TypeSetDescriptionAction::class,
 
     ];
 

@@ -14,10 +14,10 @@ use Commercetools\Types;
 interface Destination extends JsonObject {
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
+        'AzureServiceBus' => Types\Subscription\AzureServiceBusDestination::class,
         'IronMQ' => Types\Subscription\IronMqDestination::class,
         'SNS' => Types\Subscription\SnsDestination::class,
         'SQS' => Types\Subscription\SqsDestination::class,
-        'AzureServiceBus' => Types\Subscription\AzureServiceBusDestination::class,
 
     ];
 

@@ -13,16 +13,16 @@ use Commercetools\Types;
 interface ShippingMethodUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'setDescription' => Types\ShippingMethod\ShippingMethodSetDescriptionAction::class,
         'addShippingRate' => Types\ShippingMethod\ShippingMethodAddShippingRateAction::class,
-        'setPredicate' => Types\ShippingMethod\ShippingMethodSetPredicateAction::class,
-        'changeName' => Types\ShippingMethod\ShippingMethodChangeNameAction::class,
-        'changeIsDefault' => Types\ShippingMethod\ShippingMethodChangeIsDefaultAction::class,
-        'removeShippingRate' => Types\ShippingMethod\ShippingMethodRemoveShippingRateAction::class,
-        'setKey' => Types\ShippingMethod\ShippingMethodSetKeyAction::class,
         'addZone' => Types\ShippingMethod\ShippingMethodAddZoneAction::class,
-        'removeZone' => Types\ShippingMethod\ShippingMethodRemoveZoneAction::class,
+        'changeIsDefault' => Types\ShippingMethod\ShippingMethodChangeIsDefaultAction::class,
+        'changeName' => Types\ShippingMethod\ShippingMethodChangeNameAction::class,
         'changeTaxCategory' => Types\ShippingMethod\ShippingMethodChangeTaxCategoryAction::class,
+        'removeShippingRate' => Types\ShippingMethod\ShippingMethodRemoveShippingRateAction::class,
+        'removeZone' => Types\ShippingMethod\ShippingMethodRemoveZoneAction::class,
+        'setDescription' => Types\ShippingMethod\ShippingMethodSetDescriptionAction::class,
+        'setKey' => Types\ShippingMethod\ShippingMethodSetKeyAction::class,
+        'setPredicate' => Types\ShippingMethod\ShippingMethodSetPredicateAction::class,
 
     ];
 

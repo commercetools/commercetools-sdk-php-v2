@@ -13,12 +13,12 @@ use Commercetools\Types;
 interface TaxCategoryUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'setDescription' => Types\TaxCategory\TaxCategorySetDescriptionAction::class,
-        'changeName' => Types\TaxCategory\TaxCategoryChangeNameAction::class,
         'addTaxRate' => Types\TaxCategory\TaxCategoryAddTaxRateAction::class,
+        'changeName' => Types\TaxCategory\TaxCategoryChangeNameAction::class,
         'removeTaxRate' => Types\TaxCategory\TaxCategoryRemoveTaxRateAction::class,
-        'setKey' => Types\TaxCategory\TaxCategorySetKeyAction::class,
         'replaceTaxRate' => Types\TaxCategory\TaxCategoryReplaceTaxRateAction::class,
+        'setDescription' => Types\TaxCategory\TaxCategorySetDescriptionAction::class,
+        'setKey' => Types\TaxCategory\TaxCategorySetKeyAction::class,
 
     ];
 

@@ -13,16 +13,16 @@ use Commercetools\Types;
 interface ChannelUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'setCustomField' => Types\Channel\ChannelSetCustomFieldAction::class,
-        'setRoles' => Types\Channel\ChannelSetRolesAction::class,
-        'setGeoLocation' => Types\Channel\ChannelSetGeolocationAction::class,
-        'setCustomType' => Types\Channel\ChannelSetCustomTypeAction::class,
+        'addRoles' => Types\Channel\ChannelAddRolesAction::class,
         'changeDescription' => Types\Channel\ChannelChangeDescriptionAction::class,
-        'removeRoles' => Types\Channel\ChannelRemoveRolesAction::class,
         'changeKey' => Types\Channel\ChannelChangeKeyAction::class,
         'changeName' => Types\Channel\ChannelChangeNameAction::class,
+        'removeRoles' => Types\Channel\ChannelRemoveRolesAction::class,
         'setAddress' => Types\Channel\ChannelSetAddressAction::class,
-        'addRoles' => Types\Channel\ChannelAddRolesAction::class,
+        'setCustomField' => Types\Channel\ChannelSetCustomFieldAction::class,
+        'setCustomType' => Types\Channel\ChannelSetCustomTypeAction::class,
+        'setGeoLocation' => Types\Channel\ChannelSetGeolocationAction::class,
+        'setRoles' => Types\Channel\ChannelSetRolesAction::class,
 
     ];
 

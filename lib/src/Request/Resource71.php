@@ -20,14 +20,14 @@ class Resource71 extends Resource
     /**
      * @return Resource72
      */
-    public function keyWithKeyValue($key = null): Resource72 {
+    public function withKey($key = null): Resource72 {
         $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
         return new Resource72($this->getUri() . '/key={key}', $args, $this->getMapper());
     }
     /**
      * @return Resource73
      */
-    public function withIDValue($ID = null): Resource73 {
+    public function withId($ID = null): Resource73 {
         $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
         return new Resource73($this->getUri() . '/{ID}', $args, $this->getMapper());
     }

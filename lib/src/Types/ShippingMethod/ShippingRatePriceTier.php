@@ -14,8 +14,8 @@ use Commercetools\Types;
 interface ShippingRatePriceTier extends JsonObject {
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
-        'CartScore' => Types\ShippingMethod\CartScoreTier::class,
         'CartClassification' => Types\ShippingMethod\CartClassificationTier::class,
+        'CartScore' => Types\ShippingMethod\CartScoreTier::class,
         'CartValue' => Types\ShippingMethod\CartValueTier::class,
 
     ];

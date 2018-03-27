@@ -14,8 +14,8 @@ use Commercetools\Types;
 interface SuggestTokenizer extends JsonObject {
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
-        'whitespace' => Types\Product\WhitespaceTokenizer::class,
         'custom' => Types\Product\CustomTokenizer::class,
+        'whitespace' => Types\Product\WhitespaceTokenizer::class,
 
     ];
 

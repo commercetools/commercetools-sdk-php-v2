@@ -13,17 +13,17 @@ use Commercetools\Types;
 interface ReviewUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
+        'setAuthorName' => Types\Review\ReviewSetAuthorNameAction::class,
+        'setCustomField' => Types\Review\ReviewSetCustomFieldAction::class,
         'setCustomType' => Types\Review\ReviewSetCustomTypeAction::class,
-        'setText' => Types\Review\ReviewSetTextAction::class,
-        'transitionState' => Types\Review\ReviewTransitionStateAction::class,
+        'setCustomer' => Types\Review\ReviewSetCustomerAction::class,
         'setKey' => Types\Review\ReviewSetKeyAction::class,
         'setLocale' => Types\Review\ReviewSetLocaleAction::class,
-        'setCustomField' => Types\Review\ReviewSetCustomFieldAction::class,
-        'setTitle' => Types\Review\ReviewSetTitleAction::class,
-        'setAuthorName' => Types\Review\ReviewSetAuthorNameAction::class,
-        'setTarget' => Types\Review\ReviewSetTargetAction::class,
         'setRating' => Types\Review\ReviewSetRatingAction::class,
-        'setCustomer' => Types\Review\ReviewSetCustomerAction::class,
+        'setTarget' => Types\Review\ReviewSetTargetAction::class,
+        'setText' => Types\Review\ReviewSetTextAction::class,
+        'setTitle' => Types\Review\ReviewSetTitleAction::class,
+        'transitionState' => Types\Review\ReviewTransitionStateAction::class,
 
     ];
 

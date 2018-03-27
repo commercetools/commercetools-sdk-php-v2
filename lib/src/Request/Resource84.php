@@ -16,7 +16,7 @@ class Resource84 extends Resource
     /**
      * @return Resource85
      */
-    public function withIDValue($ID = null): Resource85 {
+    public function withId($ID = null): Resource85 {
         $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
         return new Resource85($this->getUri() . '/{ID}', $args, $this->getMapper());
     }

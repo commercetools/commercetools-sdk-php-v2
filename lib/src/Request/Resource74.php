@@ -20,7 +20,7 @@ class Resource74 extends Resource
     /**
      * @return Resource75
      */
-    public function withIDValue($ID = null): Resource75 {
+    public function withId($ID = null): Resource75 {
         $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
         return new Resource75($this->getUri() . '/{ID}', $args, $this->getMapper());
     }

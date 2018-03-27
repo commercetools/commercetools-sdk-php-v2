@@ -42,37 +42,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/categories',
             ], 'ByProjectKeyCategoriesKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->categories()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->categories()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/categories/key={key}',
             ], 'ByProjectKeyCategoriesKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->categories()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->categories()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/categories/key={key}',
             ], 'ByProjectKeyCategoriesKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->categories()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->categories()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/categories/key={key}',
             ], 'ByProjectKeyCategoriesByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->categories()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->categories()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/categories/{ID}',
             ], 'ByProjectKeyCategoriesByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->categories()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->categories()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/categories/{ID}',
             ], 'ByProjectKeyCategoriesByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->categories()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->categories()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/categories/{ID}',
@@ -90,19 +90,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/carts',
             ], 'ByProjectKeyCartsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->carts()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->carts()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/carts/{ID}',
             ], 'ByProjectKeyCartsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->carts()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->carts()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/carts/{ID}',
             ], 'ByProjectKeyCartsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->carts()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->carts()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/carts/{ID}',
@@ -120,19 +120,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/cart-discounts',
             ], 'ByProjectKeyCartDiscountsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/cart-discounts/{ID}',
             ], 'ByProjectKeyCartDiscountsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/cart-discounts/{ID}',
             ], 'ByProjectKeyCartDiscountsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/cart-discounts/{ID}',
@@ -150,19 +150,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/channels',
             ], 'ByProjectKeyChannelsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->channels()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->channels()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/channels/{ID}',
             ], 'ByProjectKeyChannelsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->channels()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->channels()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/channels/{ID}',
             ], 'ByProjectKeyChannelsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->channels()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->channels()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/channels/{ID}',
@@ -180,13 +180,13 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/customers',
             ], 'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customers()->passwordTokenWithPasswordTokenValue('passwordToken')->get();
+                    return $builder->withProjectKeyValue('projectKey')->customers()->withPasswordToken('passwordToken')->get();
                 },
                 'get',
                 '/{projectKey}/customers/password-token={passwordToken}',
             ], 'ByProjectKeyCustomersEmailTokenByEmailTokenGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customers()->emailTokenWithEmailTokenValue('emailToken')->get();
+                    return $builder->withProjectKeyValue('projectKey')->customers()->withEmailToken('emailToken')->get();
                 },
                 'get',
                 '/{projectKey}/customers/email-token={emailToken}',
@@ -222,19 +222,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/customers/password-token',
             ], 'ByProjectKeyCustomersByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customers()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->customers()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/customers/{ID}',
             ], 'ByProjectKeyCustomersByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customers()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->customers()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/customers/{ID}',
             ], 'ByProjectKeyCustomersByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customers()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->customers()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/customers/{ID}',
@@ -252,37 +252,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/customer-groups',
             ], 'ByProjectKeyCustomerGroupsKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/customer-groups/key={key}',
             ], 'ByProjectKeyCustomerGroupsKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/customer-groups/key={key}',
             ], 'ByProjectKeyCustomerGroupsKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/customer-groups/key={key}',
             ], 'ByProjectKeyCustomerGroupsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/customer-groups/{ID}',
             ], 'ByProjectKeyCustomerGroupsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/customer-groups/{ID}',
             ], 'ByProjectKeyCustomerGroupsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/customer-groups/{ID}',
@@ -298,30 +298,30 @@ class RequestBuilderTest extends TestCase
                 },
                 'post',
                 '/{projectKey}/custom-objects',
-            ], 'ByProjectKeyCustomObjectsByContainerGet' => [
-                function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customObjects()->withContainerValue('container')->get();
-                },
-                'get',
-                '/{projectKey}/custom-objects/{container}',
-            ], 'ByProjectKeyCustomObjectsByContainerDelete' => [
-                function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customObjects()->withContainerValue('container')->delete();
-                },
-                'delete',
-                '/{projectKey}/custom-objects/{container}',
             ], 'ByProjectKeyCustomObjectsByContainerByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customObjects()->withContainerValue('container')->withKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->customObjects()->withContainerAndKey('container', 'key')->get();
                 },
                 'get',
                 '/{projectKey}/custom-objects/{container}/{key}',
             ], 'ByProjectKeyCustomObjectsByContainerByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customObjects()->withContainerValue('container')->withKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->customObjects()->withContainerAndKey('container', 'key')->delete();
                 },
                 'delete',
                 '/{projectKey}/custom-objects/{container}/{key}',
+            ], 'ByProjectKeyCustomObjectsByIDGet' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->customObjects()->withId('ID')->get();
+                },
+                'get',
+                '/{projectKey}/custom-objects/{ID}',
+            ], 'ByProjectKeyCustomObjectsByIDDelete' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->customObjects()->withId('ID')->delete();
+                },
+                'delete',
+                '/{projectKey}/custom-objects/{ID}',
             ], 'ByProjectKeyDiscountCodesGet' => [
                 function(RequestBuilder $builder): RequestInterface {
                     return $builder->withProjectKeyValue('projectKey')->discountCodes()->get();
@@ -336,19 +336,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/discount-codes',
             ], 'ByProjectKeyDiscountCodesByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/discount-codes/{ID}',
             ], 'ByProjectKeyDiscountCodesByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/discount-codes/{ID}',
             ], 'ByProjectKeyDiscountCodesByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/discount-codes/{ID}',
@@ -372,19 +372,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/inventory',
             ], 'ByProjectKeyInventoryByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->inventory()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->inventory()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/inventory/{ID}',
             ], 'ByProjectKeyInventoryByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->inventory()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->inventory()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/inventory/{ID}',
             ], 'ByProjectKeyInventoryByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->inventory()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->inventory()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/inventory/{ID}',
@@ -402,7 +402,7 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/messages',
             ], 'ByProjectKeyMessagesByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->messages()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->messages()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/messages/{ID}',
@@ -426,37 +426,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/orders/import',
             ], 'ByProjectKeyOrdersOrderNumberByOrderNumberGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->orders()->orderNumberWithOrderNumberValue('orderNumber')->get();
+                    return $builder->withProjectKeyValue('projectKey')->orders()->withOrderNumber('orderNumber')->get();
                 },
                 'get',
                 '/{projectKey}/orders/order-number={orderNumber}',
             ], 'ByProjectKeyOrdersOrderNumberByOrderNumberPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->orders()->orderNumberWithOrderNumberValue('orderNumber')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->orders()->withOrderNumber('orderNumber')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/orders/order-number={orderNumber}',
             ], 'ByProjectKeyOrdersOrderNumberByOrderNumberDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->orders()->orderNumberWithOrderNumberValue('orderNumber')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->orders()->withOrderNumber('orderNumber')->delete();
                 },
                 'delete',
                 '/{projectKey}/orders/order-number={orderNumber}',
             ], 'ByProjectKeyOrdersByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->orders()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->orders()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/orders/{ID}',
             ], 'ByProjectKeyOrdersByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->orders()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->orders()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/orders/{ID}',
             ], 'ByProjectKeyOrdersByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->orders()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->orders()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/orders/{ID}',
@@ -474,37 +474,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/payments',
             ], 'ByProjectKeyPaymentsKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->payments()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->payments()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/payments/key={key}',
             ], 'ByProjectKeyPaymentsKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->payments()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->payments()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/payments/key={key}',
             ], 'ByProjectKeyPaymentsKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->payments()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->payments()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/payments/key={key}',
             ], 'ByProjectKeyPaymentsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->payments()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->payments()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/payments/{ID}',
             ], 'ByProjectKeyPaymentsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->payments()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->payments()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/payments/{ID}',
             ], 'ByProjectKeyPaymentsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->payments()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->payments()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/payments/{ID}',
@@ -522,43 +522,43 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/products',
             ], 'ByProjectKeyProductsKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->products()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->products()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/products/key={key}',
             ], 'ByProjectKeyProductsKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->products()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->products()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/products/key={key}',
             ], 'ByProjectKeyProductsKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->products()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->products()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/products/key={key}',
             ], 'ByProjectKeyProductsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->products()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->products()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/products/{ID}',
             ], 'ByProjectKeyProductsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->products()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->products()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/products/{ID}',
             ], 'ByProjectKeyProductsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->products()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->products()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/products/{ID}',
             ], 'ByProjectKeyProductsByIDImagesPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->products()->withIDValue('ID')->images()->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->products()->withId('ID')->images()->post($body = null);
                 },
                 'post',
                 '/{projectKey}/products/{ID}/images',
@@ -576,19 +576,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/product-discounts',
             ], 'ByProjectKeyProductDiscountsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/product-discounts/{ID}',
             ], 'ByProjectKeyProductDiscountsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/product-discounts/{ID}',
             ], 'ByProjectKeyProductDiscountsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/product-discounts/{ID}',
@@ -618,13 +618,13 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/product-projections/suggest',
             ], 'ByProjectKeyProductProjectionsKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productProjections()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->productProjections()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/product-projections/key={key}',
             ], 'ByProjectKeyProductProjectionsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productProjections()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->productProjections()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/product-projections/{ID}',
@@ -642,37 +642,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/product-types',
             ], 'ByProjectKeyProductTypesKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productTypes()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->productTypes()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/product-types/key={key}',
             ], 'ByProjectKeyProductTypesKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productTypes()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->productTypes()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/product-types/key={key}',
             ], 'ByProjectKeyProductTypesKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productTypes()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->productTypes()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/product-types/key={key}',
             ], 'ByProjectKeyProductTypesByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productTypes()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->productTypes()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/product-types/{ID}',
             ], 'ByProjectKeyProductTypesByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productTypes()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->productTypes()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/product-types/{ID}',
             ], 'ByProjectKeyProductTypesByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productTypes()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->productTypes()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/product-types/{ID}',
@@ -690,37 +690,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/reviews',
             ], 'ByProjectKeyReviewsKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->reviews()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->reviews()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/reviews/key={key}',
             ], 'ByProjectKeyReviewsKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->reviews()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->reviews()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/reviews/key={key}',
             ], 'ByProjectKeyReviewsKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->reviews()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->reviews()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/reviews/key={key}',
             ], 'ByProjectKeyReviewsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->reviews()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->reviews()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/reviews/{ID}',
             ], 'ByProjectKeyReviewsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->reviews()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->reviews()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/reviews/{ID}',
             ], 'ByProjectKeyReviewsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->reviews()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->reviews()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/reviews/{ID}',
@@ -738,37 +738,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/shipping-methods',
             ], 'ByProjectKeyShippingMethodsKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/shipping-methods/key={key}',
             ], 'ByProjectKeyShippingMethodsKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/shipping-methods/key={key}',
             ], 'ByProjectKeyShippingMethodsKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/shipping-methods/key={key}',
             ], 'ByProjectKeyShippingMethodsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/shipping-methods/{ID}',
             ], 'ByProjectKeyShippingMethodsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/shipping-methods/{ID}',
             ], 'ByProjectKeyShippingMethodsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/shipping-methods/{ID}',
@@ -786,37 +786,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/shopping-lists',
             ], 'ByProjectKeyShoppingListsKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/shopping-lists/key={key}',
             ], 'ByProjectKeyShoppingListsKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/shopping-lists/key={key}',
             ], 'ByProjectKeyShoppingListsKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/shopping-lists/key={key}',
             ], 'ByProjectKeyShoppingListsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/shopping-lists/{ID}',
             ], 'ByProjectKeyShoppingListsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/shopping-lists/{ID}',
             ], 'ByProjectKeyShoppingListsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/shopping-lists/{ID}',
@@ -834,19 +834,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/states',
             ], 'ByProjectKeyStatesByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->states()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->states()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/states/{ID}',
             ], 'ByProjectKeyStatesByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->states()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->states()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/states/{ID}',
             ], 'ByProjectKeyStatesByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->states()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->states()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/states/{ID}',
@@ -864,37 +864,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/subscriptions',
             ], 'ByProjectKeySubscriptionsKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/subscriptions/key={key}',
             ], 'ByProjectKeySubscriptionsKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/subscriptions/key={key}',
             ], 'ByProjectKeySubscriptionsKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/subscriptions/key={key}',
             ], 'ByProjectKeySubscriptionsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/subscriptions/{ID}',
             ], 'ByProjectKeySubscriptionsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/subscriptions/{ID}',
             ], 'ByProjectKeySubscriptionsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/subscriptions/{ID}',
@@ -912,19 +912,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/tax-categories',
             ], 'ByProjectKeyTaxCategoriesByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/tax-categories/{ID}',
             ], 'ByProjectKeyTaxCategoriesByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/tax-categories/{ID}',
             ], 'ByProjectKeyTaxCategoriesByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/tax-categories/{ID}',
@@ -942,37 +942,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/types',
             ], 'ByProjectKeyTypesKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->types()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->types()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/types/key={key}',
             ], 'ByProjectKeyTypesKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->types()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->types()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/types/key={key}',
             ], 'ByProjectKeyTypesKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->types()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->types()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/types/key={key}',
             ], 'ByProjectKeyTypesByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->types()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->types()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/types/{ID}',
             ], 'ByProjectKeyTypesByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->types()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->types()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/types/{ID}',
             ], 'ByProjectKeyTypesByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->types()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->types()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/types/{ID}',
@@ -990,19 +990,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/zones',
             ], 'ByProjectKeyZonesByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->zones()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->zones()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/zones/{ID}',
             ], 'ByProjectKeyZonesByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->zones()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->zones()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/zones/{ID}',
             ], 'ByProjectKeyZonesByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->zones()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->zones()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/zones/{ID}',
@@ -1074,19 +1074,19 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/me/carts',
             ], 'ByProjectKeyMeCartsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->me()->carts()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->me()->carts()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/me/carts/{ID}',
             ], 'ByProjectKeyMeCartsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->me()->carts()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->me()->carts()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/me/carts/{ID}',
             ], 'ByProjectKeyMeCartsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->me()->carts()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->me()->carts()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/me/carts/{ID}',
@@ -1104,13 +1104,13 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/me/orders',
             ], 'ByProjectKeyMeOrdersByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->me()->orders()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->me()->orders()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/me/orders/{ID}',
             ], 'ByProjectKeyMeOrdersByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->me()->orders()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->me()->orders()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/me/orders/{ID}',
@@ -1128,37 +1128,37 @@ class RequestBuilderTest extends TestCase
                 '/{projectKey}/extensions',
             ], 'ByProjectKeyExtensionsKeyByKeyGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->extensions()->keyWithKeyValue('key')->get();
+                    return $builder->withProjectKeyValue('projectKey')->extensions()->withKey('key')->get();
                 },
                 'get',
                 '/{projectKey}/extensions/key={key}',
             ], 'ByProjectKeyExtensionsKeyByKeyPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->extensions()->keyWithKeyValue('key')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->extensions()->withKey('key')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/extensions/key={key}',
             ], 'ByProjectKeyExtensionsKeyByKeyDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->extensions()->keyWithKeyValue('key')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->extensions()->withKey('key')->delete();
                 },
                 'delete',
                 '/{projectKey}/extensions/key={key}',
             ], 'ByProjectKeyExtensionsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->extensions()->withIDValue('ID')->get();
+                    return $builder->withProjectKeyValue('projectKey')->extensions()->withId('ID')->get();
                 },
                 'get',
                 '/{projectKey}/extensions/{ID}',
             ], 'ByProjectKeyExtensionsByIDPost' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->extensions()->withIDValue('ID')->post($body = null);
+                    return $builder->withProjectKeyValue('projectKey')->extensions()->withId('ID')->post($body = null);
                 },
                 'post',
                 '/{projectKey}/extensions/{ID}',
             ], 'ByProjectKeyExtensionsByIDDelete' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->extensions()->withIDValue('ID')->delete();
+                    return $builder->withProjectKeyValue('projectKey')->extensions()->withId('ID')->delete();
                 },
                 'delete',
                 '/{projectKey}/extensions/{ID}',

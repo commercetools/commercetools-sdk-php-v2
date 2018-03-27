@@ -14,8 +14,8 @@ use Commercetools\Types;
 interface ShippingRateInputDraft extends JsonObject {
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
-        'Score' => Types\Cart\ScoreShippingRateInputDraft::class,
         'Classification' => Types\Cart\ClassificationShippingRateInputDraft::class,
+        'Score' => Types\Cart\ScoreShippingRateInputDraft::class,
 
     ];
 

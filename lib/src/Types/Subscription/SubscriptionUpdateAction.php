@@ -13,9 +13,9 @@ use Commercetools\Types;
 interface SubscriptionUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'setMessages' => Types\Subscription\SubscriptionSetMessagesAction::class,
         'setChanges' => Types\Subscription\SubscriptionSetChangesAction::class,
         'setKey' => Types\Subscription\SubscriptionSetKeyAction::class,
+        'setMessages' => Types\Subscription\SubscriptionSetMessagesAction::class,
 
     ];
 

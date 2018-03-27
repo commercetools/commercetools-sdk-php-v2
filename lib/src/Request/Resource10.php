@@ -20,14 +20,14 @@ class Resource10 extends Resource
     /**
      * @return Resource11
      */
-    public function passwordTokenWithPasswordTokenValue($passwordToken = null): Resource11 {
+    public function withPasswordToken($passwordToken = null): Resource11 {
         $args = array_merge($this->getArgs(), array_filter(['passwordToken' => $passwordToken], function($value) { return !is_null($value); }));
         return new Resource11($this->getUri() . '/password-token={passwordToken}', $args, $this->getMapper());
     }
     /**
      * @return Resource12
      */
-    public function emailTokenWithEmailTokenValue($emailToken = null): Resource12 {
+    public function withEmailToken($emailToken = null): Resource12 {
         $args = array_merge($this->getArgs(), array_filter(['emailToken' => $emailToken], function($value) { return !is_null($value); }));
         return new Resource12($this->getUri() . '/email-token={emailToken}', $args, $this->getMapper());
     }
@@ -58,7 +58,7 @@ class Resource10 extends Resource
     /**
      * @return Resource19
      */
-    public function withIDValue($ID = null): Resource19 {
+    public function withId($ID = null): Resource19 {
         $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
         return new Resource19($this->getUri() . '/{ID}', $args, $this->getMapper());
     }

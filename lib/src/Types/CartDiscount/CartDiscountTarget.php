@@ -14,11 +14,11 @@ use Commercetools\Types;
 interface CartDiscountTarget extends JsonObject {
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
+        'customLineItems' => Types\CartDiscount\CartDiscountCustomLineItemsTarget::class,
+        'lineItems' => Types\CartDiscount\CartDiscountLineItemsTarget::class,
+        'shipping' => Types\CartDiscount\CartDiscountShippingCostTarget::class,
         'multiBuyCustomLineItems' => Types\CartDiscount\MultiBuyCustomLineItemsTarget::class,
         'multiBuyLineItems' => Types\CartDiscount\MultiBuyLineItemsTarget::class,
-        'customLineItems' => Types\CartDiscount\CartDiscountCustomLineItemsTarget::class,
-        'shipping' => Types\CartDiscount\CartDiscountShippingCostTarget::class,
-        'lineItems' => Types\CartDiscount\CartDiscountLineItemsTarget::class,
 
     ];
 

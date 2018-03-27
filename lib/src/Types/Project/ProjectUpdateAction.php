@@ -13,12 +13,12 @@ use Commercetools\Types;
 interface ProjectUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
-        'changeCurrencies' => Types\Project\ProjectChangeCurrenciesAction::class,
         'changeCountries' => Types\Project\ProjectChangeCountriesAction::class,
-        'changeMessagesEnabled' => Types\Project\ProjectChangeMessagesEnabledAction::class,
-        'setShippingRateInputType' => Types\Project\ProjectSetShippingRateInputTypeAction::class,
-        'changeName' => Types\Project\ProjectChangeNameAction::class,
+        'changeCurrencies' => Types\Project\ProjectChangeCurrenciesAction::class,
         'changeLanguages' => Types\Project\ProjectChangeLanguagesAction::class,
+        'changeMessagesEnabled' => Types\Project\ProjectChangeMessagesEnabledAction::class,
+        'changeName' => Types\Project\ProjectChangeNameAction::class,
+        'setShippingRateInputType' => Types\Project\ProjectSetShippingRateInputTypeAction::class,
 
     ];
 

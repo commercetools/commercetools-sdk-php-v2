@@ -15,10 +15,10 @@ use Commercetools\Types;
 interface SubscriptionDelivery extends JsonObject {
     const DISCRIMINATOR = 'notificationType';
     const SUB_TYPES = [
+        'Message' => Types\Subscription\MessageDelivery::class,
+        'ResourceCreated' => Types\Subscription\ResourceCreatedDelivery::class,
         'ResourceDeleted' => Types\Subscription\ResourceDeletedDelivery::class,
         'ResourceUpdated' => Types\Subscription\ResourceUpdatedDelivery::class,
-        'ResourceCreated' => Types\Subscription\ResourceCreatedDelivery::class,
-        'Message' => Types\Subscription\MessageDelivery::class,
 
     ];
 

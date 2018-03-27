@@ -15,6 +15,16 @@ use Commercetools\Types;
 interface Message extends JsonObject {
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
+        'CategoryCreated' => Types\Message\CategoryCreatedMessage::class,
+        'CategorySlugChanged' => Types\Message\CategorySlugChangedMessage::class,
+        'CustomLineItemStateTransition' => Types\Message\CustomLineItemStateTransitionMessage::class,
+        'CustomerCreated' => Types\Message\CustomerCreatedMessage::class,
+        'DeliveryAdded' => Types\Message\DeliveryAddedMessage::class,
+        'DeliveryAddressSet' => Types\Message\DeliveryAddressSetMessage::class,
+        'DeliveryItemsUpdated' => Types\Message\DeliveryItemsUpdatedMessage::class,
+        'DeliveryRemoved' => Types\Message\DeliveryRemovedMessage::class,
+        'InventoryEntryDeleted' => Types\Message\InventoryEntryDeletedMessage::class,
+        'LineItemStateTransition' => Types\Message\LineItemStateTransitionMessage::class,
         'OrderBillingAddressSet' => Types\Message\OrderBillingAddressSetMessage::class,
         'OrderCreated' => Types\Message\OrderCreatedMessage::class,
         'OrderCustomerEmailSet' => Types\Message\OrderCustomerEmailSetMessage::class,
@@ -49,16 +59,6 @@ interface Message extends JsonObject {
         'ReviewCreated' => Types\Message\ReviewCreatedMessage::class,
         'ReviewRatingSet' => Types\Message\ReviewRatingSetMessage::class,
         'ReviewStateTransition' => Types\Message\ReviewStateTransitionMessage::class,
-        'CategorySlugChanged' => Types\Message\CategorySlugChangedMessage::class,
-        'DeliveryRemoved' => Types\Message\DeliveryRemovedMessage::class,
-        'DeliveryItemsUpdated' => Types\Message\DeliveryItemsUpdatedMessage::class,
-        'InventoryEntryDeleted' => Types\Message\InventoryEntryDeletedMessage::class,
-        'CustomerCreated' => Types\Message\CustomerCreatedMessage::class,
-        'CategoryCreated' => Types\Message\CategoryCreatedMessage::class,
-        'LineItemStateTransition' => Types\Message\LineItemStateTransitionMessage::class,
-        'DeliveryAddressSet' => Types\Message\DeliveryAddressSetMessage::class,
-        'CustomLineItemStateTransition' => Types\Message\CustomLineItemStateTransitionMessage::class,
-        'DeliveryAdded' => Types\Message\DeliveryAddedMessage::class,
 
     ];
 

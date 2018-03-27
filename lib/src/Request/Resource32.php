@@ -14,7 +14,7 @@ class Resource32 extends Resource
     /**
      * @return Resource33
      */
-    public function withIDValue($ID = null): Resource33 {
+    public function withId($ID = null): Resource33 {
         $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
         return new Resource33($this->getUri() . '/{ID}', $args, $this->getMapper());
     }

@@ -14,9 +14,9 @@ interface ZoneUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addLocation' => Types\Zone\ZoneAddLocationAction::class,
+        'changeName' => Types\Zone\ZoneChangeNameAction::class,
         'removeLocation' => Types\Zone\ZoneRemoveLocationAction::class,
         'setDescription' => Types\Zone\ZoneSetDescriptionAction::class,
-        'changeName' => Types\Zone\ZoneChangeNameAction::class,
 
     ];
 

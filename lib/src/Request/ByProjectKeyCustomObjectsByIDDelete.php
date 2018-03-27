@@ -13,20 +13,20 @@ use Commercetools\Types\CustomObject\CustomObject;
 use Commercetools\Base\ResultMapper;
 use Psr\Http\Message\ResponseInterface;
 
-class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest
+class ByProjectKeyCustomObjectsByIDDelete extends ApiRequest
 {
     const RESULT_TYPE = CustomObject::class;
 
     /**
-     * @param $container
      * @param $projectKey
+     * @param $ID
      * @param $body
      * @param array $headers
      */
-    public function __construct($projectKey, $container, $body = null, array $headers = [])
+    public function __construct($projectKey, $ID, $body = null, array $headers = [])
     {
-        $uri = str_replace(['{projectKey}', '{container}'], [$projectKey, $container], '/{projectKey}/custom-objects/{container}');
-        parent::__construct('get', $uri, $headers, !is_null($body) ? json_encode($body) : null);
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/custom-objects/{ID}');
+        parent::__construct('delete', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
     /**
@@ -40,12 +40,12 @@ class ByProjectKeyCustomObjectsByContainerGet extends ApiRequest
     }
 
     /**
-     * @param $expand
-     * @return ByProjectKeyCustomObjectsByContainerGet
+     * @param $version
+     * @return ByProjectKeyCustomObjectsByIDDelete
      */
-    public function withExpand($expand): ByProjectKeyCustomObjectsByContainerGet
+    public function withVersion($version): ByProjectKeyCustomObjectsByIDDelete
     {
-        return $this->withQueryParam('expand', $expand);
+        return $this->withQueryParam('version', $version);
     }
 
 }

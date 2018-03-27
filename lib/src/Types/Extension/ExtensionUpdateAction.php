@@ -14,8 +14,8 @@ interface ExtensionUpdateAction extends UpdateAction {
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'changeDestination' => Types\Extension\ExtensionChangeDestinationAction::class,
-        'setKey' => Types\Extension\ExtensionSetKeyAction::class,
         'changeTriggers' => Types\Extension\ExtensionChangeTriggersAction::class,
+        'setKey' => Types\Extension\ExtensionSetKeyAction::class,
 
     ];
 
