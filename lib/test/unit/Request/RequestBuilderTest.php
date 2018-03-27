@@ -10,6 +10,52 @@ namespace Commercetools\Request\Test;
 use Commercetools\Request\RequestBuilder;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
+use Commercetools\Types\Category\CategoryDraft;
+use Commercetools\Types\Cart\CartDraft;
+use Commercetools\Types\CartDiscount\CartDiscountDraft;
+use Commercetools\Types\Channel\ChannelDraft;
+use Commercetools\Types\Customer\CustomerDraft;
+use Commercetools\Types\CustomerGroup\CustomerGroupDraft;
+use Commercetools\Types\DiscountCode\DiscountCodeDraft;
+use Commercetools\Types\Inventory\InventoryEntryDraft;
+use Commercetools\Types\Order\OrderFromCartDraft;
+use Commercetools\Types\Payment\PaymentDraft;
+use Commercetools\Types\Product\ProductDraft;
+use Commercetools\Types\ProductDiscount\ProductDiscountDraft;
+use Commercetools\Types\ProductType\ProductTypeDraft;
+use Commercetools\Types\Review\ReviewDraft;
+use Commercetools\Types\ShippingMethod\ShippingMethodDraft;
+use Commercetools\Types\ShoppingList\ShoppingListDraft;
+use Commercetools\Types\State\StateDraft;
+use Commercetools\Types\Subscription\SubscriptionDraft;
+use Commercetools\Types\TaxCategory\TaxCategoryDraft;
+use Commercetools\Types\Type\TypeDraft;
+use Commercetools\Types\Zone\ZoneDraft;
+use Commercetools\Types\Extension\ExtensionDraft;
+
+use Commercetools\Types\Category\CategoryModel;
+use Commercetools\Types\Cart\CartModel;
+use Commercetools\Types\CartDiscount\CartDiscountModel;
+use Commercetools\Types\Channel\ChannelModel;
+use Commercetools\Types\Customer\CustomerModel;
+use Commercetools\Types\CustomerGroup\CustomerGroupModel;
+use Commercetools\Types\DiscountCode\DiscountCodeModel;
+use Commercetools\Types\Inventory\InventoryEntryModel;
+use Commercetools\Types\Order\OrderModel;
+use Commercetools\Types\Payment\PaymentModel;
+use Commercetools\Types\Product\ProductModel;
+use Commercetools\Types\ProductDiscount\ProductDiscountModel;
+use Commercetools\Types\ProductType\ProductTypeModel;
+use Commercetools\Types\Review\ReviewModel;
+use Commercetools\Types\ShippingMethod\ShippingMethodModel;
+use Commercetools\Types\ShoppingList\ShoppingListModel;
+use Commercetools\Types\State\StateModel;
+use Commercetools\Types\Subscription\SubscriptionModel;
+use Commercetools\Types\TaxCategory\TaxCategoryModel;
+use Commercetools\Types\Type\TypeModel;
+use Commercetools\Types\Zone\ZoneModel;
+use Commercetools\Types\Extension\ExtensionModel;
+
 
 class RequestBuilderTest extends TestCase
 {
@@ -1162,6 +1208,338 @@ class RequestBuilderTest extends TestCase
                 },
                 'delete',
                 '/{projectKey}/extensions/{ID}',
+            ],
+            'create_CategoryDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->categories()->create(function ($draft){
+                        static::assertInstanceOf(CategoryDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/categories',
+            ], 'create_CartDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->carts()->create(function ($draft){
+                        static::assertInstanceOf(CartDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/carts',
+            ], 'create_CartDiscountDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->create(function ($draft){
+                        static::assertInstanceOf(CartDiscountDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/cart-discounts',
+            ], 'create_ChannelDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->channels()->create(function ($draft){
+                        static::assertInstanceOf(ChannelDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/channels',
+            ], 'create_CustomerDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->customers()->create(function ($draft){
+                        static::assertInstanceOf(CustomerDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/customers',
+            ], 'create_CustomerGroupDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->create(function ($draft){
+                        static::assertInstanceOf(CustomerGroupDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/customer-groups',
+            ], 'create_DiscountCodeDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->create(function ($draft){
+                        static::assertInstanceOf(DiscountCodeDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/discount-codes',
+            ], 'create_InventoryEntryDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->inventory()->create(function ($draft){
+                        static::assertInstanceOf(InventoryEntryDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/inventory',
+            ], 'create_OrderFromCartDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->orders()->create(function ($draft){
+                        static::assertInstanceOf(OrderFromCartDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/orders',
+            ], 'create_PaymentDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->payments()->create(function ($draft){
+                        static::assertInstanceOf(PaymentDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/payments',
+            ], 'create_ProductDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->products()->create(function ($draft){
+                        static::assertInstanceOf(ProductDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/products',
+            ], 'create_ProductDiscountDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->create(function ($draft){
+                        static::assertInstanceOf(ProductDiscountDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/product-discounts',
+            ], 'create_ProductTypeDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->productTypes()->create(function ($draft){
+                        static::assertInstanceOf(ProductTypeDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/product-types',
+            ], 'create_ReviewDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->reviews()->create(function ($draft){
+                        static::assertInstanceOf(ReviewDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/reviews',
+            ], 'create_ShippingMethodDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->create(function ($draft){
+                        static::assertInstanceOf(ShippingMethodDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/shipping-methods',
+            ], 'create_ShoppingListDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->create(function ($draft){
+                        static::assertInstanceOf(ShoppingListDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/shopping-lists',
+            ], 'create_StateDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->states()->create(function ($draft){
+                        static::assertInstanceOf(StateDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/states',
+            ], 'create_SubscriptionDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->create(function ($draft){
+                        static::assertInstanceOf(SubscriptionDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/subscriptions',
+            ], 'create_TaxCategoryDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->create(function ($draft){
+                        static::assertInstanceOf(TaxCategoryDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/tax-categories',
+            ], 'create_TypeDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->types()->create(function ($draft){
+                        static::assertInstanceOf(TypeDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/types',
+            ], 'create_ZoneDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->zones()->create(function ($draft){
+                        static::assertInstanceOf(ZoneDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/zones',
+            ], 'create_ExtensionDraft' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->extensions()->create(function ($draft){
+                        static::assertInstanceOf(ExtensionDraft::class, $draft);
+                        return $draft;
+                    });
+                },
+                'post',
+                '/{projectKey}/extensions',
+            ],
+            'delete_Category' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->categories()->delete(new CategoryModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/categories/{ID}?version=1',
+            ], 'delete_Cart' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->carts()->delete(new CartModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/carts/{ID}?version=1',
+            ], 'delete_CartDiscount' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->delete(new CartDiscountModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/cart-discounts/{ID}?version=1',
+            ], 'delete_Channel' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->channels()->delete(new ChannelModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/channels/{ID}?version=1',
+            ], 'delete_Customer' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->customers()->delete(new CustomerModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/customers/{ID}?version=1',
+            ], 'delete_CustomerGroup' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->delete(new CustomerGroupModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/customer-groups/{ID}?version=1',
+            ], 'delete_DiscountCode' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->delete(new DiscountCodeModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/discount-codes/{ID}?version=1',
+            ], 'delete_InventoryEntry' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->inventory()->delete(new InventoryEntryModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/inventory/{ID}?version=1',
+            ], 'delete_Order' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->orders()->delete(new OrderModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/orders/{ID}?version=1',
+            ], 'delete_Payment' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->payments()->delete(new PaymentModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/payments/{ID}?version=1',
+            ], 'delete_Product' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->products()->delete(new ProductModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/products/{ID}?version=1',
+            ], 'delete_ProductDiscount' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->delete(new ProductDiscountModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/product-discounts/{ID}?version=1',
+            ], 'delete_ProductType' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->productTypes()->delete(new ProductTypeModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/product-types/{ID}?version=1',
+            ], 'delete_Review' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->reviews()->delete(new ReviewModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/reviews/{ID}?version=1',
+            ], 'delete_ShippingMethod' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->delete(new ShippingMethodModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/shipping-methods/{ID}?version=1',
+            ], 'delete_ShoppingList' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->delete(new ShoppingListModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/shopping-lists/{ID}?version=1',
+            ], 'delete_State' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->states()->delete(new StateModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/states/{ID}?version=1',
+            ], 'delete_Subscription' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->delete(new SubscriptionModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/subscriptions/{ID}?version=1',
+            ], 'delete_TaxCategory' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->delete(new TaxCategoryModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/tax-categories/{ID}?version=1',
+            ], 'delete_Type' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->types()->delete(new TypeModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/types/{ID}?version=1',
+            ], 'delete_Zone' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->zones()->delete(new ZoneModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/zones/{ID}?version=1',
+            ], 'delete_Extension' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->extensions()->delete(new ExtensionModel(['id' => 'ID', 'version' => 1]));
+                },
+                'delete',
+                '/{projectKey}/extensions/{ID}?version=1',
             ]
         ];
     }
