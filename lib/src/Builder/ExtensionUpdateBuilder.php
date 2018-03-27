@@ -49,9 +49,8 @@ class ExtensionUpdateBuilder extends BaseBuilder {
     public function changeDestination($action = null)
     {
         $action = $this->resolveAction(ExtensionChangeDestinationAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -66,9 +65,8 @@ class ExtensionUpdateBuilder extends BaseBuilder {
     public function changeTriggers($action = null)
     {
         $action = $this->resolveAction(ExtensionChangeTriggersAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -83,9 +81,8 @@ class ExtensionUpdateBuilder extends BaseBuilder {
     public function setKey($action = null)
     {
         $action = $this->resolveAction(ExtensionSetKeyAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -99,17 +96,23 @@ class ExtensionUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(ExtensionUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*

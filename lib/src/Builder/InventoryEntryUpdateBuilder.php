@@ -54,9 +54,8 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     public function addQuantity($action = null)
     {
         $action = $this->resolveAction(InventoryAddQuantityAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -71,9 +70,8 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     public function changeQuantity($action = null)
     {
         $action = $this->resolveAction(InventoryChangeQuantityAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -88,9 +86,8 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     public function removeQuantity($action = null)
     {
         $action = $this->resolveAction(InventoryRemoveQuantityAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -105,9 +102,8 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     public function setCustomField($action = null)
     {
         $action = $this->resolveAction(InventorySetCustomFieldAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -122,9 +118,8 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     public function setCustomType($action = null)
     {
         $action = $this->resolveAction(InventorySetCustomTypeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -139,9 +134,8 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     public function setExpectedDelivery($action = null)
     {
         $action = $this->resolveAction(InventorySetExpectedDeliveryAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -156,9 +150,8 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     public function setRestockableInDays($action = null)
     {
         $action = $this->resolveAction(InventorySetRestockableInDaysAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -173,9 +166,8 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
     public function setSupplyChannel($action = null)
     {
         $action = $this->resolveAction(InventorySetSupplyChannelAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -189,17 +181,23 @@ class InventoryEntryUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(InventoryEntryUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*

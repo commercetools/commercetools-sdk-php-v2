@@ -56,9 +56,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function addShippingRate($action = null)
     {
         $action = $this->resolveAction(ShippingMethodAddShippingRateAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -73,9 +72,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function addZone($action = null)
     {
         $action = $this->resolveAction(ShippingMethodAddZoneAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -90,9 +88,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function changeIsDefault($action = null)
     {
         $action = $this->resolveAction(ShippingMethodChangeIsDefaultAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -107,9 +104,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function changeName($action = null)
     {
         $action = $this->resolveAction(ShippingMethodChangeNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -124,9 +120,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function changeTaxCategory($action = null)
     {
         $action = $this->resolveAction(ShippingMethodChangeTaxCategoryAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -141,9 +136,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function removeShippingRate($action = null)
     {
         $action = $this->resolveAction(ShippingMethodRemoveShippingRateAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -158,9 +152,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function removeZone($action = null)
     {
         $action = $this->resolveAction(ShippingMethodRemoveZoneAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -175,9 +168,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function setDescription($action = null)
     {
         $action = $this->resolveAction(ShippingMethodSetDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -192,9 +184,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function setKey($action = null)
     {
         $action = $this->resolveAction(ShippingMethodSetKeyAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -209,9 +200,8 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
     public function setPredicate($action = null)
     {
         $action = $this->resolveAction(ShippingMethodSetPredicateAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -225,17 +215,23 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(ShippingMethodUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*

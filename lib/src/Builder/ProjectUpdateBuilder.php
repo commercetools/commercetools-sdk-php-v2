@@ -52,9 +52,8 @@ class ProjectUpdateBuilder extends BaseBuilder {
     public function changeCountries($action = null)
     {
         $action = $this->resolveAction(ProjectChangeCountriesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -69,9 +68,8 @@ class ProjectUpdateBuilder extends BaseBuilder {
     public function changeCurrencies($action = null)
     {
         $action = $this->resolveAction(ProjectChangeCurrenciesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -86,9 +84,8 @@ class ProjectUpdateBuilder extends BaseBuilder {
     public function changeLanguages($action = null)
     {
         $action = $this->resolveAction(ProjectChangeLanguagesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -103,9 +100,8 @@ class ProjectUpdateBuilder extends BaseBuilder {
     public function changeMessagesEnabled($action = null)
     {
         $action = $this->resolveAction(ProjectChangeMessagesEnabledAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -120,9 +116,8 @@ class ProjectUpdateBuilder extends BaseBuilder {
     public function changeName($action = null)
     {
         $action = $this->resolveAction(ProjectChangeNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -137,9 +132,8 @@ class ProjectUpdateBuilder extends BaseBuilder {
     public function setShippingRateInputType($action = null)
     {
         $action = $this->resolveAction(ProjectSetShippingRateInputTypeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -153,17 +147,23 @@ class ProjectUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(ProjectUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*

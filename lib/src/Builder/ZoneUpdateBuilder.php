@@ -50,9 +50,8 @@ class ZoneUpdateBuilder extends BaseBuilder {
     public function addLocation($action = null)
     {
         $action = $this->resolveAction(ZoneAddLocationAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -67,9 +66,8 @@ class ZoneUpdateBuilder extends BaseBuilder {
     public function changeName($action = null)
     {
         $action = $this->resolveAction(ZoneChangeNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -84,9 +82,8 @@ class ZoneUpdateBuilder extends BaseBuilder {
     public function removeLocation($action = null)
     {
         $action = $this->resolveAction(ZoneRemoveLocationAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -101,9 +98,8 @@ class ZoneUpdateBuilder extends BaseBuilder {
     public function setDescription($action = null)
     {
         $action = $this->resolveAction(ZoneSetDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -117,17 +113,23 @@ class ZoneUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(ZoneUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*

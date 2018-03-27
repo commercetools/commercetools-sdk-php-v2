@@ -67,9 +67,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function addInterfaceInteraction($action = null)
     {
         $action = $this->resolveAction(PaymentAddInterfaceInteractionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -84,9 +83,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function addTransaction($action = null)
     {
         $action = $this->resolveAction(PaymentAddTransactionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -101,9 +99,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function changeAmountPlanned($action = null)
     {
         $action = $this->resolveAction(PaymentChangeAmountPlannedAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -118,9 +115,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function changeTransactionInteractionId($action = null)
     {
         $action = $this->resolveAction(PaymentChangeTransactionInteractionIdAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -135,9 +131,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function changeTransactionState($action = null)
     {
         $action = $this->resolveAction(PaymentChangeTransactionStateAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -152,9 +147,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function changeTransactionTimestamp($action = null)
     {
         $action = $this->resolveAction(PaymentChangeTransactionTimestampAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -169,9 +163,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setAmountPaid($action = null)
     {
         $action = $this->resolveAction(PaymentSetAmountPaidAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -186,9 +179,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setAmountRefunded($action = null)
     {
         $action = $this->resolveAction(PaymentSetAmountRefundedAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -203,9 +195,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setAuthorization($action = null)
     {
         $action = $this->resolveAction(PaymentSetAuthorizationAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -220,9 +211,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setCustomField($action = null)
     {
         $action = $this->resolveAction(PaymentSetCustomFieldAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -237,9 +227,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setCustomType($action = null)
     {
         $action = $this->resolveAction(PaymentSetCustomTypeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -254,9 +243,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setCustomer($action = null)
     {
         $action = $this->resolveAction(PaymentSetCustomerAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -271,9 +259,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setExternalId($action = null)
     {
         $action = $this->resolveAction(PaymentSetExternalIdAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -288,9 +275,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setInterfaceId($action = null)
     {
         $action = $this->resolveAction(PaymentSetInterfaceIdAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -305,9 +291,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setKey($action = null)
     {
         $action = $this->resolveAction(PaymentSetKeyAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -322,9 +307,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setMethodInfoInterface($action = null)
     {
         $action = $this->resolveAction(PaymentSetMethodInfoInterfaceAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -339,9 +323,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setMethodInfoMethod($action = null)
     {
         $action = $this->resolveAction(PaymentSetMethodInfoMethodAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -356,9 +339,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setMethodInfoName($action = null)
     {
         $action = $this->resolveAction(PaymentSetMethodInfoNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -373,9 +355,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setStatusInterfaceCode($action = null)
     {
         $action = $this->resolveAction(PaymentSetStatusInterfaceCodeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -390,9 +371,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function setStatusInterfaceText($action = null)
     {
         $action = $this->resolveAction(PaymentSetStatusInterfaceTextAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -407,9 +387,8 @@ class PaymentUpdateBuilder extends BaseBuilder {
     public function transitionState($action = null)
     {
         $action = $this->resolveAction(PaymentTransitionStateAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -423,17 +402,23 @@ class PaymentUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(PaymentUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*

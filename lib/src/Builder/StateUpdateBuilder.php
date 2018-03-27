@@ -55,9 +55,8 @@ class StateUpdateBuilder extends BaseBuilder {
     public function addRoles($action = null)
     {
         $action = $this->resolveAction(StateAddRolesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -72,9 +71,8 @@ class StateUpdateBuilder extends BaseBuilder {
     public function changeInitial($action = null)
     {
         $action = $this->resolveAction(StateChangeInitialAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -89,9 +87,8 @@ class StateUpdateBuilder extends BaseBuilder {
     public function changeKey($action = null)
     {
         $action = $this->resolveAction(StateChangeKeyAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -106,9 +103,8 @@ class StateUpdateBuilder extends BaseBuilder {
     public function changeType($action = null)
     {
         $action = $this->resolveAction(StateChangeTypeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -123,9 +119,8 @@ class StateUpdateBuilder extends BaseBuilder {
     public function removeRoles($action = null)
     {
         $action = $this->resolveAction(StateRemoveRolesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -140,9 +135,8 @@ class StateUpdateBuilder extends BaseBuilder {
     public function setDescription($action = null)
     {
         $action = $this->resolveAction(StateSetDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -157,9 +151,8 @@ class StateUpdateBuilder extends BaseBuilder {
     public function setName($action = null)
     {
         $action = $this->resolveAction(StateSetNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -174,9 +167,8 @@ class StateUpdateBuilder extends BaseBuilder {
     public function setRoles($action = null)
     {
         $action = $this->resolveAction(StateSetRolesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -191,9 +183,8 @@ class StateUpdateBuilder extends BaseBuilder {
     public function setTransitions($action = null)
     {
         $action = $this->resolveAction(StateSetTransitionsAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -207,17 +198,23 @@ class StateUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(StateUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*

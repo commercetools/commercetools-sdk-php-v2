@@ -91,9 +91,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function addAsset($action = null)
     {
         $action = $this->resolveAction(ProductAddAssetAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -108,9 +107,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function addExternalImage($action = null)
     {
         $action = $this->resolveAction(ProductAddExternalImageAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -125,9 +123,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function addPrice($action = null)
     {
         $action = $this->resolveAction(ProductAddPriceAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -142,9 +139,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function addToCategory($action = null)
     {
         $action = $this->resolveAction(ProductAddToCategoryAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -159,9 +155,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function addVariant($action = null)
     {
         $action = $this->resolveAction(ProductAddVariantAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -176,9 +171,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function changeAssetName($action = null)
     {
         $action = $this->resolveAction(ProductChangeAssetNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -193,9 +187,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function changeAssetOrder($action = null)
     {
         $action = $this->resolveAction(ProductChangeAssetOrderAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -210,9 +203,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function changeMasterVariant($action = null)
     {
         $action = $this->resolveAction(ProductChangeMasterVariantAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -227,9 +219,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function changeName($action = null)
     {
         $action = $this->resolveAction(ProductChangeNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -244,9 +235,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function changePrice($action = null)
     {
         $action = $this->resolveAction(ProductChangePriceAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -261,9 +251,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function changeSlug($action = null)
     {
         $action = $this->resolveAction(ProductChangeSlugAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -278,9 +267,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function legacySetSku($action = null)
     {
         $action = $this->resolveAction(ProductLegacySetSkuAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -295,9 +283,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function moveImageToPosition($action = null)
     {
         $action = $this->resolveAction(ProductMoveImageToPositionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -312,9 +299,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function publish($action = null)
     {
         $action = $this->resolveAction(ProductPublishAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -329,9 +315,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function removeAsset($action = null)
     {
         $action = $this->resolveAction(ProductRemoveAssetAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -346,9 +331,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function removeFromCategory($action = null)
     {
         $action = $this->resolveAction(ProductRemoveFromCategoryAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -363,9 +347,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function removeImage($action = null)
     {
         $action = $this->resolveAction(ProductRemoveImageAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -380,9 +363,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function removePrice($action = null)
     {
         $action = $this->resolveAction(ProductRemovePriceAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -397,9 +379,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function removeVariant($action = null)
     {
         $action = $this->resolveAction(ProductRemoveVariantAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -414,9 +395,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function revertStagedChanges($action = null)
     {
         $action = $this->resolveAction(ProductRevertStagedChangesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -431,9 +411,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function revertStagedVariantChanges($action = null)
     {
         $action = $this->resolveAction(ProductRevertStagedVariantChangesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -448,9 +427,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setAssetCustomField($action = null)
     {
         $action = $this->resolveAction(ProductSetAssetCustomFieldAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -465,9 +443,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setAssetCustomType($action = null)
     {
         $action = $this->resolveAction(ProductSetAssetCustomTypeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -482,9 +459,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setAssetDescription($action = null)
     {
         $action = $this->resolveAction(ProductSetAssetDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -499,9 +475,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setAssetKey($action = null)
     {
         $action = $this->resolveAction(ProductSetAssetKeyAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -516,9 +491,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setAssetSources($action = null)
     {
         $action = $this->resolveAction(ProductSetAssetSourcesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -533,9 +507,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setAssetTags($action = null)
     {
         $action = $this->resolveAction(ProductSetAssetTagsAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -550,9 +523,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setAttribute($action = null)
     {
         $action = $this->resolveAction(ProductSetAttributeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -567,9 +539,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setAttributeInAllVariants($action = null)
     {
         $action = $this->resolveAction(ProductSetAttributeInAllVariantsAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -584,9 +555,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setCategoryOrderHint($action = null)
     {
         $action = $this->resolveAction(ProductSetCategoryOrderHintAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -601,9 +571,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setDescription($action = null)
     {
         $action = $this->resolveAction(ProductSetDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -618,9 +587,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setDiscountedPrice($action = null)
     {
         $action = $this->resolveAction(ProductSetDiscountedPriceAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -635,9 +603,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setKey($action = null)
     {
         $action = $this->resolveAction(ProductSetKeyAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -652,9 +619,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setMetaDescription($action = null)
     {
         $action = $this->resolveAction(ProductSetMetaDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -669,9 +635,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setMetaKeywords($action = null)
     {
         $action = $this->resolveAction(ProductSetMetaKeywordsAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -686,9 +651,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setMetaTitle($action = null)
     {
         $action = $this->resolveAction(ProductSetMetaTitleAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -703,9 +667,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setPrices($action = null)
     {
         $action = $this->resolveAction(ProductSetPricesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -720,9 +683,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setProductPriceCustomField($action = null)
     {
         $action = $this->resolveAction(ProductSetProductPriceCustomFieldAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -737,9 +699,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setProductPriceCustomType($action = null)
     {
         $action = $this->resolveAction(ProductSetProductPriceCustomTypeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -754,9 +715,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setProductVariantKey($action = null)
     {
         $action = $this->resolveAction(ProductSetProductVariantKeyAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -771,9 +731,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setSearchKeywords($action = null)
     {
         $action = $this->resolveAction(ProductSetSearchKeywordsAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -788,9 +747,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setSku($action = null)
     {
         $action = $this->resolveAction(ProductSetSkuAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -805,9 +763,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function setTaxCategory($action = null)
     {
         $action = $this->resolveAction(ProductSetTaxCategoryAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -822,9 +779,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function transitionState($action = null)
     {
         $action = $this->resolveAction(ProductTransitionStateAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -839,9 +795,8 @@ class ProductUpdateBuilder extends BaseBuilder {
     public function unpublish($action = null)
     {
         $action = $this->resolveAction(ProductUnpublishAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -855,17 +810,23 @@ class ProductUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(ProductUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*

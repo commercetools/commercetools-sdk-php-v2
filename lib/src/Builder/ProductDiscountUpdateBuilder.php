@@ -54,9 +54,8 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     public function changeIsActive($action = null)
     {
         $action = $this->resolveAction(ProductDiscountChangeIsActiveAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -71,9 +70,8 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     public function changeName($action = null)
     {
         $action = $this->resolveAction(ProductDiscountChangeNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -88,9 +86,8 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     public function changePredicate($action = null)
     {
         $action = $this->resolveAction(ProductDiscountChangePredicateAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -105,9 +102,8 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     public function changeSortOrder($action = null)
     {
         $action = $this->resolveAction(ProductDiscountChangeSortOrderAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -122,9 +118,8 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     public function changeValue($action = null)
     {
         $action = $this->resolveAction(ProductDiscountChangeValueAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -139,9 +134,8 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     public function setDescription($action = null)
     {
         $action = $this->resolveAction(ProductDiscountSetDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -156,9 +150,8 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     public function setValidFrom($action = null)
     {
         $action = $this->resolveAction(ProductDiscountSetValidFromAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -173,9 +166,8 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
     public function setValidUntil($action = null)
     {
         $action = $this->resolveAction(ProductDiscountSetValidUntilAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -189,17 +181,23 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(ProductDiscountUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*

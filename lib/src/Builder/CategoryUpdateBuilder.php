@@ -68,9 +68,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function addAsset($action = null)
     {
         $action = $this->resolveAction(CategoryAddAssetAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -85,9 +84,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function changeAssetName($action = null)
     {
         $action = $this->resolveAction(CategoryChangeAssetNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -102,9 +100,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function changeAssetOrder($action = null)
     {
         $action = $this->resolveAction(CategoryChangeAssetOrderAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -119,9 +116,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function changeName($action = null)
     {
         $action = $this->resolveAction(CategoryChangeNameAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -136,9 +132,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function changeOrderHint($action = null)
     {
         $action = $this->resolveAction(CategoryChangeOrderHintAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -153,9 +148,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function changeParent($action = null)
     {
         $action = $this->resolveAction(CategoryChangeParentAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -170,9 +164,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function changeSlug($action = null)
     {
         $action = $this->resolveAction(CategoryChangeSlugAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -187,9 +180,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function removeAsset($action = null)
     {
         $action = $this->resolveAction(CategoryRemoveAssetAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -204,9 +196,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setAssetCustomField($action = null)
     {
         $action = $this->resolveAction(CategorySetAssetCustomFieldAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -221,9 +212,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setAssetCustomType($action = null)
     {
         $action = $this->resolveAction(CategorySetAssetCustomTypeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -238,9 +228,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setAssetDescription($action = null)
     {
         $action = $this->resolveAction(CategorySetAssetDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -255,9 +244,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setAssetKey($action = null)
     {
         $action = $this->resolveAction(CategorySetAssetKeyAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -272,9 +260,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setAssetSources($action = null)
     {
         $action = $this->resolveAction(CategorySetAssetSourcesAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -289,9 +276,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setAssetTags($action = null)
     {
         $action = $this->resolveAction(CategorySetAssetTagsAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -306,9 +292,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setCustomField($action = null)
     {
         $action = $this->resolveAction(CategorySetCustomFieldAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -323,9 +308,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setCustomType($action = null)
     {
         $action = $this->resolveAction(CategorySetCustomTypeAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -340,9 +324,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setDescription($action = null)
     {
         $action = $this->resolveAction(CategorySetDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -357,9 +340,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setExternalId($action = null)
     {
         $action = $this->resolveAction(CategorySetExternalIdAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -374,9 +356,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setKey($action = null)
     {
         $action = $this->resolveAction(CategorySetKeyAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -391,9 +372,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setMetaDescription($action = null)
     {
         $action = $this->resolveAction(CategorySetMetaDescriptionAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -408,9 +388,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setMetaKeywords($action = null)
     {
         $action = $this->resolveAction(CategorySetMetaKeywordsAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
     /**
@@ -425,9 +404,8 @@ class CategoryUpdateBuilder extends BaseBuilder {
     public function setMetaTitle($action = null)
     {
         $action = $this->resolveAction(CategorySetMetaTitleAction::class, $action);
-        if (!is_null($action)) {
-            $this->actions[] = $action;
-        }
+        $this->tryAddAction($action);
+
         return $this;
     }
 
@@ -441,17 +419,23 @@ class CategoryUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
-    private function resolveAction($class, $action = null) {
+    private function addAndResolveAction($class, $action = null)
+    {
         if (is_null($action) || is_callable($action)) {
             $callback = $action;
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-        if (!$action instanceof $class) {
-            throw new \InvalidArgumentException();
-        }
 
         return $action;
+    }
+
+    private function tryAddAction(CategoryUpdateAction $action = null)
+    {
+        if (!is_null($action)) {
+            $this->addAction($action);
+        }
+        return $this;
     }
 
     /*
