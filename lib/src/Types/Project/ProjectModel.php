@@ -26,15 +26,15 @@ class ProjectModel extends JsonObjectModel implements Project {
      */
     protected $name;
     /**
-     * @var CountryCodeCollection
+     * @var array
      */
     protected $countries;
     /**
-     * @var CurrencyCodeCollection
+     * @var array
      */
     protected $currencies;
     /**
-     * @var LocaleCollection
+     * @var array
      */
     protected $languages;
     /**
@@ -91,46 +91,37 @@ class ProjectModel extends JsonObjectModel implements Project {
         return $this->name;
     }
     /**
-     * @return CountryCodeCollection
+     * @return array
      */
     public function getCountries()
     {
         if (is_null($this->countries)) {
             $value = $this->raw(Project::FIELD_COUNTRIES);
-            if (is_null($value)) {
-                return $this->mapData(CountryCodeCollection::class, null);
-            }
-            $value = $this->mapData(CountryCodeCollection::class, $value);
+            $value = (array)$value;
             $this->countries = $value;
         }
         return $this->countries;
     }
     /**
-     * @return CurrencyCodeCollection
+     * @return array
      */
     public function getCurrencies()
     {
         if (is_null($this->currencies)) {
             $value = $this->raw(Project::FIELD_CURRENCIES);
-            if (is_null($value)) {
-                return $this->mapData(CurrencyCodeCollection::class, null);
-            }
-            $value = $this->mapData(CurrencyCodeCollection::class, $value);
+            $value = (array)$value;
             $this->currencies = $value;
         }
         return $this->currencies;
     }
     /**
-     * @return LocaleCollection
+     * @return array
      */
     public function getLanguages()
     {
         if (is_null($this->languages)) {
             $value = $this->raw(Project::FIELD_LANGUAGES);
-            if (is_null($value)) {
-                return $this->mapData(LocaleCollection::class, null);
-            }
-            $value = $this->mapData(LocaleCollection::class, $value);
+            $value = (array)$value;
             $this->languages = $value;
         }
         return $this->languages;
@@ -228,30 +219,30 @@ class ProjectModel extends JsonObjectModel implements Project {
         return $this;
     }
     /**
-     * @param CountryCodeCollection $countries
+     * @param array $countries
      * @return $this
      */
-    public function setCountries(CountryCodeCollection $countries)
+    public function setCountries(array $countries)
     {
         $this->countries = $countries;
 
         return $this;
     }
     /**
-     * @param CurrencyCodeCollection $currencies
+     * @param array $currencies
      * @return $this
      */
-    public function setCurrencies(CurrencyCodeCollection $currencies)
+    public function setCurrencies(array $currencies)
     {
         $this->currencies = $currencies;
 
         return $this;
     }
     /**
-     * @param LocaleCollection $languages
+     * @param array $languages
      * @return $this
      */
-    public function setLanguages(LocaleCollection $languages)
+    public function setLanguages(array $languages)
     {
         $this->languages = $languages;
 

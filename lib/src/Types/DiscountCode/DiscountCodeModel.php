@@ -216,6 +216,7 @@ class DiscountCodeModel extends ResourceModel implements DiscountCode {
     {
         if (is_null($this->groups)) {
             $value = $this->raw(DiscountCode::FIELD_GROUPS);
+            $value = (array)$value;
             $this->groups = $value;
         }
         return $this->groups;

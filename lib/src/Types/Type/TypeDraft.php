@@ -34,7 +34,7 @@ interface TypeDraft extends JsonObject {
     public function getDescription();
 
     /**
-     * @return ResourceTypeIdCollection
+     * @return array
      */
     public function getResourceTypeIds();
 
@@ -62,10 +62,10 @@ interface TypeDraft extends JsonObject {
     public function setDescription(LocalizedString $description);
 
     /**
-     * @param ResourceTypeIdCollection $resourceTypeIds
+     * @param array $resourceTypeIds
      * @return $this
      */
-    public function setResourceTypeIds(ResourceTypeIdCollection $resourceTypeIds);
+    public function setResourceTypeIds(array $resourceTypeIds);
 
     /**
      * @param FieldDefinitionCollection $fieldDefinitions

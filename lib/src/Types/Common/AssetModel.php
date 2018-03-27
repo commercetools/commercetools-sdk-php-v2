@@ -107,6 +107,7 @@ class AssetModel extends JsonObjectModel implements Asset {
     {
         if (is_null($this->tags)) {
             $value = $this->raw(Asset::FIELD_TAGS);
+            $value = (array)$value;
             $this->tags = $value;
         }
         return $this->tags;

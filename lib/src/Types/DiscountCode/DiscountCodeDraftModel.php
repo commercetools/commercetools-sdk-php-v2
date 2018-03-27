@@ -193,6 +193,7 @@ class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCodeDraf
     {
         if (is_null($this->groups)) {
             $value = $this->raw(DiscountCodeDraft::FIELD_GROUPS);
+            $value = (array)$value;
             $this->groups = $value;
         }
         return $this->groups;

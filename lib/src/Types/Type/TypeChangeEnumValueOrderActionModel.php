@@ -40,6 +40,7 @@ class TypeChangeEnumValueOrderActionModel extends TypeUpdateActionModel implemen
     {
         if (is_null($this->keys)) {
             $value = $this->raw(TypeChangeEnumValueOrderAction::FIELD_KEYS);
+            $value = (array)$value;
             $this->keys = $value;
         }
         return $this->keys;

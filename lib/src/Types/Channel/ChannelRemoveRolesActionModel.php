@@ -13,31 +13,28 @@ class ChannelRemoveRolesActionModel extends ChannelUpdateActionModel implements 
     const DISCRIMINATOR_VALUE = 'removeRoles';
 
     /**
-     * @var ChannelRoleEnumCollection
+     * @var array
      */
     protected $roles;
 
     /**
-     * @return ChannelRoleEnumCollection
+     * @return array
      */
     public function getRoles()
     {
         if (is_null($this->roles)) {
             $value = $this->raw(ChannelRemoveRolesAction::FIELD_ROLES);
-            if (is_null($value)) {
-                return $this->mapData(ChannelRoleEnumCollection::class, null);
-            }
-            $value = $this->mapData(ChannelRoleEnumCollection::class, $value);
+            $value = (array)$value;
             $this->roles = $value;
         }
         return $this->roles;
     }
 
     /**
-     * @param ChannelRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(ChannelRoleEnumCollection $roles)
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;
 

@@ -40,17 +40,17 @@ interface Project extends JsonObject {
     public function getName();
 
     /**
-     * @return CountryCodeCollection
+     * @return array
      */
     public function getCountries();
 
     /**
-     * @return CurrencyCodeCollection
+     * @return array
      */
     public function getCurrencies();
 
     /**
-     * @return LocaleCollection
+     * @return array
      */
     public function getLanguages();
 
@@ -93,22 +93,22 @@ interface Project extends JsonObject {
     public function setName(string $name);
 
     /**
-     * @param CountryCodeCollection $countries
+     * @param array $countries
      * @return $this
      */
-    public function setCountries(CountryCodeCollection $countries);
+    public function setCountries(array $countries);
 
     /**
-     * @param CurrencyCodeCollection $currencies
+     * @param array $currencies
      * @return $this
      */
-    public function setCurrencies(CurrencyCodeCollection $currencies);
+    public function setCurrencies(array $currencies);
 
     /**
-     * @param LocaleCollection $languages
+     * @param array $languages
      * @return $this
      */
-    public function setLanguages(LocaleCollection $languages);
+    public function setLanguages(array $languages);
 
     /**
      * @param \DateTimeImmutable $createdAt

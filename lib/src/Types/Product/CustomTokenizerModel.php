@@ -24,6 +24,7 @@ class CustomTokenizerModel extends SuggestTokenizerModel implements CustomTokeni
     {
         if (is_null($this->inputs)) {
             $value = $this->raw(CustomTokenizer::FIELD_INPUTS);
+            $value = (array)$value;
             $this->inputs = $value;
         }
         return $this->inputs;

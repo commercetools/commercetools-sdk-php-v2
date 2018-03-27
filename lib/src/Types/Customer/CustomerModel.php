@@ -262,6 +262,7 @@ class CustomerModel extends ResourceModel implements Customer {
     {
         if (is_null($this->shippingAddressIds)) {
             $value = $this->raw(Customer::FIELD_SHIPPING_ADDRESS_IDS);
+            $value = (array)$value;
             $this->shippingAddressIds = $value;
         }
         return $this->shippingAddressIds;
@@ -285,6 +286,7 @@ class CustomerModel extends ResourceModel implements Customer {
     {
         if (is_null($this->billingAddressIds)) {
             $value = $this->raw(Customer::FIELD_BILLING_ADDRESS_IDS);
+            $value = (array)$value;
             $this->billingAddressIds = $value;
         }
         return $this->billingAddressIds;

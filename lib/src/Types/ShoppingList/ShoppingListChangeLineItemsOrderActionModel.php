@@ -24,6 +24,7 @@ class ShoppingListChangeLineItemsOrderActionModel extends ShoppingListUpdateActi
     {
         if (is_null($this->lineItemOrder)) {
             $value = $this->raw(ShoppingListChangeLineItemsOrderAction::FIELD_LINE_ITEM_ORDER);
+            $value = (array)$value;
             $this->lineItemOrder = $value;
         }
         return $this->lineItemOrder;

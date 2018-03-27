@@ -28,6 +28,7 @@ class PriceChangedErrorModel extends ErrorObjectModel implements PriceChangedErr
     {
         if (is_null($this->lineItems)) {
             $value = $this->raw(PriceChangedError::FIELD_LINE_ITEMS);
+            $value = (array)$value;
             $this->lineItems = $value;
         }
         return $this->lineItems;

@@ -24,6 +24,7 @@ class CategoryChangeAssetOrderActionModel extends CategoryUpdateActionModel impl
     {
         if (is_null($this->assetOrder)) {
             $value = $this->raw(CategoryChangeAssetOrderAction::FIELD_ASSET_ORDER);
+            $value = (array)$value;
             $this->assetOrder = $value;
         }
         return $this->assetOrder;

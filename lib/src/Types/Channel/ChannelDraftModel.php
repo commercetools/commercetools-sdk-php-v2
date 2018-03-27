@@ -19,7 +19,7 @@ class ChannelDraftModel extends JsonObjectModel implements ChannelDraft {
      */
     protected $key;
     /**
-     * @var ChannelRoleEnumCollection
+     * @var array
      */
     protected $roles;
     /**
@@ -56,16 +56,13 @@ class ChannelDraftModel extends JsonObjectModel implements ChannelDraft {
         return $this->key;
     }
     /**
-     * @return ChannelRoleEnumCollection
+     * @return array
      */
     public function getRoles()
     {
         if (is_null($this->roles)) {
             $value = $this->raw(ChannelDraft::FIELD_ROLES);
-            if (is_null($value)) {
-                return $this->mapData(ChannelRoleEnumCollection::class, null);
-            }
-            $value = $this->mapData(ChannelRoleEnumCollection::class, $value);
+            $value = (array)$value;
             $this->roles = $value;
         }
         return $this->roles;
@@ -157,10 +154,10 @@ class ChannelDraftModel extends JsonObjectModel implements ChannelDraft {
         return $this;
     }
     /**
-     * @param ChannelRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(ChannelRoleEnumCollection $roles)
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;
 

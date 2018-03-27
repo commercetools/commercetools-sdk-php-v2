@@ -11,14 +11,14 @@ interface ProjectChangeCurrenciesAction extends ProjectUpdateAction {
     const FIELD_CURRENCIES = 'currencies';
 
     /**
-     * @return CurrencyCodeCollection
+     * @return array
      */
     public function getCurrencies();
 
     /**
-     * @param CurrencyCodeCollection $currencies
+     * @param array $currencies
      * @return $this
      */
-    public function setCurrencies(CurrencyCodeCollection $currencies);
+    public function setCurrencies(array $currencies);
 
 }

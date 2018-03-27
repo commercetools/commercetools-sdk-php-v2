@@ -17,7 +17,7 @@ class CategoryOrderHintsModel extends JsonObjectModel implements CategoryOrderHi
      */
     public function get(string $key)
     {
-        if(!isset($this->patternData[$key])) {
+        if (!isset($this->patternData[$key])) {
             switch (true) {
                 case preg_match('/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/', $key) === 1:
                     $value = $this->raw($key);

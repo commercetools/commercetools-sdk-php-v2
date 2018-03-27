@@ -17,7 +17,7 @@ class SearchKeywordsModel extends JsonObjectModel implements SearchKeywords {
      */
     public function get(string $key)
     {
-        if(!isset($this->patternData[$key])) {
+        if (!isset($this->patternData[$key])) {
             switch (true) {
                 case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key) === 1:
                     $value = $this->raw($key);

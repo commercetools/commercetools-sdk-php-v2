@@ -11,14 +11,14 @@ interface ChannelRemoveRolesAction extends ChannelUpdateAction {
     const FIELD_ROLES = 'roles';
 
     /**
-     * @return ChannelRoleEnumCollection
+     * @return array
      */
     public function getRoles();
 
     /**
-     * @param ChannelRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(ChannelRoleEnumCollection $roles);
+    public function setRoles(array $roles);
 
 }

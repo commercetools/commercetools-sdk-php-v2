@@ -46,7 +46,7 @@ interface StateDraft extends JsonObject {
     public function getInitial();
 
     /**
-     * @return StateRoleEnumCollection
+     * @return array
      */
     public function getRoles();
 
@@ -86,10 +86,10 @@ interface StateDraft extends JsonObject {
     public function setInitial($initial);
 
     /**
-     * @param StateRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(StateRoleEnumCollection $roles);
+    public function setRoles(array $roles);
 
     /**
      * @param StateReferenceCollection $transitions

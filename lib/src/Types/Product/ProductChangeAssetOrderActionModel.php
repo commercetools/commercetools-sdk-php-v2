@@ -36,6 +36,7 @@ class ProductChangeAssetOrderActionModel extends ProductUpdateActionModel implem
     {
         if (is_null($this->assetOrder)) {
             $value = $this->raw(ProductChangeAssetOrderAction::FIELD_ASSET_ORDER);
+            $value = (array)$value;
             $this->assetOrder = $value;
         }
         return $this->assetOrder;

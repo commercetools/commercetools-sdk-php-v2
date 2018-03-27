@@ -25,7 +25,7 @@ class TypeDraftModel extends JsonObjectModel implements TypeDraft {
      */
     protected $description;
     /**
-     * @var ResourceTypeIdCollection
+     * @var array
      */
     protected $resourceTypeIds;
     /**
@@ -78,16 +78,13 @@ class TypeDraftModel extends JsonObjectModel implements TypeDraft {
         return $this->description;
     }
     /**
-     * @return ResourceTypeIdCollection
+     * @return array
      */
     public function getResourceTypeIds()
     {
         if (is_null($this->resourceTypeIds)) {
             $value = $this->raw(TypeDraft::FIELD_RESOURCE_TYPE_IDS);
-            if (is_null($value)) {
-                return $this->mapData(ResourceTypeIdCollection::class, null);
-            }
-            $value = $this->mapData(ResourceTypeIdCollection::class, $value);
+            $value = (array)$value;
             $this->resourceTypeIds = $value;
         }
         return $this->resourceTypeIds;
@@ -139,10 +136,10 @@ class TypeDraftModel extends JsonObjectModel implements TypeDraft {
         return $this;
     }
     /**
-     * @param ResourceTypeIdCollection $resourceTypeIds
+     * @param array $resourceTypeIds
      * @return $this
      */
-    public function setResourceTypeIds(ResourceTypeIdCollection $resourceTypeIds)
+    public function setResourceTypeIds(array $resourceTypeIds)
     {
         $this->resourceTypeIds = $resourceTypeIds;
 

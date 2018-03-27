@@ -11,14 +11,14 @@ interface ProjectChangeCountriesAction extends ProjectUpdateAction {
     const FIELD_COUNTRIES = 'countries';
 
     /**
-     * @return CountryCodeCollection
+     * @return array
      */
     public function getCountries();
 
     /**
-     * @param CountryCodeCollection $countries
+     * @param array $countries
      * @return $this
      */
-    public function setCountries(CountryCodeCollection $countries);
+    public function setCountries(array $countries);
 
 }

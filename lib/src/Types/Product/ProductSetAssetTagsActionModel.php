@@ -80,6 +80,7 @@ class ProductSetAssetTagsActionModel extends ProductUpdateActionModel implements
     {
         if (is_null($this->tags)) {
             $value = $this->raw(ProductSetAssetTagsAction::FIELD_TAGS);
+            $value = (array)$value;
             $this->tags = $value;
         }
         return $this->tags;

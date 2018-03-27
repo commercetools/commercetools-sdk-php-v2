@@ -28,6 +28,7 @@ class OutOfStockErrorModel extends ErrorObjectModel implements OutOfStockError {
     {
         if (is_null($this->lineItems)) {
             $value = $this->raw(OutOfStockError::FIELD_LINE_ITEMS);
+            $value = (array)$value;
             $this->lineItems = $value;
         }
         return $this->lineItems;
@@ -39,6 +40,7 @@ class OutOfStockErrorModel extends ErrorObjectModel implements OutOfStockError {
     {
         if (is_null($this->skus)) {
             $value = $this->raw(OutOfStockError::FIELD_SKUS);
+            $value = (array)$value;
             $this->skus = $value;
         }
         return $this->skus;

@@ -91,6 +91,7 @@ class AssetDraftModel extends JsonObjectModel implements AssetDraft {
     {
         if (is_null($this->tags)) {
             $value = $this->raw(AssetDraft::FIELD_TAGS);
+            $value = (array)$value;
             $this->tags = $value;
         }
         return $this->tags;

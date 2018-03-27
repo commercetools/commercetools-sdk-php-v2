@@ -13,31 +13,28 @@ class ProjectChangeCurrenciesActionModel extends ProjectUpdateActionModel implem
     const DISCRIMINATOR_VALUE = 'changeCurrencies';
 
     /**
-     * @var CurrencyCodeCollection
+     * @var array
      */
     protected $currencies;
 
     /**
-     * @return CurrencyCodeCollection
+     * @return array
      */
     public function getCurrencies()
     {
         if (is_null($this->currencies)) {
             $value = $this->raw(ProjectChangeCurrenciesAction::FIELD_CURRENCIES);
-            if (is_null($value)) {
-                return $this->mapData(CurrencyCodeCollection::class, null);
-            }
-            $value = $this->mapData(CurrencyCodeCollection::class, $value);
+            $value = (array)$value;
             $this->currencies = $value;
         }
         return $this->currencies;
     }
 
     /**
-     * @param CurrencyCodeCollection $currencies
+     * @param array $currencies
      * @return $this
      */
-    public function setCurrencies(CurrencyCodeCollection $currencies)
+    public function setCurrencies(array $currencies)
     {
         $this->currencies = $currencies;
 

@@ -38,6 +38,7 @@ class MessageSubscriptionModel extends JsonObjectModel implements MessageSubscri
     {
         if (is_null($this->types)) {
             $value = $this->raw(MessageSubscription::FIELD_TYPES);
+            $value = (array)$value;
             $this->types = $value;
         }
         return $this->types;

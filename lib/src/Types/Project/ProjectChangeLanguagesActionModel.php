@@ -13,31 +13,28 @@ class ProjectChangeLanguagesActionModel extends ProjectUpdateActionModel impleme
     const DISCRIMINATOR_VALUE = 'changeLanguages';
 
     /**
-     * @var LocaleCollection
+     * @var array
      */
     protected $languages;
 
     /**
-     * @return LocaleCollection
+     * @return array
      */
     public function getLanguages()
     {
         if (is_null($this->languages)) {
             $value = $this->raw(ProjectChangeLanguagesAction::FIELD_LANGUAGES);
-            if (is_null($value)) {
-                return $this->mapData(LocaleCollection::class, null);
-            }
-            $value = $this->mapData(LocaleCollection::class, $value);
+            $value = (array)$value;
             $this->languages = $value;
         }
         return $this->languages;
     }
 
     /**
-     * @param LocaleCollection $languages
+     * @param array $languages
      * @return $this
      */
-    public function setLanguages(LocaleCollection $languages)
+    public function setLanguages(array $languages)
     {
         $this->languages = $languages;
 

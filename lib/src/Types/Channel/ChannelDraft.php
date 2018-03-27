@@ -28,7 +28,7 @@ interface ChannelDraft extends JsonObject {
     public function getKey();
 
     /**
-     * @return ChannelRoleEnumCollection
+     * @return array
      */
     public function getRoles();
 
@@ -64,10 +64,10 @@ interface ChannelDraft extends JsonObject {
     public function setKey(string $key);
 
     /**
-     * @param ChannelRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(ChannelRoleEnumCollection $roles);
+    public function setRoles(array $roles);
 
     /**
      * @param LocalizedString $name

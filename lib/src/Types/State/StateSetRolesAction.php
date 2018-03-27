@@ -11,14 +11,14 @@ interface StateSetRolesAction extends StateUpdateAction {
     const FIELD_ROLES = 'roles';
 
     /**
-     * @return StateRoleEnumCollection
+     * @return array
      */
     public function getRoles();
 
     /**
-     * @param StateRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(StateRoleEnumCollection $roles);
+    public function setRoles(array $roles);
 
 }

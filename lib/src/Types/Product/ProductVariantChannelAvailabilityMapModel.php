@@ -17,7 +17,7 @@ class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel implemen
      */
     public function get(string $key)
     {
-        if(!isset($this->patternData[$key])) {
+        if (!isset($this->patternData[$key])) {
             switch (true) {
                 case preg_match('//', $key) === 1:
                     $value = $this->raw($key);

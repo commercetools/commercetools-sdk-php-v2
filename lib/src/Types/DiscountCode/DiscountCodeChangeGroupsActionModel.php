@@ -24,6 +24,7 @@ class DiscountCodeChangeGroupsActionModel extends DiscountCodeUpdateActionModel 
     {
         if (is_null($this->groups)) {
             $value = $this->raw(DiscountCodeChangeGroupsAction::FIELD_GROUPS);
+            $value = (array)$value;
             $this->groups = $value;
         }
         return $this->groups;

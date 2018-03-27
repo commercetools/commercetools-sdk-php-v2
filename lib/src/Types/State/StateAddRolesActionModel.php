@@ -13,31 +13,28 @@ class StateAddRolesActionModel extends StateUpdateActionModel implements StateAd
     const DISCRIMINATOR_VALUE = 'addRoles';
 
     /**
-     * @var StateRoleEnumCollection
+     * @var array
      */
     protected $roles;
 
     /**
-     * @return StateRoleEnumCollection
+     * @return array
      */
     public function getRoles()
     {
         if (is_null($this->roles)) {
             $value = $this->raw(StateAddRolesAction::FIELD_ROLES);
-            if (is_null($value)) {
-                return $this->mapData(StateRoleEnumCollection::class, null);
-            }
-            $value = $this->mapData(StateRoleEnumCollection::class, $value);
+            $value = (array)$value;
             $this->roles = $value;
         }
         return $this->roles;
     }
 
     /**
-     * @param StateRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(StateRoleEnumCollection $roles)
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;
 

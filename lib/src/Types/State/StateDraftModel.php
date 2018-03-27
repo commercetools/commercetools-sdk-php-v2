@@ -33,7 +33,7 @@ class StateDraftModel extends JsonObjectModel implements StateDraft {
      */
     protected $initial;
     /**
-     * @var StateRoleEnumCollection
+     * @var array
      */
     protected $roles;
     /**
@@ -109,16 +109,13 @@ class StateDraftModel extends JsonObjectModel implements StateDraft {
         return $this->initial;
     }
     /**
-     * @return StateRoleEnumCollection
+     * @return array
      */
     public function getRoles()
     {
         if (is_null($this->roles)) {
             $value = $this->raw(StateDraft::FIELD_ROLES);
-            if (is_null($value)) {
-                return $this->mapData(StateRoleEnumCollection::class, null);
-            }
-            $value = $this->mapData(StateRoleEnumCollection::class, $value);
+            $value = (array)$value;
             $this->roles = $value;
         }
         return $this->roles;
@@ -190,10 +187,10 @@ class StateDraftModel extends JsonObjectModel implements StateDraft {
         return $this;
     }
     /**
-     * @param StateRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(StateRoleEnumCollection $roles)
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;
 

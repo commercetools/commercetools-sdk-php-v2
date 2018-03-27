@@ -52,7 +52,7 @@ interface State extends Resource {
     public function getBuiltIn();
 
     /**
-     * @return StateRoleEnumCollection
+     * @return array
      */
     public function getRoles();
 
@@ -98,10 +98,10 @@ interface State extends Resource {
     public function setBuiltIn($builtIn);
 
     /**
-     * @param StateRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(StateRoleEnumCollection $roles);
+    public function setRoles(array $roles);
 
     /**
      * @param StateReferenceCollection $transitions

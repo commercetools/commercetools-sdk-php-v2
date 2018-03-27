@@ -56,6 +56,7 @@ class CategorySetAssetTagsActionModel extends CategoryUpdateActionModel implemen
     {
         if (is_null($this->tags)) {
             $value = $this->raw(CategorySetAssetTagsAction::FIELD_TAGS);
+            $value = (array)$value;
             $this->tags = $value;
         }
         return $this->tags;

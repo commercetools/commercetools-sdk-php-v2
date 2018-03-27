@@ -39,7 +39,7 @@ class StateModel extends ResourceModel implements State {
      */
     protected $builtIn;
     /**
-     * @var StateRoleEnumCollection
+     * @var array
      */
     protected $roles;
     /**
@@ -126,16 +126,13 @@ class StateModel extends ResourceModel implements State {
         return $this->builtIn;
     }
     /**
-     * @return StateRoleEnumCollection
+     * @return array
      */
     public function getRoles()
     {
         if (is_null($this->roles)) {
             $value = $this->raw(State::FIELD_ROLES);
-            if (is_null($value)) {
-                return $this->mapData(StateRoleEnumCollection::class, null);
-            }
-            $value = $this->mapData(StateRoleEnumCollection::class, $value);
+            $value = (array)$value;
             $this->roles = $value;
         }
         return $this->roles;
@@ -217,10 +214,10 @@ class StateModel extends ResourceModel implements State {
         return $this;
     }
     /**
-     * @param StateRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(StateRoleEnumCollection $roles)
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;
 

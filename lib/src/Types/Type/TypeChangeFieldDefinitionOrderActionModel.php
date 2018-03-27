@@ -24,6 +24,7 @@ class TypeChangeFieldDefinitionOrderActionModel extends TypeUpdateActionModel im
     {
         if (is_null($this->fieldNames)) {
             $value = $this->raw(TypeChangeFieldDefinitionOrderAction::FIELD_FIELD_NAMES);
+            $value = (array)$value;
             $this->fieldNames = $value;
         }
         return $this->fieldNames;

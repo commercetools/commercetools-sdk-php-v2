@@ -292,6 +292,7 @@ class CustomerDraftModel extends JsonObjectModel implements CustomerDraft {
     {
         if (is_null($this->shippingAddresses)) {
             $value = $this->raw(CustomerDraft::FIELD_SHIPPING_ADDRESSES);
+            $value = (array)$value;
             $this->shippingAddresses = $value;
         }
         return $this->shippingAddresses;
@@ -315,6 +316,7 @@ class CustomerDraftModel extends JsonObjectModel implements CustomerDraft {
     {
         if (is_null($this->billingAddresses)) {
             $value = $this->raw(CustomerDraft::FIELD_BILLING_ADDRESSES);
+            $value = (array)$value;
             $this->billingAddresses = $value;
         }
         return $this->billingAddresses;

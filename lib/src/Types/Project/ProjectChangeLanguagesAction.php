@@ -11,14 +11,14 @@ interface ProjectChangeLanguagesAction extends ProjectUpdateAction {
     const FIELD_LANGUAGES = 'languages';
 
     /**
-     * @return LocaleCollection
+     * @return array
      */
     public function getLanguages();
 
     /**
-     * @param LocaleCollection $languages
+     * @param array $languages
      * @return $this
      */
-    public function setLanguages(LocaleCollection $languages);
+    public function setLanguages(array $languages);
 
 }

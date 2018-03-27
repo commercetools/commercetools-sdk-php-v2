@@ -13,31 +13,28 @@ class ProjectChangeCountriesActionModel extends ProjectUpdateActionModel impleme
     const DISCRIMINATOR_VALUE = 'changeCountries';
 
     /**
-     * @var CountryCodeCollection
+     * @var array
      */
     protected $countries;
 
     /**
-     * @return CountryCodeCollection
+     * @return array
      */
     public function getCountries()
     {
         if (is_null($this->countries)) {
             $value = $this->raw(ProjectChangeCountriesAction::FIELD_COUNTRIES);
-            if (is_null($value)) {
-                return $this->mapData(CountryCodeCollection::class, null);
-            }
-            $value = $this->mapData(CountryCodeCollection::class, $value);
+            $value = (array)$value;
             $this->countries = $value;
         }
         return $this->countries;
     }
 
     /**
-     * @param CountryCodeCollection $countries
+     * @param array $countries
      * @return $this
      */
-    public function setCountries(CountryCodeCollection $countries)
+    public function setCountries(array $countries)
     {
         $this->countries = $countries;
 

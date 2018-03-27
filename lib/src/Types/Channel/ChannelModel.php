@@ -22,7 +22,7 @@ class ChannelModel extends ResourceModel implements Channel {
      */
     protected $key;
     /**
-     * @var ChannelRoleEnumCollection
+     * @var array
      */
     protected $roles;
     /**
@@ -63,16 +63,13 @@ class ChannelModel extends ResourceModel implements Channel {
         return $this->key;
     }
     /**
-     * @return ChannelRoleEnumCollection
+     * @return array
      */
     public function getRoles()
     {
         if (is_null($this->roles)) {
             $value = $this->raw(Channel::FIELD_ROLES);
-            if (is_null($value)) {
-                return $this->mapData(ChannelRoleEnumCollection::class, null);
-            }
-            $value = $this->mapData(ChannelRoleEnumCollection::class, $value);
+            $value = (array)$value;
             $this->roles = $value;
         }
         return $this->roles;
@@ -180,10 +177,10 @@ class ChannelModel extends ResourceModel implements Channel {
         return $this;
     }
     /**
-     * @param ChannelRoleEnumCollection $roles
+     * @param array $roles
      * @return $this
      */
-    public function setRoles(ChannelRoleEnumCollection $roles)
+    public function setRoles(array $roles)
     {
         $this->roles = $roles;
 
