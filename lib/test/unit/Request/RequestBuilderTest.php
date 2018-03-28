@@ -1402,7 +1402,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_CartDiscountDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->cartDiscounts()->create(function($draft) {
                         static::assertInstanceOf(CartDiscountDraft::class, $draft);
                         return $draft;
                     });
@@ -1412,7 +1412,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_CartDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->carts()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->carts()->create(function($draft) {
                         static::assertInstanceOf(CartDraft::class, $draft);
                         return $draft;
                     });
@@ -1422,7 +1422,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_CategoryDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->categories()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->categories()->create(function($draft) {
                         static::assertInstanceOf(CategoryDraft::class, $draft);
                         return $draft;
                     });
@@ -1432,7 +1432,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_ChannelDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->channels()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->channels()->create(function($draft) {
                         static::assertInstanceOf(ChannelDraft::class, $draft);
                         return $draft;
                     });
@@ -1442,7 +1442,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_CustomerGroupDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->customerGroups()->create(function($draft) {
                         static::assertInstanceOf(CustomerGroupDraft::class, $draft);
                         return $draft;
                     });
@@ -1452,7 +1452,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_CustomerDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->customers()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->customers()->create(function($draft) {
                         static::assertInstanceOf(CustomerDraft::class, $draft);
                         return $draft;
                     });
@@ -1462,7 +1462,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_DiscountCodeDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->discountCodes()->create(function($draft) {
                         static::assertInstanceOf(DiscountCodeDraft::class, $draft);
                         return $draft;
                     });
@@ -1472,7 +1472,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_ExtensionDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->extensions()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->extensions()->create(function($draft) {
                         static::assertInstanceOf(ExtensionDraft::class, $draft);
                         return $draft;
                     });
@@ -1482,7 +1482,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_InventoryEntryDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->inventory()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->inventory()->create(function($draft) {
                         static::assertInstanceOf(InventoryEntryDraft::class, $draft);
                         return $draft;
                     });
@@ -1492,7 +1492,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_OrderFromCartDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->orders()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->orders()->create(function($draft) {
                         static::assertInstanceOf(OrderFromCartDraft::class, $draft);
                         return $draft;
                     });
@@ -1502,7 +1502,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_PaymentDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->payments()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->payments()->create(function($draft) {
                         static::assertInstanceOf(PaymentDraft::class, $draft);
                         return $draft;
                     });
@@ -1512,7 +1512,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_ProductDiscountDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->create(function($draft) {
                         static::assertInstanceOf(ProductDiscountDraft::class, $draft);
                         return $draft;
                     });
@@ -1522,7 +1522,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_ProductTypeDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->productTypes()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->productTypes()->create(function($draft) {
                         static::assertInstanceOf(ProductTypeDraft::class, $draft);
                         return $draft;
                     });
@@ -1532,7 +1532,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_ProductDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->products()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->products()->create(function($draft) {
                         static::assertInstanceOf(ProductDraft::class, $draft);
                         return $draft;
                     });
@@ -1542,7 +1542,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_ReviewDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->reviews()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->reviews()->create(function($draft) {
                         static::assertInstanceOf(ReviewDraft::class, $draft);
                         return $draft;
                     });
@@ -1552,7 +1552,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_ShippingMethodDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->shippingMethods()->create(function($draft) {
                         static::assertInstanceOf(ShippingMethodDraft::class, $draft);
                         return $draft;
                     });
@@ -1562,7 +1562,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_ShoppingListDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->shoppingLists()->create(function($draft) {
                         static::assertInstanceOf(ShoppingListDraft::class, $draft);
                         return $draft;
                     });
@@ -1572,7 +1572,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_StateDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->states()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->states()->create(function($draft) {
                         static::assertInstanceOf(StateDraft::class, $draft);
                         return $draft;
                     });
@@ -1582,7 +1582,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_SubscriptionDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->subscriptions()->create(function($draft) {
                         static::assertInstanceOf(SubscriptionDraft::class, $draft);
                         return $draft;
                     });
@@ -1592,7 +1592,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_TaxCategoryDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->taxCategories()->create(function($draft) {
                         static::assertInstanceOf(TaxCategoryDraft::class, $draft);
                         return $draft;
                     });
@@ -1602,7 +1602,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_TypeDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->types()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->types()->create(function($draft) {
                         static::assertInstanceOf(TypeDraft::class, $draft);
                         return $draft;
                     });
@@ -1612,7 +1612,7 @@ class RequestBuilderTest extends TestCase
             ], 
             'create_ZoneDraft' => [
                 function(RequestBuilder $builder): RequestInterface {
-                    return $builder->withProjectKeyValue('projectKey')->zones()->create(function($draft){
+                    return $builder->withProjectKeyValue('projectKey')->zones()->create(function($draft) {
                         static::assertInstanceOf(ZoneDraft::class, $draft);
                         return $draft;
                     });
