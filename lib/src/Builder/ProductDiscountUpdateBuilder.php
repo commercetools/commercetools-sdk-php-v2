@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\ProductDiscount\ProductDiscountUpdateAction;
 
 use Commercetools\Types\ProductDiscount\ProductDiscountChangeIsActiveAction;
@@ -53,7 +53,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeIsActive($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductDiscountChangeIsActiveAction::class, $action));
+        $this->addAction($this->resolveAction(ProductDiscountChangeIsActiveAction::class, $action));
         return $this;
     }
     /**
@@ -67,7 +67,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductDiscountChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(ProductDiscountChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -81,7 +81,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changePredicate($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductDiscountChangePredicateAction::class, $action));
+        $this->addAction($this->resolveAction(ProductDiscountChangePredicateAction::class, $action));
         return $this;
     }
     /**
@@ -95,7 +95,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeSortOrder($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductDiscountChangeSortOrderAction::class, $action));
+        $this->addAction($this->resolveAction(ProductDiscountChangeSortOrderAction::class, $action));
         return $this;
     }
     /**
@@ -109,7 +109,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function changeValue($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductDiscountChangeValueAction::class, $action));
+        $this->addAction($this->resolveAction(ProductDiscountChangeValueAction::class, $action));
         return $this;
     }
     /**
@@ -123,7 +123,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductDiscountSetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(ProductDiscountSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -137,7 +137,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setValidFrom($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductDiscountSetValidFromAction::class, $action));
+        $this->addAction($this->resolveAction(ProductDiscountSetValidFromAction::class, $action));
         return $this;
     }
     /**
@@ -151,7 +151,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      */
     public function setValidUntil($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductDiscountSetValidUntilAction::class, $action));
+        $this->addAction($this->resolveAction(ProductDiscountSetValidUntilAction::class, $action));
         return $this;
     }
 
@@ -172,16 +172,11 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(ProductDiscountUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

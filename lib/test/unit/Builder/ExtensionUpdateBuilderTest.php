@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Builder;
 
-use  Commercetools\Builder\ExtensionUpdateBuilder;
+use Commercetools\Builder\ExtensionUpdateBuilder;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Extension\ExtensionChangeDestinationAction;
 use Commercetools\Types\Extension\ExtensionChangeTriggersAction;
 use Commercetools\Types\Extension\ExtensionSetKeyAction;
@@ -32,12 +33,24 @@ class ExtensionBuilderTest extends TestCase {
         static::assertInstanceOf(ExtensionChangeDestinationAction::class, $update->getActions()->current());
     }
 
+    public function testChangeDestinationInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ExtensionUpdateBuilder();
+        $builder->changeDestination(function($action) { static::assertInstanceOf(ExtensionChangeDestinationAction::class, $action); return []; });
+    }
+
     public function testChangeDestinationInstance() {
         $builder = new ExtensionUpdateBuilder();
         $builder->changeDestination(new ExtensionChangeDestinationActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ExtensionUpdate::class, $update);
         static::assertInstanceOf(ExtensionChangeDestinationAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeDestinationInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ExtensionUpdateBuilder();
+        $builder->changeDestination([]);
     }
 
     public function testChangeTriggersCallback() {
@@ -48,12 +61,24 @@ class ExtensionBuilderTest extends TestCase {
         static::assertInstanceOf(ExtensionChangeTriggersAction::class, $update->getActions()->current());
     }
 
+    public function testChangeTriggersInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ExtensionUpdateBuilder();
+        $builder->changeTriggers(function($action) { static::assertInstanceOf(ExtensionChangeTriggersAction::class, $action); return []; });
+    }
+
     public function testChangeTriggersInstance() {
         $builder = new ExtensionUpdateBuilder();
         $builder->changeTriggers(new ExtensionChangeTriggersActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ExtensionUpdate::class, $update);
         static::assertInstanceOf(ExtensionChangeTriggersAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeTriggersInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ExtensionUpdateBuilder();
+        $builder->changeTriggers([]);
     }
 
     public function testSetKeyCallback() {
@@ -64,12 +89,24 @@ class ExtensionBuilderTest extends TestCase {
         static::assertInstanceOf(ExtensionSetKeyAction::class, $update->getActions()->current());
     }
 
+    public function testSetKeyInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ExtensionUpdateBuilder();
+        $builder->setKey(function($action) { static::assertInstanceOf(ExtensionSetKeyAction::class, $action); return []; });
+    }
+
     public function testSetKeyInstance() {
         $builder = new ExtensionUpdateBuilder();
         $builder->setKey(new ExtensionSetKeyActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ExtensionUpdate::class, $update);
         static::assertInstanceOf(ExtensionSetKeyAction::class, $update->getActions()->current());
+    }
+
+    public function testSetKeyInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ExtensionUpdateBuilder();
+        $builder->setKey([]);
     }
 
 

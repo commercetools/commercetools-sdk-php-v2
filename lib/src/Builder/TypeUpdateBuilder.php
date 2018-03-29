@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Type\TypeUpdateAction;
 
 use Commercetools\Types\Type\TypeAddEnumValueAction;
@@ -57,7 +57,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function addEnumValue($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeAddEnumValueAction::class, $action));
+        $this->addAction($this->resolveAction(TypeAddEnumValueAction::class, $action));
         return $this;
     }
     /**
@@ -71,7 +71,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function addFieldDefinition($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeAddFieldDefinitionAction::class, $action));
+        $this->addAction($this->resolveAction(TypeAddFieldDefinitionAction::class, $action));
         return $this;
     }
     /**
@@ -85,7 +85,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function addLocalizedEnumValue($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeAddLocalizedEnumValueAction::class, $action));
+        $this->addAction($this->resolveAction(TypeAddLocalizedEnumValueAction::class, $action));
         return $this;
     }
     /**
@@ -99,7 +99,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeEnumValueOrder($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeChangeEnumValueOrderAction::class, $action));
+        $this->addAction($this->resolveAction(TypeChangeEnumValueOrderAction::class, $action));
         return $this;
     }
     /**
@@ -113,7 +113,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeFieldDefinitionLabel($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeChangeFieldDefinitionLabelAction::class, $action));
+        $this->addAction($this->resolveAction(TypeChangeFieldDefinitionLabelAction::class, $action));
         return $this;
     }
     /**
@@ -127,7 +127,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeFieldDefinitionOrder($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeChangeFieldDefinitionOrderAction::class, $action));
+        $this->addAction($this->resolveAction(TypeChangeFieldDefinitionOrderAction::class, $action));
         return $this;
     }
     /**
@@ -141,7 +141,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeChangeKeyAction::class, $action));
+        $this->addAction($this->resolveAction(TypeChangeKeyAction::class, $action));
         return $this;
     }
     /**
@@ -155,7 +155,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLabel($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeChangeLabelAction::class, $action));
+        $this->addAction($this->resolveAction(TypeChangeLabelAction::class, $action));
         return $this;
     }
     /**
@@ -169,7 +169,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeLocalizedEnumValueOrder($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeChangeLocalizedEnumValueOrderAction::class, $action));
+        $this->addAction($this->resolveAction(TypeChangeLocalizedEnumValueOrderAction::class, $action));
         return $this;
     }
     /**
@@ -183,7 +183,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(TypeChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -197,7 +197,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function removeFieldDefinition($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeRemoveFieldDefinitionAction::class, $action));
+        $this->addAction($this->resolveAction(TypeRemoveFieldDefinitionAction::class, $action));
         return $this;
     }
     /**
@@ -211,7 +211,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TypeSetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(TypeSetDescriptionAction::class, $action));
         return $this;
     }
 
@@ -232,16 +232,11 @@ class TypeUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(TypeUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

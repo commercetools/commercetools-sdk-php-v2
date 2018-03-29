@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Project\ProjectUpdateAction;
 
 use Commercetools\Types\Project\ProjectChangeCountriesAction;
@@ -51,7 +51,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeCountries($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProjectChangeCountriesAction::class, $action));
+        $this->addAction($this->resolveAction(ProjectChangeCountriesAction::class, $action));
         return $this;
     }
     /**
@@ -65,7 +65,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeCurrencies($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProjectChangeCurrenciesAction::class, $action));
+        $this->addAction($this->resolveAction(ProjectChangeCurrenciesAction::class, $action));
         return $this;
     }
     /**
@@ -79,7 +79,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeLanguages($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProjectChangeLanguagesAction::class, $action));
+        $this->addAction($this->resolveAction(ProjectChangeLanguagesAction::class, $action));
         return $this;
     }
     /**
@@ -93,7 +93,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeMessagesEnabled($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProjectChangeMessagesEnabledAction::class, $action));
+        $this->addAction($this->resolveAction(ProjectChangeMessagesEnabledAction::class, $action));
         return $this;
     }
     /**
@@ -107,7 +107,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProjectChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(ProjectChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -121,7 +121,7 @@ class ProjectUpdateBuilder extends BaseBuilder {
      */
     public function setShippingRateInputType($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProjectSetShippingRateInputTypeAction::class, $action));
+        $this->addAction($this->resolveAction(ProjectSetShippingRateInputTypeAction::class, $action));
         return $this;
     }
 
@@ -142,16 +142,11 @@ class ProjectUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(ProjectUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

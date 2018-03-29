@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\State\StateUpdateAction;
 
 use Commercetools\Types\State\StateAddRolesAction;
@@ -54,7 +54,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function addRoles($action = null)
     {
-        $this->tryAddAction($this->resolveAction(StateAddRolesAction::class, $action));
+        $this->addAction($this->resolveAction(StateAddRolesAction::class, $action));
         return $this;
     }
     /**
@@ -68,7 +68,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function changeInitial($action = null)
     {
-        $this->tryAddAction($this->resolveAction(StateChangeInitialAction::class, $action));
+        $this->addAction($this->resolveAction(StateChangeInitialAction::class, $action));
         return $this;
     }
     /**
@@ -82,7 +82,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function changeKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(StateChangeKeyAction::class, $action));
+        $this->addAction($this->resolveAction(StateChangeKeyAction::class, $action));
         return $this;
     }
     /**
@@ -96,7 +96,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function changeType($action = null)
     {
-        $this->tryAddAction($this->resolveAction(StateChangeTypeAction::class, $action));
+        $this->addAction($this->resolveAction(StateChangeTypeAction::class, $action));
         return $this;
     }
     /**
@@ -110,7 +110,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function removeRoles($action = null)
     {
-        $this->tryAddAction($this->resolveAction(StateRemoveRolesAction::class, $action));
+        $this->addAction($this->resolveAction(StateRemoveRolesAction::class, $action));
         return $this;
     }
     /**
@@ -124,7 +124,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(StateSetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(StateSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -138,7 +138,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(StateSetNameAction::class, $action));
+        $this->addAction($this->resolveAction(StateSetNameAction::class, $action));
         return $this;
     }
     /**
@@ -152,7 +152,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setRoles($action = null)
     {
-        $this->tryAddAction($this->resolveAction(StateSetRolesAction::class, $action));
+        $this->addAction($this->resolveAction(StateSetRolesAction::class, $action));
         return $this;
     }
     /**
@@ -166,7 +166,7 @@ class StateUpdateBuilder extends BaseBuilder {
      */
     public function setTransitions($action = null)
     {
-        $this->tryAddAction($this->resolveAction(StateSetTransitionsAction::class, $action));
+        $this->addAction($this->resolveAction(StateSetTransitionsAction::class, $action));
         return $this;
     }
 
@@ -187,16 +187,11 @@ class StateUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(StateUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

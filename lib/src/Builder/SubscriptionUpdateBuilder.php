@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Subscription\SubscriptionUpdateAction;
 
 use Commercetools\Types\Subscription\SubscriptionSetChangesAction;
@@ -48,7 +48,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      */
     public function setChanges($action = null)
     {
-        $this->tryAddAction($this->resolveAction(SubscriptionSetChangesAction::class, $action));
+        $this->addAction($this->resolveAction(SubscriptionSetChangesAction::class, $action));
         return $this;
     }
     /**
@@ -62,7 +62,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(SubscriptionSetKeyAction::class, $action));
+        $this->addAction($this->resolveAction(SubscriptionSetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -76,7 +76,7 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
      */
     public function setMessages($action = null)
     {
-        $this->tryAddAction($this->resolveAction(SubscriptionSetMessagesAction::class, $action));
+        $this->addAction($this->resolveAction(SubscriptionSetMessagesAction::class, $action));
         return $this;
     }
 
@@ -97,16 +97,11 @@ class SubscriptionUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(SubscriptionUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Builder;
 
-use  Commercetools\Builder\SubscriptionUpdateBuilder;
+use Commercetools\Builder\SubscriptionUpdateBuilder;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Subscription\SubscriptionSetChangesAction;
 use Commercetools\Types\Subscription\SubscriptionSetKeyAction;
 use Commercetools\Types\Subscription\SubscriptionSetMessagesAction;
@@ -32,12 +33,24 @@ class SubscriptionBuilderTest extends TestCase {
         static::assertInstanceOf(SubscriptionSetChangesAction::class, $update->getActions()->current());
     }
 
+    public function testSetChangesInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new SubscriptionUpdateBuilder();
+        $builder->setChanges(function($action) { static::assertInstanceOf(SubscriptionSetChangesAction::class, $action); return []; });
+    }
+
     public function testSetChangesInstance() {
         $builder = new SubscriptionUpdateBuilder();
         $builder->setChanges(new SubscriptionSetChangesActionModel());
         $update = $builder->build();
         static::assertInstanceOf(SubscriptionUpdate::class, $update);
         static::assertInstanceOf(SubscriptionSetChangesAction::class, $update->getActions()->current());
+    }
+
+    public function testSetChangesInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new SubscriptionUpdateBuilder();
+        $builder->setChanges([]);
     }
 
     public function testSetKeyCallback() {
@@ -48,12 +61,24 @@ class SubscriptionBuilderTest extends TestCase {
         static::assertInstanceOf(SubscriptionSetKeyAction::class, $update->getActions()->current());
     }
 
+    public function testSetKeyInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new SubscriptionUpdateBuilder();
+        $builder->setKey(function($action) { static::assertInstanceOf(SubscriptionSetKeyAction::class, $action); return []; });
+    }
+
     public function testSetKeyInstance() {
         $builder = new SubscriptionUpdateBuilder();
         $builder->setKey(new SubscriptionSetKeyActionModel());
         $update = $builder->build();
         static::assertInstanceOf(SubscriptionUpdate::class, $update);
         static::assertInstanceOf(SubscriptionSetKeyAction::class, $update->getActions()->current());
+    }
+
+    public function testSetKeyInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new SubscriptionUpdateBuilder();
+        $builder->setKey([]);
     }
 
     public function testSetMessagesCallback() {
@@ -64,12 +89,24 @@ class SubscriptionBuilderTest extends TestCase {
         static::assertInstanceOf(SubscriptionSetMessagesAction::class, $update->getActions()->current());
     }
 
+    public function testSetMessagesInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new SubscriptionUpdateBuilder();
+        $builder->setMessages(function($action) { static::assertInstanceOf(SubscriptionSetMessagesAction::class, $action); return []; });
+    }
+
     public function testSetMessagesInstance() {
         $builder = new SubscriptionUpdateBuilder();
         $builder->setMessages(new SubscriptionSetMessagesActionModel());
         $update = $builder->build();
         static::assertInstanceOf(SubscriptionUpdate::class, $update);
         static::assertInstanceOf(SubscriptionSetMessagesAction::class, $update->getActions()->current());
+    }
+
+    public function testSetMessagesInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new SubscriptionUpdateBuilder();
+        $builder->setMessages([]);
     }
 
 

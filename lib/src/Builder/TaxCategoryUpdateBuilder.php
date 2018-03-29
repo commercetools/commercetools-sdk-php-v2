@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\TaxCategory\TaxCategoryUpdateAction;
 
 use Commercetools\Types\TaxCategory\TaxCategoryAddTaxRateAction;
@@ -51,7 +51,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function addTaxRate($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TaxCategoryAddTaxRateAction::class, $action));
+        $this->addAction($this->resolveAction(TaxCategoryAddTaxRateAction::class, $action));
         return $this;
     }
     /**
@@ -65,7 +65,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TaxCategoryChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(TaxCategoryChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -79,7 +79,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function removeTaxRate($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TaxCategoryRemoveTaxRateAction::class, $action));
+        $this->addAction($this->resolveAction(TaxCategoryRemoveTaxRateAction::class, $action));
         return $this;
     }
     /**
@@ -93,7 +93,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function replaceTaxRate($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TaxCategoryReplaceTaxRateAction::class, $action));
+        $this->addAction($this->resolveAction(TaxCategoryReplaceTaxRateAction::class, $action));
         return $this;
     }
     /**
@@ -107,7 +107,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TaxCategorySetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(TaxCategorySetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -121,7 +121,7 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(TaxCategorySetKeyAction::class, $action));
+        $this->addAction($this->resolveAction(TaxCategorySetKeyAction::class, $action));
         return $this;
     }
 
@@ -142,16 +142,11 @@ class TaxCategoryUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(TaxCategoryUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

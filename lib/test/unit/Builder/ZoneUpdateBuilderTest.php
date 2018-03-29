@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Builder;
 
-use  Commercetools\Builder\ZoneUpdateBuilder;
+use Commercetools\Builder\ZoneUpdateBuilder;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Zone\ZoneAddLocationAction;
 use Commercetools\Types\Zone\ZoneChangeNameAction;
 use Commercetools\Types\Zone\ZoneRemoveLocationAction;
@@ -34,12 +35,24 @@ class ZoneBuilderTest extends TestCase {
         static::assertInstanceOf(ZoneAddLocationAction::class, $update->getActions()->current());
     }
 
+    public function testAddLocationInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ZoneUpdateBuilder();
+        $builder->addLocation(function($action) { static::assertInstanceOf(ZoneAddLocationAction::class, $action); return []; });
+    }
+
     public function testAddLocationInstance() {
         $builder = new ZoneUpdateBuilder();
         $builder->addLocation(new ZoneAddLocationActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ZoneUpdate::class, $update);
         static::assertInstanceOf(ZoneAddLocationAction::class, $update->getActions()->current());
+    }
+
+    public function testAddLocationInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ZoneUpdateBuilder();
+        $builder->addLocation([]);
     }
 
     public function testChangeNameCallback() {
@@ -50,12 +63,24 @@ class ZoneBuilderTest extends TestCase {
         static::assertInstanceOf(ZoneChangeNameAction::class, $update->getActions()->current());
     }
 
+    public function testChangeNameInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ZoneUpdateBuilder();
+        $builder->changeName(function($action) { static::assertInstanceOf(ZoneChangeNameAction::class, $action); return []; });
+    }
+
     public function testChangeNameInstance() {
         $builder = new ZoneUpdateBuilder();
         $builder->changeName(new ZoneChangeNameActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ZoneUpdate::class, $update);
         static::assertInstanceOf(ZoneChangeNameAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeNameInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ZoneUpdateBuilder();
+        $builder->changeName([]);
     }
 
     public function testRemoveLocationCallback() {
@@ -66,12 +91,24 @@ class ZoneBuilderTest extends TestCase {
         static::assertInstanceOf(ZoneRemoveLocationAction::class, $update->getActions()->current());
     }
 
+    public function testRemoveLocationInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ZoneUpdateBuilder();
+        $builder->removeLocation(function($action) { static::assertInstanceOf(ZoneRemoveLocationAction::class, $action); return []; });
+    }
+
     public function testRemoveLocationInstance() {
         $builder = new ZoneUpdateBuilder();
         $builder->removeLocation(new ZoneRemoveLocationActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ZoneUpdate::class, $update);
         static::assertInstanceOf(ZoneRemoveLocationAction::class, $update->getActions()->current());
+    }
+
+    public function testRemoveLocationInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ZoneUpdateBuilder();
+        $builder->removeLocation([]);
     }
 
     public function testSetDescriptionCallback() {
@@ -82,12 +119,24 @@ class ZoneBuilderTest extends TestCase {
         static::assertInstanceOf(ZoneSetDescriptionAction::class, $update->getActions()->current());
     }
 
+    public function testSetDescriptionInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ZoneUpdateBuilder();
+        $builder->setDescription(function($action) { static::assertInstanceOf(ZoneSetDescriptionAction::class, $action); return []; });
+    }
+
     public function testSetDescriptionInstance() {
         $builder = new ZoneUpdateBuilder();
         $builder->setDescription(new ZoneSetDescriptionActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ZoneUpdate::class, $update);
         static::assertInstanceOf(ZoneSetDescriptionAction::class, $update->getActions()->current());
+    }
+
+    public function testSetDescriptionInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ZoneUpdateBuilder();
+        $builder->setDescription([]);
     }
 
 

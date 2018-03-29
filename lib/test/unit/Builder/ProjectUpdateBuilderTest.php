@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Builder;
 
-use  Commercetools\Builder\ProjectUpdateBuilder;
+use Commercetools\Builder\ProjectUpdateBuilder;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Project\ProjectChangeCountriesAction;
 use Commercetools\Types\Project\ProjectChangeCurrenciesAction;
 use Commercetools\Types\Project\ProjectChangeLanguagesAction;
@@ -38,12 +39,24 @@ class ProjectBuilderTest extends TestCase {
         static::assertInstanceOf(ProjectChangeCountriesAction::class, $update->getActions()->current());
     }
 
+    public function testChangeCountriesInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeCountries(function($action) { static::assertInstanceOf(ProjectChangeCountriesAction::class, $action); return []; });
+    }
+
     public function testChangeCountriesInstance() {
         $builder = new ProjectUpdateBuilder();
         $builder->changeCountries(new ProjectChangeCountriesActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeCountriesAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeCountriesInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeCountries([]);
     }
 
     public function testChangeCurrenciesCallback() {
@@ -54,12 +67,24 @@ class ProjectBuilderTest extends TestCase {
         static::assertInstanceOf(ProjectChangeCurrenciesAction::class, $update->getActions()->current());
     }
 
+    public function testChangeCurrenciesInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeCurrencies(function($action) { static::assertInstanceOf(ProjectChangeCurrenciesAction::class, $action); return []; });
+    }
+
     public function testChangeCurrenciesInstance() {
         $builder = new ProjectUpdateBuilder();
         $builder->changeCurrencies(new ProjectChangeCurrenciesActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeCurrenciesAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeCurrenciesInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeCurrencies([]);
     }
 
     public function testChangeLanguagesCallback() {
@@ -70,12 +95,24 @@ class ProjectBuilderTest extends TestCase {
         static::assertInstanceOf(ProjectChangeLanguagesAction::class, $update->getActions()->current());
     }
 
+    public function testChangeLanguagesInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeLanguages(function($action) { static::assertInstanceOf(ProjectChangeLanguagesAction::class, $action); return []; });
+    }
+
     public function testChangeLanguagesInstance() {
         $builder = new ProjectUpdateBuilder();
         $builder->changeLanguages(new ProjectChangeLanguagesActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeLanguagesAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeLanguagesInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeLanguages([]);
     }
 
     public function testChangeMessagesEnabledCallback() {
@@ -86,12 +123,24 @@ class ProjectBuilderTest extends TestCase {
         static::assertInstanceOf(ProjectChangeMessagesEnabledAction::class, $update->getActions()->current());
     }
 
+    public function testChangeMessagesEnabledInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeMessagesEnabled(function($action) { static::assertInstanceOf(ProjectChangeMessagesEnabledAction::class, $action); return []; });
+    }
+
     public function testChangeMessagesEnabledInstance() {
         $builder = new ProjectUpdateBuilder();
         $builder->changeMessagesEnabled(new ProjectChangeMessagesEnabledActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeMessagesEnabledAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeMessagesEnabledInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeMessagesEnabled([]);
     }
 
     public function testChangeNameCallback() {
@@ -102,12 +151,24 @@ class ProjectBuilderTest extends TestCase {
         static::assertInstanceOf(ProjectChangeNameAction::class, $update->getActions()->current());
     }
 
+    public function testChangeNameInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeName(function($action) { static::assertInstanceOf(ProjectChangeNameAction::class, $action); return []; });
+    }
+
     public function testChangeNameInstance() {
         $builder = new ProjectUpdateBuilder();
         $builder->changeName(new ProjectChangeNameActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectChangeNameAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeNameInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->changeName([]);
     }
 
     public function testSetShippingRateInputTypeCallback() {
@@ -118,12 +179,24 @@ class ProjectBuilderTest extends TestCase {
         static::assertInstanceOf(ProjectSetShippingRateInputTypeAction::class, $update->getActions()->current());
     }
 
+    public function testSetShippingRateInputTypeInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->setShippingRateInputType(function($action) { static::assertInstanceOf(ProjectSetShippingRateInputTypeAction::class, $action); return []; });
+    }
+
     public function testSetShippingRateInputTypeInstance() {
         $builder = new ProjectUpdateBuilder();
         $builder->setShippingRateInputType(new ProjectSetShippingRateInputTypeActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProjectUpdate::class, $update);
         static::assertInstanceOf(ProjectSetShippingRateInputTypeAction::class, $update->getActions()->current());
+    }
+
+    public function testSetShippingRateInputTypeInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProjectUpdateBuilder();
+        $builder->setShippingRateInputType([]);
     }
 
 

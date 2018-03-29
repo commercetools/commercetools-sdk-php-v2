@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Zone\ZoneUpdateAction;
 
 use Commercetools\Types\Zone\ZoneAddLocationAction;
@@ -49,7 +49,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function addLocation($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ZoneAddLocationAction::class, $action));
+        $this->addAction($this->resolveAction(ZoneAddLocationAction::class, $action));
         return $this;
     }
     /**
@@ -63,7 +63,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ZoneChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(ZoneChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -77,7 +77,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function removeLocation($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ZoneRemoveLocationAction::class, $action));
+        $this->addAction($this->resolveAction(ZoneRemoveLocationAction::class, $action));
         return $this;
     }
     /**
@@ -91,7 +91,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ZoneSetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(ZoneSetDescriptionAction::class, $action));
         return $this;
     }
 
@@ -112,16 +112,11 @@ class ZoneUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(ZoneUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

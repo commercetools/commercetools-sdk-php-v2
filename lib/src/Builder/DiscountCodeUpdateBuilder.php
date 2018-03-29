@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateAction;
 
 use Commercetools\Types\DiscountCode\DiscountCodeChangeCartDiscountsAction;
@@ -55,7 +55,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function changeCartDiscounts($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeChangeCartDiscountsAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeChangeCartDiscountsAction::class, $action));
         return $this;
     }
     /**
@@ -69,7 +69,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function changeGroups($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeChangeGroupsAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeChangeGroupsAction::class, $action));
         return $this;
     }
     /**
@@ -83,7 +83,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function changeIsActive($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeChangeIsActiveAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeChangeIsActiveAction::class, $action));
         return $this;
     }
     /**
@@ -97,7 +97,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setCartPredicate($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeSetCartPredicateAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeSetCartPredicateAction::class, $action));
         return $this;
     }
     /**
@@ -111,7 +111,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeSetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -125,7 +125,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setMaxApplications($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeSetMaxApplicationsAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeSetMaxApplicationsAction::class, $action));
         return $this;
     }
     /**
@@ -139,7 +139,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setMaxApplicationsPerCustomer($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeSetMaxApplicationsPerCustomerAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeSetMaxApplicationsPerCustomerAction::class, $action));
         return $this;
     }
     /**
@@ -153,7 +153,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeSetNameAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeSetNameAction::class, $action));
         return $this;
     }
     /**
@@ -167,7 +167,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setValidFrom($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeSetValidFromAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeSetValidFromAction::class, $action));
         return $this;
     }
     /**
@@ -181,7 +181,7 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
      */
     public function setValidUntil($action = null)
     {
-        $this->tryAddAction($this->resolveAction(DiscountCodeSetValidUntilAction::class, $action));
+        $this->addAction($this->resolveAction(DiscountCodeSetValidUntilAction::class, $action));
         return $this;
     }
 
@@ -202,16 +202,11 @@ class DiscountCodeUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(DiscountCodeUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

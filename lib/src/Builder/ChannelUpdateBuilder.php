@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Channel\ChannelUpdateAction;
 
 use Commercetools\Types\Channel\ChannelAddRolesAction;
@@ -55,7 +55,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function addRoles($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelAddRolesAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelAddRolesAction::class, $action));
         return $this;
     }
     /**
@@ -69,7 +69,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function changeDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelChangeDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelChangeDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -83,7 +83,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function changeKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelChangeKeyAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelChangeKeyAction::class, $action));
         return $this;
     }
     /**
@@ -97,7 +97,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -111,7 +111,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function removeRoles($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelRemoveRolesAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelRemoveRolesAction::class, $action));
         return $this;
     }
     /**
@@ -125,7 +125,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setAddress($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelSetAddressAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelSetAddressAction::class, $action));
         return $this;
     }
     /**
@@ -139,7 +139,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelSetCustomFieldAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelSetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -153,7 +153,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelSetCustomTypeAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelSetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -167,7 +167,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setGeoLocation($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelSetGeolocationAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelSetGeolocationAction::class, $action));
         return $this;
     }
     /**
@@ -181,7 +181,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      */
     public function setRoles($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ChannelSetRolesAction::class, $action));
+        $this->addAction($this->resolveAction(ChannelSetRolesAction::class, $action));
         return $this;
     }
 
@@ -202,16 +202,11 @@ class ChannelUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(ChannelUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

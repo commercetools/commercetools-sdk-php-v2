@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Builder;
 
-use  Commercetools\Builder\ReviewUpdateBuilder;
+use Commercetools\Builder\ReviewUpdateBuilder;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Review\ReviewSetAuthorNameAction;
 use Commercetools\Types\Review\ReviewSetCustomFieldAction;
 use Commercetools\Types\Review\ReviewSetCustomTypeAction;
@@ -48,12 +49,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetAuthorNameAction::class, $update->getActions()->current());
     }
 
+    public function testSetAuthorNameInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setAuthorName(function($action) { static::assertInstanceOf(ReviewSetAuthorNameAction::class, $action); return []; });
+    }
+
     public function testSetAuthorNameInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setAuthorName(new ReviewSetAuthorNameActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetAuthorNameAction::class, $update->getActions()->current());
+    }
+
+    public function testSetAuthorNameInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setAuthorName([]);
     }
 
     public function testSetCustomFieldCallback() {
@@ -64,12 +77,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetCustomFieldAction::class, $update->getActions()->current());
     }
 
+    public function testSetCustomFieldInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setCustomField(function($action) { static::assertInstanceOf(ReviewSetCustomFieldAction::class, $action); return []; });
+    }
+
     public function testSetCustomFieldInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setCustomField(new ReviewSetCustomFieldActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetCustomFieldAction::class, $update->getActions()->current());
+    }
+
+    public function testSetCustomFieldInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setCustomField([]);
     }
 
     public function testSetCustomTypeCallback() {
@@ -80,12 +105,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetCustomTypeAction::class, $update->getActions()->current());
     }
 
+    public function testSetCustomTypeInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setCustomType(function($action) { static::assertInstanceOf(ReviewSetCustomTypeAction::class, $action); return []; });
+    }
+
     public function testSetCustomTypeInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setCustomType(new ReviewSetCustomTypeActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetCustomTypeAction::class, $update->getActions()->current());
+    }
+
+    public function testSetCustomTypeInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setCustomType([]);
     }
 
     public function testSetCustomerCallback() {
@@ -96,12 +133,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetCustomerAction::class, $update->getActions()->current());
     }
 
+    public function testSetCustomerInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setCustomer(function($action) { static::assertInstanceOf(ReviewSetCustomerAction::class, $action); return []; });
+    }
+
     public function testSetCustomerInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setCustomer(new ReviewSetCustomerActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetCustomerAction::class, $update->getActions()->current());
+    }
+
+    public function testSetCustomerInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setCustomer([]);
     }
 
     public function testSetKeyCallback() {
@@ -112,12 +161,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetKeyAction::class, $update->getActions()->current());
     }
 
+    public function testSetKeyInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setKey(function($action) { static::assertInstanceOf(ReviewSetKeyAction::class, $action); return []; });
+    }
+
     public function testSetKeyInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setKey(new ReviewSetKeyActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetKeyAction::class, $update->getActions()->current());
+    }
+
+    public function testSetKeyInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setKey([]);
     }
 
     public function testSetLocaleCallback() {
@@ -128,12 +189,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetLocaleAction::class, $update->getActions()->current());
     }
 
+    public function testSetLocaleInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setLocale(function($action) { static::assertInstanceOf(ReviewSetLocaleAction::class, $action); return []; });
+    }
+
     public function testSetLocaleInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setLocale(new ReviewSetLocaleActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetLocaleAction::class, $update->getActions()->current());
+    }
+
+    public function testSetLocaleInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setLocale([]);
     }
 
     public function testSetRatingCallback() {
@@ -144,12 +217,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetRatingAction::class, $update->getActions()->current());
     }
 
+    public function testSetRatingInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setRating(function($action) { static::assertInstanceOf(ReviewSetRatingAction::class, $action); return []; });
+    }
+
     public function testSetRatingInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setRating(new ReviewSetRatingActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetRatingAction::class, $update->getActions()->current());
+    }
+
+    public function testSetRatingInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setRating([]);
     }
 
     public function testSetTargetCallback() {
@@ -160,12 +245,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetTargetAction::class, $update->getActions()->current());
     }
 
+    public function testSetTargetInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setTarget(function($action) { static::assertInstanceOf(ReviewSetTargetAction::class, $action); return []; });
+    }
+
     public function testSetTargetInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setTarget(new ReviewSetTargetActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetTargetAction::class, $update->getActions()->current());
+    }
+
+    public function testSetTargetInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setTarget([]);
     }
 
     public function testSetTextCallback() {
@@ -176,12 +273,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetTextAction::class, $update->getActions()->current());
     }
 
+    public function testSetTextInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setText(function($action) { static::assertInstanceOf(ReviewSetTextAction::class, $action); return []; });
+    }
+
     public function testSetTextInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setText(new ReviewSetTextActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetTextAction::class, $update->getActions()->current());
+    }
+
+    public function testSetTextInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setText([]);
     }
 
     public function testSetTitleCallback() {
@@ -192,12 +301,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewSetTitleAction::class, $update->getActions()->current());
     }
 
+    public function testSetTitleInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setTitle(function($action) { static::assertInstanceOf(ReviewSetTitleAction::class, $action); return []; });
+    }
+
     public function testSetTitleInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->setTitle(new ReviewSetTitleActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewSetTitleAction::class, $update->getActions()->current());
+    }
+
+    public function testSetTitleInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->setTitle([]);
     }
 
     public function testTransitionStateCallback() {
@@ -208,12 +329,24 @@ class ReviewBuilderTest extends TestCase {
         static::assertInstanceOf(ReviewTransitionStateAction::class, $update->getActions()->current());
     }
 
+    public function testTransitionStateInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->transitionState(function($action) { static::assertInstanceOf(ReviewTransitionStateAction::class, $action); return []; });
+    }
+
     public function testTransitionStateInstance() {
         $builder = new ReviewUpdateBuilder();
         $builder->transitionState(new ReviewTransitionStateActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ReviewUpdate::class, $update);
         static::assertInstanceOf(ReviewTransitionStateAction::class, $update->getActions()->current());
+    }
+
+    public function testTransitionStateInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ReviewUpdateBuilder();
+        $builder->transitionState([]);
     }
 
 

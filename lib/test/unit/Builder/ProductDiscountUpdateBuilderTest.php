@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Builder;
 
-use  Commercetools\Builder\ProductDiscountUpdateBuilder;
+use Commercetools\Builder\ProductDiscountUpdateBuilder;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\ProductDiscount\ProductDiscountChangeIsActiveAction;
 use Commercetools\Types\ProductDiscount\ProductDiscountChangeNameAction;
 use Commercetools\Types\ProductDiscount\ProductDiscountChangePredicateAction;
@@ -42,12 +43,24 @@ class ProductDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(ProductDiscountChangeIsActiveAction::class, $update->getActions()->current());
     }
 
+    public function testChangeIsActiveInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changeIsActive(function($action) { static::assertInstanceOf(ProductDiscountChangeIsActiveAction::class, $action); return []; });
+    }
+
     public function testChangeIsActiveInstance() {
         $builder = new ProductDiscountUpdateBuilder();
         $builder->changeIsActive(new ProductDiscountChangeIsActiveActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProductDiscountUpdate::class, $update);
         static::assertInstanceOf(ProductDiscountChangeIsActiveAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeIsActiveInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changeIsActive([]);
     }
 
     public function testChangeNameCallback() {
@@ -58,12 +71,24 @@ class ProductDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(ProductDiscountChangeNameAction::class, $update->getActions()->current());
     }
 
+    public function testChangeNameInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changeName(function($action) { static::assertInstanceOf(ProductDiscountChangeNameAction::class, $action); return []; });
+    }
+
     public function testChangeNameInstance() {
         $builder = new ProductDiscountUpdateBuilder();
         $builder->changeName(new ProductDiscountChangeNameActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProductDiscountUpdate::class, $update);
         static::assertInstanceOf(ProductDiscountChangeNameAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeNameInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changeName([]);
     }
 
     public function testChangePredicateCallback() {
@@ -74,12 +99,24 @@ class ProductDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(ProductDiscountChangePredicateAction::class, $update->getActions()->current());
     }
 
+    public function testChangePredicateInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changePredicate(function($action) { static::assertInstanceOf(ProductDiscountChangePredicateAction::class, $action); return []; });
+    }
+
     public function testChangePredicateInstance() {
         $builder = new ProductDiscountUpdateBuilder();
         $builder->changePredicate(new ProductDiscountChangePredicateActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProductDiscountUpdate::class, $update);
         static::assertInstanceOf(ProductDiscountChangePredicateAction::class, $update->getActions()->current());
+    }
+
+    public function testChangePredicateInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changePredicate([]);
     }
 
     public function testChangeSortOrderCallback() {
@@ -90,12 +127,24 @@ class ProductDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(ProductDiscountChangeSortOrderAction::class, $update->getActions()->current());
     }
 
+    public function testChangeSortOrderInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changeSortOrder(function($action) { static::assertInstanceOf(ProductDiscountChangeSortOrderAction::class, $action); return []; });
+    }
+
     public function testChangeSortOrderInstance() {
         $builder = new ProductDiscountUpdateBuilder();
         $builder->changeSortOrder(new ProductDiscountChangeSortOrderActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProductDiscountUpdate::class, $update);
         static::assertInstanceOf(ProductDiscountChangeSortOrderAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeSortOrderInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changeSortOrder([]);
     }
 
     public function testChangeValueCallback() {
@@ -106,12 +155,24 @@ class ProductDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(ProductDiscountChangeValueAction::class, $update->getActions()->current());
     }
 
+    public function testChangeValueInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changeValue(function($action) { static::assertInstanceOf(ProductDiscountChangeValueAction::class, $action); return []; });
+    }
+
     public function testChangeValueInstance() {
         $builder = new ProductDiscountUpdateBuilder();
         $builder->changeValue(new ProductDiscountChangeValueActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProductDiscountUpdate::class, $update);
         static::assertInstanceOf(ProductDiscountChangeValueAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeValueInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->changeValue([]);
     }
 
     public function testSetDescriptionCallback() {
@@ -122,12 +183,24 @@ class ProductDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(ProductDiscountSetDescriptionAction::class, $update->getActions()->current());
     }
 
+    public function testSetDescriptionInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->setDescription(function($action) { static::assertInstanceOf(ProductDiscountSetDescriptionAction::class, $action); return []; });
+    }
+
     public function testSetDescriptionInstance() {
         $builder = new ProductDiscountUpdateBuilder();
         $builder->setDescription(new ProductDiscountSetDescriptionActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProductDiscountUpdate::class, $update);
         static::assertInstanceOf(ProductDiscountSetDescriptionAction::class, $update->getActions()->current());
+    }
+
+    public function testSetDescriptionInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->setDescription([]);
     }
 
     public function testSetValidFromCallback() {
@@ -138,12 +211,24 @@ class ProductDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(ProductDiscountSetValidFromAction::class, $update->getActions()->current());
     }
 
+    public function testSetValidFromInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->setValidFrom(function($action) { static::assertInstanceOf(ProductDiscountSetValidFromAction::class, $action); return []; });
+    }
+
     public function testSetValidFromInstance() {
         $builder = new ProductDiscountUpdateBuilder();
         $builder->setValidFrom(new ProductDiscountSetValidFromActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProductDiscountUpdate::class, $update);
         static::assertInstanceOf(ProductDiscountSetValidFromAction::class, $update->getActions()->current());
+    }
+
+    public function testSetValidFromInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->setValidFrom([]);
     }
 
     public function testSetValidUntilCallback() {
@@ -154,12 +239,24 @@ class ProductDiscountBuilderTest extends TestCase {
         static::assertInstanceOf(ProductDiscountSetValidUntilAction::class, $update->getActions()->current());
     }
 
+    public function testSetValidUntilInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->setValidUntil(function($action) { static::assertInstanceOf(ProductDiscountSetValidUntilAction::class, $action); return []; });
+    }
+
     public function testSetValidUntilInstance() {
         $builder = new ProductDiscountUpdateBuilder();
         $builder->setValidUntil(new ProductDiscountSetValidUntilActionModel());
         $update = $builder->build();
         static::assertInstanceOf(ProductDiscountUpdate::class, $update);
         static::assertInstanceOf(ProductDiscountSetValidUntilAction::class, $update->getActions()->current());
+    }
+
+    public function testSetValidUntilInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new ProductDiscountUpdateBuilder();
+        $builder->setValidUntil([]);
     }
 
 

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Builder;
 
-use  Commercetools\Builder\CustomerGroupUpdateBuilder;
+use Commercetools\Builder\CustomerGroupUpdateBuilder;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\CustomerGroup\CustomerGroupChangeNameAction;
 use Commercetools\Types\CustomerGroup\CustomerGroupSetKeyAction;
 use Commercetools\Types\CustomerGroup\CustomerGroup;
@@ -30,12 +31,24 @@ class CustomerGroupBuilderTest extends TestCase {
         static::assertInstanceOf(CustomerGroupChangeNameAction::class, $update->getActions()->current());
     }
 
+    public function testChangeNameInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new CustomerGroupUpdateBuilder();
+        $builder->changeName(function($action) { static::assertInstanceOf(CustomerGroupChangeNameAction::class, $action); return []; });
+    }
+
     public function testChangeNameInstance() {
         $builder = new CustomerGroupUpdateBuilder();
         $builder->changeName(new CustomerGroupChangeNameActionModel());
         $update = $builder->build();
         static::assertInstanceOf(CustomerGroupUpdate::class, $update);
         static::assertInstanceOf(CustomerGroupChangeNameAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeNameInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new CustomerGroupUpdateBuilder();
+        $builder->changeName([]);
     }
 
     public function testSetKeyCallback() {
@@ -46,12 +59,24 @@ class CustomerGroupBuilderTest extends TestCase {
         static::assertInstanceOf(CustomerGroupSetKeyAction::class, $update->getActions()->current());
     }
 
+    public function testSetKeyInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new CustomerGroupUpdateBuilder();
+        $builder->setKey(function($action) { static::assertInstanceOf(CustomerGroupSetKeyAction::class, $action); return []; });
+    }
+
     public function testSetKeyInstance() {
         $builder = new CustomerGroupUpdateBuilder();
         $builder->setKey(new CustomerGroupSetKeyActionModel());
         $update = $builder->build();
         static::assertInstanceOf(CustomerGroupUpdate::class, $update);
         static::assertInstanceOf(CustomerGroupSetKeyAction::class, $update->getActions()->current());
+    }
+
+    public function testSetKeyInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new CustomerGroupUpdateBuilder();
+        $builder->setKey([]);
     }
 
 

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Builder;
 
-use  Commercetools\Builder\TaxCategoryUpdateBuilder;
+use Commercetools\Builder\TaxCategoryUpdateBuilder;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\TaxCategory\TaxCategoryAddTaxRateAction;
 use Commercetools\Types\TaxCategory\TaxCategoryChangeNameAction;
 use Commercetools\Types\TaxCategory\TaxCategoryRemoveTaxRateAction;
@@ -38,12 +39,24 @@ class TaxCategoryBuilderTest extends TestCase {
         static::assertInstanceOf(TaxCategoryAddTaxRateAction::class, $update->getActions()->current());
     }
 
+    public function testAddTaxRateInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->addTaxRate(function($action) { static::assertInstanceOf(TaxCategoryAddTaxRateAction::class, $action); return []; });
+    }
+
     public function testAddTaxRateInstance() {
         $builder = new TaxCategoryUpdateBuilder();
         $builder->addTaxRate(new TaxCategoryAddTaxRateActionModel());
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategoryAddTaxRateAction::class, $update->getActions()->current());
+    }
+
+    public function testAddTaxRateInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->addTaxRate([]);
     }
 
     public function testChangeNameCallback() {
@@ -54,12 +67,24 @@ class TaxCategoryBuilderTest extends TestCase {
         static::assertInstanceOf(TaxCategoryChangeNameAction::class, $update->getActions()->current());
     }
 
+    public function testChangeNameInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->changeName(function($action) { static::assertInstanceOf(TaxCategoryChangeNameAction::class, $action); return []; });
+    }
+
     public function testChangeNameInstance() {
         $builder = new TaxCategoryUpdateBuilder();
         $builder->changeName(new TaxCategoryChangeNameActionModel());
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategoryChangeNameAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeNameInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->changeName([]);
     }
 
     public function testRemoveTaxRateCallback() {
@@ -70,12 +95,24 @@ class TaxCategoryBuilderTest extends TestCase {
         static::assertInstanceOf(TaxCategoryRemoveTaxRateAction::class, $update->getActions()->current());
     }
 
+    public function testRemoveTaxRateInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->removeTaxRate(function($action) { static::assertInstanceOf(TaxCategoryRemoveTaxRateAction::class, $action); return []; });
+    }
+
     public function testRemoveTaxRateInstance() {
         $builder = new TaxCategoryUpdateBuilder();
         $builder->removeTaxRate(new TaxCategoryRemoveTaxRateActionModel());
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategoryRemoveTaxRateAction::class, $update->getActions()->current());
+    }
+
+    public function testRemoveTaxRateInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->removeTaxRate([]);
     }
 
     public function testReplaceTaxRateCallback() {
@@ -86,12 +123,24 @@ class TaxCategoryBuilderTest extends TestCase {
         static::assertInstanceOf(TaxCategoryReplaceTaxRateAction::class, $update->getActions()->current());
     }
 
+    public function testReplaceTaxRateInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->replaceTaxRate(function($action) { static::assertInstanceOf(TaxCategoryReplaceTaxRateAction::class, $action); return []; });
+    }
+
     public function testReplaceTaxRateInstance() {
         $builder = new TaxCategoryUpdateBuilder();
         $builder->replaceTaxRate(new TaxCategoryReplaceTaxRateActionModel());
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategoryReplaceTaxRateAction::class, $update->getActions()->current());
+    }
+
+    public function testReplaceTaxRateInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->replaceTaxRate([]);
     }
 
     public function testSetDescriptionCallback() {
@@ -102,12 +151,24 @@ class TaxCategoryBuilderTest extends TestCase {
         static::assertInstanceOf(TaxCategorySetDescriptionAction::class, $update->getActions()->current());
     }
 
+    public function testSetDescriptionInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->setDescription(function($action) { static::assertInstanceOf(TaxCategorySetDescriptionAction::class, $action); return []; });
+    }
+
     public function testSetDescriptionInstance() {
         $builder = new TaxCategoryUpdateBuilder();
         $builder->setDescription(new TaxCategorySetDescriptionActionModel());
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategorySetDescriptionAction::class, $update->getActions()->current());
+    }
+
+    public function testSetDescriptionInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->setDescription([]);
     }
 
     public function testSetKeyCallback() {
@@ -118,12 +179,24 @@ class TaxCategoryBuilderTest extends TestCase {
         static::assertInstanceOf(TaxCategorySetKeyAction::class, $update->getActions()->current());
     }
 
+    public function testSetKeyInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->setKey(function($action) { static::assertInstanceOf(TaxCategorySetKeyAction::class, $action); return []; });
+    }
+
     public function testSetKeyInstance() {
         $builder = new TaxCategoryUpdateBuilder();
         $builder->setKey(new TaxCategorySetKeyActionModel());
         $update = $builder->build();
         static::assertInstanceOf(TaxCategoryUpdate::class, $update);
         static::assertInstanceOf(TaxCategorySetKeyAction::class, $update->getActions()->current());
+    }
+
+    public function testSetKeyInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new TaxCategoryUpdateBuilder();
+        $builder->setKey([]);
     }
 
 

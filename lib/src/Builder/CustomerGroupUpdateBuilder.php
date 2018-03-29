@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\CustomerGroup\CustomerGroupUpdateAction;
 
 use Commercetools\Types\CustomerGroup\CustomerGroupChangeNameAction;
@@ -47,7 +47,7 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(CustomerGroupChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(CustomerGroupChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -61,7 +61,7 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(CustomerGroupSetKeyAction::class, $action));
+        $this->addAction($this->resolveAction(CustomerGroupSetKeyAction::class, $action));
         return $this;
     }
 
@@ -82,16 +82,11 @@ class CustomerGroupUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(CustomerGroupUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

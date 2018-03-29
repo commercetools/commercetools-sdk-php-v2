@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Builder;
 
-use  Commercetools\Builder\InventoryEntryUpdateBuilder;
+use Commercetools\Builder\InventoryEntryUpdateBuilder;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Inventory\InventoryAddQuantityAction;
 use Commercetools\Types\Inventory\InventoryChangeQuantityAction;
 use Commercetools\Types\Inventory\InventoryRemoveQuantityAction;
@@ -42,12 +43,24 @@ class InventoryEntryBuilderTest extends TestCase {
         static::assertInstanceOf(InventoryAddQuantityAction::class, $update->getActions()->current());
     }
 
+    public function testAddQuantityInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->addQuantity(function($action) { static::assertInstanceOf(InventoryAddQuantityAction::class, $action); return []; });
+    }
+
     public function testAddQuantityInstance() {
         $builder = new InventoryEntryUpdateBuilder();
         $builder->addQuantity(new InventoryAddQuantityActionModel());
         $update = $builder->build();
         static::assertInstanceOf(InventoryEntryUpdate::class, $update);
         static::assertInstanceOf(InventoryAddQuantityAction::class, $update->getActions()->current());
+    }
+
+    public function testAddQuantityInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->addQuantity([]);
     }
 
     public function testChangeQuantityCallback() {
@@ -58,12 +71,24 @@ class InventoryEntryBuilderTest extends TestCase {
         static::assertInstanceOf(InventoryChangeQuantityAction::class, $update->getActions()->current());
     }
 
+    public function testChangeQuantityInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->changeQuantity(function($action) { static::assertInstanceOf(InventoryChangeQuantityAction::class, $action); return []; });
+    }
+
     public function testChangeQuantityInstance() {
         $builder = new InventoryEntryUpdateBuilder();
         $builder->changeQuantity(new InventoryChangeQuantityActionModel());
         $update = $builder->build();
         static::assertInstanceOf(InventoryEntryUpdate::class, $update);
         static::assertInstanceOf(InventoryChangeQuantityAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeQuantityInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->changeQuantity([]);
     }
 
     public function testRemoveQuantityCallback() {
@@ -74,12 +99,24 @@ class InventoryEntryBuilderTest extends TestCase {
         static::assertInstanceOf(InventoryRemoveQuantityAction::class, $update->getActions()->current());
     }
 
+    public function testRemoveQuantityInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->removeQuantity(function($action) { static::assertInstanceOf(InventoryRemoveQuantityAction::class, $action); return []; });
+    }
+
     public function testRemoveQuantityInstance() {
         $builder = new InventoryEntryUpdateBuilder();
         $builder->removeQuantity(new InventoryRemoveQuantityActionModel());
         $update = $builder->build();
         static::assertInstanceOf(InventoryEntryUpdate::class, $update);
         static::assertInstanceOf(InventoryRemoveQuantityAction::class, $update->getActions()->current());
+    }
+
+    public function testRemoveQuantityInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->removeQuantity([]);
     }
 
     public function testSetCustomFieldCallback() {
@@ -90,12 +127,24 @@ class InventoryEntryBuilderTest extends TestCase {
         static::assertInstanceOf(InventorySetCustomFieldAction::class, $update->getActions()->current());
     }
 
+    public function testSetCustomFieldInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setCustomField(function($action) { static::assertInstanceOf(InventorySetCustomFieldAction::class, $action); return []; });
+    }
+
     public function testSetCustomFieldInstance() {
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setCustomField(new InventorySetCustomFieldActionModel());
         $update = $builder->build();
         static::assertInstanceOf(InventoryEntryUpdate::class, $update);
         static::assertInstanceOf(InventorySetCustomFieldAction::class, $update->getActions()->current());
+    }
+
+    public function testSetCustomFieldInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setCustomField([]);
     }
 
     public function testSetCustomTypeCallback() {
@@ -106,12 +155,24 @@ class InventoryEntryBuilderTest extends TestCase {
         static::assertInstanceOf(InventorySetCustomTypeAction::class, $update->getActions()->current());
     }
 
+    public function testSetCustomTypeInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setCustomType(function($action) { static::assertInstanceOf(InventorySetCustomTypeAction::class, $action); return []; });
+    }
+
     public function testSetCustomTypeInstance() {
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setCustomType(new InventorySetCustomTypeActionModel());
         $update = $builder->build();
         static::assertInstanceOf(InventoryEntryUpdate::class, $update);
         static::assertInstanceOf(InventorySetCustomTypeAction::class, $update->getActions()->current());
+    }
+
+    public function testSetCustomTypeInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setCustomType([]);
     }
 
     public function testSetExpectedDeliveryCallback() {
@@ -122,12 +183,24 @@ class InventoryEntryBuilderTest extends TestCase {
         static::assertInstanceOf(InventorySetExpectedDeliveryAction::class, $update->getActions()->current());
     }
 
+    public function testSetExpectedDeliveryInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setExpectedDelivery(function($action) { static::assertInstanceOf(InventorySetExpectedDeliveryAction::class, $action); return []; });
+    }
+
     public function testSetExpectedDeliveryInstance() {
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setExpectedDelivery(new InventorySetExpectedDeliveryActionModel());
         $update = $builder->build();
         static::assertInstanceOf(InventoryEntryUpdate::class, $update);
         static::assertInstanceOf(InventorySetExpectedDeliveryAction::class, $update->getActions()->current());
+    }
+
+    public function testSetExpectedDeliveryInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setExpectedDelivery([]);
     }
 
     public function testSetRestockableInDaysCallback() {
@@ -138,12 +211,24 @@ class InventoryEntryBuilderTest extends TestCase {
         static::assertInstanceOf(InventorySetRestockableInDaysAction::class, $update->getActions()->current());
     }
 
+    public function testSetRestockableInDaysInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setRestockableInDays(function($action) { static::assertInstanceOf(InventorySetRestockableInDaysAction::class, $action); return []; });
+    }
+
     public function testSetRestockableInDaysInstance() {
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setRestockableInDays(new InventorySetRestockableInDaysActionModel());
         $update = $builder->build();
         static::assertInstanceOf(InventoryEntryUpdate::class, $update);
         static::assertInstanceOf(InventorySetRestockableInDaysAction::class, $update->getActions()->current());
+    }
+
+    public function testSetRestockableInDaysInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setRestockableInDays([]);
     }
 
     public function testSetSupplyChannelCallback() {
@@ -154,12 +239,24 @@ class InventoryEntryBuilderTest extends TestCase {
         static::assertInstanceOf(InventorySetSupplyChannelAction::class, $update->getActions()->current());
     }
 
+    public function testSetSupplyChannelInvalidCallback() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setSupplyChannel(function($action) { static::assertInstanceOf(InventorySetSupplyChannelAction::class, $action); return []; });
+    }
+
     public function testSetSupplyChannelInstance() {
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setSupplyChannel(new InventorySetSupplyChannelActionModel());
         $update = $builder->build();
         static::assertInstanceOf(InventoryEntryUpdate::class, $update);
         static::assertInstanceOf(InventorySetSupplyChannelAction::class, $update->getActions()->current());
+    }
+
+    public function testSetSupplyChannelInvalidInstance() {
+        $this->expectException(BuilderInvalidArgumentException::class);
+        $builder = new InventoryEntryUpdateBuilder();
+        $builder->setSupplyChannel([]);
     }
 
 

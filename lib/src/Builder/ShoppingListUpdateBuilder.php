@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\ShoppingList\ShoppingListUpdateAction;
 
 use Commercetools\Types\ShoppingList\ShoppingListAddLineItemAction;
@@ -67,7 +67,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function addLineItem($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListAddLineItemAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListAddLineItemAction::class, $action));
         return $this;
     }
     /**
@@ -81,7 +81,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function addTextLineItem($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListAddTextLineItemAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListAddTextLineItemAction::class, $action));
         return $this;
     }
     /**
@@ -95,7 +95,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeLineItemQuantity($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListChangeLineItemQuantityAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListChangeLineItemQuantityAction::class, $action));
         return $this;
     }
     /**
@@ -109,7 +109,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeLineItemsOrder($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListChangeLineItemsOrderAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListChangeLineItemsOrderAction::class, $action));
         return $this;
     }
     /**
@@ -123,7 +123,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -137,7 +137,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeTextLineItemName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListChangeTextLineItemNameAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListChangeTextLineItemNameAction::class, $action));
         return $this;
     }
     /**
@@ -151,7 +151,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeTextLineItemQuantity($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListChangeTextLineItemQuantityAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListChangeTextLineItemQuantityAction::class, $action));
         return $this;
     }
     /**
@@ -165,7 +165,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function changeTextLineItemsOrder($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListChangeTextLineItemsOrderAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListChangeTextLineItemsOrderAction::class, $action));
         return $this;
     }
     /**
@@ -179,7 +179,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function removeLineItem($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListRemoveLineItemAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListRemoveLineItemAction::class, $action));
         return $this;
     }
     /**
@@ -193,7 +193,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function removeTextLineItem($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListRemoveTextLineItemAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListRemoveTextLineItemAction::class, $action));
         return $this;
     }
     /**
@@ -207,7 +207,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setCustomField($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetCustomFieldAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -221,7 +221,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setCustomType($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetCustomTypeAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -235,7 +235,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setCustomer($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetCustomerAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetCustomerAction::class, $action));
         return $this;
     }
     /**
@@ -249,7 +249,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setDeleteDaysAfterLastModification($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetDeleteDaysAfterLastModificationAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetDeleteDaysAfterLastModificationAction::class, $action));
         return $this;
     }
     /**
@@ -263,7 +263,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -277,7 +277,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetKeyAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -291,7 +291,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomField($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetLineItemCustomFieldAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetLineItemCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -305,7 +305,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setLineItemCustomType($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetLineItemCustomTypeAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetLineItemCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -319,7 +319,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setSlug($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetSlugAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetSlugAction::class, $action));
         return $this;
     }
     /**
@@ -333,7 +333,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setTextLineItemCustomField($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetTextLineItemCustomFieldAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetTextLineItemCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -347,7 +347,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setTextLineItemCustomType($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetTextLineItemCustomTypeAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetTextLineItemCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -361,7 +361,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      */
     public function setTextLineItemDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShoppingListSetTextLineItemDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(ShoppingListSetTextLineItemDescriptionAction::class, $action));
         return $this;
     }
 
@@ -382,16 +382,11 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(ShoppingListUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

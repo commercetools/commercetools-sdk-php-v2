@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateAction;
 
 use Commercetools\Types\Product\ProductAddAssetAction;
@@ -90,7 +90,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addAsset($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductAddAssetAction::class, $action));
+        $this->addAction($this->resolveAction(ProductAddAssetAction::class, $action));
         return $this;
     }
     /**
@@ -104,7 +104,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addExternalImage($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductAddExternalImageAction::class, $action));
+        $this->addAction($this->resolveAction(ProductAddExternalImageAction::class, $action));
         return $this;
     }
     /**
@@ -118,7 +118,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addPrice($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductAddPriceAction::class, $action));
+        $this->addAction($this->resolveAction(ProductAddPriceAction::class, $action));
         return $this;
     }
     /**
@@ -132,7 +132,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addToCategory($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductAddToCategoryAction::class, $action));
+        $this->addAction($this->resolveAction(ProductAddToCategoryAction::class, $action));
         return $this;
     }
     /**
@@ -146,7 +146,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function addVariant($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductAddVariantAction::class, $action));
+        $this->addAction($this->resolveAction(ProductAddVariantAction::class, $action));
         return $this;
     }
     /**
@@ -160,7 +160,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeAssetName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductChangeAssetNameAction::class, $action));
+        $this->addAction($this->resolveAction(ProductChangeAssetNameAction::class, $action));
         return $this;
     }
     /**
@@ -174,7 +174,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeAssetOrder($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductChangeAssetOrderAction::class, $action));
+        $this->addAction($this->resolveAction(ProductChangeAssetOrderAction::class, $action));
         return $this;
     }
     /**
@@ -188,7 +188,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeMasterVariant($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductChangeMasterVariantAction::class, $action));
+        $this->addAction($this->resolveAction(ProductChangeMasterVariantAction::class, $action));
         return $this;
     }
     /**
@@ -202,7 +202,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(ProductChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -216,7 +216,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changePrice($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductChangePriceAction::class, $action));
+        $this->addAction($this->resolveAction(ProductChangePriceAction::class, $action));
         return $this;
     }
     /**
@@ -230,7 +230,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function changeSlug($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductChangeSlugAction::class, $action));
+        $this->addAction($this->resolveAction(ProductChangeSlugAction::class, $action));
         return $this;
     }
     /**
@@ -244,7 +244,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function legacySetSku($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductLegacySetSkuAction::class, $action));
+        $this->addAction($this->resolveAction(ProductLegacySetSkuAction::class, $action));
         return $this;
     }
     /**
@@ -258,7 +258,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function moveImageToPosition($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductMoveImageToPositionAction::class, $action));
+        $this->addAction($this->resolveAction(ProductMoveImageToPositionAction::class, $action));
         return $this;
     }
     /**
@@ -272,7 +272,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function publish($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductPublishAction::class, $action));
+        $this->addAction($this->resolveAction(ProductPublishAction::class, $action));
         return $this;
     }
     /**
@@ -286,7 +286,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removeAsset($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductRemoveAssetAction::class, $action));
+        $this->addAction($this->resolveAction(ProductRemoveAssetAction::class, $action));
         return $this;
     }
     /**
@@ -300,7 +300,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removeFromCategory($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductRemoveFromCategoryAction::class, $action));
+        $this->addAction($this->resolveAction(ProductRemoveFromCategoryAction::class, $action));
         return $this;
     }
     /**
@@ -314,7 +314,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removeImage($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductRemoveImageAction::class, $action));
+        $this->addAction($this->resolveAction(ProductRemoveImageAction::class, $action));
         return $this;
     }
     /**
@@ -328,7 +328,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removePrice($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductRemovePriceAction::class, $action));
+        $this->addAction($this->resolveAction(ProductRemovePriceAction::class, $action));
         return $this;
     }
     /**
@@ -342,7 +342,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function removeVariant($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductRemoveVariantAction::class, $action));
+        $this->addAction($this->resolveAction(ProductRemoveVariantAction::class, $action));
         return $this;
     }
     /**
@@ -356,7 +356,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function revertStagedChanges($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductRevertStagedChangesAction::class, $action));
+        $this->addAction($this->resolveAction(ProductRevertStagedChangesAction::class, $action));
         return $this;
     }
     /**
@@ -370,7 +370,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function revertStagedVariantChanges($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductRevertStagedVariantChangesAction::class, $action));
+        $this->addAction($this->resolveAction(ProductRevertStagedVariantChangesAction::class, $action));
         return $this;
     }
     /**
@@ -384,7 +384,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetCustomField($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetAssetCustomFieldAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetAssetCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -398,7 +398,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetCustomType($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetAssetCustomTypeAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetAssetCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -412,7 +412,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetAssetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetAssetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -426,7 +426,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetAssetKeyAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetAssetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -440,7 +440,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetSources($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetAssetSourcesAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetAssetSourcesAction::class, $action));
         return $this;
     }
     /**
@@ -454,7 +454,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAssetTags($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetAssetTagsAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetAssetTagsAction::class, $action));
         return $this;
     }
     /**
@@ -468,7 +468,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAttribute($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetAttributeAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetAttributeAction::class, $action));
         return $this;
     }
     /**
@@ -482,7 +482,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setAttributeInAllVariants($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetAttributeInAllVariantsAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetAttributeInAllVariantsAction::class, $action));
         return $this;
     }
     /**
@@ -496,7 +496,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setCategoryOrderHint($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetCategoryOrderHintAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetCategoryOrderHintAction::class, $action));
         return $this;
     }
     /**
@@ -510,7 +510,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -524,7 +524,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setDiscountedPrice($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetDiscountedPriceAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetDiscountedPriceAction::class, $action));
         return $this;
     }
     /**
@@ -538,7 +538,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetKeyAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -552,7 +552,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setMetaDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetMetaDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetMetaDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -566,7 +566,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setMetaKeywords($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetMetaKeywordsAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetMetaKeywordsAction::class, $action));
         return $this;
     }
     /**
@@ -580,7 +580,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setMetaTitle($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetMetaTitleAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetMetaTitleAction::class, $action));
         return $this;
     }
     /**
@@ -594,7 +594,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setPrices($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetPricesAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetPricesAction::class, $action));
         return $this;
     }
     /**
@@ -608,7 +608,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setProductPriceCustomField($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetProductPriceCustomFieldAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetProductPriceCustomFieldAction::class, $action));
         return $this;
     }
     /**
@@ -622,7 +622,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setProductPriceCustomType($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetProductPriceCustomTypeAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetProductPriceCustomTypeAction::class, $action));
         return $this;
     }
     /**
@@ -636,7 +636,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setProductVariantKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetProductVariantKeyAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetProductVariantKeyAction::class, $action));
         return $this;
     }
     /**
@@ -650,7 +650,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setSearchKeywords($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetSearchKeywordsAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetSearchKeywordsAction::class, $action));
         return $this;
     }
     /**
@@ -664,7 +664,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setSku($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetSkuAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetSkuAction::class, $action));
         return $this;
     }
     /**
@@ -678,7 +678,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function setTaxCategory($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductSetTaxCategoryAction::class, $action));
+        $this->addAction($this->resolveAction(ProductSetTaxCategoryAction::class, $action));
         return $this;
     }
     /**
@@ -692,7 +692,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function transitionState($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductTransitionStateAction::class, $action));
+        $this->addAction($this->resolveAction(ProductTransitionStateAction::class, $action));
         return $this;
     }
     /**
@@ -706,7 +706,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      */
     public function unpublish($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ProductUnpublishAction::class, $action));
+        $this->addAction($this->resolveAction(ProductUnpublishAction::class, $action));
         return $this;
     }
 
@@ -727,16 +727,11 @@ class ProductUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(ProductUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

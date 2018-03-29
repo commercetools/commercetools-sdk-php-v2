@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\ShippingMethod\ShippingMethodUpdateAction;
 
 use Commercetools\Types\ShippingMethod\ShippingMethodAddShippingRateAction;
@@ -55,7 +55,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function addShippingRate($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodAddShippingRateAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodAddShippingRateAction::class, $action));
         return $this;
     }
     /**
@@ -69,7 +69,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function addZone($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodAddZoneAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodAddZoneAction::class, $action));
         return $this;
     }
     /**
@@ -83,7 +83,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function changeIsDefault($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodChangeIsDefaultAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodChangeIsDefaultAction::class, $action));
         return $this;
     }
     /**
@@ -97,7 +97,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function changeName($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodChangeNameAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodChangeNameAction::class, $action));
         return $this;
     }
     /**
@@ -111,7 +111,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function changeTaxCategory($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodChangeTaxCategoryAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodChangeTaxCategoryAction::class, $action));
         return $this;
     }
     /**
@@ -125,7 +125,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function removeShippingRate($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodRemoveShippingRateAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodRemoveShippingRateAction::class, $action));
         return $this;
     }
     /**
@@ -139,7 +139,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function removeZone($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodRemoveZoneAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodRemoveZoneAction::class, $action));
         return $this;
     }
     /**
@@ -153,7 +153,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function setDescription($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodSetDescriptionAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodSetDescriptionAction::class, $action));
         return $this;
     }
     /**
@@ -167,7 +167,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodSetKeyAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodSetKeyAction::class, $action));
         return $this;
     }
     /**
@@ -181,7 +181,7 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
      */
     public function setPredicate($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ShippingMethodSetPredicateAction::class, $action));
+        $this->addAction($this->resolveAction(ShippingMethodSetPredicateAction::class, $action));
         return $this;
     }
 
@@ -202,16 +202,11 @@ class ShippingMethodUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(ShippingMethodUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Psr\Http\Message\RequestInterface;
+use Commercetools\Exception\BuilderInvalidArgumentException;
 use Commercetools\Types\Extension\ExtensionUpdateAction;
 
 use Commercetools\Types\Extension\ExtensionChangeDestinationAction;
@@ -48,7 +48,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     public function changeDestination($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ExtensionChangeDestinationAction::class, $action));
+        $this->addAction($this->resolveAction(ExtensionChangeDestinationAction::class, $action));
         return $this;
     }
     /**
@@ -62,7 +62,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     public function changeTriggers($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ExtensionChangeTriggersAction::class, $action));
+        $this->addAction($this->resolveAction(ExtensionChangeTriggersAction::class, $action));
         return $this;
     }
     /**
@@ -76,7 +76,7 @@ class ExtensionUpdateBuilder extends BaseBuilder {
      */
     public function setKey($action = null)
     {
-        $this->tryAddAction($this->resolveAction(ExtensionSetKeyAction::class, $action));
+        $this->addAction($this->resolveAction(ExtensionSetKeyAction::class, $action));
         return $this;
     }
 
@@ -97,16 +97,11 @@ class ExtensionUpdateBuilder extends BaseBuilder {
             $emptyAction = $this->mapData($class, null);
             $action = $this->callback($emptyAction, $callback);
         }
-
-        return $action;
-    }
-
-    private function tryAddAction(ExtensionUpdateAction $action = null)
-    {
-        if (!is_null($action)) {
-            $this->addAction($action);
+        if ($action instanceof $class) {
+            return $action;
         }
-        return $this;
+
+        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
     }
 
     /*
