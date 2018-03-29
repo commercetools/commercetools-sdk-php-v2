@@ -17,7 +17,7 @@ use Commercetools\Client\ClientFactory;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$client = ClientFactory::create();
+$client = ClientFactory::of()->create();
 ```
 
 ### Authentication
@@ -33,7 +33,7 @@ use Commercetools\Client\ClientFactory;
 $config = new Config();
 $config->getCredentials()->setClientId('<client_id>')->setClientSecret('<client_secret>');
 
-$client = ClientFactory::create($config);
+$client = ClientFactory::of()->create($config);
 ```
 
 #### Base URI

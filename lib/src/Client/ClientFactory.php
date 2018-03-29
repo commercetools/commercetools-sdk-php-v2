@@ -40,7 +40,7 @@ class ClientFactory
      * @param TokenProvider $provider
      * @return HttpClient
      */
-    public static function create(
+    public function create(
         $config = [],
         LoggerInterface $logger = null,
         CacheItemPoolInterface $cache = null,
@@ -190,7 +190,7 @@ class ClientFactory
      * @param HttpClient $client
      * @return GuzzleRequestInterface|RequestInterface
      */
-    public static function createRequest(RequestInterface $psrRequest, HttpClient $client)
+    public function createRequest(RequestInterface $psrRequest, HttpClient $client)
     {
         if (self::isGuzzle6()) {
             return $psrRequest;
@@ -207,7 +207,7 @@ class ClientFactory
      * @param GuzzleResponseInferface|ResponseInterface $response
      * @return ResponseInterface
      */
-    public static function createResponse($response): ResponseInterface
+    public function createResponse($response): ResponseInterface
     {
         if ($response instanceof ResponseInterface) {
             return $response;
@@ -261,5 +261,13 @@ class ClientFactory
             }
         }
         return self::$isGuzzle6;
+    }
+
+    /**
+     * @return ClientFactory
+     */
+    public static function of(): ClientFactory
+    {
+        return new self();
     }
 }
