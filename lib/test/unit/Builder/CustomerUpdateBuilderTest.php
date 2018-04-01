@@ -92,7 +92,7 @@ class CustomerBuilderTest extends TestCase {
     }
 
     public function testAddAddressInvalidInstance() {
-//        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(BuilderInvalidArgumentException::class);
         $builder = new CustomerUpdateBuilder();
         $builder->addAddress([]);
     }

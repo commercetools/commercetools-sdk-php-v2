@@ -236,8 +236,11 @@ class TypeUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(sprintf('Expected method to be called with or callable to return %s', $class));
+        throw new BuilderInvalidArgumentException(
+            sprintf('Expected method to be called with or callable to return %s', $class)
+        );
     }
+
 
     /*
      * @param $action
