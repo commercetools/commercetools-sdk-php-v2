@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class SearchKeywordCollectionModel extends JsonCollection implements SearchKeywordCollection {
 
@@ -17,7 +18,7 @@ class SearchKeywordCollectionModel extends JsonCollection implements SearchKeywo
      */
     public function add($value) {
         if (!$value instanceof SearchKeyword) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

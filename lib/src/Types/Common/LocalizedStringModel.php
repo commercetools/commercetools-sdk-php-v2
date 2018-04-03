@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Common;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
 class LocalizedStringModel extends JsonObjectModel implements LocalizedString {
@@ -24,7 +25,7 @@ class LocalizedStringModel extends JsonObjectModel implements LocalizedString {
                     $value = (string)$value;
                     break;
                 default:
-                    throw new \InvalidArgumentException();
+                    throw new InvalidArgumentException();
             }
             $this->patternData[$key] = $value;
         }
@@ -39,7 +40,7 @@ class LocalizedStringModel extends JsonObjectModel implements LocalizedString {
     public function set(string $key, $value)
     {
         if (!$this->validKey($key)) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->patternData[$key] = $value;
         return $this;

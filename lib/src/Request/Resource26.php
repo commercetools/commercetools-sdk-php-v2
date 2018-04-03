@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\DiscountCode\DiscountCode;
 use Commercetools\Builder\DiscountCodeUpdateBuilder;
 
@@ -43,7 +44,11 @@ class Resource26 extends Resource
     }
 
 
-    public function update(DiscountCode $discountCode)
+    /**
+     * @param DiscountCode $discountCode
+     * @return DiscountCodeUpdateBuilder
+     */
+    public function update(DiscountCode $discountCode): DiscountCodeUpdateBuilder
     {
         $builder = new DiscountCodeUpdateBuilder(function(DiscountCodeUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($discountCode);
@@ -53,20 +58,26 @@ class Resource26 extends Resource
         return $builder;
     }
 
-    public function delete(DiscountCode $discountCode)
+    /**
+     * @param DiscountCode $discountCode
+     * @return ByProjectKeyDiscountCodesByIDDelete
+     */
+    public function delete(DiscountCode $discountCode): ByProjectKeyDiscountCodesByIDDelete
     {
         return $this->withId($discountCode->getId())->delete()->withVersion($discountCode->getVersion());
     }
 
     /**
-     * @param DiscountCodeDraft|callable $discountCodeDraftDraft builder function <code>
+     * @param DiscountCodeDraft|callable $discountCodeDraft builder function <code>
      *   function(DiscountCodeDraft $discountCodeDraft): DiscountCodeDraft {
      *     // modify $draft as needed
      *     return $discountCodeDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyDiscountCodesPost
      */
-    public function create($discountCodeDraft)
+    public function create($discountCodeDraft): ByProjectKeyDiscountCodesPost
     {
         if (is_callable($discountCodeDraft)) {
             $callback = $discountCodeDraft;
@@ -74,7 +85,7 @@ class Resource26 extends Resource
             $discountCodeDraft = $callback($emptyDraft);
         }
         if (!$discountCodeDraft instanceof DiscountCodeDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($discountCodeDraft);
     }

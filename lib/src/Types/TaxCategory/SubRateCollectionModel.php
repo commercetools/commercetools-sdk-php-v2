@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\TaxCategory;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class SubRateCollectionModel extends JsonCollection implements SubRateCollection {
 
@@ -17,7 +18,7 @@ class SubRateCollectionModel extends JsonCollection implements SubRateCollection
      */
     public function add($value) {
         if (!$value instanceof SubRate) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

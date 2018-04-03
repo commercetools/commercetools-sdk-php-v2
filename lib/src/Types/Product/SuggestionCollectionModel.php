@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class SuggestionCollectionModel extends JsonCollection implements SuggestionCollection {
 
@@ -17,7 +18,7 @@ class SuggestionCollectionModel extends JsonCollection implements SuggestionColl
      */
     public function add($value) {
         if (!$value instanceof Suggestion) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

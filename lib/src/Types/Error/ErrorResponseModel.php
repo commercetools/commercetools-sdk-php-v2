@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
 class ErrorResponseModel extends JsonObjectModel implements ErrorResponse {

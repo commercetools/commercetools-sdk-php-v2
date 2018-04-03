@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
 class SuggestionResultModel extends JsonObjectModel implements SuggestionResult {
@@ -27,7 +28,7 @@ class SuggestionResultModel extends JsonObjectModel implements SuggestionResult 
                     $value = $this->mapData(SuggestionCollection::class, $value);
                     break;
                 default:
-                    throw new \InvalidArgumentException();
+                    throw new InvalidArgumentException();
             }
             $this->patternData[$key] = $value;
         }
@@ -42,7 +43,7 @@ class SuggestionResultModel extends JsonObjectModel implements SuggestionResult 
     public function set(string $key, $value)
     {
         if (!$this->validKey($key)) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->patternData[$key] = $value;
         return $this;

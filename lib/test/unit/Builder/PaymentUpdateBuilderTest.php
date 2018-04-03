@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\PaymentUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Payment\PaymentAddInterfaceInteractionAction;
 use Commercetools\Types\Payment\PaymentAddTransactionAction;
 use Commercetools\Types\Payment\PaymentChangeAmountPlannedAction;
@@ -70,7 +70,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testAddInterfaceInteractionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->addInterfaceInteraction(function($action) { static::assertInstanceOf(PaymentAddInterfaceInteractionAction::class, $action); return []; });
     }
@@ -84,7 +84,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testAddInterfaceInteractionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->addInterfaceInteraction([]);
     }
@@ -98,7 +98,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testAddTransactionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->addTransaction(function($action) { static::assertInstanceOf(PaymentAddTransactionAction::class, $action); return []; });
     }
@@ -112,7 +112,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testAddTransactionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->addTransaction([]);
     }
@@ -126,7 +126,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testChangeAmountPlannedInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->changeAmountPlanned(function($action) { static::assertInstanceOf(PaymentChangeAmountPlannedAction::class, $action); return []; });
     }
@@ -140,7 +140,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testChangeAmountPlannedInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->changeAmountPlanned([]);
     }
@@ -154,7 +154,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testChangeTransactionInteractionIdInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->changeTransactionInteractionId(function($action) { static::assertInstanceOf(PaymentChangeTransactionInteractionIdAction::class, $action); return []; });
     }
@@ -168,7 +168,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testChangeTransactionInteractionIdInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->changeTransactionInteractionId([]);
     }
@@ -182,7 +182,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testChangeTransactionStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->changeTransactionState(function($action) { static::assertInstanceOf(PaymentChangeTransactionStateAction::class, $action); return []; });
     }
@@ -196,7 +196,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testChangeTransactionStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->changeTransactionState([]);
     }
@@ -210,7 +210,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testChangeTransactionTimestampInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->changeTransactionTimestamp(function($action) { static::assertInstanceOf(PaymentChangeTransactionTimestampAction::class, $action); return []; });
     }
@@ -224,7 +224,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testChangeTransactionTimestampInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->changeTransactionTimestamp([]);
     }
@@ -238,7 +238,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetAmountPaidInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setAmountPaid(function($action) { static::assertInstanceOf(PaymentSetAmountPaidAction::class, $action); return []; });
     }
@@ -252,7 +252,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetAmountPaidInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setAmountPaid([]);
     }
@@ -266,7 +266,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetAmountRefundedInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setAmountRefunded(function($action) { static::assertInstanceOf(PaymentSetAmountRefundedAction::class, $action); return []; });
     }
@@ -280,7 +280,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetAmountRefundedInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setAmountRefunded([]);
     }
@@ -294,7 +294,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetAuthorizationInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setAuthorization(function($action) { static::assertInstanceOf(PaymentSetAuthorizationAction::class, $action); return []; });
     }
@@ -308,7 +308,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetAuthorizationInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setAuthorization([]);
     }
@@ -322,7 +322,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setCustomField(function($action) { static::assertInstanceOf(PaymentSetCustomFieldAction::class, $action); return []; });
     }
@@ -336,7 +336,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setCustomField([]);
     }
@@ -350,7 +350,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setCustomType(function($action) { static::assertInstanceOf(PaymentSetCustomTypeAction::class, $action); return []; });
     }
@@ -364,7 +364,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setCustomType([]);
     }
@@ -378,7 +378,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetCustomerInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setCustomer(function($action) { static::assertInstanceOf(PaymentSetCustomerAction::class, $action); return []; });
     }
@@ -392,7 +392,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetCustomerInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setCustomer([]);
     }
@@ -406,7 +406,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetExternalIdInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setExternalId(function($action) { static::assertInstanceOf(PaymentSetExternalIdAction::class, $action); return []; });
     }
@@ -420,7 +420,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetExternalIdInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setExternalId([]);
     }
@@ -434,7 +434,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetInterfaceIdInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setInterfaceId(function($action) { static::assertInstanceOf(PaymentSetInterfaceIdAction::class, $action); return []; });
     }
@@ -448,7 +448,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetInterfaceIdInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setInterfaceId([]);
     }
@@ -462,7 +462,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setKey(function($action) { static::assertInstanceOf(PaymentSetKeyAction::class, $action); return []; });
     }
@@ -476,7 +476,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setKey([]);
     }
@@ -490,7 +490,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetMethodInfoInterfaceInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setMethodInfoInterface(function($action) { static::assertInstanceOf(PaymentSetMethodInfoInterfaceAction::class, $action); return []; });
     }
@@ -504,7 +504,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetMethodInfoInterfaceInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setMethodInfoInterface([]);
     }
@@ -518,7 +518,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetMethodInfoMethodInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setMethodInfoMethod(function($action) { static::assertInstanceOf(PaymentSetMethodInfoMethodAction::class, $action); return []; });
     }
@@ -532,7 +532,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetMethodInfoMethodInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setMethodInfoMethod([]);
     }
@@ -546,7 +546,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetMethodInfoNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setMethodInfoName(function($action) { static::assertInstanceOf(PaymentSetMethodInfoNameAction::class, $action); return []; });
     }
@@ -560,7 +560,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetMethodInfoNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setMethodInfoName([]);
     }
@@ -574,7 +574,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetStatusInterfaceCodeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setStatusInterfaceCode(function($action) { static::assertInstanceOf(PaymentSetStatusInterfaceCodeAction::class, $action); return []; });
     }
@@ -588,7 +588,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetStatusInterfaceCodeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setStatusInterfaceCode([]);
     }
@@ -602,7 +602,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetStatusInterfaceTextInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setStatusInterfaceText(function($action) { static::assertInstanceOf(PaymentSetStatusInterfaceTextAction::class, $action); return []; });
     }
@@ -616,7 +616,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testSetStatusInterfaceTextInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->setStatusInterfaceText([]);
     }
@@ -630,7 +630,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testTransitionStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->transitionState(function($action) { static::assertInstanceOf(PaymentTransitionStateAction::class, $action); return []; });
     }
@@ -644,7 +644,7 @@ class PaymentBuilderTest extends TestCase {
     }
 
     public function testTransitionStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new PaymentUpdateBuilder();
         $builder->transitionState([]);
     }

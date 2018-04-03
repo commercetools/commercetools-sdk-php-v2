@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
 class FacetResultsModel extends JsonObjectModel implements FacetResults {
@@ -23,7 +24,7 @@ class FacetResultsModel extends JsonObjectModel implements FacetResults {
                     $value = $this->raw($key);
                     break;
                 default:
-                    throw new \InvalidArgumentException();
+                    throw new InvalidArgumentException();
             }
             $this->patternData[$key] = $value;
         }
@@ -38,7 +39,7 @@ class FacetResultsModel extends JsonObjectModel implements FacetResults {
     public function set(string $key, $value)
     {
         if (!$this->validKey($key)) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->patternData[$key] = $value;
         return $this;

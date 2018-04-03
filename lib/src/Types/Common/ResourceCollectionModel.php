@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ResourceCollectionModel extends JsonCollection implements ResourceCollection {
 
@@ -17,7 +18,7 @@ class ResourceCollectionModel extends JsonCollection implements ResourceCollecti
      */
     public function add($value) {
         if (!$value instanceof Resource) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

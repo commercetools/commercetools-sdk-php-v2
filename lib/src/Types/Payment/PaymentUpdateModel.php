@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\UpdateModel;
 
 use Commercetools\Types\UpdateActionCollection;
@@ -41,7 +42,7 @@ class PaymentUpdateModel extends UpdateModel implements PaymentUpdate {
     public function setActions(UpdateActionCollection $actions)
     {
         if (!$actions instanceof PaymentUpdateActionCollection) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->actions = $actions;
 

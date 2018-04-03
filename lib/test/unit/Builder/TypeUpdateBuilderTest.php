@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\TypeUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\TypeAddEnumValueAction;
 use Commercetools\Types\Type\TypeAddFieldDefinitionAction;
 use Commercetools\Types\Type\TypeAddLocalizedEnumValueAction;
@@ -52,7 +52,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testAddEnumValueInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->addEnumValue(function($action) { static::assertInstanceOf(TypeAddEnumValueAction::class, $action); return []; });
     }
@@ -66,7 +66,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testAddEnumValueInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->addEnumValue([]);
     }
@@ -80,7 +80,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testAddFieldDefinitionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->addFieldDefinition(function($action) { static::assertInstanceOf(TypeAddFieldDefinitionAction::class, $action); return []; });
     }
@@ -94,7 +94,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testAddFieldDefinitionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->addFieldDefinition([]);
     }
@@ -108,7 +108,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testAddLocalizedEnumValueInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->addLocalizedEnumValue(function($action) { static::assertInstanceOf(TypeAddLocalizedEnumValueAction::class, $action); return []; });
     }
@@ -122,7 +122,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testAddLocalizedEnumValueInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->addLocalizedEnumValue([]);
     }
@@ -136,7 +136,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeEnumValueOrderInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeEnumValueOrder(function($action) { static::assertInstanceOf(TypeChangeEnumValueOrderAction::class, $action); return []; });
     }
@@ -150,7 +150,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeEnumValueOrderInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeEnumValueOrder([]);
     }
@@ -164,7 +164,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeFieldDefinitionLabelInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeFieldDefinitionLabel(function($action) { static::assertInstanceOf(TypeChangeFieldDefinitionLabelAction::class, $action); return []; });
     }
@@ -178,7 +178,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeFieldDefinitionLabelInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeFieldDefinitionLabel([]);
     }
@@ -192,7 +192,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeFieldDefinitionOrderInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeFieldDefinitionOrder(function($action) { static::assertInstanceOf(TypeChangeFieldDefinitionOrderAction::class, $action); return []; });
     }
@@ -206,7 +206,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeFieldDefinitionOrderInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeFieldDefinitionOrder([]);
     }
@@ -220,7 +220,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeKey(function($action) { static::assertInstanceOf(TypeChangeKeyAction::class, $action); return []; });
     }
@@ -234,7 +234,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeKey([]);
     }
@@ -248,7 +248,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeLabelInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeLabel(function($action) { static::assertInstanceOf(TypeChangeLabelAction::class, $action); return []; });
     }
@@ -262,7 +262,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeLabelInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeLabel([]);
     }
@@ -276,7 +276,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeLocalizedEnumValueOrderInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeLocalizedEnumValueOrder(function($action) { static::assertInstanceOf(TypeChangeLocalizedEnumValueOrderAction::class, $action); return []; });
     }
@@ -290,7 +290,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeLocalizedEnumValueOrderInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeLocalizedEnumValueOrder([]);
     }
@@ -304,7 +304,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeName(function($action) { static::assertInstanceOf(TypeChangeNameAction::class, $action); return []; });
     }
@@ -318,7 +318,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->changeName([]);
     }
@@ -332,7 +332,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testRemoveFieldDefinitionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->removeFieldDefinition(function($action) { static::assertInstanceOf(TypeRemoveFieldDefinitionAction::class, $action); return []; });
     }
@@ -346,7 +346,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testRemoveFieldDefinitionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->removeFieldDefinition([]);
     }
@@ -360,7 +360,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->setDescription(function($action) { static::assertInstanceOf(TypeSetDescriptionAction::class, $action); return []; });
     }
@@ -374,7 +374,7 @@ class TypeBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new TypeUpdateBuilder();
         $builder->setDescription([]);
     }

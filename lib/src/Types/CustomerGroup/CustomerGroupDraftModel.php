@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CustomerGroup;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Type\CustomFields;

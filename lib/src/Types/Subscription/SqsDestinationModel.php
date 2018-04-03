@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\DestinationModel;
 
 class SqsDestinationModel extends DestinationModel implements SqsDestination {

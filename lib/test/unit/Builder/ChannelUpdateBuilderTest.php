@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\ChannelUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Channel\ChannelAddRolesAction;
 use Commercetools\Types\Channel\ChannelChangeDescriptionAction;
 use Commercetools\Types\Channel\ChannelChangeKeyAction;
@@ -48,7 +48,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testAddRolesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->addRoles(function($action) { static::assertInstanceOf(ChannelAddRolesAction::class, $action); return []; });
     }
@@ -62,7 +62,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testAddRolesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->addRoles([]);
     }
@@ -76,7 +76,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testChangeDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->changeDescription(function($action) { static::assertInstanceOf(ChannelChangeDescriptionAction::class, $action); return []; });
     }
@@ -90,7 +90,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testChangeDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->changeDescription([]);
     }
@@ -104,7 +104,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testChangeKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->changeKey(function($action) { static::assertInstanceOf(ChannelChangeKeyAction::class, $action); return []; });
     }
@@ -118,7 +118,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testChangeKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->changeKey([]);
     }
@@ -132,7 +132,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->changeName(function($action) { static::assertInstanceOf(ChannelChangeNameAction::class, $action); return []; });
     }
@@ -146,7 +146,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->changeName([]);
     }
@@ -160,7 +160,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testRemoveRolesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->removeRoles(function($action) { static::assertInstanceOf(ChannelRemoveRolesAction::class, $action); return []; });
     }
@@ -174,7 +174,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testRemoveRolesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->removeRoles([]);
     }
@@ -188,7 +188,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetAddressInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setAddress(function($action) { static::assertInstanceOf(ChannelSetAddressAction::class, $action); return []; });
     }
@@ -202,7 +202,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetAddressInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setAddress([]);
     }
@@ -216,7 +216,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setCustomField(function($action) { static::assertInstanceOf(ChannelSetCustomFieldAction::class, $action); return []; });
     }
@@ -230,7 +230,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setCustomField([]);
     }
@@ -244,7 +244,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setCustomType(function($action) { static::assertInstanceOf(ChannelSetCustomTypeAction::class, $action); return []; });
     }
@@ -258,7 +258,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setCustomType([]);
     }
@@ -272,7 +272,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetGeoLocationInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setGeoLocation(function($action) { static::assertInstanceOf(ChannelSetGeolocationAction::class, $action); return []; });
     }
@@ -286,7 +286,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetGeoLocationInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setGeoLocation([]);
     }
@@ -300,7 +300,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetRolesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setRoles(function($action) { static::assertInstanceOf(ChannelSetRolesAction::class, $action); return []; });
     }
@@ -314,7 +314,7 @@ class ChannelBuilderTest extends TestCase {
     }
 
     public function testSetRolesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ChannelUpdateBuilder();
         $builder->setRoles([]);
     }

@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ItemStateCollectionModel extends JsonCollection implements ItemStateCollection {
 
@@ -17,7 +18,7 @@ class ItemStateCollectionModel extends JsonCollection implements ItemStateCollec
      */
     public function add($value) {
         if (!$value instanceof ItemState) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\ReviewUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Review\ReviewSetAuthorNameAction;
 use Commercetools\Types\Review\ReviewSetCustomFieldAction;
 use Commercetools\Types\Review\ReviewSetCustomTypeAction;
@@ -50,7 +50,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetAuthorNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setAuthorName(function($action) { static::assertInstanceOf(ReviewSetAuthorNameAction::class, $action); return []; });
     }
@@ -64,7 +64,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetAuthorNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setAuthorName([]);
     }
@@ -78,7 +78,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setCustomField(function($action) { static::assertInstanceOf(ReviewSetCustomFieldAction::class, $action); return []; });
     }
@@ -92,7 +92,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setCustomField([]);
     }
@@ -106,7 +106,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setCustomType(function($action) { static::assertInstanceOf(ReviewSetCustomTypeAction::class, $action); return []; });
     }
@@ -120,7 +120,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setCustomType([]);
     }
@@ -134,7 +134,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetCustomerInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setCustomer(function($action) { static::assertInstanceOf(ReviewSetCustomerAction::class, $action); return []; });
     }
@@ -148,7 +148,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetCustomerInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setCustomer([]);
     }
@@ -162,7 +162,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setKey(function($action) { static::assertInstanceOf(ReviewSetKeyAction::class, $action); return []; });
     }
@@ -176,7 +176,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setKey([]);
     }
@@ -190,7 +190,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetLocaleInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setLocale(function($action) { static::assertInstanceOf(ReviewSetLocaleAction::class, $action); return []; });
     }
@@ -204,7 +204,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetLocaleInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setLocale([]);
     }
@@ -218,7 +218,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetRatingInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setRating(function($action) { static::assertInstanceOf(ReviewSetRatingAction::class, $action); return []; });
     }
@@ -232,7 +232,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetRatingInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setRating([]);
     }
@@ -246,7 +246,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetTargetInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setTarget(function($action) { static::assertInstanceOf(ReviewSetTargetAction::class, $action); return []; });
     }
@@ -260,7 +260,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetTargetInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setTarget([]);
     }
@@ -274,7 +274,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetTextInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setText(function($action) { static::assertInstanceOf(ReviewSetTextAction::class, $action); return []; });
     }
@@ -288,7 +288,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetTextInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setText([]);
     }
@@ -302,7 +302,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetTitleInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setTitle(function($action) { static::assertInstanceOf(ReviewSetTitleAction::class, $action); return []; });
     }
@@ -316,7 +316,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testSetTitleInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->setTitle([]);
     }
@@ -330,7 +330,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testTransitionStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->transitionState(function($action) { static::assertInstanceOf(ReviewTransitionStateAction::class, $action); return []; });
     }
@@ -344,7 +344,7 @@ class ReviewBuilderTest extends TestCase {
     }
 
     public function testTransitionStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ReviewUpdateBuilder();
         $builder->transitionState([]);
     }

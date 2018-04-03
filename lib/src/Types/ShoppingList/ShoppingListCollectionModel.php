@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ShoppingListCollectionModel extends JsonCollection implements ShoppingListCollection {
 
@@ -17,7 +18,7 @@ class ShoppingListCollectionModel extends JsonCollection implements ShoppingList
      */
     public function add($value) {
         if (!$value instanceof ShoppingList) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

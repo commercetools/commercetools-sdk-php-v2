@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\UpdateModel;
 
 use Commercetools\Types\UpdateActionCollection;
@@ -41,7 +42,7 @@ class ProjectUpdateModel extends UpdateModel implements ProjectUpdate {
     public function setActions(UpdateActionCollection $actions)
     {
         if (!$actions instanceof ProjectUpdateActionCollection) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->actions = $actions;
 

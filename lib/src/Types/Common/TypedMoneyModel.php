@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Common;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Common\MoneyModel;
 
 use Commercetools\Types;

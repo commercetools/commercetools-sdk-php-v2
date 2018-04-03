@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Channel\ChannelUpdateAction;
 
 use Commercetools\Types\Channel\ChannelAddRolesAction;
@@ -52,6 +52,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addRoles($action = null)
     {
@@ -66,6 +67,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeDescription($action = null)
     {
@@ -80,6 +82,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeKey($action = null)
     {
@@ -94,6 +97,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeName($action = null)
     {
@@ -108,6 +112,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeRoles($action = null)
     {
@@ -122,6 +127,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAddress($action = null)
     {
@@ -136,6 +142,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomField($action = null)
     {
@@ -150,6 +157,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomType($action = null)
     {
@@ -164,6 +172,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setGeoLocation($action = null)
     {
@@ -178,6 +187,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setRoles($action = null)
     {
@@ -195,6 +205,12 @@ class ChannelUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return ChannelUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -206,7 +222,7 @@ class ChannelUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

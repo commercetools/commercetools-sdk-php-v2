@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\TaxCategory;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class TaxRateCollectionModel extends JsonCollection implements TaxRateCollection {
 
@@ -17,7 +18,7 @@ class TaxRateCollectionModel extends JsonCollection implements TaxRateCollection
      */
     public function add($value) {
         if (!$value instanceof TaxRate) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

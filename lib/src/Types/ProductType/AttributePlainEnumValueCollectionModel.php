@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\ProductType;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class AttributePlainEnumValueCollectionModel extends JsonCollection implements AttributePlainEnumValueCollection {
 
@@ -17,7 +18,7 @@ class AttributePlainEnumValueCollectionModel extends JsonCollection implements A
      */
     public function add($value) {
         if (!$value instanceof AttributePlainEnumValue) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

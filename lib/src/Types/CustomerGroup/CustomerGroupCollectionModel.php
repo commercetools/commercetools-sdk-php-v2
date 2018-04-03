@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\CustomerGroup;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class CustomerGroupCollectionModel extends JsonCollection implements CustomerGroupCollection {
 
@@ -17,7 +18,7 @@ class CustomerGroupCollectionModel extends JsonCollection implements CustomerGro
      */
     public function add($value) {
         if (!$value instanceof CustomerGroup) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\Type;
 use Commercetools\Builder\TypeUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource71 extends Resource
     }
 
 
-    public function update(Type $type)
+    /**
+     * @param Type $type
+     * @return TypeUpdateBuilder
+     */
+    public function update(Type $type): TypeUpdateBuilder
     {
         $builder = new TypeUpdateBuilder(function(TypeUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($type);
@@ -60,20 +65,26 @@ class Resource71 extends Resource
         return $builder;
     }
 
-    public function delete(Type $type)
+    /**
+     * @param Type $type
+     * @return ByProjectKeyTypesByIDDelete
+     */
+    public function delete(Type $type): ByProjectKeyTypesByIDDelete
     {
         return $this->withId($type->getId())->delete()->withVersion($type->getVersion());
     }
 
     /**
-     * @param TypeDraft|callable $typeDraftDraft builder function <code>
+     * @param TypeDraft|callable $typeDraft builder function <code>
      *   function(TypeDraft $typeDraft): TypeDraft {
      *     // modify $draft as needed
      *     return $typeDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyTypesPost
      */
-    public function create($typeDraft)
+    public function create($typeDraft): ByProjectKeyTypesPost
     {
         if (is_callable($typeDraft)) {
             $callback = $typeDraft;
@@ -81,7 +92,7 @@ class Resource71 extends Resource
             $typeDraft = $callback($emptyDraft);
         }
         if (!$typeDraft instanceof TypeDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($typeDraft);
     }

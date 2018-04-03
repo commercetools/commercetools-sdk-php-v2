@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Review;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\PagedQueryResponseModel;
 
 use Commercetools\Types\PagedQueryResponse;
@@ -41,7 +42,7 @@ class ReviewPagedQueryResponseModel extends PagedQueryResponseModel implements R
     public function setResults(ResourceCollection $results)
     {
         if (!$results instanceof ReviewCollection) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->results = $results;
 

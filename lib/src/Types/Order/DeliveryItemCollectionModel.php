@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class DeliveryItemCollectionModel extends JsonCollection implements DeliveryItemCollection {
 
@@ -17,7 +18,7 @@ class DeliveryItemCollectionModel extends JsonCollection implements DeliveryItem
      */
     public function add($value) {
         if (!$value instanceof DeliveryItem) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

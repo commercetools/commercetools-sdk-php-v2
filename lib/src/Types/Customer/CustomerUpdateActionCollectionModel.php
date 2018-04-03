@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class CustomerUpdateActionCollectionModel extends JsonCollection implements CustomerUpdateActionCollection {
 
@@ -17,7 +18,7 @@ class CustomerUpdateActionCollectionModel extends JsonCollection implements Cust
      */
     public function add($value) {
         if (!$value instanceof CustomerUpdateAction) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

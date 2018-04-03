@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
 class PriceFunctionModel extends JsonObjectModel implements PriceFunction {

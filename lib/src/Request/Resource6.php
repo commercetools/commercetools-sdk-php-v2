@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CartDiscount\CartDiscount;
 use Commercetools\Builder\CartDiscountUpdateBuilder;
 
@@ -43,7 +44,11 @@ class Resource6 extends Resource
     }
 
 
-    public function update(CartDiscount $cartDiscount)
+    /**
+     * @param CartDiscount $cartDiscount
+     * @return CartDiscountUpdateBuilder
+     */
+    public function update(CartDiscount $cartDiscount): CartDiscountUpdateBuilder
     {
         $builder = new CartDiscountUpdateBuilder(function(CartDiscountUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($cartDiscount);
@@ -53,20 +58,26 @@ class Resource6 extends Resource
         return $builder;
     }
 
-    public function delete(CartDiscount $cartDiscount)
+    /**
+     * @param CartDiscount $cartDiscount
+     * @return ByProjectKeyCartDiscountsByIDDelete
+     */
+    public function delete(CartDiscount $cartDiscount): ByProjectKeyCartDiscountsByIDDelete
     {
         return $this->withId($cartDiscount->getId())->delete()->withVersion($cartDiscount->getVersion());
     }
 
     /**
-     * @param CartDiscountDraft|callable $cartDiscountDraftDraft builder function <code>
+     * @param CartDiscountDraft|callable $cartDiscountDraft builder function <code>
      *   function(CartDiscountDraft $cartDiscountDraft): CartDiscountDraft {
      *     // modify $draft as needed
      *     return $cartDiscountDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyCartDiscountsPost
      */
-    public function create($cartDiscountDraft)
+    public function create($cartDiscountDraft): ByProjectKeyCartDiscountsPost
     {
         if (is_callable($cartDiscountDraft)) {
             $callback = $cartDiscountDraft;
@@ -74,7 +85,7 @@ class Resource6 extends Resource
             $cartDiscountDraft = $callback($emptyDraft);
         }
         if (!$cartDiscountDraft instanceof CartDiscountDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($cartDiscountDraft);
     }

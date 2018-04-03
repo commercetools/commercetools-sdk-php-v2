@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Type;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class FieldDefinitionCollectionModel extends JsonCollection implements FieldDefinitionCollection {
 
@@ -17,7 +18,7 @@ class FieldDefinitionCollectionModel extends JsonCollection implements FieldDefi
      */
     public function add($value) {
         if (!$value instanceof FieldDefinition) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

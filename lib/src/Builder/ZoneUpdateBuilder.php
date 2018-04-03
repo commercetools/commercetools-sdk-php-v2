@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Zone\ZoneUpdateAction;
 
 use Commercetools\Types\Zone\ZoneAddLocationAction;
@@ -46,6 +46,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addLocation($action = null)
     {
@@ -60,6 +61,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeName($action = null)
     {
@@ -74,6 +76,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeLocation($action = null)
     {
@@ -88,6 +91,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDescription($action = null)
     {
@@ -105,6 +109,12 @@ class ZoneUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return ZoneUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -116,7 +126,7 @@ class ZoneUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\ProductUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductAddAssetAction;
 use Commercetools\Types\Product\ProductAddExternalImageAction;
 use Commercetools\Types\Product\ProductAddPriceAction;
@@ -118,7 +118,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddAssetInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addAsset(function($action) { static::assertInstanceOf(ProductAddAssetAction::class, $action); return []; });
     }
@@ -132,7 +132,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddAssetInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addAsset([]);
     }
@@ -146,7 +146,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddExternalImageInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addExternalImage(function($action) { static::assertInstanceOf(ProductAddExternalImageAction::class, $action); return []; });
     }
@@ -160,7 +160,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddExternalImageInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addExternalImage([]);
     }
@@ -174,7 +174,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddPriceInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addPrice(function($action) { static::assertInstanceOf(ProductAddPriceAction::class, $action); return []; });
     }
@@ -188,7 +188,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddPriceInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addPrice([]);
     }
@@ -202,7 +202,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddToCategoryInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addToCategory(function($action) { static::assertInstanceOf(ProductAddToCategoryAction::class, $action); return []; });
     }
@@ -216,7 +216,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddToCategoryInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addToCategory([]);
     }
@@ -230,7 +230,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddVariantInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addVariant(function($action) { static::assertInstanceOf(ProductAddVariantAction::class, $action); return []; });
     }
@@ -244,7 +244,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testAddVariantInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->addVariant([]);
     }
@@ -258,7 +258,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeAssetNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeAssetName(function($action) { static::assertInstanceOf(ProductChangeAssetNameAction::class, $action); return []; });
     }
@@ -272,7 +272,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeAssetNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeAssetName([]);
     }
@@ -286,7 +286,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeAssetOrderInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeAssetOrder(function($action) { static::assertInstanceOf(ProductChangeAssetOrderAction::class, $action); return []; });
     }
@@ -300,7 +300,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeAssetOrderInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeAssetOrder([]);
     }
@@ -314,7 +314,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeMasterVariantInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeMasterVariant(function($action) { static::assertInstanceOf(ProductChangeMasterVariantAction::class, $action); return []; });
     }
@@ -328,7 +328,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeMasterVariantInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeMasterVariant([]);
     }
@@ -342,7 +342,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeName(function($action) { static::assertInstanceOf(ProductChangeNameAction::class, $action); return []; });
     }
@@ -356,7 +356,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeName([]);
     }
@@ -370,7 +370,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangePriceInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changePrice(function($action) { static::assertInstanceOf(ProductChangePriceAction::class, $action); return []; });
     }
@@ -384,7 +384,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangePriceInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changePrice([]);
     }
@@ -398,7 +398,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeSlugInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeSlug(function($action) { static::assertInstanceOf(ProductChangeSlugAction::class, $action); return []; });
     }
@@ -412,7 +412,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testChangeSlugInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->changeSlug([]);
     }
@@ -426,7 +426,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testLegacySetSkuInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->legacySetSku(function($action) { static::assertInstanceOf(ProductLegacySetSkuAction::class, $action); return []; });
     }
@@ -440,7 +440,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testLegacySetSkuInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->legacySetSku([]);
     }
@@ -454,7 +454,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testMoveImageToPositionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->moveImageToPosition(function($action) { static::assertInstanceOf(ProductMoveImageToPositionAction::class, $action); return []; });
     }
@@ -468,7 +468,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testMoveImageToPositionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->moveImageToPosition([]);
     }
@@ -482,7 +482,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testPublishInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->publish(function($action) { static::assertInstanceOf(ProductPublishAction::class, $action); return []; });
     }
@@ -496,7 +496,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testPublishInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->publish([]);
     }
@@ -510,7 +510,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemoveAssetInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removeAsset(function($action) { static::assertInstanceOf(ProductRemoveAssetAction::class, $action); return []; });
     }
@@ -524,7 +524,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemoveAssetInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removeAsset([]);
     }
@@ -538,7 +538,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemoveFromCategoryInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removeFromCategory(function($action) { static::assertInstanceOf(ProductRemoveFromCategoryAction::class, $action); return []; });
     }
@@ -552,7 +552,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemoveFromCategoryInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removeFromCategory([]);
     }
@@ -566,7 +566,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemoveImageInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removeImage(function($action) { static::assertInstanceOf(ProductRemoveImageAction::class, $action); return []; });
     }
@@ -580,7 +580,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemoveImageInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removeImage([]);
     }
@@ -594,7 +594,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemovePriceInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removePrice(function($action) { static::assertInstanceOf(ProductRemovePriceAction::class, $action); return []; });
     }
@@ -608,7 +608,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemovePriceInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removePrice([]);
     }
@@ -622,7 +622,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemoveVariantInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removeVariant(function($action) { static::assertInstanceOf(ProductRemoveVariantAction::class, $action); return []; });
     }
@@ -636,7 +636,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRemoveVariantInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->removeVariant([]);
     }
@@ -650,7 +650,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRevertStagedChangesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->revertStagedChanges(function($action) { static::assertInstanceOf(ProductRevertStagedChangesAction::class, $action); return []; });
     }
@@ -664,7 +664,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRevertStagedChangesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->revertStagedChanges([]);
     }
@@ -678,7 +678,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRevertStagedVariantChangesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->revertStagedVariantChanges(function($action) { static::assertInstanceOf(ProductRevertStagedVariantChangesAction::class, $action); return []; });
     }
@@ -692,7 +692,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testRevertStagedVariantChangesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->revertStagedVariantChanges([]);
     }
@@ -706,7 +706,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetCustomField(function($action) { static::assertInstanceOf(ProductSetAssetCustomFieldAction::class, $action); return []; });
     }
@@ -720,7 +720,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetCustomField([]);
     }
@@ -734,7 +734,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetCustomType(function($action) { static::assertInstanceOf(ProductSetAssetCustomTypeAction::class, $action); return []; });
     }
@@ -748,7 +748,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetCustomType([]);
     }
@@ -762,7 +762,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetDescription(function($action) { static::assertInstanceOf(ProductSetAssetDescriptionAction::class, $action); return []; });
     }
@@ -776,7 +776,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetDescription([]);
     }
@@ -790,7 +790,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetKey(function($action) { static::assertInstanceOf(ProductSetAssetKeyAction::class, $action); return []; });
     }
@@ -804,7 +804,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetKey([]);
     }
@@ -818,7 +818,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetSourcesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetSources(function($action) { static::assertInstanceOf(ProductSetAssetSourcesAction::class, $action); return []; });
     }
@@ -832,7 +832,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetSourcesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetSources([]);
     }
@@ -846,7 +846,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetTagsInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetTags(function($action) { static::assertInstanceOf(ProductSetAssetTagsAction::class, $action); return []; });
     }
@@ -860,7 +860,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAssetTagsInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAssetTags([]);
     }
@@ -874,7 +874,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAttributeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAttribute(function($action) { static::assertInstanceOf(ProductSetAttributeAction::class, $action); return []; });
     }
@@ -888,7 +888,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAttributeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAttribute([]);
     }
@@ -902,7 +902,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAttributeInAllVariantsInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAttributeInAllVariants(function($action) { static::assertInstanceOf(ProductSetAttributeInAllVariantsAction::class, $action); return []; });
     }
@@ -916,7 +916,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetAttributeInAllVariantsInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setAttributeInAllVariants([]);
     }
@@ -930,7 +930,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetCategoryOrderHintInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setCategoryOrderHint(function($action) { static::assertInstanceOf(ProductSetCategoryOrderHintAction::class, $action); return []; });
     }
@@ -944,7 +944,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetCategoryOrderHintInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setCategoryOrderHint([]);
     }
@@ -958,7 +958,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setDescription(function($action) { static::assertInstanceOf(ProductSetDescriptionAction::class, $action); return []; });
     }
@@ -972,7 +972,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setDescription([]);
     }
@@ -986,7 +986,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetDiscountedPriceInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setDiscountedPrice(function($action) { static::assertInstanceOf(ProductSetDiscountedPriceAction::class, $action); return []; });
     }
@@ -1000,7 +1000,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetDiscountedPriceInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setDiscountedPrice([]);
     }
@@ -1014,7 +1014,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setKey(function($action) { static::assertInstanceOf(ProductSetKeyAction::class, $action); return []; });
     }
@@ -1028,7 +1028,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setKey([]);
     }
@@ -1042,7 +1042,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetMetaDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setMetaDescription(function($action) { static::assertInstanceOf(ProductSetMetaDescriptionAction::class, $action); return []; });
     }
@@ -1056,7 +1056,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetMetaDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setMetaDescription([]);
     }
@@ -1070,7 +1070,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetMetaKeywordsInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setMetaKeywords(function($action) { static::assertInstanceOf(ProductSetMetaKeywordsAction::class, $action); return []; });
     }
@@ -1084,7 +1084,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetMetaKeywordsInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setMetaKeywords([]);
     }
@@ -1098,7 +1098,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetMetaTitleInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setMetaTitle(function($action) { static::assertInstanceOf(ProductSetMetaTitleAction::class, $action); return []; });
     }
@@ -1112,7 +1112,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetMetaTitleInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setMetaTitle([]);
     }
@@ -1126,7 +1126,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetPricesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setPrices(function($action) { static::assertInstanceOf(ProductSetPricesAction::class, $action); return []; });
     }
@@ -1140,7 +1140,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetPricesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setPrices([]);
     }
@@ -1154,7 +1154,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetProductPriceCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setProductPriceCustomField(function($action) { static::assertInstanceOf(ProductSetProductPriceCustomFieldAction::class, $action); return []; });
     }
@@ -1168,7 +1168,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetProductPriceCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setProductPriceCustomField([]);
     }
@@ -1182,7 +1182,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetProductPriceCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setProductPriceCustomType(function($action) { static::assertInstanceOf(ProductSetProductPriceCustomTypeAction::class, $action); return []; });
     }
@@ -1196,7 +1196,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetProductPriceCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setProductPriceCustomType([]);
     }
@@ -1210,7 +1210,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetProductVariantKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setProductVariantKey(function($action) { static::assertInstanceOf(ProductSetProductVariantKeyAction::class, $action); return []; });
     }
@@ -1224,7 +1224,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetProductVariantKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setProductVariantKey([]);
     }
@@ -1238,7 +1238,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetSearchKeywordsInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setSearchKeywords(function($action) { static::assertInstanceOf(ProductSetSearchKeywordsAction::class, $action); return []; });
     }
@@ -1252,7 +1252,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetSearchKeywordsInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setSearchKeywords([]);
     }
@@ -1266,7 +1266,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetSkuInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setSku(function($action) { static::assertInstanceOf(ProductSetSkuAction::class, $action); return []; });
     }
@@ -1280,7 +1280,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetSkuInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setSku([]);
     }
@@ -1294,7 +1294,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetTaxCategoryInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setTaxCategory(function($action) { static::assertInstanceOf(ProductSetTaxCategoryAction::class, $action); return []; });
     }
@@ -1308,7 +1308,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testSetTaxCategoryInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->setTaxCategory([]);
     }
@@ -1322,7 +1322,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testTransitionStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->transitionState(function($action) { static::assertInstanceOf(ProductTransitionStateAction::class, $action); return []; });
     }
@@ -1336,7 +1336,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testTransitionStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->transitionState([]);
     }
@@ -1350,7 +1350,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testUnpublishInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->unpublish(function($action) { static::assertInstanceOf(ProductUnpublishAction::class, $action); return []; });
     }
@@ -1364,7 +1364,7 @@ class ProductBuilderTest extends TestCase {
     }
 
     public function testUnpublishInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductUpdateBuilder();
         $builder->unpublish([]);
     }

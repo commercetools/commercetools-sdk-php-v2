@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductDiscount\ProductDiscount;
 use Commercetools\Builder\ProductDiscountUpdateBuilder;
 
@@ -43,7 +44,11 @@ class Resource45 extends Resource
     }
 
 
-    public function update(ProductDiscount $productDiscount)
+    /**
+     * @param ProductDiscount $productDiscount
+     * @return ProductDiscountUpdateBuilder
+     */
+    public function update(ProductDiscount $productDiscount): ProductDiscountUpdateBuilder
     {
         $builder = new ProductDiscountUpdateBuilder(function(ProductDiscountUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($productDiscount);
@@ -53,20 +58,26 @@ class Resource45 extends Resource
         return $builder;
     }
 
-    public function delete(ProductDiscount $productDiscount)
+    /**
+     * @param ProductDiscount $productDiscount
+     * @return ByProjectKeyProductDiscountsByIDDelete
+     */
+    public function delete(ProductDiscount $productDiscount): ByProjectKeyProductDiscountsByIDDelete
     {
         return $this->withId($productDiscount->getId())->delete()->withVersion($productDiscount->getVersion());
     }
 
     /**
-     * @param ProductDiscountDraft|callable $productDiscountDraftDraft builder function <code>
+     * @param ProductDiscountDraft|callable $productDiscountDraft builder function <code>
      *   function(ProductDiscountDraft $productDiscountDraft): ProductDiscountDraft {
      *     // modify $draft as needed
      *     return $productDiscountDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyProductDiscountsPost
      */
-    public function create($productDiscountDraft)
+    public function create($productDiscountDraft): ByProjectKeyProductDiscountsPost
     {
         if (is_callable($productDiscountDraft)) {
             $callback = $productDiscountDraft;
@@ -74,7 +85,7 @@ class Resource45 extends Resource
             $productDiscountDraft = $callback($emptyDraft);
         }
         if (!$productDiscountDraft instanceof ProductDiscountDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($productDiscountDraft);
     }

@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionModel;
 
 class ProductTypeSetKeyActionModel extends ProductTypeUpdateActionModel implements ProductTypeSetKeyAction {

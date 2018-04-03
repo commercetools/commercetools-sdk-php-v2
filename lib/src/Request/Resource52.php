@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductType;
 use Commercetools\Builder\ProductTypeUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource52 extends Resource
     }
 
 
-    public function update(ProductType $productType)
+    /**
+     * @param ProductType $productType
+     * @return ProductTypeUpdateBuilder
+     */
+    public function update(ProductType $productType): ProductTypeUpdateBuilder
     {
         $builder = new ProductTypeUpdateBuilder(function(ProductTypeUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($productType);
@@ -60,20 +65,26 @@ class Resource52 extends Resource
         return $builder;
     }
 
-    public function delete(ProductType $productType)
+    /**
+     * @param ProductType $productType
+     * @return ByProjectKeyProductTypesByIDDelete
+     */
+    public function delete(ProductType $productType): ByProjectKeyProductTypesByIDDelete
     {
         return $this->withId($productType->getId())->delete()->withVersion($productType->getVersion());
     }
 
     /**
-     * @param ProductTypeDraft|callable $productTypeDraftDraft builder function <code>
+     * @param ProductTypeDraft|callable $productTypeDraft builder function <code>
      *   function(ProductTypeDraft $productTypeDraft): ProductTypeDraft {
      *     // modify $draft as needed
      *     return $productTypeDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyProductTypesPost
      */
-    public function create($productTypeDraft)
+    public function create($productTypeDraft): ByProjectKeyProductTypesPost
     {
         if (is_callable($productTypeDraft)) {
             $callback = $productTypeDraft;
@@ -81,7 +92,7 @@ class Resource52 extends Resource
             $productTypeDraft = $callback($emptyDraft);
         }
         if (!$productTypeDraft instanceof ProductTypeDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($productTypeDraft);
     }

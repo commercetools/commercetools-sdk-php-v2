@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\UpdateModel;
 
 use Commercetools\Types\UpdateActionCollection;
@@ -41,7 +42,7 @@ class CategoryUpdateModel extends UpdateModel implements CategoryUpdate {
     public function setActions(UpdateActionCollection $actions)
     {
         if (!$actions instanceof CategoryUpdateActionCollection) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->actions = $actions;
 

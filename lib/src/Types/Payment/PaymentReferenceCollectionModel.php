@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Payment;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class PaymentReferenceCollectionModel extends JsonCollection implements PaymentReferenceCollection {
 
@@ -17,7 +18,7 @@ class PaymentReferenceCollectionModel extends JsonCollection implements PaymentR
      */
     public function add($value) {
         if (!$value instanceof PaymentReference) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\PagedQueryResponseModel;
 
 use Commercetools\Types\PagedQueryResponse;
@@ -41,7 +42,7 @@ class CartPagedQueryResponseModel extends PagedQueryResponseModel implements Car
     public function setResults(ResourceCollection $results)
     {
         if (!$results instanceof CartCollection) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->results = $results;
 

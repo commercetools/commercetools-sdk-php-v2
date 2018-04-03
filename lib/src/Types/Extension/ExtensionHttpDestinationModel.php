@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Extension;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Extension\ExtensionDestinationModel;
 
 class ExtensionHttpDestinationModel extends ExtensionDestinationModel implements ExtensionHttpDestination {

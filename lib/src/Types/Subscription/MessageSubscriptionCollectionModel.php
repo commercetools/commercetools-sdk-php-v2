@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Subscription;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class MessageSubscriptionCollectionModel extends JsonCollection implements MessageSubscriptionCollection {
 
@@ -17,7 +18,7 @@ class MessageSubscriptionCollectionModel extends JsonCollection implements Messa
      */
     public function add($value) {
         if (!$value instanceof MessageSubscription) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ZoneRateCollectionModel extends JsonCollection implements ZoneRateCollection {
 
@@ -17,7 +18,7 @@ class ZoneRateCollectionModel extends JsonCollection implements ZoneRateCollecti
      */
     public function add($value) {
         if (!$value instanceof ZoneRate) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

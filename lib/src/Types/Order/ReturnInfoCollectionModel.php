@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ReturnInfoCollectionModel extends JsonCollection implements ReturnInfoCollection {
 
@@ -17,7 +18,7 @@ class ReturnInfoCollectionModel extends JsonCollection implements ReturnInfoColl
      */
     public function add($value) {
         if (!$value instanceof ReturnInfo) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

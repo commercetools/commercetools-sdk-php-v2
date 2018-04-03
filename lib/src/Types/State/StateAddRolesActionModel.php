@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\State\StateUpdateActionModel;
 
 class StateAddRolesActionModel extends StateUpdateActionModel implements StateAddRolesAction {

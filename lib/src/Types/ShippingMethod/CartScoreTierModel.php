@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShippingMethod\ShippingRatePriceTierModel;
 
 use Commercetools\Types\Common\Money;

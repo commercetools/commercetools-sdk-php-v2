@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Payment;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class TransactionDraftCollectionModel extends JsonCollection implements TransactionDraftCollection {
 
@@ -17,7 +18,7 @@ class TransactionDraftCollectionModel extends JsonCollection implements Transact
      */
     public function add($value) {
         if (!$value instanceof TransactionDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

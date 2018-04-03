@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\CustomObject;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class CustomObjectCollectionModel extends JsonCollection implements CustomObjectCollection {
 
@@ -17,7 +18,7 @@ class CustomObjectCollectionModel extends JsonCollection implements CustomObject
      */
     public function add($value) {
         if (!$value instanceof CustomObject) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

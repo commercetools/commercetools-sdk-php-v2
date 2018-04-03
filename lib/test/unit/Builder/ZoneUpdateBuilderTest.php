@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\ZoneUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Zone\ZoneAddLocationAction;
 use Commercetools\Types\Zone\ZoneChangeNameAction;
 use Commercetools\Types\Zone\ZoneRemoveLocationAction;
@@ -36,7 +36,7 @@ class ZoneBuilderTest extends TestCase {
     }
 
     public function testAddLocationInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ZoneUpdateBuilder();
         $builder->addLocation(function($action) { static::assertInstanceOf(ZoneAddLocationAction::class, $action); return []; });
     }
@@ -50,7 +50,7 @@ class ZoneBuilderTest extends TestCase {
     }
 
     public function testAddLocationInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ZoneUpdateBuilder();
         $builder->addLocation([]);
     }
@@ -64,7 +64,7 @@ class ZoneBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ZoneUpdateBuilder();
         $builder->changeName(function($action) { static::assertInstanceOf(ZoneChangeNameAction::class, $action); return []; });
     }
@@ -78,7 +78,7 @@ class ZoneBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ZoneUpdateBuilder();
         $builder->changeName([]);
     }
@@ -92,7 +92,7 @@ class ZoneBuilderTest extends TestCase {
     }
 
     public function testRemoveLocationInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ZoneUpdateBuilder();
         $builder->removeLocation(function($action) { static::assertInstanceOf(ZoneRemoveLocationAction::class, $action); return []; });
     }
@@ -106,7 +106,7 @@ class ZoneBuilderTest extends TestCase {
     }
 
     public function testRemoveLocationInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ZoneUpdateBuilder();
         $builder->removeLocation([]);
     }
@@ -120,7 +120,7 @@ class ZoneBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ZoneUpdateBuilder();
         $builder->setDescription(function($action) { static::assertInstanceOf(ZoneSetDescriptionAction::class, $action); return []; });
     }
@@ -134,7 +134,7 @@ class ZoneBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ZoneUpdateBuilder();
         $builder->setDescription([]);
     }

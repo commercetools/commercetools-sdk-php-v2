@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Zone\Zone;
 use Commercetools\Builder\ZoneUpdateBuilder;
 
@@ -43,7 +44,11 @@ class Resource74 extends Resource
     }
 
 
-    public function update(Zone $zone)
+    /**
+     * @param Zone $zone
+     * @return ZoneUpdateBuilder
+     */
+    public function update(Zone $zone): ZoneUpdateBuilder
     {
         $builder = new ZoneUpdateBuilder(function(ZoneUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($zone);
@@ -53,20 +58,26 @@ class Resource74 extends Resource
         return $builder;
     }
 
-    public function delete(Zone $zone)
+    /**
+     * @param Zone $zone
+     * @return ByProjectKeyZonesByIDDelete
+     */
+    public function delete(Zone $zone): ByProjectKeyZonesByIDDelete
     {
         return $this->withId($zone->getId())->delete()->withVersion($zone->getVersion());
     }
 
     /**
-     * @param ZoneDraft|callable $zoneDraftDraft builder function <code>
+     * @param ZoneDraft|callable $zoneDraft builder function <code>
      *   function(ZoneDraft $zoneDraft): ZoneDraft {
      *     // modify $draft as needed
      *     return $zoneDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyZonesPost
      */
-    public function create($zoneDraft)
+    public function create($zoneDraft): ByProjectKeyZonesPost
     {
         if (is_callable($zoneDraft)) {
             $callback = $zoneDraft;
@@ -74,7 +85,7 @@ class Resource74 extends Resource
             $zoneDraft = $callback($emptyDraft);
         }
         if (!$zoneDraft instanceof ZoneDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($zoneDraft);
     }

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShoppingList\ShoppingListUpdateAction;
 
 use Commercetools\Types\ShoppingList\ShoppingListAddLineItemAction;
@@ -64,6 +64,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addLineItem($action = null)
     {
@@ -78,6 +79,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addTextLineItem($action = null)
     {
@@ -92,6 +94,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeLineItemQuantity($action = null)
     {
@@ -106,6 +109,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeLineItemsOrder($action = null)
     {
@@ -120,6 +124,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeName($action = null)
     {
@@ -134,6 +139,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeTextLineItemName($action = null)
     {
@@ -148,6 +154,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeTextLineItemQuantity($action = null)
     {
@@ -162,6 +169,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeTextLineItemsOrder($action = null)
     {
@@ -176,6 +184,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeLineItem($action = null)
     {
@@ -190,6 +199,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeTextLineItem($action = null)
     {
@@ -204,6 +214,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomField($action = null)
     {
@@ -218,6 +229,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomType($action = null)
     {
@@ -232,6 +244,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomer($action = null)
     {
@@ -246,6 +259,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDeleteDaysAfterLastModification($action = null)
     {
@@ -260,6 +274,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDescription($action = null)
     {
@@ -274,6 +289,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setKey($action = null)
     {
@@ -288,6 +304,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemCustomField($action = null)
     {
@@ -302,6 +319,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemCustomType($action = null)
     {
@@ -316,6 +334,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setSlug($action = null)
     {
@@ -330,6 +349,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setTextLineItemCustomField($action = null)
     {
@@ -344,6 +364,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setTextLineItemCustomType($action = null)
     {
@@ -358,6 +379,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setTextLineItemDescription($action = null)
     {
@@ -375,6 +397,12 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return ShoppingListUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -386,7 +414,7 @@ class ShoppingListUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

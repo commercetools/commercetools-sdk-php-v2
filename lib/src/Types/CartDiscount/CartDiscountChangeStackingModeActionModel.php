@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CartDiscount\CartDiscountUpdateActionModel;
 
 class CartDiscountChangeStackingModeActionModel extends CartDiscountUpdateActionModel implements CartDiscountChangeStackingModeAction {

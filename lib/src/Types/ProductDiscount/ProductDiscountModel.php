@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductDiscount;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Common\ResourceModel;
 
 use Commercetools\Types\Common\Reference;

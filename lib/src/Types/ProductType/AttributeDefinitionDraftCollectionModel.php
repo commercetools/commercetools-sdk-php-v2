@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\ProductType;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class AttributeDefinitionDraftCollectionModel extends JsonCollection implements AttributeDefinitionDraftCollection {
 
@@ -17,7 +18,7 @@ class AttributeDefinitionDraftCollectionModel extends JsonCollection implements 
      */
     public function add($value) {
         if (!$value instanceof AttributeDefinitionDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class CartCollectionModel extends JsonCollection implements CartCollection {
 
@@ -17,7 +18,7 @@ class CartCollectionModel extends JsonCollection implements CartCollection {
      */
     public function add($value) {
         if (!$value instanceof Cart) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

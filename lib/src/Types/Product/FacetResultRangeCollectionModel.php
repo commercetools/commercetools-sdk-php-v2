@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class FacetResultRangeCollectionModel extends JsonCollection implements FacetResultRangeCollection {
 
@@ -17,7 +18,7 @@ class FacetResultRangeCollectionModel extends JsonCollection implements FacetRes
      */
     public function add($value) {
         if (!$value instanceof FacetResultRange) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

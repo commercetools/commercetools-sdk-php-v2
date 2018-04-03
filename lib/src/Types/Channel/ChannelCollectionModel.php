@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Channel;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ChannelCollectionModel extends JsonCollection implements ChannelCollection {
 
@@ -17,7 +18,7 @@ class ChannelCollectionModel extends JsonCollection implements ChannelCollection
      */
     public function add($value) {
         if (!$value instanceof Channel) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

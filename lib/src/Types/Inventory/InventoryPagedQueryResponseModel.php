@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\PagedQueryResponseModel;
 
 use Commercetools\Types\PagedQueryResponse;
@@ -41,7 +42,7 @@ class InventoryPagedQueryResponseModel extends PagedQueryResponseModel implement
     public function setResults(ResourceCollection $results)
     {
         if (!$results instanceof InventoryEntryCollection) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->results = $results;
 

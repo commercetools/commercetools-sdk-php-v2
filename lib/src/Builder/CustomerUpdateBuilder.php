@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Customer\CustomerUpdateAction;
 
 use Commercetools\Types\Customer\CustomerAddAddressAction;
@@ -67,6 +67,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addAddress($action = null)
     {
@@ -81,6 +82,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addBillingAddressId($action = null)
     {
@@ -95,6 +97,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addShippingAddressId($action = null)
     {
@@ -109,6 +112,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeAddress($action = null)
     {
@@ -123,6 +127,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeEmail($action = null)
     {
@@ -137,6 +142,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeAddress($action = null)
     {
@@ -151,6 +157,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeBillingAddressId($action = null)
     {
@@ -165,6 +172,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeShippingAddressId($action = null)
     {
@@ -179,6 +187,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCompanyName($action = null)
     {
@@ -193,6 +202,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomField($action = null)
     {
@@ -207,6 +217,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomType($action = null)
     {
@@ -221,6 +232,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomerGroup($action = null)
     {
@@ -235,6 +247,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomerNumber($action = null)
     {
@@ -249,6 +262,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDateOfBirth($action = null)
     {
@@ -263,6 +277,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDefaultBillingAddress($action = null)
     {
@@ -277,6 +292,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDefaultShippingAddress($action = null)
     {
@@ -291,6 +307,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setExternalId($action = null)
     {
@@ -305,6 +322,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setFirstName($action = null)
     {
@@ -319,6 +337,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setKey($action = null)
     {
@@ -333,6 +352,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLastName($action = null)
     {
@@ -347,6 +367,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLocale($action = null)
     {
@@ -361,6 +382,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setMiddleName($action = null)
     {
@@ -375,6 +397,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setSalutation($action = null)
     {
@@ -389,6 +412,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setTitle($action = null)
     {
@@ -403,6 +427,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setVatId($action = null)
     {
@@ -420,6 +445,12 @@ class CustomerUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return CustomerUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -431,7 +462,7 @@ class CustomerUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

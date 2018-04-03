@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Type;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class CustomFieldLocalizedEnumValueCollectionModel extends JsonCollection implements CustomFieldLocalizedEnumValueCollection {
 
@@ -17,7 +18,7 @@ class CustomFieldLocalizedEnumValueCollectionModel extends JsonCollection implem
      */
     public function add($value) {
         if (!$value instanceof CustomFieldLocalizedEnumValue) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

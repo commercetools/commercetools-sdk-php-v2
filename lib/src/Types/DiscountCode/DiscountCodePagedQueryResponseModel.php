@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\DiscountCode;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\PagedQueryResponseModel;
 
 use Commercetools\Types\PagedQueryResponse;
@@ -41,7 +42,7 @@ class DiscountCodePagedQueryResponseModel extends PagedQueryResponseModel implem
     public function setResults(ResourceCollection $results)
     {
         if (!$results instanceof DiscountCodeCollection) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         $this->results = $results;
 

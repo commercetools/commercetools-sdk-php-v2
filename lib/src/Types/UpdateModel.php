@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
 class UpdateModel extends JsonObjectModel implements Update {

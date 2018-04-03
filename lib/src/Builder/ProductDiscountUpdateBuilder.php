@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductDiscount\ProductDiscountUpdateAction;
 
 use Commercetools\Types\ProductDiscount\ProductDiscountChangeIsActiveAction;
@@ -50,6 +50,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeIsActive($action = null)
     {
@@ -64,6 +65,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeName($action = null)
     {
@@ -78,6 +80,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changePredicate($action = null)
     {
@@ -92,6 +95,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeSortOrder($action = null)
     {
@@ -106,6 +110,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeValue($action = null)
     {
@@ -120,6 +125,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDescription($action = null)
     {
@@ -134,6 +140,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setValidFrom($action = null)
     {
@@ -148,6 +155,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setValidUntil($action = null)
     {
@@ -165,6 +173,12 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return ProductDiscountUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -176,7 +190,7 @@ class ProductDiscountUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

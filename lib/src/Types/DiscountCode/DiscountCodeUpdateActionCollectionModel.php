@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\DiscountCode;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class DiscountCodeUpdateActionCollectionModel extends JsonCollection implements DiscountCodeUpdateActionCollection {
 
@@ -17,7 +18,7 @@ class DiscountCodeUpdateActionCollectionModel extends JsonCollection implements 
      */
     public function add($value) {
         if (!$value instanceof DiscountCodeUpdateAction) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeUpdateAction;
 
 use Commercetools\Types\ProductType\ProductTypeAddAttributeDefinitionAction;
@@ -59,6 +59,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addAttributeDefinition($action = null)
     {
@@ -73,6 +74,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addLocalizedEnumValue($action = null)
     {
@@ -87,6 +89,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addPlainEnumValue($action = null)
     {
@@ -101,6 +104,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeAttributeConstraint($action = null)
     {
@@ -115,6 +119,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeAttributeOrder($action = null)
     {
@@ -129,6 +134,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeDescription($action = null)
     {
@@ -143,6 +149,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeInputHint($action = null)
     {
@@ -157,6 +164,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeIsSearchable($action = null)
     {
@@ -171,6 +179,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeLabel($action = null)
     {
@@ -185,6 +194,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeLocalizedEnumValueLabel($action = null)
     {
@@ -199,6 +209,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeLocalizedEnumValueOrder($action = null)
     {
@@ -213,6 +224,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeName($action = null)
     {
@@ -227,6 +239,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changePlainEnumValueLabel($action = null)
     {
@@ -241,6 +254,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changePlainEnumValueOrder($action = null)
     {
@@ -255,6 +269,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeAttributeDefinition($action = null)
     {
@@ -269,6 +284,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setInputTip($action = null)
     {
@@ -283,6 +299,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setKey($action = null)
     {
@@ -300,6 +317,12 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return ProductTypeUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -311,7 +334,7 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

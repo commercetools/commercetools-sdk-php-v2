@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ShippingRateDraftCollectionModel extends JsonCollection implements ShippingRateDraftCollection {
 
@@ -17,7 +18,7 @@ class ShippingRateDraftCollectionModel extends JsonCollection implements Shippin
      */
     public function add($value) {
         if (!$value instanceof ShippingRateDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

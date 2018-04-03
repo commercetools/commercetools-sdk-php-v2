@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class PriceCollectionModel extends JsonCollection implements PriceCollection {
 
@@ -17,7 +18,7 @@ class PriceCollectionModel extends JsonCollection implements PriceCollection {
      */
     public function add($value) {
         if (!$value instanceof Price) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

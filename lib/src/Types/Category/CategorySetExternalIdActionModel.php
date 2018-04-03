@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Category\CategoryUpdateActionModel;
 
 class CategorySetExternalIdActionModel extends CategoryUpdateActionModel implements CategorySetExternalIdAction {

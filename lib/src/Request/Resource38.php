@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Payment\Payment;
 use Commercetools\Builder\PaymentUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource38 extends Resource
     }
 
 
-    public function update(Payment $payment)
+    /**
+     * @param Payment $payment
+     * @return PaymentUpdateBuilder
+     */
+    public function update(Payment $payment): PaymentUpdateBuilder
     {
         $builder = new PaymentUpdateBuilder(function(PaymentUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($payment);
@@ -60,20 +65,26 @@ class Resource38 extends Resource
         return $builder;
     }
 
-    public function delete(Payment $payment)
+    /**
+     * @param Payment $payment
+     * @return ByProjectKeyPaymentsByIDDelete
+     */
+    public function delete(Payment $payment): ByProjectKeyPaymentsByIDDelete
     {
         return $this->withId($payment->getId())->delete()->withVersion($payment->getVersion());
     }
 
     /**
-     * @param PaymentDraft|callable $paymentDraftDraft builder function <code>
+     * @param PaymentDraft|callable $paymentDraft builder function <code>
      *   function(PaymentDraft $paymentDraft): PaymentDraft {
      *     // modify $draft as needed
      *     return $paymentDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyPaymentsPost
      */
-    public function create($paymentDraft)
+    public function create($paymentDraft): ByProjectKeyPaymentsPost
     {
         if (is_callable($paymentDraft)) {
             $callback = $paymentDraft;
@@ -81,7 +92,7 @@ class Resource38 extends Resource
             $paymentDraft = $callback($emptyDraft);
         }
         if (!$paymentDraft instanceof PaymentDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($paymentDraft);
     }

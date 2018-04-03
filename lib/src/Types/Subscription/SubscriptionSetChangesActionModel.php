@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\SubscriptionUpdateActionModel;
 
 class SubscriptionSetChangesActionModel extends SubscriptionUpdateActionModel implements SubscriptionSetChangesAction {

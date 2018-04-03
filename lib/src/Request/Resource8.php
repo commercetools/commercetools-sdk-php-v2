@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Channel\Channel;
 use Commercetools\Builder\ChannelUpdateBuilder;
 
@@ -43,7 +44,11 @@ class Resource8 extends Resource
     }
 
 
-    public function update(Channel $channel)
+    /**
+     * @param Channel $channel
+     * @return ChannelUpdateBuilder
+     */
+    public function update(Channel $channel): ChannelUpdateBuilder
     {
         $builder = new ChannelUpdateBuilder(function(ChannelUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($channel);
@@ -53,20 +58,26 @@ class Resource8 extends Resource
         return $builder;
     }
 
-    public function delete(Channel $channel)
+    /**
+     * @param Channel $channel
+     * @return ByProjectKeyChannelsByIDDelete
+     */
+    public function delete(Channel $channel): ByProjectKeyChannelsByIDDelete
     {
         return $this->withId($channel->getId())->delete()->withVersion($channel->getVersion());
     }
 
     /**
-     * @param ChannelDraft|callable $channelDraftDraft builder function <code>
+     * @param ChannelDraft|callable $channelDraft builder function <code>
      *   function(ChannelDraft $channelDraft): ChannelDraft {
      *     // modify $draft as needed
      *     return $channelDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyChannelsPost
      */
-    public function create($channelDraft)
+    public function create($channelDraft): ByProjectKeyChannelsPost
     {
         if (is_callable($channelDraft)) {
             $callback = $channelDraft;
@@ -74,7 +85,7 @@ class Resource8 extends Resource
             $channelDraft = $callback($emptyDraft);
         }
         if (!$channelDraft instanceof ChannelDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($channelDraft);
     }

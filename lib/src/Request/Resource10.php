@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Customer\Customer;
 use Commercetools\Builder\CustomerUpdateBuilder;
 
@@ -81,7 +82,11 @@ class Resource10 extends Resource
     }
 
 
-    public function update(Customer $customer)
+    /**
+     * @param Customer $customer
+     * @return CustomerUpdateBuilder
+     */
+    public function update(Customer $customer): CustomerUpdateBuilder
     {
         $builder = new CustomerUpdateBuilder(function(CustomerUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($customer);
@@ -91,20 +96,26 @@ class Resource10 extends Resource
         return $builder;
     }
 
-    public function delete(Customer $customer)
+    /**
+     * @param Customer $customer
+     * @return ByProjectKeyCustomersByIDDelete
+     */
+    public function delete(Customer $customer): ByProjectKeyCustomersByIDDelete
     {
         return $this->withId($customer->getId())->delete()->withVersion($customer->getVersion());
     }
 
     /**
-     * @param CustomerDraft|callable $customerDraftDraft builder function <code>
+     * @param CustomerDraft|callable $customerDraft builder function <code>
      *   function(CustomerDraft $customerDraft): CustomerDraft {
      *     // modify $draft as needed
      *     return $customerDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyCustomersPost
      */
-    public function create($customerDraft)
+    public function create($customerDraft): ByProjectKeyCustomersPost
     {
         if (is_callable($customerDraft)) {
             $callback = $customerDraft;
@@ -112,7 +123,7 @@ class Resource10 extends Resource
             $customerDraft = $callback($emptyDraft);
         }
         if (!$customerDraft instanceof CustomerDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($customerDraft);
     }

@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Zone;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class LocationCollectionModel extends JsonCollection implements LocationCollection {
 
@@ -17,7 +18,7 @@ class LocationCollectionModel extends JsonCollection implements LocationCollecti
      */
     public function add($value) {
         if (!$value instanceof Location) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
 class CustomerCreateEmailTokenModel extends JsonObjectModel implements CustomerCreateEmailToken {

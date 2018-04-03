@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\TypeUpdateAction;
 
 use Commercetools\Types\Type\TypeAddEnumValueAction;
@@ -54,6 +54,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addEnumValue($action = null)
     {
@@ -68,6 +69,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addFieldDefinition($action = null)
     {
@@ -82,6 +84,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addLocalizedEnumValue($action = null)
     {
@@ -96,6 +99,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeEnumValueOrder($action = null)
     {
@@ -110,6 +114,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeFieldDefinitionLabel($action = null)
     {
@@ -124,6 +129,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeFieldDefinitionOrder($action = null)
     {
@@ -138,6 +144,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeKey($action = null)
     {
@@ -152,6 +159,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeLabel($action = null)
     {
@@ -166,6 +174,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeLocalizedEnumValueOrder($action = null)
     {
@@ -180,6 +189,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeName($action = null)
     {
@@ -194,6 +204,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeFieldDefinition($action = null)
     {
@@ -208,6 +219,7 @@ class TypeUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDescription($action = null)
     {
@@ -225,6 +237,12 @@ class TypeUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return TypeUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -236,7 +254,7 @@ class TypeUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

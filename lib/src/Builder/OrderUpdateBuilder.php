@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Order\OrderUpdateAction;
 
 use Commercetools\Types\Order\OrderAddDeliveryAction;
@@ -76,6 +76,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addDelivery($action = null)
     {
@@ -90,6 +91,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addParcelToDelivery($action = null)
     {
@@ -104,6 +106,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addPayment($action = null)
     {
@@ -118,6 +121,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addReturnInfo($action = null)
     {
@@ -132,6 +136,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeOrderState($action = null)
     {
@@ -146,6 +151,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changePaymentState($action = null)
     {
@@ -160,6 +166,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeShipmentState($action = null)
     {
@@ -174,6 +181,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function importCustomLineItemState($action = null)
     {
@@ -188,6 +196,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function importLineItemState($action = null)
     {
@@ -202,6 +211,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeDelivery($action = null)
     {
@@ -216,6 +226,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeParcelFromDelivery($action = null)
     {
@@ -230,6 +241,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removePayment($action = null)
     {
@@ -244,6 +256,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setBillingAddress($action = null)
     {
@@ -258,6 +271,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomField($action = null)
     {
@@ -272,6 +286,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomLineItemCustomField($action = null)
     {
@@ -286,6 +301,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomLineItemCustomType($action = null)
     {
@@ -300,6 +316,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomType($action = null)
     {
@@ -314,6 +331,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomerEmail($action = null)
     {
@@ -328,6 +346,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDeliveryAddress($action = null)
     {
@@ -342,6 +361,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDeliveryItems($action = null)
     {
@@ -356,6 +376,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemCustomField($action = null)
     {
@@ -370,6 +391,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemCustomType($action = null)
     {
@@ -384,6 +406,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLocale($action = null)
     {
@@ -398,6 +421,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setOrderNumber($action = null)
     {
@@ -412,6 +436,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setParcelItems($action = null)
     {
@@ -426,6 +451,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setParcelMeasurements($action = null)
     {
@@ -440,6 +466,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setParcelTrackingData($action = null)
     {
@@ -454,6 +481,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setReturnPaymentState($action = null)
     {
@@ -468,6 +496,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setReturnShipmentState($action = null)
     {
@@ -482,6 +511,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setShippingAddress($action = null)
     {
@@ -496,6 +526,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function transitionCustomLineItemState($action = null)
     {
@@ -510,6 +541,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function transitionLineItemState($action = null)
     {
@@ -524,6 +556,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function transitionState($action = null)
     {
@@ -538,6 +571,7 @@ class OrderUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function updateSyncInfo($action = null)
     {
@@ -555,6 +589,12 @@ class OrderUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return OrderUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -566,7 +606,7 @@ class OrderUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

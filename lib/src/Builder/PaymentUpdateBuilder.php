@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Payment\PaymentUpdateAction;
 
 use Commercetools\Types\Payment\PaymentAddInterfaceInteractionAction;
@@ -63,6 +63,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addInterfaceInteraction($action = null)
     {
@@ -77,6 +78,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addTransaction($action = null)
     {
@@ -91,6 +93,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeAmountPlanned($action = null)
     {
@@ -105,6 +108,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeTransactionInteractionId($action = null)
     {
@@ -119,6 +123,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeTransactionState($action = null)
     {
@@ -133,6 +138,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeTransactionTimestamp($action = null)
     {
@@ -147,6 +153,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAmountPaid($action = null)
     {
@@ -161,6 +168,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAmountRefunded($action = null)
     {
@@ -175,6 +183,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAuthorization($action = null)
     {
@@ -189,6 +198,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomField($action = null)
     {
@@ -203,6 +213,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomType($action = null)
     {
@@ -217,6 +228,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomer($action = null)
     {
@@ -231,6 +243,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setExternalId($action = null)
     {
@@ -245,6 +258,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setInterfaceId($action = null)
     {
@@ -259,6 +273,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setKey($action = null)
     {
@@ -273,6 +288,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setMethodInfoInterface($action = null)
     {
@@ -287,6 +303,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setMethodInfoMethod($action = null)
     {
@@ -301,6 +318,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setMethodInfoName($action = null)
     {
@@ -315,6 +333,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setStatusInterfaceCode($action = null)
     {
@@ -329,6 +348,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setStatusInterfaceText($action = null)
     {
@@ -343,6 +363,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function transitionState($action = null)
     {
@@ -360,6 +381,12 @@ class PaymentUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return PaymentUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -371,7 +398,7 @@ class PaymentUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

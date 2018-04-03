@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\CustomerGroupUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CustomerGroup\CustomerGroupChangeNameAction;
 use Commercetools\Types\CustomerGroup\CustomerGroupSetKeyAction;
 use Commercetools\Types\CustomerGroup\CustomerGroup;
@@ -32,7 +32,7 @@ class CustomerGroupBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new CustomerGroupUpdateBuilder();
         $builder->changeName(function($action) { static::assertInstanceOf(CustomerGroupChangeNameAction::class, $action); return []; });
     }
@@ -46,7 +46,7 @@ class CustomerGroupBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new CustomerGroupUpdateBuilder();
         $builder->changeName([]);
     }
@@ -60,7 +60,7 @@ class CustomerGroupBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new CustomerGroupUpdateBuilder();
         $builder->setKey(function($action) { static::assertInstanceOf(CustomerGroupSetKeyAction::class, $action); return []; });
     }
@@ -74,7 +74,7 @@ class CustomerGroupBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new CustomerGroupUpdateBuilder();
         $builder->setKey([]);
     }

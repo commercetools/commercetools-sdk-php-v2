@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Me;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class MyLineItemDraftCollectionModel extends JsonCollection implements MyLineItemDraftCollection {
 
@@ -17,7 +18,7 @@ class MyLineItemDraftCollectionModel extends JsonCollection implements MyLineIte
      */
     public function add($value) {
         if (!$value instanceof MyLineItemDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

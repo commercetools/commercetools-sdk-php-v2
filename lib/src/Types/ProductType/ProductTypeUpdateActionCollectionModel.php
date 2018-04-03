@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\ProductType;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ProductTypeUpdateActionCollectionModel extends JsonCollection implements ProductTypeUpdateActionCollection {
 
@@ -17,7 +18,7 @@ class ProductTypeUpdateActionCollectionModel extends JsonCollection implements P
      */
     public function add($value) {
         if (!$value instanceof ProductTypeUpdateAction) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

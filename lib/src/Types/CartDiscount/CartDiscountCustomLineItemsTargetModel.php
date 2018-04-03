@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CartDiscount\CartDiscountTargetModel;
 
 class CartDiscountCustomLineItemsTargetModel extends CartDiscountTargetModel implements CartDiscountCustomLineItemsTarget {

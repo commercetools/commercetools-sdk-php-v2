@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Extension\Extension;
 use Commercetools\Builder\ExtensionUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource88 extends Resource
     }
 
 
-    public function update(Extension $extension)
+    /**
+     * @param Extension $extension
+     * @return ExtensionUpdateBuilder
+     */
+    public function update(Extension $extension): ExtensionUpdateBuilder
     {
         $builder = new ExtensionUpdateBuilder(function(ExtensionUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($extension);
@@ -60,20 +65,26 @@ class Resource88 extends Resource
         return $builder;
     }
 
-    public function delete(Extension $extension)
+    /**
+     * @param Extension $extension
+     * @return ByProjectKeyExtensionsByIDDelete
+     */
+    public function delete(Extension $extension): ByProjectKeyExtensionsByIDDelete
     {
         return $this->withId($extension->getId())->delete()->withVersion($extension->getVersion());
     }
 
     /**
-     * @param ExtensionDraft|callable $extensionDraftDraft builder function <code>
+     * @param ExtensionDraft|callable $extensionDraft builder function <code>
      *   function(ExtensionDraft $extensionDraft): ExtensionDraft {
      *     // modify $draft as needed
      *     return $extensionDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyExtensionsPost
      */
-    public function create($extensionDraft)
+    public function create($extensionDraft): ByProjectKeyExtensionsPost
     {
         if (is_callable($extensionDraft)) {
             $callback = $extensionDraft;
@@ -81,7 +92,7 @@ class Resource88 extends Resource
             $extensionDraft = $callback($emptyDraft);
         }
         if (!$extensionDraft instanceof ExtensionDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($extensionDraft);
     }

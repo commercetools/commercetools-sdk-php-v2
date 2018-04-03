@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Zone;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ZoneUpdateActionCollectionModel extends JsonCollection implements ZoneUpdateActionCollection {
 
@@ -17,7 +18,7 @@ class ZoneUpdateActionCollectionModel extends JsonCollection implements ZoneUpda
      */
     public function add($value) {
         if (!$value instanceof ZoneUpdateAction) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

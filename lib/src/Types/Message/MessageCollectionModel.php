@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Message;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class MessageCollectionModel extends JsonCollection implements MessageCollection {
 
@@ -17,7 +18,7 @@ class MessageCollectionModel extends JsonCollection implements MessageCollection
      */
     public function add($value) {
         if (!$value instanceof Message) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

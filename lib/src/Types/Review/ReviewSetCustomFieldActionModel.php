@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Review;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Review\ReviewUpdateActionModel;
 
 class ReviewSetCustomFieldActionModel extends ReviewUpdateActionModel implements ReviewSetCustomFieldAction {

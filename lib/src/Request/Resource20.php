@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CustomerGroup\CustomerGroup;
 use Commercetools\Builder\CustomerGroupUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource20 extends Resource
     }
 
 
-    public function update(CustomerGroup $customerGroup)
+    /**
+     * @param CustomerGroup $customerGroup
+     * @return CustomerGroupUpdateBuilder
+     */
+    public function update(CustomerGroup $customerGroup): CustomerGroupUpdateBuilder
     {
         $builder = new CustomerGroupUpdateBuilder(function(CustomerGroupUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($customerGroup);
@@ -60,20 +65,26 @@ class Resource20 extends Resource
         return $builder;
     }
 
-    public function delete(CustomerGroup $customerGroup)
+    /**
+     * @param CustomerGroup $customerGroup
+     * @return ByProjectKeyCustomerGroupsByIDDelete
+     */
+    public function delete(CustomerGroup $customerGroup): ByProjectKeyCustomerGroupsByIDDelete
     {
         return $this->withId($customerGroup->getId())->delete()->withVersion($customerGroup->getVersion());
     }
 
     /**
-     * @param CustomerGroupDraft|callable $customerGroupDraftDraft builder function <code>
+     * @param CustomerGroupDraft|callable $customerGroupDraft builder function <code>
      *   function(CustomerGroupDraft $customerGroupDraft): CustomerGroupDraft {
      *     // modify $draft as needed
      *     return $customerGroupDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyCustomerGroupsPost
      */
-    public function create($customerGroupDraft)
+    public function create($customerGroupDraft): ByProjectKeyCustomerGroupsPost
     {
         if (is_callable($customerGroupDraft)) {
             $callback = $customerGroupDraft;
@@ -81,7 +92,7 @@ class Resource20 extends Resource
             $customerGroupDraft = $callback($emptyDraft);
         }
         if (!$customerGroupDraft instanceof CustomerGroupDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($customerGroupDraft);
     }

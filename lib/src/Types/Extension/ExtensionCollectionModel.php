@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Extension;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ExtensionCollectionModel extends JsonCollection implements ExtensionCollection {
 
@@ -17,7 +18,7 @@ class ExtensionCollectionModel extends JsonCollection implements ExtensionCollec
      */
     public function add($value) {
         if (!$value instanceof Extension) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

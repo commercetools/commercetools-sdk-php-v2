@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\Product;
 use Commercetools\Builder\ProductUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource41 extends Resource
     }
 
 
-    public function update(Product $product)
+    /**
+     * @param Product $product
+     * @return ProductUpdateBuilder
+     */
+    public function update(Product $product): ProductUpdateBuilder
     {
         $builder = new ProductUpdateBuilder(function(ProductUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($product);
@@ -60,20 +65,26 @@ class Resource41 extends Resource
         return $builder;
     }
 
-    public function delete(Product $product)
+    /**
+     * @param Product $product
+     * @return ByProjectKeyProductsByIDDelete
+     */
+    public function delete(Product $product): ByProjectKeyProductsByIDDelete
     {
         return $this->withId($product->getId())->delete()->withVersion($product->getVersion());
     }
 
     /**
-     * @param ProductDraft|callable $productDraftDraft builder function <code>
+     * @param ProductDraft|callable $productDraft builder function <code>
      *   function(ProductDraft $productDraft): ProductDraft {
      *     // modify $draft as needed
      *     return $productDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyProductsPost
      */
-    public function create($productDraft)
+    public function create($productDraft): ByProjectKeyProductsPost
     {
         if (is_callable($productDraft)) {
             $callback = $productDraft;
@@ -81,7 +92,7 @@ class Resource41 extends Resource
             $productDraft = $callback($emptyDraft);
         }
         if (!$productDraft instanceof ProductDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($productDraft);
     }

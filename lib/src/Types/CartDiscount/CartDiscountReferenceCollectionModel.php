@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\CartDiscount;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class CartDiscountReferenceCollectionModel extends JsonCollection implements CartDiscountReferenceCollection {
 
@@ -17,7 +18,7 @@ class CartDiscountReferenceCollectionModel extends JsonCollection implements Car
      */
     public function add($value) {
         if (!$value instanceof CartDiscountReference) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

@@ -8,6 +8,6 @@ declare(strict_types = 1);
 namespace Commercetools\Exception;
 
 
-class BuilderInvalidArgumentException extends \InvalidArgumentException
+abstract class BaseException extends \Exception
 {
 }

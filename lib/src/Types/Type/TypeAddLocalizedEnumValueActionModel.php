@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\TypeUpdateActionModel;
 
 class TypeAddLocalizedEnumValueActionModel extends TypeUpdateActionModel implements TypeAddLocalizedEnumValueAction {

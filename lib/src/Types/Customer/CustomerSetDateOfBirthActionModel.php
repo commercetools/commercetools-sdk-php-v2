@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
 class CustomerSetDateOfBirthActionModel extends CustomerUpdateActionModel implements CustomerSetDateOfBirthAction {

@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Category\Category;
 use Commercetools\Builder\CategoryUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource1 extends Resource
     }
 
 
-    public function update(Category $category)
+    /**
+     * @param Category $category
+     * @return CategoryUpdateBuilder
+     */
+    public function update(Category $category): CategoryUpdateBuilder
     {
         $builder = new CategoryUpdateBuilder(function(CategoryUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($category);
@@ -60,20 +65,26 @@ class Resource1 extends Resource
         return $builder;
     }
 
-    public function delete(Category $category)
+    /**
+     * @param Category $category
+     * @return ByProjectKeyCategoriesByIDDelete
+     */
+    public function delete(Category $category): ByProjectKeyCategoriesByIDDelete
     {
         return $this->withId($category->getId())->delete()->withVersion($category->getVersion());
     }
 
     /**
-     * @param CategoryDraft|callable $categoryDraftDraft builder function <code>
+     * @param CategoryDraft|callable $categoryDraft builder function <code>
      *   function(CategoryDraft $categoryDraft): CategoryDraft {
      *     // modify $draft as needed
      *     return $categoryDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyCategoriesPost
      */
-    public function create($categoryDraft)
+    public function create($categoryDraft): ByProjectKeyCategoriesPost
     {
         if (is_callable($categoryDraft)) {
             $callback = $categoryDraft;
@@ -81,7 +92,7 @@ class Resource1 extends Resource
             $categoryDraft = $callback($emptyDraft);
         }
         if (!$categoryDraft instanceof CategoryDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($categoryDraft);
     }

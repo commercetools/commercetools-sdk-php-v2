@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Order\OrderUpdateActionModel;
 
 class OrderSetCustomFieldActionModel extends OrderUpdateActionModel implements OrderSetCustomFieldAction {

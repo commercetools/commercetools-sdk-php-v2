@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Extension;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Extension\ExtensionUpdateActionModel;
 
 class ExtensionSetKeyActionModel extends ExtensionUpdateActionModel implements ExtensionSetKeyAction {

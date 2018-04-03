@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Zone;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Zone\ZoneUpdateActionModel;
 
 class ZoneRemoveLocationActionModel extends ZoneUpdateActionModel implements ZoneRemoveLocationAction {

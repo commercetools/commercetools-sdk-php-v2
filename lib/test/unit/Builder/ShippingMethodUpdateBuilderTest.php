@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\ShippingMethodUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShippingMethod\ShippingMethodAddShippingRateAction;
 use Commercetools\Types\ShippingMethod\ShippingMethodAddZoneAction;
 use Commercetools\Types\ShippingMethod\ShippingMethodChangeIsDefaultAction;
@@ -48,7 +48,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testAddShippingRateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->addShippingRate(function($action) { static::assertInstanceOf(ShippingMethodAddShippingRateAction::class, $action); return []; });
     }
@@ -62,7 +62,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testAddShippingRateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->addShippingRate([]);
     }
@@ -76,7 +76,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testAddZoneInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->addZone(function($action) { static::assertInstanceOf(ShippingMethodAddZoneAction::class, $action); return []; });
     }
@@ -90,7 +90,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testAddZoneInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->addZone([]);
     }
@@ -104,7 +104,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testChangeIsDefaultInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->changeIsDefault(function($action) { static::assertInstanceOf(ShippingMethodChangeIsDefaultAction::class, $action); return []; });
     }
@@ -118,7 +118,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testChangeIsDefaultInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->changeIsDefault([]);
     }
@@ -132,7 +132,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->changeName(function($action) { static::assertInstanceOf(ShippingMethodChangeNameAction::class, $action); return []; });
     }
@@ -146,7 +146,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->changeName([]);
     }
@@ -160,7 +160,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testChangeTaxCategoryInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->changeTaxCategory(function($action) { static::assertInstanceOf(ShippingMethodChangeTaxCategoryAction::class, $action); return []; });
     }
@@ -174,7 +174,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testChangeTaxCategoryInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->changeTaxCategory([]);
     }
@@ -188,7 +188,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testRemoveShippingRateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->removeShippingRate(function($action) { static::assertInstanceOf(ShippingMethodRemoveShippingRateAction::class, $action); return []; });
     }
@@ -202,7 +202,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testRemoveShippingRateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->removeShippingRate([]);
     }
@@ -216,7 +216,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testRemoveZoneInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->removeZone(function($action) { static::assertInstanceOf(ShippingMethodRemoveZoneAction::class, $action); return []; });
     }
@@ -230,7 +230,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testRemoveZoneInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->removeZone([]);
     }
@@ -244,7 +244,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->setDescription(function($action) { static::assertInstanceOf(ShippingMethodSetDescriptionAction::class, $action); return []; });
     }
@@ -258,7 +258,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->setDescription([]);
     }
@@ -272,7 +272,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->setKey(function($action) { static::assertInstanceOf(ShippingMethodSetKeyAction::class, $action); return []; });
     }
@@ -286,7 +286,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->setKey([]);
     }
@@ -300,7 +300,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testSetPredicateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->setPredicate(function($action) { static::assertInstanceOf(ShippingMethodSetPredicateAction::class, $action); return []; });
     }
@@ -314,7 +314,7 @@ class ShippingMethodBuilderTest extends TestCase {
     }
 
     public function testSetPredicateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShippingMethodUpdateBuilder();
         $builder->setPredicate([]);
     }

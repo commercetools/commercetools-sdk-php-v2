@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\StateUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\State\StateAddRolesAction;
 use Commercetools\Types\State\StateChangeInitialAction;
 use Commercetools\Types\State\StateChangeKeyAction;
@@ -46,7 +46,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testAddRolesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->addRoles(function($action) { static::assertInstanceOf(StateAddRolesAction::class, $action); return []; });
     }
@@ -60,7 +60,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testAddRolesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->addRoles([]);
     }
@@ -74,7 +74,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testChangeInitialInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->changeInitial(function($action) { static::assertInstanceOf(StateChangeInitialAction::class, $action); return []; });
     }
@@ -88,7 +88,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testChangeInitialInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->changeInitial([]);
     }
@@ -102,7 +102,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testChangeKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->changeKey(function($action) { static::assertInstanceOf(StateChangeKeyAction::class, $action); return []; });
     }
@@ -116,7 +116,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testChangeKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->changeKey([]);
     }
@@ -130,7 +130,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testChangeTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->changeType(function($action) { static::assertInstanceOf(StateChangeTypeAction::class, $action); return []; });
     }
@@ -144,7 +144,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testChangeTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->changeType([]);
     }
@@ -158,7 +158,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testRemoveRolesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->removeRoles(function($action) { static::assertInstanceOf(StateRemoveRolesAction::class, $action); return []; });
     }
@@ -172,7 +172,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testRemoveRolesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->removeRoles([]);
     }
@@ -186,7 +186,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->setDescription(function($action) { static::assertInstanceOf(StateSetDescriptionAction::class, $action); return []; });
     }
@@ -200,7 +200,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->setDescription([]);
     }
@@ -214,7 +214,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testSetNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->setName(function($action) { static::assertInstanceOf(StateSetNameAction::class, $action); return []; });
     }
@@ -228,7 +228,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testSetNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->setName([]);
     }
@@ -242,7 +242,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testSetRolesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->setRoles(function($action) { static::assertInstanceOf(StateSetRolesAction::class, $action); return []; });
     }
@@ -256,7 +256,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testSetRolesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->setRoles([]);
     }
@@ -270,7 +270,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testSetTransitionsInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->setTransitions(function($action) { static::assertInstanceOf(StateSetTransitionsAction::class, $action); return []; });
     }
@@ -284,7 +284,7 @@ class StateBuilderTest extends TestCase {
     }
 
     public function testSetTransitionsInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new StateUpdateBuilder();
         $builder->setTransitions([]);
     }

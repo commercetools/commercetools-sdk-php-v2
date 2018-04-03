@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class AddressCollectionModel extends JsonCollection implements AddressCollection {
 
@@ -17,7 +18,7 @@ class AddressCollectionModel extends JsonCollection implements AddressCollection
      */
     public function add($value) {
         if (!$value instanceof Address) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

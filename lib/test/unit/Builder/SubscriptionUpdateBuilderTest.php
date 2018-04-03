@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\SubscriptionUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\SubscriptionSetChangesAction;
 use Commercetools\Types\Subscription\SubscriptionSetKeyAction;
 use Commercetools\Types\Subscription\SubscriptionSetMessagesAction;
@@ -34,7 +34,7 @@ class SubscriptionBuilderTest extends TestCase {
     }
 
     public function testSetChangesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new SubscriptionUpdateBuilder();
         $builder->setChanges(function($action) { static::assertInstanceOf(SubscriptionSetChangesAction::class, $action); return []; });
     }
@@ -48,7 +48,7 @@ class SubscriptionBuilderTest extends TestCase {
     }
 
     public function testSetChangesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new SubscriptionUpdateBuilder();
         $builder->setChanges([]);
     }
@@ -62,7 +62,7 @@ class SubscriptionBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new SubscriptionUpdateBuilder();
         $builder->setKey(function($action) { static::assertInstanceOf(SubscriptionSetKeyAction::class, $action); return []; });
     }
@@ -76,7 +76,7 @@ class SubscriptionBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new SubscriptionUpdateBuilder();
         $builder->setKey([]);
     }
@@ -90,7 +90,7 @@ class SubscriptionBuilderTest extends TestCase {
     }
 
     public function testSetMessagesInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new SubscriptionUpdateBuilder();
         $builder->setMessages(function($action) { static::assertInstanceOf(SubscriptionSetMessagesAction::class, $action); return []; });
     }
@@ -104,7 +104,7 @@ class SubscriptionBuilderTest extends TestCase {
     }
 
     public function testSetMessagesInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new SubscriptionUpdateBuilder();
         $builder->setMessages([]);
     }

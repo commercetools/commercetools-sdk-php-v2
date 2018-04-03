@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\InventoryEntryUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Inventory\InventoryAddQuantityAction;
 use Commercetools\Types\Inventory\InventoryChangeQuantityAction;
 use Commercetools\Types\Inventory\InventoryRemoveQuantityAction;
@@ -44,7 +44,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testAddQuantityInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->addQuantity(function($action) { static::assertInstanceOf(InventoryAddQuantityAction::class, $action); return []; });
     }
@@ -58,7 +58,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testAddQuantityInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->addQuantity([]);
     }
@@ -72,7 +72,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testChangeQuantityInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->changeQuantity(function($action) { static::assertInstanceOf(InventoryChangeQuantityAction::class, $action); return []; });
     }
@@ -86,7 +86,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testChangeQuantityInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->changeQuantity([]);
     }
@@ -100,7 +100,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testRemoveQuantityInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->removeQuantity(function($action) { static::assertInstanceOf(InventoryRemoveQuantityAction::class, $action); return []; });
     }
@@ -114,7 +114,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testRemoveQuantityInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->removeQuantity([]);
     }
@@ -128,7 +128,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setCustomField(function($action) { static::assertInstanceOf(InventorySetCustomFieldAction::class, $action); return []; });
     }
@@ -142,7 +142,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setCustomField([]);
     }
@@ -156,7 +156,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setCustomType(function($action) { static::assertInstanceOf(InventorySetCustomTypeAction::class, $action); return []; });
     }
@@ -170,7 +170,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setCustomType([]);
     }
@@ -184,7 +184,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetExpectedDeliveryInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setExpectedDelivery(function($action) { static::assertInstanceOf(InventorySetExpectedDeliveryAction::class, $action); return []; });
     }
@@ -198,7 +198,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetExpectedDeliveryInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setExpectedDelivery([]);
     }
@@ -212,7 +212,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetRestockableInDaysInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setRestockableInDays(function($action) { static::assertInstanceOf(InventorySetRestockableInDaysAction::class, $action); return []; });
     }
@@ -226,7 +226,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetRestockableInDaysInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setRestockableInDays([]);
     }
@@ -240,7 +240,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetSupplyChannelInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setSupplyChannel(function($action) { static::assertInstanceOf(InventorySetSupplyChannelAction::class, $action); return []; });
     }
@@ -254,7 +254,7 @@ class InventoryEntryBuilderTest extends TestCase {
     }
 
     public function testSetSupplyChannelInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new InventoryEntryUpdateBuilder();
         $builder->setSupplyChannel([]);
     }

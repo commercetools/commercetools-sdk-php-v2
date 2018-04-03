@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\ShoppingListUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShoppingList\ShoppingListAddLineItemAction;
 use Commercetools\Types\ShoppingList\ShoppingListAddTextLineItemAction;
 use Commercetools\Types\ShoppingList\ShoppingListChangeLineItemQuantityAction;
@@ -72,7 +72,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testAddLineItemInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->addLineItem(function($action) { static::assertInstanceOf(ShoppingListAddLineItemAction::class, $action); return []; });
     }
@@ -86,7 +86,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testAddLineItemInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->addLineItem([]);
     }
@@ -100,7 +100,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testAddTextLineItemInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->addTextLineItem(function($action) { static::assertInstanceOf(ShoppingListAddTextLineItemAction::class, $action); return []; });
     }
@@ -114,7 +114,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testAddTextLineItemInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->addTextLineItem([]);
     }
@@ -128,7 +128,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeLineItemQuantityInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeLineItemQuantity(function($action) { static::assertInstanceOf(ShoppingListChangeLineItemQuantityAction::class, $action); return []; });
     }
@@ -142,7 +142,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeLineItemQuantityInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeLineItemQuantity([]);
     }
@@ -156,7 +156,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeLineItemsOrderInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeLineItemsOrder(function($action) { static::assertInstanceOf(ShoppingListChangeLineItemsOrderAction::class, $action); return []; });
     }
@@ -170,7 +170,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeLineItemsOrderInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeLineItemsOrder([]);
     }
@@ -184,7 +184,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeName(function($action) { static::assertInstanceOf(ShoppingListChangeNameAction::class, $action); return []; });
     }
@@ -198,7 +198,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeName([]);
     }
@@ -212,7 +212,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeTextLineItemNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeTextLineItemName(function($action) { static::assertInstanceOf(ShoppingListChangeTextLineItemNameAction::class, $action); return []; });
     }
@@ -226,7 +226,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeTextLineItemNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeTextLineItemName([]);
     }
@@ -240,7 +240,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeTextLineItemQuantityInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeTextLineItemQuantity(function($action) { static::assertInstanceOf(ShoppingListChangeTextLineItemQuantityAction::class, $action); return []; });
     }
@@ -254,7 +254,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeTextLineItemQuantityInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeTextLineItemQuantity([]);
     }
@@ -268,7 +268,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeTextLineItemsOrderInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeTextLineItemsOrder(function($action) { static::assertInstanceOf(ShoppingListChangeTextLineItemsOrderAction::class, $action); return []; });
     }
@@ -282,7 +282,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testChangeTextLineItemsOrderInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->changeTextLineItemsOrder([]);
     }
@@ -296,7 +296,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testRemoveLineItemInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->removeLineItem(function($action) { static::assertInstanceOf(ShoppingListRemoveLineItemAction::class, $action); return []; });
     }
@@ -310,7 +310,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testRemoveLineItemInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->removeLineItem([]);
     }
@@ -324,7 +324,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testRemoveTextLineItemInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->removeTextLineItem(function($action) { static::assertInstanceOf(ShoppingListRemoveTextLineItemAction::class, $action); return []; });
     }
@@ -338,7 +338,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testRemoveTextLineItemInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->removeTextLineItem([]);
     }
@@ -352,7 +352,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setCustomField(function($action) { static::assertInstanceOf(ShoppingListSetCustomFieldAction::class, $action); return []; });
     }
@@ -366,7 +366,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setCustomField([]);
     }
@@ -380,7 +380,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setCustomType(function($action) { static::assertInstanceOf(ShoppingListSetCustomTypeAction::class, $action); return []; });
     }
@@ -394,7 +394,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setCustomType([]);
     }
@@ -408,7 +408,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetCustomerInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setCustomer(function($action) { static::assertInstanceOf(ShoppingListSetCustomerAction::class, $action); return []; });
     }
@@ -422,7 +422,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetCustomerInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setCustomer([]);
     }
@@ -436,7 +436,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetDeleteDaysAfterLastModificationInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setDeleteDaysAfterLastModification(function($action) { static::assertInstanceOf(ShoppingListSetDeleteDaysAfterLastModificationAction::class, $action); return []; });
     }
@@ -450,7 +450,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetDeleteDaysAfterLastModificationInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setDeleteDaysAfterLastModification([]);
     }
@@ -464,7 +464,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setDescription(function($action) { static::assertInstanceOf(ShoppingListSetDescriptionAction::class, $action); return []; });
     }
@@ -478,7 +478,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setDescription([]);
     }
@@ -492,7 +492,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setKey(function($action) { static::assertInstanceOf(ShoppingListSetKeyAction::class, $action); return []; });
     }
@@ -506,7 +506,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setKey([]);
     }
@@ -520,7 +520,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetLineItemCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setLineItemCustomField(function($action) { static::assertInstanceOf(ShoppingListSetLineItemCustomFieldAction::class, $action); return []; });
     }
@@ -534,7 +534,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetLineItemCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setLineItemCustomField([]);
     }
@@ -548,7 +548,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetLineItemCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setLineItemCustomType(function($action) { static::assertInstanceOf(ShoppingListSetLineItemCustomTypeAction::class, $action); return []; });
     }
@@ -562,7 +562,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetLineItemCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setLineItemCustomType([]);
     }
@@ -576,7 +576,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetSlugInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setSlug(function($action) { static::assertInstanceOf(ShoppingListSetSlugAction::class, $action); return []; });
     }
@@ -590,7 +590,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetSlugInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setSlug([]);
     }
@@ -604,7 +604,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetTextLineItemCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setTextLineItemCustomField(function($action) { static::assertInstanceOf(ShoppingListSetTextLineItemCustomFieldAction::class, $action); return []; });
     }
@@ -618,7 +618,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetTextLineItemCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setTextLineItemCustomField([]);
     }
@@ -632,7 +632,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetTextLineItemCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setTextLineItemCustomType(function($action) { static::assertInstanceOf(ShoppingListSetTextLineItemCustomTypeAction::class, $action); return []; });
     }
@@ -646,7 +646,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetTextLineItemCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setTextLineItemCustomType([]);
     }
@@ -660,7 +660,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetTextLineItemDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setTextLineItemDescription(function($action) { static::assertInstanceOf(ShoppingListSetTextLineItemDescriptionAction::class, $action); return []; });
     }
@@ -674,7 +674,7 @@ class ShoppingListBuilderTest extends TestCase {
     }
 
     public function testSetTextLineItemDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ShoppingListUpdateBuilder();
         $builder->setTextLineItemDescription([]);
     }

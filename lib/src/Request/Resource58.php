@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShippingMethod\ShippingMethod;
 use Commercetools\Builder\ShippingMethodUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource58 extends Resource
     }
 
 
-    public function update(ShippingMethod $shippingMethod)
+    /**
+     * @param ShippingMethod $shippingMethod
+     * @return ShippingMethodUpdateBuilder
+     */
+    public function update(ShippingMethod $shippingMethod): ShippingMethodUpdateBuilder
     {
         $builder = new ShippingMethodUpdateBuilder(function(ShippingMethodUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($shippingMethod);
@@ -60,20 +65,26 @@ class Resource58 extends Resource
         return $builder;
     }
 
-    public function delete(ShippingMethod $shippingMethod)
+    /**
+     * @param ShippingMethod $shippingMethod
+     * @return ByProjectKeyShippingMethodsByIDDelete
+     */
+    public function delete(ShippingMethod $shippingMethod): ByProjectKeyShippingMethodsByIDDelete
     {
         return $this->withId($shippingMethod->getId())->delete()->withVersion($shippingMethod->getVersion());
     }
 
     /**
-     * @param ShippingMethodDraft|callable $shippingMethodDraftDraft builder function <code>
+     * @param ShippingMethodDraft|callable $shippingMethodDraft builder function <code>
      *   function(ShippingMethodDraft $shippingMethodDraft): ShippingMethodDraft {
      *     // modify $draft as needed
      *     return $shippingMethodDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyShippingMethodsPost
      */
-    public function create($shippingMethodDraft)
+    public function create($shippingMethodDraft): ByProjectKeyShippingMethodsPost
     {
         if (is_callable($shippingMethodDraft)) {
             $callback = $shippingMethodDraft;
@@ -81,7 +92,7 @@ class Resource58 extends Resource
             $shippingMethodDraft = $callback($emptyDraft);
         }
         if (!$shippingMethodDraft instanceof ShippingMethodDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($shippingMethodDraft);
     }

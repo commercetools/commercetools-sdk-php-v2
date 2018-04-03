@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class SyncInfoCollectionModel extends JsonCollection implements SyncInfoCollection {
 
@@ -17,7 +18,7 @@ class SyncInfoCollectionModel extends JsonCollection implements SyncInfoCollecti
      */
     public function add($value) {
         if (!$value instanceof SyncInfo) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

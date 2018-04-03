@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateActionModel;
 
 class ProductSetCategoryOrderHintActionModel extends ProductUpdateActionModel implements ProductSetCategoryOrderHintAction {

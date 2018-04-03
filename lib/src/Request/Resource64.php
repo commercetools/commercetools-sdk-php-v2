@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\State\State;
 use Commercetools\Builder\StateUpdateBuilder;
 
@@ -43,7 +44,11 @@ class Resource64 extends Resource
     }
 
 
-    public function update(State $state)
+    /**
+     * @param State $state
+     * @return StateUpdateBuilder
+     */
+    public function update(State $state): StateUpdateBuilder
     {
         $builder = new StateUpdateBuilder(function(StateUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($state);
@@ -53,20 +58,26 @@ class Resource64 extends Resource
         return $builder;
     }
 
-    public function delete(State $state)
+    /**
+     * @param State $state
+     * @return ByProjectKeyStatesByIDDelete
+     */
+    public function delete(State $state): ByProjectKeyStatesByIDDelete
     {
         return $this->withId($state->getId())->delete()->withVersion($state->getVersion());
     }
 
     /**
-     * @param StateDraft|callable $stateDraftDraft builder function <code>
+     * @param StateDraft|callable $stateDraft builder function <code>
      *   function(StateDraft $stateDraft): StateDraft {
      *     // modify $draft as needed
      *     return $stateDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyStatesPost
      */
-    public function create($stateDraft)
+    public function create($stateDraft): ByProjectKeyStatesPost
     {
         if (is_callable($stateDraft)) {
             $callback = $stateDraft;
@@ -74,7 +85,7 @@ class Resource64 extends Resource
             $stateDraft = $callback($emptyDraft);
         }
         if (!$stateDraft instanceof StateDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($stateDraft);
     }

@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Cart\Cart;
 use Commercetools\Builder\CartUpdateBuilder;
 
@@ -43,7 +44,11 @@ class Resource4 extends Resource
     }
 
 
-    public function update(Cart $cart)
+    /**
+     * @param Cart $cart
+     * @return CartUpdateBuilder
+     */
+    public function update(Cart $cart): CartUpdateBuilder
     {
         $builder = new CartUpdateBuilder(function(CartUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($cart);
@@ -53,20 +58,26 @@ class Resource4 extends Resource
         return $builder;
     }
 
-    public function delete(Cart $cart)
+    /**
+     * @param Cart $cart
+     * @return ByProjectKeyCartsByIDDelete
+     */
+    public function delete(Cart $cart): ByProjectKeyCartsByIDDelete
     {
         return $this->withId($cart->getId())->delete()->withVersion($cart->getVersion());
     }
 
     /**
-     * @param CartDraft|callable $cartDraftDraft builder function <code>
+     * @param CartDraft|callable $cartDraft builder function <code>
      *   function(CartDraft $cartDraft): CartDraft {
      *     // modify $draft as needed
      *     return $cartDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyCartsPost
      */
-    public function create($cartDraft)
+    public function create($cartDraft): ByProjectKeyCartsPost
     {
         if (is_callable($cartDraft)) {
             $callback = $cartDraft;
@@ -74,7 +85,7 @@ class Resource4 extends Resource
             $cartDraft = $callback($emptyDraft);
         }
         if (!$cartDraft instanceof CartDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($cartDraft);
     }

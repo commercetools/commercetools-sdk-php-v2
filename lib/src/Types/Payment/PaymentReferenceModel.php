@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;

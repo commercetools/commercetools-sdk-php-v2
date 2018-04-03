@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ShoppingListLineItemDraftCollectionModel extends JsonCollection implements ShoppingListLineItemDraftCollection {
 
@@ -17,7 +18,7 @@ class ShoppingListLineItemDraftCollectionModel extends JsonCollection implements
      */
     public function add($value) {
         if (!$value instanceof ShoppingListLineItemDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

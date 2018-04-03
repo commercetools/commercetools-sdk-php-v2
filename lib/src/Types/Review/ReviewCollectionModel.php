@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Review;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ReviewCollectionModel extends JsonCollection implements ReviewCollection {
 
@@ -17,7 +18,7 @@ class ReviewCollectionModel extends JsonCollection implements ReviewCollection {
      */
     public function add($value) {
         if (!$value instanceof Review) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

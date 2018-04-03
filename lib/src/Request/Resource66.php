@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\Subscription;
 use Commercetools\Builder\SubscriptionUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource66 extends Resource
     }
 
 
-    public function update(Subscription $subscription)
+    /**
+     * @param Subscription $subscription
+     * @return SubscriptionUpdateBuilder
+     */
+    public function update(Subscription $subscription): SubscriptionUpdateBuilder
     {
         $builder = new SubscriptionUpdateBuilder(function(SubscriptionUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($subscription);
@@ -60,20 +65,26 @@ class Resource66 extends Resource
         return $builder;
     }
 
-    public function delete(Subscription $subscription)
+    /**
+     * @param Subscription $subscription
+     * @return ByProjectKeySubscriptionsByIDDelete
+     */
+    public function delete(Subscription $subscription): ByProjectKeySubscriptionsByIDDelete
     {
         return $this->withId($subscription->getId())->delete()->withVersion($subscription->getVersion());
     }
 
     /**
-     * @param SubscriptionDraft|callable $subscriptionDraftDraft builder function <code>
+     * @param SubscriptionDraft|callable $subscriptionDraft builder function <code>
      *   function(SubscriptionDraft $subscriptionDraft): SubscriptionDraft {
      *     // modify $draft as needed
      *     return $subscriptionDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeySubscriptionsPost
      */
-    public function create($subscriptionDraft)
+    public function create($subscriptionDraft): ByProjectKeySubscriptionsPost
     {
         if (is_callable($subscriptionDraft)) {
             $callback = $subscriptionDraft;
@@ -81,7 +92,7 @@ class Resource66 extends Resource
             $subscriptionDraft = $callback($emptyDraft);
         }
         if (!$subscriptionDraft instanceof SubscriptionDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($subscriptionDraft);
     }

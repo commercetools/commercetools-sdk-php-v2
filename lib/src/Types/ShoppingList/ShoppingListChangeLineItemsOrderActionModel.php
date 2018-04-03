@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShoppingList;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
 class ShoppingListChangeLineItemsOrderActionModel extends ShoppingListUpdateActionModel implements ShoppingListChangeLineItemsOrderAction {

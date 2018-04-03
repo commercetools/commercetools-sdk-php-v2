@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Review\Review;
 use Commercetools\Builder\ReviewUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource55 extends Resource
     }
 
 
-    public function update(Review $review)
+    /**
+     * @param Review $review
+     * @return ReviewUpdateBuilder
+     */
+    public function update(Review $review): ReviewUpdateBuilder
     {
         $builder = new ReviewUpdateBuilder(function(ReviewUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($review);
@@ -60,20 +65,26 @@ class Resource55 extends Resource
         return $builder;
     }
 
-    public function delete(Review $review)
+    /**
+     * @param Review $review
+     * @return ByProjectKeyReviewsByIDDelete
+     */
+    public function delete(Review $review): ByProjectKeyReviewsByIDDelete
     {
         return $this->withId($review->getId())->delete()->withVersion($review->getVersion());
     }
 
     /**
-     * @param ReviewDraft|callable $reviewDraftDraft builder function <code>
+     * @param ReviewDraft|callable $reviewDraft builder function <code>
      *   function(ReviewDraft $reviewDraft): ReviewDraft {
      *     // modify $draft as needed
      *     return $reviewDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyReviewsPost
      */
-    public function create($reviewDraft)
+    public function create($reviewDraft): ByProjectKeyReviewsPost
     {
         if (is_callable($reviewDraft)) {
             $callback = $reviewDraft;
@@ -81,7 +92,7 @@ class Resource55 extends Resource
             $reviewDraft = $callback($emptyDraft);
         }
         if (!$reviewDraft instanceof ReviewDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($reviewDraft);
     }

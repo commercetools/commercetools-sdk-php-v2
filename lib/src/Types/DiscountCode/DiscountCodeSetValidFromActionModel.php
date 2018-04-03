@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\DiscountCode;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionModel;
 
 class DiscountCodeSetValidFromActionModel extends DiscountCodeUpdateActionModel implements DiscountCodeSetValidFromAction {

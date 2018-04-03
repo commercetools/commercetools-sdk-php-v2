@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShoppingList\ShoppingList;
 use Commercetools\Builder\ShoppingListUpdateBuilder;
 
@@ -50,7 +51,11 @@ class Resource61 extends Resource
     }
 
 
-    public function update(ShoppingList $shoppingList)
+    /**
+     * @param ShoppingList $shoppingList
+     * @return ShoppingListUpdateBuilder
+     */
+    public function update(ShoppingList $shoppingList): ShoppingListUpdateBuilder
     {
         $builder = new ShoppingListUpdateBuilder(function(ShoppingListUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($shoppingList);
@@ -60,20 +65,26 @@ class Resource61 extends Resource
         return $builder;
     }
 
-    public function delete(ShoppingList $shoppingList)
+    /**
+     * @param ShoppingList $shoppingList
+     * @return ByProjectKeyShoppingListsByIDDelete
+     */
+    public function delete(ShoppingList $shoppingList): ByProjectKeyShoppingListsByIDDelete
     {
         return $this->withId($shoppingList->getId())->delete()->withVersion($shoppingList->getVersion());
     }
 
     /**
-     * @param ShoppingListDraft|callable $shoppingListDraftDraft builder function <code>
+     * @param ShoppingListDraft|callable $shoppingListDraft builder function <code>
      *   function(ShoppingListDraft $shoppingListDraft): ShoppingListDraft {
      *     // modify $draft as needed
      *     return $shoppingListDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyShoppingListsPost
      */
-    public function create($shoppingListDraft)
+    public function create($shoppingListDraft): ByProjectKeyShoppingListsPost
     {
         if (is_callable($shoppingListDraft)) {
             $callback = $shoppingListDraft;
@@ -81,7 +92,7 @@ class Resource61 extends Resource
             $shoppingListDraft = $callback($emptyDraft);
         }
         if (!$shoppingListDraft instanceof ShoppingListDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($shoppingListDraft);
     }

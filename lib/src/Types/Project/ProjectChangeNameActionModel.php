@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Project\ProjectUpdateActionModel;
 
 class ProjectChangeNameActionModel extends ProjectUpdateActionModel implements ProjectChangeNameAction {

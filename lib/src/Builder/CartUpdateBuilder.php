@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Cart\CartUpdateAction;
 
 use Commercetools\Types\Cart\CartAddCustomLineItemAction;
@@ -85,6 +85,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addCustomLineItem($action = null)
     {
@@ -99,6 +100,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addDiscountCode($action = null)
     {
@@ -113,6 +115,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addLineItem($action = null)
     {
@@ -127,6 +130,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addPayment($action = null)
     {
@@ -141,6 +145,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addShoppingList($action = null)
     {
@@ -155,6 +160,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeCustomLineItemMoney($action = null)
     {
@@ -169,6 +175,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeCustomLineItemQuantity($action = null)
     {
@@ -183,6 +190,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeLineItemQuantity($action = null)
     {
@@ -197,6 +205,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeTaxCalculationMode($action = null)
     {
@@ -211,6 +220,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeTaxMode($action = null)
     {
@@ -225,6 +235,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeTaxRoundingMode($action = null)
     {
@@ -239,6 +250,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function recalculate($action = null)
     {
@@ -253,6 +265,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeCustomLineItem($action = null)
     {
@@ -267,6 +280,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeDiscountCode($action = null)
     {
@@ -281,6 +295,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeLineItem($action = null)
     {
@@ -295,6 +310,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removePayment($action = null)
     {
@@ -309,6 +325,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAnonymousId($action = null)
     {
@@ -323,6 +340,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setBillingAddress($action = null)
     {
@@ -337,6 +355,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCartTotalTax($action = null)
     {
@@ -351,6 +370,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCountry($action = null)
     {
@@ -365,6 +385,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomField($action = null)
     {
@@ -379,6 +400,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomLineItemCustomField($action = null)
     {
@@ -393,6 +415,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomLineItemCustomType($action = null)
     {
@@ -407,6 +430,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomLineItemTaxAmount($action = null)
     {
@@ -421,6 +445,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomLineItemTaxRate($action = null)
     {
@@ -435,6 +460,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomShippingMethod($action = null)
     {
@@ -449,6 +475,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomType($action = null)
     {
@@ -463,6 +490,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomerEmail($action = null)
     {
@@ -477,6 +505,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomerGroup($action = null)
     {
@@ -491,6 +520,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCustomerId($action = null)
     {
@@ -505,6 +535,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDeleteDaysAfterLastModification($action = null)
     {
@@ -519,6 +550,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemCustomField($action = null)
     {
@@ -533,6 +565,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemCustomType($action = null)
     {
@@ -547,6 +580,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemPrice($action = null)
     {
@@ -561,6 +595,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemTaxAmount($action = null)
     {
@@ -575,6 +610,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemTaxRate($action = null)
     {
@@ -589,6 +625,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLineItemTotalPrice($action = null)
     {
@@ -603,6 +640,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setLocale($action = null)
     {
@@ -617,6 +655,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setShippingAddress($action = null)
     {
@@ -631,6 +670,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setShippingMethod($action = null)
     {
@@ -645,6 +685,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setShippingMethodTaxAmount($action = null)
     {
@@ -659,6 +700,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setShippingMethodTaxRate($action = null)
     {
@@ -673,6 +715,7 @@ class CartUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setShippingRateInput($action = null)
     {
@@ -690,6 +733,12 @@ class CartUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return CartUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -701,7 +750,7 @@ class CartUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

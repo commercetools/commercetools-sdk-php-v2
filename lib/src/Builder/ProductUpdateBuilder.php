@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Base\BaseBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateAction;
 
 use Commercetools\Types\Product\ProductAddAssetAction;
@@ -87,6 +87,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addAsset($action = null)
     {
@@ -101,6 +102,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addExternalImage($action = null)
     {
@@ -115,6 +117,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addPrice($action = null)
     {
@@ -129,6 +132,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addToCategory($action = null)
     {
@@ -143,6 +147,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function addVariant($action = null)
     {
@@ -157,6 +162,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeAssetName($action = null)
     {
@@ -171,6 +177,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeAssetOrder($action = null)
     {
@@ -185,6 +192,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeMasterVariant($action = null)
     {
@@ -199,6 +207,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeName($action = null)
     {
@@ -213,6 +222,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changePrice($action = null)
     {
@@ -227,6 +237,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function changeSlug($action = null)
     {
@@ -241,6 +252,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function legacySetSku($action = null)
     {
@@ -255,6 +267,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function moveImageToPosition($action = null)
     {
@@ -269,6 +282,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function publish($action = null)
     {
@@ -283,6 +297,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeAsset($action = null)
     {
@@ -297,6 +312,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeFromCategory($action = null)
     {
@@ -311,6 +327,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeImage($action = null)
     {
@@ -325,6 +342,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removePrice($action = null)
     {
@@ -339,6 +357,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function removeVariant($action = null)
     {
@@ -353,6 +372,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function revertStagedChanges($action = null)
     {
@@ -367,6 +387,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function revertStagedVariantChanges($action = null)
     {
@@ -381,6 +402,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAssetCustomField($action = null)
     {
@@ -395,6 +417,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAssetCustomType($action = null)
     {
@@ -409,6 +432,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAssetDescription($action = null)
     {
@@ -423,6 +447,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAssetKey($action = null)
     {
@@ -437,6 +462,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAssetSources($action = null)
     {
@@ -451,6 +477,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAssetTags($action = null)
     {
@@ -465,6 +492,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAttribute($action = null)
     {
@@ -479,6 +507,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setAttributeInAllVariants($action = null)
     {
@@ -493,6 +522,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setCategoryOrderHint($action = null)
     {
@@ -507,6 +537,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDescription($action = null)
     {
@@ -521,6 +552,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setDiscountedPrice($action = null)
     {
@@ -535,6 +567,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setKey($action = null)
     {
@@ -549,6 +582,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setMetaDescription($action = null)
     {
@@ -563,6 +597,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setMetaKeywords($action = null)
     {
@@ -577,6 +612,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setMetaTitle($action = null)
     {
@@ -591,6 +627,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setPrices($action = null)
     {
@@ -605,6 +642,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setProductPriceCustomField($action = null)
     {
@@ -619,6 +657,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setProductPriceCustomType($action = null)
     {
@@ -633,6 +672,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setProductVariantKey($action = null)
     {
@@ -647,6 +687,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setSearchKeywords($action = null)
     {
@@ -661,6 +702,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setSku($action = null)
     {
@@ -675,6 +717,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function setTaxCategory($action = null)
     {
@@ -689,6 +732,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function transitionState($action = null)
     {
@@ -703,6 +747,7 @@ class ProductUpdateBuilder extends BaseBuilder {
      *   }
      *   </code>
      * @return $this
+     * @throws InvalidArgumentException
      */
     public function unpublish($action = null)
     {
@@ -720,6 +765,12 @@ class ProductUpdateBuilder extends BaseBuilder {
         return $this;
     }
 
+    /**
+     * @param $class
+     * @param $action
+     * @return ProductUpdateAction
+     * @throws InvalidArgumentException
+     */
     private function resolveAction($class, $action = null)
     {
         if (is_null($action) || is_callable($action)) {
@@ -731,7 +782,7 @@ class ProductUpdateBuilder extends BaseBuilder {
             return $action;
         }
 
-        throw new BuilderInvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf('Expected method to be called with or callable to return %s', $class)
         );
     }

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\OrderUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Order\OrderAddDeliveryAction;
 use Commercetools\Types\Order\OrderAddParcelToDeliveryAction;
 use Commercetools\Types\Order\OrderAddPaymentAction;
@@ -96,7 +96,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testAddDeliveryInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->addDelivery(function($action) { static::assertInstanceOf(OrderAddDeliveryAction::class, $action); return []; });
     }
@@ -110,7 +110,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testAddDeliveryInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->addDelivery([]);
     }
@@ -124,7 +124,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testAddParcelToDeliveryInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->addParcelToDelivery(function($action) { static::assertInstanceOf(OrderAddParcelToDeliveryAction::class, $action); return []; });
     }
@@ -138,7 +138,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testAddParcelToDeliveryInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->addParcelToDelivery([]);
     }
@@ -152,7 +152,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testAddPaymentInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->addPayment(function($action) { static::assertInstanceOf(OrderAddPaymentAction::class, $action); return []; });
     }
@@ -166,7 +166,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testAddPaymentInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->addPayment([]);
     }
@@ -180,7 +180,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testAddReturnInfoInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->addReturnInfo(function($action) { static::assertInstanceOf(OrderAddReturnInfoAction::class, $action); return []; });
     }
@@ -194,7 +194,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testAddReturnInfoInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->addReturnInfo([]);
     }
@@ -208,7 +208,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testChangeOrderStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->changeOrderState(function($action) { static::assertInstanceOf(OrderChangeOrderStateAction::class, $action); return []; });
     }
@@ -222,7 +222,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testChangeOrderStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->changeOrderState([]);
     }
@@ -236,7 +236,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testChangePaymentStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->changePaymentState(function($action) { static::assertInstanceOf(OrderChangePaymentStateAction::class, $action); return []; });
     }
@@ -250,7 +250,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testChangePaymentStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->changePaymentState([]);
     }
@@ -264,7 +264,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testChangeShipmentStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->changeShipmentState(function($action) { static::assertInstanceOf(OrderChangeShipmentStateAction::class, $action); return []; });
     }
@@ -278,7 +278,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testChangeShipmentStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->changeShipmentState([]);
     }
@@ -292,7 +292,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testImportCustomLineItemStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->importCustomLineItemState(function($action) { static::assertInstanceOf(OrderImportCustomLineItemStateAction::class, $action); return []; });
     }
@@ -306,7 +306,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testImportCustomLineItemStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->importCustomLineItemState([]);
     }
@@ -320,7 +320,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testImportLineItemStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->importLineItemState(function($action) { static::assertInstanceOf(OrderImportLineItemStateAction::class, $action); return []; });
     }
@@ -334,7 +334,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testImportLineItemStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->importLineItemState([]);
     }
@@ -348,7 +348,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testRemoveDeliveryInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->removeDelivery(function($action) { static::assertInstanceOf(OrderRemoveDeliveryAction::class, $action); return []; });
     }
@@ -362,7 +362,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testRemoveDeliveryInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->removeDelivery([]);
     }
@@ -376,7 +376,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testRemoveParcelFromDeliveryInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->removeParcelFromDelivery(function($action) { static::assertInstanceOf(OrderRemoveParcelFromDeliveryAction::class, $action); return []; });
     }
@@ -390,7 +390,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testRemoveParcelFromDeliveryInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->removeParcelFromDelivery([]);
     }
@@ -404,7 +404,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testRemovePaymentInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->removePayment(function($action) { static::assertInstanceOf(OrderRemovePaymentAction::class, $action); return []; });
     }
@@ -418,7 +418,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testRemovePaymentInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->removePayment([]);
     }
@@ -432,7 +432,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetBillingAddressInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setBillingAddress(function($action) { static::assertInstanceOf(OrderSetBillingAddressAction::class, $action); return []; });
     }
@@ -446,7 +446,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetBillingAddressInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setBillingAddress([]);
     }
@@ -460,7 +460,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomField(function($action) { static::assertInstanceOf(OrderSetCustomFieldAction::class, $action); return []; });
     }
@@ -474,7 +474,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomField([]);
     }
@@ -488,7 +488,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomLineItemCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomLineItemCustomField(function($action) { static::assertInstanceOf(OrderSetCustomLineItemCustomFieldAction::class, $action); return []; });
     }
@@ -502,7 +502,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomLineItemCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomLineItemCustomField([]);
     }
@@ -516,7 +516,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomLineItemCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomLineItemCustomType(function($action) { static::assertInstanceOf(OrderSetCustomLineItemCustomTypeAction::class, $action); return []; });
     }
@@ -530,7 +530,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomLineItemCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomLineItemCustomType([]);
     }
@@ -544,7 +544,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomType(function($action) { static::assertInstanceOf(OrderSetCustomTypeAction::class, $action); return []; });
     }
@@ -558,7 +558,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomType([]);
     }
@@ -572,7 +572,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomerEmailInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomerEmail(function($action) { static::assertInstanceOf(OrderSetCustomerEmailAction::class, $action); return []; });
     }
@@ -586,7 +586,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetCustomerEmailInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setCustomerEmail([]);
     }
@@ -600,7 +600,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetDeliveryAddressInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setDeliveryAddress(function($action) { static::assertInstanceOf(OrderSetDeliveryAddressAction::class, $action); return []; });
     }
@@ -614,7 +614,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetDeliveryAddressInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setDeliveryAddress([]);
     }
@@ -628,7 +628,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetDeliveryItemsInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setDeliveryItems(function($action) { static::assertInstanceOf(OrderSetDeliveryItemsAction::class, $action); return []; });
     }
@@ -642,7 +642,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetDeliveryItemsInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setDeliveryItems([]);
     }
@@ -656,7 +656,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetLineItemCustomFieldInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setLineItemCustomField(function($action) { static::assertInstanceOf(OrderSetLineItemCustomFieldAction::class, $action); return []; });
     }
@@ -670,7 +670,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetLineItemCustomFieldInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setLineItemCustomField([]);
     }
@@ -684,7 +684,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetLineItemCustomTypeInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setLineItemCustomType(function($action) { static::assertInstanceOf(OrderSetLineItemCustomTypeAction::class, $action); return []; });
     }
@@ -698,7 +698,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetLineItemCustomTypeInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setLineItemCustomType([]);
     }
@@ -712,7 +712,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetLocaleInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setLocale(function($action) { static::assertInstanceOf(OrderSetLocaleAction::class, $action); return []; });
     }
@@ -726,7 +726,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetLocaleInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setLocale([]);
     }
@@ -740,7 +740,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetOrderNumberInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setOrderNumber(function($action) { static::assertInstanceOf(OrderSetOrderNumberAction::class, $action); return []; });
     }
@@ -754,7 +754,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetOrderNumberInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setOrderNumber([]);
     }
@@ -768,7 +768,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetParcelItemsInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setParcelItems(function($action) { static::assertInstanceOf(OrderSetParcelItemsAction::class, $action); return []; });
     }
@@ -782,7 +782,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetParcelItemsInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setParcelItems([]);
     }
@@ -796,7 +796,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetParcelMeasurementsInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setParcelMeasurements(function($action) { static::assertInstanceOf(OrderSetParcelMeasurementsAction::class, $action); return []; });
     }
@@ -810,7 +810,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetParcelMeasurementsInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setParcelMeasurements([]);
     }
@@ -824,7 +824,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetParcelTrackingDataInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setParcelTrackingData(function($action) { static::assertInstanceOf(OrderSetParcelTrackingDataAction::class, $action); return []; });
     }
@@ -838,7 +838,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetParcelTrackingDataInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setParcelTrackingData([]);
     }
@@ -852,7 +852,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetReturnPaymentStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setReturnPaymentState(function($action) { static::assertInstanceOf(OrderSetReturnPaymentStateAction::class, $action); return []; });
     }
@@ -866,7 +866,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetReturnPaymentStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setReturnPaymentState([]);
     }
@@ -880,7 +880,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetReturnShipmentStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setReturnShipmentState(function($action) { static::assertInstanceOf(OrderSetReturnShipmentStateAction::class, $action); return []; });
     }
@@ -894,7 +894,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetReturnShipmentStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setReturnShipmentState([]);
     }
@@ -908,7 +908,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetShippingAddressInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setShippingAddress(function($action) { static::assertInstanceOf(OrderSetShippingAddressAction::class, $action); return []; });
     }
@@ -922,7 +922,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testSetShippingAddressInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->setShippingAddress([]);
     }
@@ -936,7 +936,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testTransitionCustomLineItemStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->transitionCustomLineItemState(function($action) { static::assertInstanceOf(OrderTransitionCustomLineItemStateAction::class, $action); return []; });
     }
@@ -950,7 +950,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testTransitionCustomLineItemStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->transitionCustomLineItemState([]);
     }
@@ -964,7 +964,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testTransitionLineItemStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->transitionLineItemState(function($action) { static::assertInstanceOf(OrderTransitionLineItemStateAction::class, $action); return []; });
     }
@@ -978,7 +978,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testTransitionLineItemStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->transitionLineItemState([]);
     }
@@ -992,7 +992,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testTransitionStateInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->transitionState(function($action) { static::assertInstanceOf(OrderTransitionStateAction::class, $action); return []; });
     }
@@ -1006,7 +1006,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testTransitionStateInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->transitionState([]);
     }
@@ -1020,7 +1020,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testUpdateSyncInfoInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->updateSyncInfo(function($action) { static::assertInstanceOf(OrderUpdateSyncInfoAction::class, $action); return []; });
     }
@@ -1034,7 +1034,7 @@ class OrderBuilderTest extends TestCase {
     }
 
     public function testUpdateSyncInfoInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new OrderUpdateBuilder();
         $builder->updateSyncInfo([]);
     }

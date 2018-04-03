@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ShippingMethodUpdateActionCollectionModel extends JsonCollection implements ShippingMethodUpdateActionCollection {
 
@@ -17,7 +18,7 @@ class ShippingMethodUpdateActionCollectionModel extends JsonCollection implement
      */
     public function add($value) {
         if (!$value instanceof ShippingMethodUpdateAction) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

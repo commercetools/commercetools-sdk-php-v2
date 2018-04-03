@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Cart\CartUpdateActionModel;
 
 class CartSetLineItemTaxAmountActionModel extends CartUpdateActionModel implements CartSetLineItemTaxAmountAction {

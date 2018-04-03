@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionModel;
 
 class ProductTypeChangePlainEnumValueLabelActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangePlainEnumValueLabelAction {

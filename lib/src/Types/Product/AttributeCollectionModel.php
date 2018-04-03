@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class AttributeCollectionModel extends JsonCollection implements AttributeCollection {
 
@@ -17,7 +18,7 @@ class AttributeCollectionModel extends JsonCollection implements AttributeCollec
      */
     public function add($value) {
         if (!$value instanceof Attribute) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\TaxCategory;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\TaxCategory\TaxCategoryUpdateActionModel;
 
 class TaxCategoryChangeNameActionModel extends TaxCategoryUpdateActionModel implements TaxCategoryChangeNameAction {

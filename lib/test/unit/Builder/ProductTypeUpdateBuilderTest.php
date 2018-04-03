@@ -8,7 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Builder;
 
 use Commercetools\Builder\ProductTypeUpdateBuilder;
-use Commercetools\Exception\BuilderInvalidArgumentException;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeAddAttributeDefinitionAction;
 use Commercetools\Types\ProductType\ProductTypeAddLocalizedEnumValueAction;
 use Commercetools\Types\ProductType\ProductTypeAddPlainEnumValueAction;
@@ -62,7 +62,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testAddAttributeDefinitionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->addAttributeDefinition(function($action) { static::assertInstanceOf(ProductTypeAddAttributeDefinitionAction::class, $action); return []; });
     }
@@ -76,7 +76,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testAddAttributeDefinitionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->addAttributeDefinition([]);
     }
@@ -90,7 +90,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testAddLocalizedEnumValueInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->addLocalizedEnumValue(function($action) { static::assertInstanceOf(ProductTypeAddLocalizedEnumValueAction::class, $action); return []; });
     }
@@ -104,7 +104,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testAddLocalizedEnumValueInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->addLocalizedEnumValue([]);
     }
@@ -118,7 +118,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testAddPlainEnumValueInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->addPlainEnumValue(function($action) { static::assertInstanceOf(ProductTypeAddPlainEnumValueAction::class, $action); return []; });
     }
@@ -132,7 +132,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testAddPlainEnumValueInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->addPlainEnumValue([]);
     }
@@ -146,7 +146,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeAttributeConstraintInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeAttributeConstraint(function($action) { static::assertInstanceOf(ProductTypeChangeAttributeConstraintAction::class, $action); return []; });
     }
@@ -160,7 +160,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeAttributeConstraintInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeAttributeConstraint([]);
     }
@@ -174,7 +174,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeAttributeOrderInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeAttributeOrder(function($action) { static::assertInstanceOf(ProductTypeChangeAttributeOrderAction::class, $action); return []; });
     }
@@ -188,7 +188,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeAttributeOrderInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeAttributeOrder([]);
     }
@@ -202,7 +202,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeDescriptionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeDescription(function($action) { static::assertInstanceOf(ProductTypeChangeDescriptionAction::class, $action); return []; });
     }
@@ -216,7 +216,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeDescriptionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeDescription([]);
     }
@@ -230,7 +230,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeInputHintInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeInputHint(function($action) { static::assertInstanceOf(ProductTypeChangeInputHintAction::class, $action); return []; });
     }
@@ -244,7 +244,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeInputHintInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeInputHint([]);
     }
@@ -258,7 +258,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeIsSearchableInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeIsSearchable(function($action) { static::assertInstanceOf(ProductTypeChangeIsSearchableAction::class, $action); return []; });
     }
@@ -272,7 +272,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeIsSearchableInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeIsSearchable([]);
     }
@@ -286,7 +286,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeLabelInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeLabel(function($action) { static::assertInstanceOf(ProductTypeChangeLabelAction::class, $action); return []; });
     }
@@ -300,7 +300,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeLabelInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeLabel([]);
     }
@@ -314,7 +314,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeLocalizedEnumValueLabelInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeLocalizedEnumValueLabel(function($action) { static::assertInstanceOf(ProductTypeChangeLocalizedEnumValueLabelAction::class, $action); return []; });
     }
@@ -328,7 +328,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeLocalizedEnumValueLabelInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeLocalizedEnumValueLabel([]);
     }
@@ -342,7 +342,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeLocalizedEnumValueOrderInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeLocalizedEnumValueOrder(function($action) { static::assertInstanceOf(ProductTypeChangeLocalizedEnumValueOrderAction::class, $action); return []; });
     }
@@ -356,7 +356,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeLocalizedEnumValueOrderInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeLocalizedEnumValueOrder([]);
     }
@@ -370,7 +370,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeName(function($action) { static::assertInstanceOf(ProductTypeChangeNameAction::class, $action); return []; });
     }
@@ -384,7 +384,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangeNameInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeName([]);
     }
@@ -398,7 +398,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangePlainEnumValueLabelInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changePlainEnumValueLabel(function($action) { static::assertInstanceOf(ProductTypeChangePlainEnumValueLabelAction::class, $action); return []; });
     }
@@ -412,7 +412,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangePlainEnumValueLabelInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changePlainEnumValueLabel([]);
     }
@@ -426,7 +426,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangePlainEnumValueOrderInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changePlainEnumValueOrder(function($action) { static::assertInstanceOf(ProductTypeChangePlainEnumValueOrderAction::class, $action); return []; });
     }
@@ -440,7 +440,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testChangePlainEnumValueOrderInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changePlainEnumValueOrder([]);
     }
@@ -454,7 +454,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testRemoveAttributeDefinitionInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->removeAttributeDefinition(function($action) { static::assertInstanceOf(ProductTypeRemoveAttributeDefinitionAction::class, $action); return []; });
     }
@@ -468,7 +468,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testRemoveAttributeDefinitionInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->removeAttributeDefinition([]);
     }
@@ -482,7 +482,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testSetInputTipInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->setInputTip(function($action) { static::assertInstanceOf(ProductTypeSetInputTipAction::class, $action); return []; });
     }
@@ -496,7 +496,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testSetInputTipInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->setInputTip([]);
     }
@@ -510,7 +510,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidCallback() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->setKey(function($action) { static::assertInstanceOf(ProductTypeSetKeyAction::class, $action); return []; });
     }
@@ -524,7 +524,7 @@ class ProductTypeBuilderTest extends TestCase {
     }
 
     public function testSetKeyInvalidInstance() {
-        $this->expectException(BuilderInvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->setKey([]);
     }

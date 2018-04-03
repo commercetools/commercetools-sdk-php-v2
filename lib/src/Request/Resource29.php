@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Inventory\InventoryEntry;
 use Commercetools\Builder\InventoryEntryUpdateBuilder;
 
@@ -43,7 +44,11 @@ class Resource29 extends Resource
     }
 
 
-    public function update(InventoryEntry $inventoryEntry)
+    /**
+     * @param InventoryEntry $inventoryEntry
+     * @return InventoryEntryUpdateBuilder
+     */
+    public function update(InventoryEntry $inventoryEntry): InventoryEntryUpdateBuilder
     {
         $builder = new InventoryEntryUpdateBuilder(function(InventoryEntryUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($inventoryEntry);
@@ -53,20 +58,26 @@ class Resource29 extends Resource
         return $builder;
     }
 
-    public function delete(InventoryEntry $inventoryEntry)
+    /**
+     * @param InventoryEntry $inventoryEntry
+     * @return ByProjectKeyInventoryByIDDelete
+     */
+    public function delete(InventoryEntry $inventoryEntry): ByProjectKeyInventoryByIDDelete
     {
         return $this->withId($inventoryEntry->getId())->delete()->withVersion($inventoryEntry->getVersion());
     }
 
     /**
-     * @param InventoryEntryDraft|callable $inventoryEntryDraftDraft builder function <code>
+     * @param InventoryEntryDraft|callable $inventoryEntryDraft builder function <code>
      *   function(InventoryEntryDraft $inventoryEntryDraft): InventoryEntryDraft {
      *     // modify $draft as needed
      *     return $inventoryEntryDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyInventoryPost
      */
-    public function create($inventoryEntryDraft)
+    public function create($inventoryEntryDraft): ByProjectKeyInventoryPost
     {
         if (is_callable($inventoryEntryDraft)) {
             $callback = $inventoryEntryDraft;
@@ -74,7 +85,7 @@ class Resource29 extends Resource
             $inventoryEntryDraft = $callback($emptyDraft);
         }
         if (!$inventoryEntryDraft instanceof InventoryEntryDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($inventoryEntryDraft);
     }

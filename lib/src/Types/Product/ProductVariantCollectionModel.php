@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class ProductVariantCollectionModel extends JsonCollection implements ProductVariantCollection {
 
@@ -17,7 +18,7 @@ class ProductVariantCollectionModel extends JsonCollection implements ProductVar
      */
     public function add($value) {
         if (!$value instanceof ProductVariant) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

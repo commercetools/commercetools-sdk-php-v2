@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Project\Project;
 use Commercetools\Builder\ProjectUpdateBuilder;
 
@@ -204,7 +205,11 @@ class Resource0 extends Resource
     }
 
 
-    public function update(Project $project)
+    /**
+     * @param Project $project
+     * @return ProjectUpdateBuilder
+     */
+    public function update(Project $project): ProjectUpdateBuilder
     {
         $builder = new ProjectUpdateBuilder(function(ProjectUpdateBuilder $builder) { return $this->post($builder->build()); });
         $builder->with($project);

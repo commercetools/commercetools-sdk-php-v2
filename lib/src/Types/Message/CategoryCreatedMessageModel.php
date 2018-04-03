@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Category\Category;

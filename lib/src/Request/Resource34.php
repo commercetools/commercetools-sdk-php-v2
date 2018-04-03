@@ -9,6 +9,7 @@ namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
 use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Order\Order;
 use Commercetools\Builder\OrderUpdateBuilder;
 
@@ -56,7 +57,11 @@ class Resource34 extends Resource
     }
 
 
-    public function update(Order $order)
+    /**
+     * @param Order $order
+     * @return OrderUpdateBuilder
+     */
+    public function update(Order $order): OrderUpdateBuilder
     {
         $builder = new OrderUpdateBuilder(function(OrderUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
         $builder->with($order);
@@ -66,20 +71,26 @@ class Resource34 extends Resource
         return $builder;
     }
 
-    public function delete(Order $order)
+    /**
+     * @param Order $order
+     * @return ByProjectKeyOrdersByIDDelete
+     */
+    public function delete(Order $order): ByProjectKeyOrdersByIDDelete
     {
         return $this->withId($order->getId())->delete()->withVersion($order->getVersion());
     }
 
     /**
-     * @param OrderFromCartDraft|callable $orderFromCartDraftDraft builder function <code>
+     * @param OrderFromCartDraft|callable $orderFromCartDraft builder function <code>
      *   function(OrderFromCartDraft $orderFromCartDraft): OrderFromCartDraft {
      *     // modify $draft as needed
      *     return $orderFromCartDraft;
      *   }
      *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyOrdersPost
      */
-    public function create($orderFromCartDraft)
+    public function create($orderFromCartDraft): ByProjectKeyOrdersPost
     {
         if (is_callable($orderFromCartDraft)) {
             $callback = $orderFromCartDraft;
@@ -87,7 +98,7 @@ class Resource34 extends Resource
             $orderFromCartDraft = $callback($emptyDraft);
         }
         if (!$orderFromCartDraft instanceof OrderFromCartDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         return $this->post($orderFromCartDraft);
     }

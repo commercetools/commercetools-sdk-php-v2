@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
+use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Channel\ChannelUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;

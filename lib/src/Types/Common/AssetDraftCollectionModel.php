@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class AssetDraftCollectionModel extends JsonCollection implements AssetDraftCollection {
 
@@ -17,7 +18,7 @@ class AssetDraftCollectionModel extends JsonCollection implements AssetDraftColl
      */
     public function add($value) {
         if (!$value instanceof AssetDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 

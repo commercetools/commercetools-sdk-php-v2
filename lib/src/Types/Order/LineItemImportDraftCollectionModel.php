@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonCollection;
+use Commercetools\Exception\InvalidArgumentException;
 
 class LineItemImportDraftCollectionModel extends JsonCollection implements LineItemImportDraftCollection {
 
@@ -17,7 +18,7 @@ class LineItemImportDraftCollectionModel extends JsonCollection implements LineI
      */
     public function add($value) {
         if (!$value instanceof LineItemImportDraft) {
-            throw new \InvalidArgumentException();
+            throw new InvalidArgumentException();
         }
         parent::add($value);
 
