@@ -60,7 +60,7 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest
      */
     public function withSearchKeywords($locale, $searchKeywords): ByProjectKeyProductProjectionsSuggestGet
     {
-        return $this->withQueryParam(sprintf('searchKeywords.null', $locale), $searchKeywords);
+        return $this->withQueryParam(sprintf('searchKeywords.%s', $locale), $searchKeywords);
     }
 
 }

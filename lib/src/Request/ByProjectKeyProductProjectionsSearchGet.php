@@ -100,7 +100,7 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
      */
     public function withText($locale, $text): ByProjectKeyProductProjectionsSearchGet
     {
-        return $this->withQueryParam(sprintf('text.null', $locale), $text);
+        return $this->withQueryParam(sprintf('text.%s', $locale), $text);
     }
 
 }
