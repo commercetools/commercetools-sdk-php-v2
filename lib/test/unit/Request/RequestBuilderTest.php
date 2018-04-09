@@ -786,6 +786,13 @@ class RequestBuilderTest extends TestCase
                 'post',
                 '/{projectKey}/product-discounts',
             ],
+            'ByProjectKeyProductDiscountsMatchingPost' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->productDiscounts()->matching()->post(null);
+                },
+                'post',
+                '/{projectKey}/product-discounts/matching',
+            ],
             'ByProjectKeyProductDiscountsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
                     return $builder->withProjectKeyValue('projectKey')->productDiscounts()->withId('ID')->get();

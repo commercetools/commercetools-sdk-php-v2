@@ -31,7 +31,7 @@ interface Price extends JsonObject {
     public function getId();
 
     /**
-     * @return TypedMoney
+     * @return Money
      */
     public function getValue();
 
@@ -82,10 +82,10 @@ interface Price extends JsonObject {
     public function setId(string $id);
 
     /**
-     * @param TypedMoney $value
+     * @param Money $value
      * @return $this
      */
-    public function setValue(TypedMoney $value);
+    public function setValue(Money $value);
 
     /**
      * @param string $country

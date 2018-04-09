@@ -15,26 +15,26 @@ use Commercetools\Types\Extension\ExtensionUpdate;
 class Resource90 extends Resource
 {
     /**
-     * @return ByProjectKeyExtensionsByIDGet
+     * @return ByProjectKeyExtensionsKeyByKeyGet
      */
-    public function get(): ByProjectKeyExtensionsByIDGet {
+    public function get(): ByProjectKeyExtensionsKeyByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyExtensionsByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyExtensionsKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
      * @param ExtensionUpdate $body
-     * @return ByProjectKeyExtensionsByIDPost
+     * @return ByProjectKeyExtensionsKeyByKeyPost
      */
-    public function post(ExtensionUpdate $body = null): ByProjectKeyExtensionsByIDPost {
+    public function post(ExtensionUpdate $body = null): ByProjectKeyExtensionsKeyByKeyPost {
         $args = $this->getArgs();
-        return new ByProjectKeyExtensionsByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyExtensionsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }
     /**
-     * @return ByProjectKeyExtensionsByIDDelete
+     * @return ByProjectKeyExtensionsKeyByKeyDelete
      */
-    public function delete(): ByProjectKeyExtensionsByIDDelete {
+    public function delete(): ByProjectKeyExtensionsKeyByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyExtensionsByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyExtensionsKeyByKeyDelete($args['projectKey'], $args['key']);
     }
 
 }

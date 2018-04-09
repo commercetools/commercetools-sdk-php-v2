@@ -15,26 +15,26 @@ use Commercetools\Types\Review\ReviewUpdate;
 class Resource57 extends Resource
 {
     /**
-     * @return ByProjectKeyReviewsByIDGet
+     * @return ByProjectKeyReviewsKeyByKeyGet
      */
-    public function get(): ByProjectKeyReviewsByIDGet {
+    public function get(): ByProjectKeyReviewsKeyByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyReviewsByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyReviewsKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
      * @param ReviewUpdate $body
-     * @return ByProjectKeyReviewsByIDPost
+     * @return ByProjectKeyReviewsKeyByKeyPost
      */
-    public function post(ReviewUpdate $body = null): ByProjectKeyReviewsByIDPost {
+    public function post(ReviewUpdate $body = null): ByProjectKeyReviewsKeyByKeyPost {
         $args = $this->getArgs();
-        return new ByProjectKeyReviewsByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyReviewsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }
     /**
-     * @return ByProjectKeyReviewsByIDDelete
+     * @return ByProjectKeyReviewsKeyByKeyDelete
      */
-    public function delete(): ByProjectKeyReviewsByIDDelete {
+    public function delete(): ByProjectKeyReviewsKeyByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyReviewsByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyReviewsKeyByKeyDelete($args['projectKey'], $args['key']);
     }
 
 }

@@ -21,9 +21,15 @@ class Resource45 extends Resource
     /**
      * @return Resource46
      */
-    public function withId($ID = null): Resource46 {
+    public function matching(): Resource46 {
+        return new Resource46($this->getUri() . '/matching', $this->getArgs(), $this->getMapper());
+    }
+    /**
+     * @return Resource47
+     */
+    public function withId($ID = null): Resource47 {
         $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource46($this->getUri() . '/{ID}', $args, $this->getMapper());
+        return new Resource47($this->getUri() . '/{ID}', $args, $this->getMapper());
     }
 
 

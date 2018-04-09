@@ -20,7 +20,7 @@ class PriceModel extends JsonObjectModel implements Price {
      */
     protected $id;
     /**
-     * @var TypedMoney
+     * @var Money
      */
     protected $value;
     /**
@@ -69,17 +69,16 @@ class PriceModel extends JsonObjectModel implements Price {
         return $this->id;
     }
     /**
-     * @return TypedMoney
+     * @return Money
      */
     public function getValue()
     {
         if (is_null($this->value)) {
             $value = $this->raw(Price::FIELD_VALUE);
-            $resolvedClass = $this->resolveDiscriminator(TypedMoney::class, $value);
             if (is_null($value)) {
-                return $this->mapData($resolvedClass, null);
+                return $this->mapData(Money::class, null);
             }
-            $value = $this->mapData($resolvedClass, $value);
+            $value = $this->mapData(Money::class, $value);
 
             $this->value = $value;
         }
@@ -216,10 +215,10 @@ class PriceModel extends JsonObjectModel implements Price {
         return $this;
     }
     /**
-     * @param TypedMoney $value
+     * @param Money $value
      * @return $this
      */
-    public function setValue(TypedMoney $value)
+    public function setValue(Money $value)
     {
         $this->value = $value;
 

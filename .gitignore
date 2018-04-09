@@ -4,3 +4,4 @@ vendor
 /lib/LICENSE
 /lib/composer.json
 /lib/phpunit.xml.dist
+/lib/docs/build

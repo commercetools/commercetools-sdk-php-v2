@@ -8,33 +8,92 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\Subscription\SubscriptionUpdate;
+use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Types\Subscription\Subscription;
+use Commercetools\Builder\SubscriptionUpdateBuilder;
 
+use Commercetools\Types\Subscription\SubscriptionDraft;
 
 
 class Resource67 extends Resource
 {
     /**
-     * @return ByProjectKeySubscriptionsKeyByKeyGet
+     * @return Resource68
      */
-    public function get(): ByProjectKeySubscriptionsKeyByKeyGet {
-        $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsKeyByKeyGet($args['projectKey'], $args['key']);
+    public function withKey($key = null): Resource68 {
+        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
+        return new Resource68($this->getUri() . '/key={key}', $args, $this->getMapper());
     }
     /**
-     * @param SubscriptionUpdate $body
-     * @return ByProjectKeySubscriptionsKeyByKeyPost
+     * @return Resource69
      */
-    public function post(SubscriptionUpdate $body = null): ByProjectKeySubscriptionsKeyByKeyPost {
-        $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsKeyByKeyPost($args['projectKey'], $args['key'], $body);
-    }
-    /**
-     * @return ByProjectKeySubscriptionsKeyByKeyDelete
-     */
-    public function delete(): ByProjectKeySubscriptionsKeyByKeyDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsKeyByKeyDelete($args['projectKey'], $args['key']);
+    public function withId($ID = null): Resource69 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource69($this->getUri() . '/{ID}', $args, $this->getMapper());
     }
 
+
+    /**
+     * @return ByProjectKeySubscriptionsGet
+     */
+    public function get(): ByProjectKeySubscriptionsGet {
+        $args = $this->getArgs();
+        return new ByProjectKeySubscriptionsGet($args['projectKey']);
+    }
+    /**
+     * @param SubscriptionDraft $body
+     * @return ByProjectKeySubscriptionsPost
+     */
+    public function post(SubscriptionDraft $body = null): ByProjectKeySubscriptionsPost {
+        $args = $this->getArgs();
+        return new ByProjectKeySubscriptionsPost($args['projectKey'], $body);
+    }
+
+
+    /**
+     * @param Subscription $subscription
+     * @return SubscriptionUpdateBuilder
+     */
+    public function update(Subscription $subscription): SubscriptionUpdateBuilder
+    {
+        $builder = new SubscriptionUpdateBuilder(function(SubscriptionUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($subscription);
+        if ($subscription instanceof MapperAware) {
+            $builder->setMapper($subscription->getMapper());
+        }
+        return $builder;
+    }
+
+    /**
+     * @param Subscription $subscription
+     * @return ByProjectKeySubscriptionsByIDDelete
+     */
+    public function delete(Subscription $subscription): ByProjectKeySubscriptionsByIDDelete
+    {
+        return $this->withId($subscription->getId())->delete()->withVersion($subscription->getVersion());
+    }
+
+    /**
+     * @param SubscriptionDraft|callable $subscriptionDraft builder function <code>
+     *   function(SubscriptionDraft $subscriptionDraft): SubscriptionDraft {
+     *     // modify $draft as needed
+     *     return $subscriptionDraft;
+     *   }
+     *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeySubscriptionsPost
+     */
+    public function create($subscriptionDraft): ByProjectKeySubscriptionsPost
+    {
+        if (is_callable($subscriptionDraft)) {
+            $callback = $subscriptionDraft;
+            $emptyDraft = $this->mapData(SubscriptionDraft::class, null);
+            $subscriptionDraft = $callback($emptyDraft);
+        }
+        if (!$subscriptionDraft instanceof SubscriptionDraft) {
+            throw new InvalidArgumentException();
+        }
+        return $this->post($subscriptionDraft);
+    }
 }

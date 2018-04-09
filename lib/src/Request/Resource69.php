@@ -8,85 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Base\MapperAware;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Types\TaxCategory\TaxCategory;
-use Commercetools\Builder\TaxCategoryUpdateBuilder;
+use Commercetools\Types\Subscription\SubscriptionUpdate;
 
-use Commercetools\Types\TaxCategory\TaxCategoryDraft;
 
 
 class Resource69 extends Resource
 {
     /**
-     * @return Resource70
+     * @return ByProjectKeySubscriptionsByIDGet
      */
-    public function withId($ID = null): Resource70 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource70($this->getUri() . '/{ID}', $args, $this->getMapper());
-    }
-
-
-    /**
-     * @return ByProjectKeyTaxCategoriesGet
-     */
-    public function get(): ByProjectKeyTaxCategoriesGet {
+    public function get(): ByProjectKeySubscriptionsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyTaxCategoriesGet($args['projectKey']);
+        return new ByProjectKeySubscriptionsByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param TaxCategoryDraft $body
-     * @return ByProjectKeyTaxCategoriesPost
+     * @param SubscriptionUpdate $body
+     * @return ByProjectKeySubscriptionsByIDPost
      */
-    public function post(TaxCategoryDraft $body = null): ByProjectKeyTaxCategoriesPost {
+    public function post(SubscriptionUpdate $body = null): ByProjectKeySubscriptionsByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyTaxCategoriesPost($args['projectKey'], $body);
+        return new ByProjectKeySubscriptionsByIDPost($args['projectKey'], $args['ID'], $body);
     }
-
-
     /**
-     * @param TaxCategory $taxCategory
-     * @return TaxCategoryUpdateBuilder
+     * @return ByProjectKeySubscriptionsByIDDelete
      */
-    public function update(TaxCategory $taxCategory): TaxCategoryUpdateBuilder
-    {
-        $builder = new TaxCategoryUpdateBuilder(function(TaxCategoryUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
-        $builder->with($taxCategory);
-        if ($taxCategory instanceof MapperAware) {
-            $builder->setMapper($taxCategory->getMapper());
-        }
-        return $builder;
+    public function delete(): ByProjectKeySubscriptionsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeySubscriptionsByIDDelete($args['projectKey'], $args['ID']);
     }
 
-    /**
-     * @param TaxCategory $taxCategory
-     * @return ByProjectKeyTaxCategoriesByIDDelete
-     */
-    public function delete(TaxCategory $taxCategory): ByProjectKeyTaxCategoriesByIDDelete
-    {
-        return $this->withId($taxCategory->getId())->delete()->withVersion($taxCategory->getVersion());
-    }
-
-    /**
-     * @param TaxCategoryDraft|callable $taxCategoryDraft builder function <code>
-     *   function(TaxCategoryDraft $taxCategoryDraft): TaxCategoryDraft {
-     *     // modify $draft as needed
-     *     return $taxCategoryDraft;
-     *   }
-     *   </code>
-     * @throws InvalidArgumentException
-     * @return ByProjectKeyTaxCategoriesPost
-     */
-    public function create($taxCategoryDraft): ByProjectKeyTaxCategoriesPost
-    {
-        if (is_callable($taxCategoryDraft)) {
-            $callback = $taxCategoryDraft;
-            $emptyDraft = $this->mapData(TaxCategoryDraft::class, null);
-            $taxCategoryDraft = $callback($emptyDraft);
-        }
-        if (!$taxCategoryDraft instanceof TaxCategoryDraft) {
-            throw new InvalidArgumentException();
-        }
-        return $this->post($taxCategoryDraft);
-    }
 }

@@ -115,76 +115,76 @@ class Resource0 extends Resource
         return new Resource45($this->getUri() . '/product-discounts', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource47
+     * @return Resource48
      */
-    public function productProjections(): Resource47 {
-        return new Resource47($this->getUri() . '/product-projections', $this->getArgs(), $this->getMapper());
+    public function productProjections(): Resource48 {
+        return new Resource48($this->getUri() . '/product-projections', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource52
+     * @return Resource53
      */
-    public function productTypes(): Resource52 {
-        return new Resource52($this->getUri() . '/product-types', $this->getArgs(), $this->getMapper());
+    public function productTypes(): Resource53 {
+        return new Resource53($this->getUri() . '/product-types', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource55
+     * @return Resource56
      */
-    public function reviews(): Resource55 {
-        return new Resource55($this->getUri() . '/reviews', $this->getArgs(), $this->getMapper());
+    public function reviews(): Resource56 {
+        return new Resource56($this->getUri() . '/reviews', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource58
+     * @return Resource59
      */
-    public function shippingMethods(): Resource58 {
-        return new Resource58($this->getUri() . '/shipping-methods', $this->getArgs(), $this->getMapper());
+    public function shippingMethods(): Resource59 {
+        return new Resource59($this->getUri() . '/shipping-methods', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource61
+     * @return Resource62
      */
-    public function shoppingLists(): Resource61 {
-        return new Resource61($this->getUri() . '/shopping-lists', $this->getArgs(), $this->getMapper());
+    public function shoppingLists(): Resource62 {
+        return new Resource62($this->getUri() . '/shopping-lists', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource64
+     * @return Resource65
      */
-    public function states(): Resource64 {
-        return new Resource64($this->getUri() . '/states', $this->getArgs(), $this->getMapper());
+    public function states(): Resource65 {
+        return new Resource65($this->getUri() . '/states', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource66
+     * @return Resource67
      */
-    public function subscriptions(): Resource66 {
-        return new Resource66($this->getUri() . '/subscriptions', $this->getArgs(), $this->getMapper());
+    public function subscriptions(): Resource67 {
+        return new Resource67($this->getUri() . '/subscriptions', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource69
+     * @return Resource70
      */
-    public function taxCategories(): Resource69 {
-        return new Resource69($this->getUri() . '/tax-categories', $this->getArgs(), $this->getMapper());
+    public function taxCategories(): Resource70 {
+        return new Resource70($this->getUri() . '/tax-categories', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource71
+     * @return Resource72
      */
-    public function types(): Resource71 {
-        return new Resource71($this->getUri() . '/types', $this->getArgs(), $this->getMapper());
+    public function types(): Resource72 {
+        return new Resource72($this->getUri() . '/types', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource74
+     * @return Resource75
      */
-    public function zones(): Resource74 {
-        return new Resource74($this->getUri() . '/zones', $this->getArgs(), $this->getMapper());
+    public function zones(): Resource75 {
+        return new Resource75($this->getUri() . '/zones', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource76
+     * @return Resource77
      */
-    public function me(): Resource76 {
-        return new Resource76($this->getUri() . '/me', $this->getArgs(), $this->getMapper());
+    public function me(): Resource77 {
+        return new Resource77($this->getUri() . '/me', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return Resource88
+     * @return Resource89
      */
-    public function extensions(): Resource88 {
-        return new Resource88($this->getUri() . '/extensions', $this->getArgs(), $this->getMapper());
+    public function extensions(): Resource89 {
+        return new Resource89($this->getUri() . '/extensions', $this->getArgs(), $this->getMapper());
     }
 
 

@@ -8,85 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Base\MapperAware;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Types\State\State;
-use Commercetools\Builder\StateUpdateBuilder;
+use Commercetools\Types\ShoppingList\ShoppingListUpdate;
 
-use Commercetools\Types\State\StateDraft;
 
 
 class Resource64 extends Resource
 {
     /**
-     * @return Resource65
+     * @return ByProjectKeyShoppingListsByIDGet
      */
-    public function withId($ID = null): Resource65 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource65($this->getUri() . '/{ID}', $args, $this->getMapper());
-    }
-
-
-    /**
-     * @return ByProjectKeyStatesGet
-     */
-    public function get(): ByProjectKeyStatesGet {
+    public function get(): ByProjectKeyShoppingListsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyStatesGet($args['projectKey']);
+        return new ByProjectKeyShoppingListsByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param StateDraft $body
-     * @return ByProjectKeyStatesPost
+     * @param ShoppingListUpdate $body
+     * @return ByProjectKeyShoppingListsByIDPost
      */
-    public function post(StateDraft $body = null): ByProjectKeyStatesPost {
+    public function post(ShoppingListUpdate $body = null): ByProjectKeyShoppingListsByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyStatesPost($args['projectKey'], $body);
+        return new ByProjectKeyShoppingListsByIDPost($args['projectKey'], $args['ID'], $body);
     }
-
-
     /**
-     * @param State $state
-     * @return StateUpdateBuilder
+     * @return ByProjectKeyShoppingListsByIDDelete
      */
-    public function update(State $state): StateUpdateBuilder
-    {
-        $builder = new StateUpdateBuilder(function(StateUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
-        $builder->with($state);
-        if ($state instanceof MapperAware) {
-            $builder->setMapper($state->getMapper());
-        }
-        return $builder;
+    public function delete(): ByProjectKeyShoppingListsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyShoppingListsByIDDelete($args['projectKey'], $args['ID']);
     }
 
-    /**
-     * @param State $state
-     * @return ByProjectKeyStatesByIDDelete
-     */
-    public function delete(State $state): ByProjectKeyStatesByIDDelete
-    {
-        return $this->withId($state->getId())->delete()->withVersion($state->getVersion());
-    }
-
-    /**
-     * @param StateDraft|callable $stateDraft builder function <code>
-     *   function(StateDraft $stateDraft): StateDraft {
-     *     // modify $draft as needed
-     *     return $stateDraft;
-     *   }
-     *   </code>
-     * @throws InvalidArgumentException
-     * @return ByProjectKeyStatesPost
-     */
-    public function create($stateDraft): ByProjectKeyStatesPost
-    {
-        if (is_callable($stateDraft)) {
-            $callback = $stateDraft;
-            $emptyDraft = $this->mapData(StateDraft::class, null);
-            $stateDraft = $callback($emptyDraft);
-        }
-        if (!$stateDraft instanceof StateDraft) {
-            throw new InvalidArgumentException();
-        }
-        return $this->post($stateDraft);
-    }
 }

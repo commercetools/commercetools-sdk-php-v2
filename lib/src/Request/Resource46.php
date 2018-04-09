@@ -8,33 +8,18 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\ProductDiscount\ProductDiscountUpdate;
-
+use Commercetools\Types\ProductDiscount\ProductDiscountMatchQuery;
 
 
 class Resource46 extends Resource
 {
     /**
-     * @return ByProjectKeyProductDiscountsByIDGet
+     * @param ProductDiscountMatchQuery $body
+     * @return ByProjectKeyProductDiscountsMatchingPost
      */
-    public function get(): ByProjectKeyProductDiscountsByIDGet {
+    public function post(ProductDiscountMatchQuery $body = null): ByProjectKeyProductDiscountsMatchingPost {
         $args = $this->getArgs();
-        return new ByProjectKeyProductDiscountsByIDGet($args['projectKey'], $args['ID']);
-    }
-    /**
-     * @param ProductDiscountUpdate $body
-     * @return ByProjectKeyProductDiscountsByIDPost
-     */
-    public function post(ProductDiscountUpdate $body = null): ByProjectKeyProductDiscountsByIDPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductDiscountsByIDPost($args['projectKey'], $args['ID'], $body);
-    }
-    /**
-     * @return ByProjectKeyProductDiscountsByIDDelete
-     */
-    public function delete(): ByProjectKeyProductDiscountsByIDDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductDiscountsByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyProductDiscountsMatchingPost($args['projectKey'], $body);
     }
 
 }

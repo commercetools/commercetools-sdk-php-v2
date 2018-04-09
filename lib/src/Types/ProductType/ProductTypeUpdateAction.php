@@ -28,6 +28,7 @@ interface ProductTypeUpdateAction extends UpdateAction {
         'changePlainEnumValueLabel' => Types\ProductType\ProductTypeChangePlainEnumValueLabelAction::class,
         'changePlainEnumValueOrder' => Types\ProductType\ProductTypeChangePlainEnumValueOrderAction::class,
         'removeAttributeDefinition' => Types\ProductType\ProductTypeRemoveAttributeDefinitionAction::class,
+        'removeEnumValues' => Types\ProductType\ProductTypeRemoveEnumValuesAction::class,
         'setInputTip' => Types\ProductType\ProductTypeSetInputTipAction::class,
         'setKey' => Types\ProductType\ProductTypeSetKeyAction::class,
 

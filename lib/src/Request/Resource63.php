@@ -15,26 +15,26 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdate;
 class Resource63 extends Resource
 {
     /**
-     * @return ByProjectKeyShoppingListsByIDGet
+     * @return ByProjectKeyShoppingListsKeyByKeyGet
      */
-    public function get(): ByProjectKeyShoppingListsByIDGet {
+    public function get(): ByProjectKeyShoppingListsKeyByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyShoppingListsByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyShoppingListsKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
      * @param ShoppingListUpdate $body
-     * @return ByProjectKeyShoppingListsByIDPost
+     * @return ByProjectKeyShoppingListsKeyByKeyPost
      */
-    public function post(ShoppingListUpdate $body = null): ByProjectKeyShoppingListsByIDPost {
+    public function post(ShoppingListUpdate $body = null): ByProjectKeyShoppingListsKeyByKeyPost {
         $args = $this->getArgs();
-        return new ByProjectKeyShoppingListsByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyShoppingListsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }
     /**
-     * @return ByProjectKeyShoppingListsByIDDelete
+     * @return ByProjectKeyShoppingListsKeyByKeyDelete
      */
-    public function delete(): ByProjectKeyShoppingListsByIDDelete {
+    public function delete(): ByProjectKeyShoppingListsKeyByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyShoppingListsByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyShoppingListsKeyByKeyDelete($args['projectKey'], $args['key']);
     }
 
 }

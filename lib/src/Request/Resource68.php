@@ -15,26 +15,26 @@ use Commercetools\Types\Subscription\SubscriptionUpdate;
 class Resource68 extends Resource
 {
     /**
-     * @return ByProjectKeySubscriptionsByIDGet
+     * @return ByProjectKeySubscriptionsKeyByKeyGet
      */
-    public function get(): ByProjectKeySubscriptionsByIDGet {
+    public function get(): ByProjectKeySubscriptionsKeyByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeySubscriptionsKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
      * @param SubscriptionUpdate $body
-     * @return ByProjectKeySubscriptionsByIDPost
+     * @return ByProjectKeySubscriptionsKeyByKeyPost
      */
-    public function post(SubscriptionUpdate $body = null): ByProjectKeySubscriptionsByIDPost {
+    public function post(SubscriptionUpdate $body = null): ByProjectKeySubscriptionsKeyByKeyPost {
         $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeySubscriptionsKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }
     /**
-     * @return ByProjectKeySubscriptionsByIDDelete
+     * @return ByProjectKeySubscriptionsKeyByKeyDelete
      */
-    public function delete(): ByProjectKeySubscriptionsByIDDelete {
+    public function delete(): ByProjectKeySubscriptionsKeyByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeySubscriptionsByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeySubscriptionsKeyByKeyDelete($args['projectKey'], $args['key']);
     }
 
 }

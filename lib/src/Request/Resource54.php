@@ -15,26 +15,26 @@ use Commercetools\Types\ProductType\ProductTypeUpdate;
 class Resource54 extends Resource
 {
     /**
-     * @return ByProjectKeyProductTypesByIDGet
+     * @return ByProjectKeyProductTypesKeyByKeyGet
      */
-    public function get(): ByProjectKeyProductTypesByIDGet {
+    public function get(): ByProjectKeyProductTypesKeyByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyProductTypesByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyProductTypesKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
      * @param ProductTypeUpdate $body
-     * @return ByProjectKeyProductTypesByIDPost
+     * @return ByProjectKeyProductTypesKeyByKeyPost
      */
-    public function post(ProductTypeUpdate $body = null): ByProjectKeyProductTypesByIDPost {
+    public function post(ProductTypeUpdate $body = null): ByProjectKeyProductTypesKeyByKeyPost {
         $args = $this->getArgs();
-        return new ByProjectKeyProductTypesByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyProductTypesKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }
     /**
-     * @return ByProjectKeyProductTypesByIDDelete
+     * @return ByProjectKeyProductTypesKeyByKeyDelete
      */
-    public function delete(): ByProjectKeyProductTypesByIDDelete {
+    public function delete(): ByProjectKeyProductTypesKeyByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyProductTypesByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyProductTypesKeyByKeyDelete($args['projectKey'], $args['key']);
     }
 
 }

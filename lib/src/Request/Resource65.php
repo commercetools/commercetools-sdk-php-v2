@@ -8,33 +8,85 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Types\State\StateUpdate;
+use Commercetools\Base\MapperAware;
+use Commercetools\Exception\InvalidArgumentException;
+use Commercetools\Types\State\State;
+use Commercetools\Builder\StateUpdateBuilder;
 
+use Commercetools\Types\State\StateDraft;
 
 
 class Resource65 extends Resource
 {
     /**
-     * @return ByProjectKeyStatesByIDGet
+     * @return Resource66
      */
-    public function get(): ByProjectKeyStatesByIDGet {
-        $args = $this->getArgs();
-        return new ByProjectKeyStatesByIDGet($args['projectKey'], $args['ID']);
-    }
-    /**
-     * @param StateUpdate $body
-     * @return ByProjectKeyStatesByIDPost
-     */
-    public function post(StateUpdate $body = null): ByProjectKeyStatesByIDPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyStatesByIDPost($args['projectKey'], $args['ID'], $body);
-    }
-    /**
-     * @return ByProjectKeyStatesByIDDelete
-     */
-    public function delete(): ByProjectKeyStatesByIDDelete {
-        $args = $this->getArgs();
-        return new ByProjectKeyStatesByIDDelete($args['projectKey'], $args['ID']);
+    public function withId($ID = null): Resource66 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource66($this->getUri() . '/{ID}', $args, $this->getMapper());
     }
 
+
+    /**
+     * @return ByProjectKeyStatesGet
+     */
+    public function get(): ByProjectKeyStatesGet {
+        $args = $this->getArgs();
+        return new ByProjectKeyStatesGet($args['projectKey']);
+    }
+    /**
+     * @param StateDraft $body
+     * @return ByProjectKeyStatesPost
+     */
+    public function post(StateDraft $body = null): ByProjectKeyStatesPost {
+        $args = $this->getArgs();
+        return new ByProjectKeyStatesPost($args['projectKey'], $body);
+    }
+
+
+    /**
+     * @param State $state
+     * @return StateUpdateBuilder
+     */
+    public function update(State $state): StateUpdateBuilder
+    {
+        $builder = new StateUpdateBuilder(function(StateUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
+        $builder->with($state);
+        if ($state instanceof MapperAware) {
+            $builder->setMapper($state->getMapper());
+        }
+        return $builder;
+    }
+
+    /**
+     * @param State $state
+     * @return ByProjectKeyStatesByIDDelete
+     */
+    public function delete(State $state): ByProjectKeyStatesByIDDelete
+    {
+        return $this->withId($state->getId())->delete()->withVersion($state->getVersion());
+    }
+
+    /**
+     * @param StateDraft|callable $stateDraft builder function <code>
+     *   function(StateDraft $stateDraft): StateDraft {
+     *     // modify $draft as needed
+     *     return $stateDraft;
+     *   }
+     *   </code>
+     * @throws InvalidArgumentException
+     * @return ByProjectKeyStatesPost
+     */
+    public function create($stateDraft): ByProjectKeyStatesPost
+    {
+        if (is_callable($stateDraft)) {
+            $callback = $stateDraft;
+            $emptyDraft = $this->mapData(StateDraft::class, null);
+            $stateDraft = $callback($emptyDraft);
+        }
+        if (!$stateDraft instanceof StateDraft) {
+            throw new InvalidArgumentException();
+        }
+        return $this->post($stateDraft);
+    }
 }

@@ -12,11 +12,12 @@ use Commercetools\Client\Resource;
 class Resource83 extends Resource
 {
     /**
-     * @return ByProjectKeyMeActiveCartGet
+     * @param $body
+     * @return ByProjectKeyMeLoginPost
      */
-    public function get(): ByProjectKeyMeActiveCartGet {
+    public function post($body = null): ByProjectKeyMeLoginPost {
         $args = $this->getArgs();
-        return new ByProjectKeyMeActiveCartGet($args['projectKey']);
+        return new ByProjectKeyMeLoginPost($args['projectKey'], $body);
     }
 
 }

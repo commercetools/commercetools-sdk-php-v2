@@ -216,6 +216,20 @@ $productTypeUpdate = $builder->removeAttributeDefinition(
         return $action;
     })->build();
 ```
+## removeEnumValues
+
+```php
+use Commercetools\Builder\ProductTypeUpdateBuilder;
+
+$builder = new ProductTypeUpdateBuilder();
+$productTypeUpdate = $builder->removeEnumValues(new ProductTypeRemoveEnumValuesAction())->build()
+//or
+$productTypeUpdate = $builder->removeEnumValues(
+    function (ProductTypeRemoveEnumValuesAction $action): ProductTypeRemoveEnumValuesAction {
+        // modify action as needed
+        return $action;
+    })->build();
+```
 ## setInputTip
 
 ```php

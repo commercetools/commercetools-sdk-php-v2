@@ -12,19 +12,39 @@ use Commercetools\Client\Resource;
 class Resource48 extends Resource
 {
     /**
-     * @param $body
-     * @return ByProjectKeyProductProjectionsSearchPost
+     * @return Resource49
      */
-    public function post($body = null): ByProjectKeyProductProjectionsSearchPost {
-        $args = $this->getArgs();
-        return new ByProjectKeyProductProjectionsSearchPost($args['projectKey'], $body);
+    public function search(): Resource49 {
+        return new Resource49($this->getUri() . '/search', $this->getArgs(), $this->getMapper());
     }
     /**
-     * @return ByProjectKeyProductProjectionsSearchGet
+     * @return Resource50
      */
-    public function get(): ByProjectKeyProductProjectionsSearchGet {
+    public function suggest(): Resource50 {
+        return new Resource50($this->getUri() . '/suggest', $this->getArgs(), $this->getMapper());
+    }
+    /**
+     * @return Resource51
+     */
+    public function withKey($key = null): Resource51 {
+        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
+        return new Resource51($this->getUri() . '/key={key}', $args, $this->getMapper());
+    }
+    /**
+     * @return Resource52
+     */
+    public function withId($ID = null): Resource52 {
+        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
+        return new Resource52($this->getUri() . '/{ID}', $args, $this->getMapper());
+    }
+
+
+    /**
+     * @return ByProjectKeyProductProjectionsGet
+     */
+    public function get(): ByProjectKeyProductProjectionsGet {
         $args = $this->getArgs();
-        return new ByProjectKeyProductProjectionsSearchGet($args['projectKey']);
+        return new ByProjectKeyProductProjectionsGet($args['projectKey']);
     }
 
 }

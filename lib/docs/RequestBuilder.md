@@ -2242,6 +2242,18 @@ $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->post();
 $response = $client->send($request);
 ```
+## `withProjectKeyValue($projectKey)->productDiscounts()->matching()->post()`
+
+
+### Parameters
+* **projectKey** (type: `string`)
+
+### Example
+```php
+$builder =  new RequestBuilder();
+$request = $builder->withProjectKeyValue($projectKey)->productDiscounts()->matching()->post();
+$response = $client->send($request);
+```
 ## `withProjectKeyValue($projectKey)->productDiscounts()->withId($ID)->get()`
 
 Get ProductDiscount by ID

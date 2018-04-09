@@ -8,92 +8,33 @@ declare(strict_types = 1);
 namespace Commercetools\Request;
 
 use Commercetools\Client\Resource;
-use Commercetools\Base\MapperAware;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Types\ShippingMethod\ShippingMethod;
-use Commercetools\Builder\ShippingMethodUpdateBuilder;
+use Commercetools\Types\Review\ReviewUpdate;
 
-use Commercetools\Types\ShippingMethod\ShippingMethodDraft;
 
 
 class Resource58 extends Resource
 {
     /**
-     * @return Resource59
+     * @return ByProjectKeyReviewsByIDGet
      */
-    public function withKey($key = null): Resource59 {
-        $args = array_merge($this->getArgs(), array_filter(['key' => $key], function($value) { return !is_null($value); }));
-        return new Resource59($this->getUri() . '/key={key}', $args, $this->getMapper());
-    }
-    /**
-     * @return Resource60
-     */
-    public function withId($ID = null): Resource60 {
-        $args = array_merge($this->getArgs(), array_filter(['ID' => $ID], function($value) { return !is_null($value); }));
-        return new Resource60($this->getUri() . '/{ID}', $args, $this->getMapper());
-    }
-
-
-    /**
-     * @return ByProjectKeyShippingMethodsGet
-     */
-    public function get(): ByProjectKeyShippingMethodsGet {
+    public function get(): ByProjectKeyReviewsByIDGet {
         $args = $this->getArgs();
-        return new ByProjectKeyShippingMethodsGet($args['projectKey']);
+        return new ByProjectKeyReviewsByIDGet($args['projectKey'], $args['ID']);
     }
     /**
-     * @param ShippingMethodDraft $body
-     * @return ByProjectKeyShippingMethodsPost
+     * @param ReviewUpdate $body
+     * @return ByProjectKeyReviewsByIDPost
      */
-    public function post(ShippingMethodDraft $body = null): ByProjectKeyShippingMethodsPost {
+    public function post(ReviewUpdate $body = null): ByProjectKeyReviewsByIDPost {
         $args = $this->getArgs();
-        return new ByProjectKeyShippingMethodsPost($args['projectKey'], $body);
+        return new ByProjectKeyReviewsByIDPost($args['projectKey'], $args['ID'], $body);
     }
-
-
     /**
-     * @param ShippingMethod $shippingMethod
-     * @return ShippingMethodUpdateBuilder
+     * @return ByProjectKeyReviewsByIDDelete
      */
-    public function update(ShippingMethod $shippingMethod): ShippingMethodUpdateBuilder
-    {
-        $builder = new ShippingMethodUpdateBuilder(function(ShippingMethodUpdateBuilder $builder) { return $this->withId($builder->getResource()->getId())->post($builder->build()); });
-        $builder->with($shippingMethod);
-        if ($shippingMethod instanceof MapperAware) {
-            $builder->setMapper($shippingMethod->getMapper());
-        }
-        return $builder;
+    public function delete(): ByProjectKeyReviewsByIDDelete {
+        $args = $this->getArgs();
+        return new ByProjectKeyReviewsByIDDelete($args['projectKey'], $args['ID']);
     }
 
-    /**
-     * @param ShippingMethod $shippingMethod
-     * @return ByProjectKeyShippingMethodsByIDDelete
-     */
-    public function delete(ShippingMethod $shippingMethod): ByProjectKeyShippingMethodsByIDDelete
-    {
-        return $this->withId($shippingMethod->getId())->delete()->withVersion($shippingMethod->getVersion());
-    }
-
-    /**
-     * @param ShippingMethodDraft|callable $shippingMethodDraft builder function <code>
-     *   function(ShippingMethodDraft $shippingMethodDraft): ShippingMethodDraft {
-     *     // modify $draft as needed
-     *     return $shippingMethodDraft;
-     *   }
-     *   </code>
-     * @throws InvalidArgumentException
-     * @return ByProjectKeyShippingMethodsPost
-     */
-    public function create($shippingMethodDraft): ByProjectKeyShippingMethodsPost
-    {
-        if (is_callable($shippingMethodDraft)) {
-            $callback = $shippingMethodDraft;
-            $emptyDraft = $this->mapData(ShippingMethodDraft::class, null);
-            $shippingMethodDraft = $callback($emptyDraft);
-        }
-        if (!$shippingMethodDraft instanceof ShippingMethodDraft) {
-            throw new InvalidArgumentException();
-        }
-        return $this->post($shippingMethodDraft);
-    }
 }

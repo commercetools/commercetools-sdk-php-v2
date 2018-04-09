@@ -26,6 +26,7 @@ use Commercetools\Types\ProductType\ProductTypeChangeNameAction;
 use Commercetools\Types\ProductType\ProductTypeChangePlainEnumValueLabelAction;
 use Commercetools\Types\ProductType\ProductTypeChangePlainEnumValueOrderAction;
 use Commercetools\Types\ProductType\ProductTypeRemoveAttributeDefinitionAction;
+use Commercetools\Types\ProductType\ProductTypeRemoveEnumValuesAction;
 use Commercetools\Types\ProductType\ProductTypeSetInputTipAction;
 use Commercetools\Types\ProductType\ProductTypeSetKeyAction;
 use Commercetools\Types\ProductType\ProductType;
@@ -274,6 +275,21 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     public function removeAttributeDefinition($action = null)
     {
         $this->addAction($this->resolveAction(ProductTypeRemoveAttributeDefinitionAction::class, $action));
+        return $this;
+    }
+    /**
+     * @param ProductTypeRemoveEnumValuesAction|callable $action builder function <code>
+     *   function(ProductTypeRemoveEnumValuesAction $action): ProductTypeRemoveEnumValuesAction {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     * @throws InvalidArgumentException
+     */
+    public function removeEnumValues($action = null)
+    {
+        $this->addAction($this->resolveAction(ProductTypeRemoveEnumValuesAction::class, $action));
         return $this;
     }
     /**

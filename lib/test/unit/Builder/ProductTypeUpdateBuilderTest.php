@@ -24,6 +24,7 @@ use Commercetools\Types\ProductType\ProductTypeChangeNameAction;
 use Commercetools\Types\ProductType\ProductTypeChangePlainEnumValueLabelAction;
 use Commercetools\Types\ProductType\ProductTypeChangePlainEnumValueOrderAction;
 use Commercetools\Types\ProductType\ProductTypeRemoveAttributeDefinitionAction;
+use Commercetools\Types\ProductType\ProductTypeRemoveEnumValuesAction;
 use Commercetools\Types\ProductType\ProductTypeSetInputTipAction;
 use Commercetools\Types\ProductType\ProductTypeSetKeyAction;
 use Commercetools\Types\ProductType\ProductType;
@@ -45,6 +46,7 @@ use Commercetools\Types\ProductType\ProductTypeChangeNameActionModel;
 use Commercetools\Types\ProductType\ProductTypeChangePlainEnumValueLabelActionModel;
 use Commercetools\Types\ProductType\ProductTypeChangePlainEnumValueOrderActionModel;
 use Commercetools\Types\ProductType\ProductTypeRemoveAttributeDefinitionActionModel;
+use Commercetools\Types\ProductType\ProductTypeRemoveEnumValuesActionModel;
 use Commercetools\Types\ProductType\ProductTypeSetInputTipActionModel;
 use Commercetools\Types\ProductType\ProductTypeSetKeyActionModel;
 
@@ -471,6 +473,34 @@ class ProductTypeBuilderTest extends TestCase {
         $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->removeAttributeDefinition([]);
+    }
+
+    public function testRemoveEnumValuesCallback() {
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->removeEnumValues(function($action) { static::assertInstanceOf(ProductTypeRemoveEnumValuesAction::class, $action); return $action; });
+        $update = $builder->build();
+        static::assertInstanceOf(ProductTypeUpdate::class, $update);
+        static::assertInstanceOf(ProductTypeRemoveEnumValuesAction::class, $update->getActions()->current());
+    }
+
+    public function testRemoveEnumValuesInvalidCallback() {
+        $this->expectException(InvalidArgumentException::class);
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->removeEnumValues(function($action) { static::assertInstanceOf(ProductTypeRemoveEnumValuesAction::class, $action); return []; });
+    }
+
+    public function testRemoveEnumValuesInstance() {
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->removeEnumValues(new ProductTypeRemoveEnumValuesActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ProductTypeUpdate::class, $update);
+        static::assertInstanceOf(ProductTypeRemoveEnumValuesAction::class, $update->getActions()->current());
+    }
+
+    public function testRemoveEnumValuesInvalidInstance() {
+        $this->expectException(InvalidArgumentException::class);
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->removeEnumValues([]);
     }
 
     public function testSetInputTipCallback() {

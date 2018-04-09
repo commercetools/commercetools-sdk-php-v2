@@ -15,26 +15,26 @@ use Commercetools\Types\Type\TypeUpdate;
 class Resource73 extends Resource
 {
     /**
-     * @return ByProjectKeyTypesByIDGet
+     * @return ByProjectKeyTypesKeyByKeyGet
      */
-    public function get(): ByProjectKeyTypesByIDGet {
+    public function get(): ByProjectKeyTypesKeyByKeyGet {
         $args = $this->getArgs();
-        return new ByProjectKeyTypesByIDGet($args['projectKey'], $args['ID']);
+        return new ByProjectKeyTypesKeyByKeyGet($args['projectKey'], $args['key']);
     }
     /**
      * @param TypeUpdate $body
-     * @return ByProjectKeyTypesByIDPost
+     * @return ByProjectKeyTypesKeyByKeyPost
      */
-    public function post(TypeUpdate $body = null): ByProjectKeyTypesByIDPost {
+    public function post(TypeUpdate $body = null): ByProjectKeyTypesKeyByKeyPost {
         $args = $this->getArgs();
-        return new ByProjectKeyTypesByIDPost($args['projectKey'], $args['ID'], $body);
+        return new ByProjectKeyTypesKeyByKeyPost($args['projectKey'], $args['key'], $body);
     }
     /**
-     * @return ByProjectKeyTypesByIDDelete
+     * @return ByProjectKeyTypesKeyByKeyDelete
      */
-    public function delete(): ByProjectKeyTypesByIDDelete {
+    public function delete(): ByProjectKeyTypesKeyByKeyDelete {
         $args = $this->getArgs();
-        return new ByProjectKeyTypesByIDDelete($args['projectKey'], $args['ID']);
+        return new ByProjectKeyTypesKeyByKeyDelete($args['projectKey'], $args['key']);
     }
 
 }
