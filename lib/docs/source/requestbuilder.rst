@@ -20,7 +20,7 @@ In order to be able to build request objects you can use the RequestBuilder. The
 Update Project
 ################################################################################
 
-All Project update methods can be found :ref:`here <updatebuilder.projectupdatebuilder>`
+All Project update methods can be found :ref:`here <projectupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Project.php
@@ -64,7 +64,7 @@ Create CategoryDraft
 Update Category
 ################################################################################
 
-All Category update methods can be found :ref:`here <updatebuilder.categoryupdatebuilder>`
+All Category update methods can be found :ref:`here <categoryupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Category.php
@@ -123,7 +123,7 @@ Create CartDraft
 Update Cart
 ################################################################################
 
-All Cart update methods can be found :ref:`here <updatebuilder.cartupdatebuilder>`
+All Cart update methods can be found :ref:`here <cartupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Cart.php
@@ -182,7 +182,7 @@ Create CartDiscountDraft
 Update CartDiscount
 ################################################################################
 
-All CartDiscount update methods can be found :ref:`here <updatebuilder.cartdiscountupdatebuilder>`
+All CartDiscount update methods can be found :ref:`here <cartdiscountupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-CartDiscount.php
@@ -241,7 +241,7 @@ Create ChannelDraft
 Update Channel
 ################################################################################
 
-All Channel update methods can be found :ref:`here <updatebuilder.channelupdatebuilder>`
+All Channel update methods can be found :ref:`here <channelupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Channel.php
@@ -300,7 +300,7 @@ Create CustomerDraft
 Update Customer
 ################################################################################
 
-All Customer update methods can be found :ref:`here <updatebuilder.customerupdatebuilder>`
+All Customer update methods can be found :ref:`here <customerupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Customer.php
@@ -359,7 +359,7 @@ Create CustomerGroupDraft
 Update CustomerGroup
 ################################################################################
 
-All CustomerGroup update methods can be found :ref:`here <updatebuilder.customergroupupdatebuilder>`
+All CustomerGroup update methods can be found :ref:`here <customergroupupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-CustomerGroup.php
@@ -418,7 +418,7 @@ Create DiscountCodeDraft
 Update DiscountCode
 ################################################################################
 
-All DiscountCode update methods can be found :ref:`here <updatebuilder.discountcodeupdatebuilder>`
+All DiscountCode update methods can be found :ref:`here <discountcodeupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-DiscountCode.php
@@ -477,7 +477,7 @@ Create InventoryEntryDraft
 Update InventoryEntry
 ################################################################################
 
-All InventoryEntry update methods can be found :ref:`here <updatebuilder.inventoryentryupdatebuilder>`
+All InventoryEntry update methods can be found :ref:`here <inventoryentryupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-InventoryEntry.php
@@ -536,7 +536,7 @@ Create OrderFromCartDraft
 Update Order
 ################################################################################
 
-All Order update methods can be found :ref:`here <updatebuilder.orderupdatebuilder>`
+All Order update methods can be found :ref:`here <orderupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Order.php
@@ -595,7 +595,7 @@ Create PaymentDraft
 Update Payment
 ################################################################################
 
-All Payment update methods can be found :ref:`here <updatebuilder.paymentupdatebuilder>`
+All Payment update methods can be found :ref:`here <paymentupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Payment.php
@@ -654,7 +654,7 @@ Create ProductDraft
 Update Product
 ################################################################################
 
-All Product update methods can be found :ref:`here <updatebuilder.productupdatebuilder>`
+All Product update methods can be found :ref:`here <productupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Product.php
@@ -713,7 +713,7 @@ Create ProductDiscountDraft
 Update ProductDiscount
 ################################################################################
 
-All ProductDiscount update methods can be found :ref:`here <updatebuilder.productdiscountupdatebuilder>`
+All ProductDiscount update methods can be found :ref:`here <productdiscountupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-ProductDiscount.php
@@ -772,7 +772,7 @@ Create ProductTypeDraft
 Update ProductType
 ################################################################################
 
-All ProductType update methods can be found :ref:`here <updatebuilder.producttypeupdatebuilder>`
+All ProductType update methods can be found :ref:`here <producttypeupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-ProductType.php
@@ -831,7 +831,7 @@ Create ReviewDraft
 Update Review
 ################################################################################
 
-All Review update methods can be found :ref:`here <updatebuilder.reviewupdatebuilder>`
+All Review update methods can be found :ref:`here <reviewupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Review.php
@@ -890,7 +890,7 @@ Create ShippingMethodDraft
 Update ShippingMethod
 ################################################################################
 
-All ShippingMethod update methods can be found :ref:`here <updatebuilder.shippingmethodupdatebuilder>`
+All ShippingMethod update methods can be found :ref:`here <shippingmethodupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-ShippingMethod.php
@@ -949,7 +949,7 @@ Create ShoppingListDraft
 Update ShoppingList
 ################################################################################
 
-All ShoppingList update methods can be found :ref:`here <updatebuilder.shoppinglistupdatebuilder>`
+All ShoppingList update methods can be found :ref:`here <shoppinglistupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-ShoppingList.php
@@ -1008,7 +1008,7 @@ Create StateDraft
 Update State
 ################################################################################
 
-All State update methods can be found :ref:`here <updatebuilder.stateupdatebuilder>`
+All State update methods can be found :ref:`here <stateupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-State.php
@@ -1067,7 +1067,7 @@ Create SubscriptionDraft
 Update Subscription
 ################################################################################
 
-All Subscription update methods can be found :ref:`here <updatebuilder.subscriptionupdatebuilder>`
+All Subscription update methods can be found :ref:`here <subscriptionupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Subscription.php
@@ -1126,7 +1126,7 @@ Create TaxCategoryDraft
 Update TaxCategory
 ################################################################################
 
-All TaxCategory update methods can be found :ref:`here <updatebuilder.taxcategoryupdatebuilder>`
+All TaxCategory update methods can be found :ref:`here <taxcategoryupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-TaxCategory.php
@@ -1185,7 +1185,7 @@ Create TypeDraft
 Update Type
 ################################################################################
 
-All Type update methods can be found :ref:`here <updatebuilder.typeupdatebuilder>`
+All Type update methods can be found :ref:`here <typeupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Type.php
@@ -1244,7 +1244,7 @@ Create ZoneDraft
 Update Zone
 ################################################################################
 
-All Zone update methods can be found :ref:`here <updatebuilder.zoneupdatebuilder>`
+All Zone update methods can be found :ref:`here <zoneupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Zone.php
@@ -1303,7 +1303,7 @@ Create ExtensionDraft
 Update Extension
 ################################################################################
 
-All Extension update methods can be found :ref:`here <updatebuilder.extensionupdatebuilder>`
+All Extension update methods can be found :ref:`here <extensionupdatebuilder>`
 
 .. code-block:: php
     :name: requestbuilder.examples.update-Extension.php

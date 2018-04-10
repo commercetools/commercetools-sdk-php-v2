@@ -4,7 +4,7 @@
 UpdateBuilder
 =============
 
-.. _updatebuilder.projectupdatebuilder:
+.. _projectupdatebuilder:
 
 ProjectUpdateBuilder
 #########################################################
@@ -127,7 +127,7 @@ setShippingRateInputType
         })->build();
 
 
-.. _updatebuilder.categoryupdatebuilder:
+.. _categoryupdatebuilder:
 
 CategoryUpdateBuilder
 #########################################################
@@ -538,7 +538,7 @@ setMetaTitle
         })->build();
 
 
-.. _updatebuilder.cartupdatebuilder:
+.. _cartupdatebuilder:
 
 CartUpdateBuilder
 #########################################################
@@ -1327,7 +1327,7 @@ setShippingRateInput
         })->build();
 
 
-.. _updatebuilder.cartdiscountupdatebuilder:
+.. _cartdiscountupdatebuilder:
 
 CartDiscountUpdateBuilder
 #########################################################
@@ -1576,7 +1576,7 @@ setValidUntil
         })->build();
 
 
-.. _updatebuilder.channelupdatebuilder:
+.. _channelupdatebuilder:
 
 ChannelUpdateBuilder
 #########################################################
@@ -1771,7 +1771,7 @@ setRoles
         })->build();
 
 
-.. _updatebuilder.customerupdatebuilder:
+.. _customerupdatebuilder:
 
 CustomerUpdateBuilder
 #########################################################
@@ -2236,7 +2236,7 @@ setVatId
         })->build();
 
 
-.. _updatebuilder.customergroupupdatebuilder:
+.. _customergroupupdatebuilder:
 
 CustomerGroupUpdateBuilder
 #########################################################
@@ -2287,7 +2287,7 @@ setKey
         })->build();
 
 
-.. _updatebuilder.discountcodeupdatebuilder:
+.. _discountcodeupdatebuilder:
 
 DiscountCodeUpdateBuilder
 #########################################################
@@ -2482,7 +2482,7 @@ setValidUntil
         })->build();
 
 
-.. _updatebuilder.inventoryentryupdatebuilder:
+.. _inventoryentryupdatebuilder:
 
 InventoryEntryUpdateBuilder
 #########################################################
@@ -2641,7 +2641,7 @@ setSupplyChannel
         })->build();
 
 
-.. _updatebuilder.orderupdatebuilder:
+.. _orderupdatebuilder:
 
 OrderUpdateBuilder
 #########################################################
@@ -3268,7 +3268,7 @@ updateSyncInfo
         })->build();
 
 
-.. _updatebuilder.paymentupdatebuilder:
+.. _paymentupdatebuilder:
 
 PaymentUpdateBuilder
 #########################################################
@@ -3661,7 +3661,7 @@ transitionState
         })->build();
 
 
-.. _updatebuilder.productupdatebuilder:
+.. _productupdatebuilder:
 
 ProductUpdateBuilder
 #########################################################
@@ -4486,7 +4486,7 @@ unpublish
         })->build();
 
 
-.. _updatebuilder.productdiscountupdatebuilder:
+.. _productdiscountupdatebuilder:
 
 ProductDiscountUpdateBuilder
 #########################################################
@@ -4645,7 +4645,7 @@ setValidUntil
         })->build();
 
 
-.. _updatebuilder.producttypeupdatebuilder:
+.. _producttypeupdatebuilder:
 
 ProductTypeUpdateBuilder
 #########################################################
@@ -5020,7 +5020,7 @@ setKey
         })->build();
 
 
-.. _updatebuilder.reviewupdatebuilder:
+.. _reviewupdatebuilder:
 
 ReviewUpdateBuilder
 #########################################################
@@ -5233,7 +5233,7 @@ transitionState
         })->build();
 
 
-.. _updatebuilder.shippingmethodupdatebuilder:
+.. _shippingmethodupdatebuilder:
 
 ShippingMethodUpdateBuilder
 #########################################################
@@ -5428,7 +5428,7 @@ setPredicate
         })->build();
 
 
-.. _updatebuilder.shoppinglistupdatebuilder:
+.. _shoppinglistupdatebuilder:
 
 ShoppingListUpdateBuilder
 #########################################################
@@ -5839,7 +5839,7 @@ setTextLineItemDescription
         })->build();
 
 
-.. _updatebuilder.stateupdatebuilder:
+.. _stateupdatebuilder:
 
 StateUpdateBuilder
 #########################################################
@@ -6016,7 +6016,7 @@ setTransitions
         })->build();
 
 
-.. _updatebuilder.subscriptionupdatebuilder:
+.. _subscriptionupdatebuilder:
 
 SubscriptionUpdateBuilder
 #########################################################
@@ -6085,7 +6085,7 @@ setMessages
         })->build();
 
 
-.. _updatebuilder.taxcategoryupdatebuilder:
+.. _taxcategoryupdatebuilder:
 
 TaxCategoryUpdateBuilder
 #########################################################
@@ -6208,7 +6208,7 @@ setKey
         })->build();
 
 
-.. _updatebuilder.typeupdatebuilder:
+.. _typeupdatebuilder:
 
 TypeUpdateBuilder
 #########################################################
@@ -6439,7 +6439,7 @@ setDescription
         })->build();
 
 
-.. _updatebuilder.zoneupdatebuilder:
+.. _zoneupdatebuilder:
 
 ZoneUpdateBuilder
 #########################################################
@@ -6526,7 +6526,7 @@ setDescription
         })->build();
 
 
-.. _updatebuilder.extensionupdatebuilder:
+.. _extensionupdatebuilder:
 
 ExtensionUpdateBuilder
 #########################################################
