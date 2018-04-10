@@ -1136,6 +1136,18 @@ $builder =  new RequestBuilder();
 $request = $builder->withProjectKeyValue($projectKey)->carts()->post();
 $response = $client->send($request);
 ```
+## `withProjectKeyValue($projectKey)->carts()->replicate()->post()`
+
+
+### Parameters
+* **projectKey** (type: `string`)
+
+### Example
+```php
+$builder =  new RequestBuilder();
+$request = $builder->withProjectKeyValue($projectKey)->carts()->replicate()->post();
+$response = $client->send($request);
+```
 ## `withProjectKeyValue($projectKey)->carts()->withId($ID)->get()`
 
 Get Cart by ID

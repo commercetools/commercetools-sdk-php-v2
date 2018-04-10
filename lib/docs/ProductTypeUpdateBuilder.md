@@ -62,6 +62,20 @@ $productTypeUpdate = $builder->changeAttributeConstraint(
         return $action;
     })->build();
 ```
+## changeAttributeName
+
+```php
+use Commercetools\Builder\ProductTypeUpdateBuilder;
+
+$builder = new ProductTypeUpdateBuilder();
+$productTypeUpdate = $builder->changeAttributeName(new ProductTypeChangeAttributeNameAction())->build()
+//or
+$productTypeUpdate = $builder->changeAttributeName(
+    function (ProductTypeChangeAttributeNameAction $action): ProductTypeChangeAttributeNameAction {
+        // modify action as needed
+        return $action;
+    })->build();
+```
 ## changeAttributeOrder
 
 ```php
@@ -86,6 +100,20 @@ $productTypeUpdate = $builder->changeDescription(new ProductTypeChangeDescriptio
 //or
 $productTypeUpdate = $builder->changeDescription(
     function (ProductTypeChangeDescriptionAction $action): ProductTypeChangeDescriptionAction {
+        // modify action as needed
+        return $action;
+    })->build();
+```
+## changeEnumKey
+
+```php
+use Commercetools\Builder\ProductTypeUpdateBuilder;
+
+$builder = new ProductTypeUpdateBuilder();
+$productTypeUpdate = $builder->changeEnumKey(new ProductTypeChangeEnumKeyAction())->build()
+//or
+$productTypeUpdate = $builder->changeEnumKey(
+    function (ProductTypeChangeEnumKeyAction $action): ProductTypeChangeEnumKeyAction {
         // modify action as needed
         return $action;
     })->build();

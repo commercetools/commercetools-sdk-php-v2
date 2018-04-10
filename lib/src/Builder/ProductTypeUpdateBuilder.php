@@ -15,8 +15,10 @@ use Commercetools\Types\ProductType\ProductTypeAddAttributeDefinitionAction;
 use Commercetools\Types\ProductType\ProductTypeAddLocalizedEnumValueAction;
 use Commercetools\Types\ProductType\ProductTypeAddPlainEnumValueAction;
 use Commercetools\Types\ProductType\ProductTypeChangeAttributeConstraintAction;
+use Commercetools\Types\ProductType\ProductTypeChangeAttributeNameAction;
 use Commercetools\Types\ProductType\ProductTypeChangeAttributeOrderAction;
 use Commercetools\Types\ProductType\ProductTypeChangeDescriptionAction;
+use Commercetools\Types\ProductType\ProductTypeChangeEnumKeyAction;
 use Commercetools\Types\ProductType\ProductTypeChangeInputHintAction;
 use Commercetools\Types\ProductType\ProductTypeChangeIsSearchableAction;
 use Commercetools\Types\ProductType\ProductTypeChangeLabelAction;
@@ -113,6 +115,21 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
         return $this;
     }
     /**
+     * @param ProductTypeChangeAttributeNameAction|callable $action builder function <code>
+     *   function(ProductTypeChangeAttributeNameAction $action): ProductTypeChangeAttributeNameAction {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     * @throws InvalidArgumentException
+     */
+    public function changeAttributeName($action = null)
+    {
+        $this->addAction($this->resolveAction(ProductTypeChangeAttributeNameAction::class, $action));
+        return $this;
+    }
+    /**
      * @param ProductTypeChangeAttributeOrderAction|callable $action builder function <code>
      *   function(ProductTypeChangeAttributeOrderAction $action): ProductTypeChangeAttributeOrderAction {
      *     // modify action as needed
@@ -140,6 +157,21 @@ class ProductTypeUpdateBuilder extends BaseBuilder {
     public function changeDescription($action = null)
     {
         $this->addAction($this->resolveAction(ProductTypeChangeDescriptionAction::class, $action));
+        return $this;
+    }
+    /**
+     * @param ProductTypeChangeEnumKeyAction|callable $action builder function <code>
+     *   function(ProductTypeChangeEnumKeyAction $action): ProductTypeChangeEnumKeyAction {
+     *     // modify action as needed
+     *     return $action;
+     *   }
+     *   </code>
+     * @return $this
+     * @throws InvalidArgumentException
+     */
+    public function changeEnumKey($action = null)
+    {
+        $this->addAction($this->resolveAction(ProductTypeChangeEnumKeyAction::class, $action));
         return $this;
     }
     /**

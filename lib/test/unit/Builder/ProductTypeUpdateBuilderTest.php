@@ -13,8 +13,10 @@ use Commercetools\Types\ProductType\ProductTypeAddAttributeDefinitionAction;
 use Commercetools\Types\ProductType\ProductTypeAddLocalizedEnumValueAction;
 use Commercetools\Types\ProductType\ProductTypeAddPlainEnumValueAction;
 use Commercetools\Types\ProductType\ProductTypeChangeAttributeConstraintAction;
+use Commercetools\Types\ProductType\ProductTypeChangeAttributeNameAction;
 use Commercetools\Types\ProductType\ProductTypeChangeAttributeOrderAction;
 use Commercetools\Types\ProductType\ProductTypeChangeDescriptionAction;
+use Commercetools\Types\ProductType\ProductTypeChangeEnumKeyAction;
 use Commercetools\Types\ProductType\ProductTypeChangeInputHintAction;
 use Commercetools\Types\ProductType\ProductTypeChangeIsSearchableAction;
 use Commercetools\Types\ProductType\ProductTypeChangeLabelAction;
@@ -35,8 +37,10 @@ use Commercetools\Types\ProductType\ProductTypeAddAttributeDefinitionActionModel
 use Commercetools\Types\ProductType\ProductTypeAddLocalizedEnumValueActionModel;
 use Commercetools\Types\ProductType\ProductTypeAddPlainEnumValueActionModel;
 use Commercetools\Types\ProductType\ProductTypeChangeAttributeConstraintActionModel;
+use Commercetools\Types\ProductType\ProductTypeChangeAttributeNameActionModel;
 use Commercetools\Types\ProductType\ProductTypeChangeAttributeOrderActionModel;
 use Commercetools\Types\ProductType\ProductTypeChangeDescriptionActionModel;
+use Commercetools\Types\ProductType\ProductTypeChangeEnumKeyActionModel;
 use Commercetools\Types\ProductType\ProductTypeChangeInputHintActionModel;
 use Commercetools\Types\ProductType\ProductTypeChangeIsSearchableActionModel;
 use Commercetools\Types\ProductType\ProductTypeChangeLabelActionModel;
@@ -167,6 +171,34 @@ class ProductTypeBuilderTest extends TestCase {
         $builder->changeAttributeConstraint([]);
     }
 
+    public function testChangeAttributeNameCallback() {
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->changeAttributeName(function($action) { static::assertInstanceOf(ProductTypeChangeAttributeNameAction::class, $action); return $action; });
+        $update = $builder->build();
+        static::assertInstanceOf(ProductTypeUpdate::class, $update);
+        static::assertInstanceOf(ProductTypeChangeAttributeNameAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeAttributeNameInvalidCallback() {
+        $this->expectException(InvalidArgumentException::class);
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->changeAttributeName(function($action) { static::assertInstanceOf(ProductTypeChangeAttributeNameAction::class, $action); return []; });
+    }
+
+    public function testChangeAttributeNameInstance() {
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->changeAttributeName(new ProductTypeChangeAttributeNameActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ProductTypeUpdate::class, $update);
+        static::assertInstanceOf(ProductTypeChangeAttributeNameAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeAttributeNameInvalidInstance() {
+        $this->expectException(InvalidArgumentException::class);
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->changeAttributeName([]);
+    }
+
     public function testChangeAttributeOrderCallback() {
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeAttributeOrder(function($action) { static::assertInstanceOf(ProductTypeChangeAttributeOrderAction::class, $action); return $action; });
@@ -221,6 +253,34 @@ class ProductTypeBuilderTest extends TestCase {
         $this->expectException(InvalidArgumentException::class);
         $builder = new ProductTypeUpdateBuilder();
         $builder->changeDescription([]);
+    }
+
+    public function testChangeEnumKeyCallback() {
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->changeEnumKey(function($action) { static::assertInstanceOf(ProductTypeChangeEnumKeyAction::class, $action); return $action; });
+        $update = $builder->build();
+        static::assertInstanceOf(ProductTypeUpdate::class, $update);
+        static::assertInstanceOf(ProductTypeChangeEnumKeyAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeEnumKeyInvalidCallback() {
+        $this->expectException(InvalidArgumentException::class);
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->changeEnumKey(function($action) { static::assertInstanceOf(ProductTypeChangeEnumKeyAction::class, $action); return []; });
+    }
+
+    public function testChangeEnumKeyInstance() {
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->changeEnumKey(new ProductTypeChangeEnumKeyActionModel());
+        $update = $builder->build();
+        static::assertInstanceOf(ProductTypeUpdate::class, $update);
+        static::assertInstanceOf(ProductTypeChangeEnumKeyAction::class, $update->getActions()->current());
+    }
+
+    public function testChangeEnumKeyInvalidInstance() {
+        $this->expectException(InvalidArgumentException::class);
+        $builder = new ProductTypeUpdateBuilder();
+        $builder->changeEnumKey([]);
     }
 
     public function testChangeInputHintCallback() {

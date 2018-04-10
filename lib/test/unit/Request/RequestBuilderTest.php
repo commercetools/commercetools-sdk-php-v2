@@ -79,6 +79,13 @@ class RequestBuilderTest extends TestCase
                 'post',
                 '/{projectKey}/carts',
             ],
+            'ByProjectKeyCartsReplicatePost' => [
+                function(RequestBuilder $builder): RequestInterface {
+                    return $builder->withProjectKeyValue('projectKey')->carts()->replicate()->post(null);
+                },
+                'post',
+                '/{projectKey}/carts/replicate',
+            ],
             'ByProjectKeyCartsByIDGet' => [
                 function(RequestBuilder $builder): RequestInterface {
                     return $builder->withProjectKeyValue('projectKey')->carts()->withId('ID')->get();

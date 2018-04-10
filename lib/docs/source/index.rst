@@ -11,26 +11,4 @@ Contents:
     installation
     usage
     requestbuilder
-    projectupdatebuilder
-    categoryupdatebuilder
-    cartupdatebuilder
-    cartdiscountupdatebuilder
-    channelupdatebuilder
-    customerupdatebuilder
-    customergroupupdatebuilder
-    discountcodeupdatebuilder
-    inventoryentryupdatebuilder
-    orderupdatebuilder
-    paymentupdatebuilder
-    productupdatebuilder
-    productdiscountupdatebuilder
-    producttypeupdatebuilder
-    reviewupdatebuilder
-    shippingmethodupdatebuilder
-    shoppinglistupdatebuilder
-    stateupdatebuilder
-    subscriptionupdatebuilder
-    taxcategoryupdatebuilder
-    typeupdatebuilder
-    zoneupdatebuilder
-    extensionupdatebuilder
+    updatebuilder
