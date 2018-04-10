@@ -14,7 +14,7 @@ class CtpRequestBuilder extends Resource
         parent::__construct('', ['projectKey' => $projectKey], $mapper);
     }
 
-    public function with(): Resource0
+    public function with(): ResourceByProjectKey
     {
         $builder = new RequestBuilder($this->getArgs(), $this->getMapper());
         return $builder->withProjectKeyValue();
