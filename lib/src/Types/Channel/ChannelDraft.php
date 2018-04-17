@@ -9,8 +9,10 @@ namespace Commercetools\Types\Channel;
 
 use Commercetools\Base\JsonObject;
 
+use Commercetools\Types\Common\GeoJson;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
+use Commercetools\Types\Common\GeoJsonPoint;
 use Commercetools\Types\Common\Address;
 
 interface ChannelDraft extends JsonObject {

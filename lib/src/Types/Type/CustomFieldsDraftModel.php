@@ -10,6 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
+use Commercetools\Types\Common\ResourceIdentifier;
+
 class CustomFieldsDraftModel extends JsonObjectModel implements CustomFieldsDraft {
     /**
      * @var mixed
@@ -74,7 +76,16 @@ class CustomFieldsDraftModel extends JsonObjectModel implements CustomFieldsDraf
      */
     public function getTypeAsResourceIdentifier()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(CustomFieldsDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(ResourceIdentifier::class, null);
+            }
+            $value = $this->mapData(ResourceIdentifier::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -82,7 +93,16 @@ class CustomFieldsDraftModel extends JsonObjectModel implements CustomFieldsDraf
      */
     public function getTypeAsTypeReference()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(CustomFieldsDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(TypeReference::class, null);
+            }
+            $value = $this->mapData(TypeReference::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
 }

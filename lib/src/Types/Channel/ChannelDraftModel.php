@@ -10,8 +10,10 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
+use Commercetools\Types\Common\GeoJson;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
+use Commercetools\Types\Common\GeoJsonPoint;
 use Commercetools\Types\Common\Address;
 
 class ChannelDraftModel extends JsonObjectModel implements ChannelDraft {
@@ -220,7 +222,16 @@ class ChannelDraftModel extends JsonObjectModel implements ChannelDraft {
      */
     public function getGeoLocationAsGeoJsonPoint()
     {
-        return null;
+        if (is_null($this->geoLocation)) {
+            $value = $this->raw(ChannelDraft::FIELD_GEO_LOCATION);
+            if (is_null($value)) {
+                return $this->mapData(GeoJsonPoint::class, null);
+            }
+            $value = $this->mapData(GeoJsonPoint::class, $value);
+
+            $this->geoLocation = $value;
+        }
+        return $this->geoLocation;
     }
 
     /**
@@ -228,7 +239,17 @@ class ChannelDraftModel extends JsonObjectModel implements ChannelDraft {
      */
     public function getGeoLocationAsGeoJson()
     {
-        return null;
+        if (is_null($this->geoLocation)) {
+            $value = $this->raw(ChannelDraft::FIELD_GEO_LOCATION);
+            $resolvedClass = $this->resolveDiscriminator(GeoJson::class, $value);
+            if (is_null($value)) {
+                return $this->mapData($resolvedClass, null);
+            }
+            $value = $this->mapData($resolvedClass, $value);
+
+            $this->geoLocation = $value;
+        }
+        return $this->geoLocation;
     }
 
 }

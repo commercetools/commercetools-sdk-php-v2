@@ -9,6 +9,10 @@ namespace Commercetools\Types\Review;
 
 use Commercetools\Base\JsonObject;
 
+use Commercetools\Types\Channel\ChannelReference;
+use Commercetools\Types\State\StateReference;
+use Commercetools\Types\Common\ResourceIdentifier;
+use Commercetools\Types\Product\ProductReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Customer\CustomerReference;
 

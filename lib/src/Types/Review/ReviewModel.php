@@ -11,6 +11,8 @@ use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Common\ResourceModel;
 
 use Commercetools\Types\State\StateReference;
+use Commercetools\Types\Channel\ChannelReference;
+use Commercetools\Types\Product\ProductReference;
 use Commercetools\Types\Customer\CustomerReference;
 use Commercetools\Types\Type\CustomFields;
 use Commercetools\Builder\ReviewUpdateBuilder;
@@ -347,7 +349,16 @@ class ReviewModel extends ResourceModel implements Review {
      */
     public function getTargetAsProductReference()
     {
-        return null;
+        if (is_null($this->target)) {
+            $value = $this->raw(Review::FIELD_TARGET);
+            if (is_null($value)) {
+                return $this->mapData(ProductReference::class, null);
+            }
+            $value = $this->mapData(ProductReference::class, $value);
+
+            $this->target = $value;
+        }
+        return $this->target;
     }
 
     /**
@@ -355,7 +366,16 @@ class ReviewModel extends ResourceModel implements Review {
      */
     public function getTargetAsChannelReference()
     {
-        return null;
+        if (is_null($this->target)) {
+            $value = $this->raw(Review::FIELD_TARGET);
+            if (is_null($value)) {
+                return $this->mapData(ChannelReference::class, null);
+            }
+            $value = $this->mapData(ChannelReference::class, $value);
+
+            $this->target = $value;
+        }
+        return $this->target;
     }
 
 

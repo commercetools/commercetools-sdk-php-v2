@@ -7,9 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
+use Commercetools\Types\Common\GeoJson;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Builder\ChannelUpdateBuilder;
 use Commercetools\Types\Type\CustomFields;
+use Commercetools\Types\Common\GeoJsonPoint;
 use Commercetools\Types\Common\Address;
 use Commercetools\Types\Review\ReviewRatingStatistics;
 use Commercetools\Types\Common\Resource;

@@ -234,7 +234,17 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            $resolvedClass = $this->resolveDiscriminator(AttributeType::class, $value);
+            if (is_null($value)) {
+                return $this->mapData($resolvedClass, null);
+            }
+            $value = $this->mapData($resolvedClass, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -242,7 +252,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeBooleanType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeBooleanType::class, null);
+            }
+            $value = $this->mapData(AttributeBooleanType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -250,7 +269,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeDateTimeType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeDateTimeType::class, null);
+            }
+            $value = $this->mapData(AttributeDateTimeType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -258,7 +286,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeDateType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeDateType::class, null);
+            }
+            $value = $this->mapData(AttributeDateType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -266,7 +303,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeTimeType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeTimeType::class, null);
+            }
+            $value = $this->mapData(AttributeTimeType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -274,7 +320,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeEnumType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeEnumType::class, null);
+            }
+            $value = $this->mapData(AttributeEnumType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -282,7 +337,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeLocalizedEnumType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeLocalizedEnumType::class, null);
+            }
+            $value = $this->mapData(AttributeLocalizedEnumType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -290,7 +354,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeMoneyType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeMoneyType::class, null);
+            }
+            $value = $this->mapData(AttributeMoneyType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -298,7 +371,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeNestedType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeNestedType::class, null);
+            }
+            $value = $this->mapData(AttributeNestedType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -306,7 +388,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeNumberType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeNumberType::class, null);
+            }
+            $value = $this->mapData(AttributeNumberType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -314,7 +405,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeReferenceType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeReferenceType::class, null);
+            }
+            $value = $this->mapData(AttributeReferenceType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -322,7 +422,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeSetType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeSetType::class, null);
+            }
+            $value = $this->mapData(AttributeSetType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
     /**
@@ -330,7 +439,16 @@ class AttributeDefinitionDraftModel extends JsonObjectModel implements Attribute
      */
     public function getTypeAsAttributeTextType()
     {
-        return null;
+        if (is_null($this->type)) {
+            $value = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($value)) {
+                return $this->mapData(AttributeTextType::class, null);
+            }
+            $value = $this->mapData(AttributeTextType::class, $value);
+
+            $this->type = $value;
+        }
+        return $this->type;
     }
 
 }

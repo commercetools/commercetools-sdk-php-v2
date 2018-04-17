@@ -70,7 +70,17 @@ class SearchKeywordModel extends JsonObjectModel implements SearchKeyword {
      */
     public function getSuggestTokenizerAsSuggestTokenizer()
     {
-        return null;
+        if (is_null($this->suggestTokenizer)) {
+            $value = $this->raw(SearchKeyword::FIELD_SUGGEST_TOKENIZER);
+            $resolvedClass = $this->resolveDiscriminator(SuggestTokenizer::class, $value);
+            if (is_null($value)) {
+                return $this->mapData($resolvedClass, null);
+            }
+            $value = $this->mapData($resolvedClass, $value);
+
+            $this->suggestTokenizer = $value;
+        }
+        return $this->suggestTokenizer;
     }
 
     /**
@@ -78,7 +88,16 @@ class SearchKeywordModel extends JsonObjectModel implements SearchKeyword {
      */
     public function getSuggestTokenizerAsWhitespaceTokenizer()
     {
-        return null;
+        if (is_null($this->suggestTokenizer)) {
+            $value = $this->raw(SearchKeyword::FIELD_SUGGEST_TOKENIZER);
+            if (is_null($value)) {
+                return $this->mapData(WhitespaceTokenizer::class, null);
+            }
+            $value = $this->mapData(WhitespaceTokenizer::class, $value);
+
+            $this->suggestTokenizer = $value;
+        }
+        return $this->suggestTokenizer;
     }
 
     /**
@@ -86,7 +105,16 @@ class SearchKeywordModel extends JsonObjectModel implements SearchKeyword {
      */
     public function getSuggestTokenizerAsCustomTokenizer()
     {
-        return null;
+        if (is_null($this->suggestTokenizer)) {
+            $value = $this->raw(SearchKeyword::FIELD_SUGGEST_TOKENIZER);
+            if (is_null($value)) {
+                return $this->mapData(CustomTokenizer::class, null);
+            }
+            $value = $this->mapData(CustomTokenizer::class, $value);
+
+            $this->suggestTokenizer = $value;
+        }
+        return $this->suggestTokenizer;
     }
 
 }

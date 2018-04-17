@@ -8,6 +8,8 @@ declare(strict_types = 1);
 namespace Commercetools\Types\Review;
 
 use Commercetools\Types\State\StateReference;
+use Commercetools\Types\Channel\ChannelReference;
+use Commercetools\Types\Product\ProductReference;
 use Commercetools\Types\Customer\CustomerReference;
 use Commercetools\Types\Type\CustomFields;
 use Commercetools\Builder\ReviewUpdateBuilder;

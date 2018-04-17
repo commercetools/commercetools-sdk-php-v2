@@ -9,6 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\JsonObject;
 
+use Commercetools\Types\Common\ResourceIdentifier;
+
 interface CustomFieldsDraft extends JsonObject {
     const FIELD_TYPE = 'type';
     const FIELD_FIELDS = 'fields';

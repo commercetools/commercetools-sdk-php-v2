@@ -10,6 +10,10 @@ namespace Commercetools\Types\Review;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
+use Commercetools\Types\Channel\ChannelReference;
+use Commercetools\Types\State\StateReference;
+use Commercetools\Types\Common\ResourceIdentifier;
+use Commercetools\Types\Product\ProductReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Customer\CustomerReference;
 
@@ -314,7 +318,16 @@ class ReviewDraftModel extends JsonObjectModel implements ReviewDraft {
      */
     public function getTargetAsProductReference()
     {
-        return null;
+        if (is_null($this->target)) {
+            $value = $this->raw(ReviewDraft::FIELD_TARGET);
+            if (is_null($value)) {
+                return $this->mapData(ProductReference::class, null);
+            }
+            $value = $this->mapData(ProductReference::class, $value);
+
+            $this->target = $value;
+        }
+        return $this->target;
     }
 
     /**
@@ -322,7 +335,16 @@ class ReviewDraftModel extends JsonObjectModel implements ReviewDraft {
      */
     public function getTargetAsChannelReference()
     {
-        return null;
+        if (is_null($this->target)) {
+            $value = $this->raw(ReviewDraft::FIELD_TARGET);
+            if (is_null($value)) {
+                return $this->mapData(ChannelReference::class, null);
+            }
+            $value = $this->mapData(ChannelReference::class, $value);
+
+            $this->target = $value;
+        }
+        return $this->target;
     }
 
     /**
@@ -330,7 +352,16 @@ class ReviewDraftModel extends JsonObjectModel implements ReviewDraft {
      */
     public function getStateAsResourceIdentifier()
     {
-        return null;
+        if (is_null($this->state)) {
+            $value = $this->raw(ReviewDraft::FIELD_STATE);
+            if (is_null($value)) {
+                return $this->mapData(ResourceIdentifier::class, null);
+            }
+            $value = $this->mapData(ResourceIdentifier::class, $value);
+
+            $this->state = $value;
+        }
+        return $this->state;
     }
 
     /**
@@ -338,7 +369,16 @@ class ReviewDraftModel extends JsonObjectModel implements ReviewDraft {
      */
     public function getStateAsStateReference()
     {
-        return null;
+        if (is_null($this->state)) {
+            $value = $this->raw(ReviewDraft::FIELD_STATE);
+            if (is_null($value)) {
+                return $this->mapData(StateReference::class, null);
+            }
+            $value = $this->mapData(StateReference::class, $value);
+
+            $this->state = $value;
+        }
+        return $this->state;
     }
 
 }
