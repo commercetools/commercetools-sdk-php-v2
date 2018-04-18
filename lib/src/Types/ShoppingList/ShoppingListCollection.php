@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShoppingList;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface ShoppingListCollection extends Collection {
+
+interface ShoppingListCollection extends ResourceCollection {
     /**
      * @param $index
      * @return ShoppingList

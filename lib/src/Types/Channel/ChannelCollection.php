@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface ChannelCollection extends Collection {
+
+interface ChannelCollection extends ResourceCollection {
     /**
      * @param $index
      * @return Channel

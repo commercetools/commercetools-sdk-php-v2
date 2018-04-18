@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ReferenceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class CategoryReferenceCollectionModel extends JsonCollection implements CategoryReferenceCollection {
+class CategoryReferenceCollectionModel extends ReferenceCollectionModel implements CategoryReferenceCollection {
 
     /**
      * @param CategoryReference $value

@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface InventoryEntryCollection extends Collection {
+
+interface InventoryEntryCollection extends ResourceCollection {
     /**
      * @param $index
      * @return InventoryEntry

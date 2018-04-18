@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class InventoryEntryCollectionModel extends JsonCollection implements InventoryEntryCollection {
+class InventoryEntryCollectionModel extends ResourceCollectionModel implements InventoryEntryCollection {
 
     /**
      * @param InventoryEntry $value

@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CustomerGroup;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface CustomerGroupUpdateActionCollection extends Collection {
+
+interface CustomerGroupUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return CustomerGroupUpdateAction

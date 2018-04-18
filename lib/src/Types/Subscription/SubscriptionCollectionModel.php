@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class SubscriptionCollectionModel extends JsonCollection implements SubscriptionCollection {
+class SubscriptionCollectionModel extends ResourceCollectionModel implements SubscriptionCollection {
 
     /**
      * @param Subscription $value

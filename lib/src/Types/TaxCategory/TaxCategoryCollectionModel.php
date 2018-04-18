@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\TaxCategory;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class TaxCategoryCollectionModel extends JsonCollection implements TaxCategoryCollection {
+class TaxCategoryCollectionModel extends ResourceCollectionModel implements TaxCategoryCollection {
 
     /**
      * @param TaxCategory $value

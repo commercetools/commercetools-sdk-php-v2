@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CustomerGroup;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface CustomerGroupCollection extends Collection {
+
+interface CustomerGroupCollection extends ResourceCollection {
     /**
      * @param $index
      * @return CustomerGroup

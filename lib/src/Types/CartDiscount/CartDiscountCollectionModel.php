@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class CartDiscountCollectionModel extends JsonCollection implements CartDiscountCollection {
+class CartDiscountCollectionModel extends ResourceCollectionModel implements CartDiscountCollection {
 
     /**
      * @param CartDiscount $value

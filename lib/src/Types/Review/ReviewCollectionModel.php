@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Review;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ReviewCollectionModel extends JsonCollection implements ReviewCollection {
+class ReviewCollectionModel extends ResourceCollectionModel implements ReviewCollection {
 
     /**
      * @param Review $value

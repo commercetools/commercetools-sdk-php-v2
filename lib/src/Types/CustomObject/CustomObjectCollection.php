@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CustomObject;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface CustomObjectCollection extends Collection {
+
+interface CustomObjectCollection extends ResourceCollection {
     /**
      * @param $index
      * @return CustomObject

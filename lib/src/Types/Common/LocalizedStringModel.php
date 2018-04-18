@@ -7,64 +7,22 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Common;
 
+use Commercetools\Base\JsonMap;
 use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Base\JsonObjectModel;
 
-class LocalizedStringModel extends JsonObjectModel implements LocalizedString {
-    private $patternData = [];
-    /**
-     * @param string $key
-     * @return mixed
-     */
-    public function get(string $key)
-    {
-        if (!isset($this->patternData[$key])) {
-            switch (true) {
-                case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key) === 1:
-                    $value = $this->raw($key);
-                    $value = (string)$value;
-                    break;
-                default:
-                    throw new InvalidArgumentException();
-            }
-            $this->patternData[$key] = $value;
-        }
-        return $this->patternData[$key];
-    }
+class LocalizedStringModel extends JsonMap implements LocalizedString {
 
     /**
-     * @param string $key
-     * @param mixed $value
-     * @return $this
+     * @param $data
+     * @param $index
+     * @return string
      */
-    public function set(string $key, $value)
+    public function map($data, $index)
     {
-        if (!$this->validKey($key)) {
-            throw new InvalidArgumentException();
+        if (!is_null($data)) {
+            $data = (string)$data;
+            $this->rawSet($data, $index);
         }
-        $this->patternData[$key] = $value;
-        return $this;
-    }
-
-
-    private function validKey(string $key): bool
-    {
-        switch (true) {
-            case preg_match('/^[a-z]{2}(-[A-Z]{2})?$/', $key) === 1:
-                return true;
-            default:
-                return false;
-        }
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function toArray(): array
-    {
-        $data = parent::toArray();
-        $data = array_merge($data, $this->patternData);
-        unset($data['patternData']);
         return $data;
     }
 }

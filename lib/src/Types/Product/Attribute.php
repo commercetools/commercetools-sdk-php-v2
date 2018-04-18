@@ -77,11 +77,6 @@ interface Attribute extends JsonObject {
     public function getValueAsAttributeLocalizedEnumValue();
 
     /**
-     * @return LocalizedString
-     */
-    public function getValueAsLocalizedString();
-
-    /**
      * @return AttributePlainEnumValue
      */
     public function getValueAsAttributePlainEnumValue();
@@ -95,6 +90,11 @@ interface Attribute extends JsonObject {
      * @return Money
      */
     public function getValueAsMoney();
+
+    /**
+     * @return LocalizedString
+     */
+    public function getValueAsLocalizedString();
 
     /**
      * @return AttributeCollection

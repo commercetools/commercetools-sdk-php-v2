@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\UpdateActionCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductTypeUpdateActionCollectionModel extends JsonCollection implements ProductTypeUpdateActionCollection {
+class ProductTypeUpdateActionCollectionModel extends UpdateActionCollectionModel implements ProductTypeUpdateActionCollection {
 
     /**
      * @param ProductTypeUpdateAction $value

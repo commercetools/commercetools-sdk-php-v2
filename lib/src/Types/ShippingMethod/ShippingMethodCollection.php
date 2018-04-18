@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface ShippingMethodCollection extends Collection {
+
+interface ShippingMethodCollection extends ResourceCollection {
     /**
      * @param $index
      * @return ShippingMethod

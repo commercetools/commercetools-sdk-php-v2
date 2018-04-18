@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Common;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceIdentifierCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ReferenceCollectionModel extends JsonCollection implements ReferenceCollection {
+class ReferenceCollectionModel extends ResourceIdentifierCollectionModel implements ReferenceCollection {
 
     /**
      * @param Reference $value

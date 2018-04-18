@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductDiscount;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface ProductDiscountUpdateActionCollection extends Collection {
+
+interface ProductDiscountUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return ProductDiscountUpdateAction

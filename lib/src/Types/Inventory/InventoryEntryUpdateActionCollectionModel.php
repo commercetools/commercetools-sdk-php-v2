@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\UpdateActionCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class InventoryEntryUpdateActionCollectionModel extends JsonCollection implements InventoryEntryUpdateActionCollection {
+class InventoryEntryUpdateActionCollectionModel extends UpdateActionCollectionModel implements InventoryEntryUpdateActionCollection {
 
     /**
      * @param InventoryEntryUpdateAction $value

@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Zone;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ZoneCollectionModel extends JsonCollection implements ZoneCollection {
+class ZoneCollectionModel extends ResourceCollectionModel implements ZoneCollection {
 
     /**
      * @param Zone $value

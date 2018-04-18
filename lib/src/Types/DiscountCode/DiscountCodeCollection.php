@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\DiscountCode;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface DiscountCodeCollection extends Collection {
+
+interface DiscountCodeCollection extends ResourceCollection {
     /**
      * @param $index
      * @return DiscountCode

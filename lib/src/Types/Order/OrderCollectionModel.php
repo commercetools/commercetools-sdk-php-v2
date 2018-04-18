@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderCollectionModel extends JsonCollection implements OrderCollection {
+class OrderCollectionModel extends ResourceCollectionModel implements OrderCollection {
 
     /**
      * @param Order $value

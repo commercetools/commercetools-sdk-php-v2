@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelCollectionModel extends JsonCollection implements ChannelCollection {
+class ChannelCollectionModel extends ResourceCollectionModel implements ChannelCollection {
 
     /**
      * @param Channel $value

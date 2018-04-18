@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class StateCollectionModel extends JsonCollection implements StateCollection {
+class StateCollectionModel extends ResourceCollectionModel implements StateCollection {
 
     /**
      * @param State $value

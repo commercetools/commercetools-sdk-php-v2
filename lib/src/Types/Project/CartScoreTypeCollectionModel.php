@@ -1,0 +1,40 @@
+<?php
+declare(strict_types = 1);
+/**
+ * This file has been auto generated
+ * Do not change it
+ */
+
+namespace Commercetools\Types\Project;
+
+use Commercetools\Types\Project\ShippingRateInputTypeCollectionModel;
+
+use Commercetools\Exception\InvalidArgumentException;
+
+class CartScoreTypeCollectionModel extends ShippingRateInputTypeCollectionModel implements CartScoreTypeCollection {
+
+    /**
+     * @param CartScoreType $value
+     * @return CartScoreTypeCollection
+     */
+    public function add($value) {
+        if (!$value instanceof CartScoreType) {
+            throw new InvalidArgumentException();
+        }
+        parent::add($value);
+
+        return $this;
+    }
+
+    /**
+     * @return CartScoreType
+     */
+    public function map($data, $index)
+    {
+        if (!is_null($data) && !$data instanceof CartScoreType) {
+            $data = $this->mapData(CartScoreType::class, $data);
+            $this->rawSet($data, $index);
+        }
+        return $data;
+    }
+}

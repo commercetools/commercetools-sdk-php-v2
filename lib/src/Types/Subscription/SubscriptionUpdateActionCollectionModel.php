@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\UpdateActionCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class SubscriptionUpdateActionCollectionModel extends JsonCollection implements SubscriptionUpdateActionCollection {
+class SubscriptionUpdateActionCollectionModel extends UpdateActionCollectionModel implements SubscriptionUpdateActionCollection {
 
     /**
      * @param SubscriptionUpdateAction $value

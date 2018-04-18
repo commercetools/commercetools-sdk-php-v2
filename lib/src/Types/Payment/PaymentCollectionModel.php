@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class PaymentCollectionModel extends JsonCollection implements PaymentCollection {
+class PaymentCollectionModel extends ResourceCollectionModel implements PaymentCollection {
 
     /**
      * @param Payment $value

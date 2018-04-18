@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface SubscriptionUpdateActionCollection extends Collection {
+
+interface SubscriptionUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return SubscriptionUpdateAction

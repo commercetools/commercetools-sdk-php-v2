@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface OrderUpdateActionCollection extends Collection {
+
+interface OrderUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return OrderUpdateAction

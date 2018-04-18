@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CustomObject;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomObjectCollectionModel extends JsonCollection implements CustomObjectCollection {
+class CustomObjectCollectionModel extends ResourceCollectionModel implements CustomObjectCollection {
 
     /**
      * @param CustomObject $value

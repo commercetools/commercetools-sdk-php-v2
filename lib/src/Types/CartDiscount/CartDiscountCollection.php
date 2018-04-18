@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface CartDiscountCollection extends Collection {
+
+interface CartDiscountCollection extends ResourceCollection {
     /**
      * @param $index
      * @return CartDiscount

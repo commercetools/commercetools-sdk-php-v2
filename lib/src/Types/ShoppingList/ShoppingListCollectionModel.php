@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShoppingList;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShoppingListCollectionModel extends JsonCollection implements ShoppingListCollection {
+class ShoppingListCollectionModel extends ResourceCollectionModel implements ShoppingListCollection {
 
     /**
      * @param ShoppingList $value

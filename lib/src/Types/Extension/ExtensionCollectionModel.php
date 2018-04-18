@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Extension;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ExtensionCollectionModel extends JsonCollection implements ExtensionCollection {
+class ExtensionCollectionModel extends ResourceCollectionModel implements ExtensionCollection {
 
     /**
      * @param Extension $value

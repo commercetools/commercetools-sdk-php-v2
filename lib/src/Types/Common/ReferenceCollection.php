@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Common;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceIdentifierCollection;
 
-interface ReferenceCollection extends Collection {
+
+interface ReferenceCollection extends ResourceIdentifierCollection {
     /**
      * @param $index
      * @return Reference

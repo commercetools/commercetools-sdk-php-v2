@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface PaymentUpdateActionCollection extends Collection {
+
+interface PaymentUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return PaymentUpdateAction

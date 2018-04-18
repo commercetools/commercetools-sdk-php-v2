@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface CategoryUpdateActionCollection extends Collection {
+
+interface CategoryUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return CategoryUpdateAction

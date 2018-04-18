@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShoppingList;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface ShoppingListUpdateActionCollection extends Collection {
+
+interface ShoppingListUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return ShoppingListUpdateAction

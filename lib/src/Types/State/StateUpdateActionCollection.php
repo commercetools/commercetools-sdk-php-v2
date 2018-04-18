@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface StateUpdateActionCollection extends Collection {
+
+interface StateUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return StateUpdateAction

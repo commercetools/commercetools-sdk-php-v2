@@ -172,23 +172,6 @@ class AttributeModel extends JsonObjectModel implements Attribute {
     }
 
     /**
-     * @return LocalizedString
-     */
-    public function getValueAsLocalizedString()
-    {
-        if (is_null($this->value)) {
-            $value = $this->raw(Attribute::FIELD_VALUE);
-            if (is_null($value)) {
-                return $this->mapData(LocalizedString::class, null);
-            }
-            $value = $this->mapData(LocalizedString::class, $value);
-
-            $this->value = $value;
-        }
-        return $this->value;
-    }
-
-    /**
      * @return AttributePlainEnumValue
      */
     public function getValueAsAttributePlainEnumValue()
@@ -234,6 +217,23 @@ class AttributeModel extends JsonObjectModel implements Attribute {
                 return $this->mapData(Money::class, null);
             }
             $value = $this->mapData(Money::class, $value);
+
+            $this->value = $value;
+        }
+        return $this->value;
+    }
+
+    /**
+     * @return LocalizedString
+     */
+    public function getValueAsLocalizedString()
+    {
+        if (is_null($this->value)) {
+            $value = $this->raw(Attribute::FIELD_VALUE);
+            if (is_null($value)) {
+                return $this->mapData(LocalizedString::class, null);
+            }
+            $value = $this->mapData(LocalizedString::class, $value);
 
             $this->value = $value;
         }

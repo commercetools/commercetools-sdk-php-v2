@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\TaxCategory;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface TaxCategoryCollection extends Collection {
+
+interface TaxCategoryCollection extends ResourceCollection {
     /**
      * @param $index
      * @return TaxCategory

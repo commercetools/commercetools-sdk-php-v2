@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ReferenceCollection;
 
-interface PaymentReferenceCollection extends Collection {
+
+interface PaymentReferenceCollection extends ReferenceCollection {
     /**
      * @param $index
      * @return PaymentReference

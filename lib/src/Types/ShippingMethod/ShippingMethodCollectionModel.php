@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShippingMethodCollectionModel extends JsonCollection implements ShippingMethodCollection {
+class ShippingMethodCollectionModel extends ResourceCollectionModel implements ShippingMethodCollection {
 
     /**
      * @param ShippingMethod $value

@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface ProjectUpdateActionCollection extends Collection {
+
+interface ProjectUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return ProjectUpdateAction

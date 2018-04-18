@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Zone;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface ZoneCollection extends Collection {
+
+interface ZoneCollection extends ResourceCollection {
     /**
      * @param $index
      * @return Zone

@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface ChannelUpdateActionCollection extends Collection {
+
+interface ChannelUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return ChannelUpdateAction

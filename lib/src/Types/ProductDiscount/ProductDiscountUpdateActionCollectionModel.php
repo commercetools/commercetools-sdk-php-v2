@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductDiscount;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\UpdateActionCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductDiscountUpdateActionCollectionModel extends JsonCollection implements ProductDiscountUpdateActionCollection {
+class ProductDiscountUpdateActionCollectionModel extends UpdateActionCollectionModel implements ProductDiscountUpdateActionCollection {
 
     /**
      * @param ProductDiscountUpdateAction $value

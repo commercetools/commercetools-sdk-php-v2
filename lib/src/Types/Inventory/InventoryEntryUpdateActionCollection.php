@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface InventoryEntryUpdateActionCollection extends Collection {
+
+interface InventoryEntryUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return InventoryEntryUpdateAction

@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Zone;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface ZoneUpdateActionCollection extends Collection {
+
+interface ZoneUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return ZoneUpdateAction

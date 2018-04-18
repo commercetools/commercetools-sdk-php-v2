@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\UpdateActionCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderUpdateActionCollectionModel extends JsonCollection implements OrderUpdateActionCollection {
+class OrderUpdateActionCollectionModel extends UpdateActionCollectionModel implements OrderUpdateActionCollection {
 
     /**
      * @param OrderUpdateAction $value

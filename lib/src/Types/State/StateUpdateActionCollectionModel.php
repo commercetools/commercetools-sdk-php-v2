@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\UpdateActionCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class StateUpdateActionCollectionModel extends JsonCollection implements StateUpdateActionCollection {
+class StateUpdateActionCollectionModel extends UpdateActionCollectionModel implements StateUpdateActionCollection {
 
     /**
      * @param StateUpdateAction $value

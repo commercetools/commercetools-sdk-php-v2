@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\UpdateActionCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelUpdateActionCollectionModel extends JsonCollection implements ChannelUpdateActionCollection {
+class ChannelUpdateActionCollectionModel extends UpdateActionCollectionModel implements ChannelUpdateActionCollection {
 
     /**
      * @param ChannelUpdateAction $value

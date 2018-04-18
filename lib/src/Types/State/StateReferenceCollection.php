@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ReferenceCollection;
 
-interface StateReferenceCollection extends Collection {
+
+interface StateReferenceCollection extends ReferenceCollection {
     /**
      * @param $index
      * @return StateReference

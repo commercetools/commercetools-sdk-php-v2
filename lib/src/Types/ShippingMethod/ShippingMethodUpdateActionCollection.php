@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\UpdateActionCollection;
 
-interface ShippingMethodUpdateActionCollection extends Collection {
+
+interface ShippingMethodUpdateActionCollection extends UpdateActionCollection {
     /**
      * @param $index
      * @return ShippingMethodUpdateAction

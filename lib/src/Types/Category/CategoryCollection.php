@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface CategoryCollection extends Collection {
+
+interface CategoryCollection extends ResourceCollection {
     /**
      * @param $index
      * @return Category

@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Review;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface ReviewCollection extends Collection {
+
+interface ReviewCollection extends ResourceCollection {
     /**
      * @param $index
      * @return Review

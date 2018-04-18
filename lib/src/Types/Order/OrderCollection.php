@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface OrderCollection extends Collection {
+
+interface OrderCollection extends ResourceCollection {
     /**
      * @param $index
      * @return Order

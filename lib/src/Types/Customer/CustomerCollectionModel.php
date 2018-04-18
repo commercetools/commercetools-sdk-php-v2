@@ -7,10 +7,11 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-use Commercetools\Base\JsonCollection;
+use Commercetools\Types\Common\ResourceCollectionModel;
+
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerCollectionModel extends JsonCollection implements CustomerCollection {
+class CustomerCollectionModel extends ResourceCollectionModel implements CustomerCollection {
 
     /**
      * @param Customer $value

@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-use Commercetools\Base\Collection;
+use Commercetools\Types\Common\ResourceCollection;
 
-interface SubscriptionCollection extends Collection {
+
+interface SubscriptionCollection extends ResourceCollection {
     /**
      * @param $index
      * @return Subscription
