@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\Collection;
 
-interface FacetResultRangeCollection extends Collection {
+interface FacetResultRangeCollection extends Collection
+{
     /**
      * @param $index
      * @return FacetResultRange

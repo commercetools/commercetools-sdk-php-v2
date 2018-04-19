@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\TypedMoney;
 
-class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPrice {
+class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPrice
+{
     /**
      * @var TypedMoney
      */

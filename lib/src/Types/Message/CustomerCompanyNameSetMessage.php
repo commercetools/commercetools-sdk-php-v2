@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface CustomerCompanyNameSetMessage extends Message {
+interface CustomerCompanyNameSetMessage extends Message
+{
     const FIELD_COMPANY_NAME = 'companyName';
 
     /**

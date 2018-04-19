@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface OutOfStockErrorCollection extends ErrorObjectCollection {
+interface OutOfStockErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return OutOfStockError

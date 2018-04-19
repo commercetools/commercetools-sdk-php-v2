@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface AttributeTimeType extends AttributeType {
+interface AttributeTimeType extends AttributeType
+{
 }

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface InvalidSubjectErrorCollection extends ErrorObjectCollection {
+interface InvalidSubjectErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return InvalidSubjectError

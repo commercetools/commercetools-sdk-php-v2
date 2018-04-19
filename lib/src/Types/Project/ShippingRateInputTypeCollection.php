@@ -9,7 +9,8 @@ namespace Commercetools\Types\Project;
 
 use Commercetools\Base\Collection;
 
-interface ShippingRateInputTypeCollection extends Collection {
+interface ShippingRateInputTypeCollection extends Collection
+{
     /**
      * @param $index
      * @return ShippingRateInputType

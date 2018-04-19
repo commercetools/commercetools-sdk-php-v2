@@ -11,7 +11,8 @@ use Commercetools\Types\Type\FieldTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomFieldLocalizedEnumTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldLocalizedEnumTypeCollection {
+class CustomFieldLocalizedEnumTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldLocalizedEnumTypeCollection
+{
 
     /**
      * @param CustomFieldLocalizedEnumType $value

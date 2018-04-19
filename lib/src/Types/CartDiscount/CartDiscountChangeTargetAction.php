@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface CartDiscountChangeTargetAction extends CartDiscountUpdateAction {
+interface CartDiscountChangeTargetAction extends CartDiscountUpdateAction
+{
     const FIELD_TARGET = 'target';
 
     /**

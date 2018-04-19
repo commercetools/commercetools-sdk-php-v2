@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface ShippingMethodReferenceCollection extends ReferenceCollection {
+interface ShippingMethodReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return ShippingMethodReference

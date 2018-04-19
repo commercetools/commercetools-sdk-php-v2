@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\Common\Money;
 
-class CartRemoveLineItemActionModel extends CartUpdateActionModel implements CartRemoveLineItemAction {
+class CartRemoveLineItemActionModel extends CartUpdateActionModel implements CartRemoveLineItemAction
+{
     const DISCRIMINATOR_VALUE = 'removeLineItem';
 
     /**

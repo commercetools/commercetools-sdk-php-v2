@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface StateReferenceCollection extends ReferenceCollection {
+interface StateReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return StateReference

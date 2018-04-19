@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\Payment\PaymentReference;
 
-interface CartRemovePaymentAction extends CartUpdateAction {
+interface CartRemovePaymentAction extends CartUpdateAction
+{
     const FIELD_PAYMENT = 'payment';
 
     /**

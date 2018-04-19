@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface AssetSourceCollection extends Collection {
+interface AssetSourceCollection extends Collection
+{
     /**
      * @param $index
      * @return AssetSource

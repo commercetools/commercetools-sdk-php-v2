@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\CustomerGroup\CustomerGroupReference;
 
-class CustomerGroupSetMessageModel extends MessageModel implements CustomerGroupSetMessage {
+class CustomerGroupSetMessageModel extends MessageModel implements CustomerGroupSetMessage
+{
     const DISCRIMINATOR_VALUE = 'CustomerGroupSet';
 
     /**

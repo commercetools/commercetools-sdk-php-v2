@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionCollection;
 
 
-interface DiscountCodeSetCartPredicateActionCollection extends DiscountCodeUpdateActionCollection {
+interface DiscountCodeSetCartPredicateActionCollection extends DiscountCodeUpdateActionCollection
+{
     /**
      * @param $index
      * @return DiscountCodeSetCartPredicateAction

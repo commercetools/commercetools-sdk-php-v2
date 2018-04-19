@@ -12,7 +12,8 @@ use Commercetools\Types\Common\MoneyModel;
 
 use Commercetools\Types;
 
-class TypedMoneyModel extends MoneyModel implements TypedMoney {
+class TypedMoneyModel extends MoneyModel implements TypedMoney
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

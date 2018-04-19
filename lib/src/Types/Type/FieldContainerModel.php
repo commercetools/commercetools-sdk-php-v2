@@ -10,5 +10,6 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class FieldContainerModel extends JsonObjectModel implements FieldContainer {
+class FieldContainerModel extends JsonObjectModel implements FieldContainer
+{
 }

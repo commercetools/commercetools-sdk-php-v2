@@ -12,7 +12,8 @@ use Commercetools\Types\Category\CategoryUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class CategoryChangeAssetNameActionModel extends CategoryUpdateActionModel implements CategoryChangeAssetNameAction {
+class CategoryChangeAssetNameActionModel extends CategoryUpdateActionModel implements CategoryChangeAssetNameAction
+{
     const DISCRIMINATOR_VALUE = 'changeAssetName';
 
     /**

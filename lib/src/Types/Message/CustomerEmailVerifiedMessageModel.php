@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Message\MessageModel;
 
-class CustomerEmailVerifiedMessageModel extends MessageModel implements CustomerEmailVerifiedMessage {
+class CustomerEmailVerifiedMessageModel extends MessageModel implements CustomerEmailVerifiedMessage
+{
     const DISCRIMINATOR_VALUE = 'CustomerEmailVerified';
 
 }

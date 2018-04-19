@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerSetDateOfBirthAction extends CustomerUpdateAction {
+interface CustomerSetDateOfBirthAction extends CustomerUpdateAction
+{
     const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
 
     /**

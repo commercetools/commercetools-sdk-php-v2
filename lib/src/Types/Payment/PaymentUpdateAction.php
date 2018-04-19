@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface PaymentUpdateAction extends UpdateAction {
+interface PaymentUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addInterfaceInteraction' => Types\Payment\PaymentAddInterfaceInteractionAction::class,

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\TaxCategory;
 
-interface TaxCategoryAddTaxRateAction extends TaxCategoryUpdateAction {
+interface TaxCategoryAddTaxRateAction extends TaxCategoryUpdateAction
+{
     const FIELD_TAX_RATE = 'taxRate';
 
     /**

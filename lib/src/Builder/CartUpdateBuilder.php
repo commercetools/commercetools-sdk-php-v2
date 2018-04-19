@@ -59,7 +59,8 @@ use Commercetools\Types\Cart\CartUpdate;
 use Commercetools\Request\ByProjectKeyCartsByIDPost;
 
 
-class CartUpdateBuilder extends BaseBuilder {
+class CartUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Cart
      */

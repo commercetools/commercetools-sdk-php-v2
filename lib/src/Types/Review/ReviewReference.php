@@ -9,7 +9,8 @@ namespace Commercetools\Types\Review;
 
 use Commercetools\Types\Common\Reference;
 
-interface ReviewReference extends Reference {
+interface ReviewReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

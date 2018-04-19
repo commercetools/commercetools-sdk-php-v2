@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface ProductTypeChangeIsSearchableAction extends ProductTypeUpdateAction {
+interface ProductTypeChangeIsSearchableAction extends ProductTypeUpdateAction
+{
     const FIELD_ATTRIBUTE_NAME = 'attributeName';
     const FIELD_IS_SEARCHABLE = 'isSearchable';
 

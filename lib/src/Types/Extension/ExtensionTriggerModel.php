@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTrigger {
+class ExtensionTriggerModel extends JsonObjectModel implements ExtensionTrigger
+{
     /**
      * @var string
      */

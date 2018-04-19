@@ -9,7 +9,8 @@ namespace Commercetools\Types\Review;
 
 use Commercetools\Types\Common\ResourceIdentifier;
 
-interface ReviewSetCustomTypeAction extends ReviewUpdateAction {
+interface ReviewSetCustomTypeAction extends ReviewUpdateAction
+{
     const FIELD_FIELDS = 'fields';
     const FIELD_TYPE = 'type';
 

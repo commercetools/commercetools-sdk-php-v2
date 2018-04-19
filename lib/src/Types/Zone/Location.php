@@ -9,7 +9,8 @@ namespace Commercetools\Types\Zone;
 
 use Commercetools\Base\JsonObject;
 
-interface Location extends JsonObject {
+interface Location extends JsonObject
+{
     const FIELD_COUNTRY = 'country';
     const FIELD_STATE = 'state';
 

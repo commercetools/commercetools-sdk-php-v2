@@ -11,7 +11,8 @@ use Commercetools\Types\Project\ProjectUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProjectChangeLanguagesActionCollectionModel extends ProjectUpdateActionCollectionModel implements ProjectChangeLanguagesActionCollection {
+class ProjectChangeLanguagesActionCollectionModel extends ProjectUpdateActionCollectionModel implements ProjectChangeLanguagesActionCollection
+{
 
     /**
      * @param ProjectChangeLanguagesAction $value

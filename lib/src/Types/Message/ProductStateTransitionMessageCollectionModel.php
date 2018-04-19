@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductStateTransitionMessageCollectionModel extends MessageCollectionModel implements ProductStateTransitionMessageCollection {
+class ProductStateTransitionMessageCollectionModel extends MessageCollectionModel implements ProductStateTransitionMessageCollection
+{
 
     /**
      * @param ProductStateTransitionMessage $value

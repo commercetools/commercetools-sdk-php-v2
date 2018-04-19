@@ -9,7 +9,8 @@ namespace Commercetools\Types\ProductType;
 
 use Commercetools\Base\Collection;
 
-interface AttributePlainEnumValueCollection extends Collection {
+interface AttributePlainEnumValueCollection extends Collection
+{
     /**
      * @param $index
      * @return AttributePlainEnumValue

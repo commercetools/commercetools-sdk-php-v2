@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface InvalidFieldError extends ErrorObject {
+interface InvalidFieldError extends ErrorObject
+{
     const FIELD_FIELD = 'field';
     const FIELD_INVALID_VALUE = 'invalidValue';
     const FIELD_ALLOWED_VALUES = 'allowedValues';

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface ReviewStateTransitionMessageCollection extends MessageCollection {
+interface ReviewStateTransitionMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return ReviewStateTransitionMessage

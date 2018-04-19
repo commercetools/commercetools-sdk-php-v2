@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Types\Zone\ZoneUpdateActionCollection;
 
 
-interface ZoneAddLocationActionCollection extends ZoneUpdateActionCollection {
+interface ZoneAddLocationActionCollection extends ZoneUpdateActionCollection
+{
     /**
      * @param $index
      * @return ZoneAddLocationAction

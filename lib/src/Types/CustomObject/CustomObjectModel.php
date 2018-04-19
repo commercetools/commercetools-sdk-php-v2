@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ResourceModel;
 
 use Commercetools\Types\Common\Resource;
 
-class CustomObjectModel extends ResourceModel implements CustomObject {
+class CustomObjectModel extends ResourceModel implements CustomObject
+{
     /**
      * @var string
      */

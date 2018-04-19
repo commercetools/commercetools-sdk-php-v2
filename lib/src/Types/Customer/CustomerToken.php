@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\JsonObject;
 
-interface CustomerToken extends JsonObject {
+interface CustomerToken extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_CREATED_AT = 'createdAt';
     const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';

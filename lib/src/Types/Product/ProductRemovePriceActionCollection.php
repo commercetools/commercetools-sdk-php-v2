@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Product\ProductUpdateActionCollection;
 
 
-interface ProductRemovePriceActionCollection extends ProductUpdateActionCollection {
+interface ProductRemovePriceActionCollection extends ProductUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductRemovePriceAction

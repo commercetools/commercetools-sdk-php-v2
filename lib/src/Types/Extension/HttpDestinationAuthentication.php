@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface HttpDestinationAuthentication extends JsonObject {
+interface HttpDestinationAuthentication extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'AzureFunctions' => Types\Extension\AzureFunctionsAuthentication::class,

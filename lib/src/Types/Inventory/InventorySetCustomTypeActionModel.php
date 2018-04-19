@@ -12,7 +12,8 @@ use Commercetools\Types\Inventory\InventoryEntryUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class InventorySetCustomTypeActionModel extends InventoryEntryUpdateActionModel implements InventorySetCustomTypeAction {
+class InventorySetCustomTypeActionModel extends InventoryEntryUpdateActionModel implements InventorySetCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomType';
 
     /**

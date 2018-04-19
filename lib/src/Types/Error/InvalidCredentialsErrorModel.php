@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class InvalidCredentialsErrorModel extends ErrorObjectModel implements InvalidCredentialsError {
+class InvalidCredentialsErrorModel extends ErrorObjectModel implements InvalidCredentialsError
+{
     const DISCRIMINATOR_VALUE = 'InvalidCredentials';
 
 }

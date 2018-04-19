@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class ProductChangeSlugActionModel extends ProductUpdateActionModel implements ProductChangeSlugAction {
+class ProductChangeSlugActionModel extends ProductUpdateActionModel implements ProductChangeSlugAction
+{
     const DISCRIMINATOR_VALUE = 'changeSlug';
 
     /**

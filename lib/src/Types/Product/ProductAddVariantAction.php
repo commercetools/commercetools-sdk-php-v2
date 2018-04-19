@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ImageCollection;
 use Commercetools\Types\Common\PriceDraft;
 use Commercetools\Types\Common\Image;
 
-interface ProductAddVariantAction extends ProductUpdateAction {
+interface ProductAddVariantAction extends ProductUpdateAction
+{
     const FIELD_ATTRIBUTES = 'attributes';
     const FIELD_IMAGES = 'images';
     const FIELD_KEY = 'key';

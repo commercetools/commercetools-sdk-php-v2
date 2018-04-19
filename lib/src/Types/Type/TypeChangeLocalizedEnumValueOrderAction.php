@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface TypeChangeLocalizedEnumValueOrderAction extends TypeUpdateAction {
+interface TypeChangeLocalizedEnumValueOrderAction extends TypeUpdateAction
+{
     const FIELD_FIELD_NAME = 'fieldName';
     const FIELD_KEYS = 'keys';
 

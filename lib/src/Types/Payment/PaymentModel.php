@@ -17,7 +17,8 @@ use Commercetools\Types\Type\CustomFieldsCollection;
 use Commercetools\Types\Common\TypedMoney;
 use Commercetools\Types\Common\Resource;
 
-class PaymentModel extends ResourceModel implements Payment {
+class PaymentModel extends ResourceModel implements Payment
+{
     /**
      * @var CustomerReference
      */

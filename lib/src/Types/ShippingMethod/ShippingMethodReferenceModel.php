@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class ShippingMethodReferenceModel extends ReferenceModel implements ShippingMethodReference {
+class ShippingMethodReferenceModel extends ReferenceModel implements ShippingMethodReference
+{
     const DISCRIMINATOR_VALUE = 'shipping-method';
 
     /**

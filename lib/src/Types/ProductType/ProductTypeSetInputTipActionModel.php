@@ -12,7 +12,8 @@ use Commercetools\Types\ProductType\ProductTypeUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class ProductTypeSetInputTipActionModel extends ProductTypeUpdateActionModel implements ProductTypeSetInputTipAction {
+class ProductTypeSetInputTipActionModel extends ProductTypeUpdateActionModel implements ProductTypeSetInputTipAction
+{
     const DISCRIMINATOR_VALUE = 'setInputTip';
 
     /**

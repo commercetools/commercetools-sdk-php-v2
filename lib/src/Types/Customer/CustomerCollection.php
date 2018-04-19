@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface CustomerCollection extends ResourceCollection {
+interface CustomerCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Customer
@@ -34,4 +35,5 @@ interface CustomerCollection extends ResourceCollection {
      * @return Customer
      */
     public function byId($id);
+
 }

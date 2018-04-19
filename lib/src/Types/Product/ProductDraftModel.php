@@ -17,7 +17,8 @@ use Commercetools\Types\TaxCategory\TaxCategoryReference;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\ProductType\ProductTypeReference;
 
-class ProductDraftModel extends JsonObjectModel implements ProductDraft {
+class ProductDraftModel extends JsonObjectModel implements ProductDraft
+{
     /**
      * @var ProductTypeReference
      */

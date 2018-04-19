@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShoppingList;
 
-interface ShoppingListChangeLineItemQuantityAction extends ShoppingListUpdateAction {
+interface ShoppingListChangeLineItemQuantityAction extends ShoppingListUpdateAction
+{
     const FIELD_LINE_ITEM_ID = 'lineItemId';
     const FIELD_QUANTITY = 'quantity';
 

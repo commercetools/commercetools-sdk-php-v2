@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
-interface ProjectChangeCountriesAction extends ProjectUpdateAction {
+interface ProjectChangeCountriesAction extends ProjectUpdateAction
+{
     const FIELD_COUNTRIES = 'countries';
 
     /**

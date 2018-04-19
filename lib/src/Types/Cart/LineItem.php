@@ -20,7 +20,8 @@ use Commercetools\Types\Common\Price;
 use Commercetools\Types\Common\Money;
 use Commercetools\Types\Product\ProductVariant;
 
-interface LineItem extends JsonObject {
+interface LineItem extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_PRODUCT_ID = 'productId';
     const FIELD_NAME = 'name';

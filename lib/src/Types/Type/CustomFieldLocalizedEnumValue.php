@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface CustomFieldLocalizedEnumValue extends JsonObject {
+interface CustomFieldLocalizedEnumValue extends JsonObject
+{
     const FIELD_KEY = 'key';
     const FIELD_LABEL = 'label';
 

@@ -9,7 +9,8 @@ namespace Commercetools\Types;
 
 use Commercetools\Base\JsonObject;
 
-interface Update extends JsonObject {
+interface Update extends JsonObject
+{
     const FIELD_VERSION = 'version';
     const FIELD_ACTIONS = 'actions';
 

@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Builder\ProductTypeUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-interface ProductType extends Resource {
+interface ProductType extends Resource
+{
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';

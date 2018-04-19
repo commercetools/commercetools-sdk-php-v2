@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Type\CustomFields;
 
-class PaymentInteractionAddedMessageModel extends MessageModel implements PaymentInteractionAddedMessage {
+class PaymentInteractionAddedMessageModel extends MessageModel implements PaymentInteractionAddedMessage
+{
     const DISCRIMINATOR_VALUE = 'PaymentInteractionAdded';
 
     /**

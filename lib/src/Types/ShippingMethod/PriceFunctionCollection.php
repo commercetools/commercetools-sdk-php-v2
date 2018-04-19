@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Base\Collection;
 
-interface PriceFunctionCollection extends Collection {
+interface PriceFunctionCollection extends Collection
+{
     /**
      * @param $index
      * @return PriceFunction

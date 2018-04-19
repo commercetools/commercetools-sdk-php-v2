@@ -13,7 +13,8 @@ use Commercetools\Types\Common\ResourceModel;
 use Commercetools\Builder\TaxCategoryUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-class TaxCategoryModel extends ResourceModel implements TaxCategory {
+class TaxCategoryModel extends ResourceModel implements TaxCategory
+{
     /**
      * @var string
      */

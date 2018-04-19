@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetAnonymousIdAction extends CartUpdateAction {
+interface CartSetAnonymousIdAction extends CartUpdateAction
+{
     const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**

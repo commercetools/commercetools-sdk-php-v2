@@ -11,7 +11,8 @@ use Commercetools\Types\Order\OrderUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderRemoveDeliveryActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderRemoveDeliveryActionCollection {
+class OrderRemoveDeliveryActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderRemoveDeliveryActionCollection
+{
 
     /**
      * @param OrderRemoveDeliveryAction $value

@@ -13,7 +13,8 @@ use Commercetools\Types\PagedQueryResponseModel;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-class ZonePagedQueryResponseModel extends PagedQueryResponseModel implements ZonePagedQueryResponse {
+class ZonePagedQueryResponseModel extends PagedQueryResponseModel implements ZonePagedQueryResponse
+{
     /**
      * @var ZoneCollection
      */

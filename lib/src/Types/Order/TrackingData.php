@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonObject;
 
-interface TrackingData extends JsonObject {
+interface TrackingData extends JsonObject
+{
     const FIELD_TRACKING_ID = 'trackingId';
     const FIELD_CARRIER = 'carrier';
     const FIELD_PROVIDER = 'provider';

@@ -9,7 +9,8 @@ namespace Commercetools\Types\CustomObject;
 
 use Commercetools\Base\JsonObject;
 
-interface CustomObjectDraft extends JsonObject {
+interface CustomObjectDraft extends JsonObject
+{
     const FIELD_CONTAINER = 'container';
     const FIELD_KEY = 'key';
     const FIELD_VALUE = 'value';

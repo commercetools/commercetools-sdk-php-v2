@@ -15,7 +15,8 @@ use Commercetools\Types\ProductType\AttributeLocalizedEnumValue;
 use Commercetools\Types\ProductType\AttributePlainEnumValue;
 use Commercetools\Types\Common\Money;
 
-interface Attribute extends JsonObject {
+interface Attribute extends JsonObject
+{
     const FIELD_NAME = 'name';
     const FIELD_VALUE = 'value';
 

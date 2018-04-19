@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class SearchKeywordsCollectionModel extends JsonCollection implements SearchKeywordsCollection {
+class SearchKeywordsCollectionModel extends JsonCollection implements SearchKeywordsCollection
+{
 
     /**
      * @param SearchKeywords $value

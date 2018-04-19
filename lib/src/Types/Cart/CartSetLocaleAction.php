@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetLocaleAction extends CartUpdateAction {
+interface CartSetLocaleAction extends CartUpdateAction
+{
     const FIELD_LOCALE = 'locale';
 
     /**

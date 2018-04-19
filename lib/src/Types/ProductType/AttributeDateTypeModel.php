@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\AttributeTypeModel;
 
-class AttributeDateTypeModel extends AttributeTypeModel implements AttributeDateType {
+class AttributeDateTypeModel extends AttributeTypeModel implements AttributeDateType
+{
     const DISCRIMINATOR_VALUE = 'date';
 
 }

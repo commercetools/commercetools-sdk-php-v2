@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShippingMethodCollectionModel extends ResourceCollectionModel implements ShippingMethodCollection {
+class ShippingMethodCollectionModel extends ResourceCollectionModel implements ShippingMethodCollection
+{
 
     /**
      * @param ShippingMethod $value
@@ -55,4 +56,5 @@ class ShippingMethodCollectionModel extends ResourceCollectionModel implements S
     {
         return $this->valueByKey('id', $id);
     }
+
 }

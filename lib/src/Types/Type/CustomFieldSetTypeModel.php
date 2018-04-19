@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\FieldTypeModel;
 
-class CustomFieldSetTypeModel extends FieldTypeModel implements CustomFieldSetType {
+class CustomFieldSetTypeModel extends FieldTypeModel implements CustomFieldSetType
+{
     const DISCRIMINATOR_VALUE = 'Set';
 
     /**

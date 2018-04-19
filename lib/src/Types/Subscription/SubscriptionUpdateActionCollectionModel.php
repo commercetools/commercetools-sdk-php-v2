@@ -11,7 +11,8 @@ use Commercetools\Types\UpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class SubscriptionUpdateActionCollectionModel extends UpdateActionCollectionModel implements SubscriptionUpdateActionCollection {
+class SubscriptionUpdateActionCollectionModel extends UpdateActionCollectionModel implements SubscriptionUpdateActionCollection
+{
 
     /**
      * @param SubscriptionUpdateAction $value

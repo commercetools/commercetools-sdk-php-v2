@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Types\UpdateCollection;
 
 
-interface ShoppingListUpdateCollection extends UpdateCollection {
+interface ShoppingListUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return ShoppingListUpdate

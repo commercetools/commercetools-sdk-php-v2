@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface ZonePagedQueryResponse extends PagedQueryResponse {
+interface ZonePagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return ZoneCollection
      */

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Common\Image;
 
-interface ProductImageAddedMessage extends Message {
+interface ProductImageAddedMessage extends Message
+{
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_IMAGE = 'image';
     const FIELD_STAGED = 'staged';

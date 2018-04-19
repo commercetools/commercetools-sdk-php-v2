@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-interface AssetDraft extends JsonObject {
+interface AssetDraft extends JsonObject
+{
     const FIELD_SOURCES = 'sources';
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';

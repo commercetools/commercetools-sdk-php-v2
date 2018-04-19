@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Product\SuggestTokenizerCollection;
 
 
-interface CustomTokenizerCollection extends SuggestTokenizerCollection {
+interface CustomTokenizerCollection extends SuggestTokenizerCollection
+{
     /**
      * @param $index
      * @return CustomTokenizer

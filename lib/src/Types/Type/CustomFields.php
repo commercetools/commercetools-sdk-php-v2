@@ -9,7 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\JsonObject;
 
-interface CustomFields extends JsonObject {
+interface CustomFields extends JsonObject
+{
     const FIELD_TYPE = 'type';
     const FIELD_FIELDS = 'fields';
 

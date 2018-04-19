@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Common\PriceCollection;
 use Commercetools\Types\Common\Price;
 
-interface DuplicatePriceScopeError extends ErrorObject {
+interface DuplicatePriceScopeError extends ErrorObject
+{
     const FIELD_CONFLICTING_PRICES = 'conflictingPrices';
 
     /**

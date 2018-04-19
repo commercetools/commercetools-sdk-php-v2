@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CartDiscount\CartDiscountTargetModel;
 
-class MultiBuyLineItemsTargetModel extends CartDiscountTargetModel implements MultiBuyLineItemsTarget {
+class MultiBuyLineItemsTargetModel extends CartDiscountTargetModel implements MultiBuyLineItemsTarget
+{
     const DISCRIMINATOR_VALUE = 'multiBuyLineItems';
 
     /**

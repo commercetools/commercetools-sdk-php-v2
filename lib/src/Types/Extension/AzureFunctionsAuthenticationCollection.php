@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Types\Extension\HttpDestinationAuthenticationCollection;
 
 
-interface AzureFunctionsAuthenticationCollection extends HttpDestinationAuthenticationCollection {
+interface AzureFunctionsAuthenticationCollection extends HttpDestinationAuthenticationCollection
+{
     /**
      * @param $index
      * @return AzureFunctionsAuthentication

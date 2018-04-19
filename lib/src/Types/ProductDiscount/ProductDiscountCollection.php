@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductDiscount;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface ProductDiscountCollection extends ResourceCollection {
+interface ProductDiscountCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return ProductDiscount
@@ -34,4 +35,5 @@ interface ProductDiscountCollection extends ResourceCollection {
      * @return ProductDiscount
      */
     public function byId($id);
+
 }

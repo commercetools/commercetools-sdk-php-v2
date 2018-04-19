@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Extension\HttpDestinationAuthenticationModel;
 
-class AzureFunctionsAuthenticationModel extends HttpDestinationAuthenticationModel implements AzureFunctionsAuthentication {
+class AzureFunctionsAuthenticationModel extends HttpDestinationAuthenticationModel implements AzureFunctionsAuthentication
+{
     const DISCRIMINATOR_VALUE = 'AzureFunctions';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Order\OrderUpdateActionModel;
 
-class OrderImportLineItemStateActionModel extends OrderUpdateActionModel implements OrderImportLineItemStateAction {
+class OrderImportLineItemStateActionModel extends OrderUpdateActionModel implements OrderImportLineItemStateAction
+{
     const DISCRIMINATOR_VALUE = 'importLineItemState';
 
     /**

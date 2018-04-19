@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Types\Common\Reference;
 use Commercetools\Types\Common\ReferenceCollection;
 
-interface DiscountCodeChangeCartDiscountsAction extends DiscountCodeUpdateAction {
+interface DiscountCodeChangeCartDiscountsAction extends DiscountCodeUpdateAction
+{
     const FIELD_CART_DISCOUNTS = 'cartDiscounts';
 
     /**

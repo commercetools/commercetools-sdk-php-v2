@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InvalidFieldErrorCollectionModel extends ErrorObjectCollectionModel implements InvalidFieldErrorCollection {
+class InvalidFieldErrorCollectionModel extends ErrorObjectCollectionModel implements InvalidFieldErrorCollection
+{
 
     /**
      * @param InvalidFieldError $value

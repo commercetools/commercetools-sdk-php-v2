@@ -11,7 +11,8 @@ use Commercetools\Types\UpdateCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelUpdateCollectionModel extends UpdateCollectionModel implements ChannelUpdateCollection {
+class ChannelUpdateCollectionModel extends UpdateCollectionModel implements ChannelUpdateCollection
+{
 
     /**
      * @param ChannelUpdate $value

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface CartDiscountChangeStackingModeAction extends CartDiscountUpdateAction {
+interface CartDiscountChangeStackingModeAction extends CartDiscountUpdateAction
+{
     const FIELD_STACKING_MODE = 'stackingMode';
 
     /**

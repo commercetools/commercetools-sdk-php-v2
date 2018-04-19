@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Inventory\InventoryEntryUpdateActionModel;
 
-class InventorySetExpectedDeliveryActionModel extends InventoryEntryUpdateActionModel implements InventorySetExpectedDeliveryAction {
+class InventorySetExpectedDeliveryActionModel extends InventoryEntryUpdateActionModel implements InventorySetExpectedDeliveryAction
+{
     const DISCRIMINATOR_VALUE = 'setExpectedDelivery';
 
     /**

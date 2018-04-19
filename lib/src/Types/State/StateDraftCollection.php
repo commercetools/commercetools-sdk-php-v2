@@ -9,7 +9,8 @@ namespace Commercetools\Types\State;
 
 use Commercetools\Base\Collection;
 
-interface StateDraftCollection extends Collection {
+interface StateDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return StateDraft

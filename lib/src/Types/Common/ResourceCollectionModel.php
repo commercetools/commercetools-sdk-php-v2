@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ResourceCollectionModel extends JsonCollection implements ResourceCollection {
+class ResourceCollectionModel extends JsonCollection implements ResourceCollection
+{
 
     /**
      * @param Resource $value
@@ -54,4 +55,5 @@ class ResourceCollectionModel extends JsonCollection implements ResourceCollecti
     {
         return $this->valueByKey('id', $id);
     }
+
 }

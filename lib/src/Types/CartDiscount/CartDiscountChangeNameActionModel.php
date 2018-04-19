@@ -12,7 +12,8 @@ use Commercetools\Types\CartDiscount\CartDiscountUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class CartDiscountChangeNameActionModel extends CartDiscountUpdateActionModel implements CartDiscountChangeNameAction {
+class CartDiscountChangeNameActionModel extends CartDiscountUpdateActionModel implements CartDiscountChangeNameAction
+{
     const DISCRIMINATOR_VALUE = 'changeName';
 
     /**

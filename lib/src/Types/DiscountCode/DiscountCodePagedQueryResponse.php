@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface DiscountCodePagedQueryResponse extends PagedQueryResponse {
+interface DiscountCodePagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return DiscountCodeCollection
      */

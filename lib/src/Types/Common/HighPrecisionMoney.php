@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Common;
 
-interface HighPrecisionMoney extends TypedMoney {
+interface HighPrecisionMoney extends TypedMoney
+{
     const FIELD_PRECISE_AMOUNT = 'preciseAmount';
 
     /**

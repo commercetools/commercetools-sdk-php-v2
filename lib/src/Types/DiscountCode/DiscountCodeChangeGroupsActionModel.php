@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionModel;
 
-class DiscountCodeChangeGroupsActionModel extends DiscountCodeUpdateActionModel implements DiscountCodeChangeGroupsAction {
+class DiscountCodeChangeGroupsActionModel extends DiscountCodeUpdateActionModel implements DiscountCodeChangeGroupsAction
+{
     const DISCRIMINATOR_VALUE = 'changeGroups';
 
     /**

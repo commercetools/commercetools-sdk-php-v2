@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface ProductRevertedStagedChangesMessage extends Message {
+interface ProductRevertedStagedChangesMessage extends Message
+{
     const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**

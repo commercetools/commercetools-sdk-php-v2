@@ -9,7 +9,8 @@ namespace Commercetools\Types\CartDiscount;
 
 use Commercetools\Base\Collection;
 
-interface CartDiscountTargetCollection extends Collection {
+interface CartDiscountTargetCollection extends Collection
+{
     /**
      * @param $index
      * @return CartDiscountTarget

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateActionModel;
 
-class ProductSetAttributeInAllVariantsActionModel extends ProductUpdateActionModel implements ProductSetAttributeInAllVariantsAction {
+class ProductSetAttributeInAllVariantsActionModel extends ProductUpdateActionModel implements ProductSetAttributeInAllVariantsAction
+{
     const DISCRIMINATOR_VALUE = 'setAttributeInAllVariants';
 
     /**

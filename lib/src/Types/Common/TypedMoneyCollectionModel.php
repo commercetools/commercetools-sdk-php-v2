@@ -11,7 +11,8 @@ use Commercetools\Types\Common\MoneyCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TypedMoneyCollectionModel extends MoneyCollectionModel implements TypedMoneyCollection {
+class TypedMoneyCollectionModel extends MoneyCollectionModel implements TypedMoneyCollection
+{
 
     /**
      * @param TypedMoney $value

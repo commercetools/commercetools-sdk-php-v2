@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShoppingList;
 
-interface ShoppingListSetCustomFieldAction extends ShoppingListUpdateAction {
+interface ShoppingListSetCustomFieldAction extends ShoppingListUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_VALUE = 'value';
 

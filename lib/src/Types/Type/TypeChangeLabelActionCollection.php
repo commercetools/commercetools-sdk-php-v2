@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\TypeUpdateActionCollection;
 
 
-interface TypeChangeLabelActionCollection extends TypeUpdateActionCollection {
+interface TypeChangeLabelActionCollection extends TypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return TypeChangeLabelAction

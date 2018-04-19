@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ResourceNotFoundErrorCollectionModel extends ErrorObjectCollectionModel implements ResourceNotFoundErrorCollection {
+class ResourceNotFoundErrorCollectionModel extends ErrorObjectCollectionModel implements ResourceNotFoundErrorCollection
+{
 
     /**
      * @param ResourceNotFoundError $value

@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Common\Reference;
 
-class ReviewRatingSetMessageModel extends MessageModel implements ReviewRatingSetMessage {
+class ReviewRatingSetMessageModel extends MessageModel implements ReviewRatingSetMessage
+{
     const DISCRIMINATOR_VALUE = 'ReviewRatingSet';
 
     /**

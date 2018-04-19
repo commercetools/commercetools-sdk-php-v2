@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TaxCategoryReferenceCollectionModel extends ReferenceCollectionModel implements TaxCategoryReferenceCollection {
+class TaxCategoryReferenceCollectionModel extends ReferenceCollectionModel implements TaxCategoryReferenceCollection
+{
 
     /**
      * @param TaxCategoryReference $value

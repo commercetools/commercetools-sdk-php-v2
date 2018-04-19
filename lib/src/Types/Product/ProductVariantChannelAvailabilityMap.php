@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonObject;
 
-interface ProductVariantChannelAvailabilityMap extends JsonObject {
+interface ProductVariantChannelAvailabilityMap extends JsonObject
+{
     const FIELD_PATTERN0 = '//';
 
     public function get(string $key);

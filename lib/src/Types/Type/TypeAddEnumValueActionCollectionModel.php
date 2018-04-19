@@ -11,7 +11,8 @@ use Commercetools\Types\Type\TypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TypeAddEnumValueActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeAddEnumValueActionCollection {
+class TypeAddEnumValueActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeAddEnumValueActionCollection
+{
 
     /**
      * @param TypeAddEnumValueAction $value

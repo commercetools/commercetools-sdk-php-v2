@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class CustomerTokenModel extends JsonObjectModel implements CustomerToken {
+class CustomerTokenModel extends JsonObjectModel implements CustomerToken
+{
     /**
      * @var string
      */

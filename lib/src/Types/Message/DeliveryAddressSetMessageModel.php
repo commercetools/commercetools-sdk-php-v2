@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Common\Address;
 
-class DeliveryAddressSetMessageModel extends MessageModel implements DeliveryAddressSetMessage {
+class DeliveryAddressSetMessageModel extends MessageModel implements DeliveryAddressSetMessage
+{
     const DISCRIMINATOR_VALUE = 'DeliveryAddressSet';
 
     /**

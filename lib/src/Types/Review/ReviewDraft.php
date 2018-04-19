@@ -16,7 +16,8 @@ use Commercetools\Types\Product\ProductReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Customer\CustomerReference;
 
-interface ReviewDraft extends JsonObject {
+interface ReviewDraft extends JsonObject
+{
     const FIELD_KEY = 'key';
     const FIELD_UNIQUENESS_VALUE = 'uniquenessValue';
     const FIELD_LOCALE = 'locale';

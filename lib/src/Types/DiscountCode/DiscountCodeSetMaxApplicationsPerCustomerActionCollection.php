@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionCollection;
 
 
-interface DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends DiscountCodeUpdateActionCollection {
+interface DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends DiscountCodeUpdateActionCollection
+{
     /**
      * @param $index
      * @return DiscountCodeSetMaxApplicationsPerCustomerAction

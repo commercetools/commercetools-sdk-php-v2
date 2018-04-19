@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerSetFirstNameAction extends CustomerUpdateAction {
+interface CustomerSetFirstNameAction extends CustomerUpdateAction
+{
     const FIELD_FIRST_NAME = 'firstName';
 
     /**

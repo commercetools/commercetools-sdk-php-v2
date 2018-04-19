@@ -12,7 +12,8 @@ use Commercetools\Types\Order\OrderUpdateActionModel;
 
 use Commercetools\Types\Common\Address;
 
-class OrderSetShippingAddressActionModel extends OrderUpdateActionModel implements OrderSetShippingAddressAction {
+class OrderSetShippingAddressActionModel extends OrderUpdateActionModel implements OrderSetShippingAddressAction
+{
     const DISCRIMINATOR_VALUE = 'setShippingAddress';
 
     /**

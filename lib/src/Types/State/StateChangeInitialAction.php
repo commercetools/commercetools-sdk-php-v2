@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
-interface StateChangeInitialAction extends StateUpdateAction {
+interface StateChangeInitialAction extends StateUpdateAction
+{
     const FIELD_INITIAL = 'initial';
 
     /**

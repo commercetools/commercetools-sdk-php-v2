@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface InvalidTokenError extends ErrorObject {
+interface InvalidTokenError extends ErrorObject
+{
 }

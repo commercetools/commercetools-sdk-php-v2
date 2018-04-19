@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class PaymentMethodInfoCollectionModel extends JsonCollection implements PaymentMethodInfoCollection {
+class PaymentMethodInfoCollectionModel extends JsonCollection implements PaymentMethodInfoCollection
+{
 
     /**
      * @param PaymentMethodInfo $value

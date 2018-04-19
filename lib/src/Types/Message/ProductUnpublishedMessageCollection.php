@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface ProductUnpublishedMessageCollection extends MessageCollection {
+interface ProductUnpublishedMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return ProductUnpublishedMessage

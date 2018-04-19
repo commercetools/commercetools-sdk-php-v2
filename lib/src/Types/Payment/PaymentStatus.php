@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\State\StateReference;
 
-interface PaymentStatus extends JsonObject {
+interface PaymentStatus extends JsonObject
+{
     const FIELD_INTERFACE_CODE = 'interfaceCode';
     const FIELD_INTERFACE_TEXT = 'interfaceText';
     const FIELD_STATE = 'state';

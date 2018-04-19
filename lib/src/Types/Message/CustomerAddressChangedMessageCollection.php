@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface CustomerAddressChangedMessageCollection extends MessageCollection {
+interface CustomerAddressChangedMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return CustomerAddressChangedMessage

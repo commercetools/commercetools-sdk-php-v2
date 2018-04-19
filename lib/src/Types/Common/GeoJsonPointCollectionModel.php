@@ -11,7 +11,8 @@ use Commercetools\Types\Common\GeoJsonCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class GeoJsonPointCollectionModel extends GeoJsonCollectionModel implements GeoJsonPointCollection {
+class GeoJsonPointCollectionModel extends GeoJsonCollectionModel implements GeoJsonPointCollection
+{
 
     /**
      * @param GeoJsonPoint $value

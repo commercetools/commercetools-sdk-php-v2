@@ -14,7 +14,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\CartDiscount\CartDiscountReference;
 use Commercetools\Types\CartDiscount\CartDiscountReferenceCollection;
 
-interface DiscountCodeDraft extends JsonObject {
+interface DiscountCodeDraft extends JsonObject
+{
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_CODE = 'code';

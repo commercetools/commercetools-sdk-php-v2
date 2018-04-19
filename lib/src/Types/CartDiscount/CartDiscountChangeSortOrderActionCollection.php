@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Types\CartDiscount\CartDiscountUpdateActionCollection;
 
 
-interface CartDiscountChangeSortOrderActionCollection extends CartDiscountUpdateActionCollection {
+interface CartDiscountChangeSortOrderActionCollection extends CartDiscountUpdateActionCollection
+{
     /**
      * @param $index
      * @return CartDiscountChangeSortOrderAction

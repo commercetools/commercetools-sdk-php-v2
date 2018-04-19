@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonObject;
 
-interface DeliveryItem extends JsonObject {
+interface DeliveryItem extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_QUANTITY = 'quantity';
 

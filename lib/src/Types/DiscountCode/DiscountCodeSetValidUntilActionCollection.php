@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionCollection;
 
 
-interface DiscountCodeSetValidUntilActionCollection extends DiscountCodeUpdateActionCollection {
+interface DiscountCodeSetValidUntilActionCollection extends DiscountCodeUpdateActionCollection
+{
     /**
      * @param $index
      * @return DiscountCodeSetValidUntilAction

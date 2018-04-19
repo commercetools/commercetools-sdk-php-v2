@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\TypedMoney;
 
-interface Transaction extends JsonObject {
+interface Transaction extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_TIMESTAMP = 'timestamp';
     const FIELD_TYPE = 'type';

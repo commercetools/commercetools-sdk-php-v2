@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFields;
 
-interface TextLineItem extends JsonObject {
+interface TextLineItem extends JsonObject
+{
     const FIELD_ADDED_AT = 'addedAt';
     const FIELD_CUSTOM = 'custom';
     const FIELD_DESCRIPTION = 'description';

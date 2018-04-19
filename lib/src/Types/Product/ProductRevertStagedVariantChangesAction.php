@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductRevertStagedVariantChangesAction extends ProductUpdateAction {
+interface ProductRevertStagedVariantChangesAction extends ProductUpdateAction
+{
     const FIELD_VARIANT_ID = 'variantId';
 
     /**

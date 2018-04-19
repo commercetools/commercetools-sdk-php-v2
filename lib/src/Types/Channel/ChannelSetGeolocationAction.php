@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Types\Common\GeoJson;
 use Commercetools\Types\Common\GeoJsonPoint;
 
-interface ChannelSetGeolocationAction extends ChannelUpdateAction {
+interface ChannelSetGeolocationAction extends ChannelUpdateAction
+{
     const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**

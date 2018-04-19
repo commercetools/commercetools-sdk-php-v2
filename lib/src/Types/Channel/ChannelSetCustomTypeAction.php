@@ -9,7 +9,8 @@ namespace Commercetools\Types\Channel;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface ChannelSetCustomTypeAction extends ChannelUpdateAction {
+interface ChannelSetCustomTypeAction extends ChannelUpdateAction
+{
     const FIELD_TYPE = 'type';
     const FIELD_FIELDS = 'fields';
 

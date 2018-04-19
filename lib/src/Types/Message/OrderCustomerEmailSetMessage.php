@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface OrderCustomerEmailSetMessage extends Message {
+interface OrderCustomerEmailSetMessage extends Message
+{
     const FIELD_EMAIL = 'email';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\Cart\CartUpdateActionCollection;
 
 
-interface CartSetDeleteDaysAfterLastModificationActionCollection extends CartUpdateActionCollection {
+interface CartSetDeleteDaysAfterLastModificationActionCollection extends CartUpdateActionCollection
+{
     /**
      * @param $index
      * @return CartSetDeleteDaysAfterLastModificationAction

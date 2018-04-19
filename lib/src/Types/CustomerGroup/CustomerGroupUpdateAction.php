@@ -10,7 +10,8 @@ namespace Commercetools\Types\CustomerGroup;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface CustomerGroupUpdateAction extends UpdateAction {
+interface CustomerGroupUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'changeName' => Types\CustomerGroup\CustomerGroupChangeNameAction::class,

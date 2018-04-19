@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class TaxRateDraftCollectionModel extends JsonCollection implements TaxRateDraftCollection {
+class TaxRateDraftCollectionModel extends JsonCollection implements TaxRateDraftCollection
+{
 
     /**
      * @param TaxRateDraft $value

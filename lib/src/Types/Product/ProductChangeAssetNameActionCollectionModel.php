@@ -11,7 +11,8 @@ use Commercetools\Types\Product\ProductUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductChangeAssetNameActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductChangeAssetNameActionCollection {
+class ProductChangeAssetNameActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductChangeAssetNameActionCollection
+{
 
     /**
      * @param ProductChangeAssetNameAction $value

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateActionModel;
 
-class ProductSetProductPriceCustomFieldActionModel extends ProductUpdateActionModel implements ProductSetProductPriceCustomFieldAction {
+class ProductSetProductPriceCustomFieldActionModel extends ProductUpdateActionModel implements ProductSetProductPriceCustomFieldAction
+{
     const DISCRIMINATOR_VALUE = 'setProductPriceCustomField';
 
     /**

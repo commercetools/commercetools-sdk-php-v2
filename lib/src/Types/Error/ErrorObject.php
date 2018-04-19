@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface ErrorObject extends JsonObject {
+interface ErrorObject extends JsonObject
+{
     const DISCRIMINATOR = 'code';
     const SUB_TYPES = [
         'access_denied' => Types\Error\AccessDeniedError::class,

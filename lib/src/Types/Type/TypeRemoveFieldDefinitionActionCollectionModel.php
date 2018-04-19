@@ -11,7 +11,8 @@ use Commercetools\Types\Type\TypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TypeRemoveFieldDefinitionActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeRemoveFieldDefinitionActionCollection {
+class TypeRemoveFieldDefinitionActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeRemoveFieldDefinitionActionCollection
+{
 
     /**
      * @param TypeRemoveFieldDefinitionAction $value

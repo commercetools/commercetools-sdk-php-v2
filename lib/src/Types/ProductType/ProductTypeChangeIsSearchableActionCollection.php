@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionCollection;
 
 
-interface ProductTypeChangeIsSearchableActionCollection extends ProductTypeUpdateActionCollection {
+interface ProductTypeChangeIsSearchableActionCollection extends ProductTypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductTypeChangeIsSearchableAction

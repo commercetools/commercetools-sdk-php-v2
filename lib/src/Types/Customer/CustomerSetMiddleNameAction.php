@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerSetMiddleNameAction extends CustomerUpdateAction {
+interface CustomerSetMiddleNameAction extends CustomerUpdateAction
+{
     const FIELD_MIDDLE_NAME = 'middleName';
 
     /**

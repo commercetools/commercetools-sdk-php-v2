@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ProductSetMetaKeywordsAction extends ProductUpdateAction {
+interface ProductSetMetaKeywordsAction extends ProductUpdateAction
+{
     const FIELD_META_KEYWORDS = 'metaKeywords';
     const FIELD_STAGED = 'staged';
 

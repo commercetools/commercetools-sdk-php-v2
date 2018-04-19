@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class FieldDefinitionModel extends JsonObjectModel implements FieldDefinition {
+class FieldDefinitionModel extends JsonObjectModel implements FieldDefinition
+{
     /**
      * @var object
      */

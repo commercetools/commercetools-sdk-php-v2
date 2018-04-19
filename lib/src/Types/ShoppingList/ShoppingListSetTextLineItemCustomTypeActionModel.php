@@ -12,7 +12,8 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class ShoppingListSetTextLineItemCustomTypeActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetTextLineItemCustomTypeAction {
+class ShoppingListSetTextLineItemCustomTypeActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetTextLineItemCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setTextLineItemCustomType';
 
     /**

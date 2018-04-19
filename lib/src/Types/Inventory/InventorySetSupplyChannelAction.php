@@ -9,7 +9,8 @@ namespace Commercetools\Types\Inventory;
 
 use Commercetools\Types\Channel\ChannelReference;
 
-interface InventorySetSupplyChannelAction extends InventoryEntryUpdateAction {
+interface InventorySetSupplyChannelAction extends InventoryEntryUpdateAction
+{
     const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**

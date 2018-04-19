@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class TypeDraftCollectionModel extends JsonCollection implements TypeDraftCollection {
+class TypeDraftCollectionModel extends JsonCollection implements TypeDraftCollection
+{
 
     /**
      * @param TypeDraft $value

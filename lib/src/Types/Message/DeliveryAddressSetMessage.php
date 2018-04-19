@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Common\Address;
 
-interface DeliveryAddressSetMessage extends Message {
+interface DeliveryAddressSetMessage extends Message
+{
     const FIELD_DELIVERY_ID = 'deliveryId';
     const FIELD_ADDRESS = 'address';
 

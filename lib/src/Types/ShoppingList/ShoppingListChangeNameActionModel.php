@@ -12,7 +12,8 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class ShoppingListChangeNameActionModel extends ShoppingListUpdateActionModel implements ShoppingListChangeNameAction {
+class ShoppingListChangeNameActionModel extends ShoppingListUpdateActionModel implements ShoppingListChangeNameAction
+{
     const DISCRIMINATOR_VALUE = 'changeName';
 
     /**

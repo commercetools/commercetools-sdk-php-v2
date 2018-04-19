@@ -12,7 +12,8 @@ use Commercetools\Types\Category\CategoryUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class CategoryChangeSlugActionModel extends CategoryUpdateActionModel implements CategoryChangeSlugAction {
+class CategoryChangeSlugActionModel extends CategoryUpdateActionModel implements CategoryChangeSlugAction
+{
     const DISCRIMINATOR_VALUE = 'changeSlug';
 
     /**

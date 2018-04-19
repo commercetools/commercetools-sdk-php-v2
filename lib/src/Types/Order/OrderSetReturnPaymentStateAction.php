@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderSetReturnPaymentStateAction extends OrderUpdateAction {
+interface OrderSetReturnPaymentStateAction extends OrderUpdateAction
+{
     const FIELD_PAYMENT_STATE = 'paymentState';
     const FIELD_RETURN_ITEM_ID = 'returnItemId';
 

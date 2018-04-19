@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface CustomFieldReferenceType extends FieldType {
+interface CustomFieldReferenceType extends FieldType
+{
     const FIELD_REFERENCE_TYPE_ID = 'referenceTypeId';
 
     /**

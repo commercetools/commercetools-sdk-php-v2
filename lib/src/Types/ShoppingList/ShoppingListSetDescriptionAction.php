@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ShoppingListSetDescriptionAction extends ShoppingListUpdateAction {
+interface ShoppingListSetDescriptionAction extends ShoppingListUpdateAction
+{
     const FIELD_DESCRIPTION = 'description';
 
     /**

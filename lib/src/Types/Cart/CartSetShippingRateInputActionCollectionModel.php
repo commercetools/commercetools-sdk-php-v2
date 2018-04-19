@@ -11,7 +11,8 @@ use Commercetools\Types\Cart\CartUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CartSetShippingRateInputActionCollectionModel extends CartUpdateActionCollectionModel implements CartSetShippingRateInputActionCollection {
+class CartSetShippingRateInputActionCollectionModel extends CartUpdateActionCollectionModel implements CartSetShippingRateInputActionCollection
+{
 
     /**
      * @param CartSetShippingRateInputAction $value

@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface Destination extends JsonObject {
+interface Destination extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'AzureServiceBus' => Types\Subscription\AzureServiceBusDestination::class,

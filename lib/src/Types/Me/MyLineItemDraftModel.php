@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDraft {
+class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDraft
+{
     /**
      * @var string
      */

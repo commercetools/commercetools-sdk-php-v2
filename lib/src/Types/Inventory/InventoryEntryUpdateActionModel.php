@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateActionModel;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-class InventoryEntryUpdateActionModel extends UpdateActionModel implements InventoryEntryUpdateAction {
+class InventoryEntryUpdateActionModel extends UpdateActionModel implements InventoryEntryUpdateAction
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

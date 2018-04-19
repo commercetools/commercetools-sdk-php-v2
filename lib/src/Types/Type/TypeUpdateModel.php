@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateModel;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-class TypeUpdateModel extends UpdateModel implements TypeUpdate {
+class TypeUpdateModel extends UpdateModel implements TypeUpdate
+{
     /**
      * @var TypeUpdateActionCollection
      */

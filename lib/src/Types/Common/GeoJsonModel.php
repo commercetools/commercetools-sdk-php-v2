@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types;
 
-class GeoJsonModel extends JsonObjectModel implements GeoJson {
+class GeoJsonModel extends JsonObjectModel implements GeoJson
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

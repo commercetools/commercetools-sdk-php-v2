@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\Address;
 
-class DeliveryModel extends JsonObjectModel implements Delivery {
+class DeliveryModel extends JsonObjectModel implements Delivery
+{
     /**
      * @var string
      */

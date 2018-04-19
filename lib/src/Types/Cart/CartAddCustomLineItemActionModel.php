@@ -15,7 +15,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Money;
 
-class CartAddCustomLineItemActionModel extends CartUpdateActionModel implements CartAddCustomLineItemAction {
+class CartAddCustomLineItemActionModel extends CartUpdateActionModel implements CartAddCustomLineItemAction
+{
     const DISCRIMINATOR_VALUE = 'addCustomLineItem';
 
     /**

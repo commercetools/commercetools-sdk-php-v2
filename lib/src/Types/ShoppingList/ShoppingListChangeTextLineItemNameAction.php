@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ShoppingListChangeTextLineItemNameAction extends ShoppingListUpdateAction {
+interface ShoppingListChangeTextLineItemNameAction extends ShoppingListUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_TEXT_LINE_ITEM_ID = 'textLineItemId';
 

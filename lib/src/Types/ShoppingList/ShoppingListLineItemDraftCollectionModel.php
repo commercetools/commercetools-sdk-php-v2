@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShoppingListLineItemDraftCollectionModel extends JsonCollection implements ShoppingListLineItemDraftCollection {
+class ShoppingListLineItemDraftCollectionModel extends JsonCollection implements ShoppingListLineItemDraftCollection
+{
 
     /**
      * @param ShoppingListLineItemDraft $value

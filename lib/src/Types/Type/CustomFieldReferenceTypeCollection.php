@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\FieldTypeCollection;
 
 
-interface CustomFieldReferenceTypeCollection extends FieldTypeCollection {
+interface CustomFieldReferenceTypeCollection extends FieldTypeCollection
+{
     /**
      * @param $index
      * @return CustomFieldReferenceType

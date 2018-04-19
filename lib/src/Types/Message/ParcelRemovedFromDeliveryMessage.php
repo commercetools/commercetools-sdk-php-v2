@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Order\Parcel;
 
-interface ParcelRemovedFromDeliveryMessage extends Message {
+interface ParcelRemovedFromDeliveryMessage extends Message
+{
     const FIELD_DELIVERY_ID = 'deliveryId';
     const FIELD_PARCEL = 'parcel';
 

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-interface SubscriptionSetChangesAction extends SubscriptionUpdateAction {
+interface SubscriptionSetChangesAction extends SubscriptionUpdateAction
+{
     const FIELD_CHANGES = 'changes';
 
     /**

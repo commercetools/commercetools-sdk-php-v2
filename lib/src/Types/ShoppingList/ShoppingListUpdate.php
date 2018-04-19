@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface ShoppingListUpdate extends Update {
+interface ShoppingListUpdate extends Update
+{
     /**
      * @return ShoppingListUpdateActionCollection
      */

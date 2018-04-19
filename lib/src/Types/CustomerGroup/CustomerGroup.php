@@ -11,7 +11,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Builder\CustomerGroupUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-interface CustomerGroup extends Resource {
+interface CustomerGroup extends Resource
+{
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';
     const FIELD_CUSTOM = 'custom';

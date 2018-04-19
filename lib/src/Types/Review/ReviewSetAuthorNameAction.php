@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Review;
 
-interface ReviewSetAuthorNameAction extends ReviewUpdateAction {
+interface ReviewSetAuthorNameAction extends ReviewUpdateAction
+{
     const FIELD_AUTHOR_NAME = 'authorName';
 
     /**

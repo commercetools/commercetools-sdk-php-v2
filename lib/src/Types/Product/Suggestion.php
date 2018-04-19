@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonObject;
 
-interface Suggestion extends JsonObject {
+interface Suggestion extends JsonObject
+{
     const FIELD_TEXT = 'text';
 
     /**

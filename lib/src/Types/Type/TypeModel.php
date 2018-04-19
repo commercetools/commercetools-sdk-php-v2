@@ -14,7 +14,8 @@ use Commercetools\Builder\TypeUpdateBuilder;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Common\Resource;
 
-class TypeModel extends ResourceModel implements Type {
+class TypeModel extends ResourceModel implements Type
+{
     /**
      * @var string
      */

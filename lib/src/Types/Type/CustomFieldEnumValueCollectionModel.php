@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomFieldEnumValueCollectionModel extends JsonCollection implements CustomFieldEnumValueCollection {
+class CustomFieldEnumValueCollectionModel extends JsonCollection implements CustomFieldEnumValueCollection
+{
 
     /**
      * @param CustomFieldEnumValue $value

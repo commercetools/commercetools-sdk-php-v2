@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\State\StateReference;
 
-class LineItemStateTransitionMessageModel extends MessageModel implements LineItemStateTransitionMessage {
+class LineItemStateTransitionMessageModel extends MessageModel implements LineItemStateTransitionMessage
+{
     const DISCRIMINATOR_VALUE = 'LineItemStateTransition';
 
     /**

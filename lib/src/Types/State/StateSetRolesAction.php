@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
-interface StateSetRolesAction extends StateUpdateAction {
+interface StateSetRolesAction extends StateUpdateAction
+{
     const FIELD_ROLES = 'roles';
 
     /**

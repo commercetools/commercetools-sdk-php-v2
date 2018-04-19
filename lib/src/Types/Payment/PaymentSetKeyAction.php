@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
-interface PaymentSetKeyAction extends PaymentUpdateAction {
+interface PaymentSetKeyAction extends PaymentUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface CustomFieldNumberType extends FieldType {
+interface CustomFieldNumberType extends FieldType
+{
 }

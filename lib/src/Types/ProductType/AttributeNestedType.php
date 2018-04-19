@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface AttributeNestedType extends AttributeType {
+interface AttributeNestedType extends AttributeType
+{
     const FIELD_TYPE_REFERENCE = 'typeReference';
 
     /**

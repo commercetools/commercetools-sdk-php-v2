@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Order\Delivery;
 
-interface DeliveryRemovedMessage extends Message {
+interface DeliveryRemovedMessage extends Message
+{
     const FIELD_DELIVERY = 'delivery';
 
     /**

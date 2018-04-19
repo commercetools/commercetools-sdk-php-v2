@@ -9,7 +9,8 @@ namespace Commercetools\Types\Error;
 
 use Commercetools\Base\Collection;
 
-interface VariantValuesCollection extends Collection {
+interface VariantValuesCollection extends Collection
+{
     /**
      * @param $index
      * @return VariantValues

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\DestinationModel;
 
-class SnsDestinationModel extends DestinationModel implements SnsDestination {
+class SnsDestinationModel extends DestinationModel implements SnsDestination
+{
     const DISCRIMINATOR_VALUE = 'SNS';
 
     /**

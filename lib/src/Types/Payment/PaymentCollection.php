@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface PaymentCollection extends ResourceCollection {
+interface PaymentCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Payment
@@ -34,4 +35,5 @@ interface PaymentCollection extends ResourceCollection {
      * @return Payment
      */
     public function byId($id);
+
 }

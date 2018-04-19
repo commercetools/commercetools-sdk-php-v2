@@ -9,7 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\Collection;
 
-interface TypeDraftCollection extends Collection {
+interface TypeDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return TypeDraft

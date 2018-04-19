@@ -9,7 +9,8 @@ namespace Commercetools\Types\CustomObject;
 
 use Commercetools\Types\Common\Resource;
 
-interface CustomObject extends Resource {
+interface CustomObject extends Resource
+{
     const FIELD_CONTAINER = 'container';
     const FIELD_KEY = 'key';
     const FIELD_VALUE = 'value';

@@ -11,7 +11,8 @@ use Commercetools\Types\Category\CategoryUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CategorySetExternalIdActionCollectionModel extends CategoryUpdateActionCollectionModel implements CategorySetExternalIdActionCollection {
+class CategorySetExternalIdActionCollectionModel extends CategoryUpdateActionCollectionModel implements CategorySetExternalIdActionCollection
+{
 
     /**
      * @param CategorySetExternalIdAction $value

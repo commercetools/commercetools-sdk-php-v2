@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class MessageConfigurationCollectionModel extends JsonCollection implements MessageConfigurationCollection {
+class MessageConfigurationCollectionModel extends JsonCollection implements MessageConfigurationCollection
+{
 
     /**
      * @param MessageConfiguration $value

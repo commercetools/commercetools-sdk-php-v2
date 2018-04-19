@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\Common\Money;
 
-class CartChangeLineItemQuantityActionModel extends CartUpdateActionModel implements CartChangeLineItemQuantityAction {
+class CartChangeLineItemQuantityActionModel extends CartUpdateActionModel implements CartChangeLineItemQuantityAction
+{
     const DISCRIMINATOR_VALUE = 'changeLineItemQuantity';
 
     /**

@@ -15,7 +15,8 @@ use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\AssetDraft;
 use Commercetools\Types\Common\AssetDraftCollection;
 
-class CategoryDraftModel extends JsonObjectModel implements CategoryDraft {
+class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
+{
     /**
      * @var LocalizedString
      */

@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionCollection;
 
 
-interface ProductTypeChangeAttributeConstraintActionCollection extends ProductTypeUpdateActionCollection {
+interface ProductTypeChangeAttributeConstraintActionCollection extends ProductTypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductTypeChangeAttributeConstraintAction

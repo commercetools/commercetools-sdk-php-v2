@@ -12,7 +12,8 @@ use Commercetools\Types\Review\ReviewUpdateActionModel;
 
 use Commercetools\Types\Common\ResourceIdentifier;
 
-class ReviewSetCustomTypeActionModel extends ReviewUpdateActionModel implements ReviewSetCustomTypeAction {
+class ReviewSetCustomTypeActionModel extends ReviewUpdateActionModel implements ReviewSetCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomType';
 
     /**

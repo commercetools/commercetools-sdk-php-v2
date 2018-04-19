@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface StateUpdateAction extends UpdateAction {
+interface StateUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addRoles' => Types\State\StateAddRolesAction::class,

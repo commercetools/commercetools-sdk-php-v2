@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Types\CartDiscount\CartDiscountTargetCollection;
 
 
-interface MultiBuyLineItemsTargetCollection extends CartDiscountTargetCollection {
+interface MultiBuyLineItemsTargetCollection extends CartDiscountTargetCollection
+{
     /**
      * @param $index
      * @return MultiBuyLineItemsTarget

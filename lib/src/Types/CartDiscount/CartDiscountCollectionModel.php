@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CartDiscountCollectionModel extends ResourceCollectionModel implements CartDiscountCollection {
+class CartDiscountCollectionModel extends ResourceCollectionModel implements CartDiscountCollection
+{
 
     /**
      * @param CartDiscount $value
@@ -55,4 +56,5 @@ class CartDiscountCollectionModel extends ResourceCollectionModel implements Car
     {
         return $this->valueByKey('id', $id);
     }
+
 }

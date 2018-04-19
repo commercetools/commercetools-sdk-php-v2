@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Types\Subscription\SubscriptionUpdateActionCollection;
 
 
-interface SubscriptionSetMessagesActionCollection extends SubscriptionUpdateActionCollection {
+interface SubscriptionSetMessagesActionCollection extends SubscriptionUpdateActionCollection
+{
     /**
      * @param $index
      * @return SubscriptionSetMessagesAction

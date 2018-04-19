@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class PriceFunctionCollectionModel extends JsonCollection implements PriceFunctionCollection {
+class PriceFunctionCollectionModel extends JsonCollection implements PriceFunctionCollection
+{
 
     /**
      * @param PriceFunction $value

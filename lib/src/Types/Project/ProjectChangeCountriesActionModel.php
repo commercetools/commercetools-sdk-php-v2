@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Project\ProjectUpdateActionModel;
 
-class ProjectChangeCountriesActionModel extends ProjectUpdateActionModel implements ProjectChangeCountriesAction {
+class ProjectChangeCountriesActionModel extends ProjectUpdateActionModel implements ProjectChangeCountriesAction
+{
     const DISCRIMINATOR_VALUE = 'changeCountries';
 
     /**

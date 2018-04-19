@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface StateCollection extends ResourceCollection {
+interface StateCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return State
@@ -34,4 +35,5 @@ interface StateCollection extends ResourceCollection {
      * @return State
      */
     public function byId($id);
+
 }

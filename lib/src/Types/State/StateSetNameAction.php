@@ -9,7 +9,8 @@ namespace Commercetools\Types\State;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface StateSetNameAction extends StateUpdateAction {
+interface StateSetNameAction extends StateUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

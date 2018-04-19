@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface OrderUpdate extends Update {
+interface OrderUpdate extends Update
+{
     /**
      * @return OrderUpdateActionCollection
      */

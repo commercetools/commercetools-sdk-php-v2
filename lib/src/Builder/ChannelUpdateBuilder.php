@@ -26,7 +26,8 @@ use Commercetools\Types\Channel\ChannelUpdate;
 use Commercetools\Request\ByProjectKeyChannelsByIDPost;
 
 
-class ChannelUpdateBuilder extends BaseBuilder {
+class ChannelUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Channel
      */

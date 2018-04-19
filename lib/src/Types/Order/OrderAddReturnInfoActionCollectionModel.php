@@ -11,7 +11,8 @@ use Commercetools\Types\Order\OrderUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderAddReturnInfoActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderAddReturnInfoActionCollection {
+class OrderAddReturnInfoActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderAddReturnInfoActionCollection
+{
 
     /**
      * @param OrderAddReturnInfoAction $value

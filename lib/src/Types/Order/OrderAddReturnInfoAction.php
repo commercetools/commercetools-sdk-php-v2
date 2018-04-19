@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderAddReturnInfoAction extends OrderUpdateAction {
+interface OrderAddReturnInfoAction extends OrderUpdateAction
+{
     const FIELD_ITEMS = 'items';
     const FIELD_RETURN_DATE = 'returnDate';
     const FIELD_RETURN_TRACKING_ID = 'returnTrackingId';

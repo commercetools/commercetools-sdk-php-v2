@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderSetOrderNumberAction extends OrderUpdateAction {
+interface OrderSetOrderNumberAction extends OrderUpdateAction
+{
     const FIELD_ORDER_NUMBER = 'orderNumber';
 
     /**

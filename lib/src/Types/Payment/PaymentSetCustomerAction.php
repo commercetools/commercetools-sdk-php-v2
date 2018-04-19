@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Types\Customer\CustomerReference;
 
-interface PaymentSetCustomerAction extends PaymentUpdateAction {
+interface PaymentSetCustomerAction extends PaymentUpdateAction
+{
     const FIELD_CUSTOMER = 'customer';
 
     /**

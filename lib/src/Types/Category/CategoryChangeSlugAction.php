@@ -9,7 +9,8 @@ namespace Commercetools\Types\Category;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface CategoryChangeSlugAction extends CategoryUpdateAction {
+interface CategoryChangeSlugAction extends CategoryUpdateAction
+{
     const FIELD_SLUG = 'slug';
 
     /**

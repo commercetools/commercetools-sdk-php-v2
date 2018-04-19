@@ -18,7 +18,8 @@ use Commercetools\Types\Common\TypedMoney;
 use Commercetools\Types\Order\Delivery;
 use Commercetools\Types\ShippingMethod\ShippingRate;
 
-class ShippingInfoModel extends JsonObjectModel implements ShippingInfo {
+class ShippingInfoModel extends JsonObjectModel implements ShippingInfo
+{
     /**
      * @var string
      */

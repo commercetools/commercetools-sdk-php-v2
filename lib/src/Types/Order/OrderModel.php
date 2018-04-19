@@ -28,7 +28,8 @@ use Commercetools\Types\Common\Money;
 use Commercetools\Types\Cart\TaxedPrice;
 use Commercetools\Types\Common\Resource;
 
-class OrderModel extends ResourceModel implements Order {
+class OrderModel extends ResourceModel implements Order
+{
     /**
      * @var \DateTimeImmutable
      */

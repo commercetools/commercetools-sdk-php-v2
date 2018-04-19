@@ -10,7 +10,8 @@ namespace Commercetools\Types\CustomObject;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface CustomObjectReferenceCollection extends ReferenceCollection {
+interface CustomObjectReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return CustomObjectReference

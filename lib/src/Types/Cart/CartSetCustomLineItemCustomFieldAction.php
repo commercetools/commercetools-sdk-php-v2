@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetCustomLineItemCustomFieldAction extends CartUpdateAction {
+interface CartSetCustomLineItemCustomFieldAction extends CartUpdateAction
+{
     const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     const FIELD_NAME = 'name';
     const FIELD_VALUE = 'value';

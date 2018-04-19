@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface PriceChangedErrorCollection extends ErrorObjectCollection {
+interface PriceChangedErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return PriceChangedError

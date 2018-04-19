@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\FieldTypeCollection;
 
 
-interface CustomFieldBooleanTypeCollection extends FieldTypeCollection {
+interface CustomFieldBooleanTypeCollection extends FieldTypeCollection
+{
     /**
      * @param $index
      * @return CustomFieldBooleanType

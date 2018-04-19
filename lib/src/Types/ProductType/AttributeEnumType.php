@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface AttributeEnumType extends AttributeType {
+interface AttributeEnumType extends AttributeType
+{
     const FIELD_VALUES = 'values';
 
     /**

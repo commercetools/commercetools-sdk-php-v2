@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Types\Common\ResourceCollection;
 use Commercetools\Types\Common\Resource;
 
-interface PagedQueryResponse extends JsonObject {
+interface PagedQueryResponse extends JsonObject
+{
     const FIELD_COUNT = 'count';
     const FIELD_TOTAL = 'total';
     const FIELD_OFFSET = 'offset';

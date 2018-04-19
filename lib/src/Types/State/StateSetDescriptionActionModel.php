@@ -12,7 +12,8 @@ use Commercetools\Types\State\StateUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class StateSetDescriptionActionModel extends StateUpdateActionModel implements StateSetDescriptionAction {
+class StateSetDescriptionActionModel extends StateUpdateActionModel implements StateSetDescriptionAction
+{
     const DISCRIMINATOR_VALUE = 'setDescription';
 
     /**

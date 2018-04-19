@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-interface CategoryChangeParentAction extends CategoryUpdateAction {
+interface CategoryChangeParentAction extends CategoryUpdateAction
+{
     const FIELD_PARENT = 'parent';
 
     /**

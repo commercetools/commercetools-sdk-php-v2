@@ -9,7 +9,8 @@ namespace Commercetools\Types\Me;
 
 use Commercetools\Base\Collection;
 
-interface MyCustomerDraftCollection extends Collection {
+interface MyCustomerDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return MyCustomerDraft

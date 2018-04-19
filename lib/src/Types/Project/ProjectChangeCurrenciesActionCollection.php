@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Types\Project\ProjectUpdateActionCollection;
 
 
-interface ProjectChangeCurrenciesActionCollection extends ProjectUpdateActionCollection {
+interface ProjectChangeCurrenciesActionCollection extends ProjectUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProjectChangeCurrenciesAction

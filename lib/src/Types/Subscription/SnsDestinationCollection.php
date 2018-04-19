@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Types\Subscription\DestinationCollection;
 
 
-interface SnsDestinationCollection extends DestinationCollection {
+interface SnsDestinationCollection extends DestinationCollection
+{
     /**
      * @param $index
      * @return SnsDestination

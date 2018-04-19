@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
-interface StateChangeKeyAction extends StateUpdateAction {
+interface StateChangeKeyAction extends StateUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

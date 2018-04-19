@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\AttributeTypeCollection;
 
 
-interface AttributeLocalizedEnumTypeCollection extends AttributeTypeCollection {
+interface AttributeLocalizedEnumTypeCollection extends AttributeTypeCollection
+{
     /**
      * @param $index
      * @return AttributeLocalizedEnumType

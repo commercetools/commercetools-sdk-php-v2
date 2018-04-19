@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface ProductTypeSetKeyAction extends ProductTypeUpdateAction {
+interface ProductTypeSetKeyAction extends ProductTypeUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface CustomLineItemStateTransitionMessageCollection extends MessageCollection {
+interface CustomLineItemStateTransitionMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return CustomLineItemStateTransitionMessage

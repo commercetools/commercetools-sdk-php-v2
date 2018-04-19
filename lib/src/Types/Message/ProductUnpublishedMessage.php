@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface ProductUnpublishedMessage extends Message {
+interface ProductUnpublishedMessage extends Message
+{
 }

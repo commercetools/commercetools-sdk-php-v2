@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetCustomerEmailAction extends CartUpdateAction {
+interface CartSetCustomerEmailAction extends CartUpdateAction
+{
     const FIELD_EMAIL = 'email';
 
     /**

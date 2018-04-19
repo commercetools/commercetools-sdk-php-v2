@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface FilteredFacetResult extends FacetResult {
+interface FilteredFacetResult extends FacetResult
+{
     const FIELD_COUNT = 'count';
     const FIELD_PRODUCT_COUNT = 'productCount';
 

@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\Common\ResourceCollection;
 use Commercetools\Types\Common\Resource;
 
-class PagedQueryResponseModel extends JsonObjectModel implements PagedQueryResponse {
+class PagedQueryResponseModel extends JsonObjectModel implements PagedQueryResponse
+{
     /**
      * @var int
      */

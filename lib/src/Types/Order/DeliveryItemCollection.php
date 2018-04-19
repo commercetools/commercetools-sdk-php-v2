@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\Collection;
 
-interface DeliveryItemCollection extends Collection {
+interface DeliveryItemCollection extends Collection
+{
     /**
      * @param $index
      * @return DeliveryItem

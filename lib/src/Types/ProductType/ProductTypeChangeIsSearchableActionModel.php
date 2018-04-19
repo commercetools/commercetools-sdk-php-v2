@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionModel;
 
-class ProductTypeChangeIsSearchableActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeIsSearchableAction {
+class ProductTypeChangeIsSearchableActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeIsSearchableAction
+{
     const DISCRIMINATOR_VALUE = 'changeIsSearchable';
 
     /**

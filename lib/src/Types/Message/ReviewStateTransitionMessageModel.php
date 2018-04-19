@@ -13,7 +13,8 @@ use Commercetools\Types\Message\MessageModel;
 use Commercetools\Types\State\StateReference;
 use Commercetools\Types\Common\Reference;
 
-class ReviewStateTransitionMessageModel extends MessageModel implements ReviewStateTransitionMessage {
+class ReviewStateTransitionMessageModel extends MessageModel implements ReviewStateTransitionMessage
+{
     const DISCRIMINATOR_VALUE = 'ReviewStateTransition';
 
     /**

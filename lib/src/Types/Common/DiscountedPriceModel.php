@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\ProductDiscount\ProductDiscountReference;
 
-class DiscountedPriceModel extends JsonObjectModel implements DiscountedPrice {
+class DiscountedPriceModel extends JsonObjectModel implements DiscountedPrice
+{
     /**
      * @var Money
      */

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\Collection;
 
-interface ShippingRateInputDraftCollection extends Collection {
+interface ShippingRateInputDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return ShippingRateInputDraft

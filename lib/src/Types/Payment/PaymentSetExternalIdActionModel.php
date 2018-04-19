@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
-class PaymentSetExternalIdActionModel extends PaymentUpdateActionModel implements PaymentSetExternalIdAction {
+class PaymentSetExternalIdActionModel extends PaymentUpdateActionModel implements PaymentSetExternalIdAction
+{
     const DISCRIMINATOR_VALUE = 'setExternalId';
 
     /**

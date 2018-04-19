@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface ProjectUpdate extends Update {
+interface ProjectUpdate extends Update
+{
     /**
      * @return ProjectUpdateActionCollection
      */

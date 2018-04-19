@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface InvalidCurrentPasswordErrorCollection extends ErrorObjectCollection {
+interface InvalidCurrentPasswordErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return InvalidCurrentPasswordError

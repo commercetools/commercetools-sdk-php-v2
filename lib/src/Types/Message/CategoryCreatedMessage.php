@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Category\Category;
 
-interface CategoryCreatedMessage extends Message {
+interface CategoryCreatedMessage extends Message
+{
     const FIELD_CATEGORY = 'category';
 
     /**

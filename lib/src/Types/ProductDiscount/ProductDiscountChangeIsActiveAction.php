@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductDiscount;
 
-interface ProductDiscountChangeIsActiveAction extends ProductDiscountUpdateAction {
+interface ProductDiscountChangeIsActiveAction extends ProductDiscountUpdateAction
+{
     const FIELD_IS_ACTIVE = 'isActive';
 
     /**

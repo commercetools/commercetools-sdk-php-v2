@@ -16,7 +16,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Customer\CustomerReference;
 use Commercetools\Types\Common\Resource;
 
-class ShoppingListModel extends ResourceModel implements ShoppingList {
+class ShoppingListModel extends ResourceModel implements ShoppingList
+{
     /**
      * @var CustomFields
      */

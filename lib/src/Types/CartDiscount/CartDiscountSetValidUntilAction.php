@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface CartDiscountSetValidUntilAction extends CartDiscountUpdateAction {
+interface CartDiscountSetValidUntilAction extends CartDiscountUpdateAction
+{
     const FIELD_VALID_UNTIL = 'validUntil';
 
     /**

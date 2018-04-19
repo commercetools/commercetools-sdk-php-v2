@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class LocationCollectionModel extends JsonCollection implements LocationCollection {
+class LocationCollectionModel extends JsonCollection implements LocationCollection
+{
 
     /**
      * @param Location $value

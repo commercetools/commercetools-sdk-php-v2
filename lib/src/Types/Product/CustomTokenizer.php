@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface CustomTokenizer extends SuggestTokenizer {
+interface CustomTokenizer extends SuggestTokenizer
+{
     const FIELD_INPUTS = 'inputs';
 
     /**

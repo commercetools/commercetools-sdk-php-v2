@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class SubRateCollectionModel extends JsonCollection implements SubRateCollection {
+class SubRateCollectionModel extends JsonCollection implements SubRateCollection
+{
 
     /**
      * @param SubRate $value

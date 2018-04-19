@@ -9,7 +9,8 @@ namespace Commercetools\Types\ProductDiscount;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ProductDiscountSetDescriptionAction extends ProductDiscountUpdateAction {
+interface ProductDiscountSetDescriptionAction extends ProductDiscountUpdateAction
+{
     const FIELD_DESCRIPTION = 'description';
 
     /**

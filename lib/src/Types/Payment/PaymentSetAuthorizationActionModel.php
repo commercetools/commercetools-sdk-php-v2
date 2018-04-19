@@ -12,7 +12,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
 use Commercetools\Types\Common\Money;
 
-class PaymentSetAuthorizationActionModel extends PaymentUpdateActionModel implements PaymentSetAuthorizationAction {
+class PaymentSetAuthorizationActionModel extends PaymentUpdateActionModel implements PaymentSetAuthorizationAction
+{
     const DISCRIMINATOR_VALUE = 'setAuthorization';
 
     /**

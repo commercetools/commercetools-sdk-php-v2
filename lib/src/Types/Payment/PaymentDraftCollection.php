@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Base\Collection;
 
-interface PaymentDraftCollection extends Collection {
+interface PaymentDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return PaymentDraft

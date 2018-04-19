@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface CategoryCollection extends ResourceCollection {
+interface CategoryCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Category
@@ -34,4 +35,5 @@ interface CategoryCollection extends ResourceCollection {
      * @return Category
      */
     public function byId($id);
+
 }

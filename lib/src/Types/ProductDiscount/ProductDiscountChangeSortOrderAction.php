@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductDiscount;
 
-interface ProductDiscountChangeSortOrderAction extends ProductDiscountUpdateAction {
+interface ProductDiscountChangeSortOrderAction extends ProductDiscountUpdateAction
+{
     const FIELD_SORT_ORDER = 'sortOrder';
 
     /**

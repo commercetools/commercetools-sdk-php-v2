@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface AttributeMoneyType extends AttributeType {
+interface AttributeMoneyType extends AttributeType
+{
 }

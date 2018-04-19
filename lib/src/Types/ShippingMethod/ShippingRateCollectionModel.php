@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShippingRateCollectionModel extends JsonCollection implements ShippingRateCollection {
+class ShippingRateCollectionModel extends JsonCollection implements ShippingRateCollection
+{
 
     /**
      * @param ShippingRate $value

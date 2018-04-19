@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Common\DiscountedPrice;
 
-class ProductSetDiscountedPriceActionModel extends ProductUpdateActionModel implements ProductSetDiscountedPriceAction {
+class ProductSetDiscountedPriceActionModel extends ProductUpdateActionModel implements ProductSetDiscountedPriceAction
+{
     const DISCRIMINATOR_VALUE = 'setDiscountedPrice';
 
     /**

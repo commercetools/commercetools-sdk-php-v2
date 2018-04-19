@@ -11,7 +11,8 @@ use Commercetools\Types\Product\ProductUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductMoveImageToPositionActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductMoveImageToPositionActionCollection {
+class ProductMoveImageToPositionActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductMoveImageToPositionActionCollection
+{
 
     /**
      * @param ProductMoveImageToPositionAction $value

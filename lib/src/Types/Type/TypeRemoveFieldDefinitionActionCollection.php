@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\TypeUpdateActionCollection;
 
 
-interface TypeRemoveFieldDefinitionActionCollection extends TypeUpdateActionCollection {
+interface TypeRemoveFieldDefinitionActionCollection extends TypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return TypeRemoveFieldDefinitionAction

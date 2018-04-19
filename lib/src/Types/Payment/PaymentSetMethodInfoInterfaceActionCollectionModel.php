@@ -11,7 +11,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class PaymentSetMethodInfoInterfaceActionCollectionModel extends PaymentUpdateActionCollectionModel implements PaymentSetMethodInfoInterfaceActionCollection {
+class PaymentSetMethodInfoInterfaceActionCollectionModel extends PaymentUpdateActionCollectionModel implements PaymentSetMethodInfoInterfaceActionCollection
+{
 
     /**
      * @param PaymentSetMethodInfoInterfaceAction $value

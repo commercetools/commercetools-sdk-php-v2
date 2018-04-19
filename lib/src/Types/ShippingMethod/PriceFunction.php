@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Base\JsonObject;
 
-interface PriceFunction extends JsonObject {
+interface PriceFunction extends JsonObject
+{
     const FIELD_CURRENCY_CODE = 'currencyCode';
     const FIELD_FUNCTION = 'function';
 

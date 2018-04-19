@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Review;
 
-interface ReviewSetCustomFieldAction extends ReviewUpdateAction {
+interface ReviewSetCustomFieldAction extends ReviewUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_VALUE = 'value';
 

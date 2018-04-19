@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderRemoveParcelFromDeliveryAction extends OrderUpdateAction {
+interface OrderRemoveParcelFromDeliveryAction extends OrderUpdateAction
+{
     const FIELD_PARCEL_ID = 'parcelId';
 
     /**

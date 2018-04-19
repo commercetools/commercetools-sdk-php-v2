@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerSetVatIdAction extends CustomerUpdateAction {
+interface CustomerSetVatIdAction extends CustomerUpdateAction
+{
     const FIELD_VAT_ID = 'vatId';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TaxCategoryCollectionModel extends ResourceCollectionModel implements TaxCategoryCollection {
+class TaxCategoryCollectionModel extends ResourceCollectionModel implements TaxCategoryCollection
+{
 
     /**
      * @param TaxCategory $value
@@ -55,4 +56,5 @@ class TaxCategoryCollectionModel extends ResourceCollectionModel implements TaxC
     {
         return $this->valueByKey('id', $id);
     }
+
 }

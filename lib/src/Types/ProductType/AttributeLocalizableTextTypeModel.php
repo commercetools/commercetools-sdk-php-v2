@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\AttributeTypeModel;
 
-class AttributeLocalizableTextTypeModel extends AttributeTypeModel implements AttributeLocalizableTextType {
+class AttributeLocalizableTextTypeModel extends AttributeTypeModel implements AttributeLocalizableTextType
+{
     const DISCRIMINATOR_VALUE = 'ltext';
 
 }

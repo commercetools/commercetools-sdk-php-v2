@@ -11,7 +11,8 @@ use Commercetools\Types\CartDiscount\CartDiscountValueCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CartDiscountValueAbsoluteCollectionModel extends CartDiscountValueCollectionModel implements CartDiscountValueAbsoluteCollection {
+class CartDiscountValueAbsoluteCollectionModel extends CartDiscountValueCollectionModel implements CartDiscountValueAbsoluteCollection
+{
 
     /**
      * @param CartDiscountValueAbsolute $value

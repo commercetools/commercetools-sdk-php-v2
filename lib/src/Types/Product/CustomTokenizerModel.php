@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\SuggestTokenizerModel;
 
-class CustomTokenizerModel extends SuggestTokenizerModel implements CustomTokenizer {
+class CustomTokenizerModel extends SuggestTokenizerModel implements CustomTokenizer
+{
     const DISCRIMINATOR_VALUE = 'custom';
 
     /**

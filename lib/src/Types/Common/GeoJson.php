@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface GeoJson extends JsonObject {
+interface GeoJson extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'Point' => Types\Common\GeoJsonPoint::class,

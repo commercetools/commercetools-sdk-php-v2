@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface RequiredFieldErrorCollection extends ErrorObjectCollection {
+interface RequiredFieldErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return RequiredFieldError

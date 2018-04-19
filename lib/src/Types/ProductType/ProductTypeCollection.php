@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface ProductTypeCollection extends ResourceCollection {
+interface ProductTypeCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return ProductType
@@ -34,4 +35,5 @@ interface ProductTypeCollection extends ResourceCollection {
      * @return ProductType
      */
     public function byId($id);
+
 }

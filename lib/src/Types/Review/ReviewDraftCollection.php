@@ -9,7 +9,8 @@ namespace Commercetools\Types\Review;
 
 use Commercetools\Base\Collection;
 
-interface ReviewDraftCollection extends Collection {
+interface ReviewDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return ReviewDraft

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Customer\Customer;
 
-interface CustomerCreatedMessage extends Message {
+interface CustomerCreatedMessage extends Message
+{
     const FIELD_CUSTOMER = 'customer';
 
     /**

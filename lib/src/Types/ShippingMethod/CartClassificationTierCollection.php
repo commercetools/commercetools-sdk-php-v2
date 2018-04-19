@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Types\ShippingMethod\ShippingRatePriceTierCollection;
 
 
-interface CartClassificationTierCollection extends ShippingRatePriceTierCollection {
+interface CartClassificationTierCollection extends ShippingRatePriceTierCollection
+{
     /**
      * @param $index
      * @return CartClassificationTier

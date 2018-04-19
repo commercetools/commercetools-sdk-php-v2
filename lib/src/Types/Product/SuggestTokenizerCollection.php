@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\Collection;
 
-interface SuggestTokenizerCollection extends Collection {
+interface SuggestTokenizerCollection extends Collection
+{
     /**
      * @param $index
      * @return SuggestTokenizer

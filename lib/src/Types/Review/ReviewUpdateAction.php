@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface ReviewUpdateAction extends UpdateAction {
+interface ReviewUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'setAuthorName' => Types\Review\ReviewSetAuthorNameAction::class,

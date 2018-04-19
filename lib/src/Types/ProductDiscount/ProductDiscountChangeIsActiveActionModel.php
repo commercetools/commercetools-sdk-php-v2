@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductDiscount;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductDiscount\ProductDiscountUpdateActionModel;
 
-class ProductDiscountChangeIsActiveActionModel extends ProductDiscountUpdateActionModel implements ProductDiscountChangeIsActiveAction {
+class ProductDiscountChangeIsActiveActionModel extends ProductDiscountUpdateActionModel implements ProductDiscountChangeIsActiveAction
+{
     const DISCRIMINATOR_VALUE = 'changeIsActive';
 
     /**

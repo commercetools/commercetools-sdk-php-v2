@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\DestinationModel;
 
-class IronMqDestinationModel extends DestinationModel implements IronMqDestination {
+class IronMqDestinationModel extends DestinationModel implements IronMqDestination
+{
     const DISCRIMINATOR_VALUE = 'IronMQ';
 
     /**

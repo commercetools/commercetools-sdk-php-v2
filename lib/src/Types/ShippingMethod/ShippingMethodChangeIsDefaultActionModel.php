@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShippingMethod\ShippingMethodUpdateActionModel;
 
-class ShippingMethodChangeIsDefaultActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodChangeIsDefaultAction {
+class ShippingMethodChangeIsDefaultActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodChangeIsDefaultAction
+{
     const DISCRIMINATOR_VALUE = 'changeIsDefault';
 
     /**

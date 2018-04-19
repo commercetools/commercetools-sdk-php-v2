@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class OrderReferenceModel extends ReferenceModel implements OrderReference {
+class OrderReferenceModel extends ReferenceModel implements OrderReference
+{
     const DISCRIMINATOR_VALUE = 'order';
 
     /**

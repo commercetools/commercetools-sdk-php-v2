@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateModel;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-class ChannelUpdateModel extends UpdateModel implements ChannelUpdate {
+class ChannelUpdateModel extends UpdateModel implements ChannelUpdate
+{
     /**
      * @var ChannelUpdateActionCollection
      */

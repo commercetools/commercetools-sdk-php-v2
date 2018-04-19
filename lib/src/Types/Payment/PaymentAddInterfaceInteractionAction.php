@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface PaymentAddInterfaceInteractionAction extends PaymentUpdateAction {
+interface PaymentAddInterfaceInteractionAction extends PaymentUpdateAction
+{
     const FIELD_FIELDS = 'fields';
     const FIELD_TYPE = 'type';
 

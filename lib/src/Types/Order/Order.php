@@ -25,7 +25,8 @@ use Commercetools\Types\Common\Money;
 use Commercetools\Types\Cart\TaxedPrice;
 use Commercetools\Types\Common\Resource;
 
-interface Order extends Resource {
+interface Order extends Resource
+{
     const FIELD_COMPLETED_AT = 'completedAt';
     const FIELD_ORDER_NUMBER = 'orderNumber';
     const FIELD_CUSTOMER_ID = 'customerId';

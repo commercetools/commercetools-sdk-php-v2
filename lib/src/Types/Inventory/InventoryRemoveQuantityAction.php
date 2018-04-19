@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
-interface InventoryRemoveQuantityAction extends InventoryEntryUpdateAction {
+interface InventoryRemoveQuantityAction extends InventoryEntryUpdateAction
+{
     const FIELD_QUANTITY = 'quantity';
 
     /**

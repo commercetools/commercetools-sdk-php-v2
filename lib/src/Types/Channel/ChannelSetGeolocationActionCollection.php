@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Types\Channel\ChannelUpdateActionCollection;
 
 
-interface ChannelSetGeolocationActionCollection extends ChannelUpdateActionCollection {
+interface ChannelSetGeolocationActionCollection extends ChannelUpdateActionCollection
+{
     /**
      * @param $index
      * @return ChannelSetGeolocationAction

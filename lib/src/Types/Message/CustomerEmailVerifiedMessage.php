@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface CustomerEmailVerifiedMessage extends Message {
+interface CustomerEmailVerifiedMessage extends Message
+{
 }

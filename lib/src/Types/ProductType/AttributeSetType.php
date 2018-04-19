@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface AttributeSetType extends AttributeType {
+interface AttributeSetType extends AttributeType
+{
     const FIELD_ELEMENT_TYPE = 'elementType';
 
     /**

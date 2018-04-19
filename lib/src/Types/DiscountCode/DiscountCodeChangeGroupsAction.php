@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\DiscountCode;
 
-interface DiscountCodeChangeGroupsAction extends DiscountCodeUpdateAction {
+interface DiscountCodeChangeGroupsAction extends DiscountCodeUpdateAction
+{
     const FIELD_GROUPS = 'groups';
 
     /**

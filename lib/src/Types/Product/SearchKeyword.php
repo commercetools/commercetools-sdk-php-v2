@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonObject;
 
-interface SearchKeyword extends JsonObject {
+interface SearchKeyword extends JsonObject
+{
     const FIELD_TEXT = 'text';
     const FIELD_SUGGEST_TOKENIZER = 'suggestTokenizer';
 

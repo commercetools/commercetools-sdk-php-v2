@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\Collection;
 
-interface CustomLineItemDraftCollection extends Collection {
+interface CustomLineItemDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return CustomLineItemDraft

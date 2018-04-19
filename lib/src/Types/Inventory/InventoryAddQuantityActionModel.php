@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Inventory\InventoryEntryUpdateActionModel;
 
-class InventoryAddQuantityActionModel extends InventoryEntryUpdateActionModel implements InventoryAddQuantityAction {
+class InventoryAddQuantityActionModel extends InventoryEntryUpdateActionModel implements InventoryAddQuantityAction
+{
     const DISCRIMINATOR_VALUE = 'addQuantity';
 
     /**

@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\Common\Money;
 
-class CartSetLineItemPriceActionModel extends CartUpdateActionModel implements CartSetLineItemPriceAction {
+class CartSetLineItemPriceActionModel extends CartUpdateActionModel implements CartSetLineItemPriceAction
+{
     const DISCRIMINATOR_VALUE = 'setLineItemPrice';
 
     /**

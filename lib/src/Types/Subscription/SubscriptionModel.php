@@ -13,7 +13,8 @@ use Commercetools\Types\Common\ResourceModel;
 use Commercetools\Builder\SubscriptionUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-class SubscriptionModel extends ResourceModel implements Subscription {
+class SubscriptionModel extends ResourceModel implements Subscription
+{
     /**
      * @var ChangeSubscriptionCollection
      */

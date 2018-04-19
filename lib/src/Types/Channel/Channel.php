@@ -16,7 +16,8 @@ use Commercetools\Types\Common\Address;
 use Commercetools\Types\Review\ReviewRatingStatistics;
 use Commercetools\Types\Common\Resource;
 
-interface Channel extends Resource {
+interface Channel extends Resource
+{
     const FIELD_KEY = 'key';
     const FIELD_ROLES = 'roles';
     const FIELD_NAME = 'name';

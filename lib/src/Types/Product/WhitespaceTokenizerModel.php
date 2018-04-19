@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\SuggestTokenizerModel;
 
-class WhitespaceTokenizerModel extends SuggestTokenizerModel implements WhitespaceTokenizer {
+class WhitespaceTokenizerModel extends SuggestTokenizerModel implements WhitespaceTokenizer
+{
     const DISCRIMINATOR_VALUE = 'whitespace';
 
 }

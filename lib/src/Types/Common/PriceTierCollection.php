@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface PriceTierCollection extends Collection {
+interface PriceTierCollection extends Collection
+{
     /**
      * @param $index
      * @return PriceTier

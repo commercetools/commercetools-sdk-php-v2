@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Extension\ExtensionUpdateActionModel;
 
-class ExtensionChangeTriggersActionModel extends ExtensionUpdateActionModel implements ExtensionChangeTriggersAction {
+class ExtensionChangeTriggersActionModel extends ExtensionUpdateActionModel implements ExtensionChangeTriggersAction
+{
     const DISCRIMINATOR_VALUE = 'changeTriggers';
 
     /**

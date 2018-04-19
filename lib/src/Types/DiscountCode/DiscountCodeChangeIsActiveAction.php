@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\DiscountCode;
 
-interface DiscountCodeChangeIsActiveAction extends DiscountCodeUpdateAction {
+interface DiscountCodeChangeIsActiveAction extends DiscountCodeUpdateAction
+{
     const FIELD_IS_ACTIVE = 'isActive';
 
     /**

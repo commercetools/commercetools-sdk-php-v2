@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Extension\ExtensionDestinationModel;
 
-class ExtensionHttpDestinationModel extends ExtensionDestinationModel implements ExtensionHttpDestination {
+class ExtensionHttpDestinationModel extends ExtensionDestinationModel implements ExtensionHttpDestination
+{
     const DISCRIMINATOR_VALUE = 'HTTP';
 
     /**

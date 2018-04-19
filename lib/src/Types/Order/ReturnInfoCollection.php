@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\Collection;
 
-interface ReturnInfoCollection extends Collection {
+interface ReturnInfoCollection extends Collection
+{
     /**
      * @param $index
      * @return ReturnInfo

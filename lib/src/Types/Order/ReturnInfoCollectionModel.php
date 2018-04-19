@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ReturnInfoCollectionModel extends JsonCollection implements ReturnInfoCollection {
+class ReturnInfoCollectionModel extends JsonCollection implements ReturnInfoCollection
+{
 
     /**
      * @param ReturnInfo $value

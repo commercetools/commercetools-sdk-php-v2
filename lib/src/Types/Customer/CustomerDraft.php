@@ -14,7 +14,8 @@ use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\AddressCollection;
 use Commercetools\Types\Common\Address;
 
-interface CustomerDraft extends JsonObject {
+interface CustomerDraft extends JsonObject
+{
     const FIELD_CUSTOMER_NUMBER = 'customerNumber';
     const FIELD_EMAIL = 'email';
     const FIELD_PASSWORD = 'password';

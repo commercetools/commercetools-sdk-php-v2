@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductChangeAssetOrderAction extends ProductUpdateAction {
+interface ProductChangeAssetOrderAction extends ProductUpdateAction
+{
     const FIELD_ASSET_ORDER = 'assetOrder';
     const FIELD_SKU = 'sku';
     const FIELD_VARIANT_ID = 'variantId';

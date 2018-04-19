@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\ProductTypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductTypeChangeIsSearchableActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeChangeIsSearchableActionCollection {
+class ProductTypeChangeIsSearchableActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeChangeIsSearchableActionCollection
+{
 
     /**
      * @param ProductTypeChangeIsSearchableAction $value

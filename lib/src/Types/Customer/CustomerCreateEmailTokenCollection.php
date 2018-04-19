@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\Collection;
 
-interface CustomerCreateEmailTokenCollection extends Collection {
+interface CustomerCreateEmailTokenCollection extends Collection
+{
     /**
      * @param $index
      * @return CustomerCreateEmailToken

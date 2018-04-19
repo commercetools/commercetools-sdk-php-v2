@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Types;
 
-interface Reference extends ResourceIdentifier {
+interface Reference extends ResourceIdentifier
+{
     const DISCRIMINATOR = 'typeId';
     const SUB_TYPES = [
         'cart-discount' => Types\CartDiscount\CartDiscountReference::class,

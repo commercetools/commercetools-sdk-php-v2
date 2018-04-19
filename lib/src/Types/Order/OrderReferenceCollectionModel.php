@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderReferenceCollectionModel extends ReferenceCollectionModel implements OrderReferenceCollection {
+class OrderReferenceCollectionModel extends ReferenceCollectionModel implements OrderReferenceCollection
+{
 
     /**
      * @param OrderReference $value

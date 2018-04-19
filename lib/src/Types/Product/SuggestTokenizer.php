@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface SuggestTokenizer extends JsonObject {
+interface SuggestTokenizer extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'custom' => Types\Product\CustomTokenizer::class,

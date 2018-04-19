@@ -17,7 +17,8 @@ use Commercetools\Types\Product\AttributeCollection;
 use Commercetools\Types\Common\Price;
 use Commercetools\Types\Common\Image;
 
-class ProductVariantImportDraftModel extends JsonObjectModel implements ProductVariantImportDraft {
+class ProductVariantImportDraftModel extends JsonObjectModel implements ProductVariantImportDraft
+{
     /**
      * @var int
      */

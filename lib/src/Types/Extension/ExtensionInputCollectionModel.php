@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ExtensionInputCollectionModel extends JsonCollection implements ExtensionInputCollection {
+class ExtensionInputCollectionModel extends JsonCollection implements ExtensionInputCollection
+{
 
     /**
      * @param ExtensionInput $value

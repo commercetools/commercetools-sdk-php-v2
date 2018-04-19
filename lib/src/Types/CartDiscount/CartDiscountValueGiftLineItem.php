@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Product\ProductReference;
 
-interface CartDiscountValueGiftLineItem extends CartDiscountValue {
+interface CartDiscountValueGiftLineItem extends CartDiscountValue
+{
     const FIELD_PRODUCT = 'product';
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_SUPPLY_CHANNEL = 'supplyChannel';

@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
-interface CartValueType extends ShippingRateInputType {
+interface CartValueType extends ShippingRateInputType
+{
 }

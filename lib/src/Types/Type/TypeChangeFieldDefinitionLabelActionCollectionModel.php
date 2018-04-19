@@ -11,7 +11,8 @@ use Commercetools\Types\Type\TypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TypeChangeFieldDefinitionLabelActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeChangeFieldDefinitionLabelActionCollection {
+class TypeChangeFieldDefinitionLabelActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeChangeFieldDefinitionLabelActionCollection
+{
 
     /**
      * @param TypeChangeFieldDefinitionLabelAction $value

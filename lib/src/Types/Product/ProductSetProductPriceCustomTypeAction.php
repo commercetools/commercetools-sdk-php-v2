@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface ProductSetProductPriceCustomTypeAction extends ProductUpdateAction {
+interface ProductSetProductPriceCustomTypeAction extends ProductUpdateAction
+{
     const FIELD_FIELDS = 'fields';
     const FIELD_PRICE_ID = 'priceId';
     const FIELD_STAGED = 'staged';

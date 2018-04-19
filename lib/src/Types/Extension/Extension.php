@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Builder\ExtensionUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-interface Extension extends Resource {
+interface Extension extends Resource
+{
     const FIELD_KEY = 'key';
     const FIELD_DESTINATION = 'destination';
     const FIELD_TRIGGERS = 'triggers';

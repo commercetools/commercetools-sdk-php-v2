@@ -11,7 +11,8 @@ use Commercetools\Types\Review\ReviewUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ReviewSetCustomTypeActionCollectionModel extends ReviewUpdateActionCollectionModel implements ReviewSetCustomTypeActionCollection {
+class ReviewSetCustomTypeActionCollectionModel extends ReviewUpdateActionCollectionModel implements ReviewSetCustomTypeActionCollection
+{
 
     /**
      * @param ReviewSetCustomTypeAction $value

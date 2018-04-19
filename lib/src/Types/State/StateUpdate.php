@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface StateUpdate extends Update {
+interface StateUpdate extends Update
+{
     /**
      * @return StateUpdateActionCollection
      */

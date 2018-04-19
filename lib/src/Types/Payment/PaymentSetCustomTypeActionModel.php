@@ -12,7 +12,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class PaymentSetCustomTypeActionModel extends PaymentUpdateActionModel implements PaymentSetCustomTypeAction {
+class PaymentSetCustomTypeActionModel extends PaymentUpdateActionModel implements PaymentSetCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomType';
 
     /**

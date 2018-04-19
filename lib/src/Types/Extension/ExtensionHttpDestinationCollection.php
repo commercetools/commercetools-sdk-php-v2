@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Types\Extension\ExtensionDestinationCollection;
 
 
-interface ExtensionHttpDestinationCollection extends ExtensionDestinationCollection {
+interface ExtensionHttpDestinationCollection extends ExtensionDestinationCollection
+{
     /**
      * @param $index
      * @return ExtensionHttpDestination

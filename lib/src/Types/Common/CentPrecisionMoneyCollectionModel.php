@@ -11,7 +11,8 @@ use Commercetools\Types\Common\TypedMoneyCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CentPrecisionMoneyCollectionModel extends TypedMoneyCollectionModel implements CentPrecisionMoneyCollection {
+class CentPrecisionMoneyCollectionModel extends TypedMoneyCollectionModel implements CentPrecisionMoneyCollection
+{
 
     /**
      * @param CentPrecisionMoney $value

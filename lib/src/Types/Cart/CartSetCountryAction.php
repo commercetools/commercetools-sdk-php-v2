@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetCountryAction extends CartUpdateAction {
+interface CartSetCountryAction extends CartUpdateAction
+{
     const FIELD_COUNTRY = 'country';
 
     /**

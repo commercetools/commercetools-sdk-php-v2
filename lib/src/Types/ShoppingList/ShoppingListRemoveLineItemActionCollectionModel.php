@@ -11,7 +11,8 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShoppingListRemoveLineItemActionCollectionModel extends ShoppingListUpdateActionCollectionModel implements ShoppingListRemoveLineItemActionCollection {
+class ShoppingListRemoveLineItemActionCollectionModel extends ShoppingListUpdateActionCollectionModel implements ShoppingListRemoveLineItemActionCollection
+{
 
     /**
      * @param ShoppingListRemoveLineItemAction $value

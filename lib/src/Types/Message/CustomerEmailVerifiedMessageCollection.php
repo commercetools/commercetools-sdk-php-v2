@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface CustomerEmailVerifiedMessageCollection extends MessageCollection {
+interface CustomerEmailVerifiedMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return CustomerEmailVerifiedMessage

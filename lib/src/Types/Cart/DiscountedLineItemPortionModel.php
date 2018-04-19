@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\CartDiscount\CartDiscountReference;
 use Commercetools\Types\Common\Money;
 
-class DiscountedLineItemPortionModel extends JsonObjectModel implements DiscountedLineItemPortion {
+class DiscountedLineItemPortionModel extends JsonObjectModel implements DiscountedLineItemPortion
+{
     /**
      * @var CartDiscountReference
      */

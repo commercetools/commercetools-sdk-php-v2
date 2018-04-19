@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\JsonObject;
 
-interface CustomerResetPassword extends JsonObject {
+interface CustomerResetPassword extends JsonObject
+{
     const FIELD_TOKEN_VALUE = 'tokenValue';
     const FIELD_NEW_PASSWORD = 'newPassword';
     const FIELD_VERSION = 'version';

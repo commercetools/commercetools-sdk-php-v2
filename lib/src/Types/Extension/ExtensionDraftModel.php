@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraft {
+class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraft
+{
     /**
      * @var string
      */

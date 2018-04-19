@@ -19,7 +19,8 @@ use Commercetools\Types\CartDiscount\CartDiscountReference;
 use Commercetools\Types\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Types\Common\Resource;
 
-class DiscountCodeModel extends ResourceModel implements DiscountCode {
+class DiscountCodeModel extends ResourceModel implements DiscountCode
+{
     /**
      * @var LocalizedString
      */

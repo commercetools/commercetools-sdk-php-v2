@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
-interface ChannelAddRolesAction extends ChannelUpdateAction {
+interface ChannelAddRolesAction extends ChannelUpdateAction
+{
     const FIELD_ROLES = 'roles';
 
     /**

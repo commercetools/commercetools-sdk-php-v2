@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class PriceChangedErrorCollectionModel extends ErrorObjectCollectionModel implements PriceChangedErrorCollection {
+class PriceChangedErrorCollectionModel extends ErrorObjectCollectionModel implements PriceChangedErrorCollection
+{
 
     /**
      * @param PriceChangedError $value

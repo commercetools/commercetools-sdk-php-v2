@@ -11,7 +11,8 @@ use Commercetools\Types\Project\ProjectUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProjectSetShippingRateInputTypeActionCollectionModel extends ProjectUpdateActionCollectionModel implements ProjectSetShippingRateInputTypeActionCollection {
+class ProjectSetShippingRateInputTypeActionCollectionModel extends ProjectUpdateActionCollectionModel implements ProjectSetShippingRateInputTypeActionCollection
+{
 
     /**
      * @param ProjectSetShippingRateInputTypeAction $value

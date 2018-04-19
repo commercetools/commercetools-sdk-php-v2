@@ -11,7 +11,8 @@ use Commercetools\Types\Channel\ChannelUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelSetCustomFieldActionCollectionModel extends ChannelUpdateActionCollectionModel implements ChannelSetCustomFieldActionCollection {
+class ChannelSetCustomFieldActionCollectionModel extends ChannelUpdateActionCollectionModel implements ChannelSetCustomFieldActionCollection
+{
 
     /**
      * @param ChannelSetCustomFieldAction $value

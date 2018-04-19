@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\SubscriptionDeliveryModel;
 
-class ResourceDeletedDeliveryModel extends SubscriptionDeliveryModel implements ResourceDeletedDelivery {
+class ResourceDeletedDeliveryModel extends SubscriptionDeliveryModel implements ResourceDeletedDelivery
+{
     const DISCRIMINATOR_VALUE = 'ResourceDeleted';
 
     /**

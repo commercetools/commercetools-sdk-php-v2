@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-interface SubscriptionSetMessagesAction extends SubscriptionUpdateAction {
+interface SubscriptionSetMessagesAction extends SubscriptionUpdateAction
+{
     const FIELD_MESSAGES = 'messages';
 
     /**

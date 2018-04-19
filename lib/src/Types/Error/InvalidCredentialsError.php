@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface InvalidCredentialsError extends ErrorObject {
+interface InvalidCredentialsError extends ErrorObject
+{
 }

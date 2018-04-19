@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface OrderCreatedMessageCollection extends MessageCollection {
+interface OrderCreatedMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return OrderCreatedMessage

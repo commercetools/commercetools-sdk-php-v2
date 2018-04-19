@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\DiscountCode\DiscountCodeReference;
 
-class CartRemoveDiscountCodeActionModel extends CartUpdateActionModel implements CartRemoveDiscountCodeAction {
+class CartRemoveDiscountCodeActionModel extends CartUpdateActionModel implements CartRemoveDiscountCodeAction
+{
     const DISCRIMINATOR_VALUE = 'removeDiscountCode';
 
     /**

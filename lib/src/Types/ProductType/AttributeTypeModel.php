@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types;
 
-class AttributeTypeModel extends JsonObjectModel implements AttributeType {
+class AttributeTypeModel extends JsonObjectModel implements AttributeType
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

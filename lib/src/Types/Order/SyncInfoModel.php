@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Channel\ChannelReference;
 
-class SyncInfoModel extends JsonObjectModel implements SyncInfo {
+class SyncInfoModel extends JsonObjectModel implements SyncInfo
+{
     /**
      * @var ChannelReference
      */

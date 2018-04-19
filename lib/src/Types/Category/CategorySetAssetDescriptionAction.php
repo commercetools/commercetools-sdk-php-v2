@@ -9,7 +9,8 @@ namespace Commercetools\Types\Category;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface CategorySetAssetDescriptionAction extends CategoryUpdateAction {
+interface CategorySetAssetDescriptionAction extends CategoryUpdateAction
+{
     const FIELD_ASSET_KEY = 'assetKey';
     const FIELD_ASSET_ID = 'assetId';
     const FIELD_DESCRIPTION = 'description';

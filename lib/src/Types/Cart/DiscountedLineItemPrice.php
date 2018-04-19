@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\TypedMoney;
 
-interface DiscountedLineItemPrice extends JsonObject {
+interface DiscountedLineItemPrice extends JsonObject
+{
     const FIELD_VALUE = 'value';
     const FIELD_INCLUDED_DISCOUNTS = 'includedDiscounts';
 

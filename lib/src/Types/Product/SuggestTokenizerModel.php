@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types;
 
-class SuggestTokenizerModel extends JsonObjectModel implements SuggestTokenizer {
+class SuggestTokenizerModel extends JsonObjectModel implements SuggestTokenizer
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

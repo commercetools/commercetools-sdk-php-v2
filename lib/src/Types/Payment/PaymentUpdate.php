@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface PaymentUpdate extends Update {
+interface PaymentUpdate extends Update
+{
     /**
      * @return PaymentUpdateActionCollection
      */

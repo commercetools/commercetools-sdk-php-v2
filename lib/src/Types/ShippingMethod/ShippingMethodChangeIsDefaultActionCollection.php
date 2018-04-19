@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Types\ShippingMethod\ShippingMethodUpdateActionCollection;
 
 
-interface ShippingMethodChangeIsDefaultActionCollection extends ShippingMethodUpdateActionCollection {
+interface ShippingMethodChangeIsDefaultActionCollection extends ShippingMethodUpdateActionCollection
+{
     /**
      * @param $index
      * @return ShippingMethodChangeIsDefaultAction

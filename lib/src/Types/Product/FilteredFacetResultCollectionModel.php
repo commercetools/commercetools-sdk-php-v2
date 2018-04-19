@@ -11,7 +11,8 @@ use Commercetools\Types\Product\FacetResultCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class FilteredFacetResultCollectionModel extends FacetResultCollectionModel implements FilteredFacetResultCollection {
+class FilteredFacetResultCollectionModel extends FacetResultCollectionModel implements FilteredFacetResultCollection
+{
 
     /**
      * @param FilteredFacetResult $value

@@ -24,7 +24,8 @@ use Commercetools\Types\Inventory\InventoryEntryUpdate;
 use Commercetools\Request\ByProjectKeyInventoryByIDPost;
 
 
-class InventoryEntryUpdateBuilder extends BaseBuilder {
+class InventoryEntryUpdateBuilder extends BaseBuilder
+{
     /**
      * @var InventoryEntry
      */

@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface AttributeNumberType extends AttributeType {
+interface AttributeNumberType extends AttributeType
+{
 }

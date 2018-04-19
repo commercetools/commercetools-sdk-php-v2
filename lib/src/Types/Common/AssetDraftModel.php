@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-class AssetDraftModel extends JsonObjectModel implements AssetDraft {
+class AssetDraftModel extends JsonObjectModel implements AssetDraft
+{
     /**
      * @var AssetSourceCollection
      */

@@ -11,7 +11,8 @@ use Commercetools\Types\Project\ProjectUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProjectChangeCurrenciesActionCollectionModel extends ProjectUpdateActionCollectionModel implements ProjectChangeCurrenciesActionCollection {
+class ProjectChangeCurrenciesActionCollectionModel extends ProjectUpdateActionCollectionModel implements ProjectChangeCurrenciesActionCollection
+{
 
     /**
      * @param ProjectChangeCurrenciesAction $value

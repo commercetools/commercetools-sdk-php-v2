@@ -18,7 +18,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Order\ItemStateCollection;
 use Commercetools\Types\Common\TypedMoney;
 
-class CustomLineItemModel extends JsonObjectModel implements CustomLineItem {
+class CustomLineItemModel extends JsonObjectModel implements CustomLineItem
+{
     /**
      * @var string
      */

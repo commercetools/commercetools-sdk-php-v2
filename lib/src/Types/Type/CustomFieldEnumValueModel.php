@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class CustomFieldEnumValueModel extends JsonObjectModel implements CustomFieldEnumValue {
+class CustomFieldEnumValueModel extends JsonObjectModel implements CustomFieldEnumValue
+{
     /**
      * @var string
      */

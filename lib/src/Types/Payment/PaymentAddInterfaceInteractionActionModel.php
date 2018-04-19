@@ -12,7 +12,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class PaymentAddInterfaceInteractionActionModel extends PaymentUpdateActionModel implements PaymentAddInterfaceInteractionAction {
+class PaymentAddInterfaceInteractionActionModel extends PaymentUpdateActionModel implements PaymentAddInterfaceInteractionAction
+{
     const DISCRIMINATOR_VALUE = 'addInterfaceInteraction';
 
     /**

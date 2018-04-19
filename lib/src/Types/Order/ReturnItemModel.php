@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ReturnItemModel extends JsonObjectModel implements ReturnItem {
+class ReturnItemModel extends JsonObjectModel implements ReturnItem
+{
     /**
      * @var string
      */

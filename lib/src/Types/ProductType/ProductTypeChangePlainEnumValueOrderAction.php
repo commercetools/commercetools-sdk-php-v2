@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface ProductTypeChangePlainEnumValueOrderAction extends ProductTypeUpdateAction {
+interface ProductTypeChangePlainEnumValueOrderAction extends ProductTypeUpdateAction
+{
     const FIELD_ATTRIBUTE_NAME = 'attributeName';
     const FIELD_VALUES = 'values';
 

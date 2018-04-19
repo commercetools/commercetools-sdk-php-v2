@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\FieldTypeModel;
 
-class CustomFieldDateTypeModel extends FieldTypeModel implements CustomFieldDateType {
+class CustomFieldDateTypeModel extends FieldTypeModel implements CustomFieldDateType
+{
     const DISCRIMINATOR_VALUE = 'Date';
 
 }

@@ -9,7 +9,8 @@ namespace Commercetools\Types\State;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface StateSetDescriptionAction extends StateUpdateAction {
+interface StateSetDescriptionAction extends StateUpdateAction
+{
     const FIELD_DESCRIPTION = 'description';
 
     /**

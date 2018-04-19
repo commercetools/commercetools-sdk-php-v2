@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateActionModel;
 
-class ProductRevertStagedVariantChangesActionModel extends ProductUpdateActionModel implements ProductRevertStagedVariantChangesAction {
+class ProductRevertStagedVariantChangesActionModel extends ProductUpdateActionModel implements ProductRevertStagedVariantChangesAction
+{
     const DISCRIMINATOR_VALUE = 'revertStagedVariantChanges';
 
     /**

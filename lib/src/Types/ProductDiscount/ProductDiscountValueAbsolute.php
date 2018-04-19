@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductDiscount;
 use Commercetools\Types\Common\MoneyCollection;
 use Commercetools\Types\Common\Money;
 
-interface ProductDiscountValueAbsolute extends ProductDiscountValue {
+interface ProductDiscountValueAbsolute extends ProductDiscountValue
+{
     const FIELD_MONEY = 'money';
 
     /**

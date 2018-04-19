@@ -16,7 +16,8 @@ use Commercetools\Types\Common\AssetDraft;
 use Commercetools\Types\Common\AssetDraftCollection;
 use Commercetools\Types\Common\Image;
 
-interface ProductVariantDraft extends JsonObject {
+interface ProductVariantDraft extends JsonObject
+{
     const FIELD_SKU = 'sku';
     const FIELD_KEY = 'key';
     const FIELD_PRICES = 'prices';

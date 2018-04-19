@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\FieldTypeCollection;
 
 
-interface CustomFieldLocalizedStringTypeCollection extends FieldTypeCollection {
+interface CustomFieldLocalizedStringTypeCollection extends FieldTypeCollection
+{
     /**
      * @param $index
      * @return CustomFieldLocalizedStringType

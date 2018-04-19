@@ -9,7 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Types\Common\Reference;
 
-interface TypeReference extends Reference {
+interface TypeReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

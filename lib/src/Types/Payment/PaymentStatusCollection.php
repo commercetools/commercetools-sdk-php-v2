@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Base\Collection;
 
-interface PaymentStatusCollection extends Collection {
+interface PaymentStatusCollection extends Collection
+{
     /**
      * @param $index
      * @return PaymentStatus

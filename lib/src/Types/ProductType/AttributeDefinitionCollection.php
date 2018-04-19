@@ -9,7 +9,8 @@ namespace Commercetools\Types\ProductType;
 
 use Commercetools\Base\Collection;
 
-interface AttributeDefinitionCollection extends Collection {
+interface AttributeDefinitionCollection extends Collection
+{
     /**
      * @param $index
      * @return AttributeDefinition

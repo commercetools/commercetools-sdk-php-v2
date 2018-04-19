@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\Payment\PaymentReference;
 
-class CartRemovePaymentActionModel extends CartUpdateActionModel implements CartRemovePaymentAction {
+class CartRemovePaymentActionModel extends CartUpdateActionModel implements CartRemovePaymentAction
+{
     const DISCRIMINATOR_VALUE = 'removePayment';
 
     /**

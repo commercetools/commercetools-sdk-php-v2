@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Common\TypedMoneyModel;
 
-class CentPrecisionMoneyModel extends TypedMoneyModel implements CentPrecisionMoney {
+class CentPrecisionMoneyModel extends TypedMoneyModel implements CentPrecisionMoney
+{
     const DISCRIMINATOR_VALUE = 'centPrecision';
 
 }

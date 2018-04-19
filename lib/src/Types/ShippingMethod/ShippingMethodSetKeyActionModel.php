@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShippingMethod\ShippingMethodUpdateActionModel;
 
-class ShippingMethodSetKeyActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodSetKeyAction {
+class ShippingMethodSetKeyActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodSetKeyAction
+{
     const DISCRIMINATOR_VALUE = 'setKey';
 
     /**

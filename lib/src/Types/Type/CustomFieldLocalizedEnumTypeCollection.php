@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\FieldTypeCollection;
 
 
-interface CustomFieldLocalizedEnumTypeCollection extends FieldTypeCollection {
+interface CustomFieldLocalizedEnumTypeCollection extends FieldTypeCollection
+{
     /**
      * @param $index
      * @return CustomFieldLocalizedEnumType

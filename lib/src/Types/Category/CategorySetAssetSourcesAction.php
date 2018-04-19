@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Types\Common\AssetSource;
 use Commercetools\Types\Common\AssetSourceCollection;
 
-interface CategorySetAssetSourcesAction extends CategoryUpdateAction {
+interface CategorySetAssetSourcesAction extends CategoryUpdateAction
+{
     const FIELD_ASSET_KEY = 'assetKey';
     const FIELD_ASSET_ID = 'assetId';
     const FIELD_SOURCES = 'sources';

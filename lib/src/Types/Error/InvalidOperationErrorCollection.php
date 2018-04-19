@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface InvalidOperationErrorCollection extends ErrorObjectCollection {
+interface InvalidOperationErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return InvalidOperationError

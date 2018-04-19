@@ -9,7 +9,8 @@ namespace Commercetools\Types\TaxCategory;
 
 use Commercetools\Base\Collection;
 
-interface SubRateCollection extends Collection {
+interface SubRateCollection extends Collection
+{
     /**
      * @param $index
      * @return SubRate

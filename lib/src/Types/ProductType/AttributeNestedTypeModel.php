@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\AttributeTypeModel;
 
-class AttributeNestedTypeModel extends AttributeTypeModel implements AttributeNestedType {
+class AttributeNestedTypeModel extends AttributeTypeModel implements AttributeNestedType
+{
     const DISCRIMINATOR_VALUE = 'nested';
 
     /**

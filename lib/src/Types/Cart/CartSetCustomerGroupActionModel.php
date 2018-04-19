@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\CustomerGroup\CustomerGroupReference;
 
-class CartSetCustomerGroupActionModel extends CartUpdateActionModel implements CartSetCustomerGroupAction {
+class CartSetCustomerGroupActionModel extends CartUpdateActionModel implements CartSetCustomerGroupAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomerGroup';
 
     /**

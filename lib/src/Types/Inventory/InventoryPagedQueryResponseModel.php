@@ -13,7 +13,8 @@ use Commercetools\Types\PagedQueryResponseModel;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-class InventoryPagedQueryResponseModel extends PagedQueryResponseModel implements InventoryPagedQueryResponse {
+class InventoryPagedQueryResponseModel extends PagedQueryResponseModel implements InventoryPagedQueryResponse
+{
     /**
      * @var InventoryEntryCollection
      */

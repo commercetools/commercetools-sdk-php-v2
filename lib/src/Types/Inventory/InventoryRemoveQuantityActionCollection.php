@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Types\Inventory\InventoryEntryUpdateActionCollection;
 
 
-interface InventoryRemoveQuantityActionCollection extends InventoryEntryUpdateActionCollection {
+interface InventoryRemoveQuantityActionCollection extends InventoryEntryUpdateActionCollection
+{
     /**
      * @param $index
      * @return InventoryRemoveQuantityAction

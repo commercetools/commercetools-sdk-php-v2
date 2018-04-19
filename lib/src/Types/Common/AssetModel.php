@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Type\CustomFields;
 
-class AssetModel extends JsonObjectModel implements Asset {
+class AssetModel extends JsonObjectModel implements Asset
+{
     /**
      * @var string
      */

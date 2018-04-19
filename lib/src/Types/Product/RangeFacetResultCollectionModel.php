@@ -11,7 +11,8 @@ use Commercetools\Types\Product\FacetResultCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class RangeFacetResultCollectionModel extends FacetResultCollectionModel implements RangeFacetResultCollection {
+class RangeFacetResultCollectionModel extends FacetResultCollectionModel implements RangeFacetResultCollection
+{
 
     /**
      * @param RangeFacetResult $value

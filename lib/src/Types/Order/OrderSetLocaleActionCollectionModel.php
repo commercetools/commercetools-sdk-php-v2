@@ -11,7 +11,8 @@ use Commercetools\Types\Order\OrderUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderSetLocaleActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderSetLocaleActionCollection {
+class OrderSetLocaleActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderSetLocaleActionCollection
+{
 
     /**
      * @param OrderSetLocaleAction $value

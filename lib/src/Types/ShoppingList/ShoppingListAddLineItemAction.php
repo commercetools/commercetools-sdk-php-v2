@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-interface ShoppingListAddLineItemAction extends ShoppingListUpdateAction {
+interface ShoppingListAddLineItemAction extends ShoppingListUpdateAction
+{
     const FIELD_ADDED_AT = 'addedAt';
     const FIELD_CUSTOM = 'custom';
     const FIELD_SKU = 'sku';

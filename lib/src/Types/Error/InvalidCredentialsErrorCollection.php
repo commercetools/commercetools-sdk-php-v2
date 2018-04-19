@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface InvalidCredentialsErrorCollection extends ErrorObjectCollection {
+interface InvalidCredentialsErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return InvalidCredentialsError

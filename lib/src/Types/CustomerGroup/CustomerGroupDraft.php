@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Type\CustomFields;
 
-interface CustomerGroupDraft extends JsonObject {
+interface CustomerGroupDraft extends JsonObject
+{
     const FIELD_KEY = 'key';
     const FIELD_GROUP_NAME = 'groupName';
     const FIELD_CUSTOM = 'custom';

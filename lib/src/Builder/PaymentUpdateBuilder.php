@@ -37,7 +37,8 @@ use Commercetools\Types\Payment\PaymentUpdate;
 use Commercetools\Request\ByProjectKeyPaymentsByIDPost;
 
 
-class PaymentUpdateBuilder extends BaseBuilder {
+class PaymentUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Payment
      */

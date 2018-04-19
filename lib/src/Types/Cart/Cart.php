@@ -17,7 +17,8 @@ use Commercetools\Types\Common\Address;
 use Commercetools\Types\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Types\Common\Resource;
 
-interface Cart extends Resource {
+interface Cart extends Resource
+{
     const FIELD_CUSTOMER_ID = 'customerId';
     const FIELD_CUSTOMER_EMAIL = 'customerEmail';
     const FIELD_ANONYMOUS_ID = 'anonymousId';

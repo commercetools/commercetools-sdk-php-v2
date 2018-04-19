@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
-class CustomerSetExternalIdActionModel extends CustomerUpdateActionModel implements CustomerSetExternalIdAction {
+class CustomerSetExternalIdActionModel extends CustomerUpdateActionModel implements CustomerSetExternalIdAction
+{
     const DISCRIMINATOR_VALUE = 'setExternalId';
 
     /**

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonObject;
 
-interface Parcel extends JsonObject {
+interface Parcel extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_CREATED_AT = 'createdAt';
     const FIELD_MEASUREMENTS = 'measurements';

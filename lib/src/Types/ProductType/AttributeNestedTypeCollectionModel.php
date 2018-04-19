@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\AttributeTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class AttributeNestedTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeNestedTypeCollection {
+class AttributeNestedTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeNestedTypeCollection
+{
 
     /**
      * @param AttributeNestedType $value

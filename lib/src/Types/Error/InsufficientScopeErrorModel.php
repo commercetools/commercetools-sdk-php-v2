@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class InsufficientScopeErrorModel extends ErrorObjectModel implements InsufficientScopeError {
+class InsufficientScopeErrorModel extends ErrorObjectModel implements InsufficientScopeError
+{
     const DISCRIMINATOR_VALUE = 'insufficient_scope';
 
 }

@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Common\Address;
 
-class CustomerAddressChangedMessageModel extends MessageModel implements CustomerAddressChangedMessage {
+class CustomerAddressChangedMessageModel extends MessageModel implements CustomerAddressChangedMessage
+{
     const DISCRIMINATOR_VALUE = 'CustomerAddressChanged';
 
     /**

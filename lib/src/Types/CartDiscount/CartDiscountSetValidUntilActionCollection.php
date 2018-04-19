@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Types\CartDiscount\CartDiscountUpdateActionCollection;
 
 
-interface CartDiscountSetValidUntilActionCollection extends CartDiscountUpdateActionCollection {
+interface CartDiscountSetValidUntilActionCollection extends CartDiscountUpdateActionCollection
+{
     /**
      * @param $index
      * @return CartDiscountSetValidUntilAction

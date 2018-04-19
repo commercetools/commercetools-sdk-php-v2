@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Common\AssetSource;
 use Commercetools\Types\Common\AssetSourceCollection;
 
-interface ProductSetAssetSourcesAction extends ProductUpdateAction {
+interface ProductSetAssetSourcesAction extends ProductUpdateAction
+{
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_SKU = 'sku';
     const FIELD_ASSET_KEY = 'assetKey';

@@ -15,7 +15,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\ProductType\ProductTypeReference;
 use Commercetools\Types\Product\ProductVariant;
 
-class ShoppingListLineItemModel extends JsonObjectModel implements ShoppingListLineItem {
+class ShoppingListLineItemModel extends JsonObjectModel implements ShoppingListLineItem
+{
     /**
      * @var \DateTimeImmutable
      */

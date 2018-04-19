@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class TrackingDataCollectionModel extends JsonCollection implements TrackingDataCollection {
+class TrackingDataCollectionModel extends JsonCollection implements TrackingDataCollection
+{
 
     /**
      * @param TrackingData $value

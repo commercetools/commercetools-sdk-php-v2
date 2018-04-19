@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
-interface ChannelChangeKeyAction extends ChannelUpdateAction {
+interface ChannelChangeKeyAction extends ChannelUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

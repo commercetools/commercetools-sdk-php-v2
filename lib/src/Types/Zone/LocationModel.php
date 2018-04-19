@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class LocationModel extends JsonObjectModel implements Location {
+class LocationModel extends JsonObjectModel implements Location
+{
     /**
      * @var string
      */

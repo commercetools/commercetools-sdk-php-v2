@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductDiscount;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductDiscountMatchQueryCollectionModel extends JsonCollection implements ProductDiscountMatchQueryCollection {
+class ProductDiscountMatchQueryCollectionModel extends JsonCollection implements ProductDiscountMatchQueryCollection
+{
 
     /**
      * @param ProductDiscountMatchQuery $value

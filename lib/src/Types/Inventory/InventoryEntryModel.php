@@ -15,7 +15,8 @@ use Commercetools\Builder\InventoryEntryUpdateBuilder;
 use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Common\Resource;
 
-class InventoryEntryModel extends ResourceModel implements InventoryEntry {
+class InventoryEntryModel extends ResourceModel implements InventoryEntry
+{
     /**
      * @var string
      */

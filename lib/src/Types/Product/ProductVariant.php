@@ -17,7 +17,8 @@ use Commercetools\Types\Common\AssetCollection;
 use Commercetools\Types\Common\Price;
 use Commercetools\Types\Common\Image;
 
-interface ProductVariant extends JsonObject {
+interface ProductVariant extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_SKU = 'sku';
     const FIELD_KEY = 'key';

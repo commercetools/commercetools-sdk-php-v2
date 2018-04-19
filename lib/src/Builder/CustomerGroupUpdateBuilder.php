@@ -18,7 +18,8 @@ use Commercetools\Types\CustomerGroup\CustomerGroupUpdate;
 use Commercetools\Request\ByProjectKeyCustomerGroupsByIDPost;
 
 
-class CustomerGroupUpdateBuilder extends BaseBuilder {
+class CustomerGroupUpdateBuilder extends BaseBuilder
+{
     /**
      * @var CustomerGroup
      */

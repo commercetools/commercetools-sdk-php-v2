@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ZoneDraftModel extends JsonObjectModel implements ZoneDraft {
+class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
+{
     /**
      * @var string
      */

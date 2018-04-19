@@ -11,7 +11,8 @@ use Commercetools\Types\Zone\ZoneUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ZoneAddLocationActionCollectionModel extends ZoneUpdateActionCollectionModel implements ZoneAddLocationActionCollection {
+class ZoneAddLocationActionCollectionModel extends ZoneUpdateActionCollectionModel implements ZoneAddLocationActionCollection
+{
 
     /**
      * @param ZoneAddLocationAction $value

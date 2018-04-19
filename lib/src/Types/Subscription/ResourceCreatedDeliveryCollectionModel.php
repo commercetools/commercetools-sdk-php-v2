@@ -11,7 +11,8 @@ use Commercetools\Types\Subscription\SubscriptionDeliveryCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ResourceCreatedDeliveryCollectionModel extends SubscriptionDeliveryCollectionModel implements ResourceCreatedDeliveryCollection {
+class ResourceCreatedDeliveryCollectionModel extends SubscriptionDeliveryCollectionModel implements ResourceCreatedDeliveryCollection
+{
 
     /**
      * @param ResourceCreatedDelivery $value

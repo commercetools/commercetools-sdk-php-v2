@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\TaxCategory\TaxCategoryReference;
 
-interface ShippingMethodDraft extends JsonObject {
+interface ShippingMethodDraft extends JsonObject
+{
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';

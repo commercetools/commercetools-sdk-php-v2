@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface ProductTypeChangeAttributeConstraintAction extends ProductTypeUpdateAction {
+interface ProductTypeChangeAttributeConstraintAction extends ProductTypeUpdateAction
+{
     const FIELD_ATTRIBUTE_NAME = 'attributeName';
     const FIELD_NEW_VALUE = 'newValue';
 

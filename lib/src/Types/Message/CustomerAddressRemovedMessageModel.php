@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Common\Address;
 
-class CustomerAddressRemovedMessageModel extends MessageModel implements CustomerAddressRemovedMessage {
+class CustomerAddressRemovedMessageModel extends MessageModel implements CustomerAddressRemovedMessage
+{
     const DISCRIMINATOR_VALUE = 'CustomerAddressRemoved';
 
     /**

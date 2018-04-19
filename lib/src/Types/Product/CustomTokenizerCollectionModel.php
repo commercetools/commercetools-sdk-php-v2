@@ -11,7 +11,8 @@ use Commercetools\Types\Product\SuggestTokenizerCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomTokenizerCollectionModel extends SuggestTokenizerCollectionModel implements CustomTokenizerCollection {
+class CustomTokenizerCollectionModel extends SuggestTokenizerCollectionModel implements CustomTokenizerCollection
+{
 
     /**
      * @param CustomTokenizer $value

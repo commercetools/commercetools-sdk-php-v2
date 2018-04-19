@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\Reference;
 
-class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCartDraft {
+class ReplicaCartDraftModel extends JsonObjectModel implements ReplicaCartDraft
+{
     /**
      * @var Reference
      */

@@ -15,7 +15,8 @@ use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\AddressCollection;
 use Commercetools\Types\Common\Address;
 
-class CustomerDraftModel extends JsonObjectModel implements CustomerDraft {
+class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
+{
     /**
      * @var string
      */

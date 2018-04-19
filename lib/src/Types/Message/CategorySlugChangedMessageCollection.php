@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface CategorySlugChangedMessageCollection extends MessageCollection {
+interface CategorySlugChangedMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return CategorySlugChangedMessage

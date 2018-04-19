@@ -11,7 +11,8 @@ use Commercetools\Types\Subscription\DestinationCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class SqsDestinationCollectionModel extends DestinationCollectionModel implements SqsDestinationCollection {
+class SqsDestinationCollectionModel extends DestinationCollectionModel implements SqsDestinationCollection
+{
 
     /**
      * @param SqsDestination $value

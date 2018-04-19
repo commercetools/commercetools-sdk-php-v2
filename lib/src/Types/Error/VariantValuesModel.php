@@ -15,7 +15,8 @@ use Commercetools\Types\Product\Attribute;
 use Commercetools\Types\Product\AttributeCollection;
 use Commercetools\Types\Common\Price;
 
-class VariantValuesModel extends JsonObjectModel implements VariantValues {
+class VariantValuesModel extends JsonObjectModel implements VariantValues
+{
     /**
      * @var string
      */

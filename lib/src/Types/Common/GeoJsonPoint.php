@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Common;
 
-interface GeoJsonPoint extends GeoJson {
+interface GeoJsonPoint extends GeoJson
+{
 }

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Product\ProductUpdateActionCollection;
 
 
-interface ProductAddToCategoryActionCollection extends ProductUpdateActionCollection {
+interface ProductAddToCategoryActionCollection extends ProductUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductAddToCategoryAction

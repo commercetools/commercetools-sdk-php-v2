@@ -9,7 +9,8 @@ namespace Commercetools\Types\Review;
 
 use Commercetools\Types\Common\ResourceIdentifier;
 
-interface ReviewSetTargetAction extends ReviewUpdateAction {
+interface ReviewSetTargetAction extends ReviewUpdateAction
+{
     const FIELD_TARGET = 'target';
 
     /**

@@ -12,7 +12,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
 use Commercetools\Types\Common\Money;
 
-class PaymentSetAmountRefundedActionModel extends PaymentUpdateActionModel implements PaymentSetAmountRefundedAction {
+class PaymentSetAmountRefundedActionModel extends PaymentUpdateActionModel implements PaymentSetAmountRefundedAction
+{
     const DISCRIMINATOR_VALUE = 'setAmountRefunded';
 
     /**

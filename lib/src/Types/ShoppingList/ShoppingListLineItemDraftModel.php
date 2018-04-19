@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-class ShoppingListLineItemDraftModel extends JsonObjectModel implements ShoppingListLineItemDraft {
+class ShoppingListLineItemDraftModel extends JsonObjectModel implements ShoppingListLineItemDraft
+{
     /**
      * @var \DateTimeImmutable
      */

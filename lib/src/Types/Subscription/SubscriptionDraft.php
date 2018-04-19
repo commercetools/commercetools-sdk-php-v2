@@ -9,7 +9,8 @@ namespace Commercetools\Types\Subscription;
 
 use Commercetools\Base\JsonObject;
 
-interface SubscriptionDraft extends JsonObject {
+interface SubscriptionDraft extends JsonObject
+{
     const FIELD_CHANGES = 'changes';
     const FIELD_DESTINATION = 'destination';
     const FIELD_KEY = 'key';

@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionModel;
 
-class ProductTypeChangeLocalizedEnumValueOrderActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeLocalizedEnumValueOrderAction {
+class ProductTypeChangeLocalizedEnumValueOrderActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeLocalizedEnumValueOrderAction
+{
     const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueOrder';
 
     /**

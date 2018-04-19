@@ -12,7 +12,8 @@ use Commercetools\Types\Channel\ChannelUpdateActionModel;
 
 use Commercetools\Types\Common\Address;
 
-class ChannelSetAddressActionModel extends ChannelUpdateActionModel implements ChannelSetAddressAction {
+class ChannelSetAddressActionModel extends ChannelUpdateActionModel implements ChannelSetAddressAction
+{
     const DISCRIMINATOR_VALUE = 'setAddress';
 
     /**

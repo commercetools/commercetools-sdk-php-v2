@@ -19,7 +19,8 @@ use Commercetools\Types\Common\Money;
 use Commercetools\Types\Cart\TaxedPrice;
 use Commercetools\Types\Common\Address;
 
-class OrderImportDraftModel extends JsonObjectModel implements OrderImportDraft {
+class OrderImportDraftModel extends JsonObjectModel implements OrderImportDraft
+{
     /**
      * @var string
      */

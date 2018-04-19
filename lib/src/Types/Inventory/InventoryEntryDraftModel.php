@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-class InventoryEntryDraftModel extends JsonObjectModel implements InventoryEntryDraft {
+class InventoryEntryDraftModel extends JsonObjectModel implements InventoryEntryDraft
+{
     /**
      * @var string
      */

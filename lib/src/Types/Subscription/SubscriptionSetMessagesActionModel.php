@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\SubscriptionUpdateActionModel;
 
-class SubscriptionSetMessagesActionModel extends SubscriptionUpdateActionModel implements SubscriptionSetMessagesAction {
+class SubscriptionSetMessagesActionModel extends SubscriptionUpdateActionModel implements SubscriptionSetMessagesAction
+{
     const DISCRIMINATOR_VALUE = 'setMessages';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class AttributePlainEnumValueModel extends JsonObjectModel implements AttributePlainEnumValue {
+class AttributePlainEnumValueModel extends JsonObjectModel implements AttributePlainEnumValue
+{
     /**
      * @var string
      */

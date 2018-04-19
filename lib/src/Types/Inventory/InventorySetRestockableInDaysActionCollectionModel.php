@@ -11,7 +11,8 @@ use Commercetools\Types\Inventory\InventoryEntryUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InventorySetRestockableInDaysActionCollectionModel extends InventoryEntryUpdateActionCollectionModel implements InventorySetRestockableInDaysActionCollection {
+class InventorySetRestockableInDaysActionCollectionModel extends InventoryEntryUpdateActionCollectionModel implements InventorySetRestockableInDaysActionCollection
+{
 
     /**
      * @param InventorySetRestockableInDaysAction $value

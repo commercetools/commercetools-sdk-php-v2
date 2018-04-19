@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
-class CustomerSetDateOfBirthActionModel extends CustomerUpdateActionModel implements CustomerSetDateOfBirthAction {
+class CustomerSetDateOfBirthActionModel extends CustomerUpdateActionModel implements CustomerSetDateOfBirthAction
+{
     const DISCRIMINATOR_VALUE = 'setDateOfBirth';
 
     /**

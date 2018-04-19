@@ -11,7 +11,8 @@ use Commercetools\Types\CartDiscount\CartDiscountTargetCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CartDiscountShippingCostTargetCollectionModel extends CartDiscountTargetCollectionModel implements CartDiscountShippingCostTargetCollection {
+class CartDiscountShippingCostTargetCollectionModel extends CartDiscountTargetCollectionModel implements CartDiscountShippingCostTargetCollection
+{
 
     /**
      * @param CartDiscountShippingCostTarget $value

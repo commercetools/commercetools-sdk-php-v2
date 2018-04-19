@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\DiscountCode\DiscountCodeReference;
 
-interface CartRemoveDiscountCodeAction extends CartUpdateAction {
+interface CartRemoveDiscountCodeAction extends CartUpdateAction
+{
     const FIELD_DISCOUNT_CODE = 'discountCode';
 
     /**

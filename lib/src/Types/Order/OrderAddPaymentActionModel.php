@@ -12,7 +12,8 @@ use Commercetools\Types\Order\OrderUpdateActionModel;
 
 use Commercetools\Types\Payment\PaymentReference;
 
-class OrderAddPaymentActionModel extends OrderUpdateActionModel implements OrderAddPaymentAction {
+class OrderAddPaymentActionModel extends OrderUpdateActionModel implements OrderAddPaymentAction
+{
     const DISCRIMINATOR_VALUE = 'addPayment';
 
     /**

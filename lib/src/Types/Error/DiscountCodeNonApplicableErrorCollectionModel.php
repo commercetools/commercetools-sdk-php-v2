@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class DiscountCodeNonApplicableErrorCollectionModel extends ErrorObjectCollectionModel implements DiscountCodeNonApplicableErrorCollection {
+class DiscountCodeNonApplicableErrorCollectionModel extends ErrorObjectCollectionModel implements DiscountCodeNonApplicableErrorCollection
+{
 
     /**
      * @param DiscountCodeNonApplicableError $value

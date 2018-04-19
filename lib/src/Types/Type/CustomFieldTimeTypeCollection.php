@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\FieldTypeCollection;
 
 
-interface CustomFieldTimeTypeCollection extends FieldTypeCollection {
+interface CustomFieldTimeTypeCollection extends FieldTypeCollection
+{
     /**
      * @param $index
      * @return CustomFieldTimeType

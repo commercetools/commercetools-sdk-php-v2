@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class PriceTierModel extends JsonObjectModel implements PriceTier {
+class PriceTierModel extends JsonObjectModel implements PriceTier
+{
     /**
      * @var int
      */

@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface ExtensionDestination extends JsonObject {
+interface ExtensionDestination extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'HTTP' => Types\Extension\ExtensionHttpDestination::class,

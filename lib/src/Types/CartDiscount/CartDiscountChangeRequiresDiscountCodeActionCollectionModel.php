@@ -11,7 +11,8 @@ use Commercetools\Types\CartDiscount\CartDiscountUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CartDiscountChangeRequiresDiscountCodeActionCollectionModel extends CartDiscountUpdateActionCollectionModel implements CartDiscountChangeRequiresDiscountCodeActionCollection {
+class CartDiscountChangeRequiresDiscountCodeActionCollectionModel extends CartDiscountUpdateActionCollectionModel implements CartDiscountChangeRequiresDiscountCodeActionCollection
+{
 
     /**
      * @param CartDiscountChangeRequiresDiscountCodeAction $value

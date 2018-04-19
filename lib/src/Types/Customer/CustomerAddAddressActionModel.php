@@ -12,7 +12,8 @@ use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
 use Commercetools\Types\Common\Address;
 
-class CustomerAddAddressActionModel extends CustomerUpdateActionModel implements CustomerAddAddressAction {
+class CustomerAddAddressActionModel extends CustomerUpdateActionModel implements CustomerAddAddressAction
+{
     const DISCRIMINATOR_VALUE = 'addAddress';
 
     /**

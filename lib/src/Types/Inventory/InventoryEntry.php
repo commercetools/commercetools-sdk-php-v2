@@ -12,7 +12,8 @@ use Commercetools\Builder\InventoryEntryUpdateBuilder;
 use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Common\Resource;
 
-interface InventoryEntry extends Resource {
+interface InventoryEntry extends Resource
+{
     const FIELD_SKU = 'sku';
     const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';

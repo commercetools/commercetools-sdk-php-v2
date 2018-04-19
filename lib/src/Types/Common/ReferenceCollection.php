@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Types\Common\ResourceIdentifierCollection;
 
 
-interface ReferenceCollection extends ResourceIdentifierCollection {
+interface ReferenceCollection extends ResourceIdentifierCollection
+{
     /**
      * @param $index
      * @return Reference

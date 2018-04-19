@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ResourceIdentifierModel extends JsonObjectModel implements ResourceIdentifier {
+class ResourceIdentifierModel extends JsonObjectModel implements ResourceIdentifier
+{
     /**
      * @var string
      */

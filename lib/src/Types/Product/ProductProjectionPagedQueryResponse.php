@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface ProductProjectionPagedQueryResponse extends PagedQueryResponse {
+interface ProductProjectionPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return ProductProjectionCollection
      */

@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
-class ShoppingListSetDeleteDaysAfterLastModificationActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetDeleteDaysAfterLastModificationAction {
+class ShoppingListSetDeleteDaysAfterLastModificationActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetDeleteDaysAfterLastModificationAction
+{
     const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
 
     /**

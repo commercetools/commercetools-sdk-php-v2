@@ -13,7 +13,8 @@ use Commercetools\Types\CartDiscount\CartDiscountValueModel;
 use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Product\ProductReference;
 
-class CartDiscountValueGiftLineItemModel extends CartDiscountValueModel implements CartDiscountValueGiftLineItem {
+class CartDiscountValueGiftLineItemModel extends CartDiscountValueModel implements CartDiscountValueGiftLineItem
+{
     const DISCRIMINATOR_VALUE = 'giftLineItem';
 
     /**

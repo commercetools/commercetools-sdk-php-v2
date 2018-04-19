@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class ReviewReferenceModel extends ReferenceModel implements ReviewReference {
+class ReviewReferenceModel extends ReferenceModel implements ReviewReference
+{
     const DISCRIMINATOR_VALUE = 'review';
 
     /**

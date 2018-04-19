@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface ProductProjectionPagedSearchResponse extends PagedQueryResponse {
+interface ProductProjectionPagedSearchResponse extends PagedQueryResponse
+{
     const FIELD_FACETS = 'facets';
 
     /**

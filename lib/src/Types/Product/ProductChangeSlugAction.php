@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ProductChangeSlugAction extends ProductUpdateAction {
+interface ProductChangeSlugAction extends ProductUpdateAction
+{
     const FIELD_SLUG = 'slug';
     const FIELD_STAGED = 'staged';
 

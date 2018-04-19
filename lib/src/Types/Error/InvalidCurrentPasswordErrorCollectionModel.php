@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InvalidCurrentPasswordErrorCollectionModel extends ErrorObjectCollectionModel implements InvalidCurrentPasswordErrorCollection {
+class InvalidCurrentPasswordErrorCollectionModel extends ErrorObjectCollectionModel implements InvalidCurrentPasswordErrorCollection
+{
 
     /**
      * @param InvalidCurrentPasswordError $value

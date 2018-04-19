@@ -137,7 +137,7 @@ class JsonMap implements Map, MapperAware, \JsonSerializable
 
     final protected function valueByKey($index, $key)
     {
-        return isset($this->indexes[$index][$key]) ? $this->at($this->indexes[$index][$key]) : null;
+        return isset($this->indexes[$index][$key]) ? $this->get($this->indexes[$index][$key]) : null;
     }
 
     /**

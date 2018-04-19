@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class SuggestionCollectionModel extends JsonCollection implements SuggestionCollection {
+class SuggestionCollectionModel extends JsonCollection implements SuggestionCollection
+{
 
     /**
      * @param Suggestion $value

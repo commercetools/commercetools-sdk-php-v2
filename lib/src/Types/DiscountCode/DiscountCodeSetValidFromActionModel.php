@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionModel;
 
-class DiscountCodeSetValidFromActionModel extends DiscountCodeUpdateActionModel implements DiscountCodeSetValidFromAction {
+class DiscountCodeSetValidFromActionModel extends DiscountCodeUpdateActionModel implements DiscountCodeSetValidFromAction
+{
     const DISCRIMINATOR_VALUE = 'setValidFrom';
 
     /**

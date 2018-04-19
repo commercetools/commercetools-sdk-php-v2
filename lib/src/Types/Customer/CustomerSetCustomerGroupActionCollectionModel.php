@@ -11,7 +11,8 @@ use Commercetools\Types\Customer\CustomerUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerSetCustomerGroupActionCollectionModel extends CustomerUpdateActionCollectionModel implements CustomerSetCustomerGroupActionCollection {
+class CustomerSetCustomerGroupActionCollectionModel extends CustomerUpdateActionCollectionModel implements CustomerSetCustomerGroupActionCollection
+{
 
     /**
      * @param CustomerSetCustomerGroupAction $value

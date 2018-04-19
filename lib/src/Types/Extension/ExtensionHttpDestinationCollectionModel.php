@@ -11,7 +11,8 @@ use Commercetools\Types\Extension\ExtensionDestinationCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ExtensionHttpDestinationCollectionModel extends ExtensionDestinationCollectionModel implements ExtensionHttpDestinationCollection {
+class ExtensionHttpDestinationCollectionModel extends ExtensionDestinationCollectionModel implements ExtensionHttpDestinationCollection
+{
 
     /**
      * @param ExtensionHttpDestination $value

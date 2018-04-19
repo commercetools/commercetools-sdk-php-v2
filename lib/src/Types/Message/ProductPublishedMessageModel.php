@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Product\ProductProjection;
 
-class ProductPublishedMessageModel extends MessageModel implements ProductPublishedMessage {
+class ProductPublishedMessageModel extends MessageModel implements ProductPublishedMessage
+{
     const DISCRIMINATOR_VALUE = 'ProductPublished';
 
     /**

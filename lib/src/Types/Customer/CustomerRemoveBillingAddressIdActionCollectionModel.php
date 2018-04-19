@@ -11,7 +11,8 @@ use Commercetools\Types\Customer\CustomerUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerRemoveBillingAddressIdActionCollectionModel extends CustomerUpdateActionCollectionModel implements CustomerRemoveBillingAddressIdActionCollection {
+class CustomerRemoveBillingAddressIdActionCollectionModel extends CustomerUpdateActionCollectionModel implements CustomerRemoveBillingAddressIdActionCollection
+{
 
     /**
      * @param CustomerRemoveBillingAddressIdAction $value

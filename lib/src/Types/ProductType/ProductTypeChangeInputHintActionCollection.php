@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionCollection;
 
 
-interface ProductTypeChangeInputHintActionCollection extends ProductTypeUpdateActionCollection {
+interface ProductTypeChangeInputHintActionCollection extends ProductTypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductTypeChangeInputHintAction

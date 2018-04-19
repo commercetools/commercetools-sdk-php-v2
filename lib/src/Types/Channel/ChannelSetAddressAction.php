@@ -9,7 +9,8 @@ namespace Commercetools\Types\Channel;
 
 use Commercetools\Types\Common\Address;
 
-interface ChannelSetAddressAction extends ChannelUpdateAction {
+interface ChannelSetAddressAction extends ChannelUpdateAction
+{
     const FIELD_ADDRESS = 'address';
 
     /**

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonObject;
 
-interface ProductVariantChannelAvailability extends JsonObject {
+interface ProductVariantChannelAvailability extends JsonObject
+{
     const FIELD_IS_ON_STOCK = 'isOnStock';
     const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
     const FIELD_AVAILABLE_QUANTITY = 'availableQuantity';

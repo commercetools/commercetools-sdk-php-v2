@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Types\CartDiscount\CartDiscountReference;
 use Commercetools\Types\Common\Money;
 
-interface DiscountedLineItemPortion extends JsonObject {
+interface DiscountedLineItemPortion extends JsonObject
+{
     const FIELD_DISCOUNT = 'discount';
     const FIELD_DISCOUNTED_AMOUNT = 'discountedAmount';
 

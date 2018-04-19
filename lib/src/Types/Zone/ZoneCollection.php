@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface ZoneCollection extends ResourceCollection {
+interface ZoneCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Zone
@@ -34,4 +35,5 @@ interface ZoneCollection extends ResourceCollection {
      * @return Zone
      */
     public function byId($id);
+
 }

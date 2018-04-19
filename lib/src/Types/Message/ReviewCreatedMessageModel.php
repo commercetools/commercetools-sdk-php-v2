@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Review\Review;
 
-class ReviewCreatedMessageModel extends MessageModel implements ReviewCreatedMessage {
+class ReviewCreatedMessageModel extends MessageModel implements ReviewCreatedMessage
+{
     const DISCRIMINATOR_VALUE = 'ReviewCreated';
 
     /**

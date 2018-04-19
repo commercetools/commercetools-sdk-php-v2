@@ -9,7 +9,8 @@ namespace Commercetools\Types\CustomObject;
 
 use Commercetools\Base\Collection;
 
-interface CustomObjectDraftCollection extends Collection {
+interface CustomObjectDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return CustomObjectDraft

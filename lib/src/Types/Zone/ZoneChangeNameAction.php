@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Zone;
 
-interface ZoneChangeNameAction extends ZoneUpdateAction {
+interface ZoneChangeNameAction extends ZoneUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

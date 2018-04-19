@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonObject;
 
-interface PriceTier extends JsonObject {
+interface PriceTier extends JsonObject
+{
     const FIELD_MINIMUM_QUANTITY = 'minimumQuantity';
     const FIELD_VALUE = 'value';
 

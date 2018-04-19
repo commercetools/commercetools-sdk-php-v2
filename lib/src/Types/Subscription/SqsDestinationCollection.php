@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Types\Subscription\DestinationCollection;
 
 
-interface SqsDestinationCollection extends DestinationCollection {
+interface SqsDestinationCollection extends DestinationCollection
+{
     /**
      * @param $index
      * @return SqsDestination

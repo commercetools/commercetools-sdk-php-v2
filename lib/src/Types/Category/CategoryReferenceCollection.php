@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface CategoryReferenceCollection extends ReferenceCollection {
+interface CategoryReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return CategoryReference

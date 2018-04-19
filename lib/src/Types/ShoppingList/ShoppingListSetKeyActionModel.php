@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
-class ShoppingListSetKeyActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetKeyAction {
+class ShoppingListSetKeyActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetKeyAction
+{
     const DISCRIMINATOR_VALUE = 'setKey';
 
     /**

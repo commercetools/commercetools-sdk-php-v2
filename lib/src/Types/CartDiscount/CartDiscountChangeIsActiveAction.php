@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface CartDiscountChangeIsActiveAction extends CartDiscountUpdateAction {
+interface CartDiscountChangeIsActiveAction extends CartDiscountUpdateAction
+{
     const FIELD_IS_ACTIVE = 'isActive';
 
     /**

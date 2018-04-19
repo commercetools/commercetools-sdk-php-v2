@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
-interface ShippingMethodChangeNameAction extends ShippingMethodUpdateAction {
+interface ShippingMethodChangeNameAction extends ShippingMethodUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

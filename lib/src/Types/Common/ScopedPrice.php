@@ -13,7 +13,8 @@ use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\CustomerGroup\CustomerGroupReference;
 use Commercetools\Types\Type\CustomFields;
 
-interface ScopedPrice extends JsonObject {
+interface ScopedPrice extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_VALUE = 'value';
     const FIELD_CURRENT_VALUE = 'currentValue';

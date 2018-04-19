@@ -20,7 +20,8 @@ use Commercetools\Types\Zone\ZoneUpdate;
 use Commercetools\Request\ByProjectKeyZonesByIDPost;
 
 
-class ZoneUpdateBuilder extends BaseBuilder {
+class ZoneUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Zone
      */

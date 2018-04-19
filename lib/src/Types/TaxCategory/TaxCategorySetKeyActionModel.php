@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\TaxCategory\TaxCategoryUpdateActionModel;
 
-class TaxCategorySetKeyActionModel extends TaxCategoryUpdateActionModel implements TaxCategorySetKeyAction {
+class TaxCategorySetKeyActionModel extends TaxCategoryUpdateActionModel implements TaxCategorySetKeyAction
+{
     const DISCRIMINATOR_VALUE = 'setKey';
 
     /**

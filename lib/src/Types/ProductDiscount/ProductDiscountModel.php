@@ -16,7 +16,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Builder\ProductDiscountUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-class ProductDiscountModel extends ResourceModel implements ProductDiscount {
+class ProductDiscountModel extends ResourceModel implements ProductDiscount
+{
     /**
      * @var LocalizedString
      */

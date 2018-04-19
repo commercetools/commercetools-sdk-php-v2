@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface ChannelReferenceCollection extends ReferenceCollection {
+interface ChannelReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return ChannelReference

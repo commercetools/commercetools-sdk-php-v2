@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-interface SubscriptionSetKeyAction extends SubscriptionUpdateAction {
+interface SubscriptionSetKeyAction extends SubscriptionUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

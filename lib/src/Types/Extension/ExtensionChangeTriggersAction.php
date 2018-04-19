@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Extension;
 
-interface ExtensionChangeTriggersAction extends ExtensionUpdateAction {
+interface ExtensionChangeTriggersAction extends ExtensionUpdateAction
+{
     const FIELD_MESSAGES = 'messages';
 
     /**

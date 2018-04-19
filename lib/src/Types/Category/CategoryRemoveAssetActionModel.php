@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Category\CategoryUpdateActionModel;
 
-class CategoryRemoveAssetActionModel extends CategoryUpdateActionModel implements CategoryRemoveAssetAction {
+class CategoryRemoveAssetActionModel extends CategoryUpdateActionModel implements CategoryRemoveAssetAction
+{
     const DISCRIMINATOR_VALUE = 'removeAsset';
 
     /**

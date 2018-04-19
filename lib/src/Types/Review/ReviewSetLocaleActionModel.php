@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Review\ReviewUpdateActionModel;
 
-class ReviewSetLocaleActionModel extends ReviewUpdateActionModel implements ReviewSetLocaleAction {
+class ReviewSetLocaleActionModel extends ReviewUpdateActionModel implements ReviewSetLocaleAction
+{
     const DISCRIMINATOR_VALUE = 'setLocale';
 
     /**

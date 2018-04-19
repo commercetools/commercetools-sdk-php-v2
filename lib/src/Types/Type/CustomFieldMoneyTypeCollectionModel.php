@@ -11,7 +11,8 @@ use Commercetools\Types\Type\FieldTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomFieldMoneyTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldMoneyTypeCollection {
+class CustomFieldMoneyTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldMoneyTypeCollection
+{
 
     /**
      * @param CustomFieldMoneyType $value

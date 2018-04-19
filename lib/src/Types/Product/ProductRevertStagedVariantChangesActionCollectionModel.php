@@ -11,7 +11,8 @@ use Commercetools\Types\Product\ProductUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductRevertStagedVariantChangesActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductRevertStagedVariantChangesActionCollection {
+class ProductRevertStagedVariantChangesActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductRevertStagedVariantChangesActionCollection
+{
 
     /**
      * @param ProductRevertStagedVariantChangesAction $value

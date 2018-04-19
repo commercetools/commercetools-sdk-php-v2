@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InvalidCredentialsErrorCollectionModel extends ErrorObjectCollectionModel implements InvalidCredentialsErrorCollection {
+class InvalidCredentialsErrorCollectionModel extends ErrorObjectCollectionModel implements InvalidCredentialsErrorCollection
+{
 
     /**
      * @param InvalidCredentialsError $value

@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class PaymentTransactionStateChangedMessageCollectionModel extends MessageCollectionModel implements PaymentTransactionStateChangedMessageCollection {
+class PaymentTransactionStateChangedMessageCollectionModel extends MessageCollectionModel implements PaymentTransactionStateChangedMessageCollection
+{
 
     /**
      * @param PaymentTransactionStateChangedMessage $value

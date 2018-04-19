@@ -12,7 +12,8 @@ use Commercetools\Types\ShippingMethod\ShippingRatePriceTierModel;
 
 use Commercetools\Types\Common\Money;
 
-class CartScoreTierModel extends ShippingRatePriceTierModel implements CartScoreTier {
+class CartScoreTierModel extends ShippingRatePriceTierModel implements CartScoreTier
+{
     const DISCRIMINATOR_VALUE = 'CartScore';
 
     /**

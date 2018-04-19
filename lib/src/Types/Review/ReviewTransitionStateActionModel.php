@@ -12,7 +12,8 @@ use Commercetools\Types\Review\ReviewUpdateActionModel;
 
 use Commercetools\Types\Common\ResourceIdentifier;
 
-class ReviewTransitionStateActionModel extends ReviewUpdateActionModel implements ReviewTransitionStateAction {
+class ReviewTransitionStateActionModel extends ReviewUpdateActionModel implements ReviewTransitionStateAction
+{
     const DISCRIMINATOR_VALUE = 'transitionState';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\Order\OrderUpdateActionCollection;
 
 
-interface OrderSetCustomLineItemCustomFieldActionCollection extends OrderUpdateActionCollection {
+interface OrderSetCustomLineItemCustomFieldActionCollection extends OrderUpdateActionCollection
+{
     /**
      * @param $index
      * @return OrderSetCustomLineItemCustomFieldAction

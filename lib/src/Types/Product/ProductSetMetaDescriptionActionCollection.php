@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Product\ProductUpdateActionCollection;
 
 
-interface ProductSetMetaDescriptionActionCollection extends ProductUpdateActionCollection {
+interface ProductSetMetaDescriptionActionCollection extends ProductUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductSetMetaDescriptionAction

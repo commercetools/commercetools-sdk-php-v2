@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\UpdateCollection;
 
 
-interface TypeUpdateCollection extends UpdateCollection {
+interface TypeUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return TypeUpdate

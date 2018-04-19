@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
-class PaymentChangeTransactionTimestampActionModel extends PaymentUpdateActionModel implements PaymentChangeTransactionTimestampAction {
+class PaymentChangeTransactionTimestampActionModel extends PaymentUpdateActionModel implements PaymentChangeTransactionTimestampAction
+{
     const DISCRIMINATOR_VALUE = 'changeTransactionTimestamp';
 
     /**

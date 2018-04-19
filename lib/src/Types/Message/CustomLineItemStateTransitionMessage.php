@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\State\StateReference;
 
-interface CustomLineItemStateTransitionMessage extends Message {
+interface CustomLineItemStateTransitionMessage extends Message
+{
     const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     const FIELD_TRANSITION_DATE = 'transitionDate';
     const FIELD_QUANTITY = 'quantity';

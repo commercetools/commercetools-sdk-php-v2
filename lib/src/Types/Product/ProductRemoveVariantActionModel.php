@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateActionModel;
 
-class ProductRemoveVariantActionModel extends ProductUpdateActionModel implements ProductRemoveVariantAction {
+class ProductRemoveVariantActionModel extends ProductUpdateActionModel implements ProductRemoveVariantAction
+{
     const DISCRIMINATOR_VALUE = 'removeVariant';
 
     /**

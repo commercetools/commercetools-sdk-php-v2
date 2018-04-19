@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\Order\OrderUpdateActionCollection;
 
 
-interface OrderTransitionStateActionCollection extends OrderUpdateActionCollection {
+interface OrderTransitionStateActionCollection extends OrderUpdateActionCollection
+{
     /**
      * @param $index
      * @return OrderTransitionStateAction

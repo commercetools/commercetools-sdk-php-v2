@@ -16,7 +16,8 @@ use Commercetools\Types\ProductType\AttributeLocalizedEnumValue;
 use Commercetools\Types\ProductType\AttributePlainEnumValue;
 use Commercetools\Types\Common\Money;
 
-class AttributeModel extends JsonObjectModel implements Attribute {
+class AttributeModel extends JsonObjectModel implements Attribute
+{
     /**
      * @var string
      */

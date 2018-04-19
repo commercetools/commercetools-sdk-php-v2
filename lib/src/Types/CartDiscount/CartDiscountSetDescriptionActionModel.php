@@ -12,7 +12,8 @@ use Commercetools\Types\CartDiscount\CartDiscountUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class CartDiscountSetDescriptionActionModel extends CartDiscountUpdateActionModel implements CartDiscountSetDescriptionAction {
+class CartDiscountSetDescriptionActionModel extends CartDiscountUpdateActionModel implements CartDiscountSetDescriptionAction
+{
     const DISCRIMINATOR_VALUE = 'setDescription';
 
     /**

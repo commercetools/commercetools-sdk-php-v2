@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Types\Customer\Customer;
 
-interface ShoppingListSetCustomerAction extends ShoppingListUpdateAction {
+interface ShoppingListSetCustomerAction extends ShoppingListUpdateAction
+{
     const FIELD_CUSTOMER = 'customer';
 
     /**

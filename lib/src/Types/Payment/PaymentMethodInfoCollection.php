@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Base\Collection;
 
-interface PaymentMethodInfoCollection extends Collection {
+interface PaymentMethodInfoCollection extends Collection
+{
     /**
      * @param $index
      * @return PaymentMethodInfo

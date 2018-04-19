@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\SubscriptionDeliveryModel;
 
-class ResourceUpdatedDeliveryModel extends SubscriptionDeliveryModel implements ResourceUpdatedDelivery {
+class ResourceUpdatedDeliveryModel extends SubscriptionDeliveryModel implements ResourceUpdatedDelivery
+{
     const DISCRIMINATOR_VALUE = 'ResourceUpdated';
 
     /**

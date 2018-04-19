@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
-interface PaymentChangeTransactionInteractionIdAction extends PaymentUpdateAction {
+interface PaymentChangeTransactionInteractionIdAction extends PaymentUpdateAction
+{
     const FIELD_INTERACTION_ID = 'interactionId';
     const FIELD_TRANSACTION_ID = 'transactionId';
 

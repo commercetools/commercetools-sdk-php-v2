@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-interface CategorySetExternalIdAction extends CategoryUpdateAction {
+interface CategorySetExternalIdAction extends CategoryUpdateAction
+{
     const FIELD_EXTERNAL_ID = 'externalId';
 
     /**

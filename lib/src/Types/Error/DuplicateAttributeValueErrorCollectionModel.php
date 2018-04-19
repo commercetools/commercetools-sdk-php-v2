@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class DuplicateAttributeValueErrorCollectionModel extends ErrorObjectCollectionModel implements DuplicateAttributeValueErrorCollection {
+class DuplicateAttributeValueErrorCollectionModel extends ErrorObjectCollectionModel implements DuplicateAttributeValueErrorCollection
+{
 
     /**
      * @param DuplicateAttributeValueError $value

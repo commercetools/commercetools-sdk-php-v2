@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Types\Extension\ExtensionUpdateActionCollection;
 
 
-interface ExtensionSetKeyActionCollection extends ExtensionUpdateActionCollection {
+interface ExtensionSetKeyActionCollection extends ExtensionUpdateActionCollection
+{
     /**
      * @param $index
      * @return ExtensionSetKeyAction

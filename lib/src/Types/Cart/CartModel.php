@@ -20,7 +20,8 @@ use Commercetools\Types\Common\Address;
 use Commercetools\Types\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Types\Common\Resource;
 
-class CartModel extends ResourceModel implements Cart {
+class CartModel extends ResourceModel implements Cart
+{
     /**
      * @var string
      */

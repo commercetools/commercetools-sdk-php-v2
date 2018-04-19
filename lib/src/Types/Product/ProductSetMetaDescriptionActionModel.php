@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class ProductSetMetaDescriptionActionModel extends ProductUpdateActionModel implements ProductSetMetaDescriptionAction {
+class ProductSetMetaDescriptionActionModel extends ProductUpdateActionModel implements ProductSetMetaDescriptionAction
+{
     const DISCRIMINATOR_VALUE = 'setMetaDescription';
 
     /**

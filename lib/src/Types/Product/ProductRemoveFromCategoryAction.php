@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Category\CategoryReference;
 
-interface ProductRemoveFromCategoryAction extends ProductUpdateAction {
+interface ProductRemoveFromCategoryAction extends ProductUpdateAction
+{
     const FIELD_CATEGORY = 'category';
     const FIELD_STAGED = 'staged';
 

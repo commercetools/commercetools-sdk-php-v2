@@ -11,7 +11,8 @@ use Commercetools\Types\Product\ProductUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductSetMetaKeywordsActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductSetMetaKeywordsActionCollection {
+class ProductSetMetaKeywordsActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductSetMetaKeywordsActionCollection
+{
 
     /**
      * @param ProductSetMetaKeywordsAction $value

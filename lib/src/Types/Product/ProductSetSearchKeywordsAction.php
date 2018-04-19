@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductSetSearchKeywordsAction extends ProductUpdateAction {
+interface ProductSetSearchKeywordsAction extends ProductUpdateAction
+{
     const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
     const FIELD_STAGED = 'staged';
 

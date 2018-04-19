@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\Money;
 
-class ShippingRateDraftModel extends JsonObjectModel implements ShippingRateDraft {
+class ShippingRateDraftModel extends JsonObjectModel implements ShippingRateDraft
+{
     /**
      * @var Money
      */

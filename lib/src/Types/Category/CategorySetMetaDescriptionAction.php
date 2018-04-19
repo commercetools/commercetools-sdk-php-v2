@@ -9,7 +9,8 @@ namespace Commercetools\Types\Category;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface CategorySetMetaDescriptionAction extends CategoryUpdateAction {
+interface CategorySetMetaDescriptionAction extends CategoryUpdateAction
+{
     const FIELD_META_DESCRIPTION = 'metaDescription';
 
     /**

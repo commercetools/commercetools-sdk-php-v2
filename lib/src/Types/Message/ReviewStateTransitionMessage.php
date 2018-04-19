@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\State\StateReference;
 use Commercetools\Types\Common\Reference;
 
-interface ReviewStateTransitionMessage extends Message {
+interface ReviewStateTransitionMessage extends Message
+{
     const FIELD_OLD_STATE = 'oldState';
     const FIELD_NEW_STATE = 'newState';
     const FIELD_OLD_INCLUDED_IN_STATISTICS = 'oldIncludedInStatistics';

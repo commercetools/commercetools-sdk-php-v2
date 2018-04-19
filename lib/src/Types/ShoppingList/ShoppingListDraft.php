@@ -13,7 +13,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Customer\CustomerReference;
 
-interface ShoppingListDraft extends JsonObject {
+interface ShoppingListDraft extends JsonObject
+{
     const FIELD_CUSTOM = 'custom';
     const FIELD_CUSTOMER = 'customer';
     const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';

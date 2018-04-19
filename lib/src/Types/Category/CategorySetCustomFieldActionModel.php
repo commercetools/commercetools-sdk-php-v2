@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Category\CategoryUpdateActionModel;
 
-class CategorySetCustomFieldActionModel extends CategoryUpdateActionModel implements CategorySetCustomFieldAction {
+class CategorySetCustomFieldActionModel extends CategoryUpdateActionModel implements CategorySetCustomFieldAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomField';
 
     /**

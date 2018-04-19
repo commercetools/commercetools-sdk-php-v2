@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerSetSalutationAction extends CustomerUpdateAction {
+interface CustomerSetSalutationAction extends CustomerUpdateAction
+{
     const FIELD_SALUTATION = 'salutation';
 
     /**

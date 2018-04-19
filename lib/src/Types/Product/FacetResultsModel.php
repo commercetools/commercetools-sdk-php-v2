@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class FacetResultsModel extends JsonObjectModel implements FacetResults {
+class FacetResultsModel extends JsonObjectModel implements FacetResults
+{
     private $patternData = [];
     /**
      * @param string $key

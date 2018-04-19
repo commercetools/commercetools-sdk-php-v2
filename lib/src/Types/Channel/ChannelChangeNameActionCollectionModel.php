@@ -11,7 +11,8 @@ use Commercetools\Types\Channel\ChannelUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelChangeNameActionCollectionModel extends ChannelUpdateActionCollectionModel implements ChannelChangeNameActionCollection {
+class ChannelChangeNameActionCollectionModel extends ChannelUpdateActionCollectionModel implements ChannelChangeNameActionCollection
+{
 
     /**
      * @param ChannelChangeNameAction $value

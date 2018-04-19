@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductDiscount;
 
-interface ProductDiscountChangePredicateAction extends ProductDiscountUpdateAction {
+interface ProductDiscountChangePredicateAction extends ProductDiscountUpdateAction
+{
     const FIELD_PREDICATE = 'predicate';
 
     /**

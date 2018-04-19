@@ -11,7 +11,8 @@ use Commercetools\Types\Category\CategoryUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CategorySetCustomFieldActionCollectionModel extends CategoryUpdateActionCollectionModel implements CategorySetCustomFieldActionCollection {
+class CategorySetCustomFieldActionCollectionModel extends CategoryUpdateActionCollectionModel implements CategorySetCustomFieldActionCollection
+{
 
     /**
      * @param CategorySetCustomFieldAction $value

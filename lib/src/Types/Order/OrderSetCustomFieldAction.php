@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderSetCustomFieldAction extends OrderUpdateAction {
+interface OrderSetCustomFieldAction extends OrderUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_VALUE = 'value';
 

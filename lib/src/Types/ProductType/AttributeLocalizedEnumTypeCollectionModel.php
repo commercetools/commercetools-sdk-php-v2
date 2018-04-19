@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\AttributeTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class AttributeLocalizedEnumTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeLocalizedEnumTypeCollection {
+class AttributeLocalizedEnumTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeLocalizedEnumTypeCollection
+{
 
     /**
      * @param AttributeLocalizedEnumType $value

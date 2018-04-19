@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\State\StateReference;
 
-class PaymentStatusStateTransitionMessageModel extends MessageModel implements PaymentStatusStateTransitionMessage {
+class PaymentStatusStateTransitionMessageModel extends MessageModel implements PaymentStatusStateTransitionMessage
+{
     const DISCRIMINATOR_VALUE = 'PaymentStatusStateTransition';
 
     /**

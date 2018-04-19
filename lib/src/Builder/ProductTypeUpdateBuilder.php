@@ -36,7 +36,8 @@ use Commercetools\Types\ProductType\ProductTypeUpdate;
 use Commercetools\Request\ByProjectKeyProductTypesByIDPost;
 
 
-class ProductTypeUpdateBuilder extends BaseBuilder {
+class ProductTypeUpdateBuilder extends BaseBuilder
+{
     /**
      * @var ProductType
      */

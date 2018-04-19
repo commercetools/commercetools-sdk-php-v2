@@ -12,7 +12,8 @@ use Commercetools\Types\Channel\ChannelUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class ChannelSetCustomTypeActionModel extends ChannelUpdateActionModel implements ChannelSetCustomTypeAction {
+class ChannelSetCustomTypeActionModel extends ChannelUpdateActionModel implements ChannelSetCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomType';
 
     /**

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Channel;
 
 use Commercetools\Base\Collection;
 
-interface ChannelDraftCollection extends Collection {
+interface ChannelDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return ChannelDraft

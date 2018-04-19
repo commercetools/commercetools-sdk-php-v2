@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface ShoppingListReferenceCollection extends ReferenceCollection {
+interface ShoppingListReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return ShoppingListReference

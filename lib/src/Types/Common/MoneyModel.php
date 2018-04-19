@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class MoneyModel extends JsonObjectModel implements Money {
+class MoneyModel extends JsonObjectModel implements Money
+{
     /**
      * @var int
      */

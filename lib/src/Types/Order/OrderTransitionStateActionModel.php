@@ -12,7 +12,8 @@ use Commercetools\Types\Order\OrderUpdateActionModel;
 
 use Commercetools\Types\Common\ResourceIdentifier;
 
-class OrderTransitionStateActionModel extends OrderUpdateActionModel implements OrderTransitionStateAction {
+class OrderTransitionStateActionModel extends OrderUpdateActionModel implements OrderTransitionStateAction
+{
     const DISCRIMINATOR_VALUE = 'transitionState';
 
     /**

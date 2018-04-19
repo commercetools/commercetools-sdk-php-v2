@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\ProductTypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductTypeSetInputTipActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeSetInputTipActionCollection {
+class ProductTypeSetInputTipActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeSetInputTipActionCollection
+{
 
     /**
      * @param ProductTypeSetInputTipAction $value

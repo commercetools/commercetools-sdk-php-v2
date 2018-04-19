@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class InvalidCurrentPasswordErrorModel extends ErrorObjectModel implements InvalidCurrentPasswordError {
+class InvalidCurrentPasswordErrorModel extends ErrorObjectModel implements InvalidCurrentPasswordError
+{
     const DISCRIMINATOR_VALUE = 'InvalidCurrentPassword';
 
 }

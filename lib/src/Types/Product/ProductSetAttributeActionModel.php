@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateActionModel;
 
-class ProductSetAttributeActionModel extends ProductUpdateActionModel implements ProductSetAttributeAction {
+class ProductSetAttributeActionModel extends ProductUpdateActionModel implements ProductSetAttributeAction
+{
     const DISCRIMINATOR_VALUE = 'setAttribute';
 
     /**

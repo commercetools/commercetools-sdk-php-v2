@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\AttributeTypeModel;
 
-class AttributeNumberTypeModel extends AttributeTypeModel implements AttributeNumberType {
+class AttributeNumberTypeModel extends AttributeTypeModel implements AttributeNumberType
+{
     const DISCRIMINATOR_VALUE = 'number';
 
 }

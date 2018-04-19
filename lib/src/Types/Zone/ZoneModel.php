@@ -13,7 +13,8 @@ use Commercetools\Types\Common\ResourceModel;
 use Commercetools\Builder\ZoneUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-class ZoneModel extends ResourceModel implements Zone {
+class ZoneModel extends ResourceModel implements Zone
+{
     /**
      * @var string
      */

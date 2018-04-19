@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateModel;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-class DiscountCodeUpdateModel extends UpdateModel implements DiscountCodeUpdate {
+class DiscountCodeUpdateModel extends UpdateModel implements DiscountCodeUpdate
+{
     /**
      * @var DiscountCodeUpdateActionCollection
      */

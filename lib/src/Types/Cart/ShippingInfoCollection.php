@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\Collection;
 
-interface ShippingInfoCollection extends Collection {
+interface ShippingInfoCollection extends Collection
+{
     /**
      * @param $index
      * @return ShippingInfo

@@ -14,7 +14,8 @@ use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Customer\CustomerReference;
 use Commercetools\Types\Common\Money;
 
-interface PaymentDraft extends JsonObject {
+interface PaymentDraft extends JsonObject
+{
     const FIELD_CUSTOMER = 'customer';
     const FIELD_EXTERNAL_ID = 'externalId';
     const FIELD_INTERFACE_ID = 'interfaceId';

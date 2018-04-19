@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Payment\Payment;
 
-class PaymentCreatedMessageModel extends MessageModel implements PaymentCreatedMessage {
+class PaymentCreatedMessageModel extends MessageModel implements PaymentCreatedMessage
+{
     const DISCRIMINATOR_VALUE = 'PaymentCreated';
 
     /**

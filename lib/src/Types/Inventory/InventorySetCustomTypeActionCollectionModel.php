@@ -11,7 +11,8 @@ use Commercetools\Types\Inventory\InventoryEntryUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InventorySetCustomTypeActionCollectionModel extends InventoryEntryUpdateActionCollectionModel implements InventorySetCustomTypeActionCollection {
+class InventorySetCustomTypeActionCollectionModel extends InventoryEntryUpdateActionCollectionModel implements InventorySetCustomTypeActionCollection
+{
 
     /**
      * @param InventorySetCustomTypeAction $value

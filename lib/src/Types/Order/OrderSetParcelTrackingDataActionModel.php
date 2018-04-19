@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Order\OrderUpdateActionModel;
 
-class OrderSetParcelTrackingDataActionModel extends OrderUpdateActionModel implements OrderSetParcelTrackingDataAction {
+class OrderSetParcelTrackingDataActionModel extends OrderUpdateActionModel implements OrderSetParcelTrackingDataAction
+{
     const DISCRIMINATOR_VALUE = 'setParcelTrackingData';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Types\Inventory\InventoryEntryUpdateActionCollection;
 
 
-interface InventorySetRestockableInDaysActionCollection extends InventoryEntryUpdateActionCollection {
+interface InventorySetRestockableInDaysActionCollection extends InventoryEntryUpdateActionCollection
+{
     /**
      * @param $index
      * @return InventorySetRestockableInDaysAction

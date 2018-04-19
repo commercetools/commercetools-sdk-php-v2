@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Order\Delivery;
 
-class DeliveryRemovedMessageModel extends MessageModel implements DeliveryRemovedMessage {
+class DeliveryRemovedMessageModel extends MessageModel implements DeliveryRemovedMessage
+{
     const DISCRIMINATOR_VALUE = 'DeliveryRemoved';
 
     /**

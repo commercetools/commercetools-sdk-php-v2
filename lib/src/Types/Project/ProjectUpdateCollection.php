@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Types\UpdateCollection;
 
 
-interface ProjectUpdateCollection extends UpdateCollection {
+interface ProjectUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return ProjectUpdate

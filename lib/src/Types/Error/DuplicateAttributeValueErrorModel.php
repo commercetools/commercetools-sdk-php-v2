@@ -12,7 +12,8 @@ use Commercetools\Types\Error\ErrorObjectModel;
 
 use Commercetools\Types\Product\Attribute;
 
-class DuplicateAttributeValueErrorModel extends ErrorObjectModel implements DuplicateAttributeValueError {
+class DuplicateAttributeValueErrorModel extends ErrorObjectModel implements DuplicateAttributeValueError
+{
     const DISCRIMINATOR_VALUE = 'DuplicateAttributeValue';
 
     /**

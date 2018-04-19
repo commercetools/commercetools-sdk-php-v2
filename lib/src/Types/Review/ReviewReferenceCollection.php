@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface ReviewReferenceCollection extends ReferenceCollection {
+interface ReviewReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return ReviewReference

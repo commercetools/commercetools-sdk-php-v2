@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface CategoryUpdateAction extends UpdateAction {
+interface CategoryUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addAsset' => Types\Category\CategoryAddAssetAction::class,

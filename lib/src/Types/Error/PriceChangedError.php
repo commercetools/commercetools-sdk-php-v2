@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface PriceChangedError extends ErrorObject {
+interface PriceChangedError extends ErrorObject
+{
     const FIELD_LINE_ITEMS = 'lineItems';
     const FIELD_SHIPPING = 'shipping';
 

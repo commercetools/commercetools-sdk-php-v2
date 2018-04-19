@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Zone\ZoneReference;
 
-class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft {
+class ZoneRateDraftModel extends JsonObjectModel implements ZoneRateDraft
+{
     /**
      * @var ZoneReference
      */

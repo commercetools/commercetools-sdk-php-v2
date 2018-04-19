@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class PaymentCollectionModel extends ResourceCollectionModel implements PaymentCollection {
+class PaymentCollectionModel extends ResourceCollectionModel implements PaymentCollection
+{
 
     /**
      * @param Payment $value
@@ -55,4 +56,5 @@ class PaymentCollectionModel extends ResourceCollectionModel implements PaymentC
     {
         return $this->valueByKey('id', $id);
     }
+
 }

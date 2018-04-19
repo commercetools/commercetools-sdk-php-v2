@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class CartSetCustomLineItemCustomTypeActionModel extends CartUpdateActionModel implements CartSetCustomLineItemCustomTypeAction {
+class CartSetCustomLineItemCustomTypeActionModel extends CartUpdateActionModel implements CartSetCustomLineItemCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomLineItemCustomType';
 
     /**

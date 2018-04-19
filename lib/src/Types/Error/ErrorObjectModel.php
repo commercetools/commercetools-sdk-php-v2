@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types;
 
-class ErrorObjectModel extends JsonObjectModel implements ErrorObject {
+class ErrorObjectModel extends JsonObjectModel implements ErrorObject
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

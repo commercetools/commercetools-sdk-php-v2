@@ -17,7 +17,8 @@ use Commercetools\Types\Common\AssetDraft;
 use Commercetools\Types\Common\AssetDraftCollection;
 use Commercetools\Types\Common\Image;
 
-class ProductVariantDraftModel extends JsonObjectModel implements ProductVariantDraft {
+class ProductVariantDraftModel extends JsonObjectModel implements ProductVariantDraft
+{
     /**
      * @var string
      */

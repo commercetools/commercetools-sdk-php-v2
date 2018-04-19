@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ConcurrentModificationErrorCollectionModel extends ErrorObjectCollectionModel implements ConcurrentModificationErrorCollection {
+class ConcurrentModificationErrorCollectionModel extends ErrorObjectCollectionModel implements ConcurrentModificationErrorCollection
+{
 
     /**
      * @param ConcurrentModificationError $value

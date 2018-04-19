@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
-interface InventorySetRestockableInDaysAction extends InventoryEntryUpdateAction {
+interface InventorySetRestockableInDaysAction extends InventoryEntryUpdateAction
+{
     const FIELD_RESTOCKABLE_IN_DAYS = 'restockableInDays';
 
     /**

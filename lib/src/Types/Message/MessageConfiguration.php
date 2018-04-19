@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Base\JsonObject;
 
-interface MessageConfiguration extends JsonObject {
+interface MessageConfiguration extends JsonObject
+{
     const FIELD_ENABLED = 'enabled';
 
     /**

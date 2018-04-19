@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class AssetSourceModel extends JsonObjectModel implements AssetSource {
+class AssetSourceModel extends JsonObjectModel implements AssetSource
+{
     /**
      * @var string
      */

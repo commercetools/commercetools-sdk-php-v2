@@ -17,7 +17,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Common\Resource;
 
-class CartDiscountModel extends ResourceModel implements CartDiscount {
+class CartDiscountModel extends ResourceModel implements CartDiscount
+{
     /**
      * @var LocalizedString
      */

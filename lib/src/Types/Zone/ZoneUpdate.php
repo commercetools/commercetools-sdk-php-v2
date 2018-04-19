@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface ZoneUpdate extends Update {
+interface ZoneUpdate extends Update
+{
     /**
      * @return ZoneUpdateActionCollection
      */

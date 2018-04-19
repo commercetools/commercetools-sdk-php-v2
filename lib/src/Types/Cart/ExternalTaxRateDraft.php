@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Types\TaxCategory\SubRate;
 use Commercetools\Types\TaxCategory\SubRateCollection;
 
-interface ExternalTaxRateDraft extends JsonObject {
+interface ExternalTaxRateDraft extends JsonObject
+{
     const FIELD_NAME = 'name';
     const FIELD_AMOUNT = 'amount';
     const FIELD_COUNTRY = 'country';

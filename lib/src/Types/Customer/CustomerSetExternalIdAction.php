@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerSetExternalIdAction extends CustomerUpdateAction {
+interface CustomerSetExternalIdAction extends CustomerUpdateAction
+{
     const FIELD_EXTERNAL_ID = 'externalId';
 
     /**

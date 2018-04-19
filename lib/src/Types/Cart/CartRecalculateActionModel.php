@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Cart\CartUpdateActionModel;
 
-class CartRecalculateActionModel extends CartUpdateActionModel implements CartRecalculateAction {
+class CartRecalculateActionModel extends CartUpdateActionModel implements CartRecalculateAction
+{
     const DISCRIMINATOR_VALUE = 'recalculate';
 
     /**

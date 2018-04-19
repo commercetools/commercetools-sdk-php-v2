@@ -11,7 +11,8 @@ use Commercetools\Types\Review\ReviewUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ReviewTransitionStateActionCollectionModel extends ReviewUpdateActionCollectionModel implements ReviewTransitionStateActionCollection {
+class ReviewTransitionStateActionCollectionModel extends ReviewUpdateActionCollectionModel implements ReviewTransitionStateActionCollection
+{
 
     /**
      * @param ReviewTransitionStateAction $value

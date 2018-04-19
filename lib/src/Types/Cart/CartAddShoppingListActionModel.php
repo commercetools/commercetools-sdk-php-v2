@@ -13,7 +13,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\ShoppingList\ShoppingListReference;
 
-class CartAddShoppingListActionModel extends CartUpdateActionModel implements CartAddShoppingListAction {
+class CartAddShoppingListActionModel extends CartUpdateActionModel implements CartAddShoppingListAction
+{
     const DISCRIMINATOR_VALUE = 'addShoppingList';
 
     /**

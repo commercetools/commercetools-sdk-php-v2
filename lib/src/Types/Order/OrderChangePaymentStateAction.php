@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderChangePaymentStateAction extends OrderUpdateAction {
+interface OrderChangePaymentStateAction extends OrderUpdateAction
+{
     const FIELD_PAYMENT_STATE = 'paymentState';
 
     /**

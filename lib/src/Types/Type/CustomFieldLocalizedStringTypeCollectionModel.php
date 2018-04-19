@@ -11,7 +11,8 @@ use Commercetools\Types\Type\FieldTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomFieldLocalizedStringTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldLocalizedStringTypeCollection {
+class CustomFieldLocalizedStringTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldLocalizedStringTypeCollection
+{
 
     /**
      * @param CustomFieldLocalizedStringType $value

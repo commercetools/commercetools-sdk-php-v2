@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class SuggestionModel extends JsonObjectModel implements Suggestion {
+class SuggestionModel extends JsonObjectModel implements Suggestion
+{
     /**
      * @var string
      */

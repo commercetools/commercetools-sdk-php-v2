@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface PaymentReferenceCollection extends ReferenceCollection {
+interface PaymentReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return PaymentReference

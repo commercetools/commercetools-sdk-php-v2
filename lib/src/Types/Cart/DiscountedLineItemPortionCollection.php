@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\Collection;
 
-interface DiscountedLineItemPortionCollection extends Collection {
+interface DiscountedLineItemPortionCollection extends Collection
+{
     /**
      * @param $index
      * @return DiscountedLineItemPortion

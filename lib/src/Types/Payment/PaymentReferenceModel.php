@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class PaymentReferenceModel extends ReferenceModel implements PaymentReference {
+class PaymentReferenceModel extends ReferenceModel implements PaymentReference
+{
     const DISCRIMINATOR_VALUE = 'payment';
 
     /**

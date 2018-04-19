@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelDraftCollectionModel extends JsonCollection implements ChannelDraftCollection {
+class ChannelDraftCollectionModel extends JsonCollection implements ChannelDraftCollection
+{
 
     /**
      * @param ChannelDraft $value

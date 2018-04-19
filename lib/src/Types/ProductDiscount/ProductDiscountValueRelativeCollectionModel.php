@@ -11,7 +11,8 @@ use Commercetools\Types\ProductDiscount\ProductDiscountValueCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductDiscountValueRelativeCollectionModel extends ProductDiscountValueCollectionModel implements ProductDiscountValueRelativeCollection {
+class ProductDiscountValueRelativeCollectionModel extends ProductDiscountValueCollectionModel implements ProductDiscountValueRelativeCollection
+{
 
     /**
      * @param ProductDiscountValueRelative $value

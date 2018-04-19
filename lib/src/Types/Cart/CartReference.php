@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\Common\Reference;
 
-interface CartReference extends Reference {
+interface CartReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

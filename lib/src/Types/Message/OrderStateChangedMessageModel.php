@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Message\MessageModel;
 
-class OrderStateChangedMessageModel extends MessageModel implements OrderStateChangedMessage {
+class OrderStateChangedMessageModel extends MessageModel implements OrderStateChangedMessage
+{
     const DISCRIMINATOR_VALUE = 'OrderStateChanged';
 
     /**

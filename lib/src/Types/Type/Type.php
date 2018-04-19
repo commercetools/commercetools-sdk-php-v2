@@ -11,7 +11,8 @@ use Commercetools\Builder\TypeUpdateBuilder;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Common\Resource;
 
-interface Type extends Resource {
+interface Type extends Resource
+{
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';

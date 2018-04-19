@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\PagedQueryResponseCollection;
 
 
-interface TypePagedQueryResponseCollection extends PagedQueryResponseCollection {
+interface TypePagedQueryResponseCollection extends PagedQueryResponseCollection
+{
     /**
      * @param $index
      * @return TypePagedQueryResponse

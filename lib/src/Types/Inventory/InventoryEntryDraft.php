@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-interface InventoryEntryDraft extends JsonObject {
+interface InventoryEntryDraft extends JsonObject
+{
     const FIELD_SKU = 'sku';
     const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     const FIELD_QUANTITY_ON_STOCK = 'quantityOnStock';

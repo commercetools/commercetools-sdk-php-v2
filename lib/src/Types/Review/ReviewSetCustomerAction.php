@@ -9,7 +9,8 @@ namespace Commercetools\Types\Review;
 
 use Commercetools\Types\Common\ResourceIdentifier;
 
-interface ReviewSetCustomerAction extends ReviewUpdateAction {
+interface ReviewSetCustomerAction extends ReviewUpdateAction
+{
     const FIELD_CUSTOMER = 'customer';
 
     /**

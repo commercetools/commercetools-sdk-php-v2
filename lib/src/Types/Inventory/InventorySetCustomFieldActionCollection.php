@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Types\Inventory\InventoryEntryUpdateActionCollection;
 
 
-interface InventorySetCustomFieldActionCollection extends InventoryEntryUpdateActionCollection {
+interface InventorySetCustomFieldActionCollection extends InventoryEntryUpdateActionCollection
+{
     /**
      * @param $index
      * @return InventorySetCustomFieldAction

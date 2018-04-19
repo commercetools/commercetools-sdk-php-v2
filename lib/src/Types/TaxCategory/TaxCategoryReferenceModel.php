@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class TaxCategoryReferenceModel extends ReferenceModel implements TaxCategoryReference {
+class TaxCategoryReferenceModel extends ReferenceModel implements TaxCategoryReference
+{
     const DISCRIMINATOR_VALUE = 'tax-category';
 
     /**

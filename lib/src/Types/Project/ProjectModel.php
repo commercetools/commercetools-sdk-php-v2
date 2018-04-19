@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Builder\ProjectUpdateBuilder;
 use Commercetools\Types\Message\MessageConfiguration;
 
-class ProjectModel extends JsonObjectModel implements Project {
+class ProjectModel extends JsonObjectModel implements Project
+{
     /**
      * @var int
      */

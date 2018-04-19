@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Type\CustomFields;
 
-class CustomerGroupDraftModel extends JsonObjectModel implements CustomerGroupDraft {
+class CustomerGroupDraftModel extends JsonObjectModel implements CustomerGroupDraft
+{
     /**
      * @var string
      */

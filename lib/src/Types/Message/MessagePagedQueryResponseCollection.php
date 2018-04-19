@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\PagedQueryResponseCollection;
 
 
-interface MessagePagedQueryResponseCollection extends PagedQueryResponseCollection {
+interface MessagePagedQueryResponseCollection extends PagedQueryResponseCollection
+{
     /**
      * @param $index
      * @return MessagePagedQueryResponse

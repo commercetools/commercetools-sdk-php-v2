@@ -9,7 +9,8 @@ namespace Commercetools\Types\Category;
 
 use Commercetools\Types\Common\Reference;
 
-interface CategoryReference extends Reference {
+interface CategoryReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Zone\ZoneReference;
 
-interface ZoneRate extends JsonObject {
+interface ZoneRate extends JsonObject
+{
     const FIELD_ZONE = 'zone';
     const FIELD_SHIPPING_RATES = 'shippingRates';
 

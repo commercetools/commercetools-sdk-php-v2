@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\TaxCategory\TaxCategoryReference;
 use Commercetools\Types\ShippingMethod\ShippingRateDraft;
 
-interface CartSetCustomShippingMethodAction extends CartUpdateAction {
+interface CartSetCustomShippingMethodAction extends CartUpdateAction
+{
     const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
     const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
     const FIELD_SHIPPING_RATE = 'shippingRate';

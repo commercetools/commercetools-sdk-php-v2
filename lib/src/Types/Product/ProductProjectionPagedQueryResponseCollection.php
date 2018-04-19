@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\PagedQueryResponseCollection;
 
 
-interface ProductProjectionPagedQueryResponseCollection extends PagedQueryResponseCollection {
+interface ProductProjectionPagedQueryResponseCollection extends PagedQueryResponseCollection
+{
     /**
      * @param $index
      * @return ProductProjectionPagedQueryResponse

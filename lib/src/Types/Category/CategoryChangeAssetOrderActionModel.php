@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Category\CategoryUpdateActionModel;
 
-class CategoryChangeAssetOrderActionModel extends CategoryUpdateActionModel implements CategoryChangeAssetOrderAction {
+class CategoryChangeAssetOrderActionModel extends CategoryUpdateActionModel implements CategoryChangeAssetOrderAction
+{
     const DISCRIMINATOR_VALUE = 'changeAssetOrder';
 
     /**

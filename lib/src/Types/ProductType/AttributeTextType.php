@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface AttributeTextType extends AttributeType {
+interface AttributeTextType extends AttributeType
+{
 }

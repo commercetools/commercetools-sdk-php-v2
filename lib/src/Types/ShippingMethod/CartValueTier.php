@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Types\Common\Money;
 
-interface CartValueTier extends ShippingRatePriceTier {
+interface CartValueTier extends ShippingRatePriceTier
+{
     const FIELD_MINIMUM_CENT_AMOUNT = 'minimumCentAmount';
     const FIELD_PRICE = 'price';
     const FIELD_IS_MATCHING = 'isMatching';

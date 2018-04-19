@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionModel;
 
-class ProductTypeChangeInputHintActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeInputHintAction {
+class ProductTypeChangeInputHintActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeInputHintAction
+{
     const DISCRIMINATOR_VALUE = 'changeInputHint';
 
     /**

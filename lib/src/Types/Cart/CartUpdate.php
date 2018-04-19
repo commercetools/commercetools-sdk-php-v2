@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface CartUpdate extends Update {
+interface CartUpdate extends Update
+{
     /**
      * @return CartUpdateActionCollection
      */

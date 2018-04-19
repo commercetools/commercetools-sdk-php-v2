@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Types\Common\Reference;
 
-interface ShoppingListReference extends Reference {
+interface ShoppingListReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\CustomerGroup\CustomerGroupReference;
 
-interface CartSetCustomerGroupAction extends CartUpdateAction {
+interface CartSetCustomerGroupAction extends CartUpdateAction
+{
     const FIELD_CUSTOMER_GROUP = 'customerGroup';
 
     /**

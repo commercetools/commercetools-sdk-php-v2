@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Types\Common\TypedMoneyCollection;
 
 
-interface CentPrecisionMoneyCollection extends TypedMoneyCollection {
+interface CentPrecisionMoneyCollection extends TypedMoneyCollection
+{
     /**
      * @param $index
      * @return CentPrecisionMoney

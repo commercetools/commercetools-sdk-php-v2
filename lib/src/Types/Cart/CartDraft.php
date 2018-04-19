@@ -14,7 +14,8 @@ use Commercetools\Types\ShippingMethod\ShippingMethodReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Address;
 
-interface CartDraft extends JsonObject {
+interface CartDraft extends JsonObject
+{
     const FIELD_CURRENCY = 'currency';
     const FIELD_CUSTOMER_ID = 'customerId';
     const FIELD_CUSTOMER_EMAIL = 'customerEmail';

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\JsonObject;
 
-interface CustomerCreateEmailToken extends JsonObject {
+interface CustomerCreateEmailToken extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_VERSION = 'version';
     const FIELD_TTL_MINUTES = 'ttlMinutes';

@@ -12,7 +12,8 @@ use Commercetools\Types\Order\OrderUpdateActionModel;
 
 use Commercetools\Types\State\StateReference;
 
-class OrderTransitionLineItemStateActionModel extends OrderUpdateActionModel implements OrderTransitionLineItemStateAction {
+class OrderTransitionLineItemStateActionModel extends OrderUpdateActionModel implements OrderTransitionLineItemStateAction
+{
     const DISCRIMINATOR_VALUE = 'transitionLineItemState';
 
     /**

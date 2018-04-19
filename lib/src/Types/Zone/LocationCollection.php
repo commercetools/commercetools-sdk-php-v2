@@ -9,7 +9,8 @@ namespace Commercetools\Types\Zone;
 
 use Commercetools\Base\Collection;
 
-interface LocationCollection extends Collection {
+interface LocationCollection extends Collection
+{
     /**
      * @param $index
      * @return Location

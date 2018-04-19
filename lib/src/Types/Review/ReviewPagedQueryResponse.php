@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface ReviewPagedQueryResponse extends PagedQueryResponse {
+interface ReviewPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return ReviewCollection
      */

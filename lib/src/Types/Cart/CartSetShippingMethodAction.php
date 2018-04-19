@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\ShippingMethod\ShippingMethodReference;
 
-interface CartSetShippingMethodAction extends CartUpdateAction {
+interface CartSetShippingMethodAction extends CartUpdateAction
+{
     const FIELD_SHIPPING_METHOD = 'shippingMethod';
 
     /**

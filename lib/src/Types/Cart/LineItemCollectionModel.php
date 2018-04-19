@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class LineItemCollectionModel extends JsonCollection implements LineItemCollection {
+class LineItemCollectionModel extends JsonCollection implements LineItemCollection
+{
 
     /**
      * @param LineItem $value

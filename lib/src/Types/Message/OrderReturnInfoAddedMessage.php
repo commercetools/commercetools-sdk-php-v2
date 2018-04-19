@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Order\ReturnInfo;
 
-interface OrderReturnInfoAddedMessage extends Message {
+interface OrderReturnInfoAddedMessage extends Message
+{
     const FIELD_RETURN_INFO = 'returnInfo';
 
     /**

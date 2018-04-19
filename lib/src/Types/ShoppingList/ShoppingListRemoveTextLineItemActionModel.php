@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
-class ShoppingListRemoveTextLineItemActionModel extends ShoppingListUpdateActionModel implements ShoppingListRemoveTextLineItemAction {
+class ShoppingListRemoveTextLineItemActionModel extends ShoppingListUpdateActionModel implements ShoppingListRemoveTextLineItemAction
+{
     const DISCRIMINATOR_VALUE = 'removeTextLineItem';
 
     /**

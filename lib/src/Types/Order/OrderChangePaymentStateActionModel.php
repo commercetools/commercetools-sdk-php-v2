@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Order\OrderUpdateActionModel;
 
-class OrderChangePaymentStateActionModel extends OrderUpdateActionModel implements OrderChangePaymentStateAction {
+class OrderChangePaymentStateActionModel extends OrderUpdateActionModel implements OrderChangePaymentStateAction
+{
     const DISCRIMINATOR_VALUE = 'changePaymentState';
 
     /**

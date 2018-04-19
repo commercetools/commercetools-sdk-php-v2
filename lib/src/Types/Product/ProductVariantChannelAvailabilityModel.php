@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ProductVariantChannelAvailabilityModel extends JsonObjectModel implements ProductVariantChannelAvailability {
+class ProductVariantChannelAvailabilityModel extends JsonObjectModel implements ProductVariantChannelAvailability
+{
     /**
      * @var mixed
      */

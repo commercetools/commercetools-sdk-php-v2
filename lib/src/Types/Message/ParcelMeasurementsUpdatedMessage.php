@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Order\ParcelMeasurements;
 
-interface ParcelMeasurementsUpdatedMessage extends Message {
+interface ParcelMeasurementsUpdatedMessage extends Message
+{
     const FIELD_DELIVERY_ID = 'deliveryId';
     const FIELD_PARCEL_ID = 'parcelId';
     const FIELD_MEASUREMENTS = 'measurements';

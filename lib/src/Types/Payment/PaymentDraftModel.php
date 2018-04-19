@@ -15,7 +15,8 @@ use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Customer\CustomerReference;
 use Commercetools\Types\Common\Money;
 
-class PaymentDraftModel extends JsonObjectModel implements PaymentDraft {
+class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
+{
     /**
      * @var CustomerReference
      */

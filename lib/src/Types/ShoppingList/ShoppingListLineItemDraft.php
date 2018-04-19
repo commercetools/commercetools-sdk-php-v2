@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-interface ShoppingListLineItemDraft extends JsonObject {
+interface ShoppingListLineItemDraft extends JsonObject
+{
     const FIELD_ADDED_AT = 'addedAt';
     const FIELD_CUSTOM = 'custom';
     const FIELD_SKU = 'sku';

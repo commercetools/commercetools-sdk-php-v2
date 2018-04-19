@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Message\MessageModel;
 
-class ProductRevertedStagedChangesMessageModel extends MessageModel implements ProductRevertedStagedChangesMessage {
+class ProductRevertedStagedChangesMessageModel extends MessageModel implements ProductRevertedStagedChangesMessage
+{
     const DISCRIMINATOR_VALUE = 'ProductRevertedStagedChanges';
 
     /**

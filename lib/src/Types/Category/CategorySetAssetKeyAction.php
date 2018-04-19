@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-interface CategorySetAssetKeyAction extends CategoryUpdateAction {
+interface CategorySetAssetKeyAction extends CategoryUpdateAction
+{
     const FIELD_ASSET_ID = 'assetId';
     const FIELD_ASSET_KEY = 'assetKey';
 

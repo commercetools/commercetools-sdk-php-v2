@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types;
 
-class DestinationModel extends JsonObjectModel implements Destination {
+class DestinationModel extends JsonObjectModel implements Destination
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

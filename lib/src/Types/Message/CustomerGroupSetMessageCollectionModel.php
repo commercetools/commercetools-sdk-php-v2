@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerGroupSetMessageCollectionModel extends MessageCollectionModel implements CustomerGroupSetMessageCollection {
+class CustomerGroupSetMessageCollectionModel extends MessageCollectionModel implements CustomerGroupSetMessageCollection
+{
 
     /**
      * @param CustomerGroupSetMessage $value

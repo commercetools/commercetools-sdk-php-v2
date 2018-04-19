@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class FacetResultCollectionModel extends JsonCollection implements FacetResultCollection {
+class FacetResultCollectionModel extends JsonCollection implements FacetResultCollection
+{
 
     /**
      * @param FacetResult $value

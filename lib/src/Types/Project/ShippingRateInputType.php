@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface ShippingRateInputType extends JsonObject {
+interface ShippingRateInputType extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'CartClassification' => Types\Project\CartClassificationType::class,

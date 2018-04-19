@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\PagedQueryResponseCollection;
 
 
-interface OrderPagedQueryResponseCollection extends PagedQueryResponseCollection {
+interface OrderPagedQueryResponseCollection extends PagedQueryResponseCollection
+{
     /**
      * @param $index
      * @return OrderPagedQueryResponse

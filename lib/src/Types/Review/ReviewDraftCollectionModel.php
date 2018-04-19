@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ReviewDraftCollectionModel extends JsonCollection implements ReviewDraftCollection {
+class ReviewDraftCollectionModel extends JsonCollection implements ReviewDraftCollection
+{
 
     /**
      * @param ReviewDraft $value

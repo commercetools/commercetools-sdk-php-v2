@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface TypeUpdateAction extends UpdateAction {
+interface TypeUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addEnumValue' => Types\Type\TypeAddEnumValueAction::class,

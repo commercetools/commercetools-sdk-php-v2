@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ItemStateCollectionModel extends JsonCollection implements ItemStateCollection {
+class ItemStateCollectionModel extends JsonCollection implements ItemStateCollection
+{
 
     /**
      * @param ItemState $value

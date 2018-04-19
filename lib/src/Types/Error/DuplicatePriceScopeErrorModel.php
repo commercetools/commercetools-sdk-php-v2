@@ -13,7 +13,8 @@ use Commercetools\Types\Error\ErrorObjectModel;
 use Commercetools\Types\Common\PriceCollection;
 use Commercetools\Types\Common\Price;
 
-class DuplicatePriceScopeErrorModel extends ErrorObjectModel implements DuplicatePriceScopeError {
+class DuplicatePriceScopeErrorModel extends ErrorObjectModel implements DuplicatePriceScopeError
+{
     const DISCRIMINATOR_VALUE = 'DuplicatePriceScope';
 
     /**

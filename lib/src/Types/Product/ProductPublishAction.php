@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductPublishAction extends ProductUpdateAction {
+interface ProductPublishAction extends ProductUpdateAction
+{
     const FIELD_SCOPE = 'scope';
 
     /**

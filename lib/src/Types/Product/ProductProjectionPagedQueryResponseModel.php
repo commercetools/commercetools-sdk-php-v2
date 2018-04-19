@@ -13,7 +13,8 @@ use Commercetools\Types\PagedQueryResponseModel;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-class ProductProjectionPagedQueryResponseModel extends PagedQueryResponseModel implements ProductProjectionPagedQueryResponse {
+class ProductProjectionPagedQueryResponseModel extends PagedQueryResponseModel implements ProductProjectionPagedQueryResponse
+{
     /**
      * @var ProductProjectionCollection
      */

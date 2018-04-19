@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelReferenceCollectionModel extends ReferenceCollectionModel implements ChannelReferenceCollection {
+class ChannelReferenceCollectionModel extends ReferenceCollectionModel implements ChannelReferenceCollection
+{
 
     /**
      * @param ChannelReference $value

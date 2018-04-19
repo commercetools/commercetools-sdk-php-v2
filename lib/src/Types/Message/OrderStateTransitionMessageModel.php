@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\State\StateReference;
 
-class OrderStateTransitionMessageModel extends MessageModel implements OrderStateTransitionMessage {
+class OrderStateTransitionMessageModel extends MessageModel implements OrderStateTransitionMessage
+{
     const DISCRIMINATOR_VALUE = 'OrderStateTransition';
 
     /**

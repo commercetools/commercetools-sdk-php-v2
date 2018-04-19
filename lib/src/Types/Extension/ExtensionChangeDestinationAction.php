@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Extension;
 
-interface ExtensionChangeDestinationAction extends ExtensionUpdateAction {
+interface ExtensionChangeDestinationAction extends ExtensionUpdateAction
+{
     const FIELD_DESTINATION = 'destination';
 
     /**

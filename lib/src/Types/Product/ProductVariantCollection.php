@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\Collection;
 
-interface ProductVariantCollection extends Collection {
+interface ProductVariantCollection extends Collection
+{
     /**
      * @param $index
      * @return ProductVariant

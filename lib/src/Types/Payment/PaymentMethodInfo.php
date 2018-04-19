@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface PaymentMethodInfo extends JsonObject {
+interface PaymentMethodInfo extends JsonObject
+{
     const FIELD_PAYMENT_INTERFACE = 'paymentInterface';
     const FIELD_METHOD = 'method';
     const FIELD_NAME = 'name';

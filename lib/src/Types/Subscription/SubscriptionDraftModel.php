@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class SubscriptionDraftModel extends JsonObjectModel implements SubscriptionDraft {
+class SubscriptionDraftModel extends JsonObjectModel implements SubscriptionDraft
+{
     /**
      * @var ChangeSubscriptionCollection
      */

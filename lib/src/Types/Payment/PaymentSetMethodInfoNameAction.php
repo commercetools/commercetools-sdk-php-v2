@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface PaymentSetMethodInfoNameAction extends PaymentUpdateAction {
+interface PaymentSetMethodInfoNameAction extends PaymentUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

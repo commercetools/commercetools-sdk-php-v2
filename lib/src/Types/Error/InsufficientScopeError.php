@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface InsufficientScopeError extends ErrorObject {
+interface InsufficientScopeError extends ErrorObject
+{
 }

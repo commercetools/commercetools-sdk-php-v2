@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Common\PriceDraftCollection;
 use Commercetools\Types\Common\PriceDraft;
 
-interface ProductSetPricesAction extends ProductUpdateAction {
+interface ProductSetPricesAction extends ProductUpdateAction
+{
     const FIELD_PRICES = 'prices';
     const FIELD_SKU = 'sku';
     const FIELD_VARIANT_ID = 'variantId';

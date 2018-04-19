@@ -13,7 +13,8 @@ use Commercetools\Types\Common\ResourceModel;
 use Commercetools\Builder\ExtensionUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-class ExtensionModel extends ResourceModel implements Extension {
+class ExtensionModel extends ResourceModel implements Extension
+{
     /**
      * @var string
      */

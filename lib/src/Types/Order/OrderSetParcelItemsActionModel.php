@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Order\OrderUpdateActionModel;
 
-class OrderSetParcelItemsActionModel extends OrderUpdateActionModel implements OrderSetParcelItemsAction {
+class OrderSetParcelItemsActionModel extends OrderUpdateActionModel implements OrderSetParcelItemsAction
+{
     const DISCRIMINATOR_VALUE = 'setParcelItems';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class AttributeDefinitionCollectionModel extends JsonCollection implements AttributeDefinitionCollection {
+class AttributeDefinitionCollectionModel extends JsonCollection implements AttributeDefinitionCollection
+{
 
     /**
      * @param AttributeDefinition $value

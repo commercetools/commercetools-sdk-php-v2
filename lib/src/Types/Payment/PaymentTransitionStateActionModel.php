@@ -12,7 +12,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
 use Commercetools\Types\State\StateReference;
 
-class PaymentTransitionStateActionModel extends PaymentUpdateActionModel implements PaymentTransitionStateAction {
+class PaymentTransitionStateActionModel extends PaymentUpdateActionModel implements PaymentTransitionStateAction
+{
     const DISCRIMINATOR_VALUE = 'transitionState';
 
     /**

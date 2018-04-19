@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface RangeFacetResult extends FacetResult {
+interface RangeFacetResult extends FacetResult
+{
     const FIELD_RANGES = 'ranges';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class AccessDeniedErrorCollectionModel extends ErrorObjectCollectionModel implements AccessDeniedErrorCollection {
+class AccessDeniedErrorCollectionModel extends ErrorObjectCollectionModel implements AccessDeniedErrorCollection
+{
 
     /**
      * @param AccessDeniedError $value

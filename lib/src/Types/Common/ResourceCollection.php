@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface ResourceCollection extends Collection {
+interface ResourceCollection extends Collection
+{
     /**
      * @param $index
      * @return Resource
@@ -33,4 +34,5 @@ interface ResourceCollection extends Collection {
      * @return Resource
      */
     public function byId($id);
+
 }

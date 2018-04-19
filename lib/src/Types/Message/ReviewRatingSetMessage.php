@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Common\Reference;
 
-interface ReviewRatingSetMessage extends Message {
+interface ReviewRatingSetMessage extends Message
+{
     const FIELD_OLD_RATING = 'oldRating';
     const FIELD_NEW_RATING = 'newRating';
     const FIELD_INCLUDED_IN_STATISTICS = 'includedInStatistics';

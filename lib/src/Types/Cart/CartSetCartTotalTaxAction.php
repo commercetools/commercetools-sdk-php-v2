@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\Common\Money;
 
-interface CartSetCartTotalTaxAction extends CartUpdateAction {
+interface CartSetCartTotalTaxAction extends CartUpdateAction
+{
     const FIELD_EXTERNAL_TOTAL_GROSS = 'externalTotalGross';
     const FIELD_EXTERNAL_TAX_PORTIONS = 'externalTaxPortions';
 

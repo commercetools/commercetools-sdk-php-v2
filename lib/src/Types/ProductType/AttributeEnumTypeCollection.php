@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\AttributeTypeCollection;
 
 
-interface AttributeEnumTypeCollection extends AttributeTypeCollection {
+interface AttributeEnumTypeCollection extends AttributeTypeCollection
+{
     /**
      * @param $index
      * @return AttributeEnumType

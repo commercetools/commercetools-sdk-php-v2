@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Types\Common\Reference;
 use Commercetools\Types;
 
-interface SubscriptionDelivery extends JsonObject {
+interface SubscriptionDelivery extends JsonObject
+{
     const DISCRIMINATOR = 'notificationType';
     const SUB_TYPES = [
         'Message' => Types\Subscription\MessageDelivery::class,

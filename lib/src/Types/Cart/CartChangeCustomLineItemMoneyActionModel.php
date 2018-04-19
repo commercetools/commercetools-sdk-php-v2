@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\Common\Money;
 
-class CartChangeCustomLineItemMoneyActionModel extends CartUpdateActionModel implements CartChangeCustomLineItemMoneyAction {
+class CartChangeCustomLineItemMoneyActionModel extends CartUpdateActionModel implements CartChangeCustomLineItemMoneyAction
+{
     const DISCRIMINATOR_VALUE = 'changeCustomLineItemMoney';
 
     /**

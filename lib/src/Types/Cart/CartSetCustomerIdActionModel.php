@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Cart\CartUpdateActionModel;
 
-class CartSetCustomerIdActionModel extends CartUpdateActionModel implements CartSetCustomerIdAction {
+class CartSetCustomerIdActionModel extends CartUpdateActionModel implements CartSetCustomerIdAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomerId';
 
     /**

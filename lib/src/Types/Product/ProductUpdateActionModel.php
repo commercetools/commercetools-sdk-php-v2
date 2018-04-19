@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateActionModel;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-class ProductUpdateActionModel extends UpdateActionModel implements ProductUpdateAction {
+class ProductUpdateActionModel extends UpdateActionModel implements ProductUpdateAction
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

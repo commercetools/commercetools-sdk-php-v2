@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\AttributeTypeCollection;
 
 
-interface AttributeLocalizableTextTypeCollection extends AttributeTypeCollection {
+interface AttributeLocalizableTextTypeCollection extends AttributeTypeCollection
+{
     /**
      * @param $index
      * @return AttributeLocalizableTextType

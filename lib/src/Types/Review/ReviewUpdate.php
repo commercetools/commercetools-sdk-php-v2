@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface ReviewUpdate extends Update {
+interface ReviewUpdate extends Update
+{
     /**
      * @return ReviewUpdateActionCollection
      */

@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\ProductDiscount\ProductDiscountReference;
 
-interface DiscountedPrice extends JsonObject {
+interface DiscountedPrice extends JsonObject
+{
     const FIELD_VALUE = 'value';
     const FIELD_DISCOUNT = 'discount';
 

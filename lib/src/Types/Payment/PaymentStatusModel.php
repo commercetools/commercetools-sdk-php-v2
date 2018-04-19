@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\State\StateReference;
 
-class PaymentStatusModel extends JsonObjectModel implements PaymentStatus {
+class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
+{
     /**
      * @var string
      */

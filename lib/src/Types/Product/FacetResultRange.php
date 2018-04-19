@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonObject;
 
-interface FacetResultRange extends JsonObject {
+interface FacetResultRange extends JsonObject
+{
     const FIELD_FROM = 'from';
     const FIELD_FROM_STR = 'fromStr';
     const FIELD_TO = 'to';

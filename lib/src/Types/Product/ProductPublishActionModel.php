@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateActionModel;
 
-class ProductPublishActionModel extends ProductUpdateActionModel implements ProductPublishAction {
+class ProductPublishActionModel extends ProductUpdateActionModel implements ProductPublishAction
+{
     const DISCRIMINATOR_VALUE = 'publish';
 
     /**

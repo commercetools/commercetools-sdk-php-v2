@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Types\UpdateCollection;
 
 
-interface SubscriptionUpdateCollection extends UpdateCollection {
+interface SubscriptionUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return SubscriptionUpdate

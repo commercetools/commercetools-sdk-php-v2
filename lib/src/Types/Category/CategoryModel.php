@@ -17,7 +17,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Common\AssetCollection;
 use Commercetools\Types\Common\Resource;
 
-class CategoryModel extends ResourceModel implements Category {
+class CategoryModel extends ResourceModel implements Category
+{
     /**
      * @var LocalizedString
      */

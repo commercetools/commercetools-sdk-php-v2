@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ParcelAddedToDeliveryMessageCollectionModel extends MessageCollectionModel implements ParcelAddedToDeliveryMessageCollection {
+class ParcelAddedToDeliveryMessageCollectionModel extends MessageCollectionModel implements ParcelAddedToDeliveryMessageCollection
+{
 
     /**
      * @param ParcelAddedToDeliveryMessage $value

@@ -19,7 +19,8 @@ use Commercetools\Types\Extension\ExtensionUpdate;
 use Commercetools\Request\ByProjectKeyExtensionsByIDPost;
 
 
-class ExtensionUpdateBuilder extends BaseBuilder {
+class ExtensionUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Extension
      */

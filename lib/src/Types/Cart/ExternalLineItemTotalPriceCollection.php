@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\Collection;
 
-interface ExternalLineItemTotalPriceCollection extends Collection {
+interface ExternalLineItemTotalPriceCollection extends Collection
+{
     /**
      * @param $index
      * @return ExternalLineItemTotalPrice

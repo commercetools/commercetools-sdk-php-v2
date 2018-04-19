@@ -14,7 +14,8 @@ use Commercetools\Types\Type\CustomFieldsCollection;
 use Commercetools\Types\Common\TypedMoney;
 use Commercetools\Types\Common\Resource;
 
-interface Payment extends Resource {
+interface Payment extends Resource
+{
     const FIELD_CUSTOMER = 'customer';
     const FIELD_EXTERNAL_ID = 'externalId';
     const FIELD_INTERFACE_ID = 'interfaceId';

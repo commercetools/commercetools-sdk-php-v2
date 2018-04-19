@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class DiscountCodeReferenceModel extends ReferenceModel implements DiscountCodeReference {
+class DiscountCodeReferenceModel extends ReferenceModel implements DiscountCodeReference
+{
     const DISCRIMINATOR_VALUE = 'discount-code';
 
     /**

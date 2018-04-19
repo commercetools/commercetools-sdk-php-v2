@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\Collection;
 
-interface SearchKeywordCollection extends Collection {
+interface SearchKeywordCollection extends Collection
+{
     /**
      * @param $index
      * @return SearchKeyword

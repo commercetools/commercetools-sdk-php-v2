@@ -9,7 +9,8 @@ namespace Commercetools\Types\Extension;
 
 use Commercetools\Base\Collection;
 
-interface ExtensionTriggerCollection extends Collection {
+interface ExtensionTriggerCollection extends Collection
+{
     /**
      * @param $index
      * @return ExtensionTrigger

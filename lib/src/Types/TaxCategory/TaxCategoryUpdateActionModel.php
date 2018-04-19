@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateActionModel;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-class TaxCategoryUpdateActionModel extends UpdateActionModel implements TaxCategoryUpdateAction {
+class TaxCategoryUpdateActionModel extends UpdateActionModel implements TaxCategoryUpdateAction
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface FieldDefinition extends JsonObject {
+interface FieldDefinition extends JsonObject
+{
     const FIELD_TYPE = 'type';
     const FIELD_NAME = 'name';
     const FIELD_LABEL = 'label';

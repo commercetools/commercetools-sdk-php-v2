@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class TextLineItemCollectionModel extends JsonCollection implements TextLineItemCollection {
+class TextLineItemCollectionModel extends JsonCollection implements TextLineItemCollection
+{
 
     /**
      * @param TextLineItem $value

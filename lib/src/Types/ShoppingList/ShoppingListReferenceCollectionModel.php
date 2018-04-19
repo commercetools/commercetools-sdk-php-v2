@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShoppingListReferenceCollectionModel extends ReferenceCollectionModel implements ShoppingListReferenceCollection {
+class ShoppingListReferenceCollectionModel extends ReferenceCollectionModel implements ShoppingListReferenceCollection
+{
 
     /**
      * @param ShoppingListReference $value

@@ -11,7 +11,8 @@ use Commercetools\Types\Type\TypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TypeChangeNameActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeChangeNameActionCollection {
+class TypeChangeNameActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeChangeNameActionCollection
+{
 
     /**
      * @param TypeChangeNameAction $value

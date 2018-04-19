@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface TaxCategoryUpdate extends Update {
+interface TaxCategoryUpdate extends Update
+{
     /**
      * @return TaxCategoryUpdateActionCollection
      */

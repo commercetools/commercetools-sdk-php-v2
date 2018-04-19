@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\Cart\CartUpdateActionCollection;
 
 
-interface CartSetLineItemTaxRateActionCollection extends CartUpdateActionCollection {
+interface CartSetLineItemTaxRateActionCollection extends CartUpdateActionCollection
+{
     /**
      * @param $index
      * @return CartSetLineItemTaxRateAction

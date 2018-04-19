@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface ShippingMethodPagedQueryResponse extends PagedQueryResponse {
+interface ShippingMethodPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return ShippingMethodCollection
      */

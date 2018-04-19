@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\Price;
 
-interface ProductDiscountMatchQuery extends JsonObject {
+interface ProductDiscountMatchQuery extends JsonObject
+{
     const FIELD_PRODUCT_ID = 'productId';
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_STAGED = 'staged';

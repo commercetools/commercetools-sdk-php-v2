@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChangeSubscriptionCollectionModel extends JsonCollection implements ChangeSubscriptionCollection {
+class ChangeSubscriptionCollectionModel extends JsonCollection implements ChangeSubscriptionCollection
+{
 
     /**
      * @param ChangeSubscription $value

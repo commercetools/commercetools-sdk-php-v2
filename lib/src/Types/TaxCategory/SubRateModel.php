@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class SubRateModel extends JsonObjectModel implements SubRate {
+class SubRateModel extends JsonObjectModel implements SubRate
+{
     /**
      * @var string
      */

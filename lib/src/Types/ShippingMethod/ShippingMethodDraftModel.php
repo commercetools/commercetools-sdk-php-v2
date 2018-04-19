@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\TaxCategory\TaxCategoryReference;
 
-class ShippingMethodDraftModel extends JsonObjectModel implements ShippingMethodDraft {
+class ShippingMethodDraftModel extends JsonObjectModel implements ShippingMethodDraft
+{
     /**
      * @var string
      */

@@ -10,7 +10,8 @@ namespace Commercetools\Types;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class UpdateModel extends JsonObjectModel implements Update {
+class UpdateModel extends JsonObjectModel implements Update
+{
     /**
      * @var int
      */

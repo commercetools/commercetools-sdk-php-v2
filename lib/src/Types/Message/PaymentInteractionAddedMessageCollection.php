@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface PaymentInteractionAddedMessageCollection extends MessageCollection {
+interface PaymentInteractionAddedMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return PaymentInteractionAddedMessage

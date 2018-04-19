@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\TypeUpdateActionCollection;
 
 
-interface TypeAddEnumValueActionCollection extends TypeUpdateActionCollection {
+interface TypeAddEnumValueActionCollection extends TypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return TypeAddEnumValueAction

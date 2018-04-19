@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface CustomFieldSetType extends FieldType {
+interface CustomFieldSetType extends FieldType
+{
     const FIELD_ELEMENT_TYPE = 'elementType';
 
     /**

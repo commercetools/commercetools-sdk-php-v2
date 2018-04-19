@@ -12,7 +12,8 @@ use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class CustomerSetCustomTypeActionModel extends CustomerUpdateActionModel implements CustomerSetCustomTypeAction {
+class CustomerSetCustomTypeActionModel extends CustomerUpdateActionModel implements CustomerSetCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomType';
 
     /**

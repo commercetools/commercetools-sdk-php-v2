@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface ProductTypeChangePlainEnumValueLabelAction extends ProductTypeUpdateAction {
+interface ProductTypeChangePlainEnumValueLabelAction extends ProductTypeUpdateAction
+{
     const FIELD_ATTRIBUTE_NAME = 'attributeName';
     const FIELD_NEW_VALUE = 'newValue';
 

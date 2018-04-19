@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Base\JsonMap;
 use Commercetools\Exception\InvalidArgumentException;
 
-class LocalizedStringModel extends JsonMap implements LocalizedString {
+class LocalizedStringModel extends JsonMap implements LocalizedString
+{
 
     /**
      * @param $data

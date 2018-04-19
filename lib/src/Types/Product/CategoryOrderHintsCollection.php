@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\Collection;
 
-interface CategoryOrderHintsCollection extends Collection {
+interface CategoryOrderHintsCollection extends Collection
+{
     /**
      * @param $index
      * @return CategoryOrderHints

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Subscription;
 
 use Commercetools\Base\Collection;
 
-interface SubscriptionDeliveryCollection extends Collection {
+interface SubscriptionDeliveryCollection extends Collection
+{
     /**
      * @param $index
      * @return SubscriptionDelivery

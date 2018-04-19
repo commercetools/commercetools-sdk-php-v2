@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface ZoneReferenceCollection extends ReferenceCollection {
+interface ZoneReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return ZoneReference

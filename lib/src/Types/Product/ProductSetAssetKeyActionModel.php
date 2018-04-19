@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateActionModel;
 
-class ProductSetAssetKeyActionModel extends ProductUpdateActionModel implements ProductSetAssetKeyAction {
+class ProductSetAssetKeyActionModel extends ProductUpdateActionModel implements ProductSetAssetKeyAction
+{
     const DISCRIMINATOR_VALUE = 'setAssetKey';
 
     /**

@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Product\ProductVariant;
 
-class ProductVariantDeletedMessageModel extends MessageModel implements ProductVariantDeletedMessage {
+class ProductVariantDeletedMessageModel extends MessageModel implements ProductVariantDeletedMessage
+{
     const DISCRIMINATOR_VALUE = 'ProductVariantDeleted';
 
     /**

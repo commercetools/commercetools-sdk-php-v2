@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Type\CustomFields;
 
-interface Asset extends JsonObject {
+interface Asset extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_SOURCES = 'sources';
     const FIELD_NAME = 'name';

@@ -9,7 +9,8 @@ namespace Commercetools\Types\CustomerGroup;
 
 use Commercetools\Types\Common\Reference;
 
-interface CustomerGroupReference extends Reference {
+interface CustomerGroupReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

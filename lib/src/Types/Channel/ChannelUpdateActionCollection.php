@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Types\UpdateActionCollection;
 
 
-interface ChannelUpdateActionCollection extends UpdateActionCollection {
+interface ChannelUpdateActionCollection extends UpdateActionCollection
+{
     /**
      * @param $index
      * @return ChannelUpdateAction

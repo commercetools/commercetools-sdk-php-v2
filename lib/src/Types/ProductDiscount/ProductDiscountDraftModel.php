@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class ProductDiscountDraftModel extends JsonObjectModel implements ProductDiscountDraft {
+class ProductDiscountDraftModel extends JsonObjectModel implements ProductDiscountDraft
+{
     /**
      * @var LocalizedString
      */

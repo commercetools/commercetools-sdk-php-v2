@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\Money;
 
-class TransactionDraftModel extends JsonObjectModel implements TransactionDraft {
+class TransactionDraftModel extends JsonObjectModel implements TransactionDraft
+{
     /**
      * @var \DateTimeImmutable
      */

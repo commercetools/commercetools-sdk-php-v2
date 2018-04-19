@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Common\DiscountedPrice;
 
-interface ProductSetDiscountedPriceAction extends ProductUpdateAction {
+interface ProductSetDiscountedPriceAction extends ProductUpdateAction
+{
     const FIELD_DISCOUNTED = 'discounted';
     const FIELD_PRICE_ID = 'priceId';
     const FIELD_STAGED = 'staged';

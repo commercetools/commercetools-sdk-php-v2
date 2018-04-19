@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Types\State\StateReference;
 
-interface PaymentTransitionStateAction extends PaymentUpdateAction {
+interface PaymentTransitionStateAction extends PaymentUpdateAction
+{
     const FIELD_STATE = 'state';
     const FIELD_FORCE = 'force';
 

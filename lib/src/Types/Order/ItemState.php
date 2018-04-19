@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\State\StateReference;
 
-interface ItemState extends JsonObject {
+interface ItemState extends JsonObject
+{
     const FIELD_QUANTITY = 'quantity';
     const FIELD_STATE = 'state';
 

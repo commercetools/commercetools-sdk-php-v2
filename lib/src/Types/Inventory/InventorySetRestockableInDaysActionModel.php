@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Inventory\InventoryEntryUpdateActionModel;
 
-class InventorySetRestockableInDaysActionModel extends InventoryEntryUpdateActionModel implements InventorySetRestockableInDaysAction {
+class InventorySetRestockableInDaysActionModel extends InventoryEntryUpdateActionModel implements InventorySetRestockableInDaysAction
+{
     const DISCRIMINATOR_VALUE = 'setRestockableInDays';
 
     /**

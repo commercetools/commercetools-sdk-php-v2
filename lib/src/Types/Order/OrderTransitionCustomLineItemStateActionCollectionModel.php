@@ -11,7 +11,8 @@ use Commercetools\Types\Order\OrderUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderTransitionCustomLineItemStateActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderTransitionCustomLineItemStateActionCollection {
+class OrderTransitionCustomLineItemStateActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderTransitionCustomLineItemStateActionCollection
+{
 
     /**
      * @param OrderTransitionCustomLineItemStateAction $value

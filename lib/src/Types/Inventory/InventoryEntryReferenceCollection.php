@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface InventoryEntryReferenceCollection extends ReferenceCollection {
+interface InventoryEntryReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return InventoryEntryReference

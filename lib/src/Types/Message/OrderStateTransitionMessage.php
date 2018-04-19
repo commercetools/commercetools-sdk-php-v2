@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\State\StateReference;
 
-interface OrderStateTransitionMessage extends Message {
+interface OrderStateTransitionMessage extends Message
+{
     const FIELD_STATE = 'state';
     const FIELD_FORCE = 'force';
 

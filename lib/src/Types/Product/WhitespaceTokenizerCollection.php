@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Product\SuggestTokenizerCollection;
 
 
-interface WhitespaceTokenizerCollection extends SuggestTokenizerCollection {
+interface WhitespaceTokenizerCollection extends SuggestTokenizerCollection
+{
     /**
      * @param $index
      * @return WhitespaceTokenizer

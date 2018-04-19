@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-interface MessageDelivery extends SubscriptionDelivery {
+interface MessageDelivery extends SubscriptionDelivery
+{
     const FIELD_ID = 'id';
     const FIELD_VERSION = 'version';
     const FIELD_CREATED_AT = 'createdAt';

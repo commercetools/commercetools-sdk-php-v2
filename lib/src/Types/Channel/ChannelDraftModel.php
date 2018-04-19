@@ -16,7 +16,8 @@ use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\GeoJsonPoint;
 use Commercetools\Types\Common\Address;
 
-class ChannelDraftModel extends JsonObjectModel implements ChannelDraft {
+class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
+{
     /**
      * @var string
      */

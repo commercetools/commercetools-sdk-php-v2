@@ -18,7 +18,8 @@ use Commercetools\Types\Common\AssetCollection;
 use Commercetools\Types\Common\Price;
 use Commercetools\Types\Common\Image;
 
-class ProductVariantModel extends JsonObjectModel implements ProductVariant {
+class ProductVariantModel extends JsonObjectModel implements ProductVariant
+{
     /**
      * @var int
      */

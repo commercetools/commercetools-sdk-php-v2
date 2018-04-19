@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Types\Common\ResourceIdentifier;
 
-interface OrderTransitionStateAction extends OrderUpdateAction {
+interface OrderTransitionStateAction extends OrderUpdateAction
+{
     const FIELD_STATE = 'state';
     const FIELD_FORCE = 'force';
 

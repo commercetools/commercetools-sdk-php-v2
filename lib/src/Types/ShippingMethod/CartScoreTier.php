@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Types\Common\Money;
 
-interface CartScoreTier extends ShippingRatePriceTier {
+interface CartScoreTier extends ShippingRatePriceTier
+{
     const FIELD_SCORE = 'score';
     const FIELD_PRICE = 'price';
     const FIELD_PRICE_FUNCTION = 'priceFunction';

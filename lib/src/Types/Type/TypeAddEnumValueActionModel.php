@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\TypeUpdateActionModel;
 
-class TypeAddEnumValueActionModel extends TypeUpdateActionModel implements TypeAddEnumValueAction {
+class TypeAddEnumValueActionModel extends TypeUpdateActionModel implements TypeAddEnumValueAction
+{
     const DISCRIMINATOR_VALUE = 'addEnumValue';
 
     /**

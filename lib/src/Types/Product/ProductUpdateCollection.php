@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\UpdateCollection;
 
 
-interface ProductUpdateCollection extends UpdateCollection {
+interface ProductUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return ProductUpdate

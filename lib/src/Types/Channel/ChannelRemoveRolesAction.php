@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
-interface ChannelRemoveRolesAction extends ChannelUpdateAction {
+interface ChannelRemoveRolesAction extends ChannelUpdateAction
+{
     const FIELD_ROLES = 'roles';
 
     /**

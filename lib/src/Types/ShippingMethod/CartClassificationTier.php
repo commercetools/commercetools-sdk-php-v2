@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Types\Common\Money;
 
-interface CartClassificationTier extends ShippingRatePriceTier {
+interface CartClassificationTier extends ShippingRatePriceTier
+{
     const FIELD_VALUE = 'value';
     const FIELD_PRICE = 'price';
     const FIELD_IS_MATCHING = 'isMatching';

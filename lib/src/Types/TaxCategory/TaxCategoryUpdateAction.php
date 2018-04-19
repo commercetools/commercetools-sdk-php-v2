@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface TaxCategoryUpdateAction extends UpdateAction {
+interface TaxCategoryUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addTaxRate' => Types\TaxCategory\TaxCategoryAddTaxRateAction::class,

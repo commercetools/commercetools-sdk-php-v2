@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Review\ReviewUpdateActionModel;
 
-class ReviewSetCustomFieldActionModel extends ReviewUpdateActionModel implements ReviewSetCustomFieldAction {
+class ReviewSetCustomFieldActionModel extends ReviewUpdateActionModel implements ReviewSetCustomFieldAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomField';
 
     /**

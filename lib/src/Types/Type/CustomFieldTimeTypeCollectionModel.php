@@ -11,7 +11,8 @@ use Commercetools\Types\Type\FieldTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomFieldTimeTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldTimeTypeCollection {
+class CustomFieldTimeTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldTimeTypeCollection
+{
 
     /**
      * @param CustomFieldTimeType $value

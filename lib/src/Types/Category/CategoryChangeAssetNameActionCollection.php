@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Types\Category\CategoryUpdateActionCollection;
 
 
-interface CategoryChangeAssetNameActionCollection extends CategoryUpdateActionCollection {
+interface CategoryChangeAssetNameActionCollection extends CategoryUpdateActionCollection
+{
     /**
      * @param $index
      * @return CategoryChangeAssetNameAction

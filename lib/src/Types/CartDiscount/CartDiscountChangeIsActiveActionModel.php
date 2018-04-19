@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CartDiscount\CartDiscountUpdateActionModel;
 
-class CartDiscountChangeIsActiveActionModel extends CartDiscountUpdateActionModel implements CartDiscountChangeIsActiveAction {
+class CartDiscountChangeIsActiveActionModel extends CartDiscountUpdateActionModel implements CartDiscountChangeIsActiveAction
+{
     const DISCRIMINATOR_VALUE = 'changeIsActive';
 
     /**

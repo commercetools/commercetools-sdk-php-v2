@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductRemoveImageAction extends ProductUpdateAction {
+interface ProductRemoveImageAction extends ProductUpdateAction
+{
     const FIELD_IMAGE_URL = 'imageUrl';
     const FIELD_SKU = 'sku';
     const FIELD_VARIANT_ID = 'variantId';

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface LocalizedStringCollection extends Collection {
+interface LocalizedStringCollection extends Collection
+{
     /**
      * @param $index
      * @return LocalizedString

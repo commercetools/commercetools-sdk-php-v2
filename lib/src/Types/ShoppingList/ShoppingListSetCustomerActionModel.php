@@ -12,7 +12,8 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
 use Commercetools\Types\Customer\Customer;
 
-class ShoppingListSetCustomerActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetCustomerAction {
+class ShoppingListSetCustomerActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetCustomerAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomer';
 
     /**

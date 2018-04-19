@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Base\Collection;
 
-interface ShoppingListLineItemCollection extends Collection {
+interface ShoppingListLineItemCollection extends Collection
+{
     /**
      * @param $index
      * @return ShoppingListLineItem

@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateModel;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-class ZoneUpdateModel extends UpdateModel implements ZoneUpdate {
+class ZoneUpdateModel extends UpdateModel implements ZoneUpdate
+{
     /**
      * @var ZoneUpdateActionCollection
      */

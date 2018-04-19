@@ -12,7 +12,8 @@ use Commercetools\Types\ShippingMethod\ShippingMethodUpdateActionModel;
 
 use Commercetools\Types\Zone\ZoneReference;
 
-class ShippingMethodRemoveShippingRateActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodRemoveShippingRateAction {
+class ShippingMethodRemoveShippingRateActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodRemoveShippingRateAction
+{
     const DISCRIMINATOR_VALUE = 'removeShippingRate';
 
     /**

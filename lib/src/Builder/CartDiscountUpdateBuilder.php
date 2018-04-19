@@ -29,7 +29,8 @@ use Commercetools\Types\CartDiscount\CartDiscountUpdate;
 use Commercetools\Request\ByProjectKeyCartDiscountsByIDPost;
 
 
-class CartDiscountUpdateBuilder extends BaseBuilder {
+class CartDiscountUpdateBuilder extends BaseBuilder
+{
     /**
      * @var CartDiscount
      */

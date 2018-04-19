@@ -13,7 +13,8 @@ use Commercetools\Types\Project\ShippingRateInputTypeModel;
 use Commercetools\Types\Type\CustomFieldLocalizedEnumValue;
 use Commercetools\Types\Type\CustomFieldLocalizedEnumValueCollection;
 
-class CartClassificationTypeModel extends ShippingRateInputTypeModel implements CartClassificationType {
+class CartClassificationTypeModel extends ShippingRateInputTypeModel implements CartClassificationType
+{
     const DISCRIMINATOR_VALUE = 'CartClassification';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\ProductTypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductTypeChangeLocalizedEnumValueOrderActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeChangeLocalizedEnumValueOrderActionCollection {
+class ProductTypeChangeLocalizedEnumValueOrderActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeChangeLocalizedEnumValueOrderActionCollection
+{
 
     /**
      * @param ProductTypeChangeLocalizedEnumValueOrderAction $value

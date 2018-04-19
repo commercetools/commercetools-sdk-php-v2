@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Message\MessageModel;
 
-class ProductUnpublishedMessageModel extends MessageModel implements ProductUnpublishedMessage {
+class ProductUnpublishedMessageModel extends MessageModel implements ProductUnpublishedMessage
+{
     const DISCRIMINATOR_VALUE = 'ProductUnpublished';
 
 }

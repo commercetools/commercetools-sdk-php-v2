@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ZoneCollectionModel extends ResourceCollectionModel implements ZoneCollection {
+class ZoneCollectionModel extends ResourceCollectionModel implements ZoneCollection
+{
 
     /**
      * @param Zone $value
@@ -55,4 +56,5 @@ class ZoneCollectionModel extends ResourceCollectionModel implements ZoneCollect
     {
         return $this->valueByKey('id', $id);
     }
+
 }

@@ -12,7 +12,8 @@ use Commercetools\Types\Channel\ChannelUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class ChannelChangeDescriptionActionModel extends ChannelUpdateActionModel implements ChannelChangeDescriptionAction {
+class ChannelChangeDescriptionActionModel extends ChannelUpdateActionModel implements ChannelChangeDescriptionAction
+{
     const DISCRIMINATOR_VALUE = 'changeDescription';
 
     /**

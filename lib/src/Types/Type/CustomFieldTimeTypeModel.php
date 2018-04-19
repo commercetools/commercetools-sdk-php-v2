@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\FieldTypeModel;
 
-class CustomFieldTimeTypeModel extends FieldTypeModel implements CustomFieldTimeType {
+class CustomFieldTimeTypeModel extends FieldTypeModel implements CustomFieldTimeType
+{
     const DISCRIMINATOR_VALUE = 'Time';
 
 }

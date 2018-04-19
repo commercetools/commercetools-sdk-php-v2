@@ -11,7 +11,8 @@ use Commercetools\Types\Cart\ShippingRateInputCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ScoreShippingRateInputCollectionModel extends ShippingRateInputCollectionModel implements ScoreShippingRateInputCollection {
+class ScoreShippingRateInputCollectionModel extends ShippingRateInputCollectionModel implements ScoreShippingRateInputCollection
+{
 
     /**
      * @param ScoreShippingRateInput $value

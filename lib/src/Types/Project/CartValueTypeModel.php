@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Project\ShippingRateInputTypeModel;
 
-class CartValueTypeModel extends ShippingRateInputTypeModel implements CartValueType {
+class CartValueTypeModel extends ShippingRateInputTypeModel implements CartValueType
+{
     const DISCRIMINATOR_VALUE = 'CartValue';
 
 }

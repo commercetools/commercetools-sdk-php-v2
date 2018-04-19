@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductChangeMasterVariantAction extends ProductUpdateAction {
+interface ProductChangeMasterVariantAction extends ProductUpdateAction
+{
     const FIELD_SKU = 'sku';
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_STAGED = 'staged';

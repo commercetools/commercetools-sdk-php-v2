@@ -14,7 +14,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Common\AssetCollection;
 use Commercetools\Types\Common\Resource;
 
-interface Category extends Resource {
+interface Category extends Resource
+{
     const FIELD_NAME = 'name';
     const FIELD_SLUG = 'slug';
     const FIELD_DESCRIPTION = 'description';

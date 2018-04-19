@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Types\State\StateUpdateActionCollection;
 
 
-interface StateRemoveRolesActionCollection extends StateUpdateActionCollection {
+interface StateRemoveRolesActionCollection extends StateUpdateActionCollection
+{
     /**
      * @param $index
      * @return StateRemoveRolesAction

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface ExtensionUpdate extends Update {
+interface ExtensionUpdate extends Update
+{
     /**
      * @return ExtensionUpdateActionCollection
      */

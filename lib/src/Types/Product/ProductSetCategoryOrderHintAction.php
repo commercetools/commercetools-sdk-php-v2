@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductSetCategoryOrderHintAction extends ProductUpdateAction {
+interface ProductSetCategoryOrderHintAction extends ProductUpdateAction
+{
     const FIELD_CATEGORY_ID = 'categoryId';
     const FIELD_ORDER_HINT = 'orderHint';
     const FIELD_STAGED = 'staged';

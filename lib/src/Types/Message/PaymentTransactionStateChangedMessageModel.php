@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Message\MessageModel;
 
-class PaymentTransactionStateChangedMessageModel extends MessageModel implements PaymentTransactionStateChangedMessage {
+class PaymentTransactionStateChangedMessageModel extends MessageModel implements PaymentTransactionStateChangedMessage
+{
     const DISCRIMINATOR_VALUE = 'PaymentTransactionStateChanged';
 
     /**

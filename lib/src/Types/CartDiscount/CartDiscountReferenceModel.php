@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class CartDiscountReferenceModel extends ReferenceModel implements CartDiscountReference {
+class CartDiscountReferenceModel extends ReferenceModel implements CartDiscountReference
+{
     const DISCRIMINATOR_VALUE = 'cart-discount';
 
     /**

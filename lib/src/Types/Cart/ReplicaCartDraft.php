@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\Reference;
 
-interface ReplicaCartDraft extends JsonObject {
+interface ReplicaCartDraft extends JsonObject
+{
     const FIELD_REFERENCE = 'reference';
 
     /**

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface AddressCollection extends Collection {
+interface AddressCollection extends Collection
+{
     /**
      * @param $index
      * @return Address

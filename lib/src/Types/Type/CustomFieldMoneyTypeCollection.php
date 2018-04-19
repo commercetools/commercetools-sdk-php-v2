@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\FieldTypeCollection;
 
 
-interface CustomFieldMoneyTypeCollection extends FieldTypeCollection {
+interface CustomFieldMoneyTypeCollection extends FieldTypeCollection
+{
     /**
      * @param $index
      * @return CustomFieldMoneyType

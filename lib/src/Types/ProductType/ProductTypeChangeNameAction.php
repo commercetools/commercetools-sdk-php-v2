@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface ProductTypeChangeNameAction extends ProductTypeUpdateAction {
+interface ProductTypeChangeNameAction extends ProductTypeUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

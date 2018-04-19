@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Channel\ChannelUpdateActionModel;
 
-class ChannelSetCustomFieldActionModel extends ChannelUpdateActionModel implements ChannelSetCustomFieldAction {
+class ChannelSetCustomFieldActionModel extends ChannelUpdateActionModel implements ChannelSetCustomFieldAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomField';
 
     /**

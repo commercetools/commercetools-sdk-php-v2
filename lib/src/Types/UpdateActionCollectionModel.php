@@ -10,7 +10,8 @@ namespace Commercetools\Types;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class UpdateActionCollectionModel extends JsonCollection implements UpdateActionCollection {
+class UpdateActionCollectionModel extends JsonCollection implements UpdateActionCollection
+{
 
     /**
      * @param UpdateAction $value

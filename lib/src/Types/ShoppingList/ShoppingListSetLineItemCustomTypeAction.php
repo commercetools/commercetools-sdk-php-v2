@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface ShoppingListSetLineItemCustomTypeAction extends ShoppingListUpdateAction {
+interface ShoppingListSetLineItemCustomTypeAction extends ShoppingListUpdateAction
+{
     const FIELD_FIELDS = 'fields';
     const FIELD_LINE_ITEM_ID = 'lineItemId';
     const FIELD_TYPE = 'type';

@@ -13,7 +13,8 @@ use Commercetools\Types\PagedQueryResponseModel;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-class ChannelPagedQueryResponseModel extends PagedQueryResponseModel implements ChannelPagedQueryResponse {
+class ChannelPagedQueryResponseModel extends PagedQueryResponseModel implements ChannelPagedQueryResponse
+{
     /**
      * @var ChannelCollection
      */

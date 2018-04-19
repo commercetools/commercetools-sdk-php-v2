@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Review;
 
-interface ReviewSetLocaleAction extends ReviewUpdateAction {
+interface ReviewSetLocaleAction extends ReviewUpdateAction
+{
     const FIELD_LOCALE = 'locale';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InventoryEntryDeletedMessageCollectionModel extends MessageCollectionModel implements InventoryEntryDeletedMessageCollection {
+class InventoryEntryDeletedMessageCollectionModel extends MessageCollectionModel implements InventoryEntryDeletedMessageCollection
+{
 
     /**
      * @param InventoryEntryDeletedMessage $value

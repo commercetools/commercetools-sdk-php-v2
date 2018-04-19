@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Map;
 
-interface LocalizedString extends Map {
+interface LocalizedString extends Map
+{
     /**
      * @param $key
      * @return string

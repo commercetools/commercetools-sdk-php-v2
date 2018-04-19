@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Product\ProductVariant;
 
-interface ProductVariantDeletedMessage extends Message {
+interface ProductVariantDeletedMessage extends Message
+{
     const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
     const FIELD_VARIANT = 'variant';
 

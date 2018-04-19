@@ -12,7 +12,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
 use Commercetools\Types\Customer\CustomerReference;
 
-class PaymentSetCustomerActionModel extends PaymentUpdateActionModel implements PaymentSetCustomerAction {
+class PaymentSetCustomerActionModel extends PaymentUpdateActionModel implements PaymentSetCustomerAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomer';
 
     /**

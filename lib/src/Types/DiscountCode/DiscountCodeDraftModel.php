@@ -15,7 +15,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\CartDiscount\CartDiscountReference;
 use Commercetools\Types\CartDiscount\CartDiscountReferenceCollection;
 
-class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCodeDraft {
+class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCodeDraft
+{
     /**
      * @var LocalizedString
      */

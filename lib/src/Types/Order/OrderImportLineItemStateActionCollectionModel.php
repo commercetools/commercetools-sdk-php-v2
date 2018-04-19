@@ -11,7 +11,8 @@ use Commercetools\Types\Order\OrderUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderImportLineItemStateActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderImportLineItemStateActionCollection {
+class OrderImportLineItemStateActionCollectionModel extends OrderUpdateActionCollectionModel implements OrderImportLineItemStateActionCollection
+{
 
     /**
      * @param OrderImportLineItemStateAction $value

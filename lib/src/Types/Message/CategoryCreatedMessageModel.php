@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Category\Category;
 
-class CategoryCreatedMessageModel extends MessageModel implements CategoryCreatedMessage {
+class CategoryCreatedMessageModel extends MessageModel implements CategoryCreatedMessage
+{
     const DISCRIMINATOR_VALUE = 'CategoryCreated';
 
     /**

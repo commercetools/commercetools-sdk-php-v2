@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ReviewRatingStatisticsModel extends JsonObjectModel implements ReviewRatingStatistics {
+class ReviewRatingStatisticsModel extends JsonObjectModel implements ReviewRatingStatistics
+{
     /**
      * @var int
      */

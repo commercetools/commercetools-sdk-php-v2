@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\Collection;
 
-interface TrackingDataCollection extends Collection {
+interface TrackingDataCollection extends Collection
+{
     /**
      * @param $index
      * @return TrackingData

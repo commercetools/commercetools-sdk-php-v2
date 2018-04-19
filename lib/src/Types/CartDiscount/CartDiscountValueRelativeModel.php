@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CartDiscount\CartDiscountValueModel;
 
-class CartDiscountValueRelativeModel extends CartDiscountValueModel implements CartDiscountValueRelative {
+class CartDiscountValueRelativeModel extends CartDiscountValueModel implements CartDiscountValueRelative
+{
     const DISCRIMINATOR_VALUE = 'relative';
 
     /**

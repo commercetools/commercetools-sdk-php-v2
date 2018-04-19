@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types;
 
-class FacetResultModel extends JsonObjectModel implements FacetResult {
+class FacetResultModel extends JsonObjectModel implements FacetResult
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

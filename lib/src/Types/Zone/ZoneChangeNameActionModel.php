@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Zone\ZoneUpdateActionModel;
 
-class ZoneChangeNameActionModel extends ZoneUpdateActionModel implements ZoneChangeNameAction {
+class ZoneChangeNameActionModel extends ZoneUpdateActionModel implements ZoneChangeNameAction
+{
     const DISCRIMINATOR_VALUE = 'changeName';
 
     /**

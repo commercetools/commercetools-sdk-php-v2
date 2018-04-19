@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\Address;
 
-interface Delivery extends JsonObject {
+interface Delivery extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_CREATED_AT = 'createdAt';
     const FIELD_ITEMS = 'items';

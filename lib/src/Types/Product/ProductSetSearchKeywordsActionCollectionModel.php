@@ -11,7 +11,8 @@ use Commercetools\Types\Product\ProductUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductSetSearchKeywordsActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductSetSearchKeywordsActionCollection {
+class ProductSetSearchKeywordsActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductSetSearchKeywordsActionCollection
+{
 
     /**
      * @param ProductSetSearchKeywordsAction $value

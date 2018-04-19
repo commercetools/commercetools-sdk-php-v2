@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
-class PaymentSetMethodInfoInterfaceActionModel extends PaymentUpdateActionModel implements PaymentSetMethodInfoInterfaceAction {
+class PaymentSetMethodInfoInterfaceActionModel extends PaymentUpdateActionModel implements PaymentSetMethodInfoInterfaceAction
+{
     const DISCRIMINATOR_VALUE = 'setMethodInfoInterface';
 
     /**

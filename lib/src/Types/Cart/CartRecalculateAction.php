@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartRecalculateAction extends CartUpdateAction {
+interface CartRecalculateAction extends CartUpdateAction
+{
     const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
 
     /**

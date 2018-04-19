@@ -17,7 +17,8 @@ use Commercetools\Types\Product\ProductReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Customer\CustomerReference;
 
-class ReviewDraftModel extends JsonObjectModel implements ReviewDraft {
+class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
+{
     /**
      * @var string
      */

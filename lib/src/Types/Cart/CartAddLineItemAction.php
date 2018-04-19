@@ -11,7 +11,8 @@ use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Money;
 
-interface CartAddLineItemAction extends CartUpdateAction {
+interface CartAddLineItemAction extends CartUpdateAction
+{
     const FIELD_CUSTOM = 'custom';
     const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';

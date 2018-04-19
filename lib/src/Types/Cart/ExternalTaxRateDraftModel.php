@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\TaxCategory\SubRate;
 use Commercetools\Types\TaxCategory\SubRateCollection;
 
-class ExternalTaxRateDraftModel extends JsonObjectModel implements ExternalTaxRateDraft {
+class ExternalTaxRateDraftModel extends JsonObjectModel implements ExternalTaxRateDraft
+{
     /**
      * @var string
      */

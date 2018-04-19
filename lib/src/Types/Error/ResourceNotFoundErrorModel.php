@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class ResourceNotFoundErrorModel extends ErrorObjectModel implements ResourceNotFoundError {
+class ResourceNotFoundErrorModel extends ErrorObjectModel implements ResourceNotFoundError
+{
     const DISCRIMINATOR_VALUE = 'ResourceNotFound';
 
 }

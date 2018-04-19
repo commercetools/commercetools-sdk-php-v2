@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ProductSlugChangedMessage extends Message {
+interface ProductSlugChangedMessage extends Message
+{
     const FIELD_SLUG = 'slug';
 
     /**

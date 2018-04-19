@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class SuggestTokenizerCollectionModel extends JsonCollection implements SuggestTokenizerCollection {
+class SuggestTokenizerCollectionModel extends JsonCollection implements SuggestTokenizerCollection
+{
 
     /**
      * @param SuggestTokenizer $value

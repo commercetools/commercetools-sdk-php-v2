@@ -14,7 +14,8 @@ use Commercetools\Types\Product\Attribute;
 use Commercetools\Types\Product\AttributeCollection;
 use Commercetools\Types\Common\Price;
 
-interface VariantValues extends JsonObject {
+interface VariantValues extends JsonObject
+{
     const FIELD_SKU = 'sku';
     const FIELD_PRICES = 'prices';
     const FIELD_ATTRIBUTES = 'attributes';

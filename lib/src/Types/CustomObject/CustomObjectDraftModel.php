@@ -10,7 +10,8 @@ namespace Commercetools\Types\CustomObject;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class CustomObjectDraftModel extends JsonObjectModel implements CustomObjectDraft {
+class CustomObjectDraftModel extends JsonObjectModel implements CustomObjectDraft
+{
     /**
      * @var string
      */

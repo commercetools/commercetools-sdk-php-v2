@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface OrderUpdateAction extends UpdateAction {
+interface OrderUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addDelivery' => Types\Order\OrderAddDeliveryAction::class,

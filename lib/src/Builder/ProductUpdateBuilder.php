@@ -61,7 +61,8 @@ use Commercetools\Types\Product\ProductUpdate;
 use Commercetools\Request\ByProjectKeyProductsByIDPost;
 
 
-class ProductUpdateBuilder extends BaseBuilder {
+class ProductUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Product
      */

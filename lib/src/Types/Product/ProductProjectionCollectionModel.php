@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductProjectionCollectionModel extends ResourceCollectionModel implements ProductProjectionCollection {
+class ProductProjectionCollectionModel extends ResourceCollectionModel implements ProductProjectionCollection
+{
 
     /**
      * @param ProductProjection $value
@@ -55,4 +56,5 @@ class ProductProjectionCollectionModel extends ResourceCollectionModel implement
     {
         return $this->valueByKey('id', $id);
     }
+
 }

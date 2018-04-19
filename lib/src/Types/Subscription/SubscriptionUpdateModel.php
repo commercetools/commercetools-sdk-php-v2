@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateModel;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-class SubscriptionUpdateModel extends UpdateModel implements SubscriptionUpdate {
+class SubscriptionUpdateModel extends UpdateModel implements SubscriptionUpdate
+{
     /**
      * @var SubscriptionUpdateActionCollection
      */

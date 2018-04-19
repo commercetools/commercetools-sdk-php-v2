@@ -11,7 +11,8 @@ use Commercetools\Types\Subscription\DestinationCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class AzureServiceBusDestinationCollectionModel extends DestinationCollectionModel implements AzureServiceBusDestinationCollection {
+class AzureServiceBusDestinationCollectionModel extends DestinationCollectionModel implements AzureServiceBusDestinationCollection
+{
 
     /**
      * @param AzureServiceBusDestination $value

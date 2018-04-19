@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface DuplicateFieldError extends ErrorObject {
+interface DuplicateFieldError extends ErrorObject
+{
     const FIELD_FIELD = 'field';
     const FIELD_DUPLICATE_VALUE = 'duplicateValue';
 

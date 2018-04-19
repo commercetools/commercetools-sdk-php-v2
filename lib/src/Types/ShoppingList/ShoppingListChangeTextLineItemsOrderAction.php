@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShoppingList;
 
-interface ShoppingListChangeTextLineItemsOrderAction extends ShoppingListUpdateAction {
+interface ShoppingListChangeTextLineItemsOrderAction extends ShoppingListUpdateAction
+{
     const FIELD_TEXT_LINE_ITEM_ORDER = 'textLineItemOrder';
 
     /**

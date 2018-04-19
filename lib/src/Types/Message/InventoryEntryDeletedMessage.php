@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Channel\ChannelReference;
 
-interface InventoryEntryDeletedMessage extends Message {
+interface InventoryEntryDeletedMessage extends Message
+{
     const FIELD_SKU = 'sku';
     const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 

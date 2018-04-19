@@ -10,7 +10,8 @@ namespace Commercetools\Types\CustomerGroup;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface CustomerGroupPagedQueryResponse extends PagedQueryResponse {
+interface CustomerGroupPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return CustomerGroupCollection
      */

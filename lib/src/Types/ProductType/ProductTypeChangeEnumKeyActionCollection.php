@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionCollection;
 
 
-interface ProductTypeChangeEnumKeyActionCollection extends ProductTypeUpdateActionCollection {
+interface ProductTypeChangeEnumKeyActionCollection extends ProductTypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductTypeChangeEnumKeyAction

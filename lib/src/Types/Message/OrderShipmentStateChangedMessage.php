@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface OrderShipmentStateChangedMessage extends Message {
+interface OrderShipmentStateChangedMessage extends Message
+{
     const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**

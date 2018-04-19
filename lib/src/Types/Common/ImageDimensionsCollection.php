@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface ImageDimensionsCollection extends Collection {
+interface ImageDimensionsCollection extends Collection
+{
     /**
      * @param $index
      * @return ImageDimensions

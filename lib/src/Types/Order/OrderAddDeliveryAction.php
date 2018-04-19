@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Types\Common\Address;
 
-interface OrderAddDeliveryAction extends OrderUpdateAction {
+interface OrderAddDeliveryAction extends OrderUpdateAction
+{
     const FIELD_ITEMS = 'items';
     const FIELD_PARCELS = 'parcels';
     const FIELD_ADDRESS = 'address';

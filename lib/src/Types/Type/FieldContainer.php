@@ -9,5 +9,6 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\JsonObject;
 
-interface FieldContainer extends JsonObject {
+interface FieldContainer extends JsonObject
+{
 }

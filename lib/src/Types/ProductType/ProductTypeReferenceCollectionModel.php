@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductTypeReferenceCollectionModel extends ReferenceCollectionModel implements ProductTypeReferenceCollection {
+class ProductTypeReferenceCollectionModel extends ReferenceCollectionModel implements ProductTypeReferenceCollection
+{
 
     /**
      * @param ProductTypeReference $value

@@ -11,7 +11,8 @@ use Commercetools\Types\Product\ProductUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductSetProductPriceCustomTypeActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductSetProductPriceCustomTypeActionCollection {
+class ProductSetProductPriceCustomTypeActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductSetProductPriceCustomTypeActionCollection
+{
 
     /**
      * @param ProductSetProductPriceCustomTypeAction $value

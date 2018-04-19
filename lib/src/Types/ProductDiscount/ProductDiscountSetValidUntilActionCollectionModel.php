@@ -11,7 +11,8 @@ use Commercetools\Types\ProductDiscount\ProductDiscountUpdateActionCollectionMod
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductDiscountSetValidUntilActionCollectionModel extends ProductDiscountUpdateActionCollectionModel implements ProductDiscountSetValidUntilActionCollection {
+class ProductDiscountSetValidUntilActionCollectionModel extends ProductDiscountUpdateActionCollectionModel implements ProductDiscountSetValidUntilActionCollection
+{
 
     /**
      * @param ProductDiscountSetValidUntilAction $value

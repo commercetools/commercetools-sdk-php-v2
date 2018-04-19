@@ -13,7 +13,8 @@ use Commercetools\Types\Channel\ChannelUpdateActionModel;
 use Commercetools\Types\Common\GeoJson;
 use Commercetools\Types\Common\GeoJsonPoint;
 
-class ChannelSetGeolocationActionModel extends ChannelUpdateActionModel implements ChannelSetGeolocationAction {
+class ChannelSetGeolocationActionModel extends ChannelUpdateActionModel implements ChannelSetGeolocationAction
+{
     const DISCRIMINATOR_VALUE = 'setGeoLocation';
 
     /**

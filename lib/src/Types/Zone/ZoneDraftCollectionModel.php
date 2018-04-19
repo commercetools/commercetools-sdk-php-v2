@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ZoneDraftCollectionModel extends JsonCollection implements ZoneDraftCollection {
+class ZoneDraftCollectionModel extends JsonCollection implements ZoneDraftCollection
+{
 
     /**
      * @param ZoneDraft $value

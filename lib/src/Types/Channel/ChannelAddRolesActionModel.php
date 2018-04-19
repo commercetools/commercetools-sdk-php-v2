@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Channel\ChannelUpdateActionModel;
 
-class ChannelAddRolesActionModel extends ChannelUpdateActionModel implements ChannelAddRolesAction {
+class ChannelAddRolesActionModel extends ChannelUpdateActionModel implements ChannelAddRolesAction
+{
     const DISCRIMINATOR_VALUE = 'addRoles';
 
     /**

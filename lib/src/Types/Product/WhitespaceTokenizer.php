@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface WhitespaceTokenizer extends SuggestTokenizer {
+interface WhitespaceTokenizer extends SuggestTokenizer
+{
 }

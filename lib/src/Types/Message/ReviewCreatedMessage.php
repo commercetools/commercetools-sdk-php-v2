@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Review\Review;
 
-interface ReviewCreatedMessage extends Message {
+interface ReviewCreatedMessage extends Message
+{
     const FIELD_REVIEW = 'review';
 
     /**

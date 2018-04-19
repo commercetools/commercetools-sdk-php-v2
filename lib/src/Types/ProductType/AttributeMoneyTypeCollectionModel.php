@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\AttributeTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class AttributeMoneyTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeMoneyTypeCollection {
+class AttributeMoneyTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeMoneyTypeCollection
+{
 
     /**
      * @param AttributeMoneyType $value

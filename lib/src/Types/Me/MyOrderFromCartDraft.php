@@ -9,7 +9,8 @@ namespace Commercetools\Types\Me;
 
 use Commercetools\Base\JsonObject;
 
-interface MyOrderFromCartDraft extends JsonObject {
+interface MyOrderFromCartDraft extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_VERSION = 'version';
 

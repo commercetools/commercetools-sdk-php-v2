@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductDiscount;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductDiscount\ProductDiscountValueModel;
 
-class ProductDiscountValueExternalModel extends ProductDiscountValueModel implements ProductDiscountValueExternal {
+class ProductDiscountValueExternalModel extends ProductDiscountValueModel implements ProductDiscountValueExternal
+{
     const DISCRIMINATOR_VALUE = 'external';
 
 }

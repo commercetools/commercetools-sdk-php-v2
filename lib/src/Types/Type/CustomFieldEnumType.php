@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface CustomFieldEnumType extends FieldType {
+interface CustomFieldEnumType extends FieldType
+{
     const FIELD_VALUES = 'values';
 
     /**

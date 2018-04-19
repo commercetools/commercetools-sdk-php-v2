@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-interface AzureServiceBusDestination extends Destination {
+interface AzureServiceBusDestination extends Destination
+{
     const FIELD_CONNECTION_STRING = 'connectionString';
 
     /**

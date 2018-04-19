@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class ProductSetAssetCustomTypeActionModel extends ProductUpdateActionModel implements ProductSetAssetCustomTypeAction {
+class ProductSetAssetCustomTypeActionModel extends ProductUpdateActionModel implements ProductSetAssetCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setAssetCustomType';
 
     /**

@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Order\ParcelMeasurements;
 
-class ParcelMeasurementsUpdatedMessageModel extends MessageModel implements ParcelMeasurementsUpdatedMessage {
+class ParcelMeasurementsUpdatedMessageModel extends MessageModel implements ParcelMeasurementsUpdatedMessage
+{
     const DISCRIMINATOR_VALUE = 'ParcelMeasurementsUpdated';
 
     /**

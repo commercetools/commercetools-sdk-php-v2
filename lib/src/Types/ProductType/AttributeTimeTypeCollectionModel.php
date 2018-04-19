@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\AttributeTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class AttributeTimeTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeTimeTypeCollection {
+class AttributeTimeTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeTimeTypeCollection
+{
 
     /**
      * @param AttributeTimeType $value

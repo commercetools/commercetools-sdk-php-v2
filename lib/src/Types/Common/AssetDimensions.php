@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonObject;
 
-interface AssetDimensions extends JsonObject {
+interface AssetDimensions extends JsonObject
+{
     const FIELD_W = 'w';
     const FIELD_H = 'h';
 

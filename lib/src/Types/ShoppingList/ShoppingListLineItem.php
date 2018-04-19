@@ -14,7 +14,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\ProductType\ProductTypeReference;
 use Commercetools\Types\Product\ProductVariant;
 
-interface ShoppingListLineItem extends JsonObject {
+interface ShoppingListLineItem extends JsonObject
+{
     const FIELD_ADDED_AT = 'addedAt';
     const FIELD_CUSTOM = 'custom';
     const FIELD_DEACTIVATED_AT = 'deactivatedAt';

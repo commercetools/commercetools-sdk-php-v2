@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface OrderReturnShipmentStateChangedMessage extends Message {
+interface OrderReturnShipmentStateChangedMessage extends Message
+{
     const FIELD_RETURN_ITEM_ID = 'returnItemId';
     const FIELD_RETURN_SHIPMENT_STATE = 'returnShipmentState';
 

@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class ShoppingListReferenceModel extends ReferenceModel implements ShoppingListReference {
+class ShoppingListReferenceModel extends ReferenceModel implements ShoppingListReference
+{
     const DISCRIMINATOR_VALUE = 'shopping-list';
 
     /**

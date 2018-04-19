@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\ProductTypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductTypeChangeInputHintActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeChangeInputHintActionCollection {
+class ProductTypeChangeInputHintActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeChangeInputHintActionCollection
+{
 
     /**
      * @param ProductTypeChangeInputHintAction $value

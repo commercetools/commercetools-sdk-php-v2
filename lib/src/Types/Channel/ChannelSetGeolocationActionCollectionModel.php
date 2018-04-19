@@ -11,7 +11,8 @@ use Commercetools\Types\Channel\ChannelUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelSetGeolocationActionCollectionModel extends ChannelUpdateActionCollectionModel implements ChannelSetGeolocationActionCollection {
+class ChannelSetGeolocationActionCollectionModel extends ChannelUpdateActionCollectionModel implements ChannelSetGeolocationActionCollection
+{
 
     /**
      * @param ChannelSetGeolocationAction $value

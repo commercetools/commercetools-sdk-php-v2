@@ -9,7 +9,8 @@ namespace Commercetools\Types\Error;
 
 use Commercetools\Base\JsonObject;
 
-interface ErrorResponse extends JsonObject {
+interface ErrorResponse extends JsonObject
+{
     const FIELD_STATUS_CODE = 'statusCode';
     const FIELD_MESSAGE = 'message';
     const FIELD_ERROR = 'error';

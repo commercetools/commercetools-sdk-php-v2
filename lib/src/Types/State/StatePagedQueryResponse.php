@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface StatePagedQueryResponse extends PagedQueryResponse {
+interface StatePagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return StateCollection
      */

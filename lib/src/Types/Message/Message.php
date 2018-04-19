@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Types\Common\Reference;
 use Commercetools\Types;
 
-interface Message extends JsonObject {
+interface Message extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'CategoryCreated' => Types\Message\CategoryCreatedMessage::class,

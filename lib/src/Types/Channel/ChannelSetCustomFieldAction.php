@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Channel;
 
-interface ChannelSetCustomFieldAction extends ChannelUpdateAction {
+interface ChannelSetCustomFieldAction extends ChannelUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_VALUE = 'value';
 

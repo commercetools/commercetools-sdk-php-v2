@@ -12,7 +12,8 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-class ShoppingListAddLineItemActionModel extends ShoppingListUpdateActionModel implements ShoppingListAddLineItemAction {
+class ShoppingListAddLineItemActionModel extends ShoppingListUpdateActionModel implements ShoppingListAddLineItemAction
+{
     const DISCRIMINATOR_VALUE = 'addLineItem';
 
     /**

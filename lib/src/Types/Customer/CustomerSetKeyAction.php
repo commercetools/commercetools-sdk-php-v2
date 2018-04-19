@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerSetKeyAction extends CustomerUpdateAction {
+interface CustomerSetKeyAction extends CustomerUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

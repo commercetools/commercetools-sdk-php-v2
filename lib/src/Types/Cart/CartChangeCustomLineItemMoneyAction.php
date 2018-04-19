@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\Common\Money;
 
-interface CartChangeCustomLineItemMoneyAction extends CartUpdateAction {
+interface CartChangeCustomLineItemMoneyAction extends CartUpdateAction
+{
     const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     const FIELD_MONEY = 'money';
 

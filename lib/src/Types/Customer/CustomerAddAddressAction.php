@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Types\Common\Address;
 
-interface CustomerAddAddressAction extends CustomerUpdateAction {
+interface CustomerAddAddressAction extends CustomerUpdateAction
+{
     const FIELD_ADDRESS = 'address';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ReviewCreatedMessageCollectionModel extends MessageCollectionModel implements ReviewCreatedMessageCollection {
+class ReviewCreatedMessageCollectionModel extends MessageCollectionModel implements ReviewCreatedMessageCollection
+{
 
     /**
      * @param ReviewCreatedMessage $value

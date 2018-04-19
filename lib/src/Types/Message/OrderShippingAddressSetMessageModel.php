@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Common\Address;
 
-class OrderShippingAddressSetMessageModel extends MessageModel implements OrderShippingAddressSetMessage {
+class OrderShippingAddressSetMessageModel extends MessageModel implements OrderShippingAddressSetMessage
+{
     const DISCRIMINATOR_VALUE = 'OrderShippingAddressSet';
 
     /**

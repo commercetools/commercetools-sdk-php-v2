@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface CustomFieldLocalizedEnumType extends FieldType {
+interface CustomFieldLocalizedEnumType extends FieldType
+{
     const FIELD_VALUES = 'values';
 
     /**

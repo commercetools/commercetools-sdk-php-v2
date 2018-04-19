@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\DestinationModel;
 
-class SqsDestinationModel extends DestinationModel implements SqsDestination {
+class SqsDestinationModel extends DestinationModel implements SqsDestination
+{
     const DISCRIMINATOR_VALUE = 'SQS';
 
     /**

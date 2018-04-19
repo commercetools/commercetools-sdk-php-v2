@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\JsonObject;
 
-interface ReturnInfo extends JsonObject {
+interface ReturnInfo extends JsonObject
+{
     const FIELD_ITEMS = 'items';
     const FIELD_RETURN_TRACKING_ID = 'returnTrackingId';
     const FIELD_RETURN_DATE = 'returnDate';

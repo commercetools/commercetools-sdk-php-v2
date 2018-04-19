@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
-class PaymentAddTransactionActionModel extends PaymentUpdateActionModel implements PaymentAddTransactionAction {
+class PaymentAddTransactionActionModel extends PaymentUpdateActionModel implements PaymentAddTransactionAction
+{
     const DISCRIMINATOR_VALUE = 'addTransaction';
 
     /**

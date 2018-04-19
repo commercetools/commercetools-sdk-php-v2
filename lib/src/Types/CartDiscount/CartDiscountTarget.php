@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface CartDiscountTarget extends JsonObject {
+interface CartDiscountTarget extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'customLineItems' => Types\CartDiscount\CartDiscountCustomLineItemsTarget::class,

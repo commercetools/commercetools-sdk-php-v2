@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Types\Zone\ZoneReference;
 
-interface ShippingMethodAddZoneAction extends ShippingMethodUpdateAction {
+interface ShippingMethodAddZoneAction extends ShippingMethodUpdateAction
+{
     const FIELD_ZONE = 'zone';
 
     /**

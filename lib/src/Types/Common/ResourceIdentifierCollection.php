@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface ResourceIdentifierCollection extends Collection {
+interface ResourceIdentifierCollection extends Collection
+{
     /**
      * @param $index
      * @return ResourceIdentifier

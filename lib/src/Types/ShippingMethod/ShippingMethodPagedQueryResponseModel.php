@@ -13,7 +13,8 @@ use Commercetools\Types\PagedQueryResponseModel;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-class ShippingMethodPagedQueryResponseModel extends PagedQueryResponseModel implements ShippingMethodPagedQueryResponse {
+class ShippingMethodPagedQueryResponseModel extends PagedQueryResponseModel implements ShippingMethodPagedQueryResponse
+{
     /**
      * @var ShippingMethodCollection
      */

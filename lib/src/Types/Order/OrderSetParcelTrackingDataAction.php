@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderSetParcelTrackingDataAction extends OrderUpdateAction {
+interface OrderSetParcelTrackingDataAction extends OrderUpdateAction
+{
     const FIELD_PARCEL_ID = 'parcelId';
     const FIELD_TRACKING_DATA = 'trackingData';
 

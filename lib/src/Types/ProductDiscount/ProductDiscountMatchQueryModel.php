@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\Price;
 
-class ProductDiscountMatchQueryModel extends JsonObjectModel implements ProductDiscountMatchQuery {
+class ProductDiscountMatchQueryModel extends JsonObjectModel implements ProductDiscountMatchQuery
+{
     /**
      * @var string
      */

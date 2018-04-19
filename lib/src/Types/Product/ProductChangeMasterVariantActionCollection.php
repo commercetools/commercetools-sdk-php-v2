@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Product\ProductUpdateActionCollection;
 
 
-interface ProductChangeMasterVariantActionCollection extends ProductUpdateActionCollection {
+interface ProductChangeMasterVariantActionCollection extends ProductUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductChangeMasterVariantAction

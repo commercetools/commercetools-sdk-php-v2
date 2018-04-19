@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Types\Category\CategoryUpdateActionCollection;
 
 
-interface CategoryChangeSlugActionCollection extends CategoryUpdateActionCollection {
+interface CategoryChangeSlugActionCollection extends CategoryUpdateActionCollection
+{
     /**
      * @param $index
      * @return CategoryChangeSlugAction

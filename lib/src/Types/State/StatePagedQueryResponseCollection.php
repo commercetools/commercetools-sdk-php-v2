@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Types\PagedQueryResponseCollection;
 
 
-interface StatePagedQueryResponseCollection extends PagedQueryResponseCollection {
+interface StatePagedQueryResponseCollection extends PagedQueryResponseCollection
+{
     /**
      * @param $index
      * @return StatePagedQueryResponse

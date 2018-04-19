@@ -10,7 +10,8 @@ namespace Commercetools\Types\CustomerGroup;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CustomerGroup\CustomerGroupUpdateActionModel;
 
-class CustomerGroupSetKeyActionModel extends CustomerGroupUpdateActionModel implements CustomerGroupSetKeyAction {
+class CustomerGroupSetKeyActionModel extends CustomerGroupUpdateActionModel implements CustomerGroupSetKeyAction
+{
     const DISCRIMINATOR_VALUE = 'setKey';
 
     /**

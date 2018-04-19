@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\Common\Reference;
 use Commercetools\Types;
 
-class SubscriptionDeliveryModel extends JsonObjectModel implements SubscriptionDelivery {
+class SubscriptionDeliveryModel extends JsonObjectModel implements SubscriptionDelivery
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

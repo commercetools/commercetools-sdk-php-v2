@@ -11,7 +11,8 @@ use Commercetools\Types\Inventory\InventoryEntryUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InventoryChangeQuantityActionCollectionModel extends InventoryEntryUpdateActionCollectionModel implements InventoryChangeQuantityActionCollection {
+class InventoryChangeQuantityActionCollectionModel extends InventoryEntryUpdateActionCollectionModel implements InventoryChangeQuantityActionCollection
+{
 
     /**
      * @param InventoryChangeQuantityAction $value

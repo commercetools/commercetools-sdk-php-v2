@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class StateReferenceModel extends ReferenceModel implements StateReference {
+class StateReferenceModel extends ReferenceModel implements StateReference
+{
     const DISCRIMINATOR_VALUE = 'state';
 
     /**

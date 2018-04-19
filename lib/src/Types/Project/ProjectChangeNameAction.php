@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
-interface ProjectChangeNameAction extends ProjectUpdateAction {
+interface ProjectChangeNameAction extends ProjectUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

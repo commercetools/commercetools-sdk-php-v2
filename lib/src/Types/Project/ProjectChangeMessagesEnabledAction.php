@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
-interface ProjectChangeMessagesEnabledAction extends ProjectUpdateAction {
+interface ProjectChangeMessagesEnabledAction extends ProjectUpdateAction
+{
     const FIELD_MESSAGES_ENABLED = 'messagesEnabled';
 
     /**

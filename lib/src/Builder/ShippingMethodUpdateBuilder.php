@@ -26,7 +26,8 @@ use Commercetools\Types\ShippingMethod\ShippingMethodUpdate;
 use Commercetools\Request\ByProjectKeyShippingMethodsByIDPost;
 
 
-class ShippingMethodUpdateBuilder extends BaseBuilder {
+class ShippingMethodUpdateBuilder extends BaseBuilder
+{
     /**
      * @var ShippingMethod
      */

@@ -14,7 +14,8 @@ use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\CustomerGroup\CustomerGroupReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-class PriceDraftModel extends JsonObjectModel implements PriceDraft {
+class PriceDraftModel extends JsonObjectModel implements PriceDraft
+{
     /**
      * @var Money
      */

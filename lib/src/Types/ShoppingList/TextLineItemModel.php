@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFields;
 
-class TextLineItemModel extends JsonObjectModel implements TextLineItem {
+class TextLineItemModel extends JsonObjectModel implements TextLineItem
+{
     /**
      * @var \DateTimeImmutable
      */

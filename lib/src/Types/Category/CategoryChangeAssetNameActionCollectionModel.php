@@ -11,7 +11,8 @@ use Commercetools\Types\Category\CategoryUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CategoryChangeAssetNameActionCollectionModel extends CategoryUpdateActionCollectionModel implements CategoryChangeAssetNameActionCollection {
+class CategoryChangeAssetNameActionCollectionModel extends CategoryUpdateActionCollectionModel implements CategoryChangeAssetNameActionCollection
+{
 
     /**
      * @param CategoryChangeAssetNameAction $value

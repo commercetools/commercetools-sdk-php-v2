@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ErrorResponseModel extends JsonObjectModel implements ErrorResponse {
+class ErrorResponseModel extends JsonObjectModel implements ErrorResponse
+{
     /**
      * @var int
      */

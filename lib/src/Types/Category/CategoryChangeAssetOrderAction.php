@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-interface CategoryChangeAssetOrderAction extends CategoryUpdateAction {
+interface CategoryChangeAssetOrderAction extends CategoryUpdateAction
+{
     const FIELD_ASSET_ORDER = 'assetOrder';
 
     /**

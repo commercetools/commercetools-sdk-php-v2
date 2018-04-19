@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft {
+class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
+{
     /**
      * @var string
      */

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface TypeChangeFieldDefinitionLabelAction extends TypeUpdateAction {
+interface TypeChangeFieldDefinitionLabelAction extends TypeUpdateAction
+{
     const FIELD_FIELD_NAME = 'fieldName';
     const FIELD_LABEL = 'label';
 

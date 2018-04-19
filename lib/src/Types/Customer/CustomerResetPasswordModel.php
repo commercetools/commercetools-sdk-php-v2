@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class CustomerResetPasswordModel extends JsonObjectModel implements CustomerResetPassword {
+class CustomerResetPasswordModel extends JsonObjectModel implements CustomerResetPassword
+{
     /**
      * @var string
      */

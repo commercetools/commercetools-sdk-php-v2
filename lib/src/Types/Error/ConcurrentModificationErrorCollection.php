@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface ConcurrentModificationErrorCollection extends ErrorObjectCollection {
+interface ConcurrentModificationErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return ConcurrentModificationError

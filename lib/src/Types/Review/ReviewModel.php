@@ -18,7 +18,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Builder\ReviewUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-class ReviewModel extends ResourceModel implements Review {
+class ReviewModel extends ResourceModel implements Review
+{
     /**
      * @var string
      */

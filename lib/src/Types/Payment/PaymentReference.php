@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Types\Common\Reference;
 
-interface PaymentReference extends Reference {
+interface PaymentReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

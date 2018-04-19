@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\State\StateUpdateActionModel;
 
-class StateSetRolesActionModel extends StateUpdateActionModel implements StateSetRolesAction {
+class StateSetRolesActionModel extends StateUpdateActionModel implements StateSetRolesAction
+{
     const DISCRIMINATOR_VALUE = 'setRoles';
 
     /**

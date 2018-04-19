@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface ShippingMethodUpdate extends Update {
+interface ShippingMethodUpdate extends Update
+{
     /**
      * @return ShippingMethodUpdateActionCollection
      */

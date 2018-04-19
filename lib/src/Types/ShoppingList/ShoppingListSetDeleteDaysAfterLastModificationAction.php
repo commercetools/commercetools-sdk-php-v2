@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShoppingList;
 
-interface ShoppingListSetDeleteDaysAfterLastModificationAction extends ShoppingListUpdateAction {
+interface ShoppingListSetDeleteDaysAfterLastModificationAction extends ShoppingListUpdateAction
+{
     const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
 
     /**

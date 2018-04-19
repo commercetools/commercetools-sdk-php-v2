@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Types\PagedQueryResponseCollection;
 
 
-interface TaxCategoryPagedQueryResponseCollection extends PagedQueryResponseCollection {
+interface TaxCategoryPagedQueryResponseCollection extends PagedQueryResponseCollection
+{
     /**
      * @param $index
      * @return TaxCategoryPagedQueryResponse

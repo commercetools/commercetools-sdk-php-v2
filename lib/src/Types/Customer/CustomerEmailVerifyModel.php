@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class CustomerEmailVerifyModel extends JsonObjectModel implements CustomerEmailVerify {
+class CustomerEmailVerifyModel extends JsonObjectModel implements CustomerEmailVerify
+{
     /**
      * @var int
      */

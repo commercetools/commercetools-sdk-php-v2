@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
-class CustomerSetTitleActionModel extends CustomerUpdateActionModel implements CustomerSetTitleAction {
+class CustomerSetTitleActionModel extends CustomerUpdateActionModel implements CustomerSetTitleAction
+{
     const DISCRIMINATOR_VALUE = 'setTitle';
 
     /**

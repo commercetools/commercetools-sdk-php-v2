@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface OrderStateChangedMessage extends Message {
+interface OrderStateChangedMessage extends Message
+{
     const FIELD_ORDER_STATE = 'orderState';
 
     /**

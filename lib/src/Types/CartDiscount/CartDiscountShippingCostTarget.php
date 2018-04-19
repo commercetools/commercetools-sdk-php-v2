@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface CartDiscountShippingCostTarget extends CartDiscountTarget {
+interface CartDiscountShippingCostTarget extends CartDiscountTarget
+{
 }

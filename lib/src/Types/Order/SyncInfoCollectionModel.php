@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class SyncInfoCollectionModel extends JsonCollection implements SyncInfoCollection {
+class SyncInfoCollectionModel extends JsonCollection implements SyncInfoCollection
+{
 
     /**
      * @param SyncInfo $value

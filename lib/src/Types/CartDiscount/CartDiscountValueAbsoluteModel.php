@@ -13,7 +13,8 @@ use Commercetools\Types\CartDiscount\CartDiscountValueModel;
 use Commercetools\Types\Common\MoneyCollection;
 use Commercetools\Types\Common\Money;
 
-class CartDiscountValueAbsoluteModel extends CartDiscountValueModel implements CartDiscountValueAbsolute {
+class CartDiscountValueAbsoluteModel extends CartDiscountValueModel implements CartDiscountValueAbsolute
+{
     const DISCRIMINATOR_VALUE = 'absolute';
 
     /**

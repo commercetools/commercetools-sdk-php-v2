@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionModel;
 
-class ProductTypeChangeEnumKeyActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeEnumKeyAction {
+class ProductTypeChangeEnumKeyActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeEnumKeyAction
+{
     const DISCRIMINATOR_VALUE = 'changeEnumKey';
 
     /**

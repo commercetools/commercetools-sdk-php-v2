@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\ShippingMethod\ShippingMethodReference;
 
-class CartSetShippingMethodActionModel extends CartUpdateActionModel implements CartSetShippingMethodAction {
+class CartSetShippingMethodActionModel extends CartUpdateActionModel implements CartSetShippingMethodAction
+{
     const DISCRIMINATOR_VALUE = 'setShippingMethod';
 
     /**

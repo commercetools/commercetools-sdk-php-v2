@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\AttributeTypeModel;
 
-class AttributeBooleanTypeModel extends AttributeTypeModel implements AttributeBooleanType {
+class AttributeBooleanTypeModel extends AttributeTypeModel implements AttributeBooleanType
+{
     const DISCRIMINATOR_VALUE = 'boolean';
 
 }

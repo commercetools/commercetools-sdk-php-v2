@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types;
 
-class HttpDestinationAuthenticationModel extends JsonObjectModel implements HttpDestinationAuthentication {
+class HttpDestinationAuthenticationModel extends JsonObjectModel implements HttpDestinationAuthentication
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

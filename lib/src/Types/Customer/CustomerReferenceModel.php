@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class CustomerReferenceModel extends ReferenceModel implements CustomerReference {
+class CustomerReferenceModel extends ReferenceModel implements CustomerReference
+{
     const DISCRIMINATOR_VALUE = 'customer';
 
     /**

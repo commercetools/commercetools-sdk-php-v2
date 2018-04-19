@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShoppingList;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ShoppingListSetSlugAction extends ShoppingListUpdateAction {
+interface ShoppingListSetSlugAction extends ShoppingListUpdateAction
+{
     const FIELD_SLUG = 'slug';
 
     /**

@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\Common\Money;
 
-class CartSetCartTotalTaxActionModel extends CartUpdateActionModel implements CartSetCartTotalTaxAction {
+class CartSetCartTotalTaxActionModel extends CartUpdateActionModel implements CartSetCartTotalTaxAction
+{
     const DISCRIMINATOR_VALUE = 'setCartTotalTax';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Channel\ChannelReference;
 
-interface SyncInfo extends JsonObject {
+interface SyncInfo extends JsonObject
+{
     const FIELD_CHANNEL = 'channel';
     const FIELD_EXTERNAL_ID = 'externalId';
     const FIELD_SYNCED_AT = 'syncedAt';

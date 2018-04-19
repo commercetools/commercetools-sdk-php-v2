@@ -9,7 +9,8 @@ namespace Commercetools\Types\Category;
 
 use Commercetools\Types\Common\AssetDraft;
 
-interface CategoryAddAssetAction extends CategoryUpdateAction {
+interface CategoryAddAssetAction extends CategoryUpdateAction
+{
     const FIELD_ASSET = 'asset';
     const FIELD_POSITION = 'position';
 

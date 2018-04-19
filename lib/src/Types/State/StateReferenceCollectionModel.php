@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class StateReferenceCollectionModel extends ReferenceCollectionModel implements StateReferenceCollection {
+class StateReferenceCollectionModel extends ReferenceCollectionModel implements StateReferenceCollection
+{
 
     /**
      * @param StateReference $value

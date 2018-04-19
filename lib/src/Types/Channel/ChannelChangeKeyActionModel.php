@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Channel\ChannelUpdateActionModel;
 
-class ChannelChangeKeyActionModel extends ChannelUpdateActionModel implements ChannelChangeKeyAction {
+class ChannelChangeKeyActionModel extends ChannelUpdateActionModel implements ChannelChangeKeyAction
+{
     const DISCRIMINATOR_VALUE = 'changeKey';
 
     /**

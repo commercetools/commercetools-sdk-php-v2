@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CategorySlugChangedMessageCollectionModel extends MessageCollectionModel implements CategorySlugChangedMessageCollection {
+class CategorySlugChangedMessageCollectionModel extends MessageCollectionModel implements CategorySlugChangedMessageCollection
+{
 
     /**
      * @param CategorySlugChangedMessage $value

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Types\UpdateCollection;
 
 
-interface InventoryEntryUpdateCollection extends UpdateCollection {
+interface InventoryEntryUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return InventoryEntryUpdate

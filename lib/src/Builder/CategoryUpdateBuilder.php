@@ -38,7 +38,8 @@ use Commercetools\Types\Category\CategoryUpdate;
 use Commercetools\Request\ByProjectKeyCategoriesByIDPost;
 
 
-class CategoryUpdateBuilder extends BaseBuilder {
+class CategoryUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Category
      */

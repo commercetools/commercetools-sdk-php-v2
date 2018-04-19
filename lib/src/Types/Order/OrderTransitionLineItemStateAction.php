@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Types\State\StateReference;
 
-interface OrderTransitionLineItemStateAction extends OrderUpdateAction {
+interface OrderTransitionLineItemStateAction extends OrderUpdateAction
+{
     const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
     const FIELD_FROM_STATE = 'fromState';
     const FIELD_LINE_ITEM_ID = 'lineItemId';

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Product\ProductUpdateActionCollection;
 
 
-interface ProductMoveImageToPositionActionCollection extends ProductUpdateActionCollection {
+interface ProductMoveImageToPositionActionCollection extends ProductUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductMoveImageToPositionAction

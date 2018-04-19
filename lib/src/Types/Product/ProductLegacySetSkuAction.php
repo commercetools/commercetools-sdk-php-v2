@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductLegacySetSkuAction extends ProductUpdateAction {
+interface ProductLegacySetSkuAction extends ProductUpdateAction
+{
     const FIELD_SKU = 'sku';
     const FIELD_VARIANT_ID = 'variantId';
 

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\JsonObject;
 
-interface CustomFieldEnumValue extends JsonObject {
+interface CustomFieldEnumValue extends JsonObject
+{
     const FIELD_KEY = 'key';
     const FIELD_LABEL = 'label';
 

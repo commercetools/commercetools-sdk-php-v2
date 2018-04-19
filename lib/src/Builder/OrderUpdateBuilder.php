@@ -50,7 +50,8 @@ use Commercetools\Types\Order\OrderUpdate;
 use Commercetools\Request\ByProjectKeyOrdersByIDPost;
 
 
-class OrderUpdateBuilder extends BaseBuilder {
+class OrderUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Order
      */

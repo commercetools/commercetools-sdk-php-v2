@@ -13,7 +13,8 @@ use Commercetools\Types\PagedQueryResponseModel;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-class CartPagedQueryResponseModel extends PagedQueryResponseModel implements CartPagedQueryResponse {
+class CartPagedQueryResponseModel extends PagedQueryResponseModel implements CartPagedQueryResponse
+{
     /**
      * @var CartCollection
      */

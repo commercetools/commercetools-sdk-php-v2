@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CartDiscount\CartDiscountTargetModel;
 
-class CartDiscountLineItemsTargetModel extends CartDiscountTargetModel implements CartDiscountLineItemsTarget {
+class CartDiscountLineItemsTargetModel extends CartDiscountTargetModel implements CartDiscountLineItemsTarget
+{
     const DISCRIMINATOR_VALUE = 'lineItems';
 
     /**

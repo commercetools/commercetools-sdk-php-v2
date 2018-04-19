@@ -14,7 +14,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Common\Money;
 
-interface CustomLineItemDraft extends JsonObject {
+interface CustomLineItemDraft extends JsonObject
+{
     const FIELD_NAME = 'name';
     const FIELD_QUANTITY = 'quantity';
     const FIELD_MONEY = 'money';

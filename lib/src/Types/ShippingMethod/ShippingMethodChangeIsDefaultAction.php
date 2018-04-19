@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
-interface ShippingMethodChangeIsDefaultAction extends ShippingMethodUpdateAction {
+interface ShippingMethodChangeIsDefaultAction extends ShippingMethodUpdateAction
+{
     const FIELD_IS_DEFAULT = 'isDefault';
 
     /**

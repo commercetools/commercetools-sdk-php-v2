@@ -26,7 +26,8 @@ use Commercetools\Types\DiscountCode\DiscountCodeUpdate;
 use Commercetools\Request\ByProjectKeyDiscountCodesByIDPost;
 
 
-class DiscountCodeUpdateBuilder extends BaseBuilder {
+class DiscountCodeUpdateBuilder extends BaseBuilder
+{
     /**
      * @var DiscountCode
      */

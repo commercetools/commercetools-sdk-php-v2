@@ -19,7 +19,8 @@ use Commercetools\Types\ProductType\ProductTypeReference;
 use Commercetools\Types\Review\ReviewRatingStatistics;
 use Commercetools\Types\Common\Resource;
 
-class ProductProjectionModel extends ResourceModel implements ProductProjection {
+class ProductProjectionModel extends ResourceModel implements ProductProjection
+{
     /**
      * @var string
      */

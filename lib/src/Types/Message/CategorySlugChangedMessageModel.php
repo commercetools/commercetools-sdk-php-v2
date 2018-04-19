@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class CategorySlugChangedMessageModel extends MessageModel implements CategorySlugChangedMessage {
+class CategorySlugChangedMessageModel extends MessageModel implements CategorySlugChangedMessage
+{
     const DISCRIMINATOR_VALUE = 'CategorySlugChanged';
 
     /**

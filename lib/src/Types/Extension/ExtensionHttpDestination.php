@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Extension;
 
-interface ExtensionHttpDestination extends ExtensionDestination {
+interface ExtensionHttpDestination extends ExtensionDestination
+{
     const FIELD_URL = 'url';
     const FIELD_AUTHENTICATION = 'authentication';
 

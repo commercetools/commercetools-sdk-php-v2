@@ -10,7 +10,8 @@ namespace Commercetools\Types\CustomObject;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface CustomObjectCollection extends ResourceCollection {
+interface CustomObjectCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return CustomObject
@@ -34,4 +35,5 @@ interface CustomObjectCollection extends ResourceCollection {
      * @return CustomObject
      */
     public function byId($id);
+
 }

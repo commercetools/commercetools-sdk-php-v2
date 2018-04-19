@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Order\DeliveryItem;
 use Commercetools\Types\Order\DeliveryItemCollection;
 
-interface ParcelItemsUpdatedMessage extends Message {
+interface ParcelItemsUpdatedMessage extends Message
+{
     const FIELD_PARCEL_ID = 'parcelId';
     const FIELD_DELIVERY_ID = 'deliveryId';
     const FIELD_ITEMS = 'items';

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonObject;
 
-interface AssetSource extends JsonObject {
+interface AssetSource extends JsonObject
+{
     const FIELD_URI = 'uri';
     const FIELD_KEY = 'key';
     const FIELD_DIMENSIONS = 'dimensions';

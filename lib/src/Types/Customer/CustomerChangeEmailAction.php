@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerChangeEmailAction extends CustomerUpdateAction {
+interface CustomerChangeEmailAction extends CustomerUpdateAction
+{
     const FIELD_EMAIL = 'email';
 
     /**

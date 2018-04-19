@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Product\ProductProjection;
 
-interface ProductCreatedMessage extends Message {
+interface ProductCreatedMessage extends Message
+{
     const FIELD_PRODUCT_PROJECTION = 'productProjection';
 
     /**

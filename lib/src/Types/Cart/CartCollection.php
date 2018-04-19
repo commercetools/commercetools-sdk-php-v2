@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface CartCollection extends ResourceCollection {
+interface CartCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Cart
@@ -34,4 +35,5 @@ interface CartCollection extends ResourceCollection {
      * @return Cart
      */
     public function byId($id);
+
 }

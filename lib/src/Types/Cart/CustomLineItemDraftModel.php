@@ -15,7 +15,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Common\Money;
 
-class CustomLineItemDraftModel extends JsonObjectModel implements CustomLineItemDraft {
+class CustomLineItemDraftModel extends JsonObjectModel implements CustomLineItemDraft
+{
     /**
      * @var LocalizedString
      */

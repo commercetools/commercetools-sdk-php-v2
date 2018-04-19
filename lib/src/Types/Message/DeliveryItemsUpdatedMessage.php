@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Order\DeliveryItem;
 use Commercetools\Types\Order\DeliveryItemCollection;
 
-interface DeliveryItemsUpdatedMessage extends Message {
+interface DeliveryItemsUpdatedMessage extends Message
+{
     const FIELD_DELIVERY_ID = 'deliveryId';
     const FIELD_ITEMS = 'items';
 

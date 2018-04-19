@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class OutOfStockErrorModel extends ErrorObjectModel implements OutOfStockError {
+class OutOfStockErrorModel extends ErrorObjectModel implements OutOfStockError
+{
     const DISCRIMINATOR_VALUE = 'OutOfStock';
 
     /**

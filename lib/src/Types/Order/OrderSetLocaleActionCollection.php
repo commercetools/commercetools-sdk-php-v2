@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\Order\OrderUpdateActionCollection;
 
 
-interface OrderSetLocaleActionCollection extends OrderUpdateActionCollection {
+interface OrderSetLocaleActionCollection extends OrderUpdateActionCollection
+{
     /**
      * @param $index
      * @return OrderSetLocaleAction

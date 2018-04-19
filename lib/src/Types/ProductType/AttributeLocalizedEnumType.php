@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface AttributeLocalizedEnumType extends AttributeType {
+interface AttributeLocalizedEnumType extends AttributeType
+{
     const FIELD_VALUES = 'values';
 
     /**

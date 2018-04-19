@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
-class CustomerSetDefaultShippingAddressActionModel extends CustomerUpdateActionModel implements CustomerSetDefaultShippingAddressAction {
+class CustomerSetDefaultShippingAddressActionModel extends CustomerUpdateActionModel implements CustomerSetDefaultShippingAddressAction
+{
     const DISCRIMINATOR_VALUE = 'setDefaultShippingAddress';
 
     /**

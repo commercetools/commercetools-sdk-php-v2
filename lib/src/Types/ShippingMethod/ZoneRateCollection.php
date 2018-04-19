@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Base\Collection;
 
-interface ZoneRateCollection extends Collection {
+interface ZoneRateCollection extends Collection
+{
     /**
      * @param $index
      * @return ZoneRate

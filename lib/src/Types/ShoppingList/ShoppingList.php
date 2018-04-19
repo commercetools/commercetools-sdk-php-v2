@@ -13,7 +13,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Customer\CustomerReference;
 use Commercetools\Types\Common\Resource;
 
-interface ShoppingList extends Resource {
+interface ShoppingList extends Resource
+{
     const FIELD_CUSTOM = 'custom';
     const FIELD_CUSTOMER = 'customer';
     const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';

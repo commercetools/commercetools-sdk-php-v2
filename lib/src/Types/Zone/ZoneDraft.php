@@ -9,7 +9,8 @@ namespace Commercetools\Types\Zone;
 
 use Commercetools\Base\JsonObject;
 
-interface ZoneDraft extends JsonObject {
+interface ZoneDraft extends JsonObject
+{
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_LOCATIONS = 'locations';

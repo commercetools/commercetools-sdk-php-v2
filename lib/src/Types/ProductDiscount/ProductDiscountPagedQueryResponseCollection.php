@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductDiscount;
 use Commercetools\Types\PagedQueryResponseCollection;
 
 
-interface ProductDiscountPagedQueryResponseCollection extends PagedQueryResponseCollection {
+interface ProductDiscountPagedQueryResponseCollection extends PagedQueryResponseCollection
+{
     /**
      * @param $index
      * @return ProductDiscountPagedQueryResponse

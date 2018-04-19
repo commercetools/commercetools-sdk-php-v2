@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface CustomFieldBooleanType extends FieldType {
+interface CustomFieldBooleanType extends FieldType
+{
 }

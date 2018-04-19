@@ -17,7 +17,8 @@ use Commercetools\Types\Common\AddressCollection;
 use Commercetools\Types\Common\Address;
 use Commercetools\Types\Common\Resource;
 
-class CustomerModel extends ResourceModel implements Customer {
+class CustomerModel extends ResourceModel implements Customer
+{
     /**
      * @var string
      */

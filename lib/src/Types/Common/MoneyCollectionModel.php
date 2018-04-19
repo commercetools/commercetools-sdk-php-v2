@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class MoneyCollectionModel extends JsonCollection implements MoneyCollection {
+class MoneyCollectionModel extends JsonCollection implements MoneyCollection
+{
 
     /**
      * @param Money $value

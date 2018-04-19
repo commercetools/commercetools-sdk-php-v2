@@ -9,7 +9,8 @@ namespace Commercetools\Types\CartDiscount;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface CartDiscountSetCustomTypeAction extends CartDiscountUpdateAction {
+interface CartDiscountSetCustomTypeAction extends CartDiscountUpdateAction
+{
     const FIELD_FIELDS = 'fields';
     const FIELD_TYPE = 'type';
 

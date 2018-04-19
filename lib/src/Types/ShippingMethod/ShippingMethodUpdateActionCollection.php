@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Types\UpdateActionCollection;
 
 
-interface ShippingMethodUpdateActionCollection extends UpdateActionCollection {
+interface ShippingMethodUpdateActionCollection extends UpdateActionCollection
+{
     /**
      * @param $index
      * @return ShippingMethodUpdateAction

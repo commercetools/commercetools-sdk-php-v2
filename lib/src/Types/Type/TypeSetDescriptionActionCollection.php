@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\TypeUpdateActionCollection;
 
 
-interface TypeSetDescriptionActionCollection extends TypeUpdateActionCollection {
+interface TypeSetDescriptionActionCollection extends TypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return TypeSetDescriptionAction

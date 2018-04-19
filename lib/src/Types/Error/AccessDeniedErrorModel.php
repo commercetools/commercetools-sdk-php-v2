@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class AccessDeniedErrorModel extends ErrorObjectModel implements AccessDeniedError {
+class AccessDeniedErrorModel extends ErrorObjectModel implements AccessDeniedError
+{
     const DISCRIMINATOR_VALUE = 'access_denied';
 
 }

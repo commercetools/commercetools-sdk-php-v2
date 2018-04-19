@@ -11,7 +11,8 @@ use Commercetools\Types\Product\SuggestTokenizerCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class WhitespaceTokenizerCollectionModel extends SuggestTokenizerCollectionModel implements WhitespaceTokenizerCollection {
+class WhitespaceTokenizerCollectionModel extends SuggestTokenizerCollectionModel implements WhitespaceTokenizerCollection
+{
 
     /**
      * @param WhitespaceTokenizer $value

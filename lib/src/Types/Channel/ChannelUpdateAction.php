@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface ChannelUpdateAction extends UpdateAction {
+interface ChannelUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addRoles' => Types\Channel\ChannelAddRolesAction::class,

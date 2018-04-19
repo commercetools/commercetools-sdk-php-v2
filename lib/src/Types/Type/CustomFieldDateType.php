@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface CustomFieldDateType extends FieldType {
+interface CustomFieldDateType extends FieldType
+{
 }

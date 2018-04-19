@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface InvalidCurrentPasswordError extends ErrorObject {
+interface InvalidCurrentPasswordError extends ErrorObject
+{
 }

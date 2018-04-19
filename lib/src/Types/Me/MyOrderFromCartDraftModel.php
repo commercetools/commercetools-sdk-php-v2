@@ -10,7 +10,8 @@ namespace Commercetools\Types\Me;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrderFromCartDraft {
+class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrderFromCartDraft
+{
     /**
      * @var string
      */

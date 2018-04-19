@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\JsonObject;
 
-interface DiscountedLineItemPriceForQuantity extends JsonObject {
+interface DiscountedLineItemPriceForQuantity extends JsonObject
+{
     const FIELD_QUANTITY = 'quantity';
     const FIELD_DISCOUNTED_PRICE = 'discountedPrice';
 

@@ -16,7 +16,8 @@ use Commercetools\Types\Product\AttributeCollection;
 use Commercetools\Types\Common\Price;
 use Commercetools\Types\Common\Image;
 
-interface ProductVariantImportDraft extends JsonObject {
+interface ProductVariantImportDraft extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_SKU = 'sku';
     const FIELD_PRICES = 'prices';

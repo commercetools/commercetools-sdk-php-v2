@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface CustomerDateOfBirthSetMessageCollection extends MessageCollection {
+interface CustomerDateOfBirthSetMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return CustomerDateOfBirthSetMessage

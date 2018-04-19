@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel implements ProductVariantChannelAvailabilityMap {
+class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel implements ProductVariantChannelAvailabilityMap
+{
     private $patternData = [];
     /**
      * @param string $key

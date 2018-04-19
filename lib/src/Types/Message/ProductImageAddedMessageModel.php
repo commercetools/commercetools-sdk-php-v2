@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Common\Image;
 
-class ProductImageAddedMessageModel extends MessageModel implements ProductImageAddedMessage {
+class ProductImageAddedMessageModel extends MessageModel implements ProductImageAddedMessage
+{
     const DISCRIMINATOR_VALUE = 'ProductImageAdded';
 
     /**

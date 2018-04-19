@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface ChannelCollection extends ResourceCollection {
+interface ChannelCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Channel
@@ -34,4 +35,5 @@ interface ChannelCollection extends ResourceCollection {
      * @return Channel
      */
     public function byId($id);
+
 }

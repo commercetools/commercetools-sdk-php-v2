@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Subscription\DestinationModel;
 
-class AzureServiceBusDestinationModel extends DestinationModel implements AzureServiceBusDestination {
+class AzureServiceBusDestinationModel extends DestinationModel implements AzureServiceBusDestination
+{
     const DISCRIMINATOR_VALUE = 'AzureServiceBus';
 
     /**

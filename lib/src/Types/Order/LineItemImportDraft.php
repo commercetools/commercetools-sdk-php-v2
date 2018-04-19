@@ -15,7 +15,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Price;
 
-interface LineItemImportDraft extends JsonObject {
+interface LineItemImportDraft extends JsonObject
+{
     const FIELD_PRODUCT_ID = 'productId';
     const FIELD_NAME = 'name';
     const FIELD_VARIANT = 'variant';

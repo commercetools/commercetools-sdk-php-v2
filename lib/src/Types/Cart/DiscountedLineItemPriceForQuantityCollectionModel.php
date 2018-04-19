@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class DiscountedLineItemPriceForQuantityCollectionModel extends JsonCollection implements DiscountedLineItemPriceForQuantityCollection {
+class DiscountedLineItemPriceForQuantityCollectionModel extends JsonCollection implements DiscountedLineItemPriceForQuantityCollection
+{
 
     /**
      * @param DiscountedLineItemPriceForQuantity $value

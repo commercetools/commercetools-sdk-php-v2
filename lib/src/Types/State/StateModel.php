@@ -14,7 +14,8 @@ use Commercetools\Builder\StateUpdateBuilder;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Common\Resource;
 
-class StateModel extends ResourceModel implements State {
+class StateModel extends ResourceModel implements State
+{
     /**
      * @var string
      */

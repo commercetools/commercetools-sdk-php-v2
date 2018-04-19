@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonObject;
 
-interface ResourceIdentifier extends JsonObject {
+interface ResourceIdentifier extends JsonObject
+{
     const FIELD_TYPE_ID = 'typeId';
     const FIELD_ID = 'id';
     const FIELD_KEY = 'key';

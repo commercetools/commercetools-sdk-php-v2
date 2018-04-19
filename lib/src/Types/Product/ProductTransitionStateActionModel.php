@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\State\State;
 
-class ProductTransitionStateActionModel extends ProductUpdateActionModel implements ProductTransitionStateAction {
+class ProductTransitionStateActionModel extends ProductUpdateActionModel implements ProductTransitionStateAction
+{
     const DISCRIMINATOR_VALUE = 'transitionState';
 
     /**

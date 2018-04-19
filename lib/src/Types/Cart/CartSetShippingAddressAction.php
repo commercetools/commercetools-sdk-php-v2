@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\Common\Address;
 
-interface CartSetShippingAddressAction extends CartUpdateAction {
+interface CartSetShippingAddressAction extends CartUpdateAction
+{
     const FIELD_ADDRESS = 'address';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class LocalizedStringCollectionModel extends JsonCollection implements LocalizedStringCollection {
+class LocalizedStringCollectionModel extends JsonCollection implements LocalizedStringCollection
+{
 
     /**
      * @param LocalizedString $value

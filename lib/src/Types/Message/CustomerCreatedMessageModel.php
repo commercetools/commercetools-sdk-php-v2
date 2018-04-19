@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Customer\Customer;
 
-class CustomerCreatedMessageModel extends MessageModel implements CustomerCreatedMessage {
+class CustomerCreatedMessageModel extends MessageModel implements CustomerCreatedMessage
+{
     const DISCRIMINATOR_VALUE = 'CustomerCreated';
 
     /**

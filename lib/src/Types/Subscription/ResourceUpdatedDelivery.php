@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-interface ResourceUpdatedDelivery extends SubscriptionDelivery {
+interface ResourceUpdatedDelivery extends SubscriptionDelivery
+{
     const FIELD_VERSION = 'version';
     const FIELD_OLD_VERSION = 'oldVersion';
 

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\Order\OrderUpdateActionCollection;
 
 
-interface OrderSetLineItemCustomTypeActionCollection extends OrderUpdateActionCollection {
+interface OrderSetLineItemCustomTypeActionCollection extends OrderUpdateActionCollection
+{
     /**
      * @param $index
      * @return OrderSetLineItemCustomTypeAction

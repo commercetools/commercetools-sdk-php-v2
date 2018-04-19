@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface OrderCollection extends ResourceCollection {
+interface OrderCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Order
@@ -34,4 +35,5 @@ interface OrderCollection extends ResourceCollection {
      * @return Order
      */
     public function byId($id);
+
 }

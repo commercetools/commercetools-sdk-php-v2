@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
-interface StateChangeTypeAction extends StateUpdateAction {
+interface StateChangeTypeAction extends StateUpdateAction
+{
     const FIELD_TYPE = 'type';
 
     /**

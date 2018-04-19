@@ -9,7 +9,8 @@ namespace Commercetools\Types\DiscountCode;
 
 use Commercetools\Base\Collection;
 
-interface DiscountCodeDraftCollection extends Collection {
+interface DiscountCodeDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return DiscountCodeDraft

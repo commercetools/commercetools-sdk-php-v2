@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\Collection;
 
-interface ReplicaCartDraftCollection extends Collection {
+interface ReplicaCartDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return ReplicaCartDraft

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface AccessDeniedErrorCollection extends ErrorObjectCollection {
+interface AccessDeniedErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return AccessDeniedError

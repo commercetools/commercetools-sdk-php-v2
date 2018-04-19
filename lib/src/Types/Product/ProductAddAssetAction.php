@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Common\AssetDraft;
 
-interface ProductAddAssetAction extends ProductUpdateAction {
+interface ProductAddAssetAction extends ProductUpdateAction
+{
     const FIELD_ASSET = 'asset';
     const FIELD_SKU = 'sku';
     const FIELD_VARIANT_ID = 'variantId';

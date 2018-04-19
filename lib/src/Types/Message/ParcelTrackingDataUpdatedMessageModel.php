@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Order\TrackingData;
 
-class ParcelTrackingDataUpdatedMessageModel extends MessageModel implements ParcelTrackingDataUpdatedMessage {
+class ParcelTrackingDataUpdatedMessageModel extends MessageModel implements ParcelTrackingDataUpdatedMessage
+{
     const DISCRIMINATOR_VALUE = 'ParcelTrackingDataUpdated';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\Money;
 
-interface ExternalTaxAmountDraft extends JsonObject {
+interface ExternalTaxAmountDraft extends JsonObject
+{
     const FIELD_TOTAL_GROSS = 'totalGross';
     const FIELD_TAX_RATE = 'taxRate';
 

@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface FacetResult extends JsonObject {
+interface FacetResult extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'filter' => Types\Product\FilteredFacetResult::class,

@@ -11,7 +11,8 @@ use Commercetools\Types\Subscription\SubscriptionDeliveryCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ResourceDeletedDeliveryCollectionModel extends SubscriptionDeliveryCollectionModel implements ResourceDeletedDeliveryCollection {
+class ResourceDeletedDeliveryCollectionModel extends SubscriptionDeliveryCollectionModel implements ResourceDeletedDeliveryCollection
+{
 
     /**
      * @param ResourceDeletedDelivery $value

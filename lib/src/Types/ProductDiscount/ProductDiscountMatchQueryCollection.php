@@ -9,7 +9,8 @@ namespace Commercetools\Types\ProductDiscount;
 
 use Commercetools\Base\Collection;
 
-interface ProductDiscountMatchQueryCollection extends Collection {
+interface ProductDiscountMatchQueryCollection extends Collection
+{
     /**
      * @param $index
      * @return ProductDiscountMatchQuery

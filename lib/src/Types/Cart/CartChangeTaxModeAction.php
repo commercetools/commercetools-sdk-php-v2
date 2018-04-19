@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartChangeTaxModeAction extends CartUpdateAction {
+interface CartChangeTaxModeAction extends CartUpdateAction
+{
     const FIELD_TAX_MODE = 'taxMode';
 
     /**

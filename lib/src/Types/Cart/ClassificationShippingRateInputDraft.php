@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface ClassificationShippingRateInputDraft extends ShippingRateInputDraft {
+interface ClassificationShippingRateInputDraft extends ShippingRateInputDraft
+{
     const FIELD_KEY = 'key';
 
     /**

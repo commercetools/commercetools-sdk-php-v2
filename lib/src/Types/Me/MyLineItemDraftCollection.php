@@ -9,7 +9,8 @@ namespace Commercetools\Types\Me;
 
 use Commercetools\Base\Collection;
 
-interface MyLineItemDraftCollection extends Collection {
+interface MyLineItemDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return MyLineItemDraft

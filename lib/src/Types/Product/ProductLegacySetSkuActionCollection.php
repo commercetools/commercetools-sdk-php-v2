@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Product\ProductUpdateActionCollection;
 
 
-interface ProductLegacySetSkuActionCollection extends ProductUpdateActionCollection {
+interface ProductLegacySetSkuActionCollection extends ProductUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductLegacySetSkuAction

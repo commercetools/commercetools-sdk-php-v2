@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\ProductTypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductTypeChangeAttributeOrderActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeChangeAttributeOrderActionCollection {
+class ProductTypeChangeAttributeOrderActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeChangeAttributeOrderActionCollection
+{
 
     /**
      * @param ProductTypeChangeAttributeOrderAction $value

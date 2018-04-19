@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductRemoveVariantAction extends ProductUpdateAction {
+interface ProductRemoveVariantAction extends ProductUpdateAction
+{
     const FIELD_ID = 'id';
     const FIELD_SKU = 'sku';
     const FIELD_STAGED = 'staged';

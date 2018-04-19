@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\ProductTypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductTypeRemoveAttributeDefinitionActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeRemoveAttributeDefinitionActionCollection {
+class ProductTypeRemoveAttributeDefinitionActionCollectionModel extends ProductTypeUpdateActionCollectionModel implements ProductTypeRemoveAttributeDefinitionActionCollection
+{
 
     /**
      * @param ProductTypeRemoveAttributeDefinitionAction $value

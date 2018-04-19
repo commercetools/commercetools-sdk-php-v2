@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class AssetDimensionsModel extends JsonObjectModel implements AssetDimensions {
+class AssetDimensionsModel extends JsonObjectModel implements AssetDimensions
+{
     /**
      * @var int
      */

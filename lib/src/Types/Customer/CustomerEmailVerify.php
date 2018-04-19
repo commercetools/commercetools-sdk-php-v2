@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\JsonObject;
 
-interface CustomerEmailVerify extends JsonObject {
+interface CustomerEmailVerify extends JsonObject
+{
     const FIELD_VERSION = 'version';
     const FIELD_TOKEN_VALUE = 'tokenValue';
 

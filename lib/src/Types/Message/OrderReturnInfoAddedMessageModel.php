@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Order\ReturnInfo;
 
-class OrderReturnInfoAddedMessageModel extends MessageModel implements OrderReturnInfoAddedMessage {
+class OrderReturnInfoAddedMessageModel extends MessageModel implements OrderReturnInfoAddedMessage
+{
     const DISCRIMINATOR_VALUE = 'ReturnInfoAdded';
 
     /**

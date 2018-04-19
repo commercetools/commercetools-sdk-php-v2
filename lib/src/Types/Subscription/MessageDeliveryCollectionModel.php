@@ -11,7 +11,8 @@ use Commercetools\Types\Subscription\SubscriptionDeliveryCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class MessageDeliveryCollectionModel extends SubscriptionDeliveryCollectionModel implements MessageDeliveryCollection {
+class MessageDeliveryCollectionModel extends SubscriptionDeliveryCollectionModel implements MessageDeliveryCollection
+{
 
     /**
      * @param MessageDelivery $value

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartAddDiscountCodeAction extends CartUpdateAction {
+interface CartAddDiscountCodeAction extends CartUpdateAction
+{
     const FIELD_CODE = 'code';
 
     /**

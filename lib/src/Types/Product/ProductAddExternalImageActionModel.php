@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Common\Image;
 
-class ProductAddExternalImageActionModel extends ProductUpdateActionModel implements ProductAddExternalImageAction {
+class ProductAddExternalImageActionModel extends ProductUpdateActionModel implements ProductAddExternalImageAction
+{
     const DISCRIMINATOR_VALUE = 'addExternalImage';
 
     /**

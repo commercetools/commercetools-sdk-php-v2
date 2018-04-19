@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\FacetResultModel;
 
-class RangeFacetResultModel extends FacetResultModel implements RangeFacetResult {
+class RangeFacetResultModel extends FacetResultModel implements RangeFacetResult
+{
     const DISCRIMINATOR_VALUE = 'range';
 
     /**

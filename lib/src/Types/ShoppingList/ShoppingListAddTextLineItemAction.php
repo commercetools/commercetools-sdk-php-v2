@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction {
+interface ShoppingListAddTextLineItemAction extends ShoppingListUpdateAction
+{
     const FIELD_CUSTOM = 'custom';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_NAME = 'name';

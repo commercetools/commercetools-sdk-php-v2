@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetLineItemTotalPriceAction extends CartUpdateAction {
+interface CartSetLineItemTotalPriceAction extends CartUpdateAction
+{
     const FIELD_EXTERNAL_TOTAL_PRICE = 'externalTotalPrice';
     const FIELD_LINE_ITEM_ID = 'lineItemId';
 

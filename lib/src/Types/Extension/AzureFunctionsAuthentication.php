@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Extension;
 
-interface AzureFunctionsAuthentication extends HttpDestinationAuthentication {
+interface AzureFunctionsAuthentication extends HttpDestinationAuthentication
+{
     const FIELD_KEY = 'key';
 
     /**

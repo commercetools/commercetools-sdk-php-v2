@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CustomerGroup;
 
-interface CustomerGroupChangeNameAction extends CustomerGroupUpdateAction {
+interface CustomerGroupChangeNameAction extends CustomerGroupUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

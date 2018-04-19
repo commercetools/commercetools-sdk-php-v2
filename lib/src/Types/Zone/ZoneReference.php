@@ -9,7 +9,8 @@ namespace Commercetools\Types\Zone;
 
 use Commercetools\Types\Common\Reference;
 
-interface ZoneReference extends Reference {
+interface ZoneReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

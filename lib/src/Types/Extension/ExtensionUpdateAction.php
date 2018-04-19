@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface ExtensionUpdateAction extends UpdateAction {
+interface ExtensionUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'changeDestination' => Types\Extension\ExtensionChangeDestinationAction::class,

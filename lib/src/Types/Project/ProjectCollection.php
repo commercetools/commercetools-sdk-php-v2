@@ -9,7 +9,8 @@ namespace Commercetools\Types\Project;
 
 use Commercetools\Base\Collection;
 
-interface ProjectCollection extends Collection {
+interface ProjectCollection extends Collection
+{
     /**
      * @param $index
      * @return Project

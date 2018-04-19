@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Types\PagedQueryResponseCollection;
 
 
-interface CategoryPagedQueryResponseCollection extends PagedQueryResponseCollection {
+interface CategoryPagedQueryResponseCollection extends PagedQueryResponseCollection
+{
     /**
      * @param $index
      * @return CategoryPagedQueryResponse

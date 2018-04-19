@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\State\StateUpdateActionModel;
 
-class StateChangeInitialActionModel extends StateUpdateActionModel implements StateChangeInitialAction {
+class StateChangeInitialActionModel extends StateUpdateActionModel implements StateChangeInitialAction
+{
     const DISCRIMINATOR_VALUE = 'changeInitial';
 
     /**

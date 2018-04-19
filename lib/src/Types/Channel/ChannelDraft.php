@@ -15,7 +15,8 @@ use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\GeoJsonPoint;
 use Commercetools\Types\Common\Address;
 
-interface ChannelDraft extends JsonObject {
+interface ChannelDraft extends JsonObject
+{
     const FIELD_KEY = 'key';
     const FIELD_ROLES = 'roles';
     const FIELD_NAME = 'name';

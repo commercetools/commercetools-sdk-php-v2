@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-interface SnsDestination extends Destination {
+interface SnsDestination extends Destination
+{
     const FIELD_ACCESS_KEY = 'accessKey';
     const FIELD_ACCESS_SECRET = 'accessSecret';
     const FIELD_TOPIC_ARN = 'topicArn';

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
-interface PaymentSetCustomFieldAction extends PaymentUpdateAction {
+interface PaymentSetCustomFieldAction extends PaymentUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_VALUE = 'value';
 

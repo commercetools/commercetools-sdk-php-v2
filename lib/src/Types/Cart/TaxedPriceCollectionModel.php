@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class TaxedPriceCollectionModel extends JsonCollection implements TaxedPriceCollection {
+class TaxedPriceCollectionModel extends JsonCollection implements TaxedPriceCollection
+{
 
     /**
      * @param TaxedPrice $value

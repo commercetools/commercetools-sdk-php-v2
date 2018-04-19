@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShoppingList;
 
-interface ShoppingListSetKeyAction extends ShoppingListUpdateAction {
+interface ShoppingListSetKeyAction extends ShoppingListUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

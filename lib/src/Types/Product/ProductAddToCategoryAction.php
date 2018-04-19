@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Category\CategoryReference;
 
-interface ProductAddToCategoryAction extends ProductUpdateAction {
+interface ProductAddToCategoryAction extends ProductUpdateAction
+{
     const FIELD_CATEGORY = 'category';
     const FIELD_ORDER_HINT = 'orderHint';
     const FIELD_STAGED = 'staged';

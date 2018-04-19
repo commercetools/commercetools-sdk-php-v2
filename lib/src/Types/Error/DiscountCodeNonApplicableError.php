@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface DiscountCodeNonApplicableError extends ErrorObject {
+interface DiscountCodeNonApplicableError extends ErrorObject
+{
 }

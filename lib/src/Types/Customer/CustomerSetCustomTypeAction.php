@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface CustomerSetCustomTypeAction extends CustomerUpdateAction {
+interface CustomerSetCustomTypeAction extends CustomerUpdateAction
+{
     const FIELD_TYPE = 'type';
     const FIELD_FIELDS = 'fields';
 

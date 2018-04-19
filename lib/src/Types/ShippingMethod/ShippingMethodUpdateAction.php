@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface ShippingMethodUpdateAction extends UpdateAction {
+interface ShippingMethodUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addShippingRate' => Types\ShippingMethod\ShippingMethodAddShippingRateAction::class,

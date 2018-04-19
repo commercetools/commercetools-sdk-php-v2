@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface InventoryEntryCollection extends ResourceCollection {
+interface InventoryEntryCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return InventoryEntry
@@ -34,4 +35,5 @@ interface InventoryEntryCollection extends ResourceCollection {
      * @return InventoryEntry
      */
     public function byId($id);
+
 }

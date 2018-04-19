@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface PaymentPagedQueryResponse extends PagedQueryResponse {
+interface PaymentPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return PaymentCollection
      */

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Channel;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface ChannelPagedQueryResponse extends PagedQueryResponse {
+interface ChannelPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return ChannelCollection
      */

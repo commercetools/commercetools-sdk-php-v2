@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface ProductTypeRemoveAttributeDefinitionAction extends ProductTypeUpdateAction {
+interface ProductTypeRemoveAttributeDefinitionAction extends ProductTypeUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

@@ -15,7 +15,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Builder\ReviewUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-interface Review extends Resource {
+interface Review extends Resource
+{
     const FIELD_KEY = 'key';
     const FIELD_UNIQUENESS_VALUE = 'uniquenessValue';
     const FIELD_LOCALE = 'locale';

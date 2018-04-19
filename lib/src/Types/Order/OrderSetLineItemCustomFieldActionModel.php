@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Order\OrderUpdateActionModel;
 
-class OrderSetLineItemCustomFieldActionModel extends OrderUpdateActionModel implements OrderSetLineItemCustomFieldAction {
+class OrderSetLineItemCustomFieldActionModel extends OrderUpdateActionModel implements OrderSetLineItemCustomFieldAction
+{
     const DISCRIMINATOR_VALUE = 'setLineItemCustomField';
 
     /**

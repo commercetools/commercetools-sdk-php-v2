@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface ProjectUpdateAction extends UpdateAction {
+interface ProjectUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'changeCountries' => Types\Project\ProjectChangeCountriesAction::class,

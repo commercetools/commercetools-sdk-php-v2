@@ -12,7 +12,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
 use Commercetools\Types\Common\Money;
 
-class PaymentChangeAmountPlannedActionModel extends PaymentUpdateActionModel implements PaymentChangeAmountPlannedAction {
+class PaymentChangeAmountPlannedActionModel extends PaymentUpdateActionModel implements PaymentChangeAmountPlannedAction
+{
     const DISCRIMINATOR_VALUE = 'changeAmountPlanned';
 
     /**

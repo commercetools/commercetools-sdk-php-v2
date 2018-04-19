@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\Collection;
 
-interface CustomerEmailVerifyCollection extends Collection {
+interface CustomerEmailVerifyCollection extends Collection
+{
     /**
      * @param $index
      * @return CustomerEmailVerify

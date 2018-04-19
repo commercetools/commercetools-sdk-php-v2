@@ -15,7 +15,8 @@ use Commercetools\Types\Common\ImageCollection;
 use Commercetools\Types\Common\PriceDraft;
 use Commercetools\Types\Common\Image;
 
-class ProductAddVariantActionModel extends ProductUpdateActionModel implements ProductAddVariantAction {
+class ProductAddVariantActionModel extends ProductUpdateActionModel implements ProductAddVariantAction
+{
     const DISCRIMINATOR_VALUE = 'addVariant';
 
     /**

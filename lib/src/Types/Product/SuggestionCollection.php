@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\Collection;
 
-interface SuggestionCollection extends Collection {
+interface SuggestionCollection extends Collection
+{
     /**
      * @param $index
      * @return Suggestion

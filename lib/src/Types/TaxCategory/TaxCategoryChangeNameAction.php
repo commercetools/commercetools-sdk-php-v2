@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\TaxCategory;
 
-interface TaxCategoryChangeNameAction extends TaxCategoryUpdateAction {
+interface TaxCategoryChangeNameAction extends TaxCategoryUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

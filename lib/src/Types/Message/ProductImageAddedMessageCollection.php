@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface ProductImageAddedMessageCollection extends MessageCollection {
+interface ProductImageAddedMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return ProductImageAddedMessage

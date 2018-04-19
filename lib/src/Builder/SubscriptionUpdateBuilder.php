@@ -19,7 +19,8 @@ use Commercetools\Types\Subscription\SubscriptionUpdate;
 use Commercetools\Request\ByProjectKeySubscriptionsByIDPost;
 
 
-class SubscriptionUpdateBuilder extends BaseBuilder {
+class SubscriptionUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Subscription
      */

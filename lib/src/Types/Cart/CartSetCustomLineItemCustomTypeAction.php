@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface CartSetCustomLineItemCustomTypeAction extends CartUpdateAction {
+interface CartSetCustomLineItemCustomTypeAction extends CartUpdateAction
+{
     const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     const FIELD_FIELDS = 'fields';
     const FIELD_TYPE = 'type';

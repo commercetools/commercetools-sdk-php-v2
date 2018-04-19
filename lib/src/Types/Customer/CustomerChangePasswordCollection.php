@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\Collection;
 
-interface CustomerChangePasswordCollection extends Collection {
+interface CustomerChangePasswordCollection extends Collection
+{
     /**
      * @param $index
      * @return CustomerChangePassword

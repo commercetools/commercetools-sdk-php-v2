@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface PaymentTransactionStateChangedMessage extends Message {
+interface PaymentTransactionStateChangedMessage extends Message
+{
     const FIELD_TRANSACTION_ID = 'transactionId';
     const FIELD_STATE = 'state';
 

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
-class CustomerSetLastNameActionModel extends CustomerUpdateActionModel implements CustomerSetLastNameAction {
+class CustomerSetLastNameActionModel extends CustomerUpdateActionModel implements CustomerSetLastNameAction
+{
     const DISCRIMINATOR_VALUE = 'setLastName';
 
     /**

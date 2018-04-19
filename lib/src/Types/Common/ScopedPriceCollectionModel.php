@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ScopedPriceCollectionModel extends JsonCollection implements ScopedPriceCollection {
+class ScopedPriceCollectionModel extends JsonCollection implements ScopedPriceCollection
+{
 
     /**
      * @param ScopedPrice $value

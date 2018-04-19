@@ -11,7 +11,8 @@ use Commercetools\Types\Extension\HttpDestinationAuthenticationCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class AzureFunctionsAuthenticationCollectionModel extends HttpDestinationAuthenticationCollectionModel implements AzureFunctionsAuthenticationCollection {
+class AzureFunctionsAuthenticationCollectionModel extends HttpDestinationAuthenticationCollectionModel implements AzureFunctionsAuthenticationCollection
+{
 
     /**
      * @param AzureFunctionsAuthentication $value

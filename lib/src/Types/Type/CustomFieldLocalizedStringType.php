@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface CustomFieldLocalizedStringType extends FieldType {
+interface CustomFieldLocalizedStringType extends FieldType
+{
 }

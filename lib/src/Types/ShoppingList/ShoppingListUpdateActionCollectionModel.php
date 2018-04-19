@@ -11,7 +11,8 @@ use Commercetools\Types\UpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShoppingListUpdateActionCollectionModel extends UpdateActionCollectionModel implements ShoppingListUpdateActionCollection {
+class ShoppingListUpdateActionCollectionModel extends UpdateActionCollectionModel implements ShoppingListUpdateActionCollection
+{
 
     /**
      * @param ShoppingListUpdateAction $value

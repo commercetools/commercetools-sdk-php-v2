@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 
 use Commercetools\Types\Common\Address;
 
-class CartSetBillingAddressActionModel extends CartUpdateActionModel implements CartSetBillingAddressAction {
+class CartSetBillingAddressActionModel extends CartUpdateActionModel implements CartSetBillingAddressAction
+{
     const DISCRIMINATOR_VALUE = 'setBillingAddress';
 
     /**

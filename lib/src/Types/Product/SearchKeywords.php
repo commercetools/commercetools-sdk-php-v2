@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonObject;
 
-interface SearchKeywords extends JsonObject {
+interface SearchKeywords extends JsonObject
+{
     const FIELD_PATTERN0 = '/^[a-z]{2}(-[A-Z]{2})?$/';
 
     public function get(string $key);

@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types;
 
-class ShippingRatePriceTierModel extends JsonObjectModel implements ShippingRatePriceTier {
+class ShippingRatePriceTierModel extends JsonObjectModel implements ShippingRatePriceTier
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

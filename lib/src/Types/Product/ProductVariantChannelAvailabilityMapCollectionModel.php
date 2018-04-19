@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductVariantChannelAvailabilityMapCollectionModel extends JsonCollection implements ProductVariantChannelAvailabilityMapCollection {
+class ProductVariantChannelAvailabilityMapCollectionModel extends JsonCollection implements ProductVariantChannelAvailabilityMapCollection
+{
 
     /**
      * @param ProductVariantChannelAvailabilityMap $value

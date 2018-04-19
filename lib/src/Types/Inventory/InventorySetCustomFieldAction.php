@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
-interface InventorySetCustomFieldAction extends InventoryEntryUpdateAction {
+interface InventorySetCustomFieldAction extends InventoryEntryUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_VALUE = 'value';
 

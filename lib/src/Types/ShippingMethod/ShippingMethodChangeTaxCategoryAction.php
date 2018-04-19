@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Types\TaxCategory\TaxCategoryReference;
 
-interface ShippingMethodChangeTaxCategoryAction extends ShippingMethodUpdateAction {
+interface ShippingMethodChangeTaxCategoryAction extends ShippingMethodUpdateAction
+{
     const FIELD_TAX_CATEGORY = 'taxCategory';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface DiscountCodeUpdate extends Update {
+interface DiscountCodeUpdate extends Update
+{
     /**
      * @return DiscountCodeUpdateActionCollection
      */

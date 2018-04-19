@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Message\MessageModel;
 
-class PaymentStatusInterfaceCodeSetMessageModel extends MessageModel implements PaymentStatusInterfaceCodeSetMessage {
+class PaymentStatusInterfaceCodeSetMessageModel extends MessageModel implements PaymentStatusInterfaceCodeSetMessage
+{
     const DISCRIMINATOR_VALUE = 'PaymentStatusInterfaceCodeSet';
 
     /**

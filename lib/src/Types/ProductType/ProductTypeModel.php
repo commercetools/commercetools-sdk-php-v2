@@ -13,7 +13,8 @@ use Commercetools\Types\Common\ResourceModel;
 use Commercetools\Builder\ProductTypeUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-class ProductTypeModel extends ResourceModel implements ProductType {
+class ProductTypeModel extends ResourceModel implements ProductType
+{
     /**
      * @var string
      */

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonObject;
 
-interface Image extends JsonObject {
+interface Image extends JsonObject
+{
     const FIELD_URL = 'url';
     const FIELD_DIMENSIONS = 'dimensions';
     const FIELD_LABEL = 'label';

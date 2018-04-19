@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
-interface ShippingMethodSetKeyAction extends ShippingMethodUpdateAction {
+interface ShippingMethodSetKeyAction extends ShippingMethodUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

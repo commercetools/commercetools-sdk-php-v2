@@ -13,7 +13,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 use Commercetools\Types\Common\AssetSource;
 use Commercetools\Types\Common\AssetSourceCollection;
 
-class ProductSetAssetSourcesActionModel extends ProductUpdateActionModel implements ProductSetAssetSourcesAction {
+class ProductSetAssetSourcesActionModel extends ProductUpdateActionModel implements ProductSetAssetSourcesAction
+{
     const DISCRIMINATOR_VALUE = 'setAssetSources';
 
     /**

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Me;
 
 use Commercetools\Base\Collection;
 
-interface MyOrderFromCartDraftCollection extends Collection {
+interface MyOrderFromCartDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return MyOrderFromCartDraft

@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Types\Common\Reference;
 
-interface ShippingMethodReference extends Reference {
+interface ShippingMethodReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

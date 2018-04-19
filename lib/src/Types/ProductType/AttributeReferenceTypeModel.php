@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\AttributeTypeModel;
 
-class AttributeReferenceTypeModel extends AttributeTypeModel implements AttributeReferenceType {
+class AttributeReferenceTypeModel extends AttributeTypeModel implements AttributeReferenceType
+{
     const DISCRIMINATOR_VALUE = 'reference';
 
     /**

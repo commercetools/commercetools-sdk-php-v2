@@ -19,7 +19,8 @@ use Commercetools\Types\Common\Address;
 use Commercetools\Types\Review\ReviewRatingStatistics;
 use Commercetools\Types\Common\Resource;
 
-class ChannelModel extends ResourceModel implements Channel {
+class ChannelModel extends ResourceModel implements Channel
+{
     /**
      * @var string
      */

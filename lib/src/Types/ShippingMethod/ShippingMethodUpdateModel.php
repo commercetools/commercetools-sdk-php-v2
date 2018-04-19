@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateModel;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-class ShippingMethodUpdateModel extends UpdateModel implements ShippingMethodUpdate {
+class ShippingMethodUpdateModel extends UpdateModel implements ShippingMethodUpdate
+{
     /**
      * @var ShippingMethodUpdateActionCollection
      */

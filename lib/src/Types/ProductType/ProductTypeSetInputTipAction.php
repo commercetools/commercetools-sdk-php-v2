@@ -9,7 +9,8 @@ namespace Commercetools\Types\ProductType;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ProductTypeSetInputTipAction extends ProductTypeUpdateAction {
+interface ProductTypeSetInputTipAction extends ProductTypeUpdateAction
+{
     const FIELD_ATTRIBUTE_NAME = 'attributeName';
     const FIELD_INPUT_TIP = 'inputTip';
 

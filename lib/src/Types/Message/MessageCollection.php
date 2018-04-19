@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Base\Collection;
 
-interface MessageCollection extends Collection {
+interface MessageCollection extends Collection
+{
     /**
      * @param $index
      * @return Message

@@ -13,7 +13,8 @@ use Commercetools\Types\Message\MessageModel;
 use Commercetools\Types\Order\DeliveryItem;
 use Commercetools\Types\Order\DeliveryItemCollection;
 
-class ParcelItemsUpdatedMessageModel extends MessageModel implements ParcelItemsUpdatedMessage {
+class ParcelItemsUpdatedMessageModel extends MessageModel implements ParcelItemsUpdatedMessage
+{
     const DISCRIMINATOR_VALUE = 'ParcelItemsUpdated';
 
     /**

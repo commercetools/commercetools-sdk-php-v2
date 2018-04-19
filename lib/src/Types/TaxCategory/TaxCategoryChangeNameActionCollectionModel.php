@@ -11,7 +11,8 @@ use Commercetools\Types\TaxCategory\TaxCategoryUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TaxCategoryChangeNameActionCollectionModel extends TaxCategoryUpdateActionCollectionModel implements TaxCategoryChangeNameActionCollection {
+class TaxCategoryChangeNameActionCollectionModel extends TaxCategoryUpdateActionCollectionModel implements TaxCategoryChangeNameActionCollection
+{
 
     /**
      * @param TaxCategoryChangeNameAction $value

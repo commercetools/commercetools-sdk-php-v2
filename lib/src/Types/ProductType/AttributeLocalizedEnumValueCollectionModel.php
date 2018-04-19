@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class AttributeLocalizedEnumValueCollectionModel extends JsonCollection implements AttributeLocalizedEnumValueCollection {
+class AttributeLocalizedEnumValueCollectionModel extends JsonCollection implements AttributeLocalizedEnumValueCollection
+{
 
     /**
      * @param AttributeLocalizedEnumValue $value

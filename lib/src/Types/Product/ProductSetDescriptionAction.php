@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ProductSetDescriptionAction extends ProductUpdateAction {
+interface ProductSetDescriptionAction extends ProductUpdateAction
+{
     const FIELD_DESCRIPTION = 'description';
     const FIELD_STAGED = 'staged';
 

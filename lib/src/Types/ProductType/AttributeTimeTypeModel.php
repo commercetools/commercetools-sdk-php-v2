@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\AttributeTypeModel;
 
-class AttributeTimeTypeModel extends AttributeTypeModel implements AttributeTimeType {
+class AttributeTimeTypeModel extends AttributeTypeModel implements AttributeTimeType
+{
     const DISCRIMINATOR_VALUE = 'time';
 
 }

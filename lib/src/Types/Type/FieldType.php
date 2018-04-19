@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface FieldType extends JsonObject {
+interface FieldType extends JsonObject
+{
     const DISCRIMINATOR = 'name';
     const SUB_TYPES = [
         'Boolean' => Types\Type\CustomFieldBooleanType::class,

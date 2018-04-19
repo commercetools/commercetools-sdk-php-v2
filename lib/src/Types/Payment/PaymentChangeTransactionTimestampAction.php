@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
-interface PaymentChangeTransactionTimestampAction extends PaymentUpdateAction {
+interface PaymentChangeTransactionTimestampAction extends PaymentUpdateAction
+{
     const FIELD_TIMESTAMP = 'timestamp';
     const FIELD_TRANSACTION_ID = 'transactionId';
 

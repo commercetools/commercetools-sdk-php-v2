@@ -12,7 +12,8 @@ use Commercetools\Types\Order\OrderUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class OrderSetCustomLineItemCustomTypeActionModel extends OrderUpdateActionModel implements OrderSetCustomLineItemCustomTypeAction {
+class OrderSetCustomLineItemCustomTypeActionModel extends OrderUpdateActionModel implements OrderSetCustomLineItemCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomLineItemCustomType';
 
     /**

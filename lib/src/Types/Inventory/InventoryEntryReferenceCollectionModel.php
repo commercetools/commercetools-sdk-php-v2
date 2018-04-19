@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InventoryEntryReferenceCollectionModel extends ReferenceCollectionModel implements InventoryEntryReferenceCollection {
+class InventoryEntryReferenceCollectionModel extends ReferenceCollectionModel implements InventoryEntryReferenceCollection
+{
 
     /**
      * @param InventoryEntryReference $value

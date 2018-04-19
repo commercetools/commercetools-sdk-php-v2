@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class GeoJsonCollectionModel extends JsonCollection implements GeoJsonCollection {
+class GeoJsonCollectionModel extends JsonCollection implements GeoJsonCollection
+{
 
     /**
      * @param GeoJson $value

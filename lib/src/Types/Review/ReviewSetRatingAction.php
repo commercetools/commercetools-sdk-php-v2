@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Review;
 
-interface ReviewSetRatingAction extends ReviewUpdateAction {
+interface ReviewSetRatingAction extends ReviewUpdateAction
+{
     const FIELD_RATING = 'rating';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductRevertedStagedChangesMessageCollectionModel extends MessageCollectionModel implements ProductRevertedStagedChangesMessageCollection {
+class ProductRevertedStagedChangesMessageCollectionModel extends MessageCollectionModel implements ProductRevertedStagedChangesMessageCollection
+{
 
     /**
      * @param ProductRevertedStagedChangesMessage $value

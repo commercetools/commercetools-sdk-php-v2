@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProjectCollectionModel extends JsonCollection implements ProjectCollection {
+class ProjectCollectionModel extends JsonCollection implements ProjectCollection
+{
 
     /**
      * @param Project $value

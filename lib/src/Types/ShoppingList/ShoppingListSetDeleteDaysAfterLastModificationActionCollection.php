@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Types\ShoppingList\ShoppingListUpdateActionCollection;
 
 
-interface ShoppingListSetDeleteDaysAfterLastModificationActionCollection extends ShoppingListUpdateActionCollection {
+interface ShoppingListSetDeleteDaysAfterLastModificationActionCollection extends ShoppingListUpdateActionCollection
+{
     /**
      * @param $index
      * @return ShoppingListSetDeleteDaysAfterLastModificationAction

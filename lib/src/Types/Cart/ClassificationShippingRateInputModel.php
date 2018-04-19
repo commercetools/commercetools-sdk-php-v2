@@ -12,7 +12,8 @@ use Commercetools\Types\Cart\ShippingRateInputModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class ClassificationShippingRateInputModel extends ShippingRateInputModel implements ClassificationShippingRateInput {
+class ClassificationShippingRateInputModel extends ShippingRateInputModel implements ClassificationShippingRateInput
+{
     const DISCRIMINATOR_VALUE = 'Classification';
 
     /**

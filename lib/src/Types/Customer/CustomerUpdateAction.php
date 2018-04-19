@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface CustomerUpdateAction extends UpdateAction {
+interface CustomerUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addAddress' => Types\Customer\CustomerAddAddressAction::class,

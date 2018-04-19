@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ReturnInfoModel extends JsonObjectModel implements ReturnInfo {
+class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
+{
     /**
      * @var ReturnItemCollection
      */

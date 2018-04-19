@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Type\CustomFields;
 
-interface PaymentInteractionAddedMessage extends Message {
+interface PaymentInteractionAddedMessage extends Message
+{
     const FIELD_INTERACTION = 'interaction';
 
     /**

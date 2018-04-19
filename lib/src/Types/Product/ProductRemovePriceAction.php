@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductRemovePriceAction extends ProductUpdateAction {
+interface ProductRemovePriceAction extends ProductUpdateAction
+{
     const FIELD_PRICE_ID = 'priceId';
     const FIELD_STAGED = 'staged';
 

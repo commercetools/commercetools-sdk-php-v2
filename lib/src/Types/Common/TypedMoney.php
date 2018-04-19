@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Types;
 
-interface TypedMoney extends Money {
+interface TypedMoney extends Money
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'centPrecision' => Types\Common\CentPrecisionMoney::class,

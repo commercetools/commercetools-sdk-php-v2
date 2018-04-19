@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface ShippingMethodCollection extends ResourceCollection {
+interface ShippingMethodCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return ShippingMethod
@@ -34,4 +35,5 @@ interface ShippingMethodCollection extends ResourceCollection {
      * @return ShippingMethod
      */
     public function byId($id);
+
 }

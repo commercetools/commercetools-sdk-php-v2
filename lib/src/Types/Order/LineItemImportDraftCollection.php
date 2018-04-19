@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\Collection;
 
-interface LineItemImportDraftCollection extends Collection {
+interface LineItemImportDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return LineItemImportDraft

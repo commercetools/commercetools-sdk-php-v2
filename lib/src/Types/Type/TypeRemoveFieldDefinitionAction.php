@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface TypeRemoveFieldDefinitionAction extends TypeUpdateAction {
+interface TypeRemoveFieldDefinitionAction extends TypeUpdateAction
+{
     const FIELD_FIELD_NAME = 'fieldName';
 
     /**

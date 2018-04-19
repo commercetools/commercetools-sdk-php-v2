@@ -9,7 +9,8 @@ namespace Commercetools\Types\Category;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface CategoryChangeNameAction extends CategoryUpdateAction {
+interface CategoryChangeNameAction extends CategoryUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

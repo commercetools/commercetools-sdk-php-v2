@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShippingMethod\ShippingMethodUpdateActionModel;
 
-class ShippingMethodChangeNameActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodChangeNameAction {
+class ShippingMethodChangeNameActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodChangeNameAction
+{
     const DISCRIMINATOR_VALUE = 'changeName';
 
     /**

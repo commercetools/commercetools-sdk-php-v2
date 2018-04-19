@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomFieldsDraftCollectionModel extends JsonCollection implements CustomFieldsDraftCollection {
+class CustomFieldsDraftCollectionModel extends JsonCollection implements CustomFieldsDraftCollection
+{
 
     /**
      * @param CustomFieldsDraft $value

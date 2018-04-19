@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Channel\ChannelReference;
 
-class InventoryEntryDeletedMessageModel extends MessageModel implements InventoryEntryDeletedMessage {
+class InventoryEntryDeletedMessageModel extends MessageModel implements InventoryEntryDeletedMessage
+{
     const DISCRIMINATOR_VALUE = 'InventoryEntryDeleted';
 
     /**

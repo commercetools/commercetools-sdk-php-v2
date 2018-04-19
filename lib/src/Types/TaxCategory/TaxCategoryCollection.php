@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface TaxCategoryCollection extends ResourceCollection {
+interface TaxCategoryCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return TaxCategory
@@ -34,4 +35,5 @@ interface TaxCategoryCollection extends ResourceCollection {
      * @return TaxCategory
      */
     public function byId($id);
+
 }

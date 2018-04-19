@@ -28,7 +28,8 @@ use Commercetools\Types\Type\TypeUpdate;
 use Commercetools\Request\ByProjectKeyTypesByIDPost;
 
 
-class TypeUpdateBuilder extends BaseBuilder {
+class TypeUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Type
      */

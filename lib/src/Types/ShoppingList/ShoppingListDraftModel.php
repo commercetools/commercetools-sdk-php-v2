@@ -14,7 +14,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Customer\CustomerReference;
 
-class ShoppingListDraftModel extends JsonObjectModel implements ShoppingListDraft {
+class ShoppingListDraftModel extends JsonObjectModel implements ShoppingListDraft
+{
     /**
      * @var CustomFieldsDraft
      */

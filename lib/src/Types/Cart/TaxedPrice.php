@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\Money;
 
-interface TaxedPrice extends JsonObject {
+interface TaxedPrice extends JsonObject
+{
     const FIELD_TOTAL_NET = 'totalNet';
     const FIELD_TOTAL_GROSS = 'totalGross';
     const FIELD_TAX_PORTIONS = 'taxPortions';

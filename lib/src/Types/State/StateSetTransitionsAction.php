@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\State;
 
-interface StateSetTransitionsAction extends StateUpdateAction {
+interface StateSetTransitionsAction extends StateUpdateAction
+{
     const FIELD_TRANSITIONS = 'transitions';
 
     /**

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-interface CategorySetCustomFieldAction extends CategoryUpdateAction {
+interface CategorySetCustomFieldAction extends CategoryUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_VALUE = 'value';
 

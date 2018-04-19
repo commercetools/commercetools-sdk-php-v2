@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Order\Order;
 
-interface OrderCreatedMessage extends Message {
+interface OrderCreatedMessage extends Message
+{
     const FIELD_ORDER = 'order';
 
     /**

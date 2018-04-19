@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionModel;
 
-class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends DiscountCodeUpdateActionModel implements DiscountCodeSetMaxApplicationsPerCustomerAction {
+class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends DiscountCodeUpdateActionModel implements DiscountCodeSetMaxApplicationsPerCustomerAction
+{
     const DISCRIMINATOR_VALUE = 'setMaxApplicationsPerCustomer';
 
     /**

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface ScopedPriceCollection extends Collection {
+interface ScopedPriceCollection extends Collection
+{
     /**
      * @param $index
      * @return ScopedPrice

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderSetCustomerEmailAction extends OrderUpdateAction {
+interface OrderSetCustomerEmailAction extends OrderUpdateAction
+{
     const FIELD_EMAIL = 'email';
 
     /**

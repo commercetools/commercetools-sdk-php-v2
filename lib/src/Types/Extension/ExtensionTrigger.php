@@ -9,7 +9,8 @@ namespace Commercetools\Types\Extension;
 
 use Commercetools\Base\JsonObject;
 
-interface ExtensionTrigger extends JsonObject {
+interface ExtensionTrigger extends JsonObject
+{
     const FIELD_RESOURCE_TYPE_ID = 'resourceTypeId';
     const FIELD_ACTIONS = 'actions';
 

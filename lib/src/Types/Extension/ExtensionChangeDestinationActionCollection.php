@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Types\Extension\ExtensionUpdateActionCollection;
 
 
-interface ExtensionChangeDestinationActionCollection extends ExtensionUpdateActionCollection {
+interface ExtensionChangeDestinationActionCollection extends ExtensionUpdateActionCollection
+{
     /**
      * @param $index
      * @return ExtensionChangeDestinationAction

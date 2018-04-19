@@ -9,7 +9,8 @@ namespace Commercetools\Types\Subscription;
 
 use Commercetools\Base\JsonObject;
 
-interface MessageSubscription extends JsonObject {
+interface MessageSubscription extends JsonObject
+{
     const FIELD_RESOURCE_TYPE_ID = 'resourceTypeId';
     const FIELD_TYPES = 'types';
 

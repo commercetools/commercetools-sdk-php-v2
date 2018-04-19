@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ProductDiscountDraft extends JsonObject {
+interface ProductDiscountDraft extends JsonObject
+{
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_VALUE = 'value';

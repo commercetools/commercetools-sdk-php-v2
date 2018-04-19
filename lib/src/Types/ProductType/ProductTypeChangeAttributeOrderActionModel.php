@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionModel;
 
-class ProductTypeChangeAttributeOrderActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeAttributeOrderAction {
+class ProductTypeChangeAttributeOrderActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangeAttributeOrderAction
+{
     const DISCRIMINATOR_VALUE = 'changeAttributeOrder';
 
     /**

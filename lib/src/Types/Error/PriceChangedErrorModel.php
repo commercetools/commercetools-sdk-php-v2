@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class PriceChangedErrorModel extends ErrorObjectModel implements PriceChangedError {
+class PriceChangedErrorModel extends ErrorObjectModel implements PriceChangedError
+{
     const DISCRIMINATOR_VALUE = 'PriceChanged';
 
     /**

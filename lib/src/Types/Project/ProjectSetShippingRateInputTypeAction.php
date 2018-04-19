@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
-interface ProjectSetShippingRateInputTypeAction extends ProjectUpdateAction {
+interface ProjectSetShippingRateInputTypeAction extends ProjectUpdateAction
+{
     const FIELD_SHIPPING_RATE_INPUT_TYPE = 'shippingRateInputType';
 
     /**

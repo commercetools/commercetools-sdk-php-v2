@@ -16,7 +16,8 @@ use Commercetools\Types\CartDiscount\CartDiscountReference;
 use Commercetools\Types\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Types\Common\Resource;
 
-interface DiscountCode extends Resource {
+interface DiscountCode extends Resource
+{
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_CODE = 'code';

@@ -11,7 +11,8 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShoppingListSetDeleteDaysAfterLastModificationActionCollectionModel extends ShoppingListUpdateActionCollectionModel implements ShoppingListSetDeleteDaysAfterLastModificationActionCollection {
+class ShoppingListSetDeleteDaysAfterLastModificationActionCollectionModel extends ShoppingListUpdateActionCollectionModel implements ShoppingListSetDeleteDaysAfterLastModificationActionCollection
+{
 
     /**
      * @param ShoppingListSetDeleteDaysAfterLastModificationAction $value

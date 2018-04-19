@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Types\Subscription\DestinationCollection;
 
 
-interface IronMqDestinationCollection extends DestinationCollection {
+interface IronMqDestinationCollection extends DestinationCollection
+{
     /**
      * @param $index
      * @return IronMqDestination

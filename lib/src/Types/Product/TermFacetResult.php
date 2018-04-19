@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface TermFacetResult extends FacetResult {
+interface TermFacetResult extends FacetResult
+{
     const FIELD_DATA_TYPE = 'dataType';
     const FIELD_MISSING = 'missing';
     const FIELD_TOTAL = 'total';

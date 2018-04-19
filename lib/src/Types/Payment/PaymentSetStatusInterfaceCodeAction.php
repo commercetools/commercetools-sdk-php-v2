@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
-interface PaymentSetStatusInterfaceCodeAction extends PaymentUpdateAction {
+interface PaymentSetStatusInterfaceCodeAction extends PaymentUpdateAction
+{
     const FIELD_INTERFACE_CODE = 'interfaceCode';
 
     /**

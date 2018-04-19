@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Types\Common\Money;
 
-interface PaymentSetAuthorizationAction extends PaymentUpdateAction {
+interface PaymentSetAuthorizationAction extends PaymentUpdateAction
+{
     const FIELD_AMOUNT = 'amount';
     const FIELD_UNTIL = 'until';
 

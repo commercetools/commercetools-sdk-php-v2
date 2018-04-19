@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetLineItemTaxAmountAction extends CartUpdateAction {
+interface CartSetLineItemTaxAmountAction extends CartUpdateAction
+{
     const FIELD_EXTERNAL_TAX_AMOUNT = 'externalTaxAmount';
     const FIELD_LINE_ITEM_ID = 'lineItemId';
 

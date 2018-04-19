@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Message;
 
-interface CustomerDateOfBirthSetMessage extends Message {
+interface CustomerDateOfBirthSetMessage extends Message
+{
     const FIELD_DATE_OF_BIRTH = 'dateOfBirth';
 
     /**

@@ -14,7 +14,8 @@ use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\CustomerGroup\CustomerGroupReference;
 use Commercetools\Types\Type\CustomFields;
 
-class PriceModel extends JsonObjectModel implements Price {
+class PriceModel extends JsonObjectModel implements Price
+{
     /**
      * @var string
      */

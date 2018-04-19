@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Zone;
 
-interface ZoneAddLocationAction extends ZoneUpdateAction {
+interface ZoneAddLocationAction extends ZoneUpdateAction
+{
     const FIELD_LOCATION = 'location';
 
     /**

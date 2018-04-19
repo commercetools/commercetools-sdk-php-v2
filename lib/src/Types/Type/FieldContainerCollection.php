@@ -9,7 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\Collection;
 
-interface FieldContainerCollection extends Collection {
+interface FieldContainerCollection extends Collection
+{
     /**
      * @param $index
      * @return FieldContainer

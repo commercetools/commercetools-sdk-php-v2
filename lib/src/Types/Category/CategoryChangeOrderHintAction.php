@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-interface CategoryChangeOrderHintAction extends CategoryUpdateAction {
+interface CategoryChangeOrderHintAction extends CategoryUpdateAction
+{
     const FIELD_ORDER_HINT = 'orderHint';
 
     /**

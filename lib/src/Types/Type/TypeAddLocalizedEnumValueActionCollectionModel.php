@@ -11,7 +11,8 @@ use Commercetools\Types\Type\TypeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TypeAddLocalizedEnumValueActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeAddLocalizedEnumValueActionCollection {
+class TypeAddLocalizedEnumValueActionCollectionModel extends TypeUpdateActionCollectionModel implements TypeAddLocalizedEnumValueActionCollection
+{
 
     /**
      * @param TypeAddLocalizedEnumValueAction $value

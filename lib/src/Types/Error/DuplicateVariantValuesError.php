@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface DuplicateVariantValuesError extends ErrorObject {
+interface DuplicateVariantValuesError extends ErrorObject
+{
     const FIELD_VARIANT_VALUES = 'variantValues';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Types\Type\FieldTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomFieldReferenceTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldReferenceTypeCollection {
+class CustomFieldReferenceTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldReferenceTypeCollection
+{
 
     /**
      * @param CustomFieldReferenceType $value

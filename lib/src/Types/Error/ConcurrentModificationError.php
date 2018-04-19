@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface ConcurrentModificationError extends ErrorObject {
+interface ConcurrentModificationError extends ErrorObject
+{
     const FIELD_CURRENT_VERSION = 'currentVersion';
 
     /**

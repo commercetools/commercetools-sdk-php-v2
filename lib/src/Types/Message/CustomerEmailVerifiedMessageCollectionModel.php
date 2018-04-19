@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerEmailVerifiedMessageCollectionModel extends MessageCollectionModel implements CustomerEmailVerifiedMessageCollection {
+class CustomerEmailVerifiedMessageCollectionModel extends MessageCollectionModel implements CustomerEmailVerifiedMessageCollection
+{
 
     /**
      * @param CustomerEmailVerifiedMessage $value

@@ -9,7 +9,8 @@ namespace Commercetools\Types\State;
 
 use Commercetools\Types\Common\Reference;
 
-interface StateReference extends Reference {
+interface StateReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

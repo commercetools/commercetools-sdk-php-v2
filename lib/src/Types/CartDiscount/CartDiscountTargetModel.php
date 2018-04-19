@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types;
 
-class CartDiscountTargetModel extends JsonObjectModel implements CartDiscountTarget {
+class CartDiscountTargetModel extends JsonObjectModel implements CartDiscountTarget
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

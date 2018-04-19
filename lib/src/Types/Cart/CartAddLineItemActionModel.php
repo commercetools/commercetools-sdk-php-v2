@@ -14,7 +14,8 @@ use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Money;
 
-class CartAddLineItemActionModel extends CartUpdateActionModel implements CartAddLineItemAction {
+class CartAddLineItemActionModel extends CartUpdateActionModel implements CartAddLineItemAction
+{
     const DISCRIMINATOR_VALUE = 'addLineItem';
 
     /**

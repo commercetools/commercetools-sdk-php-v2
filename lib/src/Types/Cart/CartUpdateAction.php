@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface CartUpdateAction extends UpdateAction {
+interface CartUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addCustomLineItem' => Types\Cart\CartAddCustomLineItemAction::class,

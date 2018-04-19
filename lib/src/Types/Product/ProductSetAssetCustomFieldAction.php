@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductSetAssetCustomFieldAction extends ProductUpdateAction {
+interface ProductSetAssetCustomFieldAction extends ProductUpdateAction
+{
     const FIELD_ASSET_KEY = 'assetKey';
     const FIELD_ASSET_ID = 'assetId';
     const FIELD_NAME = 'name';

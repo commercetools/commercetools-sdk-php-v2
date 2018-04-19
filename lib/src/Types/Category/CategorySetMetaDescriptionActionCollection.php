@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Types\Category\CategoryUpdateActionCollection;
 
 
-interface CategorySetMetaDescriptionActionCollection extends CategoryUpdateActionCollection {
+interface CategorySetMetaDescriptionActionCollection extends CategoryUpdateActionCollection
+{
     /**
      * @param $index
      * @return CategorySetMetaDescriptionAction

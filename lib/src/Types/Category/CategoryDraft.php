@@ -14,7 +14,8 @@ use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\AssetDraft;
 use Commercetools\Types\Common\AssetDraftCollection;
 
-interface CategoryDraft extends JsonObject {
+interface CategoryDraft extends JsonObject
+{
     const FIELD_NAME = 'name';
     const FIELD_SLUG = 'slug';
     const FIELD_DESCRIPTION = 'description';

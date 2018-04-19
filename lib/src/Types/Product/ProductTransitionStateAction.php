@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\State\State;
 
-interface ProductTransitionStateAction extends ProductUpdateAction {
+interface ProductTransitionStateAction extends ProductUpdateAction
+{
     const FIELD_STATE = 'state';
     const FIELD_FORCE = 'force';
 

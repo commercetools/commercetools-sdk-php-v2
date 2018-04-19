@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Product\Attribute;
 use Commercetools\Types\Product\AttributeCollection;
 
-interface DuplicateAttributeValuesError extends ErrorObject {
+interface DuplicateAttributeValuesError extends ErrorObject
+{
     const FIELD_ATTRIBUTES = 'attributes';
 
     /**

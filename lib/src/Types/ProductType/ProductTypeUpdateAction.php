@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface ProductTypeUpdateAction extends UpdateAction {
+interface ProductTypeUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addAttributeDefinition' => Types\ProductType\ProductTypeAddAttributeDefinitionAction::class,

@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionCollection;
 
 
-interface DiscountCodeChangeCartDiscountsActionCollection extends DiscountCodeUpdateActionCollection {
+interface DiscountCodeChangeCartDiscountsActionCollection extends DiscountCodeUpdateActionCollection
+{
     /**
      * @param $index
      * @return DiscountCodeChangeCartDiscountsAction

@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface ShoppingListUpdateAction extends UpdateAction {
+interface ShoppingListUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addLineItem' => Types\ShoppingList\ShoppingListAddLineItemAction::class,

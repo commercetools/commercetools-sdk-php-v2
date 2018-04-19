@@ -11,7 +11,8 @@ use Commercetools\Types\TaxCategory\TaxCategoryReference;
 use Commercetools\Builder\ShippingMethodUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-interface ShippingMethod extends Resource {
+interface ShippingMethod extends Resource
+{
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';

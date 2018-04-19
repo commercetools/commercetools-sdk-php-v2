@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
-class CustomerSetLocaleActionModel extends CustomerUpdateActionModel implements CustomerSetLocaleAction {
+class CustomerSetLocaleActionModel extends CustomerUpdateActionModel implements CustomerSetLocaleAction
+{
     const DISCRIMINATOR_VALUE = 'setLocale';
 
     /**

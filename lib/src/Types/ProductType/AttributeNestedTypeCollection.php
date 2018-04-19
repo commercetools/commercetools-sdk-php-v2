@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\AttributeTypeCollection;
 
 
-interface AttributeNestedTypeCollection extends AttributeTypeCollection {
+interface AttributeNestedTypeCollection extends AttributeTypeCollection
+{
     /**
      * @param $index
      * @return AttributeNestedType

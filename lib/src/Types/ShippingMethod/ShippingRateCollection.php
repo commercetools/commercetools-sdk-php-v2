@@ -9,7 +9,8 @@ namespace Commercetools\Types\ShippingMethod;
 
 use Commercetools\Base\Collection;
 
-interface ShippingRateCollection extends Collection {
+interface ShippingRateCollection extends Collection
+{
     /**
      * @param $index
      * @return ShippingRate

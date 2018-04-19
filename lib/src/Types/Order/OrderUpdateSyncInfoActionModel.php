@@ -12,7 +12,8 @@ use Commercetools\Types\Order\OrderUpdateActionModel;
 
 use Commercetools\Types\Channel\ChannelReference;
 
-class OrderUpdateSyncInfoActionModel extends OrderUpdateActionModel implements OrderUpdateSyncInfoAction {
+class OrderUpdateSyncInfoActionModel extends OrderUpdateActionModel implements OrderUpdateSyncInfoAction
+{
     const DISCRIMINATOR_VALUE = 'updateSyncInfo';
 
     /**

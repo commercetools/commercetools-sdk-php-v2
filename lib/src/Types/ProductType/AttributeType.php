@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface AttributeType extends JsonObject {
+interface AttributeType extends JsonObject
+{
     const DISCRIMINATOR = 'name';
     const SUB_TYPES = [
         'boolean' => Types\ProductType\AttributeBooleanType::class,

@@ -11,7 +11,8 @@ use Commercetools\Types\ShippingMethod\ShippingMethodUpdateActionCollectionModel
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShippingMethodChangeIsDefaultActionCollectionModel extends ShippingMethodUpdateActionCollectionModel implements ShippingMethodChangeIsDefaultActionCollection {
+class ShippingMethodChangeIsDefaultActionCollectionModel extends ShippingMethodUpdateActionCollectionModel implements ShippingMethodChangeIsDefaultActionCollection
+{
 
     /**
      * @param ShippingMethodChangeIsDefaultAction $value

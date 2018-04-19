@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\AttributeTypeModel;
 
-class AttributeEnumTypeModel extends AttributeTypeModel implements AttributeEnumType {
+class AttributeEnumTypeModel extends AttributeTypeModel implements AttributeEnumType
+{
     const DISCRIMINATOR_VALUE = 'enum';
 
     /**

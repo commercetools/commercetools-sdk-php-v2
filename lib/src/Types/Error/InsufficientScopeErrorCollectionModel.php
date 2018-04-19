@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InsufficientScopeErrorCollectionModel extends ErrorObjectCollectionModel implements InsufficientScopeErrorCollection {
+class InsufficientScopeErrorCollectionModel extends ErrorObjectCollectionModel implements InsufficientScopeErrorCollection
+{
 
     /**
      * @param InsufficientScopeError $value

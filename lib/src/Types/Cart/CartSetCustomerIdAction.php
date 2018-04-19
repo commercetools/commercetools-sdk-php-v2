@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetCustomerIdAction extends CartUpdateAction {
+interface CartSetCustomerIdAction extends CartUpdateAction
+{
     const FIELD_CUSTOMER_ID = 'customerId';
 
     /**

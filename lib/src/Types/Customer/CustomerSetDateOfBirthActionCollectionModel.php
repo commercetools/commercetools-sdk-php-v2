@@ -11,7 +11,8 @@ use Commercetools\Types\Customer\CustomerUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerSetDateOfBirthActionCollectionModel extends CustomerUpdateActionCollectionModel implements CustomerSetDateOfBirthActionCollection {
+class CustomerSetDateOfBirthActionCollectionModel extends CustomerUpdateActionCollectionModel implements CustomerSetDateOfBirthActionCollection
+{
 
     /**
      * @param CustomerSetDateOfBirthAction $value

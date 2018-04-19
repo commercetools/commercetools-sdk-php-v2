@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\DiscountCode;
 
-interface DiscountCodeSetMaxApplicationsAction extends DiscountCodeUpdateAction {
+interface DiscountCodeSetMaxApplicationsAction extends DiscountCodeUpdateAction
+{
     const FIELD_MAX_APPLICATIONS = 'maxApplications';
 
     /**

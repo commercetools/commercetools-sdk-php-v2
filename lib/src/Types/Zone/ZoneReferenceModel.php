@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class ZoneReferenceModel extends ReferenceModel implements ZoneReference {
+class ZoneReferenceModel extends ReferenceModel implements ZoneReference
+{
     const DISCRIMINATOR_VALUE = 'zone';
 
     /**

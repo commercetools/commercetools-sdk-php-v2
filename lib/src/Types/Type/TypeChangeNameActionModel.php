@@ -12,7 +12,8 @@ use Commercetools\Types\Type\TypeUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class TypeChangeNameActionModel extends TypeUpdateActionModel implements TypeChangeNameAction {
+class TypeChangeNameActionModel extends TypeUpdateActionModel implements TypeChangeNameAction
+{
     const DISCRIMINATOR_VALUE = 'changeName';
 
     /**

@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class DuplicatePriceScopeErrorCollectionModel extends ErrorObjectCollectionModel implements DuplicatePriceScopeErrorCollection {
+class DuplicatePriceScopeErrorCollectionModel extends ErrorObjectCollectionModel implements DuplicatePriceScopeErrorCollection
+{
 
     /**
      * @param DuplicatePriceScopeError $value

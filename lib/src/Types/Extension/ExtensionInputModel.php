@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\Reference;
 
-class ExtensionInputModel extends JsonObjectModel implements ExtensionInput {
+class ExtensionInputModel extends JsonObjectModel implements ExtensionInput
+{
     /**
      * @var string
      */

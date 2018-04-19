@@ -9,7 +9,8 @@ namespace Commercetools\Types\DiscountCode;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface DiscountCodeSetNameAction extends DiscountCodeUpdateAction {
+interface DiscountCodeSetNameAction extends DiscountCodeUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

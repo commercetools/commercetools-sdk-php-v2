@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Types\Customer\CustomerUpdateActionCollection;
 
 
-interface CustomerSetDefaultShippingAddressActionCollection extends CustomerUpdateActionCollection {
+interface CustomerSetDefaultShippingAddressActionCollection extends CustomerUpdateActionCollection
+{
     /**
      * @param $index
      * @return CustomerSetDefaultShippingAddressAction

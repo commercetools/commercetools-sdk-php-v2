@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Types\ShoppingList\ShoppingListUpdateActionCollection;
 
 
-interface ShoppingListAddTextLineItemActionCollection extends ShoppingListUpdateActionCollection {
+interface ShoppingListAddTextLineItemActionCollection extends ShoppingListUpdateActionCollection
+{
     /**
      * @param $index
      * @return ShoppingListAddTextLineItemAction

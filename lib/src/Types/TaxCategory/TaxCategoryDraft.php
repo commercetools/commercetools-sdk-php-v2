@@ -9,7 +9,8 @@ namespace Commercetools\Types\TaxCategory;
 
 use Commercetools\Base\JsonObject;
 
-interface TaxCategoryDraft extends JsonObject {
+interface TaxCategoryDraft extends JsonObject
+{
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_RATES = 'rates';

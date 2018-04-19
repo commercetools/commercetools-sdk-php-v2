@@ -9,7 +9,8 @@ namespace Commercetools\Types\Channel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ChannelChangeNameAction extends ChannelUpdateAction {
+interface ChannelChangeNameAction extends ChannelUpdateAction
+{
     const FIELD_NAME = 'name';
 
     /**

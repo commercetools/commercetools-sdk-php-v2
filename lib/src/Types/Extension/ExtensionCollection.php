@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface ExtensionCollection extends ResourceCollection {
+interface ExtensionCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Extension
@@ -34,4 +35,5 @@ interface ExtensionCollection extends ResourceCollection {
      * @return Extension
      */
     public function byId($id);
+
 }

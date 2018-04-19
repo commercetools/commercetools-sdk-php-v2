@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderFromCartDraftCollectionModel extends JsonCollection implements OrderFromCartDraftCollection {
+class OrderFromCartDraftCollectionModel extends JsonCollection implements OrderFromCartDraftCollection
+{
 
     /**
      * @param OrderFromCartDraft $value

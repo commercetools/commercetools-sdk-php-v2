@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-interface MyLineItemDraft extends JsonObject {
+interface MyLineItemDraft extends JsonObject
+{
     const FIELD_PRODUCT_ID = 'productId';
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_QUANTITY = 'quantity';

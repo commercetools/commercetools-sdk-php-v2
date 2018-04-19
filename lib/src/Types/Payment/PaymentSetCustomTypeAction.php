@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface PaymentSetCustomTypeAction extends PaymentUpdateAction {
+interface PaymentSetCustomTypeAction extends PaymentUpdateAction
+{
     const FIELD_FIELDS = 'fields';
     const FIELD_TYPE = 'type';
 

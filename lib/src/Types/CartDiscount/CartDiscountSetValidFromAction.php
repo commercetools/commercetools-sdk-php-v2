@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface CartDiscountSetValidFromAction extends CartDiscountUpdateAction {
+interface CartDiscountSetValidFromAction extends CartDiscountUpdateAction
+{
     const FIELD_VALID_FROM = 'validFrom';
 
     /**

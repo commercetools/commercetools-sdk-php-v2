@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface CartReferenceCollection extends ReferenceCollection {
+interface CartReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return CartReference

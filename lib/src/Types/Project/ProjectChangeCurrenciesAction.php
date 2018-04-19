@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
-interface ProjectChangeCurrenciesAction extends ProjectUpdateAction {
+interface ProjectChangeCurrenciesAction extends ProjectUpdateAction
+{
     const FIELD_CURRENCIES = 'currencies';
 
     /**

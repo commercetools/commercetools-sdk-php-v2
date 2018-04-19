@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\TypeUpdateActionModel;
 
-class TypeChangeFieldDefinitionOrderActionModel extends TypeUpdateActionModel implements TypeChangeFieldDefinitionOrderAction {
+class TypeChangeFieldDefinitionOrderActionModel extends TypeUpdateActionModel implements TypeChangeFieldDefinitionOrderAction
+{
     const DISCRIMINATOR_VALUE = 'changeFieldDefinitionOrder';
 
     /**

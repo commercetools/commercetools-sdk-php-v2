@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class DiscountCodeReferenceCollectionModel extends ReferenceCollectionModel implements DiscountCodeReferenceCollection {
+class DiscountCodeReferenceCollectionModel extends ReferenceCollectionModel implements DiscountCodeReferenceCollection
+{
 
     /**
      * @param DiscountCodeReference $value

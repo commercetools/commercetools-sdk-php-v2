@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductSetProductPriceCustomFieldAction extends ProductUpdateAction {
+interface ProductSetProductPriceCustomFieldAction extends ProductUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_PRICE_ID = 'priceId';
     const FIELD_STAGED = 'staged';

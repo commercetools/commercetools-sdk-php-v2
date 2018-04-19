@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface CustomerReferenceCollection extends ReferenceCollection {
+interface CustomerReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return CustomerReference

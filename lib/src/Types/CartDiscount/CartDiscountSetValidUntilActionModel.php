@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CartDiscount\CartDiscountUpdateActionModel;
 
-class CartDiscountSetValidUntilActionModel extends CartDiscountUpdateActionModel implements CartDiscountSetValidUntilAction {
+class CartDiscountSetValidUntilActionModel extends CartDiscountUpdateActionModel implements CartDiscountSetValidUntilAction
+{
     const DISCRIMINATOR_VALUE = 'setValidUntil';
 
     /**

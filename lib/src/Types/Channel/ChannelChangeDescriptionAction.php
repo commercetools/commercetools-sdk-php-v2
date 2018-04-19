@@ -9,7 +9,8 @@ namespace Commercetools\Types\Channel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ChannelChangeDescriptionAction extends ChannelUpdateAction {
+interface ChannelChangeDescriptionAction extends ChannelUpdateAction
+{
     const FIELD_DESCRIPTION = 'description';
 
     /**

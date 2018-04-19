@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class DuplicateVariantValuesErrorModel extends ErrorObjectModel implements DuplicateVariantValuesError {
+class DuplicateVariantValuesErrorModel extends ErrorObjectModel implements DuplicateVariantValuesError
+{
     const DISCRIMINATOR_VALUE = 'DuplicateVariantValues';
 
     /**

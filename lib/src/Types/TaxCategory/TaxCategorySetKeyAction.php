@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\TaxCategory;
 
-interface TaxCategorySetKeyAction extends TaxCategoryUpdateAction {
+interface TaxCategorySetKeyAction extends TaxCategoryUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

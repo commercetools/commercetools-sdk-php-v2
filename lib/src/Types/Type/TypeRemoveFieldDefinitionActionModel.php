@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\TypeUpdateActionModel;
 
-class TypeRemoveFieldDefinitionActionModel extends TypeUpdateActionModel implements TypeRemoveFieldDefinitionAction {
+class TypeRemoveFieldDefinitionActionModel extends TypeUpdateActionModel implements TypeRemoveFieldDefinitionAction
+{
     const DISCRIMINATOR_VALUE = 'removeFieldDefinition';
 
     /**

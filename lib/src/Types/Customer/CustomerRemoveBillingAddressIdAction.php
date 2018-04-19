@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerRemoveBillingAddressIdAction extends CustomerUpdateAction {
+interface CustomerRemoveBillingAddressIdAction extends CustomerUpdateAction
+{
     const FIELD_ADDRESS_ID = 'addressId';
 
     /**

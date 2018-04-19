@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Inventory;
 
-interface InventorySetExpectedDeliveryAction extends InventoryEntryUpdateAction {
+interface InventorySetExpectedDeliveryAction extends InventoryEntryUpdateAction
+{
     const FIELD_EXPECTED_DELIVERY = 'expectedDelivery';
 
     /**

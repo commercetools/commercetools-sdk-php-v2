@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Order\Order;
 
-class OrderImportedMessageModel extends MessageModel implements OrderImportedMessage {
+class OrderImportedMessageModel extends MessageModel implements OrderImportedMessage
+{
     const DISCRIMINATOR_VALUE = 'OrderImported';
 
     /**

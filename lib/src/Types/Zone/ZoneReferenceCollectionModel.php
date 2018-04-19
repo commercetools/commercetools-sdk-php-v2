@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ZoneReferenceCollectionModel extends ReferenceCollectionModel implements ZoneReferenceCollection {
+class ZoneReferenceCollectionModel extends ReferenceCollectionModel implements ZoneReferenceCollection
+{
 
     /**
      * @param ZoneReference $value

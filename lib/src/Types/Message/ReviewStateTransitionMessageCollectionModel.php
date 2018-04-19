@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ReviewStateTransitionMessageCollectionModel extends MessageCollectionModel implements ReviewStateTransitionMessageCollection {
+class ReviewStateTransitionMessageCollectionModel extends MessageCollectionModel implements ReviewStateTransitionMessageCollection
+{
 
     /**
      * @param ReviewStateTransitionMessage $value

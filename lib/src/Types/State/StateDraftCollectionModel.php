@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class StateDraftCollectionModel extends JsonCollection implements StateDraftCollection {
+class StateDraftCollectionModel extends JsonCollection implements StateDraftCollection
+{
 
     /**
      * @param StateDraft $value

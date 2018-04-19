@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Product\ProductUpdateActionModel;
 
-class ProductLegacySetSkuActionModel extends ProductUpdateActionModel implements ProductLegacySetSkuAction {
+class ProductLegacySetSkuActionModel extends ProductUpdateActionModel implements ProductLegacySetSkuAction
+{
     const DISCRIMINATOR_VALUE = 'legacySetSku';
 
     /**

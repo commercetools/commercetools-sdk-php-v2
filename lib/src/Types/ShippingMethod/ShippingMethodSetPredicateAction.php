@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
-interface ShippingMethodSetPredicateAction extends ShippingMethodUpdateAction {
+interface ShippingMethodSetPredicateAction extends ShippingMethodUpdateAction
+{
     const FIELD_PREDICATE = 'predicate';
 
     /**

@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateActionModel;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-class ShippingMethodUpdateActionModel extends UpdateActionModel implements ShippingMethodUpdateAction {
+class ShippingMethodUpdateActionModel extends UpdateActionModel implements ShippingMethodUpdateAction
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface InventoryPagedQueryResponse extends PagedQueryResponse {
+interface InventoryPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return InventoryEntryCollection
      */

@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\Money;
 
-class TaxPortionModel extends JsonObjectModel implements TaxPortion {
+class TaxPortionModel extends JsonObjectModel implements TaxPortion
+{
     /**
      * @var string
      */

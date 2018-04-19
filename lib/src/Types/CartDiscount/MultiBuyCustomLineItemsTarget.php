@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget {
+interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget
+{
     const FIELD_PREDICATE = 'predicate';
     const FIELD_TRIGGER_QUANTITY = 'triggerQuantity';
     const FIELD_DISCOUNTED_QUANTITY = 'discountedQuantity';

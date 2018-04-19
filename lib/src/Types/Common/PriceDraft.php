@@ -13,7 +13,8 @@ use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\CustomerGroup\CustomerGroupReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-interface PriceDraft extends JsonObject {
+interface PriceDraft extends JsonObject
+{
     const FIELD_VALUE = 'value';
     const FIELD_COUNTRY = 'country';
     const FIELD_CUSTOMER_GROUP = 'customerGroup';

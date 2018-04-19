@@ -12,7 +12,8 @@ use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
 use Commercetools\Types\CustomerGroup\CustomerGroupReference;
 
-class CustomerSetCustomerGroupActionModel extends CustomerUpdateActionModel implements CustomerSetCustomerGroupAction {
+class CustomerSetCustomerGroupActionModel extends CustomerUpdateActionModel implements CustomerSetCustomerGroupAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomerGroup';
 
     /**

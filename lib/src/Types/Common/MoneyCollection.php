@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface MoneyCollection extends Collection {
+interface MoneyCollection extends Collection
+{
     /**
      * @param $index
      * @return Money

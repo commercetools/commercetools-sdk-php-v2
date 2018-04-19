@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Project;
 
-interface ProjectChangeLanguagesAction extends ProjectUpdateAction {
+interface ProjectChangeLanguagesAction extends ProjectUpdateAction
+{
     const FIELD_LANGUAGES = 'languages';
 
     /**

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Review;
 
-interface ReviewSetKeyAction extends ReviewUpdateAction {
+interface ReviewSetKeyAction extends ReviewUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

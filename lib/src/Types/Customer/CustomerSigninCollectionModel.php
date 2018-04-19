@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerSigninCollectionModel extends JsonCollection implements CustomerSigninCollection {
+class CustomerSigninCollectionModel extends JsonCollection implements CustomerSigninCollection
+{
 
     /**
      * @param CustomerSignin $value

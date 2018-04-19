@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\Payment\PaymentReference;
 use Commercetools\Types\Payment\PaymentReferenceCollection;
 
-class PaymentInfoModel extends JsonObjectModel implements PaymentInfo {
+class PaymentInfoModel extends JsonObjectModel implements PaymentInfo
+{
     /**
      * @var PaymentReferenceCollection
      */

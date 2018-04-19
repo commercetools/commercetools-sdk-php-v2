@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class InventoryEntryDraftCollectionModel extends JsonCollection implements InventoryEntryDraftCollection {
+class InventoryEntryDraftCollectionModel extends JsonCollection implements InventoryEntryDraftCollection
+{
 
     /**
      * @param InventoryEntryDraft $value

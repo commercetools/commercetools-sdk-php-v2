@@ -12,7 +12,8 @@ use Commercetools\Types\Customer\CustomerUpdateActionModel;
 
 use Commercetools\Types\Common\Address;
 
-class CustomerChangeAddressActionModel extends CustomerUpdateActionModel implements CustomerChangeAddressAction {
+class CustomerChangeAddressActionModel extends CustomerUpdateActionModel implements CustomerChangeAddressAction
+{
     const DISCRIMINATOR_VALUE = 'changeAddress';
 
     /**

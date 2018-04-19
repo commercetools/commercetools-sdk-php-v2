@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface ProductProjectionCollection extends ResourceCollection {
+interface ProductProjectionCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return ProductProjection
@@ -34,4 +35,5 @@ interface ProductProjectionCollection extends ResourceCollection {
      * @return ProductProjection
      */
     public function byId($id);
+
 }

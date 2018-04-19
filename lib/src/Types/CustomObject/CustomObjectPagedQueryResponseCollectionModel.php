@@ -11,7 +11,8 @@ use Commercetools\Types\PagedQueryResponseCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomObjectPagedQueryResponseCollectionModel extends PagedQueryResponseCollectionModel implements CustomObjectPagedQueryResponseCollection {
+class CustomObjectPagedQueryResponseCollectionModel extends PagedQueryResponseCollectionModel implements CustomObjectPagedQueryResponseCollection
+{
 
     /**
      * @param CustomObjectPagedQueryResponse $value

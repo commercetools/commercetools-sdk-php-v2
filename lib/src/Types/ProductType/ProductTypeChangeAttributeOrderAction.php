@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface ProductTypeChangeAttributeOrderAction extends ProductTypeUpdateAction {
+interface ProductTypeChangeAttributeOrderAction extends ProductTypeUpdateAction
+{
     const FIELD_ATTRIBUTES = 'attributes';
 
     /**

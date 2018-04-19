@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class InventoryEntryReferenceModel extends ReferenceModel implements InventoryEntryReference {
+class InventoryEntryReferenceModel extends ReferenceModel implements InventoryEntryReference
+{
     const DISCRIMINATOR_VALUE = 'inventory-entry';
 
     /**

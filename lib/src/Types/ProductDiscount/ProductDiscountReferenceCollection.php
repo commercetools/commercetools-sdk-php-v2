@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductDiscount;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface ProductDiscountReferenceCollection extends ReferenceCollection {
+interface ProductDiscountReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return ProductDiscountReference

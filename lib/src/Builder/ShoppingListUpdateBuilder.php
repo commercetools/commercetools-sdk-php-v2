@@ -38,7 +38,8 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdate;
 use Commercetools\Request\ByProjectKeyShoppingListsByIDPost;
 
 
-class ShoppingListUpdateBuilder extends BaseBuilder {
+class ShoppingListUpdateBuilder extends BaseBuilder
+{
     /**
      * @var ShoppingList
      */

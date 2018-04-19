@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Types\Type\TypeUpdateActionCollection;
 
 
-interface TypeChangeFieldDefinitionOrderActionCollection extends TypeUpdateActionCollection {
+interface TypeChangeFieldDefinitionOrderActionCollection extends TypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return TypeChangeFieldDefinitionOrderAction

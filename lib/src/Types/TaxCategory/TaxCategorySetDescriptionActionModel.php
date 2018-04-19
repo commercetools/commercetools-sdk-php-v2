@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\TaxCategory\TaxCategoryUpdateActionModel;
 
-class TaxCategorySetDescriptionActionModel extends TaxCategoryUpdateActionModel implements TaxCategorySetDescriptionAction {
+class TaxCategorySetDescriptionActionModel extends TaxCategoryUpdateActionModel implements TaxCategorySetDescriptionAction
+{
     const DISCRIMINATOR_VALUE = 'setDescription';
 
     /**

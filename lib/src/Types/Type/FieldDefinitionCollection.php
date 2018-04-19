@@ -9,7 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\Collection;
 
-interface FieldDefinitionCollection extends Collection {
+interface FieldDefinitionCollection extends Collection
+{
     /**
      * @param $index
      * @return FieldDefinition

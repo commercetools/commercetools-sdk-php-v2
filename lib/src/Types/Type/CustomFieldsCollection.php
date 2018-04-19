@@ -9,7 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\Collection;
 
-interface CustomFieldsCollection extends Collection {
+interface CustomFieldsCollection extends Collection
+{
     /**
      * @param $index
      * @return CustomFields

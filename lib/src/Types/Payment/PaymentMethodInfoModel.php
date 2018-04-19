@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMethodInfo {
+class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMethodInfo
+{
     /**
      * @var string
      */

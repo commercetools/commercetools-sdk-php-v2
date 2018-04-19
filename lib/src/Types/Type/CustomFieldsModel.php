@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class CustomFieldsModel extends JsonObjectModel implements CustomFields {
+class CustomFieldsModel extends JsonObjectModel implements CustomFields
+{
     /**
      * @var TypeReference
      */

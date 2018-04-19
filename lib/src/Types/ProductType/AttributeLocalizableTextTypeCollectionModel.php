@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\AttributeTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class AttributeLocalizableTextTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeLocalizableTextTypeCollection {
+class AttributeLocalizableTextTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeLocalizableTextTypeCollection
+{
 
     /**
      * @param AttributeLocalizableTextType $value

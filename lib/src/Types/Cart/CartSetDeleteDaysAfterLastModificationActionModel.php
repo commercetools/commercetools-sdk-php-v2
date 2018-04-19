@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Cart\CartUpdateActionModel;
 
-class CartSetDeleteDaysAfterLastModificationActionModel extends CartUpdateActionModel implements CartSetDeleteDaysAfterLastModificationAction {
+class CartSetDeleteDaysAfterLastModificationActionModel extends CartUpdateActionModel implements CartSetDeleteDaysAfterLastModificationAction
+{
     const DISCRIMINATOR_VALUE = 'setDeleteDaysAfterLastModification';
 
     /**

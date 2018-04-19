@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface OrderReferenceCollection extends ReferenceCollection {
+interface OrderReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return OrderReference

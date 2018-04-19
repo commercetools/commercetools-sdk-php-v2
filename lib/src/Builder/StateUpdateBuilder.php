@@ -25,7 +25,8 @@ use Commercetools\Types\State\StateUpdate;
 use Commercetools\Request\ByProjectKeyStatesByIDPost;
 
 
-class StateUpdateBuilder extends BaseBuilder {
+class StateUpdateBuilder extends BaseBuilder
+{
     /**
      * @var State
      */

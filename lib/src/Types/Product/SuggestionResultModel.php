@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class SuggestionResultModel extends JsonObjectModel implements SuggestionResult {
+class SuggestionResultModel extends JsonObjectModel implements SuggestionResult
+{
     private $patternData = [];
     /**
      * @param string $key

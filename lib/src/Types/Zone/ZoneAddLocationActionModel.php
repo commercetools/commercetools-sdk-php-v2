@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Zone\ZoneUpdateActionModel;
 
-class ZoneAddLocationActionModel extends ZoneUpdateActionModel implements ZoneAddLocationAction {
+class ZoneAddLocationActionModel extends ZoneUpdateActionModel implements ZoneAddLocationAction
+{
     const DISCRIMINATOR_VALUE = 'addLocation';
 
     /**

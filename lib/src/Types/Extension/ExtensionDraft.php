@@ -9,7 +9,8 @@ namespace Commercetools\Types\Extension;
 
 use Commercetools\Base\JsonObject;
 
-interface ExtensionDraft extends JsonObject {
+interface ExtensionDraft extends JsonObject
+{
     const FIELD_KEY = 'key';
     const FIELD_DESTINATION = 'destination';
     const FIELD_TRIGGERS = 'triggers';

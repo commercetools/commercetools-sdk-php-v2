@@ -9,7 +9,8 @@ namespace Commercetools\Types\Extension;
 
 use Commercetools\Base\Collection;
 
-interface ExtensionDestinationCollection extends Collection {
+interface ExtensionDestinationCollection extends Collection
+{
     /**
      * @param $index
      * @return ExtensionDestination

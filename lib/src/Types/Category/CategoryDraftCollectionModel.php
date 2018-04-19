@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class CategoryDraftCollectionModel extends JsonCollection implements CategoryDraftCollection {
+class CategoryDraftCollectionModel extends JsonCollection implements CategoryDraftCollection
+{
 
     /**
      * @param CategoryDraft $value

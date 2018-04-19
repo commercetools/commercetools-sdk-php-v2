@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerChangePasswordCollectionModel extends JsonCollection implements CustomerChangePasswordCollection {
+class CustomerChangePasswordCollectionModel extends JsonCollection implements CustomerChangePasswordCollection
+{
 
     /**
      * @param CustomerChangePassword $value

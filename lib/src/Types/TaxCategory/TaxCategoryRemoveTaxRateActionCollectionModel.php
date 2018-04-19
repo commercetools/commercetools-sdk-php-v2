@@ -11,7 +11,8 @@ use Commercetools\Types\TaxCategory\TaxCategoryUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TaxCategoryRemoveTaxRateActionCollectionModel extends TaxCategoryUpdateActionCollectionModel implements TaxCategoryRemoveTaxRateActionCollection {
+class TaxCategoryRemoveTaxRateActionCollectionModel extends TaxCategoryUpdateActionCollectionModel implements TaxCategoryRemoveTaxRateActionCollection
+{
 
     /**
      * @param TaxCategoryRemoveTaxRateAction $value

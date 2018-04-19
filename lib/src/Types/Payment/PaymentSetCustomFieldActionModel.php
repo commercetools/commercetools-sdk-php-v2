@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
-class PaymentSetCustomFieldActionModel extends PaymentUpdateActionModel implements PaymentSetCustomFieldAction {
+class PaymentSetCustomFieldActionModel extends PaymentUpdateActionModel implements PaymentSetCustomFieldAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomField';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\State;
 use Commercetools\Types\UpdateCollection;
 
 
-interface StateUpdateCollection extends UpdateCollection {
+interface StateUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return StateUpdate

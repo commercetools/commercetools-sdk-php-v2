@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ErrorObjectCollectionModel extends JsonCollection implements ErrorObjectCollection {
+class ErrorObjectCollectionModel extends JsonCollection implements ErrorObjectCollection
+{
 
     /**
      * @param ErrorObject $value

@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ResourceIdentifierModel;
 
 use Commercetools\Types;
 
-class ReferenceModel extends ResourceIdentifierModel implements Reference {
+class ReferenceModel extends ResourceIdentifierModel implements Reference
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderImportLineItemStateAction extends OrderUpdateAction {
+interface OrderImportLineItemStateAction extends OrderUpdateAction
+{
     const FIELD_LINE_ITEM_ID = 'lineItemId';
     const FIELD_STATE = 'state';
 

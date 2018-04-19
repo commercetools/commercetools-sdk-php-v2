@@ -14,7 +14,8 @@ use Commercetools\Types\Common\AddressCollection;
 use Commercetools\Types\Common\Address;
 use Commercetools\Types\Common\Resource;
 
-interface Customer extends Resource {
+interface Customer extends Resource
+{
     const FIELD_CUSTOMER_NUMBER = 'customerNumber';
     const FIELD_EMAIL = 'email';
     const FIELD_PASSWORD = 'password';

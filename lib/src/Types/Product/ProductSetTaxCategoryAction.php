@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\TaxCategory\TaxCategoryReference;
 
-interface ProductSetTaxCategoryAction extends ProductUpdateAction {
+interface ProductSetTaxCategoryAction extends ProductUpdateAction
+{
     const FIELD_TAX_CATEGORY = 'taxCategory';
 
     /**

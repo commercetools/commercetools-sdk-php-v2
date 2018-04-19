@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-interface ResourceDeletedDelivery extends SubscriptionDelivery {
+interface ResourceDeletedDelivery extends SubscriptionDelivery
+{
     const FIELD_VERSION = 'version';
 
     /**

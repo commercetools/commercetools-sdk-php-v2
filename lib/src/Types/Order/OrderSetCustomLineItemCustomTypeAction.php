@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface OrderSetCustomLineItemCustomTypeAction extends OrderUpdateAction {
+interface OrderSetCustomLineItemCustomTypeAction extends OrderUpdateAction
+{
     const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
     const FIELD_FIELDS = 'fields';
     const FIELD_TYPE = 'type';

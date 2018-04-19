@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\Collection;
 
-interface ProductVariantChannelAvailabilityMapCollection extends Collection {
+interface ProductVariantChannelAvailabilityMapCollection extends Collection
+{
     /**
      * @param $index
      * @return ProductVariantChannelAvailabilityMap

@@ -12,7 +12,8 @@ use Commercetools\Types\CartDiscount\CartDiscountUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class CartDiscountSetCustomTypeActionModel extends CartDiscountUpdateActionModel implements CartDiscountSetCustomTypeAction {
+class CartDiscountSetCustomTypeActionModel extends CartDiscountUpdateActionModel implements CartDiscountSetCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomType';
 
     /**

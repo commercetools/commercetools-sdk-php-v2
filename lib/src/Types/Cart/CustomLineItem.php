@@ -17,7 +17,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Order\ItemStateCollection;
 use Commercetools\Types\Common\TypedMoney;
 
-interface CustomLineItem extends JsonObject {
+interface CustomLineItem extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_NAME = 'name';
     const FIELD_MONEY = 'money';

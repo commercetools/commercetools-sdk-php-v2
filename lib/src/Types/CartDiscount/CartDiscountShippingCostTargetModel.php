@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\CartDiscount\CartDiscountTargetModel;
 
-class CartDiscountShippingCostTargetModel extends CartDiscountTargetModel implements CartDiscountShippingCostTarget {
+class CartDiscountShippingCostTargetModel extends CartDiscountTargetModel implements CartDiscountShippingCostTarget
+{
     const DISCRIMINATOR_VALUE = 'shipping';
 
 }

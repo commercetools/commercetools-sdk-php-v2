@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\TypedMoney;
 
-class TransactionModel extends JsonObjectModel implements Transaction {
+class TransactionModel extends JsonObjectModel implements Transaction
+{
     /**
      * @var string
      */

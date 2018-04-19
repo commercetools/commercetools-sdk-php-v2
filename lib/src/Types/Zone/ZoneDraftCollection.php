@@ -9,7 +9,8 @@ namespace Commercetools\Types\Zone;
 
 use Commercetools\Base\Collection;
 
-interface ZoneDraftCollection extends Collection {
+interface ZoneDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return ZoneDraft

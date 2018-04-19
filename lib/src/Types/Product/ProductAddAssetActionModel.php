@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Common\AssetDraft;
 
-class ProductAddAssetActionModel extends ProductUpdateActionModel implements ProductAddAssetAction {
+class ProductAddAssetActionModel extends ProductUpdateActionModel implements ProductAddAssetAction
+{
     const DISCRIMINATOR_VALUE = 'addAsset';
 
     /**

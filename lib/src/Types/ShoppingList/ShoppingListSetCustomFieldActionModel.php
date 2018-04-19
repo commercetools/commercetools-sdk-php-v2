@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
-class ShoppingListSetCustomFieldActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetCustomFieldAction {
+class ShoppingListSetCustomFieldActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetCustomFieldAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomField';
 
     /**

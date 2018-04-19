@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Common;
 
-interface CentPrecisionMoney extends TypedMoney {
+interface CentPrecisionMoney extends TypedMoney
+{
 }

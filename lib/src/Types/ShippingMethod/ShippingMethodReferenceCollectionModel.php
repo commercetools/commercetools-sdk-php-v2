@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ReferenceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShippingMethodReferenceCollectionModel extends ReferenceCollectionModel implements ShippingMethodReferenceCollection {
+class ShippingMethodReferenceCollectionModel extends ReferenceCollectionModel implements ShippingMethodReferenceCollection
+{
 
     /**
      * @param ShippingMethodReference $value

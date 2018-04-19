@@ -13,7 +13,8 @@ use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionModel;
 use Commercetools\Types\Common\Reference;
 use Commercetools\Types\Common\ReferenceCollection;
 
-class DiscountCodeChangeCartDiscountsActionModel extends DiscountCodeUpdateActionModel implements DiscountCodeChangeCartDiscountsAction {
+class DiscountCodeChangeCartDiscountsActionModel extends DiscountCodeUpdateActionModel implements DiscountCodeChangeCartDiscountsAction
+{
     const DISCRIMINATOR_VALUE = 'changeCartDiscounts';
 
     /**

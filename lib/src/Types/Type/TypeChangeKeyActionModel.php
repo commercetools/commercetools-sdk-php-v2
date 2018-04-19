@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\TypeUpdateActionModel;
 
-class TypeChangeKeyActionModel extends TypeUpdateActionModel implements TypeChangeKeyAction {
+class TypeChangeKeyActionModel extends TypeUpdateActionModel implements TypeChangeKeyAction
+{
     const DISCRIMINATOR_VALUE = 'changeKey';
 
     /**

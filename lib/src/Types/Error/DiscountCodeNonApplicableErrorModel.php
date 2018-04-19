@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class DiscountCodeNonApplicableErrorModel extends ErrorObjectModel implements DiscountCodeNonApplicableError {
+class DiscountCodeNonApplicableErrorModel extends ErrorObjectModel implements DiscountCodeNonApplicableError
+{
     const DISCRIMINATOR_VALUE = 'DiscountCodeNonApplicable';
 
 }

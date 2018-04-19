@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Types\Payment\PaymentReference;
 
-interface OrderAddPaymentAction extends OrderUpdateAction {
+interface OrderAddPaymentAction extends OrderUpdateAction
+{
     const FIELD_PAYMENT = 'payment';
 
     /**

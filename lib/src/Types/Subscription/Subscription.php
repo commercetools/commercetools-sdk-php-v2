@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Builder\SubscriptionUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-interface Subscription extends Resource {
+interface Subscription extends Resource
+{
     const FIELD_CHANGES = 'changes';
     const FIELD_DESTINATION = 'destination';
     const FIELD_KEY = 'key';

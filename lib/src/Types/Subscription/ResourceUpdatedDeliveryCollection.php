@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Types\Subscription\SubscriptionDeliveryCollection;
 
 
-interface ResourceUpdatedDeliveryCollection extends SubscriptionDeliveryCollection {
+interface ResourceUpdatedDeliveryCollection extends SubscriptionDeliveryCollection
+{
     /**
      * @param $index
      * @return ResourceUpdatedDelivery

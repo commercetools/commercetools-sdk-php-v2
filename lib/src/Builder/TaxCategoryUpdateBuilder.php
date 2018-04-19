@@ -22,7 +22,8 @@ use Commercetools\Types\TaxCategory\TaxCategoryUpdate;
 use Commercetools\Request\ByProjectKeyTaxCategoriesByIDPost;
 
 
-class TaxCategoryUpdateBuilder extends BaseBuilder {
+class TaxCategoryUpdateBuilder extends BaseBuilder
+{
     /**
      * @var TaxCategory
      */

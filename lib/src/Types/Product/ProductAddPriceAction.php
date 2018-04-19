@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Common\PriceDraft;
 
-interface ProductAddPriceAction extends ProductUpdateAction {
+interface ProductAddPriceAction extends ProductUpdateAction
+{
     const FIELD_PRICE = 'price';
     const FIELD_SKU = 'sku';
     const FIELD_VARIANT_ID = 'variantId';

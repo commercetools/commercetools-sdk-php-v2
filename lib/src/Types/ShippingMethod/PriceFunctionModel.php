@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShippingMethod;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class PriceFunctionModel extends JsonObjectModel implements PriceFunction {
+class PriceFunctionModel extends JsonObjectModel implements PriceFunction
+{
     /**
      * @var string
      */

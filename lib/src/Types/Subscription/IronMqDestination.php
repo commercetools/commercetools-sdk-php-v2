@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Subscription;
 
-interface IronMqDestination extends Destination {
+interface IronMqDestination extends Destination
+{
     const FIELD_URI = 'uri';
 
     /**

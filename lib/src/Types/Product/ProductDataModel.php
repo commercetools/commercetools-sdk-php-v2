@@ -14,7 +14,8 @@ use Commercetools\Types\Category\CategoryReference;
 use Commercetools\Types\Category\CategoryReferenceCollection;
 use Commercetools\Types\Common\LocalizedString;
 
-class ProductDataModel extends JsonObjectModel implements ProductData {
+class ProductDataModel extends JsonObjectModel implements ProductData
+{
     /**
      * @var LocalizedString
      */

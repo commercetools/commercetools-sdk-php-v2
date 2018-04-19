@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\Collection;
 
-interface ItemStateCollection extends Collection {
+interface ItemStateCollection extends Collection
+{
     /**
      * @param $index
      * @return ItemState

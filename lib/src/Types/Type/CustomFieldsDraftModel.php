@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\ResourceIdentifier;
 
-class CustomFieldsDraftModel extends JsonObjectModel implements CustomFieldsDraft {
+class CustomFieldsDraftModel extends JsonObjectModel implements CustomFieldsDraft
+{
     /**
      * @var mixed
      */

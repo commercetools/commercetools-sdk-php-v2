@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface DiscountCodeReferenceCollection extends ReferenceCollection {
+interface DiscountCodeReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return DiscountCodeReference

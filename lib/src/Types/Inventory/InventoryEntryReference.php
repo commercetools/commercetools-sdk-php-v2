@@ -9,7 +9,8 @@ namespace Commercetools\Types\Inventory;
 
 use Commercetools\Types\Common\Reference;
 
-interface InventoryEntryReference extends Reference {
+interface InventoryEntryReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class MessageConfigurationModel extends JsonObjectModel implements MessageConfiguration {
+class MessageConfigurationModel extends JsonObjectModel implements MessageConfiguration
+{
     /**
      * @var mixed
      */

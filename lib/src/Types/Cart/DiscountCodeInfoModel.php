@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\DiscountCode\DiscountCodeReference;
 
-class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCodeInfo {
+class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCodeInfo
+{
     /**
      * @var DiscountCodeReference
      */

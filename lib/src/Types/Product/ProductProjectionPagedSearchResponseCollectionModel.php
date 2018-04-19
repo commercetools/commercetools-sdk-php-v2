@@ -11,7 +11,8 @@ use Commercetools\Types\PagedQueryResponseCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductProjectionPagedSearchResponseCollectionModel extends PagedQueryResponseCollectionModel implements ProductProjectionPagedSearchResponseCollection {
+class ProductProjectionPagedSearchResponseCollectionModel extends PagedQueryResponseCollectionModel implements ProductProjectionPagedSearchResponseCollection
+{
 
     /**
      * @param ProductProjectionPagedSearchResponse $value

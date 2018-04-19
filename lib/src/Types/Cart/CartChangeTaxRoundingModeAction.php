@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartChangeTaxRoundingModeAction extends CartUpdateAction {
+interface CartChangeTaxRoundingModeAction extends CartUpdateAction
+{
     const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
 
     /**

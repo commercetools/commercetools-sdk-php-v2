@@ -9,7 +9,8 @@ namespace Commercetools\Types\CustomerGroup;
 
 use Commercetools\Base\Collection;
 
-interface CustomerGroupDraftCollection extends Collection {
+interface CustomerGroupDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return CustomerGroupDraft

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface AttributeReferenceType extends AttributeType {
+interface AttributeReferenceType extends AttributeType
+{
     const FIELD_REFERENCE_TYPE_ID = 'referenceTypeId';
 
     /**

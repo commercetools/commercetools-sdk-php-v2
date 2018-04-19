@@ -10,7 +10,8 @@ namespace Commercetools\Types\CustomObject;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface CustomObjectPagedQueryResponse extends PagedQueryResponse {
+interface CustomObjectPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return CustomObjectCollection
      */

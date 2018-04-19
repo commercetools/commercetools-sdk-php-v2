@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\JsonObject;
 
-interface CustomerSignin extends JsonObject {
+interface CustomerSignin extends JsonObject
+{
     const FIELD_EMAIL = 'email';
     const FIELD_PASSWORD = 'password';
     const FIELD_ANONYMOUS_CART_ID = 'anonymousCartId';

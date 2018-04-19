@@ -11,7 +11,8 @@ use Commercetools\Types\ShippingMethod\ShippingRatePriceTierCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CartScoreTierCollectionModel extends ShippingRatePriceTierCollectionModel implements CartScoreTierCollection {
+class CartScoreTierCollectionModel extends ShippingRatePriceTierCollectionModel implements CartScoreTierCollection
+{
 
     /**
      * @param CartScoreTier $value

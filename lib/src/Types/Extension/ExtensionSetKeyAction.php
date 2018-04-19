@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Extension;
 
-interface ExtensionSetKeyAction extends ExtensionUpdateAction {
+interface ExtensionSetKeyAction extends ExtensionUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

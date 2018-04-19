@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Types\TaxCategory\TaxCategoryUpdateActionCollection;
 
 
-interface TaxCategoryReplaceTaxRateActionCollection extends TaxCategoryUpdateActionCollection {
+interface TaxCategoryReplaceTaxRateActionCollection extends TaxCategoryUpdateActionCollection
+{
     /**
      * @param $index
      * @return TaxCategoryReplaceTaxRateAction

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Types\Product\ProductUpdateActionCollection;
 
 
-interface ProductAddExternalImageActionCollection extends ProductUpdateActionCollection {
+interface ProductAddExternalImageActionCollection extends ProductUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductAddExternalImageAction

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonObject;
 
-interface FacetResults extends JsonObject {
+interface FacetResults extends JsonObject
+{
     const FIELD_PATTERN0 = '/^[a-z].*$/';
 
     public function get(string $key);

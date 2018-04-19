@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class FacetResultTermModel extends JsonObjectModel implements FacetResultTerm {
+class FacetResultTermModel extends JsonObjectModel implements FacetResultTerm
+{
     /**
      * @var mixed
      */

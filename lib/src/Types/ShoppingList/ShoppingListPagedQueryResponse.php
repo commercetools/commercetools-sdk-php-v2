@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface ShoppingListPagedQueryResponse extends PagedQueryResponse {
+interface ShoppingListPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return ShoppingListCollection
      */

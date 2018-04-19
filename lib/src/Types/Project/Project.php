@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Builder\ProjectUpdateBuilder;
 use Commercetools\Types\Message\MessageConfiguration;
 
-interface Project extends JsonObject {
+interface Project extends JsonObject
+{
     const FIELD_VERSION = 'version';
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';

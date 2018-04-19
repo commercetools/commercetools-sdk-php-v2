@@ -11,7 +11,8 @@ use Commercetools\Types\State\StateUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class StateSetNameActionCollectionModel extends StateUpdateActionCollectionModel implements StateSetNameActionCollection {
+class StateSetNameActionCollectionModel extends StateUpdateActionCollectionModel implements StateSetNameActionCollection
+{
 
     /**
      * @param StateSetNameAction $value

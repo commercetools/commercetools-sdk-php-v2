@@ -9,7 +9,8 @@ namespace Commercetools\Types\Extension;
 
 use Commercetools\Base\Collection;
 
-interface HttpDestinationAuthenticationCollection extends Collection {
+interface HttpDestinationAuthenticationCollection extends Collection
+{
     /**
      * @param $index
      * @return HttpDestinationAuthentication

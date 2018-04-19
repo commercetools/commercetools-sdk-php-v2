@@ -9,7 +9,8 @@ namespace Commercetools\Types\Type;
 
 use Commercetools\Base\Collection;
 
-interface CustomFieldEnumValueCollection extends Collection {
+interface CustomFieldEnumValueCollection extends Collection
+{
     /**
      * @param $index
      * @return CustomFieldEnumValue

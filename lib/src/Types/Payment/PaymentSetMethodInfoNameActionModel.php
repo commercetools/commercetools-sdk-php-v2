@@ -12,7 +12,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class PaymentSetMethodInfoNameActionModel extends PaymentUpdateActionModel implements PaymentSetMethodInfoNameAction {
+class PaymentSetMethodInfoNameActionModel extends PaymentUpdateActionModel implements PaymentSetMethodInfoNameAction
+{
     const DISCRIMINATOR_VALUE = 'setMethodInfoName';
 
     /**

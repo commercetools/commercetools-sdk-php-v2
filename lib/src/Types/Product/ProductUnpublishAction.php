@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductUnpublishAction extends ProductUpdateAction {
+interface ProductUnpublishAction extends ProductUpdateAction
+{
 }

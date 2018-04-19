@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class ChannelReferenceModel extends ReferenceModel implements ChannelReference {
+class ChannelReferenceModel extends ReferenceModel implements ChannelReference
+{
     const DISCRIMINATOR_VALUE = 'channel';
 
     /**

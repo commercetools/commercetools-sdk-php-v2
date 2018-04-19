@@ -9,7 +9,8 @@ namespace Commercetools\Types\Review;
 
 use Commercetools\Types\Common\ResourceIdentifier;
 
-interface ReviewTransitionStateAction extends ReviewUpdateAction {
+interface ReviewTransitionStateAction extends ReviewUpdateAction
+{
     const FIELD_STATE = 'state';
     const FIELD_FORCE = 'force';
 

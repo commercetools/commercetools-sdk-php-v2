@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\AttributeTypeCollection;
 
 
-interface AttributeTimeTypeCollection extends AttributeTypeCollection {
+interface AttributeTimeTypeCollection extends AttributeTypeCollection
+{
     /**
      * @param $index
      * @return AttributeTimeType

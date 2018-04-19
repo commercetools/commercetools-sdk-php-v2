@@ -27,7 +27,8 @@ use Commercetools\Types\Review\ReviewUpdate;
 use Commercetools\Request\ByProjectKeyReviewsByIDPost;
 
 
-class ReviewUpdateBuilder extends BaseBuilder {
+class ReviewUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Review
      */

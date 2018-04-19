@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\Common\Reference;
 use Commercetools\Types;
 
-class MessageModel extends JsonObjectModel implements Message {
+class MessageModel extends JsonObjectModel implements Message
+{
     const DISCRIMINATOR_VALUE = '';
 
     /**

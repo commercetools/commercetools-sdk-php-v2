@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class AddressModel extends JsonObjectModel implements Address {
+class AddressModel extends JsonObjectModel implements Address
+{
     /**
      * @var string
      */

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Common\GeoJsonModel;
 
-class GeoJsonPointModel extends GeoJsonModel implements GeoJsonPoint {
+class GeoJsonPointModel extends GeoJsonModel implements GeoJsonPoint
+{
     const DISCRIMINATOR_VALUE = 'Point';
 
 }

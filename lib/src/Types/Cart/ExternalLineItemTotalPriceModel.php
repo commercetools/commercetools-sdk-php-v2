@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\Money;
 
-class ExternalLineItemTotalPriceModel extends JsonObjectModel implements ExternalLineItemTotalPrice {
+class ExternalLineItemTotalPriceModel extends JsonObjectModel implements ExternalLineItemTotalPrice
+{
     /**
      * @var Money
      */

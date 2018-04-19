@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\FieldTypeModel;
 
-class CustomFieldEnumTypeModel extends FieldTypeModel implements CustomFieldEnumType {
+class CustomFieldEnumTypeModel extends FieldTypeModel implements CustomFieldEnumType
+{
     const DISCRIMINATOR_VALUE = 'Enum';
 
     /**

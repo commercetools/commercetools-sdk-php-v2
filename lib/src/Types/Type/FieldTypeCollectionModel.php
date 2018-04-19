@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class FieldTypeCollectionModel extends JsonCollection implements FieldTypeCollection {
+class FieldTypeCollectionModel extends JsonCollection implements FieldTypeCollection
+{
 
     /**
      * @param FieldType $value

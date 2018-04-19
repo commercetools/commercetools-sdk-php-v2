@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartRemoveCustomLineItemAction extends CartUpdateAction {
+interface CartRemoveCustomLineItemAction extends CartUpdateAction
+{
     const FIELD_CUSTOM_LINE_ITEM_ID = 'customLineItemId';
 
     /**

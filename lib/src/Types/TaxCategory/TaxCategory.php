@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Builder\TaxCategoryUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-interface TaxCategory extends Resource {
+interface TaxCategory extends Resource
+{
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_RATES = 'rates';

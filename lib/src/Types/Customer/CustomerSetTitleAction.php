@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerSetTitleAction extends CustomerUpdateAction {
+interface CustomerSetTitleAction extends CustomerUpdateAction
+{
     const FIELD_TITLE = 'title';
 
     /**

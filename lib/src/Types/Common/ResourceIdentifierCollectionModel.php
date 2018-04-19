@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ResourceIdentifierCollectionModel extends JsonCollection implements ResourceIdentifierCollection {
+class ResourceIdentifierCollectionModel extends JsonCollection implements ResourceIdentifierCollection
+{
 
     /**
      * @param ResourceIdentifier $value

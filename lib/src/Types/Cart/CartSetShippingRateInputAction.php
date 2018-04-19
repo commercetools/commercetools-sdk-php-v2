@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetShippingRateInputAction extends CartUpdateAction {
+interface CartSetShippingRateInputAction extends CartUpdateAction
+{
     const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
 
     /**

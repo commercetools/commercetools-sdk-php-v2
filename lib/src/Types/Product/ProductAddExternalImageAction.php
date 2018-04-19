@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Types\Common\Image;
 
-interface ProductAddExternalImageAction extends ProductUpdateAction {
+interface ProductAddExternalImageAction extends ProductUpdateAction
+{
     const FIELD_IMAGE = 'image';
     const FIELD_SKU = 'sku';
     const FIELD_VARIANT_ID = 'variantId';

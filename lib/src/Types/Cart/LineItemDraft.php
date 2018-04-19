@@ -13,7 +13,8 @@ use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Money;
 
-interface LineItemDraft extends JsonObject {
+interface LineItemDraft extends JsonObject
+{
     const FIELD_PRODUCT_ID = 'productId';
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_SKU = 'sku';

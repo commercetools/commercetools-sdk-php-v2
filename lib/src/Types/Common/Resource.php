@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonObject;
 
-interface Resource extends JsonObject {
+interface Resource extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_VERSION = 'version';
     const FIELD_CREATED_AT = 'createdAt';

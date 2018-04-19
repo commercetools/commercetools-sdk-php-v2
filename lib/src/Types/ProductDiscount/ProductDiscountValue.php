@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types;
 
-interface ProductDiscountValue extends JsonObject {
+interface ProductDiscountValue extends JsonObject
+{
     const DISCRIMINATOR = 'type';
     const SUB_TYPES = [
         'absolute' => Types\ProductDiscount\ProductDiscountValueAbsolute::class,

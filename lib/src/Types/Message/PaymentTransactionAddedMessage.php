@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Payment\Transaction;
 
-interface PaymentTransactionAddedMessage extends Message {
+interface PaymentTransactionAddedMessage extends Message
+{
     const FIELD_TRANSACTION = 'transaction';
 
     /**

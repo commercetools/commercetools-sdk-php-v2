@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface CartDiscountChangeRequiresDiscountCodeAction extends CartDiscountUpdateAction {
+interface CartDiscountChangeRequiresDiscountCodeAction extends CartDiscountUpdateAction
+{
     const FIELD_REQUIRES_DISCOUNT_CODE = 'requiresDiscountCode';
 
     /**

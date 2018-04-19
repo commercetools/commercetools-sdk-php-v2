@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Types\Review\ReviewUpdateActionCollection;
 
 
-interface ReviewSetCustomFieldActionCollection extends ReviewUpdateActionCollection {
+interface ReviewSetCustomFieldActionCollection extends ReviewUpdateActionCollection
+{
     /**
      * @param $index
      * @return ReviewSetCustomFieldAction

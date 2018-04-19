@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface ResourceNotFoundErrorCollection extends ErrorObjectCollection {
+interface ResourceNotFoundErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return ResourceNotFoundError

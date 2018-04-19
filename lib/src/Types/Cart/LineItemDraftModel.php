@@ -14,7 +14,8 @@ use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Money;
 
-class LineItemDraftModel extends JsonObjectModel implements LineItemDraft {
+class LineItemDraftModel extends JsonObjectModel implements LineItemDraft
+{
     /**
      * @var string
      */

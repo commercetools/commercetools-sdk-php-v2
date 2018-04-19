@@ -12,7 +12,8 @@ use Commercetools\Types\Inventory\InventoryEntryUpdateActionModel;
 
 use Commercetools\Types\Channel\ChannelReference;
 
-class InventorySetSupplyChannelActionModel extends InventoryEntryUpdateActionModel implements InventorySetSupplyChannelAction {
+class InventorySetSupplyChannelActionModel extends InventoryEntryUpdateActionModel implements InventorySetSupplyChannelAction
+{
     const DISCRIMINATOR_VALUE = 'setSupplyChannel';
 
     /**

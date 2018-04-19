@@ -11,7 +11,8 @@ use Commercetools\Types\Subscription\DestinationCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class IronMqDestinationCollectionModel extends DestinationCollectionModel implements IronMqDestinationCollection {
+class IronMqDestinationCollectionModel extends DestinationCollectionModel implements IronMqDestinationCollection
+{
 
     /**
      * @param IronMqDestination $value

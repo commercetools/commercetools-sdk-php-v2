@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class StateCollectionModel extends ResourceCollectionModel implements StateCollection {
+class StateCollectionModel extends ResourceCollectionModel implements StateCollection
+{
 
     /**
      * @param State $value
@@ -55,4 +56,5 @@ class StateCollectionModel extends ResourceCollectionModel implements StateColle
     {
         return $this->valueByKey('id', $id);
     }
+
 }

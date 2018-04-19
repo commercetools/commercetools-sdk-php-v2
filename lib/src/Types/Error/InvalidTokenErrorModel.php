@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class InvalidTokenErrorModel extends ErrorObjectModel implements InvalidTokenError {
+class InvalidTokenErrorModel extends ErrorObjectModel implements InvalidTokenError
+{
     const DISCRIMINATOR_VALUE = 'invalid_token';
 
 }

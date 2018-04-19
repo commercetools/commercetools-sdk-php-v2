@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Builder\ZoneUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-interface Zone extends Resource {
+interface Zone extends Resource
+{
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_LOCATIONS = 'locations';

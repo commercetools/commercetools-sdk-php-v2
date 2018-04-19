@@ -11,7 +11,8 @@ use Commercetools\Types\Category\CategoryUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CategoryChangeOrderHintActionCollectionModel extends CategoryUpdateActionCollectionModel implements CategoryChangeOrderHintActionCollection {
+class CategoryChangeOrderHintActionCollectionModel extends CategoryUpdateActionCollectionModel implements CategoryChangeOrderHintActionCollection
+{
 
     /**
      * @param CategoryChangeOrderHintAction $value

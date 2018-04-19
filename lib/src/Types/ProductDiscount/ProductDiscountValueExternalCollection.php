@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductDiscount;
 use Commercetools\Types\ProductDiscount\ProductDiscountValueCollection;
 
 
-interface ProductDiscountValueExternalCollection extends ProductDiscountValueCollection {
+interface ProductDiscountValueExternalCollection extends ProductDiscountValueCollection
+{
     /**
      * @param $index
      * @return ProductDiscountValueExternal

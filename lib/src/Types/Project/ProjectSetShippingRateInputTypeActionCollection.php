@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Types\Project\ProjectUpdateActionCollection;
 
 
-interface ProjectSetShippingRateInputTypeActionCollection extends ProjectUpdateActionCollection {
+interface ProjectSetShippingRateInputTypeActionCollection extends ProjectUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProjectSetShippingRateInputTypeAction

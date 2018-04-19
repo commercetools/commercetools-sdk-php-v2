@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface PaymentStatusStateTransitionMessageCollection extends MessageCollection {
+interface PaymentStatusStateTransitionMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return PaymentStatusStateTransitionMessage

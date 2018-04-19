@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Category\CategoryReference;
 
-class ProductRemoveFromCategoryActionModel extends ProductUpdateActionModel implements ProductRemoveFromCategoryAction {
+class ProductRemoveFromCategoryActionModel extends ProductUpdateActionModel implements ProductRemoveFromCategoryAction
+{
     const DISCRIMINATOR_VALUE = 'removeFromCategory';
 
     /**

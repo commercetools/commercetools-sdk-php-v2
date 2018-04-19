@@ -11,7 +11,8 @@ use Commercetools\Types\Error\ErrorObjectCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class OutOfStockErrorCollectionModel extends ErrorObjectCollectionModel implements OutOfStockErrorCollection {
+class OutOfStockErrorCollectionModel extends ErrorObjectCollectionModel implements OutOfStockErrorCollection
+{
 
     /**
      * @param OutOfStockError $value

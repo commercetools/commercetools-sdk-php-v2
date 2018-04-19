@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMeasurements {
+class ParcelMeasurementsModel extends JsonObjectModel implements ParcelMeasurements
+{
     /**
      * @var int
      */

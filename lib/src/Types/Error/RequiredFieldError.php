@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface RequiredFieldError extends ErrorObject {
+interface RequiredFieldError extends ErrorObject
+{
     const FIELD_FIELD = 'field';
 
     /**

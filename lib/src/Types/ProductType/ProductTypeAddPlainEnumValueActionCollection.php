@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionCollection;
 
 
-interface ProductTypeAddPlainEnumValueActionCollection extends ProductTypeUpdateActionCollection {
+interface ProductTypeAddPlainEnumValueActionCollection extends ProductTypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductTypeAddPlainEnumValueAction

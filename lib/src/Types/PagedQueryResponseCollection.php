@@ -9,7 +9,8 @@ namespace Commercetools\Types;
 
 use Commercetools\Base\Collection;
 
-interface PagedQueryResponseCollection extends Collection {
+interface PagedQueryResponseCollection extends Collection
+{
     /**
      * @param $index
      * @return PagedQueryResponse

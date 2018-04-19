@@ -13,7 +13,8 @@ use Commercetools\Types\Category\CategoryReference;
 use Commercetools\Types\Category\CategoryReferenceCollection;
 use Commercetools\Types\Common\LocalizedString;
 
-interface ProductData extends JsonObject {
+interface ProductData extends JsonObject
+{
     const FIELD_NAME = 'name';
     const FIELD_CATEGORIES = 'categories';
     const FIELD_CATEGORY_ORDER_HINTS = 'categoryOrderHints';

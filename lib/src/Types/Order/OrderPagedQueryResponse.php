@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface OrderPagedQueryResponse extends PagedQueryResponse {
+interface OrderPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return OrderCollection
      */

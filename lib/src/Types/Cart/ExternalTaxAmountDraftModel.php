@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\Money;
 
-class ExternalTaxAmountDraftModel extends JsonObjectModel implements ExternalTaxAmountDraft {
+class ExternalTaxAmountDraftModel extends JsonObjectModel implements ExternalTaxAmountDraft
+{
     /**
      * @var Money
      */

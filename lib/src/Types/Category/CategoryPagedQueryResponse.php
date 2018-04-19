@@ -10,7 +10,8 @@ namespace Commercetools\Types\Category;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface CategoryPagedQueryResponse extends PagedQueryResponse {
+interface CategoryPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return CategoryCollection
      */

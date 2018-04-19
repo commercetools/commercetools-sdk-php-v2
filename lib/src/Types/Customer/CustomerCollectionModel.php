@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerCollectionModel extends ResourceCollectionModel implements CustomerCollection {
+class CustomerCollectionModel extends ResourceCollectionModel implements CustomerCollection
+{
 
     /**
      * @param Customer $value
@@ -55,4 +56,5 @@ class CustomerCollectionModel extends ResourceCollectionModel implements Custome
     {
         return $this->valueByKey('id', $id);
     }
+
 }

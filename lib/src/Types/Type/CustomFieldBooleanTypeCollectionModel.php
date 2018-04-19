@@ -11,7 +11,8 @@ use Commercetools\Types\Type\FieldTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomFieldBooleanTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldBooleanTypeCollection {
+class CustomFieldBooleanTypeCollectionModel extends FieldTypeCollectionModel implements CustomFieldBooleanTypeCollection
+{
 
     /**
      * @param CustomFieldBooleanType $value

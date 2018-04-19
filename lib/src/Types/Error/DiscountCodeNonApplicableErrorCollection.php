@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface DiscountCodeNonApplicableErrorCollection extends ErrorObjectCollection {
+interface DiscountCodeNonApplicableErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return DiscountCodeNonApplicableError

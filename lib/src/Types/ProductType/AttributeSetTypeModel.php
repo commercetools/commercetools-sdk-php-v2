@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\AttributeTypeModel;
 
-class AttributeSetTypeModel extends AttributeTypeModel implements AttributeSetType {
+class AttributeSetTypeModel extends AttributeTypeModel implements AttributeSetType
+{
     const DISCRIMINATOR_VALUE = 'set';
 
     /**

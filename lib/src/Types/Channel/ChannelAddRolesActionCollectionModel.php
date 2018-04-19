@@ -11,7 +11,8 @@ use Commercetools\Types\Channel\ChannelUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelAddRolesActionCollectionModel extends ChannelUpdateActionCollectionModel implements ChannelAddRolesActionCollection {
+class ChannelAddRolesActionCollectionModel extends ChannelUpdateActionCollectionModel implements ChannelAddRolesActionCollection
+{
 
     /**
      * @param ChannelAddRolesAction $value

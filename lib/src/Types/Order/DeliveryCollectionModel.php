@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class DeliveryCollectionModel extends JsonCollection implements DeliveryCollection {
+class DeliveryCollectionModel extends JsonCollection implements DeliveryCollection
+{
 
     /**
      * @param Delivery $value

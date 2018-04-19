@@ -17,7 +17,8 @@ use Commercetools\Types\Common\TypedMoney;
 use Commercetools\Types\Order\Delivery;
 use Commercetools\Types\ShippingMethod\ShippingRate;
 
-interface ShippingInfo extends JsonObject {
+interface ShippingInfo extends JsonObject
+{
     const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
     const FIELD_PRICE = 'price';
     const FIELD_SHIPPING_RATE = 'shippingRate';

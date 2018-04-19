@@ -11,7 +11,8 @@ use Commercetools\Types\PagedQueryResponseCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class TaxCategoryPagedQueryResponseCollectionModel extends PagedQueryResponseCollectionModel implements TaxCategoryPagedQueryResponseCollection {
+class TaxCategoryPagedQueryResponseCollectionModel extends PagedQueryResponseCollectionModel implements TaxCategoryPagedQueryResponseCollection
+{
 
     /**
      * @param TaxCategoryPagedQueryResponse $value

@@ -10,7 +10,8 @@ namespace Commercetools\Types\CartDiscount;
 use Commercetools\Types\CartDiscount\CartDiscountValueCollection;
 
 
-interface CartDiscountValueGiftLineItemCollection extends CartDiscountValueCollection {
+interface CartDiscountValueGiftLineItemCollection extends CartDiscountValueCollection
+{
     /**
      * @param $index
      * @return CartDiscountValueGiftLineItem

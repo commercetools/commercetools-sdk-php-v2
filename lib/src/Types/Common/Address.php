@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonObject;
 
-interface Address extends JsonObject {
+interface Address extends JsonObject
+{
     const FIELD_ID = 'id';
     const FIELD_TITLE = 'title';
     const FIELD_SALUTATION = 'salutation';

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Inventory;
 
 use Commercetools\Base\Collection;
 
-interface InventoryEntryDraftCollection extends Collection {
+interface InventoryEntryDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return InventoryEntryDraft

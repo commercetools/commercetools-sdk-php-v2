@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductRevertStagedChangesAction extends ProductUpdateAction {
+interface ProductRevertStagedChangesAction extends ProductUpdateAction
+{
 }

@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class ProductSetMetaKeywordsActionModel extends ProductUpdateActionModel implements ProductSetMetaKeywordsAction {
+class ProductSetMetaKeywordsActionModel extends ProductUpdateActionModel implements ProductSetMetaKeywordsAction
+{
     const DISCRIMINATOR_VALUE = 'setMetaKeywords';
 
     /**

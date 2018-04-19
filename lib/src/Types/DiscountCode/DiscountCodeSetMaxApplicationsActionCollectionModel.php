@@ -11,7 +11,8 @@ use Commercetools\Types\DiscountCode\DiscountCodeUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class DiscountCodeSetMaxApplicationsActionCollectionModel extends DiscountCodeUpdateActionCollectionModel implements DiscountCodeSetMaxApplicationsActionCollection {
+class DiscountCodeSetMaxApplicationsActionCollectionModel extends DiscountCodeUpdateActionCollectionModel implements DiscountCodeSetMaxApplicationsActionCollection
+{
 
     /**
      * @param DiscountCodeSetMaxApplicationsAction $value

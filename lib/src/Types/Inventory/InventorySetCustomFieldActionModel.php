@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Inventory\InventoryEntryUpdateActionModel;
 
-class InventorySetCustomFieldActionModel extends InventoryEntryUpdateActionModel implements InventorySetCustomFieldAction {
+class InventorySetCustomFieldActionModel extends InventoryEntryUpdateActionModel implements InventorySetCustomFieldAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomField';
 
     /**

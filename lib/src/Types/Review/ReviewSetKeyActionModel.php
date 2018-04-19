@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Review\ReviewUpdateActionModel;
 
-class ReviewSetKeyActionModel extends ReviewUpdateActionModel implements ReviewSetKeyAction {
+class ReviewSetKeyActionModel extends ReviewUpdateActionModel implements ReviewSetKeyAction
+{
     const DISCRIMINATOR_VALUE = 'setKey';
 
     /**

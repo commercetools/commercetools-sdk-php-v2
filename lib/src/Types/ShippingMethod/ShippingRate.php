@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\TypedMoney;
 
-interface ShippingRate extends JsonObject {
+interface ShippingRate extends JsonObject
+{
     const FIELD_PRICE = 'price';
     const FIELD_FREE_ABOVE = 'freeAbove';
     const FIELD_IS_MATCHING = 'isMatching';

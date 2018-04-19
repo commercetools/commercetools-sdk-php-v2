@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Types\Common\ReferenceCollection;
 
 
-interface TaxCategoryReferenceCollection extends ReferenceCollection {
+interface TaxCategoryReferenceCollection extends ReferenceCollection
+{
     /**
      * @param $index
      * @return TaxCategoryReference

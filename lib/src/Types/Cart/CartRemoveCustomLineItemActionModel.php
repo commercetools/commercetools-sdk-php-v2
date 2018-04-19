@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Cart\CartUpdateActionModel;
 
-class CartRemoveCustomLineItemActionModel extends CartUpdateActionModel implements CartRemoveCustomLineItemAction {
+class CartRemoveCustomLineItemActionModel extends CartUpdateActionModel implements CartRemoveCustomLineItemAction
+{
     const DISCRIMINATOR_VALUE = 'removeCustomLineItem';
 
     /**

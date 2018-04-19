@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface SubscriptionPagedQueryResponse extends PagedQueryResponse {
+interface SubscriptionPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return SubscriptionCollection
      */

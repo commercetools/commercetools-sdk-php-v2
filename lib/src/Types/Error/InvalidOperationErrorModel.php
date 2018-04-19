@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class InvalidOperationErrorModel extends ErrorObjectModel implements InvalidOperationError {
+class InvalidOperationErrorModel extends ErrorObjectModel implements InvalidOperationError
+{
     const DISCRIMINATOR_VALUE = 'InvalidOperation';
 
 }

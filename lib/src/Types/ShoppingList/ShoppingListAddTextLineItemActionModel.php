@@ -13,7 +13,8 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
 
-class ShoppingListAddTextLineItemActionModel extends ShoppingListUpdateActionModel implements ShoppingListAddTextLineItemAction {
+class ShoppingListAddTextLineItemActionModel extends ShoppingListUpdateActionModel implements ShoppingListAddTextLineItemAction
+{
     const DISCRIMINATOR_VALUE = 'addTextLineItem';
 
     /**

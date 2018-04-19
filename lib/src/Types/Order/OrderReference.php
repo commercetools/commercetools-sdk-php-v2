@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Types\Common\Reference;
 
-interface OrderReference extends Reference {
+interface OrderReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

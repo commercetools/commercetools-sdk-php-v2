@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\AttributeTypeCollection;
 
 
-interface AttributeBooleanTypeCollection extends AttributeTypeCollection {
+interface AttributeBooleanTypeCollection extends AttributeTypeCollection
+{
     /**
      * @param $index
      * @return AttributeBooleanType

@@ -9,7 +9,8 @@ namespace Commercetools\Types\TaxCategory;
 
 use Commercetools\Base\Collection;
 
-interface TaxCategoryDraftCollection extends Collection {
+interface TaxCategoryDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return TaxCategoryDraft

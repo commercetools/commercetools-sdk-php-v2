@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface CartDiscountCustomLineItemsTarget extends CartDiscountTarget {
+interface CartDiscountCustomLineItemsTarget extends CartDiscountTarget
+{
     const FIELD_PREDICATE = 'predicate';
 
     /**

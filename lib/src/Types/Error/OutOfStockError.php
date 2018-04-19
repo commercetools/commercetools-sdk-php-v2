@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface OutOfStockError extends ErrorObject {
+interface OutOfStockError extends ErrorObject
+{
     const FIELD_LINE_ITEMS = 'lineItems';
     const FIELD_SKUS = 'skus';
 

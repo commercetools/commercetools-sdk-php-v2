@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\PagedQueryResponse;
 use Commercetools\Types\Common\ResourceCollection;
 
-interface CartPagedQueryResponse extends PagedQueryResponse {
+interface CartPagedQueryResponse extends PagedQueryResponse
+{
     /**
      * @return CartCollection
      */

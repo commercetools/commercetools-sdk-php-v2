@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Customer;
 
-interface CustomerSetLocaleAction extends CustomerUpdateAction {
+interface CustomerSetLocaleAction extends CustomerUpdateAction
+{
     const FIELD_LOCALE = 'locale';
 
     /**

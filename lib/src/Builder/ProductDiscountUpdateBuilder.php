@@ -24,7 +24,8 @@ use Commercetools\Types\ProductDiscount\ProductDiscountUpdate;
 use Commercetools\Request\ByProjectKeyProductDiscountsByIDPost;
 
 
-class ProductDiscountUpdateBuilder extends BaseBuilder {
+class ProductDiscountUpdateBuilder extends BaseBuilder
+{
     /**
      * @var ProductDiscount
      */

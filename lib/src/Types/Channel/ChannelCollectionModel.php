@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ChannelCollectionModel extends ResourceCollectionModel implements ChannelCollection {
+class ChannelCollectionModel extends ResourceCollectionModel implements ChannelCollection
+{
 
     /**
      * @param Channel $value
@@ -55,4 +56,5 @@ class ChannelCollectionModel extends ResourceCollectionModel implements ChannelC
     {
         return $this->valueByKey('id', $id);
     }
+
 }

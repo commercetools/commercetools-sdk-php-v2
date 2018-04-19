@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\CustomerGroup\CustomerGroupReference;
 
-interface CustomerGroupSetMessage extends Message {
+interface CustomerGroupSetMessage extends Message
+{
     const FIELD_CUSTOMER_GROUP = 'customerGroup';
 
     /**

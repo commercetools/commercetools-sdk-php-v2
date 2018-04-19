@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ChangeSubscriptionModel extends JsonObjectModel implements ChangeSubscription {
+class ChangeSubscriptionModel extends JsonObjectModel implements ChangeSubscription
+{
     /**
      * @var string
      */

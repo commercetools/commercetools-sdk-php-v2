@@ -13,7 +13,8 @@ use Commercetools\Types\UpdateModel;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-class PaymentUpdateModel extends UpdateModel implements PaymentUpdate {
+class PaymentUpdateModel extends UpdateModel implements PaymentUpdate
+{
     /**
      * @var PaymentUpdateActionCollection
      */

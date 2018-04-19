@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Common\Address;
 
-interface CustomerAddressAddedMessage extends Message {
+interface CustomerAddressAddedMessage extends Message
+{
     const FIELD_ADDRESS = 'address';
 
     /**

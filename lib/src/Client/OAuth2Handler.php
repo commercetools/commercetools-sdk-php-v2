@@ -13,7 +13,8 @@ use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
 
-class OAuth2Handler {
+class OAuth2Handler
+{
 
     /**
      * @var TokenProvider

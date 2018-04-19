@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\FieldTypeModel;
 
-class CustomFieldNumberTypeModel extends FieldTypeModel implements CustomFieldNumberType {
+class CustomFieldNumberTypeModel extends FieldTypeModel implements CustomFieldNumberType
+{
     const DISCRIMINATOR_VALUE = 'Number';
 
 }

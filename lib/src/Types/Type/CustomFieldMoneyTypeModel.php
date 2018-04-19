@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\FieldTypeModel;
 
-class CustomFieldMoneyTypeModel extends FieldTypeModel implements CustomFieldMoneyType {
+class CustomFieldMoneyTypeModel extends FieldTypeModel implements CustomFieldMoneyType
+{
     const DISCRIMINATOR_VALUE = 'Money';
 
 }

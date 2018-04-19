@@ -12,7 +12,8 @@ use Commercetools\Types\Common\ReferenceModel;
 
 use Commercetools\Types\Common\Reference;
 
-class CustomObjectReferenceModel extends ReferenceModel implements CustomObjectReference {
+class CustomObjectReferenceModel extends ReferenceModel implements CustomObjectReference
+{
     const DISCRIMINATOR_VALUE = 'key-value-document';
 
     /**

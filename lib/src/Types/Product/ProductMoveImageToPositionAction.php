@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductMoveImageToPositionAction extends ProductUpdateAction {
+interface ProductMoveImageToPositionAction extends ProductUpdateAction
+{
     const FIELD_IMAGE_URL = 'imageUrl';
     const FIELD_POSITION = 'position';
     const FIELD_SKU = 'sku';

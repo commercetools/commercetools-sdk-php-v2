@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ShippingRateInputCollectionModel extends JsonCollection implements ShippingRateInputCollection {
+class ShippingRateInputCollectionModel extends JsonCollection implements ShippingRateInputCollection
+{
 
     /**
      * @param ShippingRateInput $value

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Types\Type\CustomFieldLocalizedEnumValue;
 use Commercetools\Types\Type\CustomFieldLocalizedEnumValueCollection;
 
-interface CartClassificationType extends ShippingRateInputType {
+interface CartClassificationType extends ShippingRateInputType
+{
     const FIELD_VALUES = 'values';
 
     /**

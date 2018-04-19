@@ -12,7 +12,8 @@ use Commercetools\Types\Payment\PaymentUpdateActionModel;
 
 use Commercetools\Types\Common\Money;
 
-class PaymentSetAmountPaidActionModel extends PaymentUpdateActionModel implements PaymentSetAmountPaidAction {
+class PaymentSetAmountPaidActionModel extends PaymentUpdateActionModel implements PaymentSetAmountPaidAction
+{
     const DISCRIMINATOR_VALUE = 'setAmountPaid';
 
     /**

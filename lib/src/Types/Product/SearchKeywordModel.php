@@ -10,7 +10,8 @@ namespace Commercetools\Types\Product;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class SearchKeywordModel extends JsonObjectModel implements SearchKeyword {
+class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
+{
     /**
      * @var string
      */

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderSetLocaleAction extends OrderUpdateAction {
+interface OrderSetLocaleAction extends OrderUpdateAction
+{
     const FIELD_LOCALE = 'locale';
 
     /**

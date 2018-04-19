@@ -9,7 +9,8 @@ namespace Commercetools\Types\Inventory;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface InventorySetCustomTypeAction extends InventoryEntryUpdateAction {
+interface InventorySetCustomTypeAction extends InventoryEntryUpdateAction
+{
     const FIELD_TYPE = 'type';
     const FIELD_FIELDS = 'fields';
 

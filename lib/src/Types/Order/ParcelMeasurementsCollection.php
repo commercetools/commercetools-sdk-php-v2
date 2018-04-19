@@ -9,7 +9,8 @@ namespace Commercetools\Types\Order;
 
 use Commercetools\Base\Collection;
 
-interface ParcelMeasurementsCollection extends Collection {
+interface ParcelMeasurementsCollection extends Collection
+{
     /**
      * @param $index
      * @return ParcelMeasurements

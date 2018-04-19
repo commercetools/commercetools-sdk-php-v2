@@ -10,7 +10,8 @@ namespace Commercetools\Types\Payment;
 use Commercetools\Types\Payment\PaymentUpdateActionCollection;
 
 
-interface PaymentSetMethodInfoMethodActionCollection extends PaymentUpdateActionCollection {
+interface PaymentSetMethodInfoMethodActionCollection extends PaymentUpdateActionCollection
+{
     /**
      * @param $index
      * @return PaymentSetMethodInfoMethodAction

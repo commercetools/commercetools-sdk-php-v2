@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\Money;
 
-interface ExternalLineItemTotalPrice extends JsonObject {
+interface ExternalLineItemTotalPrice extends JsonObject
+{
     const FIELD_PRICE = 'price';
     const FIELD_TOTAL_PRICE = 'totalPrice';
 

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface TypeChangeKeyAction extends TypeUpdateAction {
+interface TypeChangeKeyAction extends TypeUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

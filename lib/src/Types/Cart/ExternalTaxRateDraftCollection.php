@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\Collection;
 
-interface ExternalTaxRateDraftCollection extends Collection {
+interface ExternalTaxRateDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return ExternalTaxRateDraft

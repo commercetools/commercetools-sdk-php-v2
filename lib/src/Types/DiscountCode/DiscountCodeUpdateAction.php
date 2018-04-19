@@ -10,7 +10,8 @@ namespace Commercetools\Types\DiscountCode;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface DiscountCodeUpdateAction extends UpdateAction {
+interface DiscountCodeUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'changeCartDiscounts' => Types\DiscountCode\DiscountCodeChangeCartDiscountsAction::class,

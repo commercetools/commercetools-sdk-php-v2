@@ -9,7 +9,8 @@ namespace Commercetools\Types;
 
 use Commercetools\Base\Collection;
 
-interface UpdateActionCollection extends Collection {
+interface UpdateActionCollection extends Collection
+{
     /**
      * @param $index
      * @return UpdateAction

@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderCollectionModel extends ResourceCollectionModel implements OrderCollection {
+class OrderCollectionModel extends ResourceCollectionModel implements OrderCollection
+{
 
     /**
      * @param Order $value
@@ -55,4 +56,5 @@ class OrderCollectionModel extends ResourceCollectionModel implements OrderColle
     {
         return $this->valueByKey('id', $id);
     }
+
 }

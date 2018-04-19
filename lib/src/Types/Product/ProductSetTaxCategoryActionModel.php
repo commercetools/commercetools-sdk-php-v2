@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\TaxCategory\TaxCategoryReference;
 
-class ProductSetTaxCategoryActionModel extends ProductUpdateActionModel implements ProductSetTaxCategoryAction {
+class ProductSetTaxCategoryActionModel extends ProductUpdateActionModel implements ProductSetTaxCategoryAction
+{
     const DISCRIMINATOR_VALUE = 'setTaxCategory';
 
     /**

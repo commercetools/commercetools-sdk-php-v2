@@ -10,7 +10,8 @@ namespace Commercetools\Types\Zone;
 use Commercetools\Types\UpdateCollection;
 
 
-interface ZoneUpdateCollection extends UpdateCollection {
+interface ZoneUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return ZoneUpdate

@@ -14,7 +14,8 @@ use Commercetools\Types\TaxCategory\TaxCategoryReference;
 use Commercetools\Builder\ShippingMethodUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-class ShippingMethodModel extends ResourceModel implements ShippingMethod {
+class ShippingMethodModel extends ResourceModel implements ShippingMethod
+{
     /**
      * @var string
      */

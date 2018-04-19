@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductDiscount;
 
-interface ProductDiscountValueRelative extends ProductDiscountValue {
+interface ProductDiscountValueRelative extends ProductDiscountValue
+{
     const FIELD_PERMYRIAD = 'permyriad';
 
     /**

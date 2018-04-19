@@ -11,7 +11,8 @@ use Commercetools\Types\Cart\CartUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CartSetDeleteDaysAfterLastModificationActionCollectionModel extends CartUpdateActionCollectionModel implements CartSetDeleteDaysAfterLastModificationActionCollection {
+class CartSetDeleteDaysAfterLastModificationActionCollectionModel extends CartUpdateActionCollectionModel implements CartSetDeleteDaysAfterLastModificationActionCollection
+{
 
     /**
      * @param CartSetDeleteDaysAfterLastModificationAction $value

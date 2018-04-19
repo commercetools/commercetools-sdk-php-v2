@@ -10,7 +10,8 @@ namespace Commercetools\Types;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class PagedQueryResponseCollectionModel extends JsonCollection implements PagedQueryResponseCollection {
+class PagedQueryResponseCollectionModel extends JsonCollection implements PagedQueryResponseCollection
+{
 
     /**
      * @param PagedQueryResponse $value

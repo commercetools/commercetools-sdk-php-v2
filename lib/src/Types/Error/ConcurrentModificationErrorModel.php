@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Error\ErrorObjectModel;
 
-class ConcurrentModificationErrorModel extends ErrorObjectModel implements ConcurrentModificationError {
+class ConcurrentModificationErrorModel extends ErrorObjectModel implements ConcurrentModificationError
+{
     const DISCRIMINATOR_VALUE = 'ConcurrentModification';
 
     /**

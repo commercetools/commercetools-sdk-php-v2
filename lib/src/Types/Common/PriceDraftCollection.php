@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\Collection;
 
-interface PriceDraftCollection extends Collection {
+interface PriceDraftCollection extends Collection
+{
     /**
      * @param $index
      * @return PriceDraft

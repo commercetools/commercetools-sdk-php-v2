@@ -14,7 +14,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFields;
 use Commercetools\Types\Common\Resource;
 
-interface CartDiscount extends Resource {
+interface CartDiscount extends Resource
+{
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_VALUE = 'value';

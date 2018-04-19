@@ -13,7 +13,8 @@ use Commercetools\Base\JsonObjectModel;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFields;
 
-class CartDiscountDraftModel extends JsonObjectModel implements CartDiscountDraft {
+class CartDiscountDraftModel extends JsonObjectModel implements CartDiscountDraft
+{
     /**
      * @var LocalizedString
      */

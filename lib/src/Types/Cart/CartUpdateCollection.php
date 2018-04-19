@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\UpdateCollection;
 
 
-interface CartUpdateCollection extends UpdateCollection {
+interface CartUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return CartUpdate

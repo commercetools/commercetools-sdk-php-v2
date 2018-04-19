@@ -16,7 +16,8 @@ use Commercetools\Types\TaxCategory\TaxCategoryReference;
 use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\ProductType\ProductTypeReference;
 
-interface ProductDraft extends JsonObject {
+interface ProductDraft extends JsonObject
+{
     const FIELD_PRODUCT_TYPE = 'productType';
     const FIELD_NAME = 'name';
     const FIELD_SLUG = 'slug';

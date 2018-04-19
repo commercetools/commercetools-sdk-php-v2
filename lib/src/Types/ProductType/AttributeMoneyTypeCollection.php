@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\AttributeTypeCollection;
 
 
-interface AttributeMoneyTypeCollection extends AttributeTypeCollection {
+interface AttributeMoneyTypeCollection extends AttributeTypeCollection
+{
     /**
      * @param $index
      * @return AttributeMoneyType

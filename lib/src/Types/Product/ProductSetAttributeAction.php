@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Product;
 
-interface ProductSetAttributeAction extends ProductUpdateAction {
+interface ProductSetAttributeAction extends ProductUpdateAction
+{
     const FIELD_NAME = 'name';
     const FIELD_SKU = 'sku';
     const FIELD_VALUE = 'value';

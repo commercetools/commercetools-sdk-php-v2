@@ -10,7 +10,8 @@ namespace Commercetools\Types\ShoppingList;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface ShoppingListCollection extends ResourceCollection {
+interface ShoppingListCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return ShoppingList
@@ -34,4 +35,5 @@ interface ShoppingListCollection extends ResourceCollection {
      * @return ShoppingList
      */
     public function byId($id);
+
 }

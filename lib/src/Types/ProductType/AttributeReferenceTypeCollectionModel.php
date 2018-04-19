@@ -11,7 +11,8 @@ use Commercetools\Types\ProductType\AttributeTypeCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class AttributeReferenceTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeReferenceTypeCollection {
+class AttributeReferenceTypeCollectionModel extends AttributeTypeCollectionModel implements AttributeReferenceTypeCollection
+{
 
     /**
      * @param AttributeReferenceType $value

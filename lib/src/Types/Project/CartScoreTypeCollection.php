@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Types\Project\ShippingRateInputTypeCollection;
 
 
-interface CartScoreTypeCollection extends ShippingRateInputTypeCollection {
+interface CartScoreTypeCollection extends ShippingRateInputTypeCollection
+{
     /**
      * @param $index
      * @return CartScoreType

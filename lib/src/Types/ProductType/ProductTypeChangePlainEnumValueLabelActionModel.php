@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionModel;
 
-class ProductTypeChangePlainEnumValueLabelActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangePlainEnumValueLabelAction {
+class ProductTypeChangePlainEnumValueLabelActionModel extends ProductTypeUpdateActionModel implements ProductTypeChangePlainEnumValueLabelAction
+{
     const DISCRIMINATOR_VALUE = 'changePlainEnumValueLabel';
 
     /**

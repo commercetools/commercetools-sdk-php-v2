@@ -22,7 +22,8 @@ use Commercetools\Types\Project\ProjectUpdate;
 use Commercetools\Request\ByProjectKeyPost;
 
 
-class ProjectUpdateBuilder extends BaseBuilder {
+class ProjectUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Project
      */

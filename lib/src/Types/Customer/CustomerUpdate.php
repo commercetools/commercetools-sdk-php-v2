@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Types\UpdateActionCollection;
 use Commercetools\Types\Update;
 
-interface CustomerUpdate extends Update {
+interface CustomerUpdate extends Update
+{
     /**
      * @return CustomerUpdateActionCollection
      */

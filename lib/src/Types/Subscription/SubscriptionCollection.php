@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface SubscriptionCollection extends ResourceCollection {
+interface SubscriptionCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Subscription
@@ -34,4 +35,5 @@ interface SubscriptionCollection extends ResourceCollection {
      * @return Subscription
      */
     public function byId($id);
+
 }

@@ -10,7 +10,8 @@ namespace Commercetools\Types\TaxCategory;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\TaxCategory\TaxCategoryUpdateActionModel;
 
-class TaxCategoryReplaceTaxRateActionModel extends TaxCategoryUpdateActionModel implements TaxCategoryReplaceTaxRateAction {
+class TaxCategoryReplaceTaxRateActionModel extends TaxCategoryUpdateActionModel implements TaxCategoryReplaceTaxRateAction
+{
     const DISCRIMINATOR_VALUE = 'replaceTaxRate';
 
     /**

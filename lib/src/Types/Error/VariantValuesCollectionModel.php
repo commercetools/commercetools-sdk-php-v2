@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class VariantValuesCollectionModel extends JsonCollection implements VariantValuesCollection {
+class VariantValuesCollectionModel extends JsonCollection implements VariantValuesCollection
+{
 
     /**
      * @param VariantValues $value

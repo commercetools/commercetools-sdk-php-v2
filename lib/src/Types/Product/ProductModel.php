@@ -17,7 +17,8 @@ use Commercetools\Types\ProductType\ProductTypeReference;
 use Commercetools\Types\Review\ReviewRatingStatistics;
 use Commercetools\Types\Common\Resource;
 
-class ProductModel extends ResourceModel implements Product {
+class ProductModel extends ResourceModel implements Product
+{
     /**
      * @var string
      */

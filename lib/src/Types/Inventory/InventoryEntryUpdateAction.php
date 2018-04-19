@@ -10,7 +10,8 @@ namespace Commercetools\Types\Inventory;
 use Commercetools\Types\UpdateAction;
 use Commercetools\Types;
 
-interface InventoryEntryUpdateAction extends UpdateAction {
+interface InventoryEntryUpdateAction extends UpdateAction
+{
     const DISCRIMINATOR = 'action';
     const SUB_TYPES = [
         'addQuantity' => Types\Inventory\InventoryAddQuantityAction::class,

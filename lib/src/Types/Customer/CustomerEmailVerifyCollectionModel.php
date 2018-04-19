@@ -10,7 +10,8 @@ namespace Commercetools\Types\Customer;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class CustomerEmailVerifyCollectionModel extends JsonCollection implements CustomerEmailVerifyCollection {
+class CustomerEmailVerifyCollectionModel extends JsonCollection implements CustomerEmailVerifyCollection
+{
 
     /**
      * @param CustomerEmailVerify $value

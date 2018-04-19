@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class AttributeLocalizedEnumValueModel extends JsonObjectModel implements AttributeLocalizedEnumValue {
+class AttributeLocalizedEnumValueModel extends JsonObjectModel implements AttributeLocalizedEnumValue
+{
     /**
      * @var string
      */

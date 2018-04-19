@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ShippingMethod;
 
-interface ShippingMethodSetDescriptionAction extends ShippingMethodUpdateAction {
+interface ShippingMethodSetDescriptionAction extends ShippingMethodUpdateAction
+{
     const FIELD_DESCRIPTION = 'description';
 
     /**

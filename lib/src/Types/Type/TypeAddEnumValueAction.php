@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface TypeAddEnumValueAction extends TypeUpdateAction {
+interface TypeAddEnumValueAction extends TypeUpdateAction
+{
     const FIELD_FIELD_NAME = 'fieldName';
     const FIELD_VALUE = 'value';
 

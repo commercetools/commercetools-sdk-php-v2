@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface CartSetDeleteDaysAfterLastModificationAction extends CartUpdateAction {
+interface CartSetDeleteDaysAfterLastModificationAction extends CartUpdateAction
+{
     const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
 
     /**

@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\DiscountCode;
 
-interface DiscountCodeSetValidFromAction extends DiscountCodeUpdateAction {
+interface DiscountCodeSetValidFromAction extends DiscountCodeUpdateAction
+{
     const FIELD_VALID_FROM = 'validFrom';
 
     /**

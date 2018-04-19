@@ -10,7 +10,8 @@ namespace Commercetools\Types\Type;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Type\FieldTypeModel;
 
-class CustomFieldReferenceTypeModel extends FieldTypeModel implements CustomFieldReferenceType {
+class CustomFieldReferenceTypeModel extends FieldTypeModel implements CustomFieldReferenceType
+{
     const DISCRIMINATOR_VALUE = 'Reference';
 
     /**

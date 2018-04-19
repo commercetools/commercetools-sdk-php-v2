@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Types\Common\GeoJsonCollection;
 
 
-interface GeoJsonPointCollection extends GeoJsonCollection {
+interface GeoJsonPointCollection extends GeoJsonCollection
+{
     /**
      * @param $index
      * @return GeoJsonPoint

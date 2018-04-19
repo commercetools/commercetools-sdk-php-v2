@@ -21,7 +21,8 @@ use Commercetools\Types\Common\Price;
 use Commercetools\Types\Common\Money;
 use Commercetools\Types\Product\ProductVariant;
 
-class LineItemModel extends JsonObjectModel implements LineItem {
+class LineItemModel extends JsonObjectModel implements LineItem
+{
     /**
      * @var string
      */

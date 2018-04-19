@@ -12,7 +12,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Money;
 
-interface CartAddCustomLineItemAction extends CartUpdateAction {
+interface CartAddCustomLineItemAction extends CartUpdateAction
+{
     const FIELD_CUSTOM = 'custom';
     const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
     const FIELD_MONEY = 'money';

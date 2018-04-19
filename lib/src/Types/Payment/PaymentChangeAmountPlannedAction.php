@@ -9,7 +9,8 @@ namespace Commercetools\Types\Payment;
 
 use Commercetools\Types\Common\Money;
 
-interface PaymentChangeAmountPlannedAction extends PaymentUpdateAction {
+interface PaymentChangeAmountPlannedAction extends PaymentUpdateAction
+{
     const FIELD_AMOUNT = 'amount';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Message;
 use Commercetools\Types\Message\MessageCollection;
 
 
-interface ProductRevertedStagedChangesMessageCollection extends MessageCollection {
+interface ProductRevertedStagedChangesMessageCollection extends MessageCollection
+{
     /**
      * @param $index
      * @return ProductRevertedStagedChangesMessage

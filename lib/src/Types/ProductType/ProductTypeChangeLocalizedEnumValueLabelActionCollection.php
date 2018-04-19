@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionCollection;
 
 
-interface ProductTypeChangeLocalizedEnumValueLabelActionCollection extends ProductTypeUpdateActionCollection {
+interface ProductTypeChangeLocalizedEnumValueLabelActionCollection extends ProductTypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductTypeChangeLocalizedEnumValueLabelAction

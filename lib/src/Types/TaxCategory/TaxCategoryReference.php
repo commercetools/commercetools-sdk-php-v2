@@ -9,7 +9,8 @@ namespace Commercetools\Types\TaxCategory;
 
 use Commercetools\Types\Common\Reference;
 
-interface TaxCategoryReference extends Reference {
+interface TaxCategoryReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

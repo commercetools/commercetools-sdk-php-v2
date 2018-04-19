@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Cart;
 
-interface ScoreShippingRateInput extends ShippingRateInput {
+interface ScoreShippingRateInput extends ShippingRateInput
+{
     const FIELD_SCORE = 'score';
 
     /**

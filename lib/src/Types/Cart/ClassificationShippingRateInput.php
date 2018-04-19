@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\Common\LocalizedString;
 
-interface ClassificationShippingRateInput extends ShippingRateInput {
+interface ClassificationShippingRateInput extends ShippingRateInput
+{
     const FIELD_KEY = 'key';
     const FIELD_LABEL = 'label';
 

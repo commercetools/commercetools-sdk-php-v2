@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\State\StateReference;
 
-class ItemStateModel extends JsonObjectModel implements ItemState {
+class ItemStateModel extends JsonObjectModel implements ItemState
+{
     /**
      * @var int
      */

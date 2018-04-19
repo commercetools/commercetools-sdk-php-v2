@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObject;
 use Commercetools\Types\Payment\PaymentReference;
 use Commercetools\Types\Payment\PaymentReferenceCollection;
 
-interface PaymentInfo extends JsonObject {
+interface PaymentInfo extends JsonObject
+{
     const FIELD_PAYMENTS = 'payments';
 
     /**

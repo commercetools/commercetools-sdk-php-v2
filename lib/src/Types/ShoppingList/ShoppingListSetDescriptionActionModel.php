@@ -12,7 +12,8 @@ use Commercetools\Types\ShoppingList\ShoppingListUpdateActionModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class ShoppingListSetDescriptionActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetDescriptionAction {
+class ShoppingListSetDescriptionActionModel extends ShoppingListUpdateActionModel implements ShoppingListSetDescriptionAction
+{
     const DISCRIMINATOR_VALUE = 'setDescription';
 
     /**

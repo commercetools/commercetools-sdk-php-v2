@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\Collection;
 
-interface CustomerSigninCollection extends Collection {
+interface CustomerSigninCollection extends Collection
+{
     /**
      * @param $index
      * @return CustomerSignin

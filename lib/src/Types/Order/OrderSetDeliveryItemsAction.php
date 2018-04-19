@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderSetDeliveryItemsAction extends OrderUpdateAction {
+interface OrderSetDeliveryItemsAction extends OrderUpdateAction
+{
     const FIELD_DELIVERY_ID = 'deliveryId';
     const FIELD_ITEMS = 'items';
 

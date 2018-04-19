@@ -16,7 +16,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Price;
 
-class LineItemImportDraftModel extends JsonObjectModel implements LineItemImportDraft {
+class LineItemImportDraftModel extends JsonObjectModel implements LineItemImportDraft
+{
     /**
      * @var string
      */

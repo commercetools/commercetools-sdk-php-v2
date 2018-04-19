@@ -12,7 +12,8 @@ use Commercetools\Types\ShippingMethod\ShippingMethodUpdateActionModel;
 
 use Commercetools\Types\TaxCategory\TaxCategoryReference;
 
-class ShippingMethodChangeTaxCategoryActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodChangeTaxCategoryAction {
+class ShippingMethodChangeTaxCategoryActionModel extends ShippingMethodUpdateActionModel implements ShippingMethodChangeTaxCategoryAction
+{
     const DISCRIMINATOR_VALUE = 'changeTaxCategory';
 
     /**

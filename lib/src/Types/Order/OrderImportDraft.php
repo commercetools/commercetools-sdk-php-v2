@@ -18,7 +18,8 @@ use Commercetools\Types\Common\Money;
 use Commercetools\Types\Cart\TaxedPrice;
 use Commercetools\Types\Common\Address;
 
-interface OrderImportDraft extends JsonObject {
+interface OrderImportDraft extends JsonObject
+{
     const FIELD_ORDER_NUMBER = 'orderNumber';
     const FIELD_CUSTOMER_ID = 'customerId';
     const FIELD_CUSTOMER_EMAIL = 'customerEmail';

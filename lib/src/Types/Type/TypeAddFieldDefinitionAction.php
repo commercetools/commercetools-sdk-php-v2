@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-interface TypeAddFieldDefinitionAction extends TypeUpdateAction {
+interface TypeAddFieldDefinitionAction extends TypeUpdateAction
+{
     const FIELD_FIELD_DEFINITION = 'fieldDefinition';
 
     /**

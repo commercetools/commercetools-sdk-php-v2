@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Project\ProjectUpdateActionModel;
 
-class ProjectSetShippingRateInputTypeActionModel extends ProjectUpdateActionModel implements ProjectSetShippingRateInputTypeAction {
+class ProjectSetShippingRateInputTypeActionModel extends ProjectUpdateActionModel implements ProjectSetShippingRateInputTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setShippingRateInputType';
 
     /**

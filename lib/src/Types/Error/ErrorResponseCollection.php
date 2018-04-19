@@ -9,7 +9,8 @@ namespace Commercetools\Types\Error;
 
 use Commercetools\Base\Collection;
 
-interface ErrorResponseCollection extends Collection {
+interface ErrorResponseCollection extends Collection
+{
     /**
      * @param $index
      * @return ErrorResponse

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Extension;
 use Commercetools\Types\UpdateCollection;
 
 
-interface ExtensionUpdateCollection extends UpdateCollection {
+interface ExtensionUpdateCollection extends UpdateCollection
+{
     /**
      * @param $index
      * @return ExtensionUpdate

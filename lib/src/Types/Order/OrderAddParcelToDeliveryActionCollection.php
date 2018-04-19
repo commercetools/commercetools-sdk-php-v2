@@ -10,7 +10,8 @@ namespace Commercetools\Types\Order;
 use Commercetools\Types\Order\OrderUpdateActionCollection;
 
 
-interface OrderAddParcelToDeliveryActionCollection extends OrderUpdateActionCollection {
+interface OrderAddParcelToDeliveryActionCollection extends OrderUpdateActionCollection
+{
     /**
      * @param $index
      * @return OrderAddParcelToDeliveryAction

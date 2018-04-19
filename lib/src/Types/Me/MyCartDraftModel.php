@@ -14,7 +14,8 @@ use Commercetools\Types\ShippingMethod\ShippingMethodReference;
 use Commercetools\Types\Type\CustomFieldsDraft;
 use Commercetools\Types\Common\Address;
 
-class MyCartDraftModel extends JsonObjectModel implements MyCartDraft {
+class MyCartDraftModel extends JsonObjectModel implements MyCartDraft
+{
     /**
      * @var string
      */

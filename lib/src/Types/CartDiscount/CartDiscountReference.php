@@ -9,7 +9,8 @@ namespace Commercetools\Types\CartDiscount;
 
 use Commercetools\Types\Common\Reference;
 
-interface CartDiscountReference extends Reference {
+interface CartDiscountReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

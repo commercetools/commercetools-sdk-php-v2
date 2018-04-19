@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonObject;
 
-interface ProductCatalogData extends JsonObject {
+interface ProductCatalogData extends JsonObject
+{
     const FIELD_PUBLISHED = 'published';
     const FIELD_CURRENT = 'current';
     const FIELD_STAGED = 'staged';

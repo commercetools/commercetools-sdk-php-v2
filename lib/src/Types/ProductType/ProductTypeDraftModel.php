@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Base\JsonObjectModel;
 
-class ProductTypeDraftModel extends JsonObjectModel implements ProductTypeDraft {
+class ProductTypeDraftModel extends JsonObjectModel implements ProductTypeDraft
+{
     /**
      * @var string
      */

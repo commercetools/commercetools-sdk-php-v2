@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Payment;
 
-interface PaymentSetExternalIdAction extends PaymentUpdateAction {
+interface PaymentSetExternalIdAction extends PaymentUpdateAction
+{
     const FIELD_EXTERNAL_ID = 'externalId';
 
     /**

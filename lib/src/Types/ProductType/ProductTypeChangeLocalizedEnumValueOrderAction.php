@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductType;
 
-interface ProductTypeChangeLocalizedEnumValueOrderAction extends ProductTypeUpdateAction {
+interface ProductTypeChangeLocalizedEnumValueOrderAction extends ProductTypeUpdateAction
+{
     const FIELD_ATTRIBUTE_NAME = 'attributeName';
     const FIELD_VALUES = 'values';
 

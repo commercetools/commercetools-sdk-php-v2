@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class ExternalTaxAmountDraftCollectionModel extends JsonCollection implements ExternalTaxAmountDraftCollection {
+class ExternalTaxAmountDraftCollectionModel extends JsonCollection implements ExternalTaxAmountDraftCollection
+{
 
     /**
      * @param ExternalTaxAmountDraft $value

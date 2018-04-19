@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Error;
 
-interface InvalidOperationError extends ErrorObject {
+interface InvalidOperationError extends ErrorObject
+{
 }

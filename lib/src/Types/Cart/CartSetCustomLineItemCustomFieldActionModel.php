@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Exception\InvalidArgumentException;
 use Commercetools\Types\Cart\CartUpdateActionModel;
 
-class CartSetCustomLineItemCustomFieldActionModel extends CartUpdateActionModel implements CartSetCustomLineItemCustomFieldAction {
+class CartSetCustomLineItemCustomFieldActionModel extends CartUpdateActionModel implements CartSetCustomLineItemCustomFieldAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomLineItemCustomField';
 
     /**

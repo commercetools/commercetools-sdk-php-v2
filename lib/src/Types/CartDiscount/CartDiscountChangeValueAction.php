@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CartDiscount;
 
-interface CartDiscountChangeValueAction extends CartDiscountUpdateAction {
+interface CartDiscountChangeValueAction extends CartDiscountUpdateAction
+{
     const FIELD_VALUE = 'value';
 
     /**

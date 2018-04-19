@@ -16,7 +16,8 @@ use Commercetools\Types\ProductType\ProductTypeReference;
 use Commercetools\Types\Review\ReviewRatingStatistics;
 use Commercetools\Types\Common\Resource;
 
-interface ProductProjection extends Resource {
+interface ProductProjection extends Resource
+{
     const FIELD_KEY = 'key';
     const FIELD_PRODUCT_TYPE = 'productType';
     const FIELD_NAME = 'name';

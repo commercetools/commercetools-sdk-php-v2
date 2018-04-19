@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Zone;
 
-interface ZoneSetDescriptionAction extends ZoneUpdateAction {
+interface ZoneSetDescriptionAction extends ZoneUpdateAction
+{
     const FIELD_DESCRIPTION = 'description';
 
     /**

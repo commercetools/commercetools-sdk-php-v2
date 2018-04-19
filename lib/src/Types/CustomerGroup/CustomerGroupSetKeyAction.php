@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\CustomerGroup;
 
-interface CustomerGroupSetKeyAction extends CustomerGroupUpdateAction {
+interface CustomerGroupSetKeyAction extends CustomerGroupUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

@@ -13,7 +13,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 use Commercetools\Types\Common\PriceDraftCollection;
 use Commercetools\Types\Common\PriceDraft;
 
-class ProductSetPricesActionModel extends ProductUpdateActionModel implements ProductSetPricesAction {
+class ProductSetPricesActionModel extends ProductUpdateActionModel implements ProductSetPricesAction
+{
     const DISCRIMINATOR_VALUE = 'setPrices';
 
     /**

@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\Channel\ChannelReference;
 use Commercetools\Types\ShoppingList\ShoppingListReference;
 
-interface CartAddShoppingListAction extends CartUpdateAction {
+interface CartAddShoppingListAction extends CartUpdateAction
+{
     const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     const FIELD_SHOPPING_LIST = 'shoppingList';
     const FIELD_SUPPLY_CHANNEL = 'supplyChannel';

@@ -14,7 +14,8 @@ use Commercetools\Types\Type\CustomFields;
 use Commercetools\Builder\CustomerGroupUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-class CustomerGroupModel extends ResourceModel implements CustomerGroup {
+class CustomerGroupModel extends ResourceModel implements CustomerGroup
+{
     /**
      * @var string
      */

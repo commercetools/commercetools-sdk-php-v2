@@ -10,7 +10,8 @@ namespace Commercetools\Types\Subscription;
 use Commercetools\Types\Subscription\DestinationCollection;
 
 
-interface AzureServiceBusDestinationCollection extends DestinationCollection {
+interface AzureServiceBusDestinationCollection extends DestinationCollection
+{
     /**
      * @param $index
      * @return AzureServiceBusDestination

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Common;
 
 use Commercetools\Base\JsonObject;
 
-interface Money extends JsonObject {
+interface Money extends JsonObject
+{
     const FIELD_CENT_AMOUNT = 'centAmount';
     const FIELD_CURRENCY_CODE = 'currencyCode';
 

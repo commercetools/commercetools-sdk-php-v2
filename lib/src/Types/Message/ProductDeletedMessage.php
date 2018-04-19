@@ -9,7 +9,8 @@ namespace Commercetools\Types\Message;
 
 use Commercetools\Types\Product\ProductProjection;
 
-interface ProductDeletedMessage extends Message {
+interface ProductDeletedMessage extends Message
+{
     const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
     const FIELD_CURRENT_PROJECTION = 'currentProjection';
 

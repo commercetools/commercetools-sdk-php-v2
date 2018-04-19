@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Types\Common\Money;
 
-interface CartSetLineItemPriceAction extends CartUpdateAction {
+interface CartSetLineItemPriceAction extends CartUpdateAction
+{
     const FIELD_EXTERNAL_PRICE = 'externalPrice';
     const FIELD_LINE_ITEM_ID = 'lineItemId';
 

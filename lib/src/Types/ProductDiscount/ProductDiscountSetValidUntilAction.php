@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductDiscount;
 
-interface ProductDiscountSetValidUntilAction extends ProductDiscountUpdateAction {
+interface ProductDiscountSetValidUntilAction extends ProductDiscountUpdateAction
+{
     const FIELD_VALID_UNTIL = 'validUntil';
 
     /**

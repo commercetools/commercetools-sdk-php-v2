@@ -10,7 +10,8 @@ namespace Commercetools\Types\Error;
 use Commercetools\Types\Error\ErrorObjectCollection;
 
 
-interface InsufficientScopeErrorCollection extends ErrorObjectCollection {
+interface InsufficientScopeErrorCollection extends ErrorObjectCollection
+{
     /**
      * @param $index
      * @return InsufficientScopeError

@@ -12,7 +12,8 @@ use Commercetools\Types\Message\MessageModel;
 
 use Commercetools\Types\Order\Order;
 
-class OrderCreatedMessageModel extends MessageModel implements OrderCreatedMessage {
+class OrderCreatedMessageModel extends MessageModel implements OrderCreatedMessage
+{
     const DISCRIMINATOR_VALUE = 'OrderCreated';
 
     /**

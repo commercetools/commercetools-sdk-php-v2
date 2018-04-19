@@ -7,5 +7,6 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\ProductDiscount;
 
-interface ProductDiscountValueExternal extends ProductDiscountValue {
+interface ProductDiscountValueExternal extends ProductDiscountValue
+{
 }

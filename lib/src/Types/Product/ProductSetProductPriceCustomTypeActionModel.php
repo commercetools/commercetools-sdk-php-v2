@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Type\TypeReference;
 
-class ProductSetProductPriceCustomTypeActionModel extends ProductUpdateActionModel implements ProductSetProductPriceCustomTypeAction {
+class ProductSetProductPriceCustomTypeActionModel extends ProductUpdateActionModel implements ProductSetProductPriceCustomTypeAction
+{
     const DISCRIMINATOR_VALUE = 'setProductPriceCustomType';
 
     /**

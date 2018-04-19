@@ -10,7 +10,8 @@ namespace Commercetools\Types\Common;
 use Commercetools\Base\JsonCollection;
 use Commercetools\Exception\InvalidArgumentException;
 
-class AddressCollectionModel extends JsonCollection implements AddressCollection {
+class AddressCollectionModel extends JsonCollection implements AddressCollection
+{
 
     /**
      * @param Address $value

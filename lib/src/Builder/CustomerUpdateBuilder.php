@@ -41,7 +41,8 @@ use Commercetools\Types\Customer\CustomerUpdate;
 use Commercetools\Request\ByProjectKeyCustomersByIDPost;
 
 
-class CustomerUpdateBuilder extends BaseBuilder {
+class CustomerUpdateBuilder extends BaseBuilder
+{
     /**
      * @var Customer
      */

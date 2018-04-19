@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class InventoryEntryCollectionModel extends ResourceCollectionModel implements InventoryEntryCollection {
+class InventoryEntryCollectionModel extends ResourceCollectionModel implements InventoryEntryCollection
+{
 
     /**
      * @param InventoryEntry $value
@@ -55,4 +56,5 @@ class InventoryEntryCollectionModel extends ResourceCollectionModel implements I
     {
         return $this->valueByKey('id', $id);
     }
+
 }

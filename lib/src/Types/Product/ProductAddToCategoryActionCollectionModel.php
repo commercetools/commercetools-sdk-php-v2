@@ -11,7 +11,8 @@ use Commercetools\Types\Product\ProductUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductAddToCategoryActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductAddToCategoryActionCollection {
+class ProductAddToCategoryActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductAddToCategoryActionCollection
+{
 
     /**
      * @param ProductAddToCategoryAction $value

@@ -11,7 +11,8 @@ use Commercetools\Types\Message\MessageCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class OrderImportedMessageCollectionModel extends MessageCollectionModel implements OrderImportedMessageCollection {
+class OrderImportedMessageCollectionModel extends MessageCollectionModel implements OrderImportedMessageCollection
+{
 
     /**
      * @param OrderImportedMessage $value

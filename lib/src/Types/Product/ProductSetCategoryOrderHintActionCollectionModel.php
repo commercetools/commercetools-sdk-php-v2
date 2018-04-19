@@ -11,7 +11,8 @@ use Commercetools\Types\Product\ProductUpdateActionCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class ProductSetCategoryOrderHintActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductSetCategoryOrderHintActionCollection {
+class ProductSetCategoryOrderHintActionCollectionModel extends ProductUpdateActionCollectionModel implements ProductSetCategoryOrderHintActionCollection
+{
 
     /**
      * @param ProductSetCategoryOrderHintAction $value

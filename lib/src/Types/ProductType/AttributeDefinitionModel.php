@@ -12,7 +12,8 @@ use Commercetools\Base\JsonObjectModel;
 
 use Commercetools\Types\Common\LocalizedString;
 
-class AttributeDefinitionModel extends JsonObjectModel implements AttributeDefinition {
+class AttributeDefinitionModel extends JsonObjectModel implements AttributeDefinition
+{
     /**
      * @var mixed
      */

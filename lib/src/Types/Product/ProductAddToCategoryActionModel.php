@@ -12,7 +12,8 @@ use Commercetools\Types\Product\ProductUpdateActionModel;
 
 use Commercetools\Types\Category\CategoryReference;
 
-class ProductAddToCategoryActionModel extends ProductUpdateActionModel implements ProductAddToCategoryAction {
+class ProductAddToCategoryActionModel extends ProductUpdateActionModel implements ProductAddToCategoryAction
+{
     const DISCRIMINATOR_VALUE = 'addToCategory';
 
     /**

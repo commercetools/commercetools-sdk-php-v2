@@ -13,7 +13,8 @@ use Commercetools\Types\Cart\CartUpdateActionModel;
 use Commercetools\Types\TaxCategory\TaxCategoryReference;
 use Commercetools\Types\ShippingMethod\ShippingRateDraft;
 
-class CartSetCustomShippingMethodActionModel extends CartUpdateActionModel implements CartSetCustomShippingMethodAction {
+class CartSetCustomShippingMethodActionModel extends CartUpdateActionModel implements CartSetCustomShippingMethodAction
+{
     const DISCRIMINATOR_VALUE = 'setCustomShippingMethod';
 
     /**

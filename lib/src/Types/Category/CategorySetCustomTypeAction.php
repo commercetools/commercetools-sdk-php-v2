@@ -9,7 +9,8 @@ namespace Commercetools\Types\Category;
 
 use Commercetools\Types\Type\TypeReference;
 
-interface CategorySetCustomTypeAction extends CategoryUpdateAction {
+interface CategorySetCustomTypeAction extends CategoryUpdateAction
+{
     const FIELD_TYPE = 'type';
     const FIELD_FIELDS = 'fields';
 

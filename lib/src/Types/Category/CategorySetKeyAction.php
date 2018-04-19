@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Category;
 
-interface CategorySetKeyAction extends CategoryUpdateAction {
+interface CategorySetKeyAction extends CategoryUpdateAction
+{
     const FIELD_KEY = 'key';
 
     /**

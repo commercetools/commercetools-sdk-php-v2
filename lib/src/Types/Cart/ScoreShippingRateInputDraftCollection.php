@@ -10,7 +10,8 @@ namespace Commercetools\Types\Cart;
 use Commercetools\Types\Cart\ShippingRateInputDraftCollection;
 
 
-interface ScoreShippingRateInputDraftCollection extends ShippingRateInputDraftCollection {
+interface ScoreShippingRateInputDraftCollection extends ShippingRateInputDraftCollection
+{
     /**
      * @param $index
      * @return ScoreShippingRateInputDraft

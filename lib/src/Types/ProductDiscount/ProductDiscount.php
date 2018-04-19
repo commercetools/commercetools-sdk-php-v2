@@ -13,7 +13,8 @@ use Commercetools\Types\Common\LocalizedString;
 use Commercetools\Builder\ProductDiscountUpdateBuilder;
 use Commercetools\Types\Common\Resource;
 
-interface ProductDiscount extends Resource {
+interface ProductDiscount extends Resource
+{
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_VALUE = 'value';

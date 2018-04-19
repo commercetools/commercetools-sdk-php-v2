@@ -7,7 +7,8 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Order;
 
-interface OrderChangeShipmentStateAction extends OrderUpdateAction {
+interface OrderChangeShipmentStateAction extends OrderUpdateAction
+{
     const FIELD_SHIPMENT_STATE = 'shipmentState';
 
     /**

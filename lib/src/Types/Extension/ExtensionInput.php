@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\Common\Reference;
 
-interface ExtensionInput extends JsonObject {
+interface ExtensionInput extends JsonObject
+{
     const FIELD_ACTION = 'action';
     const FIELD_RESOURCE = 'resource';
 

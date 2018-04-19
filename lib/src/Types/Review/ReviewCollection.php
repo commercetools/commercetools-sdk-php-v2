@@ -10,7 +10,8 @@ namespace Commercetools\Types\Review;
 use Commercetools\Types\Common\ResourceCollection;
 
 
-interface ReviewCollection extends ResourceCollection {
+interface ReviewCollection extends ResourceCollection
+{
     /**
      * @param $index
      * @return Review
@@ -34,4 +35,5 @@ interface ReviewCollection extends ResourceCollection {
      * @return Review
      */
     public function byId($id);
+
 }

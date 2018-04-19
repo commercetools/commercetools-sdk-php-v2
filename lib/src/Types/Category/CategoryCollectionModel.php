@@ -11,7 +11,8 @@ use Commercetools\Types\Common\ResourceCollectionModel;
 
 use Commercetools\Exception\InvalidArgumentException;
 
-class CategoryCollectionModel extends ResourceCollectionModel implements CategoryCollection {
+class CategoryCollectionModel extends ResourceCollectionModel implements CategoryCollection
+{
 
     /**
      * @param Category $value
@@ -55,4 +56,5 @@ class CategoryCollectionModel extends ResourceCollectionModel implements Categor
     {
         return $this->valueByKey('id', $id);
     }
+
 }

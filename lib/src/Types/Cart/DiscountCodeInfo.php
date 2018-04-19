@@ -11,7 +11,8 @@ use Commercetools\Base\JsonObject;
 
 use Commercetools\Types\DiscountCode\DiscountCodeReference;
 
-interface DiscountCodeInfo extends JsonObject {
+interface DiscountCodeInfo extends JsonObject
+{
     const FIELD_DISCOUNT_CODE = 'discountCode';
     const FIELD_STATE = 'state';
 

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Channel;
 
 use Commercetools\Types\Common\Reference;
 
-interface ChannelReference extends Reference {
+interface ChannelReference extends Reference
+{
     const FIELD_OBJ = 'obj';
 
     /**

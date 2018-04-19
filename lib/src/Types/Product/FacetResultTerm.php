@@ -9,7 +9,8 @@ namespace Commercetools\Types\Product;
 
 use Commercetools\Base\JsonObject;
 
-interface FacetResultTerm extends JsonObject {
+interface FacetResultTerm extends JsonObject
+{
     const FIELD_TERM = 'term';
     const FIELD_COUNT = 'count';
     const FIELD_PRODUCT_COUNT = 'productCount';

@@ -9,7 +9,8 @@ namespace Commercetools\Types\Cart;
 
 use Commercetools\Base\Collection;
 
-interface TaxPortionCollection extends Collection {
+interface TaxPortionCollection extends Collection
+{
     /**
      * @param $index
      * @return TaxPortion

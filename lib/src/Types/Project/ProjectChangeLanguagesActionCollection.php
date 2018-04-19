@@ -10,7 +10,8 @@ namespace Commercetools\Types\Project;
 use Commercetools\Types\Project\ProjectUpdateActionCollection;
 
 
-interface ProjectChangeLanguagesActionCollection extends ProjectUpdateActionCollection {
+interface ProjectChangeLanguagesActionCollection extends ProjectUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProjectChangeLanguagesAction

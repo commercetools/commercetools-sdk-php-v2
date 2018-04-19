@@ -10,7 +10,8 @@ namespace Commercetools\Types\ProductType;
 use Commercetools\Types\ProductType\ProductTypeUpdateActionCollection;
 
 
-interface ProductTypeRemoveAttributeDefinitionActionCollection extends ProductTypeUpdateActionCollection {
+interface ProductTypeRemoveAttributeDefinitionActionCollection extends ProductTypeUpdateActionCollection
+{
     /**
      * @param $index
      * @return ProductTypeRemoveAttributeDefinitionAction

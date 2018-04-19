@@ -9,7 +9,8 @@ namespace Commercetools\Types\Customer;
 
 use Commercetools\Base\JsonObject;
 
-interface CustomerCreatePasswordResetToken extends JsonObject {
+interface CustomerCreatePasswordResetToken extends JsonObject
+{
     const FIELD_EMAIL = 'email';
 
     /**
