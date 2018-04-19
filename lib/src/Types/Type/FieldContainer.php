@@ -7,8 +7,20 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
-use Commercetools\Base\JsonObject;
+use Commercetools\Base\Map;
 
-interface FieldContainer extends JsonObject
+interface FieldContainer extends Map
 {
+    /**
+     * @param $key
+     * @return mixed
+     */
+    public function get($key);
+
+    /**
+     * @param $data
+     * @param $index
+     * @return mixed
+     */
+    public function map($data, $index);
 }

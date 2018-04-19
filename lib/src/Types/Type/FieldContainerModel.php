@@ -7,9 +7,19 @@ declare(strict_types = 1);
 
 namespace Commercetools\Types\Type;
 
+use Commercetools\Base\JsonMap;
 use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Base\JsonObjectModel;
 
-class FieldContainerModel extends JsonObjectModel implements FieldContainer
+class FieldContainerModel extends JsonMap implements FieldContainer
 {
+
+    /**
+     * @param $data
+     * @param $index
+     * @return mixed
+     */
+    public function map($data, $index)
+    {
+        return $data;
+    }
 }
