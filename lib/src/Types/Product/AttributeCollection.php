@@ -28,4 +28,12 @@ interface AttributeCollection extends Collection
      * @return Attribute
      */
     public function map($data, $index);
+
+    /**
+     * @param string $name
+     * @return Attribute
+     */
+    public function byName($name);
+
+    public function __call(string $method, array $args);
 }

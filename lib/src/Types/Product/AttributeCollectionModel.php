@@ -37,4 +37,42 @@ class AttributeCollectionModel extends JsonCollection implements AttributeCollec
         }
         return $data;
     }
+
+    protected function index($data)
+    {
+        foreach ($data as $key => $value) {
+            if (isset($value['name'])) {
+                $this->addToIndex('name', $value['name'], $key);
+            }
+        }
+    }
+
+    /**
+     * @param string $name
+     * @return Attribute
+     */
+    public function byName($name)
+    {
+        return $this->valueByKey('name', $name);
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function offsetGet($offset)
+    {
+        if (is_string($offset)) {
+            return $this->byName($offset);
+        }
+        return parent::at($offset);
+    }
+
+    public function __call(string $method, array $args)
+    {
+        if (strpos($method, 'get') === 0) {
+            $method = lcfirst(substr($method, 3));
+        }
+        return $this->byName($method);
+    }
 }
