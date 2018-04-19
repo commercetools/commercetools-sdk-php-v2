@@ -9,7 +9,7 @@ namespace Commercetools\Base;
 
 use Commercetools\Types\ModelClassMap;
 
-class JsonMap implements Map, MapperAware, \JsonSerializable
+class JsonMap implements Map, MapperAware, \JsonSerializable, \ArrayAccess
 {
     private $rawData;
     private $keys;
@@ -147,5 +147,46 @@ class JsonMap implements Map, MapperAware, \JsonSerializable
     {
         $data = !is_null($this->rawData) ? $this->rawData : [];
         return new MapIterator($data, [$this, 'map']);
+    }
+
+    public function __call(string $method, array $args)
+    {
+        if (strpos($method, 'get') === 0) {
+            $method = lcfirst(substr($method, 3));
+        }
+        return $this->get($method);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function offsetExists($offset)
+    {
+        return !is_null($this->rawData) && array_key_exists($offset, $this->rawData);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function offsetGet($offset)
+    {
+        return $this->get($offset);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function offsetSet($offset, $value)
+    {
+        $this->rawSet($value, $offset);
+        $this->iterator = $this->getIterator();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->rawData[$offset]);
     }
 }
