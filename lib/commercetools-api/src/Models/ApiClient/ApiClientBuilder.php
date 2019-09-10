@@ -1,16 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ApiClient;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use DateTimeImmutable;
 
 /**
@@ -18,177 +16,173 @@ use DateTimeImmutable;
  */
 final class ApiClientBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $deleteAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastUsedAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $scope;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $secret;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
+    private $deleteAt;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?DateTimeImmutable
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $lastUsedAt;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getDeleteAt()
-    {
-       return $this->deleteAt;
-    }
-    
+    private $scope;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getLastUsedAt()
-    {
-       return $this->lastUsedAt;
-    }
-    
+    private $name;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getScope()
-    {
-       return $this->scope;
-    }
-    
+    private $secret;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getName()
+    private $id;
+
+    public function __construct()
     {
-       return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getSecret()
+    public function getCreatedAt()
     {
-       return $this->secret;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getId()
+    public function getDeleteAt()
     {
-       return $this->id;
+        return $this->deleteAt;
     }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastUsedAt()
+    {
+        return $this->lastUsedAt;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getScope()
+    {
+        return $this->scope;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSecret()
+    {
+        return $this->secret;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDeleteAt(?DateTimeImmutable $deleteAt)
+    public function withDeleteAt(?DateTimeImmutable $deleteAt)
     {
         $this->deleteAt = $deleteAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastUsedAt(?DateTimeImmutable $lastUsedAt)
+    public function withLastUsedAt(?DateTimeImmutable $lastUsedAt)
     {
         $this->lastUsedAt = $lastUsedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withScope(?string $scope)
+    public function withScope(?string $scope)
     {
         $this->scope = $scope;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSecret(?string $secret)
+    public function withSecret(?string $secret)
     {
         $this->secret = $secret;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
-    public function build(): ApiClient {
+
+    public function build(): ApiClient
+    {
         return new ApiClientModel(
             $this->createdAt,
             $this->deleteAt,
@@ -199,7 +193,7 @@ final class ApiClientBuilder implements Builder
             $this->id
         );
     }
-    
+
     public static function of(): ApiClientBuilder
     {
         return new self();

@@ -1,22 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
-use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -24,336 +20,328 @@ use DateTimeImmutable;
  */
 final class SubscriptionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
-     * @var ?CreatedByBuilder|CreatedBy
+     * @var CreatedBy|?CreatedByBuilder
      */
-    protected $createdBy;
-    
+    private $createdBy;
+
     /**
-     * @var ?LastModifiedByBuilder|LastModifiedBy
+     * @var LastModifiedBy|?LastModifiedByBuilder
      */
-    protected $lastModifiedBy;
-    
+    private $lastModifiedBy;
+
     /**
-     * @var ?DeliveryFormatBuilder|DeliveryFormat
+     * @var DeliveryFormat|?DeliveryFormatBuilder
      */
-    protected $format;
-    
+    private $format;
+
     /**
-     * @var ?DestinationBuilder|Destination
+     * @var Destination|?DestinationBuilder
      */
-    protected $destination;
-    
+    private $destination;
+
     /**
      * @var ?ChangeSubscriptionCollection
      */
-    protected $changes;
-    
+    private $changes;
+
     /**
      * @var ?MessageSubscriptionCollection
      */
-    protected $messages;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?string
-     */
-    protected $status;
+    private $messages;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $key;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getLastModifiedAt()
+    private $status;
+
+    public function __construct()
     {
-       return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getId()
+    public function getCreatedAt()
     {
-       return $this->id;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|DateTimeImmutable
      */
-    final public function getVersion()
+    public function getLastModifiedAt()
     {
-       return $this->version;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return CreatedBy|null
+     * @return null|string
      */
-    final public function getCreatedBy()
+    public function getId()
     {
-       return ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy);
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @return null|int
      */
-    final public function getLastModifiedBy()
+    public function getVersion()
     {
-       return ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy);
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return DeliveryFormat|null
+     * @return null|CreatedBy
      */
-    final public function getFormat()
+    public function getCreatedBy()
     {
-       return ($this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format);
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
-    
+
     /**
-     *
-     * @return Destination|null
+     * @return null|LastModifiedBy
      */
-    final public function getDestination()
+    public function getLastModifiedBy()
     {
-       return ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination);
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
-    
+
     /**
-     *
-     * @return ChangeSubscriptionCollection|null
+     * @return null|DeliveryFormat
      */
-    final public function getChanges()
+    public function getFormat()
     {
-       return $this->changes;
+        return $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format;
     }
-    
+
     /**
-     *
-     * @return MessageSubscriptionCollection|null
+     * @return null|Destination
      */
-    final public function getMessages()
+    public function getDestination()
     {
-       return $this->messages;
+        return $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ChangeSubscriptionCollection
      */
-    final public function getKey()
+    public function getChanges()
     {
-       return $this->key;
+        return $this->changes;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|MessageSubscriptionCollection
      */
-    final public function getStatus()
+    public function getMessages()
     {
-       return $this->status;
+        return $this->messages;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFormat(?DeliveryFormat $format)
+    public function withFormat(?DeliveryFormat $format)
     {
         $this->format = $format;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDestination(?Destination $destination)
+    public function withDestination(?Destination $destination)
     {
         $this->destination = $destination;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withChanges(?ChangeSubscriptionCollection $changes)
+    public function withChanges(?ChangeSubscriptionCollection $changes)
     {
         $this->changes = $changes;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessages(?MessageSubscriptionCollection $messages)
+    public function withMessages(?MessageSubscriptionCollection $messages)
     {
         $this->messages = $messages;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStatus(?string $status)
+    public function withStatus(?string $status)
     {
         $this->status = $status;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFormatBuilder(?DeliveryFormatBuilder $format)
+    public function withFormatBuilder(?DeliveryFormatBuilder $format)
     {
         $this->format = $format;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDestinationBuilder(?DestinationBuilder $destination)
+    public function withDestinationBuilder(?DestinationBuilder $destination)
     {
         $this->destination = $destination;
-        
+
         return $this;
     }
-    
-    public function build(): Subscription {
+
+    public function build(): Subscription
+    {
         return new SubscriptionModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -369,7 +357,7 @@ final class SubscriptionBuilder implements Builder
             $this->status
         );
     }
-    
+
     public static function of(): SubscriptionBuilder
     {
         return new self();

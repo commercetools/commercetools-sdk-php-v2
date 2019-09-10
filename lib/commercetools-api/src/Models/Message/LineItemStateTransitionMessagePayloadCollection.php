@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LineItemStateTransitionMessagePayload>
+ *
  * @method LineItemStateTransitionMessagePayload current()
  * @method LineItemStateTransitionMessagePayload at($offset)
  */
@@ -20,8 +23,12 @@ class LineItemStateTransitionMessagePayloadCollection extends MapperSequence
     /**
      * @psalm-assert LineItemStateTransitionMessagePayload $value
      * @psalm-param LineItemStateTransitionMessagePayload|stdClass $value
-     * @return LineItemStateTransitionMessagePayloadCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return LineItemStateTransitionMessagePayloadCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class LineItemStateTransitionMessagePayloadCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?LineItemStateTransitionMessagePayload {
+        return function (int $index): ?LineItemStateTransitionMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = LineItemStateTransitionMessagePayloadModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductVariantAvailability>
+ *
  * @method ProductVariantAvailability current()
  * @method ProductVariantAvailability at($offset)
  */
@@ -20,8 +23,12 @@ class ProductVariantAvailabilityCollection extends MapperSequence
     /**
      * @psalm-assert ProductVariantAvailability $value
      * @psalm-param ProductVariantAvailability|stdClass $value
-     * @return ProductVariantAvailabilityCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductVariantAvailabilityCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductVariantAvailabilityCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductVariantAvailability {
+        return function (int $index): ?ProductVariantAvailability {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductVariantAvailabilityModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

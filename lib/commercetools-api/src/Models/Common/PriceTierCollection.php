@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PriceTier>
+ *
  * @method PriceTier current()
  * @method PriceTier at($offset)
  */
@@ -20,8 +23,12 @@ class PriceTierCollection extends MapperSequence
     /**
      * @psalm-assert PriceTier $value
      * @psalm-param PriceTier|stdClass $value
-     * @return PriceTierCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return PriceTierCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class PriceTierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?PriceTier {
+        return function (int $index): ?PriceTier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = PriceTierModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

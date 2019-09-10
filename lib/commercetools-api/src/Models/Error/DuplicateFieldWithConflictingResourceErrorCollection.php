@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DuplicateFieldWithConflictingResourceError>
+ *
  * @method DuplicateFieldWithConflictingResourceError current()
  * @method DuplicateFieldWithConflictingResourceError at($offset)
  */
@@ -20,8 +23,12 @@ class DuplicateFieldWithConflictingResourceErrorCollection extends MapperSequenc
     /**
      * @psalm-assert DuplicateFieldWithConflictingResourceError $value
      * @psalm-param DuplicateFieldWithConflictingResourceError|stdClass $value
-     * @return DuplicateFieldWithConflictingResourceErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return DuplicateFieldWithConflictingResourceErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class DuplicateFieldWithConflictingResourceErrorCollection extends MapperSequenc
      */
     protected function mapper()
     {
-        return function(int $index): ?DuplicateFieldWithConflictingResourceError {
+        return function (int $index): ?DuplicateFieldWithConflictingResourceError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = DuplicateFieldWithConflictingResourceErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

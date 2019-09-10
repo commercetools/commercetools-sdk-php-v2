@@ -1,20 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Review;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\JsonObject;
 
 interface Review extends LoggedResource
 {
-    
     const FIELD_KEY = 'key';
     const FIELD_UNIQUENESS_VALUE = 'uniquenessValue';
     const FIELD_LOCALE = 'locale';
@@ -29,97 +30,86 @@ interface Review extends LoggedResource
     const FIELD_CUSTOM = 'custom';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getUniquenessValue();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getLocale();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAuthorName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTitle();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getText();
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
     public function getTarget();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getIncludedInStatistics();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getRating();
-    
+
     /**
-     *
-     * @return StateReference|null
+     * @return null|StateReference
      */
     public function getState();
-    
+
     /**
-     *
-     * @return CustomerReference|null
+     * @return null|CustomerReference
      */
     public function getCustomer();
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
     public function getCustom();
+
     public function setKey(?string $key): void;
-    
+
     public function setUniquenessValue(?string $uniquenessValue): void;
-    
+
     public function setLocale(?string $locale): void;
-    
+
     public function setAuthorName(?string $authorName): void;
-    
+
     public function setTitle(?string $title): void;
-    
+
     public function setText(?string $text): void;
-    
+
     public function setTarget(?JsonObject $target): void;
-    
+
     public function setIncludedInStatistics(?bool $includedInStatistics): void;
-    
+
     public function setRating(?int $rating): void;
-    
+
     public function setState(?StateReference $state): void;
-    
+
     public function setCustomer(?CustomerReference $customer): void;
-    
+
     public function setCustom(?CustomFields $custom): void;
 }

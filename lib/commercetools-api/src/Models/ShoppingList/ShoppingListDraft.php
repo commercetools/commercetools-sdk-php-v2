@@ -1,19 +1,20 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\JsonObject;
 
 interface ShoppingListDraft extends JsonObject
 {
-    
     const FIELD_CUSTOM = 'custom';
     const FIELD_CUSTOMER = 'customer';
     const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
@@ -26,81 +27,72 @@ interface ShoppingListDraft extends JsonObject
     const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return CustomerResourceIdentifier|null
+     * @return null|CustomerResourceIdentifier
      */
     public function getCustomer();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getDescription();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return ShoppingListLineItemDraftCollection|null
+     * @return null|ShoppingListLineItemDraftCollection
      */
     public function getLineItems();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getSlug();
-    
+
     /**
-     *
-     * @return TextLineItemDraftCollection|null
+     * @return null|TextLineItemDraftCollection
      */
     public function getTextLineItems();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAnonymousId();
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setCustomer(?CustomerResourceIdentifier $customer): void;
-    
+
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
-    
+
     public function setDescription(?LocalizedString $description): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void;
-    
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setSlug(?LocalizedString $slug): void;
-    
+
     public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void;
-    
+
     public function setAnonymousId(?string $anonymousId): void;
 }

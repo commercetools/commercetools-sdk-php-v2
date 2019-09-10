@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderFromCartDraft>
+ *
  * @method OrderFromCartDraft current()
  * @method OrderFromCartDraft at($offset)
  */
@@ -20,8 +23,12 @@ class OrderFromCartDraftCollection extends MapperSequence
     /**
      * @psalm-assert OrderFromCartDraft $value
      * @psalm-param OrderFromCartDraft|stdClass $value
-     * @return OrderFromCartDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderFromCartDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderFromCartDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderFromCartDraft {
+        return function (int $index): ?OrderFromCartDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderFromCartDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

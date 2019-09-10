@@ -1,84 +1,81 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Cart;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPrice
 {
-    
+    /**
+     * @var ?TypedMoney
+     */
+    protected $totalGross;
+
+    /**
+     * @var ?TypedMoney
+     */
+    protected $totalNet;
+
     public function __construct(
         TypedMoney $totalGross = null,
         TypedMoney $totalNet = null
     ) {
         $this->totalGross = $totalGross;
         $this->totalNet = $totalNet;
-        
     }
 
     /**
-     * @var ?TypedMoney
+     * @return null|TypedMoney
      */
-    protected $totalGross;
-    
-    /**
-     * @var ?TypedMoney
-     */
-    protected $totalNet;
+    public function getTotalGross()
+    {
+        if (is_null($this->totalGross)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TaxedItemPrice::FIELD_TOTAL_GROSS);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->totalGross = $className::of($data);
+        }
+
+        return $this->totalGross;
+    }
 
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
-    final public function getTotalGross()
+    public function getTotalNet()
     {
-       if (is_null($this->totalGross)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(TaxedItemPrice::FIELD_TOTAL_GROSS);
-           if (is_null($data)) {
-               return null;
-           }
-           $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-           $this->totalGross = $className::of($data);
-       }
-       return $this->totalGross;
+        if (is_null($this->totalNet)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TaxedItemPrice::FIELD_TOTAL_NET);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->totalNet = $className::of($data);
+        }
+
+        return $this->totalNet;
     }
-    
-    /**
-     *
-     * @return TypedMoney|null
-     */
-    final public function getTotalNet()
-    {
-       if (is_null($this->totalNet)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(TaxedItemPrice::FIELD_TOTAL_NET);
-           if (is_null($data)) {
-               return null;
-           }
-           $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-           $this->totalNet = $className::of($data);
-       }
-       return $this->totalNet;
-    }
-    final public function setTotalGross(?TypedMoney $totalGross): void
+
+    public function setTotalGross(?TypedMoney $totalGross): void
     {
         $this->totalGross = $totalGross;
     }
-    
-    final public function setTotalNet(?TypedMoney $totalNet): void
+
+    public function setTotalNet(?TypedMoney $totalNet): void
     {
         $this->totalNet = $totalNet;
     }
-    
 }

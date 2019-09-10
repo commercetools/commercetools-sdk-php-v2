@@ -1,238 +1,233 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftBuilder;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<MyLineItemDraft>
  */
 final class MyLineItemDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?int
      */
-    protected $quantity;
-    
+    private $quantity;
+
     /**
-     * @var ?ItemShippingDetailsDraftBuilder|ItemShippingDetailsDraft
+     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
      */
-    protected $shippingDetails;
-    
+    private $shippingDetails;
+
     /**
      * @var ?string
      */
-    protected $productId;
-    
+    private $productId;
+
     /**
-     * @var ?CustomFieldsDraftBuilder|CustomFieldsDraft
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
-     * @var ?ChannelResourceIdentifierBuilder|ChannelResourceIdentifier
+     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
      */
-    protected $supplyChannel;
-    
+    private $supplyChannel;
+
     /**
      * @var ?int
      */
-    protected $variantId;
-    
-    /**
-     * @var ?ChannelResourceIdentifierBuilder|ChannelResourceIdentifier
-     */
-    protected $distributionChannel;
+    private $variantId;
 
     /**
-     *
-     * @return int|null
+     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
      */
-    final public function getQuantity()
+    private $distributionChannel;
+
+    public function __construct()
     {
-       return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return ItemShippingDetailsDraft|null
+     * @return null|int
      */
-    final public function getShippingDetails()
+    public function getQuantity()
     {
-       return ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails);
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ItemShippingDetailsDraft
      */
-    final public function getProductId()
+    public function getShippingDetails()
     {
-       return $this->productId;
+        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|string
      */
-    final public function getCustom()
+    public function getProductId()
     {
-       return ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom);
+        return $this->productId;
     }
-    
+
     /**
-     *
-     * @return ChannelResourceIdentifier|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getSupplyChannel()
+    public function getCustom()
     {
-       return ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel);
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|ChannelResourceIdentifier
      */
-    final public function getVariantId()
+    public function getSupplyChannel()
     {
-       return $this->variantId;
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
-    
+
     /**
-     *
-     * @return ChannelResourceIdentifier|null
+     * @return null|int
      */
-    final public function getDistributionChannel()
+    public function getVariantId()
     {
-       return ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel);
+        return $this->variantId;
     }
+
+    /**
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getDistributionChannel()
+    {
+        return $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
+    }
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
+    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductId(?string $productId)
+    public function withProductId(?string $productId)
     {
         $this->productId = $productId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFieldsDraft $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
+    public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
+    public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)
+    public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
-        
+
         return $this;
     }
-    
-    public function build(): MyLineItemDraft {
+
+    public function build(): MyLineItemDraft
+    {
         return new MyLineItemDraftModel(
             $this->quantity,
             ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails),
@@ -243,7 +238,7 @@ final class MyLineItemDraftBuilder implements Builder
             ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel)
         );
     }
-    
+
     public static function of(): MyLineItemDraftBuilder
     {
         return new self();

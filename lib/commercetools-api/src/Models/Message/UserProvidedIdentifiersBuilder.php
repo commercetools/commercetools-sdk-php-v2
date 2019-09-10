@@ -1,180 +1,176 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<UserProvidedIdentifiers>
  */
 final class UserProvidedIdentifiersBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $orderNumber;
 
     /**
      * @var ?string
      */
-    protected $orderNumber;
-    
-    /**
-     * @var ?string
-     */
-    protected $externalId;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerNumber;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $slug;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    private $externalId;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getOrderNumber()
-    {
-       return $this->orderNumber;
-    }
-    
+    private $sku;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getExternalId()
-    {
-       return $this->externalId;
-    }
-    
+    private $customerNumber;
+
     /**
-     *
-     * @return string|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getSku()
-    {
-       return $this->sku;
-    }
-    
+    private $slug;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCustomerNumber()
+    private $key;
+
+    public function __construct()
     {
-       return $this->customerNumber;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getSlug()
+    public function getOrderNumber()
     {
-       return ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug);
+        return $this->orderNumber;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getExternalId()
     {
-       return $this->key;
+        return $this->externalId;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCustomerNumber()
+    {
+        return $this->customerNumber;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
     /**
      * @return $this
      */
-    final public function withOrderNumber(?string $orderNumber)
+    public function withOrderNumber(?string $orderNumber)
     {
         $this->orderNumber = $orderNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalId(?string $externalId)
+    public function withExternalId(?string $externalId)
     {
         $this->externalId = $externalId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerNumber(?string $customerNumber)
+    public function withCustomerNumber(?string $customerNumber)
     {
         $this->customerNumber = $customerNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSlug(?LocalizedString $slug)
+    public function withSlug(?LocalizedString $slug)
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withSlugBuilder(?LocalizedStringBuilder $slug)
+    public function withSlugBuilder(?LocalizedStringBuilder $slug)
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
-    
-    public function build(): UserProvidedIdentifiers {
+
+    public function build(): UserProvidedIdentifiers
+    {
         return new UserProvidedIdentifiersModel(
             $this->orderNumber,
             $this->externalId,
@@ -184,7 +180,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): UserProvidedIdentifiersBuilder
     {
         return new self();

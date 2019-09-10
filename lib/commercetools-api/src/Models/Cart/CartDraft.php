@@ -1,22 +1,23 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\JsonObject;
 
 interface CartDraft extends JsonObject
 {
-    
     const FIELD_CURRENCY = 'currency';
     const FIELD_CUSTOMER_ID = 'customerId';
     const FIELD_CUSTOMER_EMAIL = 'customerEmail';
@@ -42,185 +43,165 @@ interface CartDraft extends JsonObject
     const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
 
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-     * @return string|null
+     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     *
+     * @return null|string
      */
     public function getCurrency();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerEmail();
-    
+
     /**
-     *
-     * @return CustomerGroupResourceIdentifier|null
+     * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAnonymousId();
-    
+
     /**
-     *
-     * @return StoreResourceIdentifier|null
+     * @return null|StoreResourceIdentifier
      */
     public function getStore();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCountry();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getInventoryMode();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTaxMode();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTaxRoundingMode();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTaxCalculationMode();
-    
+
     /**
-     *
-     * @return LineItemDraftCollection|null
+     * @return null|LineItemDraftCollection
      */
     public function getLineItems();
-    
+
     /**
-     *
-     * @return CustomLineItemDraftCollection|null
+     * @return null|CustomLineItemDraftCollection
      */
     public function getCustomLineItems();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getShippingAddress();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getBillingAddress();
-    
+
     /**
-     *
-     * @return ShippingMethodResourceIdentifier|null
+     * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod();
-    
+
     /**
-     *
-     * @return ExternalTaxRateDraft|null
+     * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRateForShippingMethod();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getLocale();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getOrigin();
-    
+
     /**
-     *
-     * @return ShippingRateInputDraft|null
+     * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput();
-    
+
     /**
-     *
-     * @return AddressCollection|null
+     * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
+
     public function setCurrency(?string $currency): void;
-    
+
     public function setCustomerId(?string $customerId): void;
-    
+
     public function setCustomerEmail(?string $customerEmail): void;
-    
+
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
-    
+
     public function setAnonymousId(?string $anonymousId): void;
-    
+
     public function setStore(?StoreResourceIdentifier $store): void;
-    
+
     public function setCountry(?string $country): void;
-    
+
     public function setInventoryMode(?string $inventoryMode): void;
-    
+
     public function setTaxMode(?string $taxMode): void;
-    
+
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
-    
+
     public function setTaxCalculationMode(?string $taxCalculationMode): void;
-    
+
     public function setLineItems(?LineItemDraftCollection $lineItems): void;
-    
+
     public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void;
-    
+
     public function setShippingAddress(?Address $shippingAddress): void;
-    
+
     public function setBillingAddress(?Address $billingAddress): void;
-    
+
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
-    
+
     public function setExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setLocale(?string $locale): void;
-    
+
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
-    
+
     public function setOrigin(?string $origin): void;
-    
+
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void;
-    
+
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 }

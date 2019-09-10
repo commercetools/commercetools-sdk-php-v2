@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldTimeType>
+ *
  * @method CustomFieldTimeType current()
  * @method CustomFieldTimeType at($offset)
  */
@@ -20,8 +23,12 @@ class CustomFieldTimeTypeCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldTimeType $value
      * @psalm-param CustomFieldTimeType|stdClass $value
-     * @return CustomFieldTimeTypeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomFieldTimeTypeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomFieldTimeTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomFieldTimeType {
+        return function (int $index): ?CustomFieldTimeType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomFieldTimeTypeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

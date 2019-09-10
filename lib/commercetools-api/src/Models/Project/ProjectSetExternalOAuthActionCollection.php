@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProjectSetExternalOAuthAction>
+ *
  * @method ProjectSetExternalOAuthAction current()
  * @method ProjectSetExternalOAuthAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProjectSetExternalOAuthActionCollection extends MapperSequence
     /**
      * @psalm-assert ProjectSetExternalOAuthAction $value
      * @psalm-param ProjectSetExternalOAuthAction|stdClass $value
-     * @return ProjectSetExternalOAuthActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProjectSetExternalOAuthActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProjectSetExternalOAuthActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProjectSetExternalOAuthAction {
+        return function (int $index): ?ProjectSetExternalOAuthAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProjectSetExternalOAuthActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

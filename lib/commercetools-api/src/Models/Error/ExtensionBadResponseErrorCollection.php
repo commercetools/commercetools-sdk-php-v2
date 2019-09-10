@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionBadResponseError>
+ *
  * @method ExtensionBadResponseError current()
  * @method ExtensionBadResponseError at($offset)
  */
@@ -20,8 +23,12 @@ class ExtensionBadResponseErrorCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionBadResponseError $value
      * @psalm-param ExtensionBadResponseError|stdClass $value
-     * @return ExtensionBadResponseErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ExtensionBadResponseErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ExtensionBadResponseErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ExtensionBadResponseError {
+        return function (int $index): ?ExtensionBadResponseError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ExtensionBadResponseErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,80 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class ShoppingListChangeTextLineItemsOrderActionModel extends JsonObjectModel implements ShoppingListChangeTextLineItemsOrderAction
 {
     const DISCRIMINATOR_VALUE = 'changeTextLineItemsOrder';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?array
+     */
+    protected $textLineItemOrder;
+
     public function __construct(
         string $action = null,
         array $textLineItemOrder = null
     ) {
         $this->action = $action;
         $this->textLineItemOrder = $textLineItemOrder;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?array
-     */
-    protected $textLineItemOrder;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|array
      */
-    final public function getAction()
+    public function getTextLineItemOrder()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->textLineItemOrder)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(ShoppingListChangeTextLineItemsOrderAction::FIELD_TEXT_LINE_ITEM_ORDER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->textLineItemOrder = $data;
+        }
+
+        return $this->textLineItemOrder;
     }
-    
-    /**
-     *
-     * @return array|null
-     */
-    final public function getTextLineItemOrder()
-    {
-       if (is_null($this->textLineItemOrder)) {
-           /** @psalm-var ?array<int, mixed> $data */
-           $data = $this->raw(ShoppingListChangeTextLineItemsOrderAction::FIELD_TEXT_LINE_ITEM_ORDER);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->textLineItemOrder = $data;
-       }
-       return $this->textLineItemOrder;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setTextLineItemOrder(?array $textLineItemOrder): void
+
+    public function setTextLineItemOrder(?array $textLineItemOrder): void
     {
         $this->textLineItemOrder = $textLineItemOrder;
     }
-    
 }

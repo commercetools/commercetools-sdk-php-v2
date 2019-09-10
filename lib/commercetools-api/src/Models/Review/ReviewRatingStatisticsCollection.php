@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewRatingStatistics>
+ *
  * @method ReviewRatingStatistics current()
  * @method ReviewRatingStatistics at($offset)
  */
@@ -20,8 +23,12 @@ class ReviewRatingStatisticsCollection extends MapperSequence
     /**
      * @psalm-assert ReviewRatingStatistics $value
      * @psalm-param ReviewRatingStatistics|stdClass $value
-     * @return ReviewRatingStatisticsCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ReviewRatingStatisticsCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ReviewRatingStatisticsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ReviewRatingStatistics {
+        return function (int $index): ?ReviewRatingStatistics {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ReviewRatingStatisticsModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

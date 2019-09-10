@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeLocalizedEnumType>
+ *
  * @method AttributeLocalizedEnumType current()
  * @method AttributeLocalizedEnumType at($offset)
  */
@@ -20,8 +23,12 @@ class AttributeLocalizedEnumTypeCollection extends MapperSequence
     /**
      * @psalm-assert AttributeLocalizedEnumType $value
      * @psalm-param AttributeLocalizedEnumType|stdClass $value
-     * @return AttributeLocalizedEnumTypeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return AttributeLocalizedEnumTypeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class AttributeLocalizedEnumTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?AttributeLocalizedEnumType {
+        return function (int $index): ?AttributeLocalizedEnumType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = AttributeLocalizedEnumTypeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

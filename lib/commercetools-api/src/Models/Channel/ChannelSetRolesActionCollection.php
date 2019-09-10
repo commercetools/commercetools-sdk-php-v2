@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelSetRolesAction>
+ *
  * @method ChannelSetRolesAction current()
  * @method ChannelSetRolesAction at($offset)
  */
@@ -20,8 +23,12 @@ class ChannelSetRolesActionCollection extends MapperSequence
     /**
      * @psalm-assert ChannelSetRolesAction $value
      * @psalm-param ChannelSetRolesAction|stdClass $value
-     * @return ChannelSetRolesActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ChannelSetRolesActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ChannelSetRolesActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ChannelSetRolesAction {
+        return function (int $index): ?ChannelSetRolesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ChannelSetRolesActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

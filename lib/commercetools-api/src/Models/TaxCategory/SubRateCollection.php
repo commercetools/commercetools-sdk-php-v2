@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\TaxCategory;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SubRate>
+ *
  * @method SubRate current()
  * @method SubRate at($offset)
  */
@@ -20,8 +23,12 @@ class SubRateCollection extends MapperSequence
     /**
      * @psalm-assert SubRate $value
      * @psalm-param SubRate|stdClass $value
-     * @return SubRateCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return SubRateCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class SubRateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?SubRate {
+        return function (int $index): ?SubRate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = SubRateModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

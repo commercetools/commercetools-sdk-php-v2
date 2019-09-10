@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Review;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ReviewSetCustomerAction>
  */
 final class ReviewSetCustomerActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?CustomerResourceIdentifierBuilder|CustomerResourceIdentifier
-     */
-    protected $customer;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
      */
-    final public function getAction()
+    private $customer;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return CustomerResourceIdentifier|null
+     * @return null|string
      */
-    final public function getCustomer()
+    public function getAction()
     {
-       return ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer);
+        return $this->action;
     }
+
+    /**
+     * @return null|CustomerResourceIdentifier
+     */
+    public function getCustomer()
+    {
+        return $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomer(?CustomerResourceIdentifier $customer)
+    public function withCustomer(?CustomerResourceIdentifier $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
+    public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
-    
-    public function build(): ReviewSetCustomerAction {
+
+    public function build(): ReviewSetCustomerAction
+    {
         return new ReviewSetCustomerActionModel(
             $this->action,
             ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer)
         );
     }
-    
+
     public static function of(): ReviewSetCustomerActionBuilder
     {
         return new self();

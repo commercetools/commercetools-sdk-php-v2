@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingMethodResourceIdentifier>
+ *
  * @method ShippingMethodResourceIdentifier current()
  * @method ShippingMethodResourceIdentifier at($offset)
  */
@@ -20,8 +23,12 @@ class ShippingMethodResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert ShippingMethodResourceIdentifier $value
      * @psalm-param ShippingMethodResourceIdentifier|stdClass $value
-     * @return ShippingMethodResourceIdentifierCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ShippingMethodResourceIdentifierCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ShippingMethodResourceIdentifierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ShippingMethodResourceIdentifier {
+        return function (int $index): ?ShippingMethodResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ShippingMethodResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

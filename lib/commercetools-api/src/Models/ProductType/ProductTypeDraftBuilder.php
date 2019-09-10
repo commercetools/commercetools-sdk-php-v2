@@ -1,121 +1,118 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ProductTypeDraft>
  */
 final class ProductTypeDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $name;
 
     /**
      * @var ?string
      */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $description;
-    
+    private $description;
+
     /**
      * @var ?AttributeDefinitionDraftCollection
      */
-    protected $attributes;
-    
+    private $attributes;
+
     /**
      * @var ?string
      */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getDescription()
+    public function getDescription()
     {
-       return $this->description;
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return AttributeDefinitionDraftCollection|null
+     * @return null|AttributeDefinitionDraftCollection
      */
-    final public function getAttributes()
+    public function getAttributes()
     {
-       return $this->attributes;
+        return $this->attributes;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?string $description)
+    public function withDescription(?string $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAttributes(?AttributeDefinitionDraftCollection $attributes)
+    public function withAttributes(?AttributeDefinitionDraftCollection $attributes)
     {
         $this->attributes = $attributes;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
-    public function build(): ProductTypeDraft {
+
+    public function build(): ProductTypeDraft
+    {
         return new ProductTypeDraftModel(
             $this->name,
             $this->description,
@@ -123,7 +120,7 @@ final class ProductTypeDraftBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): ProductTypeDraftBuilder
     {
         return new self();

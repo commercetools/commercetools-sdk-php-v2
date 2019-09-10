@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Base;
 
@@ -11,6 +12,7 @@ use Commercetools\Exception\InvalidArgumentException;
 
 /**
  * @extends MapperSequence<JsonObject>
+ *
  * @method JsonObject current()
  * @method JsonObject at($offset)
  */
@@ -19,8 +21,12 @@ class JsonObjectCollection extends MapperSequence
     /**
      * @psalm-assert JsonObject $value
      * @psalm-param JsonObject|object $value
-     * @return JsonObjectCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return JsonObjectCollection
      */
     public function add($value)
     {
@@ -37,12 +43,13 @@ class JsonObjectCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?JsonObject {
+        return function (int $index): ?JsonObject {
             $data = $this->get($index);
             if (!is_null($data) && !$data instanceof JsonObject) {
                 $data = JsonObjectModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

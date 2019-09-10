@@ -1,41 +1,39 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\AssetSourceCollection;
 
 interface CategorySetAssetSourcesAction extends CategoryUpdateAction
 {
-    
     const FIELD_ASSET_ID = 'assetId';
     const FIELD_ASSET_KEY = 'assetKey';
     const FIELD_SOURCES = 'sources';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAssetId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAssetKey();
-    
+
     /**
-     *
-     * @return AssetSourceCollection|null
+     * @return null|AssetSourceCollection
      */
     public function getSources();
+
     public function setAssetId(?string $assetId): void;
-    
+
     public function setAssetKey(?string $assetKey): void;
-    
+
     public function setSources(?AssetSourceCollection $sources): void;
 }

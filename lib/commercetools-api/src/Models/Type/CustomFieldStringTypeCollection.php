@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldStringType>
+ *
  * @method CustomFieldStringType current()
  * @method CustomFieldStringType at($offset)
  */
@@ -20,8 +23,12 @@ class CustomFieldStringTypeCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldStringType $value
      * @psalm-param CustomFieldStringType|stdClass $value
-     * @return CustomFieldStringTypeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomFieldStringTypeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomFieldStringTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomFieldStringType {
+        return function (int $index): ?CustomFieldStringType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomFieldStringTypeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

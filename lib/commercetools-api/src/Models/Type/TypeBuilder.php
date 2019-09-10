@@ -1,24 +1,20 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
-use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -26,312 +22,305 @@ use DateTimeImmutable;
  */
 final class TypeBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
-     * @var ?CreatedByBuilder|CreatedBy
+     * @var CreatedBy|?CreatedByBuilder
      */
-    protected $createdBy;
-    
+    private $createdBy;
+
     /**
-     * @var ?LastModifiedByBuilder|LastModifiedBy
+     * @var LastModifiedBy|?LastModifiedByBuilder
      */
-    protected $lastModifiedBy;
-    
+    private $lastModifiedBy;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?FieldDefinitionCollection
      */
-    protected $fieldDefinitions;
-    
+    private $fieldDefinitions;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $description;
-    
+    private $description;
+
     /**
      * @var ?string
      */
-    protected $key;
-    
+    private $key;
+
     /**
      * @var ?array
      */
-    protected $resourceTypeIds;
+    private $resourceTypeIds;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getCreatedAt()
     {
-       return $this->createdAt;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getLastModifiedAt()
+    public function getLastModifiedAt()
     {
-       return $this->lastModifiedAt;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return CreatedBy|null
+     * @return null|CreatedBy
      */
-    final public function getCreatedBy()
+    public function getCreatedBy()
     {
-       return ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy);
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
-    
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @return null|LastModifiedBy
      */
-    final public function getLastModifiedBy()
+    public function getLastModifiedBy()
     {
-       return ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy);
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getName()
+    public function getName()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return FieldDefinitionCollection|null
+     * @return null|FieldDefinitionCollection
      */
-    final public function getFieldDefinitions()
+    public function getFieldDefinitions()
     {
-       return $this->fieldDefinitions;
+        return $this->fieldDefinitions;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getDescription()
+    public function getDescription()
     {
-       return ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description);
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getResourceTypeIds()
+    public function getResourceTypeIds()
     {
-       return $this->resourceTypeIds;
+        return $this->resourceTypeIds;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions)
+    public function withFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions)
     {
         $this->fieldDefinitions = $fieldDefinitions;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?LocalizedString $description)
+    public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceTypeIds(?array $resourceTypeIds)
+    public function withResourceTypeIds(?array $resourceTypeIds)
     {
         $this->resourceTypeIds = $resourceTypeIds;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
-    public function build(): Type {
+
+    public function build(): Type
+    {
         return new TypeModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -346,7 +335,7 @@ final class TypeBuilder implements Builder
             $this->resourceTypeIds
         );
     }
-    
+
     public static function of(): TypeBuilder
     {
         return new self();

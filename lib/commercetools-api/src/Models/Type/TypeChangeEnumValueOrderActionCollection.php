@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeChangeEnumValueOrderAction>
+ *
  * @method TypeChangeEnumValueOrderAction current()
  * @method TypeChangeEnumValueOrderAction at($offset)
  */
@@ -20,8 +23,12 @@ class TypeChangeEnumValueOrderActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeChangeEnumValueOrderAction $value
      * @psalm-param TypeChangeEnumValueOrderAction|stdClass $value
-     * @return TypeChangeEnumValueOrderActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TypeChangeEnumValueOrderActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TypeChangeEnumValueOrderActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TypeChangeEnumValueOrderAction {
+        return function (int $index): ?TypeChangeEnumValueOrderAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TypeChangeEnumValueOrderActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

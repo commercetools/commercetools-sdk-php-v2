@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Api\Client;
 
@@ -12,7 +13,6 @@ use Commercetools\Client\Config as BaseConfig;
 class Config implements BaseConfig
 {
     const API_URI = 'https://api.sphere.io';
-
 
     /** @var string */
     private $apiUri;
@@ -37,6 +37,7 @@ class Config implements BaseConfig
     public function setApiUri(string $apiUri): BaseConfig
     {
         $this->apiUri = $apiUri;
+
         return $this;
     }
 
@@ -48,6 +49,7 @@ class Config implements BaseConfig
     public function setClientOptions(array $options): BaseConfig
     {
         $this->clientOptions = $options;
+
         return $this;
     }
 

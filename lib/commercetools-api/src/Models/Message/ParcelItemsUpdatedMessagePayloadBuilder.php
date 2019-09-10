@@ -1,146 +1,142 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ParcelItemsUpdatedMessagePayload>
  */
 final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $deliveryId;
-    
-    /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $oldItems;
-    
-    /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $items;
-    
-    /**
-     * @var ?string
-     */
-    protected $parcelId;
+    private $deliveryId;
 
     /**
-     *
-     * @return string|null
+     * @var ?DeliveryItemCollection
      */
-    final public function getType()
-    {
-       return $this->type;
-    }
-    
+    private $oldItems;
+
     /**
-     *
-     * @return string|null
+     * @var ?DeliveryItemCollection
      */
-    final public function getDeliveryId()
-    {
-       return $this->deliveryId;
-    }
-    
+    private $items;
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @var ?string
      */
-    final public function getOldItems()
+    private $parcelId;
+
+    public function __construct()
     {
-       return $this->oldItems;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|string
      */
-    final public function getItems()
+    public function getType()
     {
-       return $this->items;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getParcelId()
+    public function getDeliveryId()
     {
-       return $this->parcelId;
+        return $this->deliveryId;
     }
+
+    /**
+     * @return null|DeliveryItemCollection
+     */
+    public function getOldItems()
+    {
+        return $this->oldItems;
+    }
+
+    /**
+     * @return null|DeliveryItemCollection
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getParcelId()
+    {
+        return $this->parcelId;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDeliveryId(?string $deliveryId)
+    public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldItems(?DeliveryItemCollection $oldItems)
+    public function withOldItems(?DeliveryItemCollection $oldItems)
     {
         $this->oldItems = $oldItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItems(?DeliveryItemCollection $items)
+    public function withItems(?DeliveryItemCollection $items)
     {
         $this->items = $items;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withParcelId(?string $parcelId)
+    public function withParcelId(?string $parcelId)
     {
         $this->parcelId = $parcelId;
-        
+
         return $this;
     }
-    
-    public function build(): ParcelItemsUpdatedMessagePayload {
+
+    public function build(): ParcelItemsUpdatedMessagePayload
+    {
         return new ParcelItemsUpdatedMessagePayloadModel(
             $this->type,
             $this->deliveryId,
@@ -149,7 +145,7 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
             $this->parcelId
         );
     }
-    
+
     public static function of(): ParcelItemsUpdatedMessagePayloadBuilder
     {
         return new self();

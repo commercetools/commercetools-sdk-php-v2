@@ -1,178 +1,175 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
 use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Api\Models\Product\ProductReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CartDiscountValueGiftLineItem>
  */
 final class CartDiscountValueGiftLineItemBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
-     * @var ?ProductReferenceBuilder|ProductReference
+     * @var ProductReference|?ProductReferenceBuilder
      */
-    protected $product;
-    
+    private $product;
+
     /**
-     * @var ?ChannelReferenceBuilder|ChannelReference
+     * @var ChannelReference|?ChannelReferenceBuilder
      */
-    protected $supplyChannel;
-    
+    private $supplyChannel;
+
     /**
      * @var ?int
      */
-    protected $variantId;
-    
-    /**
-     * @var ?ChannelReferenceBuilder|ChannelReference
-     */
-    protected $distributionChannel;
+    private $variantId;
 
     /**
-     *
-     * @return string|null
+     * @var ChannelReference|?ChannelReferenceBuilder
      */
-    final public function getType()
+    private $distributionChannel;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return ProductReference|null
+     * @return null|string
      */
-    final public function getProduct()
+    public function getType()
     {
-       return ($this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product);
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|ProductReference
      */
-    final public function getSupplyChannel()
+    public function getProduct()
     {
-       return ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel);
+        return $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|ChannelReference
      */
-    final public function getVariantId()
+    public function getSupplyChannel()
     {
-       return $this->variantId;
+        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
-    
+
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|int
      */
-    final public function getDistributionChannel()
+    public function getVariantId()
     {
-       return ($this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel);
+        return $this->variantId;
     }
+
+    /**
+     * @return null|ChannelReference
+     */
+    public function getDistributionChannel()
+    {
+        return $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProduct(?ProductReference $product)
+    public function withProduct(?ProductReference $product)
     {
         $this->product = $product;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSupplyChannel(?ChannelReference $supplyChannel)
+    public function withSupplyChannel(?ChannelReference $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDistributionChannel(?ChannelReference $distributionChannel)
+    public function withDistributionChannel(?ChannelReference $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withProductBuilder(?ProductReferenceBuilder $product)
+    public function withProductBuilder(?ProductReferenceBuilder $product)
     {
         $this->product = $product;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)
+    public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDistributionChannelBuilder(?ChannelReferenceBuilder $distributionChannel)
+    public function withDistributionChannelBuilder(?ChannelReferenceBuilder $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
-        
+
         return $this;
     }
-    
-    public function build(): CartDiscountValueGiftLineItem {
+
+    public function build(): CartDiscountValueGiftLineItem
+    {
         return new CartDiscountValueGiftLineItemModel(
             $this->type,
             ($this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product),
@@ -181,7 +178,7 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
             ($this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel)
         );
     }
-    
+
     public static function of(): CartDiscountValueGiftLineItemBuilder
     {
         return new self();

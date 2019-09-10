@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductDiscount;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductDiscountChangePredicateAction>
+ *
  * @method ProductDiscountChangePredicateAction current()
  * @method ProductDiscountChangePredicateAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductDiscountChangePredicateActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductDiscountChangePredicateAction $value
      * @psalm-param ProductDiscountChangePredicateAction|stdClass $value
-     * @return ProductDiscountChangePredicateActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductDiscountChangePredicateActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductDiscountChangePredicateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductDiscountChangePredicateAction {
+        return function (int $index): ?ProductDiscountChangePredicateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductDiscountChangePredicateActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

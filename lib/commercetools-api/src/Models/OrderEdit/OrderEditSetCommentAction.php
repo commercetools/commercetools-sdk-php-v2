@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\OrderEdit;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\OrderEdit;
 
 interface OrderEditSetCommentAction extends OrderEditUpdateAction
 {
-    
     const FIELD_COMMENT = 'comment';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getComment();
+
     public function setComment(?string $comment): void;
 }

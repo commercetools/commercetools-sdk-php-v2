@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CartSetCartTotalTaxAction>
  */
 final class CartSetCartTotalTaxActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?TaxPortionCollection
      */
-    protected $externalTaxPortions;
-    
-    /**
-     * @var ?MoneyBuilder|Money
-     */
-    protected $externalTotalGross;
+    private $externalTaxPortions;
 
     /**
-     *
-     * @return string|null
+     * @var Money|?MoneyBuilder
      */
-    final public function getAction()
+    private $externalTotalGross;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return TaxPortionCollection|null
+     * @return null|string
      */
-    final public function getExternalTaxPortions()
+    public function getAction()
     {
-       return $this->externalTaxPortions;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|TaxPortionCollection
      */
-    final public function getExternalTotalGross()
+    public function getExternalTaxPortions()
     {
-       return ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross);
+        return $this->externalTaxPortions;
     }
+
+    /**
+     * @return null|Money
+     */
+    public function getExternalTotalGross()
+    {
+        return $this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalTaxPortions(?TaxPortionCollection $externalTaxPortions)
+    public function withExternalTaxPortions(?TaxPortionCollection $externalTaxPortions)
     {
         $this->externalTaxPortions = $externalTaxPortions;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalTotalGross(?Money $externalTotalGross)
+    public function withExternalTotalGross(?Money $externalTotalGross)
     {
         $this->externalTotalGross = $externalTotalGross;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withExternalTotalGrossBuilder(?MoneyBuilder $externalTotalGross)
+    public function withExternalTotalGrossBuilder(?MoneyBuilder $externalTotalGross)
     {
         $this->externalTotalGross = $externalTotalGross;
-        
+
         return $this;
     }
-    
-    public function build(): CartSetCartTotalTaxAction {
+
+    public function build(): CartSetCartTotalTaxAction
+    {
         return new CartSetCartTotalTaxActionModel(
             $this->action,
             $this->externalTaxPortions,
             ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross)
         );
     }
-    
+
     public static function of(): CartSetCartTotalTaxActionBuilder
     {
         return new self();

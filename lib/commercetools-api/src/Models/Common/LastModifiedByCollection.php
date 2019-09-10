@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LastModifiedBy>
+ *
  * @method LastModifiedBy current()
  * @method LastModifiedBy at($offset)
  */
@@ -20,8 +23,12 @@ class LastModifiedByCollection extends MapperSequence
     /**
      * @psalm-assert LastModifiedBy $value
      * @psalm-param LastModifiedBy|stdClass $value
-     * @return LastModifiedByCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return LastModifiedByCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class LastModifiedByCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?LastModifiedBy {
+        return function (int $index): ?LastModifiedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = LastModifiedByModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

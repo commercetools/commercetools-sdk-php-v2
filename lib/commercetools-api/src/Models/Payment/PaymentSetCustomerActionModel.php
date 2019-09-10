@@ -1,83 +1,82 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Payment;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class PaymentSetCustomerActionModel extends JsonObjectModel implements PaymentSetCustomerAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomer';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?CustomerResourceIdentifier
+     */
+    protected $customer;
+
     public function __construct(
         string $action = null,
         CustomerResourceIdentifier $customer = null
     ) {
         $this->action = $action;
         $this->customer = $customer;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?CustomerResourceIdentifier
-     */
-    protected $customer;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|CustomerResourceIdentifier
      */
-    final public function getAction()
+    public function getCustomer()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(PaymentUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->customer)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(PaymentSetCustomerAction::FIELD_CUSTOMER);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customer = CustomerResourceIdentifierModel::of($data);
+        }
+
+        return $this->customer;
     }
-    
-    /**
-     *
-     * @return CustomerResourceIdentifier|null
-     */
-    final public function getCustomer()
-    {
-       if (is_null($this->customer)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(PaymentSetCustomerAction::FIELD_CUSTOMER);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->customer = CustomerResourceIdentifierModel::of($data);
-       }
-       return $this->customer;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setCustomer(?CustomerResourceIdentifier $customer): void
+
+    public function setCustomer(?CustomerResourceIdentifier $customer): void
     {
         $this->customer = $customer;
     }
-    
 }

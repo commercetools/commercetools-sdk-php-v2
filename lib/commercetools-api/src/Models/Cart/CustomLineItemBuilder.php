@@ -1,16 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Common\TypedMoney;
@@ -22,406 +19,398 @@ use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CustomLineItem>
  */
 final class CustomLineItemBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
-     * @var ?TaxRateBuilder|TaxRate
+     * @var TaxRate|?TaxRateBuilder
      */
-    protected $taxRate;
-    
+    private $taxRate;
+
     /**
      * @var ?int
      */
-    protected $quantity;
-    
+    private $quantity;
+
     /**
-     * @var ?ItemShippingDetailsBuilder|ItemShippingDetails
+     * @var ItemShippingDetails|?ItemShippingDetailsBuilder
      */
-    protected $shippingDetails;
-    
+    private $shippingDetails;
+
     /**
-     * @var ?TypedMoneyBuilder|TypedMoney
+     * @var TypedMoney|?TypedMoneyBuilder
      */
-    protected $money;
-    
+    private $money;
+
     /**
-     * @var ?TypedMoneyBuilder|TypedMoney
+     * @var TypedMoney|?TypedMoneyBuilder
      */
-    protected $totalPrice;
-    
+    private $totalPrice;
+
     /**
-     * @var ?TaxedItemPriceBuilder|TaxedItemPrice
+     * @var TaxedItemPrice|?TaxedItemPriceBuilder
      */
-    protected $taxedPrice;
-    
+    private $taxedPrice;
+
     /**
-     * @var ?CustomFieldsBuilder|CustomFields
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?ItemStateCollection
      */
-    protected $state;
-    
+    private $state;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
-    protected $discountedPricePerQuantity;
-    
+    private $discountedPricePerQuantity;
+
     /**
      * @var ?string
      */
-    protected $slug;
-    
-    /**
-     * @var ?TaxCategoryReferenceBuilder|TaxCategoryReference
-     */
-    protected $taxCategory;
+    private $slug;
 
     /**
-     *
-     * @return TaxRate|null
+     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
      */
-    final public function getTaxRate()
+    private $taxCategory;
+
+    public function __construct()
     {
-       return ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate);
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|TaxRate
      */
-    final public function getQuantity()
+    public function getTaxRate()
     {
-       return $this->quantity;
+        return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
     }
-    
+
     /**
-     *
-     * @return ItemShippingDetails|null
+     * @return null|int
      */
-    final public function getShippingDetails()
+    public function getQuantity()
     {
-       return ($this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails);
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|ItemShippingDetails
      */
-    final public function getMoney()
+    public function getShippingDetails()
     {
-       return ($this->money instanceof TypedMoneyBuilder ? $this->money->build() : $this->money);
+        return $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
     }
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
-    final public function getTotalPrice()
+    public function getMoney()
     {
-       return ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice);
+        return $this->money instanceof TypedMoneyBuilder ? $this->money->build() : $this->money;
     }
-    
+
     /**
-     *
-     * @return TaxedItemPrice|null
+     * @return null|TypedMoney
      */
-    final public function getTaxedPrice()
+    public function getTotalPrice()
     {
-       return ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice);
+        return $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|TaxedItemPrice
      */
-    final public function getCustom()
+    public function getTaxedPrice()
     {
-       return ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom);
+        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|CustomFields
      */
-    final public function getName()
+    public function getCustom()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return ItemStateCollection|null
+     * @return null|LocalizedString
      */
-    final public function getState()
+    public function getName()
     {
-       return $this->state;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ItemStateCollection
      */
-    final public function getId()
+    public function getState()
     {
-       return $this->id;
+        return $this->state;
     }
-    
+
     /**
-     *
-     * @return DiscountedLineItemPriceForQuantityCollection|null
+     * @return null|string
      */
-    final public function getDiscountedPricePerQuantity()
+    public function getId()
     {
-       return $this->discountedPricePerQuantity;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DiscountedLineItemPriceForQuantityCollection
      */
-    final public function getSlug()
+    public function getDiscountedPricePerQuantity()
     {
-       return $this->slug;
+        return $this->discountedPricePerQuantity;
     }
-    
+
     /**
-     *
-     * @return TaxCategoryReference|null
+     * @return null|string
      */
-    final public function getTaxCategory()
+    public function getSlug()
     {
-       return ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory);
+        return $this->slug;
     }
+
+    /**
+     * @return null|TaxCategoryReference
+     */
+    public function getTaxCategory()
+    {
+        return $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory;
+    }
+
     /**
      * @return $this
      */
-    final public function withTaxRate(?TaxRate $taxRate)
+    public function withTaxRate(?TaxRate $taxRate)
     {
         $this->taxRate = $taxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingDetails(?ItemShippingDetails $shippingDetails)
+    public function withShippingDetails(?ItemShippingDetails $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMoney(?TypedMoney $money)
+    public function withMoney(?TypedMoney $money)
     {
         $this->money = $money;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotalPrice(?TypedMoney $totalPrice)
+    public function withTotalPrice(?TypedMoney $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
+    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?ItemStateCollection $state)
+    public function withState(?ItemStateCollection $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
+    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSlug(?string $slug)
+    public function withSlug(?string $slug)
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxCategory(?TaxCategoryReference $taxCategory)
+    public function withTaxCategory(?TaxCategoryReference $taxCategory)
     {
         $this->taxCategory = $taxCategory;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
+    public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
     {
         $this->taxRate = $taxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingDetailsBuilder(?ItemShippingDetailsBuilder $shippingDetails)
+    public function withShippingDetailsBuilder(?ItemShippingDetailsBuilder $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMoneyBuilder(?TypedMoneyBuilder $money)
+    public function withMoneyBuilder(?TypedMoneyBuilder $money)
     {
         $this->money = $money;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
+    public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
+    public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
     {
         $this->taxCategory = $taxCategory;
-        
+
         return $this;
     }
-    
-    public function build(): CustomLineItem {
+
+    public function build(): CustomLineItem
+    {
         return new CustomLineItemModel(
             ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate),
             $this->quantity,
@@ -438,7 +427,7 @@ final class CustomLineItemBuilder implements Builder
             ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory)
         );
     }
-    
+
     public static function of(): CustomLineItemBuilder
     {
         return new self();

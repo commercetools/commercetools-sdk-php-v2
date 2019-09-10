@@ -1,146 +1,142 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductSetPricesAction>
  */
 final class ProductSetPricesActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
      * @var ?int
      */
-    protected $variantId;
-    
+    private $variantId;
+
     /**
      * @var ?PriceDraftCollection
      */
-    protected $prices;
-    
+    private $prices;
+
     /**
      * @var ?string
      */
-    protected $sku;
+    private $sku;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getStaged()
+    public function getStaged()
     {
-       return $this->staged;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVariantId()
+    public function getVariantId()
     {
-       return $this->variantId;
+        return $this->variantId;
     }
-    
+
     /**
-     *
-     * @return PriceDraftCollection|null
+     * @return null|PriceDraftCollection
      */
-    final public function getPrices()
+    public function getPrices()
     {
-       return $this->prices;
+        return $this->prices;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSku()
+    public function getSku()
     {
-       return $this->sku;
+        return $this->sku;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrices(?PriceDraftCollection $prices)
+    public function withPrices(?PriceDraftCollection $prices)
     {
         $this->prices = $prices;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
-    public function build(): ProductSetPricesAction {
+
+    public function build(): ProductSetPricesAction
+    {
         return new ProductSetPricesActionModel(
             $this->action,
             $this->staged,
@@ -149,7 +145,7 @@ final class ProductSetPricesActionBuilder implements Builder
             $this->sku
         );
     }
-    
+
     public static function of(): ProductSetPricesActionBuilder
     {
         return new self();

@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ScoreShippingRateInput>
  */
 final class ScoreShippingRateInputBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?int
      */
-    protected $score;
+    private $score;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getScore()
+    public function getScore()
     {
-       return $this->score;
+        return $this->score;
     }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withScore(?int $score)
+    public function withScore(?int $score)
     {
         $this->score = $score;
-        
+
         return $this;
     }
-    
-    public function build(): ScoreShippingRateInput {
+
+    public function build(): ScoreShippingRateInput
+    {
         return new ScoreShippingRateInputModel(
             $this->type,
             $this->score
         );
     }
-    
+
     public static function of(): ScoreShippingRateInputBuilder
     {
         return new self();

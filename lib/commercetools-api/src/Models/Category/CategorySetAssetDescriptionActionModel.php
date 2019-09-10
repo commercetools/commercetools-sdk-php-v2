@@ -1,22 +1,42 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Category;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class CategorySetAssetDescriptionActionModel extends JsonObjectModel implements CategorySetAssetDescriptionAction
 {
     const DISCRIMINATOR_VALUE = 'setAssetDescription';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?string
+     */
+    protected $assetId;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?string
+     */
+    protected $assetKey;
+
     public function __construct(
         string $action = null,
         string $assetId = null,
@@ -27,115 +47,94 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
         $this->assetId = $assetId;
         $this->description = $description;
         $this->assetKey = $assetKey;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetId;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetKey;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAssetId()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CategoryUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->assetId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategorySetAssetDescriptionAction::FIELD_ASSET_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetId = (string) $data;
+        }
+
+        return $this->assetId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getAssetId()
+    public function getDescription()
     {
-       if (is_null($this->assetId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CategorySetAssetDescriptionAction::FIELD_ASSET_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->assetId = (string)$data;
-       }
-       return $this->assetId;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategorySetAssetDescriptionAction::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getDescription()
+    public function getAssetKey()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CategorySetAssetDescriptionAction::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->assetKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategorySetAssetDescriptionAction::FIELD_ASSET_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetKey = (string) $data;
+        }
+
+        return $this->assetKey;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getAssetKey()
-    {
-       if (is_null($this->assetKey)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CategorySetAssetDescriptionAction::FIELD_ASSET_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->assetKey = (string)$data;
-       }
-       return $this->assetKey;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setAssetId(?string $assetId): void
+
+    public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setAssetKey(?string $assetKey): void
+
+    public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
     }
-    
 }

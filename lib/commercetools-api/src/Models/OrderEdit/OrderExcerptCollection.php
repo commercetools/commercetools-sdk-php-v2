@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderExcerpt>
+ *
  * @method OrderExcerpt current()
  * @method OrderExcerpt at($offset)
  */
@@ -20,8 +23,12 @@ class OrderExcerptCollection extends MapperSequence
     /**
      * @psalm-assert OrderExcerpt $value
      * @psalm-param OrderExcerpt|stdClass $value
-     * @return OrderExcerptCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderExcerptCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderExcerptCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderExcerpt {
+        return function (int $index): ?OrderExcerpt {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderExcerptModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

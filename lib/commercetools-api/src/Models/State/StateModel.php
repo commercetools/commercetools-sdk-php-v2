@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\State;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\State;
 
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -19,13 +16,83 @@ use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceModel;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
+use stdClass;
 
 final class StateModel extends JsonObjectModel implements State
 {
-    
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
+
+    /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     * @var ?int
+     */
+    protected $version;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
+    /**
+     * @var ?bool
+     */
+    protected $initial;
+
+    /**
+     * @var ?array
+     */
+    protected $roles;
+
+    /**
+     * @var ?bool
+     */
+    protected $builtIn;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?StateReferenceCollection
+     */
+    protected $transitions;
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
     public function __construct(
         DateTimeImmutable $createdAt = null,
         DateTimeImmutable $lastModifiedAt = null,
@@ -56,407 +123,339 @@ final class StateModel extends JsonObjectModel implements State
         $this->transitions = $transitions;
         $this->type = $type;
         $this->key = $key;
-        
     }
 
     /**
-     * @var ?DateTimeImmutable
+     * @return null|DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
-    
-    /**
-     * @var ?CreatedBy
-     */
-    protected $createdBy;
-    
-    /**
-     * @var ?LastModifiedBy
-     */
-    protected $lastModifiedBy;
-    
-    /**
-     * @var ?bool
-     */
-    protected $initial;
-    
-    /**
-     * @var ?array
-     */
-    protected $roles;
-    
-    /**
-     * @var ?bool
-     */
-    protected $builtIn;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?StateReferenceCollection
-     */
-    protected $transitions;
-    
-    /**
-     * @var ?string
-     */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    public function getCreatedAt()
+    {
+        if (is_null($this->createdAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->createdAt = $data;
+        }
+
+        return $this->createdAt;
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getLastModifiedAt()
     {
-       if (is_null($this->createdAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_CREATED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->createdAt = $data;
-       }
-       return $this->createdAt;
+        if (is_null($this->lastModifiedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->lastModifiedAt = $data;
+        }
+
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|string
      */
-    final public function getLastModifiedAt()
+    public function getId()
     {
-       if (is_null($this->lastModifiedAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->lastModifiedAt = $data;
-       }
-       return $this->lastModifiedAt;
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getId()
+    public function getVersion()
     {
-       if (is_null($this->id)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (string)$data;
-       }
-       return $this->id;
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(BaseResource::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|CreatedBy
      */
-    final public function getVersion()
+    public function getCreatedBy()
     {
-       if (is_null($this->version)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(BaseResource::FIELD_VERSION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->version = (int)$data;
-       }
-       return $this->version;
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
     }
-    
+
     /**
-     *
-     * @return CreatedBy|null
+     * @return null|LastModifiedBy
      */
-    final public function getCreatedBy()
+    public function getLastModifiedBy()
     {
-       if (is_null($this->createdBy)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->createdBy = CreatedByModel::of($data);
-       }
-       return $this->createdBy;
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
+        }
+
+        return $this->lastModifiedBy;
     }
-    
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @return null|bool
      */
-    final public function getLastModifiedBy()
+    public function getInitial()
     {
-       if (is_null($this->lastModifiedBy)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->lastModifiedBy = LastModifiedByModel::of($data);
-       }
-       return $this->lastModifiedBy;
+        if (is_null($this->initial)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(State::FIELD_INITIAL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->initial = (bool) $data;
+        }
+
+        return $this->initial;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|array
      */
-    final public function getInitial()
+    public function getRoles()
     {
-       if (is_null($this->initial)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(State::FIELD_INITIAL);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->initial = (bool)$data;
-       }
-       return $this->initial;
+        if (is_null($this->roles)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(State::FIELD_ROLES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->roles = $data;
+        }
+
+        return $this->roles;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|bool
      */
-    final public function getRoles()
+    public function getBuiltIn()
     {
-       if (is_null($this->roles)) {
-           /** @psalm-var ?array<int, mixed> $data */
-           $data = $this->raw(State::FIELD_ROLES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->roles = $data;
-       }
-       return $this->roles;
+        if (is_null($this->builtIn)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(State::FIELD_BUILT_IN);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->builtIn = (bool) $data;
+        }
+
+        return $this->builtIn;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|LocalizedString
      */
-    final public function getBuiltIn()
+    public function getName()
     {
-       if (is_null($this->builtIn)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(State::FIELD_BUILT_IN);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->builtIn = (bool)$data;
-       }
-       return $this->builtIn;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(State::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getName()
+    public function getDescription()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(State::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(State::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|StateReferenceCollection
      */
-    final public function getDescription()
+    public function getTransitions()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(State::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->transitions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(State::FIELD_TRANSITIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->transitions = StateReferenceCollection::fromArray($data);
+        }
+
+        return $this->transitions;
     }
-    
+
     /**
-     *
-     * @return StateReferenceCollection|null
+     * @return null|string
      */
-    final public function getTransitions()
+    public function getType()
     {
-       if (is_null($this->transitions)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(State::FIELD_TRANSITIONS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->transitions = StateReferenceCollection::fromArray($data);
-       }
-       return $this->transitions;
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(State::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getKey()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(State::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(State::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getKey()
-    {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(State::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
-    }
-    final public function setCreatedAt(?DateTimeImmutable $createdAt): void
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
-    
-    final public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
-    
-    final public function setId(?string $id): void
+
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    
-    final public function setVersion(?int $version): void
+
+    public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
-    
-    final public function setCreatedBy(?CreatedBy $createdBy): void
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
-    
-    final public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
-    
-    final public function setInitial(?bool $initial): void
+
+    public function setInitial(?bool $initial): void
     {
         $this->initial = $initial;
     }
-    
-    final public function setRoles(?array $roles): void
+
+    public function setRoles(?array $roles): void
     {
         $this->roles = $roles;
     }
-    
-    final public function setBuiltIn(?bool $builtIn): void
+
+    public function setBuiltIn(?bool $builtIn): void
     {
         $this->builtIn = $builtIn;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setTransitions(?StateReferenceCollection $transitions): void
+
+    public function setTransitions(?StateReferenceCollection $transitions): void
     {
         $this->transitions = $transitions;
     }
-    
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-           $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        
+
         if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-           $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

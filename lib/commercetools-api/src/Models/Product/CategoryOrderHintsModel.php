@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperMap;
@@ -19,8 +21,8 @@ final class CategoryOrderHintsModel extends MapperMap implements CategoryOrderHi
             /**
              * @psalm-return ?mixed
              */
-            function(string $key) {
-               return $this->get($key);
+            function (string $key) {
+                return $this->get($key);
             };
     }
 }

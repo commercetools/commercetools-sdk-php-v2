@@ -1,132 +1,130 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductDiscountMatchQuery>
  */
 final class ProductDiscountMatchQueryBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $productId;
-    
+    private $productId;
+
     /**
-     * @var ?PriceBuilder|Price
+     * @var Price|?PriceBuilder
      */
-    protected $price;
-    
+    private $price;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
      * @var ?int
      */
-    protected $variantId;
+    private $variantId;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getProductId()
+    public function getProductId()
     {
-       return $this->productId;
+        return $this->productId;
     }
-    
+
     /**
-     *
-     * @return Price|null
+     * @return null|Price
      */
-    final public function getPrice()
+    public function getPrice()
     {
-       return ($this->price instanceof PriceBuilder ? $this->price->build() : $this->price);
+        return $this->price instanceof PriceBuilder ? $this->price->build() : $this->price;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getStaged()
+    public function getStaged()
     {
-       return $this->staged;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVariantId()
+    public function getVariantId()
     {
-       return $this->variantId;
+        return $this->variantId;
     }
+
     /**
      * @return $this
      */
-    final public function withProductId(?string $productId)
+    public function withProductId(?string $productId)
     {
         $this->productId = $productId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrice(?Price $price)
+    public function withPrice(?Price $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withPriceBuilder(?PriceBuilder $price)
+    public function withPriceBuilder(?PriceBuilder $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
-    public function build(): ProductDiscountMatchQuery {
+
+    public function build(): ProductDiscountMatchQuery
+    {
         return new ProductDiscountMatchQueryModel(
             $this->productId,
             ($this->price instanceof PriceBuilder ? $this->price->build() : $this->price),
@@ -134,7 +132,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
             $this->variantId
         );
     }
-    
+
     public static function of(): ProductDiscountMatchQueryBuilder
     {
         return new self();

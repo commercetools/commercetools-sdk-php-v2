@@ -1,248 +1,242 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<AttributeDefinition>
  */
 final class AttributeDefinitionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?bool
+     */
+    private $isRequired;
+
+    /**
+     * @var ?string
+     */
+    private $attributeConstraint;
+
+    /**
+     * @var ?string
+     */
+    private $name;
+
+    /**
+     * @var ?string
+     */
+    private $inputHint;
 
     /**
      * @var ?bool
      */
-    protected $isRequired;
-    
-    /**
-     * @var ?string
-     */
-    protected $attributeConstraint;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $inputHint;
-    
-    /**
-     * @var ?bool
-     */
-    protected $isSearchable;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $label;
-    
-    /**
-     * @var ?AttributeTypeBuilder|AttributeType
-     */
-    protected $type;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $inputTip;
+    private $isSearchable;
 
     /**
-     *
-     * @return bool|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getIsRequired()
-    {
-       return $this->isRequired;
-    }
-    
+    private $label;
+
     /**
-     *
-     * @return string|null
+     * @var AttributeType|?AttributeTypeBuilder
      */
-    final public function getAttributeConstraint()
-    {
-       return $this->attributeConstraint;
-    }
-    
+    private $type;
+
     /**
-     *
-     * @return string|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getName()
+    private $inputTip;
+
+    public function __construct()
     {
-       return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getInputHint()
+    public function getIsRequired()
     {
-       return $this->inputHint;
+        return $this->isRequired;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|string
      */
-    final public function getIsSearchable()
+    public function getAttributeConstraint()
     {
-       return $this->isSearchable;
+        return $this->attributeConstraint;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getLabel()
+    public function getName()
     {
-       return ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label);
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return AttributeType|null
+     * @return null|string
      */
-    final public function getType()
+    public function getInputHint()
     {
-       return ($this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type);
+        return $this->inputHint;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|bool
      */
-    final public function getInputTip()
+    public function getIsSearchable()
     {
-       return ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip);
+        return $this->isSearchable;
     }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getLabel()
+    {
+        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
+    }
+
+    /**
+     * @return null|AttributeType
+     */
+    public function getType()
+    {
+        return $this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getInputTip()
+    {
+        return $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip;
+    }
+
     /**
      * @return $this
      */
-    final public function withIsRequired(?bool $isRequired)
+    public function withIsRequired(?bool $isRequired)
     {
         $this->isRequired = $isRequired;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAttributeConstraint(?string $attributeConstraint)
+    public function withAttributeConstraint(?string $attributeConstraint)
     {
         $this->attributeConstraint = $attributeConstraint;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInputHint(?string $inputHint)
+    public function withInputHint(?string $inputHint)
     {
         $this->inputHint = $inputHint;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withIsSearchable(?bool $isSearchable)
+    public function withIsSearchable(?bool $isSearchable)
     {
         $this->isSearchable = $isSearchable;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLabel(?LocalizedString $label)
+    public function withLabel(?LocalizedString $label)
     {
         $this->label = $label;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?AttributeType $type)
+    public function withType(?AttributeType $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInputTip(?LocalizedString $inputTip)
+    public function withInputTip(?LocalizedString $inputTip)
     {
         $this->inputTip = $inputTip;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withLabelBuilder(?LocalizedStringBuilder $label)
+    public function withLabelBuilder(?LocalizedStringBuilder $label)
     {
         $this->label = $label;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTypeBuilder(?AttributeTypeBuilder $type)
+    public function withTypeBuilder(?AttributeTypeBuilder $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInputTipBuilder(?LocalizedStringBuilder $inputTip)
+    public function withInputTipBuilder(?LocalizedStringBuilder $inputTip)
     {
         $this->inputTip = $inputTip;
-        
+
         return $this;
     }
-    
-    public function build(): AttributeDefinition {
+
+    public function build(): AttributeDefinition
+    {
         return new AttributeDefinitionModel(
             $this->isRequired,
             $this->attributeConstraint,
@@ -254,7 +248,7 @@ final class AttributeDefinitionBuilder implements Builder
             ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip)
         );
     }
-    
+
     public static function of(): AttributeDefinitionBuilder
     {
         return new self();

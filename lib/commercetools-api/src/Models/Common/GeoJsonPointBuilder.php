@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<GeoJsonPoint>
  */
 final class GeoJsonPointBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?array
      */
-    protected $coordinates;
+    private $coordinates;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getCoordinates()
+    public function getCoordinates()
     {
-       return $this->coordinates;
+        return $this->coordinates;
     }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCoordinates(?array $coordinates)
+    public function withCoordinates(?array $coordinates)
     {
         $this->coordinates = $coordinates;
-        
+
         return $this;
     }
-    
-    public function build(): GeoJsonPoint {
+
+    public function build(): GeoJsonPoint
+    {
         return new GeoJsonPointModel(
             $this->type,
             $this->coordinates
         );
     }
-    
+
     public static function of(): GeoJsonPointBuilder
     {
         return new self();

@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Subscription;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Subscription;
 
 interface SubscriptionChangeDestinationAction extends SubscriptionUpdateAction
 {
-    
     const FIELD_DESTINATION = 'destination';
 
     /**
-     *
-     * @return Destination|null
+     * @return null|Destination
      */
     public function getDestination();
+
     public function setDestination(?Destination $destination): void;
 }

@@ -1,27 +1,23 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
-use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceBuilder;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\OrderReferenceBuilder;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -29,346 +25,338 @@ use DateTimeImmutable;
  */
 final class OrderEditBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
-     * @var ?CreatedByBuilder|CreatedBy
+     * @var CreatedBy|?CreatedByBuilder
      */
-    protected $createdBy;
-    
+    private $createdBy;
+
     /**
-     * @var ?LastModifiedByBuilder|LastModifiedBy
+     * @var LastModifiedBy|?LastModifiedByBuilder
      */
-    protected $lastModifiedBy;
-    
+    private $lastModifiedBy;
+
     /**
-     * @var ?OrderEditResultBuilder|OrderEditResult
+     * @var OrderEditResult|?OrderEditResultBuilder
      */
-    protected $result;
-    
+    private $result;
+
     /**
-     * @var ?OrderReferenceBuilder|OrderReference
+     * @var OrderReference|?OrderReferenceBuilder
      */
-    protected $resource;
-    
+    private $resource;
+
     /**
-     * @var ?CustomFieldsBuilder|CustomFields
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
      * @var ?string
      */
-    protected $comment;
-    
+    private $comment;
+
     /**
      * @var ?StagedOrderUpdateActionCollection
      */
-    protected $stagedActions;
-    
+    private $stagedActions;
+
     /**
      * @var ?string
      */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getCreatedAt()
     {
-       return $this->createdAt;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getLastModifiedAt()
+    public function getLastModifiedAt()
     {
-       return $this->lastModifiedAt;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return CreatedBy|null
+     * @return null|CreatedBy
      */
-    final public function getCreatedBy()
+    public function getCreatedBy()
     {
-       return ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy);
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
-    
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @return null|LastModifiedBy
      */
-    final public function getLastModifiedBy()
+    public function getLastModifiedBy()
     {
-       return ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy);
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
-    
+
     /**
-     *
-     * @return OrderEditResult|null
+     * @return null|OrderEditResult
      */
-    final public function getResult()
+    public function getResult()
     {
-       return ($this->result instanceof OrderEditResultBuilder ? $this->result->build() : $this->result);
+        return $this->result instanceof OrderEditResultBuilder ? $this->result->build() : $this->result;
     }
-    
+
     /**
-     *
-     * @return OrderReference|null
+     * @return null|OrderReference
      */
-    final public function getResource()
+    public function getResource()
     {
-       return ($this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource);
+        return $this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
-    final public function getCustom()
+    public function getCustom()
     {
-       return ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom);
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getComment()
+    public function getComment()
     {
-       return $this->comment;
+        return $this->comment;
     }
-    
+
     /**
-     *
-     * @return StagedOrderUpdateActionCollection|null
+     * @return null|StagedOrderUpdateActionCollection
      */
-    final public function getStagedActions()
+    public function getStagedActions()
     {
-       return $this->stagedActions;
+        return $this->stagedActions;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResult(?OrderEditResult $result)
+    public function withResult(?OrderEditResult $result)
     {
         $this->result = $result;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResource(?OrderReference $resource)
+    public function withResource(?OrderReference $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withComment(?string $comment)
+    public function withComment(?string $comment)
     {
         $this->comment = $comment;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStagedActions(?StagedOrderUpdateActionCollection $stagedActions)
+    public function withStagedActions(?StagedOrderUpdateActionCollection $stagedActions)
     {
         $this->stagedActions = $stagedActions;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResultBuilder(?OrderEditResultBuilder $result)
+    public function withResultBuilder(?OrderEditResultBuilder $result)
     {
         $this->result = $result;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceBuilder(?OrderReferenceBuilder $resource)
+    public function withResourceBuilder(?OrderReferenceBuilder $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
-    public function build(): OrderEdit {
+
+    public function build(): OrderEdit
+    {
         return new OrderEditModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -384,7 +372,7 @@ final class OrderEditBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): OrderEditBuilder
     {
         return new self();

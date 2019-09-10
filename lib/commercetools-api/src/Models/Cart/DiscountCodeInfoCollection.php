@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DiscountCodeInfo>
+ *
  * @method DiscountCodeInfo current()
  * @method DiscountCodeInfo at($offset)
  */
@@ -20,8 +23,12 @@ class DiscountCodeInfoCollection extends MapperSequence
     /**
      * @psalm-assert DiscountCodeInfo $value
      * @psalm-param DiscountCodeInfo|stdClass $value
-     * @return DiscountCodeInfoCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return DiscountCodeInfoCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class DiscountCodeInfoCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?DiscountCodeInfo {
+        return function (int $index): ?DiscountCodeInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = DiscountCodeInfoModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

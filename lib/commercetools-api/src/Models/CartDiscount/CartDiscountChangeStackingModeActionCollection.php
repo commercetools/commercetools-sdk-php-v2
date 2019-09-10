@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartDiscountChangeStackingModeAction>
+ *
  * @method CartDiscountChangeStackingModeAction current()
  * @method CartDiscountChangeStackingModeAction at($offset)
  */
@@ -20,8 +23,12 @@ class CartDiscountChangeStackingModeActionCollection extends MapperSequence
     /**
      * @psalm-assert CartDiscountChangeStackingModeAction $value
      * @psalm-param CartDiscountChangeStackingModeAction|stdClass $value
-     * @return CartDiscountChangeStackingModeActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartDiscountChangeStackingModeActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartDiscountChangeStackingModeActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CartDiscountChangeStackingModeAction {
+        return function (int $index): ?CartDiscountChangeStackingModeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartDiscountChangeStackingModeActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

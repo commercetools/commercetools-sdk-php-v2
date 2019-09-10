@@ -1,20 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiers;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiersBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -22,302 +20,295 @@ use DateTimeImmutable;
  */
 final class MessageDeliveryBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $projectKey;
+
+    /**
+     * @var Reference|?ReferenceBuilder
+     */
+    private $resource;
+
+    /**
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
+     */
+    private $resourceUserProvidedIdentifiers;
 
     /**
      * @var ?string
      */
-    protected $projectKey;
-    
-    /**
-     * @var ?ReferenceBuilder|Reference
-     */
-    protected $resource;
-    
-    /**
-     * @var ?UserProvidedIdentifiersBuilder|UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-    
-    /**
-     * @var ?string
-     */
-    protected $notificationType;
-    
-    /**
-     * @var ?int
-     */
-    protected $sequenceNumber;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
-    /**
-     * @var ?int
-     */
-    protected $resourceVersion;
-    
-    /**
-     * @var ?PayloadNotIncludedBuilder|PayloadNotIncluded
-     */
-    protected $payloadNotIncluded;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
+    private $notificationType;
 
     /**
-     *
-     * @return string|null
+     * @var ?int
      */
-    final public function getProjectKey()
-    {
-       return $this->projectKey;
-    }
-    
+    private $sequenceNumber;
+
     /**
-     *
-     * @return Reference|null
+     * @var ?DateTimeImmutable
      */
-    final public function getResource()
-    {
-       return ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource);
-    }
-    
+    private $createdAt;
+
     /**
-     *
-     * @return UserProvidedIdentifiers|null
+     * @var ?DateTimeImmutable
      */
-    final public function getResourceUserProvidedIdentifiers()
-    {
-       return ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers);
-    }
-    
+    private $lastModifiedAt;
+
     /**
-     *
-     * @return string|null
+     * @var ?int
      */
-    final public function getNotificationType()
-    {
-       return $this->notificationType;
-    }
-    
+    private $resourceVersion;
+
     /**
-     *
-     * @return int|null
+     * @var PayloadNotIncluded|?PayloadNotIncludedBuilder
      */
-    final public function getSequenceNumber()
-    {
-       return $this->sequenceNumber;
-    }
-    
+    private $payloadNotIncluded;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $id;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?int
      */
-    final public function getLastModifiedAt()
+    private $version;
+
+    public function __construct()
     {
-       return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getResourceVersion()
+    public function getProjectKey()
     {
-       return $this->resourceVersion;
+        return $this->projectKey;
     }
-    
+
     /**
-     *
-     * @return PayloadNotIncluded|null
+     * @return null|Reference
      */
-    final public function getPayloadNotIncluded()
+    public function getResource()
     {
-       return ($this->payloadNotIncluded instanceof PayloadNotIncludedBuilder ? $this->payloadNotIncluded->build() : $this->payloadNotIncluded);
+        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|UserProvidedIdentifiers
      */
-    final public function getId()
+    public function getResourceUserProvidedIdentifiers()
     {
-       return $this->id;
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getVersion()
+    public function getNotificationType()
     {
-       return $this->version;
+        return $this->notificationType;
     }
+
+    /**
+     * @return null|int
+     */
+    public function getSequenceNumber()
+    {
+        return $this->sequenceNumber;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getResourceVersion()
+    {
+        return $this->resourceVersion;
+    }
+
+    /**
+     * @return null|PayloadNotIncluded
+     */
+    public function getPayloadNotIncluded()
+    {
+        return $this->payloadNotIncluded instanceof PayloadNotIncludedBuilder ? $this->payloadNotIncluded->build() : $this->payloadNotIncluded;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
     /**
      * @return $this
      */
-    final public function withProjectKey(?string $projectKey)
+    public function withProjectKey(?string $projectKey)
     {
         $this->projectKey = $projectKey;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResource(?Reference $resource)
+    public function withResource(?Reference $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNotificationType(?string $notificationType)
+    public function withNotificationType(?string $notificationType)
     {
         $this->notificationType = $notificationType;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSequenceNumber(?int $sequenceNumber)
+    public function withSequenceNumber(?int $sequenceNumber)
     {
         $this->sequenceNumber = $sequenceNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceVersion(?int $resourceVersion)
+    public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPayloadNotIncluded(?PayloadNotIncluded $payloadNotIncluded)
+    public function withPayloadNotIncluded(?PayloadNotIncluded $payloadNotIncluded)
     {
         $this->payloadNotIncluded = $payloadNotIncluded;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withResourceBuilder(?ReferenceBuilder $resource)
+    public function withResourceBuilder(?ReferenceBuilder $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPayloadNotIncludedBuilder(?PayloadNotIncludedBuilder $payloadNotIncluded)
+    public function withPayloadNotIncludedBuilder(?PayloadNotIncludedBuilder $payloadNotIncluded)
     {
         $this->payloadNotIncluded = $payloadNotIncluded;
-        
+
         return $this;
     }
-    
-    public function build(): MessageDelivery {
+
+    public function build(): MessageDelivery
+    {
         return new MessageDeliveryModel(
             $this->projectKey,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
@@ -332,7 +323,7 @@ final class MessageDeliveryBuilder implements Builder
             $this->version
         );
     }
-    
+
     public static function of(): MessageDeliveryBuilder
     {
         return new self();

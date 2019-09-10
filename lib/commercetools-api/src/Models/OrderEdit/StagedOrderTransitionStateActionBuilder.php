@@ -1,117 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<StagedOrderTransitionStateAction>
  */
 final class StagedOrderTransitionStateActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?bool
      */
-    protected $force;
-    
-    /**
-     * @var ?StateResourceIdentifierBuilder|StateResourceIdentifier
-     */
-    protected $state;
+    private $force;
 
     /**
-     *
-     * @return string|null
+     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
      */
-    final public function getAction()
+    private $state;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|string
      */
-    final public function getForce()
+    public function getAction()
     {
-       return $this->force;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return StateResourceIdentifier|null
+     * @return null|bool
      */
-    final public function getState()
+    public function getForce()
     {
-       return ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state);
+        return $this->force;
     }
+
+    /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withForce(?bool $force)
+    public function withForce(?bool $force)
     {
         $this->force = $force;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?StateResourceIdentifier $state)
+    public function withState(?StateResourceIdentifier $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withStateBuilder(?StateResourceIdentifierBuilder $state)
+    public function withStateBuilder(?StateResourceIdentifierBuilder $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
-    public function build(): StagedOrderTransitionStateAction {
+
+    public function build(): StagedOrderTransitionStateAction
+    {
         return new StagedOrderTransitionStateActionModel(
             $this->action,
             $this->force,
             ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state)
         );
     }
-    
+
     public static function of(): StagedOrderTransitionStateActionBuilder
     {
         return new self();

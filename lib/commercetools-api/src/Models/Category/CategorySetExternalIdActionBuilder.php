@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CategorySetExternalIdAction>
  */
 final class CategorySetExternalIdActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $externalId;
+    private $externalId;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getExternalId()
+    public function getExternalId()
     {
-       return $this->externalId;
+        return $this->externalId;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalId(?string $externalId)
+    public function withExternalId(?string $externalId)
     {
         $this->externalId = $externalId;
-        
+
         return $this;
     }
-    
-    public function build(): CategorySetExternalIdAction {
+
+    public function build(): CategorySetExternalIdAction
+    {
         return new CategorySetExternalIdActionModel(
             $this->action,
             $this->externalId
         );
     }
-    
+
     public static function of(): CategorySetExternalIdActionBuilder
     {
         return new self();

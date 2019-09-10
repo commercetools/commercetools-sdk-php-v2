@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeSetInputTipAction>
+ *
  * @method ProductTypeSetInputTipAction current()
  * @method ProductTypeSetInputTipAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductTypeSetInputTipActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeSetInputTipAction $value
      * @psalm-param ProductTypeSetInputTipAction|stdClass $value
-     * @return ProductTypeSetInputTipActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductTypeSetInputTipActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductTypeSetInputTipActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductTypeSetInputTipAction {
+        return function (int $index): ?ProductTypeSetInputTipAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductTypeSetInputTipActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

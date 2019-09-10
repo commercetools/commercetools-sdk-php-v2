@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<SubscriptionSetChangesAction>
  */
 final class SubscriptionSetChangesActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?ChangeSubscriptionCollection
      */
-    protected $changes;
+    private $changes;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return ChangeSubscriptionCollection|null
+     * @return null|ChangeSubscriptionCollection
      */
-    final public function getChanges()
+    public function getChanges()
     {
-       return $this->changes;
+        return $this->changes;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withChanges(?ChangeSubscriptionCollection $changes)
+    public function withChanges(?ChangeSubscriptionCollection $changes)
     {
         $this->changes = $changes;
-        
+
         return $this;
     }
-    
-    public function build(): SubscriptionSetChangesAction {
+
+    public function build(): SubscriptionSetChangesAction
+    {
         return new SubscriptionSetChangesActionModel(
             $this->action,
             $this->changes
         );
     }
-    
+
     public static function of(): SubscriptionSetChangesActionBuilder
     {
         return new self();

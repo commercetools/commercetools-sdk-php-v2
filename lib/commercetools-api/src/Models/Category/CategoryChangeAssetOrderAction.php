@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Category;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Category;
 
 interface CategoryChangeAssetOrderAction extends CategoryUpdateAction
 {
-    
     const FIELD_ASSET_ORDER = 'assetOrder';
 
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getAssetOrder();
+
     public function setAssetOrder(?array $assetOrder): void;
 }

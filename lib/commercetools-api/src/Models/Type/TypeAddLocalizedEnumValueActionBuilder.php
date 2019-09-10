@@ -1,113 +1,112 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<TypeAddLocalizedEnumValueAction>
  */
 final class TypeAddLocalizedEnumValueActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $fieldName;
-    
-    /**
-     * @var ?CustomFieldLocalizedEnumValueBuilder|CustomFieldLocalizedEnumValue
-     */
-    protected $value;
+    private $fieldName;
 
     /**
-     *
-     * @return string|null
+     * @var CustomFieldLocalizedEnumValue|?CustomFieldLocalizedEnumValueBuilder
      */
-    final public function getAction()
+    private $value;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getFieldName()
+    public function getAction()
     {
-       return $this->fieldName;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return CustomFieldLocalizedEnumValue|null
+     * @return null|string
      */
-    final public function getValue()
+    public function getFieldName()
     {
-       return ($this->value instanceof CustomFieldLocalizedEnumValueBuilder ? $this->value->build() : $this->value);
+        return $this->fieldName;
     }
+
+    /**
+     * @return null|CustomFieldLocalizedEnumValue
+     */
+    public function getValue()
+    {
+        return $this->value instanceof CustomFieldLocalizedEnumValueBuilder ? $this->value->build() : $this->value;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFieldName(?string $fieldName)
+    public function withFieldName(?string $fieldName)
     {
         $this->fieldName = $fieldName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?CustomFieldLocalizedEnumValue $value)
+    public function withValue(?CustomFieldLocalizedEnumValue $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withValueBuilder(?CustomFieldLocalizedEnumValueBuilder $value)
+    public function withValueBuilder(?CustomFieldLocalizedEnumValueBuilder $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
-    public function build(): TypeAddLocalizedEnumValueAction {
+
+    public function build(): TypeAddLocalizedEnumValueAction
+    {
         return new TypeAddLocalizedEnumValueActionModel(
             $this->action,
             $this->fieldName,
             ($this->value instanceof CustomFieldLocalizedEnumValueBuilder ? $this->value->build() : $this->value)
         );
     }
-    
+
     public static function of(): TypeAddLocalizedEnumValueActionBuilder
     {
         return new self();

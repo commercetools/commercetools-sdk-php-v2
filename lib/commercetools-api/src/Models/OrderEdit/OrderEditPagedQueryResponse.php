@@ -1,49 +1,47 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\JsonObject;
 
 interface OrderEditPagedQueryResponse extends JsonObject
 {
-    
     const FIELD_COUNT = 'count';
     const FIELD_TOTAL = 'total';
     const FIELD_OFFSET = 'offset';
     const FIELD_RESULTS = 'results';
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getCount();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getTotal();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getOffset();
-    
+
     /**
-     *
-     * @return OrderEditCollection|null
+     * @return null|OrderEditCollection
      */
     public function getResults();
+
     public function setCount(?int $count): void;
-    
+
     public function setTotal(?int $total): void;
-    
+
     public function setOffset(?int $offset): void;
-    
+
     public function setResults(?OrderEditCollection $results): void;
 }

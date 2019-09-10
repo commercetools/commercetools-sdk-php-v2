@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<OrderEditAddStagedActionAction>
  */
 final class OrderEditAddStagedActionActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?StagedOrderUpdateActionBuilder|StagedOrderUpdateAction
-     */
-    protected $stagedAction;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var StagedOrderUpdateAction|?StagedOrderUpdateActionBuilder
      */
-    final public function getAction()
+    private $stagedAction;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return StagedOrderUpdateAction|null
+     * @return null|string
      */
-    final public function getStagedAction()
+    public function getAction()
     {
-       return ($this->stagedAction instanceof StagedOrderUpdateActionBuilder ? $this->stagedAction->build() : $this->stagedAction);
+        return $this->action;
     }
+
+    /**
+     * @return null|StagedOrderUpdateAction
+     */
+    public function getStagedAction()
+    {
+        return $this->stagedAction instanceof StagedOrderUpdateActionBuilder ? $this->stagedAction->build() : $this->stagedAction;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStagedAction(?StagedOrderUpdateAction $stagedAction)
+    public function withStagedAction(?StagedOrderUpdateAction $stagedAction)
     {
         $this->stagedAction = $stagedAction;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withStagedActionBuilder(?StagedOrderUpdateActionBuilder $stagedAction)
+    public function withStagedActionBuilder(?StagedOrderUpdateActionBuilder $stagedAction)
     {
         $this->stagedAction = $stagedAction;
-        
+
         return $this;
     }
-    
-    public function build(): OrderEditAddStagedActionAction {
+
+    public function build(): OrderEditAddStagedActionAction
+    {
         return new OrderEditAddStagedActionActionModel(
             $this->action,
             ($this->stagedAction instanceof StagedOrderUpdateActionBuilder ? $this->stagedAction->build() : $this->stagedAction)
         );
     }
-    
+
     public static function of(): OrderEditAddStagedActionActionBuilder
     {
         return new self();

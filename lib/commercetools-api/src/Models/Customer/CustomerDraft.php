@@ -1,20 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface CustomerDraft extends JsonObject
 {
-    
     const FIELD_CUSTOMER_NUMBER = 'customerNumber';
     const FIELD_EMAIL = 'email';
     const FIELD_PASSWORD = 'password';
@@ -41,193 +42,170 @@ interface CustomerDraft extends JsonObject
     const FIELD_KEY = 'key';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerNumber();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getEmail();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getPassword();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getFirstName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getLastName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getMiddleName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTitle();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAnonymousCartId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAnonymousId();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getDateOfBirth();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCompanyName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getVatId();
-    
+
     /**
-     *
-     * @return AddressCollection|null
+     * @return null|AddressCollection
      */
     public function getAddresses();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getDefaultShippingAddress();
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getShippingAddresses();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getDefaultBillingAddress();
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getBillingAddresses();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getIsEmailVerified();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getExternalId();
-    
+
     /**
-     *
-     * @return CustomerGroupResourceIdentifier|null
+     * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getLocale();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSalutation();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
+
     public function setCustomerNumber(?string $customerNumber): void;
-    
+
     public function setEmail(?string $email): void;
-    
+
     public function setPassword(?string $password): void;
-    
+
     public function setFirstName(?string $firstName): void;
-    
+
     public function setLastName(?string $lastName): void;
-    
+
     public function setMiddleName(?string $middleName): void;
-    
+
     public function setTitle(?string $title): void;
-    
+
     public function setAnonymousCartId(?string $anonymousCartId): void;
-    
+
     public function setAnonymousId(?string $anonymousId): void;
-    
+
     public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void;
-    
+
     public function setCompanyName(?string $companyName): void;
-    
+
     public function setVatId(?string $vatId): void;
-    
+
     public function setAddresses(?AddressCollection $addresses): void;
-    
+
     public function setDefaultShippingAddress(?int $defaultShippingAddress): void;
-    
+
     public function setShippingAddresses(?array $shippingAddresses): void;
-    
+
     public function setDefaultBillingAddress(?int $defaultBillingAddress): void;
-    
+
     public function setBillingAddresses(?array $billingAddresses): void;
-    
+
     public function setIsEmailVerified(?bool $isEmailVerified): void;
-    
+
     public function setExternalId(?string $externalId): void;
-    
+
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setLocale(?string $locale): void;
-    
+
     public function setSalutation(?string $salutation): void;
-    
+
     public function setKey(?string $key): void;
 }

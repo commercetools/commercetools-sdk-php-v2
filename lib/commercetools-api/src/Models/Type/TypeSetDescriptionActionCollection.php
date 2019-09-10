@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeSetDescriptionAction>
+ *
  * @method TypeSetDescriptionAction current()
  * @method TypeSetDescriptionAction at($offset)
  */
@@ -20,8 +23,12 @@ class TypeSetDescriptionActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeSetDescriptionAction $value
      * @psalm-param TypeSetDescriptionAction|stdClass $value
-     * @return TypeSetDescriptionActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TypeSetDescriptionActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TypeSetDescriptionActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TypeSetDescriptionAction {
+        return function (int $index): ?TypeSetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TypeSetDescriptionActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

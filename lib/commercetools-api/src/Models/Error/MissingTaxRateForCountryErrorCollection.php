@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MissingTaxRateForCountryError>
+ *
  * @method MissingTaxRateForCountryError current()
  * @method MissingTaxRateForCountryError at($offset)
  */
@@ -20,8 +23,12 @@ class MissingTaxRateForCountryErrorCollection extends MapperSequence
     /**
      * @psalm-assert MissingTaxRateForCountryError $value
      * @psalm-param MissingTaxRateForCountryError|stdClass $value
-     * @return MissingTaxRateForCountryErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return MissingTaxRateForCountryErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class MissingTaxRateForCountryErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?MissingTaxRateForCountryError {
+        return function (int $index): ?MissingTaxRateForCountryError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = MissingTaxRateForCountryErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

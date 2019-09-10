@@ -1,20 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -22,158 +20,157 @@ use DateTimeImmutable;
  */
 final class TextLineItemDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?DateTimeImmutable
      */
-    protected $addedAt;
-    
+    private $addedAt;
+
     /**
      * @var ?int
      */
-    protected $quantity;
-    
-    /**
-     * @var ?CustomFieldsDraftBuilder|CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $description;
+    private $quantity;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    final public function getAddedAt()
-    {
-       return $this->addedAt;
-    }
-    
+    private $custom;
+
     /**
-     *
-     * @return int|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getQuantity()
-    {
-       return $this->quantity;
-    }
-    
+    private $name;
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getCustom()
+    private $description;
+
+    public function __construct()
     {
-       return ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom);
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|DateTimeImmutable
      */
-    final public function getName()
+    public function getAddedAt()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->addedAt;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|int
      */
-    final public function getDescription()
+    public function getQuantity()
     {
-       return ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description);
+        return $this->quantity;
     }
+
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+    }
+
     /**
      * @return $this
      */
-    final public function withAddedAt(?DateTimeImmutable $addedAt)
+    public function withAddedAt(?DateTimeImmutable $addedAt)
     {
         $this->addedAt = $addedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFieldsDraft $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?LocalizedString $description)
+    public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
-    public function build(): TextLineItemDraft {
+
+    public function build(): TextLineItemDraft
+    {
         return new TextLineItemDraftModel(
             $this->addedAt,
             $this->quantity,
@@ -182,7 +179,7 @@ final class TextLineItemDraftBuilder implements Builder
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
         );
     }
-    
+
     public static function of(): TextLineItemDraftBuilder
     {
         return new self();

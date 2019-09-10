@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CategorySetMetaDescriptionAction>
  */
 final class CategorySetMetaDescriptionActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $metaDescription;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getAction()
+    private $metaDescription;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getMetaDescription()
+    public function getAction()
     {
-       return ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription);
+        return $this->action;
     }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMetaDescription(?LocalizedString $metaDescription)
+    public function withMetaDescription(?LocalizedString $metaDescription)
     {
         $this->metaDescription = $metaDescription;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
+    public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
     {
         $this->metaDescription = $metaDescription;
-        
+
         return $this;
     }
-    
-    public function build(): CategorySetMetaDescriptionAction {
+
+    public function build(): CategorySetMetaDescriptionAction
+    {
         return new CategorySetMetaDescriptionActionModel(
             $this->action,
             ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription)
         );
     }
-    
+
     public static function of(): CategorySetMetaDescriptionActionBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Extension;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionAuthorizationHeaderAuthentication>
+ *
  * @method ExtensionAuthorizationHeaderAuthentication current()
  * @method ExtensionAuthorizationHeaderAuthentication at($offset)
  */
@@ -20,8 +23,12 @@ class ExtensionAuthorizationHeaderAuthenticationCollection extends MapperSequenc
     /**
      * @psalm-assert ExtensionAuthorizationHeaderAuthentication $value
      * @psalm-param ExtensionAuthorizationHeaderAuthentication|stdClass $value
-     * @return ExtensionAuthorizationHeaderAuthenticationCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ExtensionAuthorizationHeaderAuthenticationCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ExtensionAuthorizationHeaderAuthenticationCollection extends MapperSequenc
      */
     protected function mapper()
     {
-        return function(int $index): ?ExtensionAuthorizationHeaderAuthentication {
+        return function (int $index): ?ExtensionAuthorizationHeaderAuthentication {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ExtensionAuthorizationHeaderAuthenticationModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

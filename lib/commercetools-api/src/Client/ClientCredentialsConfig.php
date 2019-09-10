@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Api\Client;
 
@@ -48,12 +49,14 @@ class ClientCredentialsConfig extends AuthConfig implements BaseClientCredential
     public function setScope(string $scope = null): BaseClientCredentialsConfig
     {
         $this->scope = $scope;
+
         return $this;
     }
 
     public function setClientId(string $clientId): BaseClientCredentialsConfig
     {
         $this->clientId = $clientId;
+
         return $this;
     }
 
@@ -65,11 +68,12 @@ class ClientCredentialsConfig extends AuthConfig implements BaseClientCredential
     public function setClientSecret(string $clientSecret): BaseClientCredentialsConfig
     {
         $this->clientSecret = $clientSecret;
+
         return $this;
     }
 
     public function getCacheKey(): string
     {
-        return sha1($this->clientId . (string)$this->scope);
+        return sha1($this->clientId.(string) $this->scope);
     }
 }

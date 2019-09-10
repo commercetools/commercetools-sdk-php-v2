@@ -1,93 +1,94 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 
 final class CustomerSetDateOfBirthActionModel extends JsonObjectModel implements CustomerSetDateOfBirthAction
 {
     const DISCRIMINATOR_VALUE = 'setDateOfBirth';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $dateOfBirth;
+
     public function __construct(
         string $action = null,
         DateTimeImmutable $dateOfBirth = null
     ) {
         $this->action = $action;
         $this->dateOfBirth = $dateOfBirth;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $dateOfBirth;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getAction()
+    public function getDateOfBirth()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->dateOfBirth)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->dateOfBirth = $data;
+        }
+
+        return $this->dateOfBirth;
     }
-    
-    /**
-     *
-     * @return DateTimeImmutable|null
-     */
-    final public function getDateOfBirth()
-    {
-       if (is_null($this->dateOfBirth)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->dateOfBirth = $data;
-       }
-       return $this->dateOfBirth;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void
+
+    public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void
     {
         $this->dateOfBirth = $dateOfBirth;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[CustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH]) && $data[CustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH] instanceof \DateTimeImmutable) {
-           $data[CustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH] = $data[CustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH]->format('Y-m-d');
+            $data[CustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH] = $data[CustomerSetDateOfBirthAction::FIELD_DATE_OF_BIRTH]->format('Y-m-d');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

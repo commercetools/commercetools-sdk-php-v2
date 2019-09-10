@@ -1,41 +1,39 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\Address;
 
 interface OrderAddDeliveryAction extends OrderUpdateAction
 {
-    
     const FIELD_ITEMS = 'items';
     const FIELD_ADDRESS = 'address';
     const FIELD_PARCELS = 'parcels';
 
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|DeliveryItemCollection
      */
     public function getItems();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getAddress();
-    
+
     /**
-     *
-     * @return ParcelDraftCollection|null
+     * @return null|ParcelDraftCollection
      */
     public function getParcels();
+
     public function setItems(?DeliveryItemCollection $items): void;
-    
+
     public function setAddress(?Address $address): void;
-    
+
     public function setParcels(?ParcelDraftCollection $parcels): void;
 }

@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<StoreUpdate>
  */
 final class StoreUpdateBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?StoreUpdateActionCollection
      */
-    protected $actions;
-    
+    private $actions;
+
     /**
      * @var ?int
      */
-    protected $version;
+    private $version;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return StoreUpdateActionCollection|null
+     * @return null|StoreUpdateActionCollection
      */
-    final public function getActions()
+    public function getActions()
     {
-       return $this->actions;
+        return $this->actions;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
+
     /**
      * @return $this
      */
-    final public function withActions(?StoreUpdateActionCollection $actions)
+    public function withActions(?StoreUpdateActionCollection $actions)
     {
         $this->actions = $actions;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
-    public function build(): StoreUpdate {
+
+    public function build(): StoreUpdate
+    {
         return new StoreUpdateModel(
             $this->actions,
             $this->version
         );
     }
-    
+
     public static function of(): StoreUpdateBuilder
     {
         return new self();

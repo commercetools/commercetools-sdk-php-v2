@@ -1,320 +1,312 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ShoppingListDraft>
  */
 final class ShoppingListDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?ShoppingListLineItemDraftCollection
      */
-    protected $lineItems;
-    
+    private $lineItems;
+
     /**
      * @var ?string
      */
-    protected $anonymousId;
-    
+    private $anonymousId;
+
     /**
      * @var ?TextLineItemDraftCollection
      */
-    protected $textLineItems;
-    
+    private $textLineItems;
+
     /**
      * @var ?int
      */
-    protected $deleteDaysAfterLastModification;
-    
+    private $deleteDaysAfterLastModification;
+
     /**
-     * @var ?CustomFieldsDraftBuilder|CustomFieldsDraft
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $name;
-    
+    private $name;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $description;
-    
+    private $description;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $slug;
-    
+    private $slug;
+
     /**
      * @var ?string
      */
-    protected $key;
-    
-    /**
-     * @var ?CustomerResourceIdentifierBuilder|CustomerResourceIdentifier
-     */
-    protected $customer;
+    private $key;
 
     /**
-     *
-     * @return ShoppingListLineItemDraftCollection|null
+     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
      */
-    final public function getLineItems()
+    private $customer;
+
+    public function __construct()
     {
-       return $this->lineItems;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ShoppingListLineItemDraftCollection
      */
-    final public function getAnonymousId()
+    public function getLineItems()
     {
-       return $this->anonymousId;
+        return $this->lineItems;
     }
-    
+
     /**
-     *
-     * @return TextLineItemDraftCollection|null
+     * @return null|string
      */
-    final public function getTextLineItems()
+    public function getAnonymousId()
     {
-       return $this->textLineItems;
+        return $this->anonymousId;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|TextLineItemDraftCollection
      */
-    final public function getDeleteDaysAfterLastModification()
+    public function getTextLineItems()
     {
-       return $this->deleteDaysAfterLastModification;
+        return $this->textLineItems;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|int
      */
-    final public function getCustom()
+    public function getDeleteDaysAfterLastModification()
     {
-       return ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom);
+        return $this->deleteDaysAfterLastModification;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getName()
+    public function getCustom()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getDescription()
+    public function getName()
     {
-       return ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description);
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getSlug()
+    public function getDescription()
     {
-       return ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug);
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getKey()
+    public function getSlug()
     {
-       return $this->key;
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
     }
-    
+
     /**
-     *
-     * @return CustomerResourceIdentifier|null
+     * @return null|string
      */
-    final public function getCustomer()
+    public function getKey()
     {
-       return ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer);
+        return $this->key;
     }
+
+    /**
+     * @return null|CustomerResourceIdentifier
+     */
+    public function getCustomer()
+    {
+        return $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer;
+    }
+
     /**
      * @return $this
      */
-    final public function withLineItems(?ShoppingListLineItemDraftCollection $lineItems)
+    public function withLineItems(?ShoppingListLineItemDraftCollection $lineItems)
     {
         $this->lineItems = $lineItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAnonymousId(?string $anonymousId)
+    public function withAnonymousId(?string $anonymousId)
     {
         $this->anonymousId = $anonymousId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTextLineItems(?TextLineItemDraftCollection $textLineItems)
+    public function withTextLineItems(?TextLineItemDraftCollection $textLineItems)
     {
         $this->textLineItems = $textLineItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
+    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFieldsDraft $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?LocalizedString $description)
+    public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSlug(?LocalizedString $slug)
+    public function withSlug(?LocalizedString $slug)
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomer(?CustomerResourceIdentifier $customer)
+    public function withCustomer(?CustomerResourceIdentifier $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSlugBuilder(?LocalizedStringBuilder $slug)
+    public function withSlugBuilder(?LocalizedStringBuilder $slug)
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
+    public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
-    
-    public function build(): ShoppingListDraft {
+
+    public function build(): ShoppingListDraft
+    {
         return new ShoppingListDraftModel(
             $this->lineItems,
             $this->anonymousId,
@@ -328,7 +320,7 @@ final class ShoppingListDraftBuilder implements Builder
             ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer)
         );
     }
-    
+
     public static function of(): ShoppingListDraftBuilder
     {
         return new self();

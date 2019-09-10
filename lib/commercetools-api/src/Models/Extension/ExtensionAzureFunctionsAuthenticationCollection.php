@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Extension;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionAzureFunctionsAuthentication>
+ *
  * @method ExtensionAzureFunctionsAuthentication current()
  * @method ExtensionAzureFunctionsAuthentication at($offset)
  */
@@ -20,8 +23,12 @@ class ExtensionAzureFunctionsAuthenticationCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionAzureFunctionsAuthentication $value
      * @psalm-param ExtensionAzureFunctionsAuthentication|stdClass $value
-     * @return ExtensionAzureFunctionsAuthenticationCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ExtensionAzureFunctionsAuthenticationCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ExtensionAzureFunctionsAuthenticationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ExtensionAzureFunctionsAuthentication {
+        return function (int $index): ?ExtensionAzureFunctionsAuthentication {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ExtensionAzureFunctionsAuthenticationModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

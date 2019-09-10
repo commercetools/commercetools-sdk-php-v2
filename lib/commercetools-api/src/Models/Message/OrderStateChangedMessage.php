@@ -1,31 +1,29 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Message;
 
 interface OrderStateChangedMessage extends Message
 {
-    
     const FIELD_ORDER_STATE = 'orderState';
     const FIELD_OLD_ORDER_STATE = 'oldOrderState';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getOrderState();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getOldOrderState();
+
     public function setOrderState(?string $orderState): void;
-    
+
     public function setOldOrderState(?string $oldOrderState): void;
 }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Inventory;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntryChangeQuantityAction>
+ *
  * @method InventoryEntryChangeQuantityAction current()
  * @method InventoryEntryChangeQuantityAction at($offset)
  */
@@ -20,8 +23,12 @@ class InventoryEntryChangeQuantityActionCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntryChangeQuantityAction $value
      * @psalm-param InventoryEntryChangeQuantityAction|stdClass $value
-     * @return InventoryEntryChangeQuantityActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InventoryEntryChangeQuantityActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InventoryEntryChangeQuantityActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InventoryEntryChangeQuantityAction {
+        return function (int $index): ?InventoryEntryChangeQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InventoryEntryChangeQuantityActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

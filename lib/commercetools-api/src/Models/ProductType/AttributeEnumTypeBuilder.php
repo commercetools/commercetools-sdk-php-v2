@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<AttributeEnumType>
  */
 final class AttributeEnumTypeBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?AttributePlainEnumValueCollection
      */
-    protected $values;
+    private $values;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return AttributePlainEnumValueCollection|null
+     * @return null|AttributePlainEnumValueCollection
      */
-    final public function getValues()
+    public function getValues()
     {
-       return $this->values;
+        return $this->values;
     }
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValues(?AttributePlainEnumValueCollection $values)
+    public function withValues(?AttributePlainEnumValueCollection $values)
     {
         $this->values = $values;
-        
+
         return $this;
     }
-    
-    public function build(): AttributeEnumType {
+
+    public function build(): AttributeEnumType
+    {
         return new AttributeEnumTypeModel(
             $this->name,
             $this->values
         );
     }
-    
+
     public static function of(): AttributeEnumTypeBuilder
     {
         return new self();

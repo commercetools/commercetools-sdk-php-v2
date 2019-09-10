@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeReference>
+ *
  * @method TypeReference current()
  * @method TypeReference at($offset)
  */
@@ -20,8 +23,12 @@ class TypeReferenceCollection extends MapperSequence
     /**
      * @psalm-assert TypeReference $value
      * @psalm-param TypeReference|stdClass $value
-     * @return TypeReferenceCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TypeReferenceCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TypeReferenceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TypeReference {
+        return function (int $index): ?TypeReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TypeReferenceModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

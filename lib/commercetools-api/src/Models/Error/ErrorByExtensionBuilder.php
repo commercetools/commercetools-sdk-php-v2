@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ErrorByExtension>
  */
 final class ErrorByExtensionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $id;
 
     /**
      * @var ?string
      */
-    protected $id;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
-    public function build(): ErrorByExtension {
+
+    public function build(): ErrorByExtension
+    {
         return new ErrorByExtensionModel(
             $this->id,
             $this->key
         );
     }
-    
+
     public static function of(): ErrorByExtensionBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\JsonObject;
@@ -17,33 +19,32 @@ interface TypedMoney extends JsonObject
     const FIELD_CURRENCY_CODE = 'currencyCode';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getType();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getFractionDigits();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getCentAmount();
-    
+
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-     * @return string|null
+     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     *
+     * @return null|string
      */
     public function getCurrencyCode();
+
     public function setType(?string $type): void;
-    
+
     public function setFractionDigits(?int $fractionDigits): void;
-    
+
     public function setCentAmount(?int $centAmount): void;
-    
+
     public function setCurrencyCode(?string $currencyCode): void;
 }

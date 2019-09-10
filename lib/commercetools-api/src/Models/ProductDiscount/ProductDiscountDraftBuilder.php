@@ -1,18 +1,16 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -20,254 +18,249 @@ use DateTimeImmutable;
  */
 final class ProductDiscountDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $predicate;
 
     /**
      * @var ?string
      */
-    protected $predicate;
-    
+    private $sortOrder;
+
     /**
-     * @var ?string
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $sortOrder;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validUntil;
-    
+    private $validUntil;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $description;
-    
+    private $description;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validFrom;
-    
+    private $validFrom;
+
     /**
      * @var ?bool
      */
-    protected $isActive;
-    
+    private $isActive;
+
     /**
-     * @var ?ProductDiscountValueBuilder|ProductDiscountValue
+     * @var ProductDiscountValue|?ProductDiscountValueBuilder
      */
-    protected $value;
-    
+    private $value;
+
     /**
      * @var ?string
      */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getPredicate()
+    public function getPredicate()
     {
-       return $this->predicate;
+        return $this->predicate;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSortOrder()
+    public function getSortOrder()
     {
-       return $this->sortOrder;
+        return $this->sortOrder;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getName()
+    public function getName()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getValidUntil()
+    public function getValidUntil()
     {
-       return $this->validUntil;
+        return $this->validUntil;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getDescription()
+    public function getDescription()
     {
-       return ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description);
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getValidFrom()
+    public function getValidFrom()
     {
-       return $this->validFrom;
+        return $this->validFrom;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getIsActive()
+    public function getIsActive()
     {
-       return $this->isActive;
+        return $this->isActive;
     }
-    
+
     /**
-     *
-     * @return ProductDiscountValue|null
+     * @return null|ProductDiscountValue
      */
-    final public function getValue()
+    public function getValue()
     {
-       return ($this->value instanceof ProductDiscountValueBuilder ? $this->value->build() : $this->value);
+        return $this->value instanceof ProductDiscountValueBuilder ? $this->value->build() : $this->value;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withPredicate(?string $predicate)
+    public function withPredicate(?string $predicate)
     {
         $this->predicate = $predicate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSortOrder(?string $sortOrder)
+    public function withSortOrder(?string $sortOrder)
     {
         $this->sortOrder = $sortOrder;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValidUntil(?DateTimeImmutable $validUntil)
+    public function withValidUntil(?DateTimeImmutable $validUntil)
     {
         $this->validUntil = $validUntil;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?LocalizedString $description)
+    public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValidFrom(?DateTimeImmutable $validFrom)
+    public function withValidFrom(?DateTimeImmutable $validFrom)
     {
         $this->validFrom = $validFrom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withIsActive(?bool $isActive)
+    public function withIsActive(?bool $isActive)
     {
         $this->isActive = $isActive;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?ProductDiscountValue $value)
+    public function withValue(?ProductDiscountValue $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValueBuilder(?ProductDiscountValueBuilder $value)
+    public function withValueBuilder(?ProductDiscountValueBuilder $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
-    public function build(): ProductDiscountDraft {
+
+    public function build(): ProductDiscountDraft
+    {
         return new ProductDiscountDraftModel(
             $this->predicate,
             $this->sortOrder,
@@ -280,7 +273,7 @@ final class ProductDiscountDraftBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): ProductDiscountDraftBuilder
     {
         return new self();

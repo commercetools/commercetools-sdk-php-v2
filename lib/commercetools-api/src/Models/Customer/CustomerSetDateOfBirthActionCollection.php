@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerSetDateOfBirthAction>
+ *
  * @method CustomerSetDateOfBirthAction current()
  * @method CustomerSetDateOfBirthAction at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerSetDateOfBirthActionCollection extends MapperSequence
     /**
      * @psalm-assert CustomerSetDateOfBirthAction $value
      * @psalm-param CustomerSetDateOfBirthAction|stdClass $value
-     * @return CustomerSetDateOfBirthActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerSetDateOfBirthActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerSetDateOfBirthActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerSetDateOfBirthAction {
+        return function (int $index): ?CustomerSetDateOfBirthAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerSetDateOfBirthActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

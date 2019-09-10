@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<NoMatchingProductDiscountFoundError>
+ *
  * @method NoMatchingProductDiscountFoundError current()
  * @method NoMatchingProductDiscountFoundError at($offset)
  */
@@ -20,8 +23,12 @@ class NoMatchingProductDiscountFoundErrorCollection extends MapperSequence
     /**
      * @psalm-assert NoMatchingProductDiscountFoundError $value
      * @psalm-param NoMatchingProductDiscountFoundError|stdClass $value
-     * @return NoMatchingProductDiscountFoundErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return NoMatchingProductDiscountFoundErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class NoMatchingProductDiscountFoundErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?NoMatchingProductDiscountFoundError {
+        return function (int $index): ?NoMatchingProductDiscountFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = NoMatchingProductDiscountFoundErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,18 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Zone;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-use Commercetools\Api\Models\Common\BaseResource;
-use Commercetools\Api\Models\Common\BaseResourceBuilder;
 use DateTimeImmutable;
 
 /**
@@ -20,201 +16,196 @@ use DateTimeImmutable;
  */
 final class ZoneBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
      * @var ?string
      */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?string
      */
-    protected $description;
-    
+    private $description;
+
     /**
      * @var ?LocationCollection
      */
-    protected $locations;
-    
+    private $locations;
+
     /**
      * @var ?string
      */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getCreatedAt()
     {
-       return $this->createdAt;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getLastModifiedAt()
+    public function getLastModifiedAt()
     {
-       return $this->lastModifiedAt;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getDescription()
+    public function getDescription()
     {
-       return $this->description;
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocationCollection|null
+     * @return null|LocationCollection
      */
-    final public function getLocations()
+    public function getLocations()
     {
-       return $this->locations;
+        return $this->locations;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?string $description)
+    public function withDescription(?string $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLocations(?LocationCollection $locations)
+    public function withLocations(?LocationCollection $locations)
     {
         $this->locations = $locations;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
-    public function build(): Zone {
+
+    public function build(): Zone
+    {
         return new ZoneModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -226,7 +217,7 @@ final class ZoneBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): ZoneBuilder
     {
         return new self();

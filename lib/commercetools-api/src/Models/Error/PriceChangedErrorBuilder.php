@@ -1,121 +1,118 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<PriceChangedError>
  */
 final class PriceChangedErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
+    private $message;
+
     /**
      * @var ?array
      */
-    protected $lineItems;
-    
+    private $lineItems;
+
     /**
      * @var ?bool
      */
-    protected $shipping;
+    private $shipping;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCode()
+    public function getCode()
     {
-       return $this->code;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMessage()
+    public function getMessage()
     {
-       return $this->message;
+        return $this->message;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getLineItems()
+    public function getLineItems()
     {
-       return $this->lineItems;
+        return $this->lineItems;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getShipping()
+    public function getShipping()
     {
-       return $this->shipping;
+        return $this->shipping;
     }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLineItems(?array $lineItems)
+    public function withLineItems(?array $lineItems)
     {
         $this->lineItems = $lineItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShipping(?bool $shipping)
+    public function withShipping(?bool $shipping)
     {
         $this->shipping = $shipping;
-        
+
         return $this;
     }
-    
-    public function build(): PriceChangedError {
+
+    public function build(): PriceChangedError
+    {
         return new PriceChangedErrorModel(
             $this->code,
             $this->message,
@@ -123,7 +120,7 @@ final class PriceChangedErrorBuilder implements Builder
             $this->shipping
         );
     }
-    
+
     public static function of(): PriceChangedErrorBuilder
     {
         return new self();

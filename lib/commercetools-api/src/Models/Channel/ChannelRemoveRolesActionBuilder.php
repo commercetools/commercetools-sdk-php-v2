@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ChannelRemoveRolesAction>
  */
 final class ChannelRemoveRolesActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?array
      */
-    protected $roles;
+    private $roles;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getRoles()
+    public function getRoles()
     {
-       return $this->roles;
+        return $this->roles;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRoles(?array $roles)
+    public function withRoles(?array $roles)
     {
         $this->roles = $roles;
-        
+
         return $this;
     }
-    
-    public function build(): ChannelRemoveRolesAction {
+
+    public function build(): ChannelRemoveRolesAction
+    {
         return new ChannelRemoveRolesActionModel(
             $this->action,
             $this->roles
         );
     }
-    
+
     public static function of(): ChannelRemoveRolesActionBuilder
     {
         return new self();

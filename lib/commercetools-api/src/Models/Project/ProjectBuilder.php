@@ -1,18 +1,16 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Message\MessageConfiguration;
 use Commercetools\Api\Models\Message\MessageConfigurationBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -20,302 +18,295 @@ use DateTimeImmutable;
  */
 final class ProjectBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ExternalOAuth|?ExternalOAuthBuilder
+     */
+    private $externalOAuth;
 
     /**
-     * @var ?ExternalOAuthBuilder|ExternalOAuth
+     * @var ShippingRateInputType|?ShippingRateInputTypeBuilder
      */
-    protected $externalOAuth;
-    
-    /**
-     * @var ?ShippingRateInputTypeBuilder|ShippingRateInputType
-     */
-    protected $shippingRateInputType;
-    
+    private $shippingRateInputType;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
+    private $createdAt;
+
     /**
      * @var ?array
      */
-    protected $languages;
-    
+    private $languages;
+
     /**
      * @var ?string
      */
-    protected $name;
-    
+    private $name;
+
     /**
-     * @var ?MessageConfigurationBuilder|MessageConfiguration
+     * @var MessageConfiguration|?MessageConfigurationBuilder
      */
-    protected $messages;
-    
+    private $messages;
+
     /**
      * @var ?array
      */
-    protected $countries;
-    
+    private $countries;
+
     /**
      * @var ?string
      */
-    protected $trialUntil;
-    
+    private $trialUntil;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
      * @var ?string
      */
-    protected $key;
-    
+    private $key;
+
     /**
      * @var ?array
      */
-    protected $currencies;
+    private $currencies;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return ExternalOAuth|null
+     * @return null|ExternalOAuth
      */
-    final public function getExternalOAuth()
+    public function getExternalOAuth()
     {
-       return ($this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth);
+        return $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth;
     }
-    
+
     /**
-     *
-     * @return ShippingRateInputType|null
+     * @return null|ShippingRateInputType
      */
-    final public function getShippingRateInputType()
+    public function getShippingRateInputType()
     {
-       return ($this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType);
+        return $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getCreatedAt()
     {
-       return $this->createdAt;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getLanguages()
+    public function getLanguages()
     {
-       return $this->languages;
+        return $this->languages;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return MessageConfiguration|null
+     * @return null|MessageConfiguration
      */
-    final public function getMessages()
+    public function getMessages()
     {
-       return ($this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages);
+        return $this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getCountries()
+    public function getCountries()
     {
-       return $this->countries;
+        return $this->countries;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTrialUntil()
+    public function getTrialUntil()
     {
-       return $this->trialUntil;
+        return $this->trialUntil;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getCurrencies()
+    public function getCurrencies()
     {
-       return $this->currencies;
+        return $this->currencies;
     }
+
     /**
      * @return $this
      */
-    final public function withExternalOAuth(?ExternalOAuth $externalOAuth)
+    public function withExternalOAuth(?ExternalOAuth $externalOAuth)
     {
         $this->externalOAuth = $externalOAuth;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingRateInputType(?ShippingRateInputType $shippingRateInputType)
+    public function withShippingRateInputType(?ShippingRateInputType $shippingRateInputType)
     {
         $this->shippingRateInputType = $shippingRateInputType;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLanguages(?array $languages)
+    public function withLanguages(?array $languages)
     {
         $this->languages = $languages;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessages(?MessageConfiguration $messages)
+    public function withMessages(?MessageConfiguration $messages)
     {
         $this->messages = $messages;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCountries(?array $countries)
+    public function withCountries(?array $countries)
     {
         $this->countries = $countries;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTrialUntil(?string $trialUntil)
+    public function withTrialUntil(?string $trialUntil)
     {
         $this->trialUntil = $trialUntil;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCurrencies(?array $currencies)
+    public function withCurrencies(?array $currencies)
     {
         $this->currencies = $currencies;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withExternalOAuthBuilder(?ExternalOAuthBuilder $externalOAuth)
+    public function withExternalOAuthBuilder(?ExternalOAuthBuilder $externalOAuth)
     {
         $this->externalOAuth = $externalOAuth;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingRateInputTypeBuilder(?ShippingRateInputTypeBuilder $shippingRateInputType)
+    public function withShippingRateInputTypeBuilder(?ShippingRateInputTypeBuilder $shippingRateInputType)
     {
         $this->shippingRateInputType = $shippingRateInputType;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessagesBuilder(?MessageConfigurationBuilder $messages)
+    public function withMessagesBuilder(?MessageConfigurationBuilder $messages)
     {
         $this->messages = $messages;
-        
+
         return $this;
     }
-    
-    public function build(): Project {
+
+    public function build(): Project
+    {
         return new ProjectModel(
             ($this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth),
             ($this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType),
@@ -330,7 +321,7 @@ final class ProjectBuilder implements Builder
             $this->currencies
         );
     }
-    
+
     public static function of(): ProjectBuilder
     {
         return new self();

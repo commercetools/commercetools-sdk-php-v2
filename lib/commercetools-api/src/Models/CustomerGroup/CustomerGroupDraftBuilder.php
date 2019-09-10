@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CustomerGroupDraft>
  */
 final class CustomerGroupDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $groupName;
+
+    /**
+     * @var CustomFields|?CustomFieldsBuilder
+     */
+    private $custom;
 
     /**
      * @var ?string
      */
-    protected $groupName;
-    
-    /**
-     * @var ?CustomFieldsBuilder|CustomFields
-     */
-    protected $custom;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getGroupName()
+    public function getGroupName()
     {
-       return $this->groupName;
+        return $this->groupName;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
-    final public function getCustom()
+    public function getCustom()
     {
-       return ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom);
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withGroupName(?string $groupName)
+    public function withGroupName(?string $groupName)
     {
         $this->groupName = $groupName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerGroupDraft {
+
+    public function build(): CustomerGroupDraft
+    {
         return new CustomerGroupDraftModel(
             $this->groupName,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             $this->key
         );
     }
-    
+
     public static function of(): CustomerGroupDraftBuilder
     {
         return new self();

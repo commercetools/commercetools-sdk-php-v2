@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<RangeFacetResult>
  */
 final class RangeFacetResultBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?FacetResultRangeCollection
      */
-    protected $ranges;
+    private $ranges;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return FacetResultRangeCollection|null
+     * @return null|FacetResultRangeCollection
      */
-    final public function getRanges()
+    public function getRanges()
     {
-       return $this->ranges;
+        return $this->ranges;
     }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRanges(?FacetResultRangeCollection $ranges)
+    public function withRanges(?FacetResultRangeCollection $ranges)
     {
         $this->ranges = $ranges;
-        
+
         return $this;
     }
-    
-    public function build(): RangeFacetResult {
+
+    public function build(): RangeFacetResult
+    {
         return new RangeFacetResultModel(
             $this->type,
             $this->ranges
         );
     }
-    
+
     public static function of(): RangeFacetResultBuilder
     {
         return new self();

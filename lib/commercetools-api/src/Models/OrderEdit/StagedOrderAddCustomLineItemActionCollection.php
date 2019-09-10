@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderAddCustomLineItemAction>
+ *
  * @method StagedOrderAddCustomLineItemAction current()
  * @method StagedOrderAddCustomLineItemAction at($offset)
  */
@@ -20,8 +23,12 @@ class StagedOrderAddCustomLineItemActionCollection extends MapperSequence
     /**
      * @psalm-assert StagedOrderAddCustomLineItemAction $value
      * @psalm-param StagedOrderAddCustomLineItemAction|stdClass $value
-     * @return StagedOrderAddCustomLineItemActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StagedOrderAddCustomLineItemActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StagedOrderAddCustomLineItemActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?StagedOrderAddCustomLineItemAction {
+        return function (int $index): ?StagedOrderAddCustomLineItemAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StagedOrderAddCustomLineItemActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

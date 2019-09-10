@@ -1,125 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
-use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceBuilder;
-use Commercetools\Api\Models\Cart\CartReference;
-use Commercetools\Api\Models\Cart\CartReferenceBuilder;
-use Commercetools\Api\Models\Category\CategoryReference;
-use Commercetools\Api\Models\Category\CategoryReferenceBuilder;
-use Commercetools\Api\Models\Channel\ChannelReference;
-use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
-use Commercetools\Api\Models\CustomObject\CustomObjectReference;
-use Commercetools\Api\Models\CustomObject\CustomObjectReferenceBuilder;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
-use Commercetools\Api\Models\Customer\CustomerReference;
-use Commercetools\Api\Models\Customer\CustomerReferenceBuilder;
-use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
-use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceBuilder;
-use Commercetools\Api\Models\Inventory\InventoryEntryReference;
-use Commercetools\Api\Models\Inventory\InventoryEntryReferenceBuilder;
-use Commercetools\Api\Models\OrderEdit\OrderEditReference;
-use Commercetools\Api\Models\OrderEdit\OrderEditReferenceBuilder;
-use Commercetools\Api\Models\Order\OrderReference;
-use Commercetools\Api\Models\Order\OrderReferenceBuilder;
-use Commercetools\Api\Models\Payment\PaymentReference;
-use Commercetools\Api\Models\Payment\PaymentReferenceBuilder;
-use Commercetools\Api\Models\ProductDiscount\ProductDiscountReference;
-use Commercetools\Api\Models\ProductDiscount\ProductDiscountReferenceBuilder;
-use Commercetools\Api\Models\ProductType\ProductTypeReference;
-use Commercetools\Api\Models\ProductType\ProductTypeReferenceBuilder;
-use Commercetools\Api\Models\Product\ProductReference;
-use Commercetools\Api\Models\Product\ProductReferenceBuilder;
-use Commercetools\Api\Models\Review\ReviewReference;
-use Commercetools\Api\Models\Review\ReviewReferenceBuilder;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodReference;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodReferenceBuilder;
-use Commercetools\Api\Models\ShoppingList\ShoppingListReference;
-use Commercetools\Api\Models\ShoppingList\ShoppingListReferenceBuilder;
-use Commercetools\Api\Models\State\StateReference;
-use Commercetools\Api\Models\State\StateReferenceBuilder;
-use Commercetools\Api\Models\Store\StoreReference;
-use Commercetools\Api\Models\Store\StoreReferenceBuilder;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
-use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceBuilder;
-use Commercetools\Api\Models\Type\TypeReference;
-use Commercetools\Api\Models\Type\TypeReferenceBuilder;
-use Commercetools\Api\Models\Zone\ZoneReference;
-use Commercetools\Api\Models\Zone\ZoneReferenceBuilder;
 
 /**
  * @implements Builder<Reference>
  */
 final class ReferenceBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $typeId;
 
     /**
      * @var ?string
      */
-    protected $typeId;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
+    private $id;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTypeId()
+    public function getTypeId()
     {
-       return $this->typeId;
+        return $this->typeId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
+
     /**
      * @return $this
      */
-    final public function withTypeId(?string $typeId)
+    public function withTypeId(?string $typeId)
     {
         $this->typeId = $typeId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
-    public function build(): Reference {
+
+    public function build(): Reference
+    {
         return new ReferenceModel(
             $this->typeId,
             $this->id
         );
     }
-    
+
     public static function of(): ReferenceBuilder
     {
         return new self();

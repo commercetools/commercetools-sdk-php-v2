@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ProjectChangeCurrenciesAction>
  */
 final class ProjectChangeCurrenciesActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?array
      */
-    protected $currencies;
+    private $currencies;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getCurrencies()
+    public function getCurrencies()
     {
-       return $this->currencies;
+        return $this->currencies;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCurrencies(?array $currencies)
+    public function withCurrencies(?array $currencies)
     {
         $this->currencies = $currencies;
-        
+
         return $this;
     }
-    
-    public function build(): ProjectChangeCurrenciesAction {
+
+    public function build(): ProjectChangeCurrenciesAction
+    {
         return new ProjectChangeCurrenciesActionModel(
             $this->action,
             $this->currencies
         );
     }
-    
+
     public static function of(): ProjectChangeCurrenciesActionBuilder
     {
         return new self();

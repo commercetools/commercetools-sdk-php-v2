@@ -1,224 +1,219 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<Asset>
  */
 final class AssetBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?AssetSourceCollection
      */
-    protected $sources;
-    
+    private $sources;
+
     /**
-     * @var ?CustomFieldsBuilder|CustomFields
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $name;
-    
+    private $name;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $description;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
+    private $description;
+
     /**
      * @var ?string
      */
-    protected $key;
-    
+    private $id;
+
+    /**
+     * @var ?string
+     */
+    private $key;
+
     /**
      * @var ?array
      */
-    protected $tags;
+    private $tags;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return AssetSourceCollection|null
+     * @return null|AssetSourceCollection
      */
-    final public function getSources()
+    public function getSources()
     {
-       return $this->sources;
+        return $this->sources;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
-    final public function getCustom()
+    public function getCustom()
     {
-       return ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom);
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getName()
+    public function getName()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getDescription()
+    public function getDescription()
     {
-       return ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description);
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getTags()
+    public function getTags()
     {
-       return $this->tags;
+        return $this->tags;
     }
+
     /**
      * @return $this
      */
-    final public function withSources(?AssetSourceCollection $sources)
+    public function withSources(?AssetSourceCollection $sources)
     {
         $this->sources = $sources;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?LocalizedString $description)
+    public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTags(?array $tags)
+    public function withTags(?array $tags)
     {
         $this->tags = $tags;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
-    public function build(): Asset {
+
+    public function build(): Asset
+    {
         return new AssetModel(
             $this->sources,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
@@ -229,7 +224,7 @@ final class AssetBuilder implements Builder
             $this->tags
         );
     }
-    
+
     public static function of(): AssetBuilder
     {
         return new self();

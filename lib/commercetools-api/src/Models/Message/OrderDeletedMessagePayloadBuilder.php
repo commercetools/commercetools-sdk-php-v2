@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Order\Order;
 use Commercetools\Api\Models\Order\OrderBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<OrderDeletedMessagePayload>
  */
 final class OrderDeletedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?OrderBuilder|Order
-     */
-    protected $order;
+    private $type;
 
     /**
-     *
-     * @return string|null
+     * @var Order|?OrderBuilder
      */
-    final public function getType()
+    private $order;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return Order|null
+     * @return null|string
      */
-    final public function getOrder()
+    public function getType()
     {
-       return ($this->order instanceof OrderBuilder ? $this->order->build() : $this->order);
+        return $this->type;
     }
+
+    /**
+     * @return null|Order
+     */
+    public function getOrder()
+    {
+        return $this->order instanceof OrderBuilder ? $this->order->build() : $this->order;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOrder(?Order $order)
+    public function withOrder(?Order $order)
     {
         $this->order = $order;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withOrderBuilder(?OrderBuilder $order)
+    public function withOrderBuilder(?OrderBuilder $order)
     {
         $this->order = $order;
-        
+
         return $this;
     }
-    
-    public function build(): OrderDeletedMessagePayload {
+
+    public function build(): OrderDeletedMessagePayload
+    {
         return new OrderDeletedMessagePayloadModel(
             $this->type,
             ($this->order instanceof OrderBuilder ? $this->order->build() : $this->order)
         );
     }
-    
+
     public static function of(): OrderDeletedMessagePayloadBuilder
     {
         return new self();

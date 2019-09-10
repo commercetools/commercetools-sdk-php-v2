@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ImageDimensions>
  */
 final class ImageDimensionsBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?int
+     */
+    private $w;
 
     /**
      * @var ?int
      */
-    protected $w;
-    
-    /**
-     * @var ?int
-     */
-    protected $h;
+    private $h;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getW()
+    public function getW()
     {
-       return $this->w;
+        return $this->w;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getH()
+    public function getH()
     {
-       return $this->h;
+        return $this->h;
     }
+
     /**
      * @return $this
      */
-    final public function withW(?int $w)
+    public function withW(?int $w)
     {
         $this->w = $w;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withH(?int $h)
+    public function withH(?int $h)
     {
         $this->h = $h;
-        
+
         return $this;
     }
-    
-    public function build(): ImageDimensions {
+
+    public function build(): ImageDimensions
+    {
         return new ImageDimensionsModel(
             $this->w,
             $this->h
         );
     }
-    
+
     public static function of(): ImageDimensionsBuilder
     {
         return new self();

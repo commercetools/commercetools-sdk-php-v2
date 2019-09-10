@@ -1,21 +1,22 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
+use Commercetools\Base\JsonObject;
 
 interface ShippingInfoImportDraft extends JsonObject
 {
-    
     const FIELD_SHIPPING_METHOD_NAME = 'shippingMethodName';
     const FIELD_PRICE = 'price';
     const FIELD_SHIPPING_RATE = 'shippingRate';
@@ -27,73 +28,65 @@ interface ShippingInfoImportDraft extends JsonObject
     const FIELD_SHIPPING_METHOD_STATE = 'shippingMethodState';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getShippingMethodName();
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
     public function getPrice();
-    
+
     /**
-     *
-     * @return ShippingRateDraft|null
+     * @return null|ShippingRateDraft
      */
     public function getShippingRate();
-    
+
     /**
-     *
-     * @return TaxRate|null
+     * @return null|TaxRate
      */
     public function getTaxRate();
-    
+
     /**
-     *
-     * @return TaxCategoryResourceIdentifier|null
+     * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
-    
+
     /**
-     *
-     * @return ShippingMethodResourceIdentifier|null
+     * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod();
-    
+
     /**
-     *
-     * @return DeliveryCollection|null
+     * @return null|DeliveryCollection
      */
     public function getDeliveries();
-    
+
     /**
-     *
-     * @return DiscountedLineItemPriceDraft|null
+     * @return null|DiscountedLineItemPriceDraft
      */
     public function getDiscountedPrice();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getShippingMethodState();
+
     public function setShippingMethodName(?string $shippingMethodName): void;
-    
+
     public function setPrice(?Money $price): void;
-    
+
     public function setShippingRate(?ShippingRateDraft $shippingRate): void;
-    
+
     public function setTaxRate(?TaxRate $taxRate): void;
-    
+
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void;
-    
+
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
-    
+
     public function setDeliveries(?DeliveryCollection $deliveries): void;
-    
+
     public function setDiscountedPrice(?DiscountedLineItemPriceDraft $discountedPrice): void;
-    
+
     public function setShippingMethodState(?string $shippingMethodState): void;
 }

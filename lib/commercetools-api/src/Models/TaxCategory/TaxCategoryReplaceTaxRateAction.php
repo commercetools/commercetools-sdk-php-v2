@@ -1,31 +1,29 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\TaxCategory;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\TaxCategory;
 
 interface TaxCategoryReplaceTaxRateAction extends TaxCategoryUpdateAction
 {
-    
     const FIELD_TAX_RATE_ID = 'taxRateId';
     const FIELD_TAX_RATE = 'taxRate';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTaxRateId();
-    
+
     /**
-     *
-     * @return TaxRateDraft|null
+     * @return null|TaxRateDraft
      */
     public function getTaxRate();
+
     public function setTaxRateId(?string $taxRateId): void;
-    
+
     public function setTaxRate(?TaxRateDraft $taxRate): void;
 }

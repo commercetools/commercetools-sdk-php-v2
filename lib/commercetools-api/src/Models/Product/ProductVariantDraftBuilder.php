@@ -1,172 +1,167 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductVariantDraft>
  */
 final class ProductVariantDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?ImageCollection
      */
-    protected $images;
-    
+    private $images;
+
     /**
      * @var ?AssetDraftCollection
      */
-    protected $assets;
-    
+    private $assets;
+
     /**
      * @var ?AttributeCollection
      */
-    protected $attributes;
-    
+    private $attributes;
+
     /**
      * @var ?PriceDraftCollection
      */
-    protected $prices;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    private $prices;
 
     /**
-     *
-     * @return ImageCollection|null
+     * @var ?string
      */
-    final public function getImages()
-    {
-       return $this->images;
-    }
-    
+    private $sku;
+
     /**
-     *
-     * @return AssetDraftCollection|null
+     * @var ?string
      */
-    final public function getAssets()
+    private $key;
+
+    public function __construct()
     {
-       return $this->assets;
     }
-    
+
     /**
-     *
-     * @return AttributeCollection|null
+     * @return null|ImageCollection
      */
-    final public function getAttributes()
+    public function getImages()
     {
-       return $this->attributes;
+        return $this->images;
     }
-    
+
     /**
-     *
-     * @return PriceDraftCollection|null
+     * @return null|AssetDraftCollection
      */
-    final public function getPrices()
+    public function getAssets()
     {
-       return $this->prices;
+        return $this->assets;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|AttributeCollection
      */
-    final public function getSku()
+    public function getAttributes()
     {
-       return $this->sku;
+        return $this->attributes;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|PriceDraftCollection
      */
-    final public function getKey()
+    public function getPrices()
     {
-       return $this->key;
+        return $this->prices;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
     /**
      * @return $this
      */
-    final public function withImages(?ImageCollection $images)
+    public function withImages(?ImageCollection $images)
     {
         $this->images = $images;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssets(?AssetDraftCollection $assets)
+    public function withAssets(?AssetDraftCollection $assets)
     {
         $this->assets = $assets;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAttributes(?AttributeCollection $attributes)
+    public function withAttributes(?AttributeCollection $attributes)
     {
         $this->attributes = $attributes;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrices(?PriceDraftCollection $prices)
+    public function withPrices(?PriceDraftCollection $prices)
     {
         $this->prices = $prices;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
-    public function build(): ProductVariantDraft {
+
+    public function build(): ProductVariantDraft
+    {
         return new ProductVariantDraftModel(
             $this->images,
             $this->assets,
@@ -176,7 +171,7 @@ final class ProductVariantDraftBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): ProductVariantDraftBuilder
     {
         return new self();

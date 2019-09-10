@@ -1,21 +1,41 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel implements DeliveryItemsUpdatedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'DeliveryItemsUpdated';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?string
+     */
+    protected $deliveryId;
+
+    /**
+     * @var ?DeliveryItemCollection
+     */
+    protected $oldItems;
+
+    /**
+     * @var ?DeliveryItemCollection
+     */
+    protected $items;
+
     public function __construct(
         string $type = null,
         string $deliveryId = null,
@@ -26,114 +46,93 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
         $this->deliveryId = $deliveryId;
         $this->oldItems = $oldItems;
         $this->items = $items;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $deliveryId;
-    
-    /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $oldItems;
-    
-    /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $items;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getDeliveryId()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MessagePayload::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DeliveryItemsUpdatedMessagePayload::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DeliveryItemCollection
      */
-    final public function getDeliveryId()
+    public function getOldItems()
     {
-       if (is_null($this->deliveryId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(DeliveryItemsUpdatedMessagePayload::FIELD_DELIVERY_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->deliveryId = (string)$data;
-       }
-       return $this->deliveryId;
+        if (is_null($this->oldItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(DeliveryItemsUpdatedMessagePayload::FIELD_OLD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldItems = DeliveryItemCollection::fromArray($data);
+        }
+
+        return $this->oldItems;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|DeliveryItemCollection
      */
-    final public function getOldItems()
+    public function getItems()
     {
-       if (is_null($this->oldItems)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(DeliveryItemsUpdatedMessagePayload::FIELD_OLD_ITEMS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->oldItems = DeliveryItemCollection::fromArray($data);
-       }
-       return $this->oldItems;
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(DeliveryItemsUpdatedMessagePayload::FIELD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->items = DeliveryItemCollection::fromArray($data);
+        }
+
+        return $this->items;
     }
-    
-    /**
-     *
-     * @return DeliveryItemCollection|null
-     */
-    final public function getItems()
-    {
-       if (is_null($this->items)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(DeliveryItemsUpdatedMessagePayload::FIELD_ITEMS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->items = DeliveryItemCollection::fromArray($data);
-       }
-       return $this->items;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setDeliveryId(?string $deliveryId): void
+
+    public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
-    
-    final public function setOldItems(?DeliveryItemCollection $oldItems): void
+
+    public function setOldItems(?DeliveryItemCollection $oldItems): void
     {
         $this->oldItems = $oldItems;
     }
-    
-    final public function setItems(?DeliveryItemCollection $items): void
+
+    public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
-    
 }

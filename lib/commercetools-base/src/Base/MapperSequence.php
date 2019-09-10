@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Base;
 
@@ -23,7 +24,8 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
 
     /**
      * @psalm-param ?array<int, T|stdClass> $data
-     * @param array|null $data
+     *
+     * @param null|array $data
      */
     public function __construct(array $data = null)
     {
@@ -38,7 +40,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     {
         return $this->data;
     }
-    
+
     public function jsonSerialize(): ?array
     {
         return $this->data;
@@ -46,6 +48,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
 
     /**
      * @psalm-param array<int, T|stdClass> $data
+     *
      * @return static
      */
     final public static function fromArray(array $data)
@@ -54,38 +57,10 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @param mixed $data
-     */
-    protected function index($data): void
-    {
-    }
-
-    /**
-     * @psalm-return T|stdClass|null
-     */
-    final protected function get(int $index)
-    {
-        if (isset($this->data[$index])) {
-            return $this->data[$index];
-        }
-        return null;
-    }
-
-    /**
-     * @psalm-param T|stdClass $data
-     */
-    final protected function set($data, ?int $index): void
-    {
-        if (is_null($index)) {
-            $this->data[] = $data;
-        } else {
-            $this->data[$index] = $data;
-        }
-    }
-
-    /**
      * @psalm-param T|stdClass $value
+     *
      * @param $value
+     *
      * @return Collection
      */
     public function add($value)
@@ -94,45 +69,11 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @psalm-param T|stdClass $value
-     * @param $value
-     * @return Collection
-     */
-    final protected function store($value)
-    {
-        $this->set($value, null);
-        $this->iterator = $this->getIterator();
-
-        return $this;
-    }
-
-    /**
      * @psalm-return ?T
      */
     public function at(int $index)
     {
         return $this->mapper()($index);
-    }
-
-    /**
-     * @psalm-return callable(int): ?T
-     */
-    abstract protected function mapper();
-
-    /**
-     * @psalm-param T|object $value
-     */
-    final protected function addToIndex(string $field, string $key, int $index): void
-    {
-        $this->indexes[$field][$key] = $index;
-    }
-
-    /**
-     * @psalm-return ?T
-     */
-    final protected function valueByKey(string $field, string $key)
-    {
-        return isset($this->indexes[$field][$key]) ? $this->at($this->indexes[$field][$key]) : null;
     }
 
     public function getIterator(): MapperIterator
@@ -154,13 +95,9 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     public function current()
     {
         /** @psalm-var ?T $current  */
-        $current = $this->iterator->current();
-        return $current;
+        return $this->iterator->current();
     }
 
-    /**
-     * @return void
-     */
     public function next()
     {
         $this->iterator->next();
@@ -171,9 +108,8 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
      */
     public function key()
     {
-        /** @var int $key  */
-        $key = $this->iterator->key();
-        return $key;
+        /** @var int $key */
+        return $this->iterator->key();
     }
 
     /**
@@ -184,9 +120,6 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
         return $this->iterator->valid();
     }
 
-    /**
-     * @return void
-     */
     public function rewind()
     {
         $this->iterator->rewind();
@@ -194,6 +127,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
 
     /**
      * @param int $offset
+     *
      * @return bool
      */
     public function offsetExists($offset)
@@ -203,6 +137,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
 
     /**
      * @param int $offset
+     *
      * @return ?T
      */
     public function offsetGet($offset)
@@ -213,8 +148,8 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     /**
      * @param int $offset
      * @psalm-param T|stdClass $value
+     *
      * @param mixed $value
-     * @return void
      */
     public function offsetSet($offset, $value)
     {
@@ -224,14 +159,82 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
 
     /**
      * @param int $offset
-     * @return void
      */
     public function offsetUnset($offset)
     {
         if ($this->offsetExists($offset)) {
-            /** @psalm-suppress PossiblyNullArrayAccess */
+            // @psalm-suppress PossiblyNullArrayAccess
             unset($this->data[$offset]);
             $this->iterator = $this->getIterator();
         }
+    }
+
+    /**
+     * @param mixed $data
+     */
+    protected function index($data): void
+    {
+    }
+
+    /**
+     * @psalm-return T|stdClass|null
+     */
+    final protected function get(int $index)
+    {
+        if (isset($this->data[$index])) {
+            return $this->data[$index];
+        }
+
+        return null;
+    }
+
+    /**
+     * @psalm-param T|stdClass $data
+     *
+     * @param mixed $data
+     */
+    final protected function set($data, ?int $index): void
+    {
+        if (is_null($index)) {
+            $this->data[] = $data;
+        } else {
+            $this->data[$index] = $data;
+        }
+    }
+
+    /**
+     * @psalm-param T|stdClass $value
+     *
+     * @param $value
+     *
+     * @return Collection
+     */
+    final protected function store($value)
+    {
+        $this->set($value, null);
+        $this->iterator = $this->getIterator();
+
+        return $this;
+    }
+
+    /**
+     * @psalm-return callable(int): ?T
+     */
+    abstract protected function mapper();
+
+    /**
+     * @psalm-param T|object $value
+     */
+    final protected function addToIndex(string $field, string $key, int $index): void
+    {
+        $this->indexes[$field][$key] = $index;
+    }
+
+    /**
+     * @psalm-return ?T
+     */
+    final protected function valueByKey(string $field, string $key)
+    {
+        return isset($this->indexes[$field][$key]) ? $this->at($this->indexes[$field][$key]) : null;
     }
 }

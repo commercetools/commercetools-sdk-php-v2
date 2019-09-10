@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ErrorObject>
+ *
  * @method ErrorObject current()
  * @method ErrorObject at($offset)
  */
@@ -20,8 +23,12 @@ class ErrorObjectCollection extends MapperSequence
     /**
      * @psalm-assert ErrorObject $value
      * @psalm-param ErrorObject|stdClass $value
-     * @return ErrorObjectCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ErrorObjectCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ErrorObjectCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ErrorObject {
+        return function (int $index): ?ErrorObject {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ErrorObjectModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

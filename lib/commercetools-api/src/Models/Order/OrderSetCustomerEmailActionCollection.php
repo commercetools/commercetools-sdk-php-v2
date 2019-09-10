@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderSetCustomerEmailAction>
+ *
  * @method OrderSetCustomerEmailAction current()
  * @method OrderSetCustomerEmailAction at($offset)
  */
@@ -20,8 +23,12 @@ class OrderSetCustomerEmailActionCollection extends MapperSequence
     /**
      * @psalm-assert OrderSetCustomerEmailAction $value
      * @psalm-param OrderSetCustomerEmailAction|stdClass $value
-     * @return OrderSetCustomerEmailActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderSetCustomerEmailActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderSetCustomerEmailActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderSetCustomerEmailAction {
+        return function (int $index): ?OrderSetCustomerEmailAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderSetCustomerEmailActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,20 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\JsonObject;
 
 interface MyCartDraft extends JsonObject
 {
-    
     const FIELD_CURRENCY = 'currency';
     const FIELD_CUSTOMER_EMAIL = 'customerEmail';
     const FIELD_COUNTRY = 'country';
@@ -30,105 +31,95 @@ interface MyCartDraft extends JsonObject
     const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
 
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-     * @return string|null
+     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     *
+     * @return null|string
      */
     public function getCurrency();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerEmail();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCountry();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getInventoryMode();
-    
+
     /**
-     *
-     * @return MyLineItemDraftCollection|null
+     * @return null|MyLineItemDraftCollection
      */
     public function getLineItems();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getShippingAddress();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getBillingAddress();
-    
+
     /**
-     *
-     * @return ShippingMethodResourceIdentifier|null
+     * @return null|ShippingMethodResourceIdentifier
      */
     public function getShippingMethod();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getLocale();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTaxMode();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
-    
+
     /**
-     *
-     * @return AddressCollection|null
+     * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
+
     public function setCurrency(?string $currency): void;
-    
+
     public function setCustomerEmail(?string $customerEmail): void;
-    
+
     public function setCountry(?string $country): void;
-    
+
     public function setInventoryMode(?string $inventoryMode): void;
-    
+
     public function setLineItems(?MyLineItemDraftCollection $lineItems): void;
-    
+
     public function setShippingAddress(?Address $shippingAddress): void;
-    
+
     public function setBillingAddress(?Address $billingAddress): void;
-    
+
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setLocale(?string $locale): void;
-    
+
     public function setTaxMode(?string $taxMode): void;
-    
+
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
-    
+
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 }

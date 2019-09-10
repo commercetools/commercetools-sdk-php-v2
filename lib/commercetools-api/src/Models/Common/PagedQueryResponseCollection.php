@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PagedQueryResponse>
+ *
  * @method PagedQueryResponse current()
  * @method PagedQueryResponse at($offset)
  */
@@ -20,8 +23,12 @@ class PagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert PagedQueryResponse $value
      * @psalm-param PagedQueryResponse|stdClass $value
-     * @return PagedQueryResponseCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return PagedQueryResponseCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class PagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?PagedQueryResponse {
+        return function (int $index): ?PagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = PagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

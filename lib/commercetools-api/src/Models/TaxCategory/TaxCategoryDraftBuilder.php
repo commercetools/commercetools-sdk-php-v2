@@ -1,121 +1,118 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\TaxCategory;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<TaxCategoryDraft>
  */
 final class TaxCategoryDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?TaxRateDraftCollection
      */
-    protected $rates;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $description;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    private $rates;
 
     /**
-     *
-     * @return TaxRateDraftCollection|null
+     * @var ?string
      */
-    final public function getRates()
-    {
-       return $this->rates;
-    }
-    
+    private $name;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getName()
-    {
-       return $this->name;
-    }
-    
+    private $description;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getDescription()
+    private $key;
+
+    public function __construct()
     {
-       return $this->description;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|TaxRateDraftCollection
      */
-    final public function getKey()
+    public function getRates()
     {
-       return $this->key;
+        return $this->rates;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
     /**
      * @return $this
      */
-    final public function withRates(?TaxRateDraftCollection $rates)
+    public function withRates(?TaxRateDraftCollection $rates)
     {
         $this->rates = $rates;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?string $description)
+    public function withDescription(?string $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
-    public function build(): TaxCategoryDraft {
+
+    public function build(): TaxCategoryDraft
+    {
         return new TaxCategoryDraftModel(
             $this->rates,
             $this->name,
@@ -123,7 +120,7 @@ final class TaxCategoryDraftBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): TaxCategoryDraftBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderUpdateSyncInfoAction>
+ *
  * @method StagedOrderUpdateSyncInfoAction current()
  * @method StagedOrderUpdateSyncInfoAction at($offset)
  */
@@ -20,8 +23,12 @@ class StagedOrderUpdateSyncInfoActionCollection extends MapperSequence
     /**
      * @psalm-assert StagedOrderUpdateSyncInfoAction $value
      * @psalm-param StagedOrderUpdateSyncInfoAction|stdClass $value
-     * @return StagedOrderUpdateSyncInfoActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StagedOrderUpdateSyncInfoActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StagedOrderUpdateSyncInfoActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?StagedOrderUpdateSyncInfoAction {
+        return function (int $index): ?StagedOrderUpdateSyncInfoAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StagedOrderUpdateSyncInfoActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

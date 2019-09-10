@@ -1,127 +1,126 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\OrderEdit\OrderEditApplied;
 use Commercetools\Api\Models\OrderEdit\OrderEditAppliedBuilder;
 use Commercetools\Api\Models\OrderEdit\OrderEditReference;
 use Commercetools\Api\Models\OrderEdit\OrderEditReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<OrderEditAppliedMessagePayload>
  */
 final class OrderEditAppliedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?OrderEditAppliedBuilder|OrderEditApplied
-     */
-    protected $result;
-    
-    /**
-     * @var ?OrderEditReferenceBuilder|OrderEditReference
-     */
-    protected $edit;
+    private $type;
 
     /**
-     *
-     * @return string|null
+     * @var OrderEditApplied|?OrderEditAppliedBuilder
      */
-    final public function getType()
-    {
-       return $this->type;
-    }
-    
+    private $result;
+
     /**
-     *
-     * @return OrderEditApplied|null
+     * @var OrderEditReference|?OrderEditReferenceBuilder
      */
-    final public function getResult()
+    private $edit;
+
+    public function __construct()
     {
-       return ($this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result);
     }
-    
+
     /**
-     *
-     * @return OrderEditReference|null
+     * @return null|string
      */
-    final public function getEdit()
+    public function getType()
     {
-       return ($this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit);
+        return $this->type;
     }
+
+    /**
+     * @return null|OrderEditApplied
+     */
+    public function getResult()
+    {
+        return $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result;
+    }
+
+    /**
+     * @return null|OrderEditReference
+     */
+    public function getEdit()
+    {
+        return $this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResult(?OrderEditApplied $result)
+    public function withResult(?OrderEditApplied $result)
     {
         $this->result = $result;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withEdit(?OrderEditReference $edit)
+    public function withEdit(?OrderEditReference $edit)
     {
         $this->edit = $edit;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withResultBuilder(?OrderEditAppliedBuilder $result)
+    public function withResultBuilder(?OrderEditAppliedBuilder $result)
     {
         $this->result = $result;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withEditBuilder(?OrderEditReferenceBuilder $edit)
+    public function withEditBuilder(?OrderEditReferenceBuilder $edit)
     {
         $this->edit = $edit;
-        
+
         return $this;
     }
-    
-    public function build(): OrderEditAppliedMessagePayload {
+
+    public function build(): OrderEditAppliedMessagePayload
+    {
         return new OrderEditAppliedMessagePayloadModel(
             $this->type,
             ($this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result),
             ($this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit)
         );
     }
-    
+
     public static function of(): OrderEditAppliedMessagePayloadBuilder
     {
         return new self();

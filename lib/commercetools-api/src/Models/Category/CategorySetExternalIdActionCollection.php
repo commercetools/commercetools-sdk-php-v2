@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategorySetExternalIdAction>
+ *
  * @method CategorySetExternalIdAction current()
  * @method CategorySetExternalIdAction at($offset)
  */
@@ -20,8 +23,12 @@ class CategorySetExternalIdActionCollection extends MapperSequence
     /**
      * @psalm-assert CategorySetExternalIdAction $value
      * @psalm-param CategorySetExternalIdAction|stdClass $value
-     * @return CategorySetExternalIdActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CategorySetExternalIdActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CategorySetExternalIdActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CategorySetExternalIdAction {
+        return function (int $index): ?CategorySetExternalIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CategorySetExternalIdActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

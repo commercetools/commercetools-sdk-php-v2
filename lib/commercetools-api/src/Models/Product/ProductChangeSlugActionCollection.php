@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductChangeSlugAction>
+ *
  * @method ProductChangeSlugAction current()
  * @method ProductChangeSlugAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductChangeSlugActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductChangeSlugAction $value
      * @psalm-param ProductChangeSlugAction|stdClass $value
-     * @return ProductChangeSlugActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductChangeSlugActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductChangeSlugActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductChangeSlugAction {
+        return function (int $index): ?ProductChangeSlugAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductChangeSlugActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartSetDeleteDaysAfterLastModificationAction>
+ *
  * @method CartSetDeleteDaysAfterLastModificationAction current()
  * @method CartSetDeleteDaysAfterLastModificationAction at($offset)
  */
@@ -20,8 +23,12 @@ class CartSetDeleteDaysAfterLastModificationActionCollection extends MapperSeque
     /**
      * @psalm-assert CartSetDeleteDaysAfterLastModificationAction $value
      * @psalm-param CartSetDeleteDaysAfterLastModificationAction|stdClass $value
-     * @return CartSetDeleteDaysAfterLastModificationActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartSetDeleteDaysAfterLastModificationActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartSetDeleteDaysAfterLastModificationActionCollection extends MapperSeque
      */
     protected function mapper()
     {
-        return function(int $index): ?CartSetDeleteDaysAfterLastModificationAction {
+        return function (int $index): ?CartSetDeleteDaysAfterLastModificationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartSetDeleteDaysAfterLastModificationActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

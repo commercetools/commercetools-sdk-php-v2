@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderSetCustomLineItemShippingDetailsAction>
+ *
  * @method StagedOrderSetCustomLineItemShippingDetailsAction current()
  * @method StagedOrderSetCustomLineItemShippingDetailsAction at($offset)
  */
@@ -20,8 +23,12 @@ class StagedOrderSetCustomLineItemShippingDetailsActionCollection extends Mapper
     /**
      * @psalm-assert StagedOrderSetCustomLineItemShippingDetailsAction $value
      * @psalm-param StagedOrderSetCustomLineItemShippingDetailsAction|stdClass $value
-     * @return StagedOrderSetCustomLineItemShippingDetailsActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StagedOrderSetCustomLineItemShippingDetailsActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StagedOrderSetCustomLineItemShippingDetailsActionCollection extends Mapper
      */
     protected function mapper()
     {
-        return function(int $index): ?StagedOrderSetCustomLineItemShippingDetailsAction {
+        return function (int $index): ?StagedOrderSetCustomLineItemShippingDetailsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StagedOrderSetCustomLineItemShippingDetailsActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<PaymentStatusDraft>
  */
 final class PaymentStatusDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $interfaceText;
+
+    /**
+     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     */
+    private $state;
 
     /**
      * @var ?string
      */
-    protected $interfaceText;
-    
-    /**
-     * @var ?StateResourceIdentifierBuilder|StateResourceIdentifier
-     */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $interfaceCode;
+    private $interfaceCode;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getInterfaceText()
+    public function getInterfaceText()
     {
-       return $this->interfaceText;
+        return $this->interfaceText;
     }
-    
+
     /**
-     *
-     * @return StateResourceIdentifier|null
+     * @return null|StateResourceIdentifier
      */
-    final public function getState()
+    public function getState()
     {
-       return ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state);
+        return $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getInterfaceCode()
+    public function getInterfaceCode()
     {
-       return $this->interfaceCode;
+        return $this->interfaceCode;
     }
+
     /**
      * @return $this
      */
-    final public function withInterfaceText(?string $interfaceText)
+    public function withInterfaceText(?string $interfaceText)
     {
         $this->interfaceText = $interfaceText;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?StateResourceIdentifier $state)
+    public function withState(?StateResourceIdentifier $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInterfaceCode(?string $interfaceCode)
+    public function withInterfaceCode(?string $interfaceCode)
     {
         $this->interfaceCode = $interfaceCode;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withStateBuilder(?StateResourceIdentifierBuilder $state)
+    public function withStateBuilder(?StateResourceIdentifierBuilder $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
-    public function build(): PaymentStatusDraft {
+
+    public function build(): PaymentStatusDraft
+    {
         return new PaymentStatusDraftModel(
             $this->interfaceText,
             ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state),
             $this->interfaceCode
         );
     }
-    
+
     public static function of(): PaymentStatusDraftBuilder
     {
         return new self();

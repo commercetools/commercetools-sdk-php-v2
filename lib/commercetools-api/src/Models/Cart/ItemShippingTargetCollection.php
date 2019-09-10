@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ItemShippingTarget>
+ *
  * @method ItemShippingTarget current()
  * @method ItemShippingTarget at($offset)
  */
@@ -20,8 +23,12 @@ class ItemShippingTargetCollection extends MapperSequence
     /**
      * @psalm-assert ItemShippingTarget $value
      * @psalm-param ItemShippingTarget|stdClass $value
-     * @return ItemShippingTargetCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ItemShippingTargetCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ItemShippingTargetCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ItemShippingTarget {
+        return function (int $index): ?ItemShippingTarget {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ItemShippingTargetModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

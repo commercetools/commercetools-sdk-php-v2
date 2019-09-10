@@ -1,12 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Customer\CustomerReference;
@@ -15,7 +16,6 @@ use Commercetools\Api\Models\Type\CustomFieldsCollection;
 
 interface Payment extends LoggedResource
 {
-    
     const FIELD_CUSTOMER = 'customer';
     const FIELD_ANONYMOUS_ID = 'anonymousId';
     const FIELD_EXTERNAL_ID = 'externalId';
@@ -33,121 +33,107 @@ interface Payment extends LoggedResource
     const FIELD_KEY = 'key';
 
     /**
-     *
-     * @return CustomerReference|null
+     * @return null|CustomerReference
      */
     public function getCustomer();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAnonymousId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getExternalId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getInterfaceId();
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
     public function getAmountPlanned();
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
     public function getAmountAuthorized();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAuthorizedUntil();
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
     public function getAmountPaid();
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
     public function getAmountRefunded();
-    
+
     /**
-     *
-     * @return PaymentMethodInfo|null
+     * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo();
-    
+
     /**
-     *
-     * @return PaymentStatus|null
+     * @return null|PaymentStatus
      */
     public function getPaymentStatus();
-    
+
     /**
-     *
-     * @return TransactionCollection|null
+     * @return null|TransactionCollection
      */
     public function getTransactions();
-    
+
     /**
-     *
-     * @return CustomFieldsCollection|null
+     * @return null|CustomFieldsCollection
      */
     public function getInterfaceInteractions();
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
+
     public function setCustomer(?CustomerReference $customer): void;
-    
+
     public function setAnonymousId(?string $anonymousId): void;
-    
+
     public function setExternalId(?string $externalId): void;
-    
+
     public function setInterfaceId(?string $interfaceId): void;
-    
+
     public function setAmountPlanned(?TypedMoney $amountPlanned): void;
-    
+
     public function setAmountAuthorized(?TypedMoney $amountAuthorized): void;
-    
+
     public function setAuthorizedUntil(?string $authorizedUntil): void;
-    
+
     public function setAmountPaid(?TypedMoney $amountPaid): void;
-    
+
     public function setAmountRefunded(?TypedMoney $amountRefunded): void;
-    
+
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void;
-    
+
     public function setPaymentStatus(?PaymentStatus $paymentStatus): void;
-    
+
     public function setTransactions(?TransactionCollection $transactions): void;
-    
+
     public function setInterfaceInteractions(?CustomFieldsCollection $interfaceInteractions): void;
-    
+
     public function setCustom(?CustomFields $custom): void;
-    
+
     public function setKey(?string $key): void;
 }

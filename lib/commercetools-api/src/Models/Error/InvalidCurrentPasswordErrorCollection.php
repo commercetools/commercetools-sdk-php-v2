@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidCurrentPasswordError>
+ *
  * @method InvalidCurrentPasswordError current()
  * @method InvalidCurrentPasswordError at($offset)
  */
@@ -20,8 +23,12 @@ class InvalidCurrentPasswordErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidCurrentPasswordError $value
      * @psalm-param InvalidCurrentPasswordError|stdClass $value
-     * @return InvalidCurrentPasswordErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InvalidCurrentPasswordErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InvalidCurrentPasswordErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InvalidCurrentPasswordError {
+        return function (int $index): ?InvalidCurrentPasswordError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InvalidCurrentPasswordErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

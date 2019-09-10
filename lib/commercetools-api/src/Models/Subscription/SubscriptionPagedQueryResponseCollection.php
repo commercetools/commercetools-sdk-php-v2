@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SubscriptionPagedQueryResponse>
+ *
  * @method SubscriptionPagedQueryResponse current()
  * @method SubscriptionPagedQueryResponse at($offset)
  */
@@ -20,8 +23,12 @@ class SubscriptionPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert SubscriptionPagedQueryResponse $value
      * @psalm-param SubscriptionPagedQueryResponse|stdClass $value
-     * @return SubscriptionPagedQueryResponseCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return SubscriptionPagedQueryResponseCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class SubscriptionPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?SubscriptionPagedQueryResponse {
+        return function (int $index): ?SubscriptionPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = SubscriptionPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

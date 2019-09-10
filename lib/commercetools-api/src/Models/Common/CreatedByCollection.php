@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CreatedBy>
+ *
  * @method CreatedBy current()
  * @method CreatedBy at($offset)
  */
@@ -20,8 +23,12 @@ class CreatedByCollection extends MapperSequence
     /**
      * @psalm-assert CreatedBy $value
      * @psalm-param CreatedBy|stdClass $value
-     * @return CreatedByCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CreatedByCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CreatedByCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CreatedBy {
+        return function (int $index): ?CreatedBy {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CreatedByModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

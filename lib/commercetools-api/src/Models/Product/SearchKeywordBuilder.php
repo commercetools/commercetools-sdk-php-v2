@@ -1,79 +1,79 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<SearchKeyword>
  */
 final class SearchKeywordBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?JsonObject
      */
-    protected $suggestTokenizer;
-    
+    private $suggestTokenizer;
+
     /**
      * @var ?string
      */
-    protected $text;
+    private $text;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getSuggestTokenizer()
+    public function getSuggestTokenizer()
     {
-       return $this->suggestTokenizer;
+        return $this->suggestTokenizer;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getText()
+    public function getText()
     {
-       return $this->text;
+        return $this->text;
     }
+
     /**
      * @return $this
      */
-    final public function withSuggestTokenizer(?JsonObject $suggestTokenizer)
+    public function withSuggestTokenizer(?JsonObject $suggestTokenizer)
     {
         $this->suggestTokenizer = $suggestTokenizer;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withText(?string $text)
+    public function withText(?string $text)
     {
         $this->text = $text;
-        
+
         return $this;
     }
-    
-    public function build(): SearchKeyword {
+
+    public function build(): SearchKeyword
+    {
         return new SearchKeywordModel(
             $this->suggestTokenizer,
             $this->text
         );
     }
-    
+
     public static function of(): SearchKeywordBuilder
     {
         return new self();

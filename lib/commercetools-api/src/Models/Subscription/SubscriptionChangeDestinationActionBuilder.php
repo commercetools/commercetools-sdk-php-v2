@@ -1,88 +1,88 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<SubscriptionChangeDestinationAction>
  */
 final class SubscriptionChangeDestinationActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?DestinationBuilder|Destination
-     */
-    protected $destination;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var Destination|?DestinationBuilder
      */
-    final public function getAction()
+    private $destination;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return Destination|null
+     * @return null|string
      */
-    final public function getDestination()
+    public function getAction()
     {
-       return ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination);
+        return $this->action;
     }
+
+    /**
+     * @return null|Destination
+     */
+    public function getDestination()
+    {
+        return $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDestination(?Destination $destination)
+    public function withDestination(?Destination $destination)
     {
         $this->destination = $destination;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withDestinationBuilder(?DestinationBuilder $destination)
+    public function withDestinationBuilder(?DestinationBuilder $destination)
     {
         $this->destination = $destination;
-        
+
         return $this;
     }
-    
-    public function build(): SubscriptionChangeDestinationAction {
+
+    public function build(): SubscriptionChangeDestinationAction
+    {
         return new SubscriptionChangeDestinationActionModel(
             $this->action,
             ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination)
         );
     }
-    
+
     public static function of(): SubscriptionChangeDestinationActionBuilder
     {
         return new self();

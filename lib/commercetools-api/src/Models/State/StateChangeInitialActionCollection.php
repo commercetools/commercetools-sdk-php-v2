@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\State;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StateChangeInitialAction>
+ *
  * @method StateChangeInitialAction current()
  * @method StateChangeInitialAction at($offset)
  */
@@ -20,8 +23,12 @@ class StateChangeInitialActionCollection extends MapperSequence
     /**
      * @psalm-assert StateChangeInitialAction $value
      * @psalm-param StateChangeInitialAction|stdClass $value
-     * @return StateChangeInitialActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StateChangeInitialActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StateChangeInitialActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?StateChangeInitialAction {
+        return function (int $index): ?StateChangeInitialAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StateChangeInitialActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

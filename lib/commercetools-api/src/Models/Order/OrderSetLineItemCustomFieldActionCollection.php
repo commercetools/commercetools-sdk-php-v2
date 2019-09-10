@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderSetLineItemCustomFieldAction>
+ *
  * @method OrderSetLineItemCustomFieldAction current()
  * @method OrderSetLineItemCustomFieldAction at($offset)
  */
@@ -20,8 +23,12 @@ class OrderSetLineItemCustomFieldActionCollection extends MapperSequence
     /**
      * @psalm-assert OrderSetLineItemCustomFieldAction $value
      * @psalm-param OrderSetLineItemCustomFieldAction|stdClass $value
-     * @return OrderSetLineItemCustomFieldActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderSetLineItemCustomFieldActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderSetLineItemCustomFieldActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderSetLineItemCustomFieldAction {
+        return function (int $index): ?OrderSetLineItemCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderSetLineItemCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

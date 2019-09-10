@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductVariantDeletedMessagePayload>
  */
 final class ProductVariantDeletedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?array
      */
-    protected $removedImageUrls;
-    
-    /**
-     * @var ?ProductVariantBuilder|ProductVariant
-     */
-    protected $variant;
+    private $removedImageUrls;
 
     /**
-     *
-     * @return string|null
+     * @var ProductVariant|?ProductVariantBuilder
      */
-    final public function getType()
+    private $variant;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|string
      */
-    final public function getRemovedImageUrls()
+    public function getType()
     {
-       return $this->removedImageUrls;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return ProductVariant|null
+     * @return null|array
      */
-    final public function getVariant()
+    public function getRemovedImageUrls()
     {
-       return ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant);
+        return $this->removedImageUrls;
     }
+
+    /**
+     * @return null|ProductVariant
+     */
+    public function getVariant()
+    {
+        return $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRemovedImageUrls(?array $removedImageUrls)
+    public function withRemovedImageUrls(?array $removedImageUrls)
     {
         $this->removedImageUrls = $removedImageUrls;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariant(?ProductVariant $variant)
+    public function withVariant(?ProductVariant $variant)
     {
         $this->variant = $variant;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withVariantBuilder(?ProductVariantBuilder $variant)
+    public function withVariantBuilder(?ProductVariantBuilder $variant)
     {
         $this->variant = $variant;
-        
+
         return $this;
     }
-    
-    public function build(): ProductVariantDeletedMessagePayload {
+
+    public function build(): ProductVariantDeletedMessagePayload
+    {
         return new ProductVariantDeletedMessagePayloadModel(
             $this->type,
             $this->removedImageUrls,
             ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant)
         );
     }
-    
+
     public static function of(): ProductVariantDeletedMessagePayloadBuilder
     {
         return new self();

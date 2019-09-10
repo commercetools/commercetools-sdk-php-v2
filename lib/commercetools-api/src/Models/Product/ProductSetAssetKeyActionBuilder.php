@@ -1,169 +1,164 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ProductSetAssetKeyAction>
  */
 final class ProductSetAssetKeyActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetId;
-    
+    private $assetId;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
      * @var ?int
      */
-    protected $variantId;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetKey;
+    private $variantId;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAction()
-    {
-       return $this->action;
-    }
-    
+    private $sku;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAssetId()
+    private $assetKey;
+
+    public function __construct()
     {
-       return $this->assetId;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|string
      */
-    final public function getStaged()
+    public function getAction()
     {
-       return $this->staged;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getVariantId()
+    public function getAssetId()
     {
-       return $this->variantId;
+        return $this->assetId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getSku()
+    public function getStaged()
     {
-       return $this->sku;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getAssetKey()
+    public function getVariantId()
     {
-       return $this->assetKey;
+        return $this->variantId;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetKey()
+    {
+        return $this->assetKey;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetId(?string $assetId)
+    public function withAssetId(?string $assetId)
     {
         $this->assetId = $assetId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetKey(?string $assetKey)
+    public function withAssetKey(?string $assetKey)
     {
         $this->assetKey = $assetKey;
-        
+
         return $this;
     }
-    
-    public function build(): ProductSetAssetKeyAction {
+
+    public function build(): ProductSetAssetKeyAction
+    {
         return new ProductSetAssetKeyActionModel(
             $this->action,
             $this->assetId,
@@ -173,7 +168,7 @@ final class ProductSetAssetKeyActionBuilder implements Builder
             $this->assetKey
         );
     }
-    
+
     public static function of(): ProductSetAssetKeyActionBuilder
     {
         return new self();

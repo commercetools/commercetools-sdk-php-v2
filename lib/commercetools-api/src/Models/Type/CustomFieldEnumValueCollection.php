@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldEnumValue>
+ *
  * @method CustomFieldEnumValue current()
  * @method CustomFieldEnumValue at($offset)
  */
@@ -20,8 +23,12 @@ class CustomFieldEnumValueCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldEnumValue $value
      * @psalm-param CustomFieldEnumValue|stdClass $value
-     * @return CustomFieldEnumValueCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomFieldEnumValueCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomFieldEnumValueCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomFieldEnumValue {
+        return function (int $index): ?CustomFieldEnumValue {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomFieldEnumValueModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

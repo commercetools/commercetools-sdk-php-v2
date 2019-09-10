@@ -1,17 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\TaxCategory\SubRateCollection;
+use Commercetools\Base\JsonObject;
 
 interface ExternalTaxRateDraft extends JsonObject
 {
-    
     const FIELD_NAME = 'name';
     const FIELD_AMOUNT = 'amount';
     const FIELD_COUNTRY = 'country';
@@ -20,49 +21,44 @@ interface ExternalTaxRateDraft extends JsonObject
     const FIELD_INCLUDED_IN_PRICE = 'includedInPrice';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getName();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getAmount();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCountry();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getState();
-    
+
     /**
-     *
-     * @return SubRateCollection|null
+     * @return null|SubRateCollection
      */
     public function getSubRates();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getIncludedInPrice();
+
     public function setName(?string $name): void;
-    
+
     public function setAmount(?int $amount): void;
-    
+
     public function setCountry(?string $country): void;
-    
+
     public function setState(?string $state): void;
-    
+
     public function setSubRates(?SubRateCollection $subRates): void;
-    
+
     public function setIncludedInPrice(?bool $includedInPrice): void;
 }

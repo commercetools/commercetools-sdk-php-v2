@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartDiscountValueRelative>
+ *
  * @method CartDiscountValueRelative current()
  * @method CartDiscountValueRelative at($offset)
  */
@@ -20,8 +23,12 @@ class CartDiscountValueRelativeCollection extends MapperSequence
     /**
      * @psalm-assert CartDiscountValueRelative $value
      * @psalm-param CartDiscountValueRelative|stdClass $value
-     * @return CartDiscountValueRelativeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartDiscountValueRelativeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartDiscountValueRelativeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CartDiscountValueRelative {
+        return function (int $index): ?CartDiscountValueRelative {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartDiscountValueRelativeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

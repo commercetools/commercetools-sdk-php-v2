@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PaymentTransactionStateChangedMessagePayload>
+ *
  * @method PaymentTransactionStateChangedMessagePayload current()
  * @method PaymentTransactionStateChangedMessagePayload at($offset)
  */
@@ -20,8 +23,12 @@ class PaymentTransactionStateChangedMessagePayloadCollection extends MapperSeque
     /**
      * @psalm-assert PaymentTransactionStateChangedMessagePayload $value
      * @psalm-param PaymentTransactionStateChangedMessagePayload|stdClass $value
-     * @return PaymentTransactionStateChangedMessagePayloadCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return PaymentTransactionStateChangedMessagePayloadCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class PaymentTransactionStateChangedMessagePayloadCollection extends MapperSeque
      */
     protected function mapper()
     {
-        return function(int $index): ?PaymentTransactionStateChangedMessagePayload {
+        return function (int $index): ?PaymentTransactionStateChangedMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = PaymentTransactionStateChangedMessagePayloadModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

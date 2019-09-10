@@ -1,80 +1,76 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class AssetDimensionsModel extends JsonObjectModel implements AssetDimensions
 {
-    
+    /**
+     * @var ?int
+     */
+    protected $w;
+
+    /**
+     * @var ?int
+     */
+    protected $h;
+
     public function __construct(
         int $w = null,
         int $h = null
     ) {
         $this->w = $w;
         $this->h = $h;
-        
     }
 
     /**
-     * @var ?int
+     * @return null|int
      */
-    protected $w;
-    
-    /**
-     * @var ?int
-     */
-    protected $h;
+    public function getW()
+    {
+        if (is_null($this->w)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(AssetDimensions::FIELD_W);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->w = (int) $data;
+        }
+
+        return $this->w;
+    }
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getW()
+    public function getH()
     {
-       if (is_null($this->w)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(AssetDimensions::FIELD_W);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->w = (int)$data;
-       }
-       return $this->w;
+        if (is_null($this->h)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(AssetDimensions::FIELD_H);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->h = (int) $data;
+        }
+
+        return $this->h;
     }
-    
-    /**
-     *
-     * @return int|null
-     */
-    final public function getH()
-    {
-       if (is_null($this->h)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(AssetDimensions::FIELD_H);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->h = (int)$data;
-       }
-       return $this->h;
-    }
-    final public function setW(?int $w): void
+
+    public function setW(?int $w): void
     {
         $this->w = $w;
     }
-    
-    final public function setH(?int $h): void
+
+    public function setH(?int $h): void
     {
         $this->h = $h;
     }
-    
 }

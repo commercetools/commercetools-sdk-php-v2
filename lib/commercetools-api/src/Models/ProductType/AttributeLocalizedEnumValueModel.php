@@ -1,83 +1,80 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ProductType;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements AttributeLocalizedEnumValue
 {
-    
+    /**
+     * @var ?LocalizedString
+     */
+    protected $label;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
     public function __construct(
         LocalizedString $label = null,
         string $key = null
     ) {
         $this->label = $label;
         $this->key = $key;
-        
     }
 
     /**
-     * @var ?LocalizedString
+     * @return null|LocalizedString
      */
-    protected $label;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    public function getLabel()
+    {
+        if (is_null($this->label)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AttributeLocalizedEnumValue::FIELD_LABEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->label = LocalizedStringModel::of($data);
+        }
+
+        return $this->label;
+    }
 
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getLabel()
+    public function getKey()
     {
-       if (is_null($this->label)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(AttributeLocalizedEnumValue::FIELD_LABEL);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->label = LocalizedStringModel::of($data);
-       }
-       return $this->label;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AttributeLocalizedEnumValue::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getKey()
-    {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(AttributeLocalizedEnumValue::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
-    }
-    final public function setLabel(?LocalizedString $label): void
+
+    public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
 }

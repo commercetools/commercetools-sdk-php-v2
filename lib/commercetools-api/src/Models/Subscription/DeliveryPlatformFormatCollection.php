@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DeliveryPlatformFormat>
+ *
  * @method DeliveryPlatformFormat current()
  * @method DeliveryPlatformFormat at($offset)
  */
@@ -20,8 +23,12 @@ class DeliveryPlatformFormatCollection extends MapperSequence
     /**
      * @psalm-assert DeliveryPlatformFormat $value
      * @psalm-param DeliveryPlatformFormat|stdClass $value
-     * @return DeliveryPlatformFormatCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return DeliveryPlatformFormatCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class DeliveryPlatformFormatCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?DeliveryPlatformFormat {
+        return function (int $index): ?DeliveryPlatformFormat {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = DeliveryPlatformFormatModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

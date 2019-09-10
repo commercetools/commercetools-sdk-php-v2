@@ -1,22 +1,46 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Type;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinition
 {
-    
+    /**
+     * @var ?string
+     */
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $inputHint;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $label;
+
+    /**
+     * @var ?JsonObject
+     */
+    protected $type;
+
+    /**
+     * @var ?bool
+     */
+    protected $required;
+
     public function __construct(
         string $name = null,
         string $inputHint = null,
@@ -29,142 +53,116 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
         $this->label = $label;
         $this->type = $type;
         $this->required = $required;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $inputHint;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $label;
-    
-    /**
-     * @var ?JsonObject
-     */
-    protected $type;
-    
-    /**
-     * @var ?bool
-     */
-    protected $required;
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(FieldDefinition::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->name = (string) $data;
+        }
+
+        return $this->name;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getInputHint()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(FieldDefinition::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->name = (string)$data;
-       }
-       return $this->name;
+        if (is_null($this->inputHint)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(FieldDefinition::FIELD_INPUT_HINT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inputHint = (string) $data;
+        }
+
+        return $this->inputHint;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getInputHint()
+    public function getLabel()
     {
-       if (is_null($this->inputHint)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(FieldDefinition::FIELD_INPUT_HINT);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->inputHint = (string)$data;
-       }
-       return $this->inputHint;
+        if (is_null($this->label)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(FieldDefinition::FIELD_LABEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->label = LocalizedStringModel::of($data);
+        }
+
+        return $this->label;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|JsonObject
      */
-    final public function getLabel()
+    public function getType()
     {
-       if (is_null($this->label)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(FieldDefinition::FIELD_LABEL);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->label = LocalizedStringModel::of($data);
-       }
-       return $this->label;
+        if (is_null($this->type)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(FieldDefinition::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = JsonObjectModel::of($data);
+        }
+
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|bool
      */
-    final public function getType()
+    public function getRequired()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(FieldDefinition::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = JsonObjectModel::of($data);
-       }
-       return $this->type;
+        if (is_null($this->required)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(FieldDefinition::FIELD_REQUIRED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->required = (bool) $data;
+        }
+
+        return $this->required;
     }
-    
-    /**
-     *
-     * @return bool|null
-     */
-    final public function getRequired()
-    {
-       if (is_null($this->required)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(FieldDefinition::FIELD_REQUIRED);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->required = (bool)$data;
-       }
-       return $this->required;
-    }
-    final public function setName(?string $name): void
+
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setInputHint(?string $inputHint): void
+
+    public function setInputHint(?string $inputHint): void
     {
         $this->inputHint = $inputHint;
     }
-    
-    final public function setLabel(?LocalizedString $label): void
+
+    public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;
     }
-    
-    final public function setType(?JsonObject $type): void
+
+    public function setType(?JsonObject $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setRequired(?bool $required): void
+
+    public function setRequired(?bool $required): void
     {
         $this->required = $required;
     }
-    
 }

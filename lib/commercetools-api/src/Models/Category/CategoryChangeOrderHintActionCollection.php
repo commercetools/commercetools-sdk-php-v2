@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategoryChangeOrderHintAction>
+ *
  * @method CategoryChangeOrderHintAction current()
  * @method CategoryChangeOrderHintAction at($offset)
  */
@@ -20,8 +23,12 @@ class CategoryChangeOrderHintActionCollection extends MapperSequence
     /**
      * @psalm-assert CategoryChangeOrderHintAction $value
      * @psalm-param CategoryChangeOrderHintAction|stdClass $value
-     * @return CategoryChangeOrderHintActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CategoryChangeOrderHintActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CategoryChangeOrderHintActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CategoryChangeOrderHintAction {
+        return function (int $index): ?CategoryChangeOrderHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CategoryChangeOrderHintActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,16 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use DateTimeImmutable;
 
 /**
@@ -18,63 +16,64 @@ use DateTimeImmutable;
  */
 final class CustomerSetDateOfBirthActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $dateOfBirth;
+    private $dateOfBirth;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getDateOfBirth()
+    public function getDateOfBirth()
     {
-       return $this->dateOfBirth;
+        return $this->dateOfBirth;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
+    public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
     {
         $this->dateOfBirth = $dateOfBirth;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerSetDateOfBirthAction {
+
+    public function build(): CustomerSetDateOfBirthAction
+    {
         return new CustomerSetDateOfBirthActionModel(
             $this->action,
             $this->dateOfBirth
         );
     }
-    
+
     public static function of(): CustomerSetDateOfBirthActionBuilder
     {
         return new self();

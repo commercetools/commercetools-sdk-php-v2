@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategoryChangeParentAction>
+ *
  * @method CategoryChangeParentAction current()
  * @method CategoryChangeParentAction at($offset)
  */
@@ -20,8 +23,12 @@ class CategoryChangeParentActionCollection extends MapperSequence
     /**
      * @psalm-assert CategoryChangeParentAction $value
      * @psalm-param CategoryChangeParentAction|stdClass $value
-     * @return CategoryChangeParentActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CategoryChangeParentActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CategoryChangeParentActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CategoryChangeParentAction {
+        return function (int $index): ?CategoryChangeParentAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CategoryChangeParentActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

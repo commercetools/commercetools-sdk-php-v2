@@ -1,19 +1,20 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\JsonObject;
 
 interface ChannelDraft extends JsonObject
 {
-    
     const FIELD_KEY = 'key';
     const FIELD_ROLES = 'roles';
     const FIELD_NAME = 'name';
@@ -23,57 +24,51 @@ interface ChannelDraft extends JsonObject
     const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getRoles();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getDescription();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getAddress();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
     public function getGeoLocation();
+
     public function setKey(?string $key): void;
-    
+
     public function setRoles(?array $roles): void;
-    
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setDescription(?LocalizedString $description): void;
-    
+
     public function setAddress(?Address $address): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setGeoLocation(?JsonObject $geoLocation): void;
 }

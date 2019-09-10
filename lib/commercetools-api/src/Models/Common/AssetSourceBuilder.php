@@ -1,130 +1,128 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<AssetSource>
  */
 final class AssetSourceBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $contentType;
 
     /**
      * @var ?string
      */
-    protected $contentType;
-    
-    /**
-     * @var ?string
-     */
-    protected $uri;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?AssetDimensionsBuilder|AssetDimensions
-     */
-    protected $dimensions;
+    private $uri;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getContentType()
-    {
-       return $this->contentType;
-    }
-    
+    private $key;
+
     /**
-     *
-     * @return string|null
+     * @var AssetDimensions|?AssetDimensionsBuilder
      */
-    final public function getUri()
+    private $dimensions;
+
+    public function __construct()
     {
-       return $this->uri;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getContentType()
     {
-       return $this->key;
+        return $this->contentType;
     }
-    
+
     /**
-     *
-     * @return AssetDimensions|null
+     * @return null|string
      */
-    final public function getDimensions()
+    public function getUri()
     {
-       return ($this->dimensions instanceof AssetDimensionsBuilder ? $this->dimensions->build() : $this->dimensions);
+        return $this->uri;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * @return null|AssetDimensions
+     */
+    public function getDimensions()
+    {
+        return $this->dimensions instanceof AssetDimensionsBuilder ? $this->dimensions->build() : $this->dimensions;
+    }
+
     /**
      * @return $this
      */
-    final public function withContentType(?string $contentType)
+    public function withContentType(?string $contentType)
     {
         $this->contentType = $contentType;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withUri(?string $uri)
+    public function withUri(?string $uri)
     {
         $this->uri = $uri;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDimensions(?AssetDimensions $dimensions)
+    public function withDimensions(?AssetDimensions $dimensions)
     {
         $this->dimensions = $dimensions;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withDimensionsBuilder(?AssetDimensionsBuilder $dimensions)
+    public function withDimensionsBuilder(?AssetDimensionsBuilder $dimensions)
     {
         $this->dimensions = $dimensions;
-        
+
         return $this;
     }
-    
-    public function build(): AssetSource {
+
+    public function build(): AssetSource
+    {
         return new AssetSourceModel(
             $this->contentType,
             $this->uri,
@@ -132,7 +130,7 @@ final class AssetSourceBuilder implements Builder
             ($this->dimensions instanceof AssetDimensionsBuilder ? $this->dimensions->build() : $this->dimensions)
         );
     }
-    
+
     public static function of(): AssetSourceBuilder
     {
         return new self();

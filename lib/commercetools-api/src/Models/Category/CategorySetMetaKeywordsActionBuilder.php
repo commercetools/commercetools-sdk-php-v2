@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CategorySetMetaKeywordsAction>
  */
 final class CategorySetMetaKeywordsActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $metaKeywords;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getAction()
+    private $metaKeywords;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getMetaKeywords()
+    public function getAction()
     {
-       return ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords);
+        return $this->action;
     }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMetaKeywords(?LocalizedString $metaKeywords)
+    public function withMetaKeywords(?LocalizedString $metaKeywords)
     {
         $this->metaKeywords = $metaKeywords;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
+    public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
     {
         $this->metaKeywords = $metaKeywords;
-        
+
         return $this;
     }
-    
-    public function build(): CategorySetMetaKeywordsAction {
+
+    public function build(): CategorySetMetaKeywordsAction
+    {
         return new CategorySetMetaKeywordsActionModel(
             $this->action,
             ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords)
         );
     }
-    
+
     public static function of(): CategorySetMetaKeywordsActionBuilder
     {
         return new self();

@@ -1,16 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use DateTimeImmutable;
 
 /**
@@ -18,148 +16,147 @@ use DateTimeImmutable;
  */
 final class ParcelBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
+    private $createdAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?DeliveryItemCollection
      */
-    protected $items;
-    
-    /**
-     * @var ?TrackingDataBuilder|TrackingData
-     */
-    protected $trackingData;
-    
-    /**
-     * @var ?ParcelMeasurementsBuilder|ParcelMeasurements
-     */
-    protected $measurements;
+    private $items;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var TrackingData|?TrackingDataBuilder
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $trackingData;
+
     /**
-     *
-     * @return string|null
+     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
      */
-    final public function getId()
+    private $measurements;
+
+    public function __construct()
     {
-       return $this->id;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|DateTimeImmutable
      */
-    final public function getItems()
+    public function getCreatedAt()
     {
-       return $this->items;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return TrackingData|null
+     * @return null|string
      */
-    final public function getTrackingData()
+    public function getId()
     {
-       return ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData);
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return ParcelMeasurements|null
+     * @return null|DeliveryItemCollection
      */
-    final public function getMeasurements()
+    public function getItems()
     {
-       return ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements);
+        return $this->items;
     }
+
+    /**
+     * @return null|TrackingData
+     */
+    public function getTrackingData()
+    {
+        return $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData;
+    }
+
+    /**
+     * @return null|ParcelMeasurements
+     */
+    public function getMeasurements()
+    {
+        return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItems(?DeliveryItemCollection $items)
+    public function withItems(?DeliveryItemCollection $items)
     {
         $this->items = $items;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTrackingData(?TrackingData $trackingData)
+    public function withTrackingData(?TrackingData $trackingData)
     {
         $this->trackingData = $trackingData;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMeasurements(?ParcelMeasurements $measurements)
+    public function withMeasurements(?ParcelMeasurements $measurements)
     {
         $this->measurements = $measurements;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTrackingDataBuilder(?TrackingDataBuilder $trackingData)
+    public function withTrackingDataBuilder(?TrackingDataBuilder $trackingData)
     {
         $this->trackingData = $trackingData;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)
+    public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)
     {
         $this->measurements = $measurements;
-        
+
         return $this;
     }
-    
-    public function build(): Parcel {
+
+    public function build(): Parcel
+    {
         return new ParcelModel(
             $this->createdAt,
             $this->id,
@@ -168,7 +165,7 @@ final class ParcelBuilder implements Builder
             ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements)
         );
     }
-    
+
     public static function of(): ParcelBuilder
     {
         return new self();

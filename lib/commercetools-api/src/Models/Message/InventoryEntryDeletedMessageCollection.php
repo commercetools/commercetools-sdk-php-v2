@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntryDeletedMessage>
+ *
  * @method InventoryEntryDeletedMessage current()
  * @method InventoryEntryDeletedMessage at($offset)
  */
@@ -20,8 +23,12 @@ class InventoryEntryDeletedMessageCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntryDeletedMessage $value
      * @psalm-param InventoryEntryDeletedMessage|stdClass $value
-     * @return InventoryEntryDeletedMessageCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InventoryEntryDeletedMessageCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InventoryEntryDeletedMessageCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InventoryEntryDeletedMessage {
+        return function (int $index): ?InventoryEntryDeletedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InventoryEntryDeletedMessageModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

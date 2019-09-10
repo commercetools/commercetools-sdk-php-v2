@@ -1,20 +1,44 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implements MissingTaxRateForCountryError
 {
     const DISCRIMINATOR_VALUE = 'MissingTaxRateForCountry';
+
+    /**
+     * @var ?string
+     */
+    protected $code;
+
+    /**
+     * @var ?string
+     */
+    protected $message;
+
+    /**
+     * @var ?string
+     */
+    protected $country;
+
+    /**
+     * @var ?string
+     */
+    protected $state;
+
+    /**
+     * @var ?string
+     */
+    protected $taxCategoryId;
+
     public function __construct(
         string $code = null,
         string $message = null,
@@ -27,141 +51,115 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
         $this->country = $country;
         $this->state = $state;
         $this->taxCategoryId = $taxCategoryId;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
-    /**
-     * @var ?string
-     */
-    protected $country;
-    
-    /**
-     * @var ?string
-     */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $taxCategoryId;
+    public function getCode()
+    {
+        if (is_null($this->code)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ErrorObject::FIELD_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->code = (string) $data;
+        }
+
+        return $this->code;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCode()
+    public function getMessage()
     {
-       if (is_null($this->code)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ErrorObject::FIELD_CODE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->code = (string)$data;
-       }
-       return $this->code;
+        if (is_null($this->message)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->message = (string) $data;
+        }
+
+        return $this->message;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMessage()
+    public function getCountry()
     {
-       if (is_null($this->message)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ErrorObject::FIELD_MESSAGE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->message = (string)$data;
-       }
-       return $this->message;
+        if (is_null($this->country)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MissingTaxRateForCountryError::FIELD_COUNTRY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->country = (string) $data;
+        }
+
+        return $this->country;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCountry()
+    public function getState()
     {
-       if (is_null($this->country)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MissingTaxRateForCountryError::FIELD_COUNTRY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->country = (string)$data;
-       }
-       return $this->country;
+        if (is_null($this->state)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MissingTaxRateForCountryError::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = (string) $data;
+        }
+
+        return $this->state;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getState()
+    public function getTaxCategoryId()
     {
-       if (is_null($this->state)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MissingTaxRateForCountryError::FIELD_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->state = (string)$data;
-       }
-       return $this->state;
+        if (is_null($this->taxCategoryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MissingTaxRateForCountryError::FIELD_TAX_CATEGORY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxCategoryId = (string) $data;
+        }
+
+        return $this->taxCategoryId;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getTaxCategoryId()
-    {
-       if (is_null($this->taxCategoryId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MissingTaxRateForCountryError::FIELD_TAX_CATEGORY_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->taxCategoryId = (string)$data;
-       }
-       return $this->taxCategoryId;
-    }
-    final public function setCode(?string $code): void
+
+    public function setCode(?string $code): void
     {
         $this->code = $code;
     }
-    
-    final public function setMessage(?string $message): void
+
+    public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
-    
-    final public function setCountry(?string $country): void
+
+    public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
-    
-    final public function setState(?string $state): void
+
+    public function setState(?string $state): void
     {
         $this->state = $state;
     }
-    
-    final public function setTaxCategoryId(?string $taxCategoryId): void
+
+    public function setTaxCategoryId(?string $taxCategoryId): void
     {
         $this->taxCategoryId = $taxCategoryId;
     }
-    
 }

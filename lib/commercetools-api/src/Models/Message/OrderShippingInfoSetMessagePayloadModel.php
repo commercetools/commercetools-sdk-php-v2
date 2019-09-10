@@ -1,22 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Cart\ShippingInfo;
 use Commercetools\Api\Models\Cart\ShippingInfoModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel implements OrderShippingInfoSetMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'OrderShippingInfoSet';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?ShippingInfo
+     */
+    protected $shippingInfo;
+
+    /**
+     * @var ?ShippingInfo
+     */
+    protected $oldShippingInfo;
+
     public function __construct(
         string $type = null,
         ShippingInfo $shippingInfo = null,
@@ -25,89 +40,73 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
         $this->type = $type;
         $this->shippingInfo = $shippingInfo;
         $this->oldShippingInfo = $oldShippingInfo;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?ShippingInfo
-     */
-    protected $shippingInfo;
-    
-    /**
-     * @var ?ShippingInfo
-     */
-    protected $oldShippingInfo;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|ShippingInfo
      */
-    final public function getType()
+    public function getShippingInfo()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MessagePayload::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->shippingInfo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderShippingInfoSetMessagePayload::FIELD_SHIPPING_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingInfo = ShippingInfoModel::of($data);
+        }
+
+        return $this->shippingInfo;
     }
-    
+
     /**
-     *
-     * @return ShippingInfo|null
+     * @return null|ShippingInfo
      */
-    final public function getShippingInfo()
+    public function getOldShippingInfo()
     {
-       if (is_null($this->shippingInfo)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(OrderShippingInfoSetMessagePayload::FIELD_SHIPPING_INFO);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->shippingInfo = ShippingInfoModel::of($data);
-       }
-       return $this->shippingInfo;
+        if (is_null($this->oldShippingInfo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderShippingInfoSetMessagePayload::FIELD_OLD_SHIPPING_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->oldShippingInfo = ShippingInfoModel::of($data);
+        }
+
+        return $this->oldShippingInfo;
     }
-    
-    /**
-     *
-     * @return ShippingInfo|null
-     */
-    final public function getOldShippingInfo()
-    {
-       if (is_null($this->oldShippingInfo)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(OrderShippingInfoSetMessagePayload::FIELD_OLD_SHIPPING_INFO);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->oldShippingInfo = ShippingInfoModel::of($data);
-       }
-       return $this->oldShippingInfo;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setShippingInfo(?ShippingInfo $shippingInfo): void
+
+    public function setShippingInfo(?ShippingInfo $shippingInfo): void
     {
         $this->shippingInfo = $shippingInfo;
     }
-    
-    final public function setOldShippingInfo(?ShippingInfo $oldShippingInfo): void
+
+    public function setOldShippingInfo(?ShippingInfo $oldShippingInfo): void
     {
         $this->oldShippingInfo = $oldShippingInfo;
     }
-    
 }

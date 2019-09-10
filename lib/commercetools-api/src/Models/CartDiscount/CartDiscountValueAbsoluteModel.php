@@ -1,81 +1,80 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\MoneyCollection;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements CartDiscountValueAbsolute
 {
     const DISCRIMINATOR_VALUE = 'absolute';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?MoneyCollection
+     */
+    protected $money;
+
     public function __construct(
         string $type = null,
         MoneyCollection $money = null
     ) {
         $this->type = $type;
         $this->money = $money;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?MoneyCollection
-     */
-    protected $money;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDiscountValue::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|MoneyCollection
      */
-    final public function getType()
+    public function getMoney()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDiscountValue::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->money)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CartDiscountValueAbsolute::FIELD_MONEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->money = MoneyCollection::fromArray($data);
+        }
+
+        return $this->money;
     }
-    
-    /**
-     *
-     * @return MoneyCollection|null
-     */
-    final public function getMoney()
-    {
-       if (is_null($this->money)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(CartDiscountValueAbsolute::FIELD_MONEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->money = MoneyCollection::fromArray($data);
-       }
-       return $this->money;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setMoney(?MoneyCollection $money): void
+
+    public function setMoney(?MoneyCollection $money): void
     {
         $this->money = $money;
     }
-    
 }

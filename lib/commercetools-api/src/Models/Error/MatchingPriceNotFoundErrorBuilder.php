@@ -1,240 +1,234 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<MatchingPriceNotFoundError>
  */
 final class MatchingPriceNotFoundErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
+    private $message;
+
     /**
      * @var ?string
      */
-    protected $message;
-    
+    private $country;
+
     /**
      * @var ?string
      */
-    protected $country;
-    
+    private $productId;
+
+    /**
+     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     */
+    private $customerGroup;
+
+    /**
+     * @var ChannelReference|?ChannelReferenceBuilder
+     */
+    private $channel;
+
     /**
      * @var ?string
      */
-    protected $productId;
-    
-    /**
-     * @var ?CustomerGroupReferenceBuilder|CustomerGroupReference
-     */
-    protected $customerGroup;
-    
-    /**
-     * @var ?ChannelReferenceBuilder|ChannelReference
-     */
-    protected $channel;
-    
-    /**
-     * @var ?string
-     */
-    protected $currency;
-    
+    private $currency;
+
     /**
      * @var ?int
      */
-    protected $variantId;
+    private $variantId;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCode()
+    public function getCode()
     {
-       return $this->code;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMessage()
+    public function getMessage()
     {
-       return $this->message;
+        return $this->message;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCountry()
+    public function getCountry()
     {
-       return $this->country;
+        return $this->country;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getProductId()
+    public function getProductId()
     {
-       return $this->productId;
+        return $this->productId;
     }
-    
+
     /**
-     *
-     * @return CustomerGroupReference|null
+     * @return null|CustomerGroupReference
      */
-    final public function getCustomerGroup()
+    public function getCustomerGroup()
     {
-       return ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup);
+        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
     }
-    
+
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|ChannelReference
      */
-    final public function getChannel()
+    public function getChannel()
     {
-       return ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel);
+        return $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCurrency()
+    public function getCurrency()
     {
-       return $this->currency;
+        return $this->currency;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVariantId()
+    public function getVariantId()
     {
-       return $this->variantId;
+        return $this->variantId;
     }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCountry(?string $country)
+    public function withCountry(?string $country)
     {
         $this->country = $country;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductId(?string $productId)
+    public function withProductId(?string $productId)
     {
         $this->productId = $productId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroup(?CustomerGroupReference $customerGroup)
+    public function withCustomerGroup(?CustomerGroupReference $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withChannel(?ChannelReference $channel)
+    public function withChannel(?ChannelReference $channel)
     {
         $this->channel = $channel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCurrency(?string $currency)
+    public function withCurrency(?string $currency)
     {
         $this->currency = $currency;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
+    public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withChannelBuilder(?ChannelReferenceBuilder $channel)
+    public function withChannelBuilder(?ChannelReferenceBuilder $channel)
     {
         $this->channel = $channel;
-        
+
         return $this;
     }
-    
-    public function build(): MatchingPriceNotFoundError {
+
+    public function build(): MatchingPriceNotFoundError
+    {
         return new MatchingPriceNotFoundErrorModel(
             $this->code,
             $this->message,
@@ -246,7 +240,7 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
             $this->variantId
         );
     }
-    
+
     public static function of(): MatchingPriceNotFoundErrorBuilder
     {
         return new self();

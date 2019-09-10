@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingMethodPagedQueryResponse>
+ *
  * @method ShippingMethodPagedQueryResponse current()
  * @method ShippingMethodPagedQueryResponse at($offset)
  */
@@ -20,8 +23,12 @@ class ShippingMethodPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert ShippingMethodPagedQueryResponse $value
      * @psalm-param ShippingMethodPagedQueryResponse|stdClass $value
-     * @return ShippingMethodPagedQueryResponseCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ShippingMethodPagedQueryResponseCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ShippingMethodPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ShippingMethodPagedQueryResponse {
+        return function (int $index): ?ShippingMethodPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ShippingMethodPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

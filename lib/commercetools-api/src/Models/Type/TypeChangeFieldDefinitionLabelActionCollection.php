@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeChangeFieldDefinitionLabelAction>
+ *
  * @method TypeChangeFieldDefinitionLabelAction current()
  * @method TypeChangeFieldDefinitionLabelAction at($offset)
  */
@@ -20,8 +23,12 @@ class TypeChangeFieldDefinitionLabelActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeChangeFieldDefinitionLabelAction $value
      * @psalm-param TypeChangeFieldDefinitionLabelAction|stdClass $value
-     * @return TypeChangeFieldDefinitionLabelActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TypeChangeFieldDefinitionLabelActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TypeChangeFieldDefinitionLabelActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TypeChangeFieldDefinitionLabelAction {
+        return function (int $index): ?TypeChangeFieldDefinitionLabelAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TypeChangeFieldDefinitionLabelActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CustomerResetPassword>
  */
 final class CustomerResetPasswordBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $newPassword;
-    
+    private $newPassword;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
      * @var ?string
      */
-    protected $tokenValue;
+    private $tokenValue;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getNewPassword()
+    public function getNewPassword()
     {
-       return $this->newPassword;
+        return $this->newPassword;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTokenValue()
+    public function getTokenValue()
     {
-       return $this->tokenValue;
+        return $this->tokenValue;
     }
+
     /**
      * @return $this
      */
-    final public function withNewPassword(?string $newPassword)
+    public function withNewPassword(?string $newPassword)
     {
         $this->newPassword = $newPassword;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTokenValue(?string $tokenValue)
+    public function withTokenValue(?string $tokenValue)
     {
         $this->tokenValue = $tokenValue;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerResetPassword {
+
+    public function build(): CustomerResetPassword
+    {
         return new CustomerResetPasswordModel(
             $this->newPassword,
             $this->version,
             $this->tokenValue
         );
     }
-    
+
     public static function of(): CustomerResetPasswordBuilder
     {
         return new self();

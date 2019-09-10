@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeTextType>
+ *
  * @method AttributeTextType current()
  * @method AttributeTextType at($offset)
  */
@@ -20,8 +23,12 @@ class AttributeTextTypeCollection extends MapperSequence
     /**
      * @psalm-assert AttributeTextType $value
      * @psalm-param AttributeTextType|stdClass $value
-     * @return AttributeTextTypeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return AttributeTextTypeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class AttributeTextTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?AttributeTextType {
+        return function (int $index): ?AttributeTextType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = AttributeTextTypeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,132 +1,130 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<LastModifiedBy>
  */
 final class LastModifiedByBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $anonymousId;
 
     /**
      * @var ?string
      */
-    protected $anonymousId;
-    
-    /**
-     * @var ?string
-     */
-    protected $clientId;
-    
-    /**
-     * @var ?string
-     */
-    protected $externalUserId;
-    
-    /**
-     * @var ?CustomerReferenceBuilder|CustomerReference
-     */
-    protected $customer;
+    private $clientId;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAnonymousId()
-    {
-       return $this->anonymousId;
-    }
-    
+    private $externalUserId;
+
     /**
-     *
-     * @return string|null
+     * @var CustomerReference|?CustomerReferenceBuilder
      */
-    final public function getClientId()
+    private $customer;
+
+    public function __construct()
     {
-       return $this->clientId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getExternalUserId()
+    public function getAnonymousId()
     {
-       return $this->externalUserId;
+        return $this->anonymousId;
     }
-    
+
     /**
-     *
-     * @return CustomerReference|null
+     * @return null|string
      */
-    final public function getCustomer()
+    public function getClientId()
     {
-       return ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer);
+        return $this->clientId;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getExternalUserId()
+    {
+        return $this->externalUserId;
+    }
+
+    /**
+     * @return null|CustomerReference
+     */
+    public function getCustomer()
+    {
+        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
+    }
+
     /**
      * @return $this
      */
-    final public function withAnonymousId(?string $anonymousId)
+    public function withAnonymousId(?string $anonymousId)
     {
         $this->anonymousId = $anonymousId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withClientId(?string $clientId)
+    public function withClientId(?string $clientId)
     {
         $this->clientId = $clientId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalUserId(?string $externalUserId)
+    public function withExternalUserId(?string $externalUserId)
     {
         $this->externalUserId = $externalUserId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomer(?CustomerReference $customer)
+    public function withCustomer(?CustomerReference $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
+    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
-    
-    public function build(): LastModifiedBy {
+
+    public function build(): LastModifiedBy
+    {
         return new LastModifiedByModel(
             $this->anonymousId,
             $this->clientId,
@@ -134,7 +132,7 @@ final class LastModifiedByBuilder implements Builder
             ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)
         );
     }
-    
+
     public static function of(): LastModifiedByBuilder
     {
         return new self();

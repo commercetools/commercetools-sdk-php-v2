@@ -1,12 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LoggedResource;
@@ -16,7 +17,6 @@ use DateTimeImmutable;
 
 interface DiscountCode extends LoggedResource
 {
-    
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_CODE = 'code';
@@ -32,105 +32,93 @@ interface DiscountCode extends LoggedResource
     const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getDescription();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCode();
-    
+
     /**
-     *
-     * @return CartDiscountReferenceCollection|null
+     * @return null|CartDiscountReferenceCollection
      */
     public function getCartDiscounts();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCartPredicate();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getIsActive();
-    
+
     /**
-     *
-     * @return ReferenceCollection|null
+     * @return null|ReferenceCollection
      */
     public function getReferences();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getMaxApplications();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getMaxApplicationsPerCustomer();
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getGroups();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getValidFrom();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getValidUntil();
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setDescription(?LocalizedString $description): void;
-    
+
     public function setCode(?string $code): void;
-    
+
     public function setCartDiscounts(?CartDiscountReferenceCollection $cartDiscounts): void;
-    
+
     public function setCartPredicate(?string $cartPredicate): void;
-    
+
     public function setIsActive(?bool $isActive): void;
-    
+
     public function setReferences(?ReferenceCollection $references): void;
-    
+
     public function setMaxApplications(?int $maxApplications): void;
-    
+
     public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void;
-    
+
     public function setCustom(?CustomFields $custom): void;
-    
+
     public function setGroups(?array $groups): void;
-    
+
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
-    
+
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 }

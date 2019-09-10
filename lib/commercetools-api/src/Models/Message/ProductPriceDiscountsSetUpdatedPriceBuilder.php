@@ -1,180 +1,176 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\DiscountedPrice;
 use Commercetools\Api\Models\Common\DiscountedPriceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductPriceDiscountsSetUpdatedPrice>
  */
 final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
-     * @var ?DiscountedPriceBuilder|DiscountedPrice
+     * @var DiscountedPrice|?DiscountedPriceBuilder
      */
-    protected $discounted;
-    
+    private $discounted;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
      * @var ?int
      */
-    protected $variantId;
-    
-    /**
-     * @var ?string
-     */
-    protected $priceId;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?string
-     */
-    protected $variantKey;
+    private $variantId;
 
     /**
-     *
-     * @return DiscountedPrice|null
+     * @var ?string
      */
-    final public function getDiscounted()
-    {
-       return ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted);
-    }
-    
+    private $priceId;
+
     /**
-     *
-     * @return bool|null
+     * @var ?string
      */
-    final public function getStaged()
-    {
-       return $this->staged;
-    }
-    
+    private $sku;
+
     /**
-     *
-     * @return int|null
+     * @var ?string
      */
-    final public function getVariantId()
+    private $variantKey;
+
+    public function __construct()
     {
-       return $this->variantId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DiscountedPrice
      */
-    final public function getPriceId()
+    public function getDiscounted()
     {
-       return $this->priceId;
+        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getSku()
+    public function getStaged()
     {
-       return $this->sku;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getVariantKey()
+    public function getVariantId()
     {
-       return $this->variantKey;
+        return $this->variantId;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        return $this->priceId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getVariantKey()
+    {
+        return $this->variantKey;
+    }
+
     /**
      * @return $this
      */
-    final public function withDiscounted(?DiscountedPrice $discounted)
+    public function withDiscounted(?DiscountedPrice $discounted)
     {
         $this->discounted = $discounted;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPriceId(?string $priceId)
+    public function withPriceId(?string $priceId)
     {
         $this->priceId = $priceId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantKey(?string $variantKey)
+    public function withVariantKey(?string $variantKey)
     {
         $this->variantKey = $variantKey;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
     {
         $this->discounted = $discounted;
-        
+
         return $this;
     }
-    
-    public function build(): ProductPriceDiscountsSetUpdatedPrice {
+
+    public function build(): ProductPriceDiscountsSetUpdatedPrice
+    {
         return new ProductPriceDiscountsSetUpdatedPriceModel(
             ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
             $this->staged,
@@ -184,7 +180,7 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
             $this->variantKey
         );
     }
-    
+
     public static function of(): ProductPriceDiscountsSetUpdatedPriceBuilder
     {
         return new self();

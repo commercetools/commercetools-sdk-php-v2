@@ -1,16 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
@@ -18,454 +15,444 @@ use Commercetools\Api\Models\Customer\CustomerResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraftCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<PaymentDraft>
  */
 final class PaymentDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var Money|?MoneyBuilder
+     */
+    private $amountAuthorized;
 
     /**
-     * @var ?MoneyBuilder|Money
+     * @var ?string
      */
-    protected $amountAuthorized;
-    
+    private $anonymousId;
+
+    /**
+     * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
+     */
+    private $paymentMethodInfo;
+
+    /**
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     */
+    private $custom;
+
     /**
      * @var ?string
      */
-    protected $anonymousId;
-    
-    /**
-     * @var ?PaymentMethodInfoBuilder|PaymentMethodInfo
-     */
-    protected $paymentMethodInfo;
-    
-    /**
-     * @var ?CustomFieldsDraftBuilder|CustomFieldsDraft
-     */
-    protected $custom;
-    
+    private $authorizedUntil;
+
     /**
      * @var ?string
      */
-    protected $authorizedUntil;
-    
-    /**
-     * @var ?string
-     */
-    protected $externalId;
-    
+    private $externalId;
+
     /**
      * @var ?TransactionDraftCollection
      */
-    protected $transactions;
-    
+    private $transactions;
+
     /**
-     * @var ?MoneyBuilder|Money
+     * @var Money|?MoneyBuilder
      */
-    protected $amountPaid;
-    
+    private $amountPaid;
+
     /**
-     * @var ?MoneyBuilder|Money
+     * @var Money|?MoneyBuilder
      */
-    protected $amountRefunded;
-    
+    private $amountRefunded;
+
     /**
-     * @var ?MoneyBuilder|Money
+     * @var Money|?MoneyBuilder
      */
-    protected $amountPlanned;
-    
+    private $amountPlanned;
+
     /**
      * @var ?CustomFieldsDraftCollection
      */
-    protected $interfaceInteractions;
-    
-    /**
-     * @var ?string
-     */
-    protected $interfaceId;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?PaymentStatusDraftBuilder|PaymentStatusDraft
-     */
-    protected $paymentStatus;
-    
-    /**
-     * @var ?CustomerResourceIdentifierBuilder|CustomerResourceIdentifier
-     */
-    protected $customer;
+    private $interfaceInteractions;
 
     /**
-     *
-     * @return Money|null
+     * @var ?string
      */
-    final public function getAmountAuthorized()
-    {
-       return ($this->amountAuthorized instanceof MoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized);
-    }
-    
+    private $interfaceId;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAnonymousId()
-    {
-       return $this->anonymousId;
-    }
-    
+    private $key;
+
     /**
-     *
-     * @return PaymentMethodInfo|null
+     * @var PaymentStatusDraft|?PaymentStatusDraftBuilder
      */
-    final public function getPaymentMethodInfo()
-    {
-       return ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo);
-    }
-    
+    private $paymentStatus;
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
      */
-    final public function getCustom()
+    private $customer;
+
+    public function __construct()
     {
-       return ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom);
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|Money
      */
-    final public function getAuthorizedUntil()
+    public function getAmountAuthorized()
     {
-       return $this->authorizedUntil;
+        return $this->amountAuthorized instanceof MoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getExternalId()
+    public function getAnonymousId()
     {
-       return $this->externalId;
+        return $this->anonymousId;
     }
-    
+
     /**
-     *
-     * @return TransactionDraftCollection|null
+     * @return null|PaymentMethodInfo
      */
-    final public function getTransactions()
+    public function getPaymentMethodInfo()
     {
-       return $this->transactions;
+        return $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getAmountPaid()
+    public function getCustom()
     {
-       return ($this->amountPaid instanceof MoneyBuilder ? $this->amountPaid->build() : $this->amountPaid);
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|string
      */
-    final public function getAmountRefunded()
+    public function getAuthorizedUntil()
     {
-       return ($this->amountRefunded instanceof MoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded);
+        return $this->authorizedUntil;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|string
      */
-    final public function getAmountPlanned()
+    public function getExternalId()
     {
-       return ($this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned);
+        return $this->externalId;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraftCollection|null
+     * @return null|TransactionDraftCollection
      */
-    final public function getInterfaceInteractions()
+    public function getTransactions()
     {
-       return $this->interfaceInteractions;
+        return $this->transactions;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|Money
      */
-    final public function getInterfaceId()
+    public function getAmountPaid()
     {
-       return $this->interfaceId;
+        return $this->amountPaid instanceof MoneyBuilder ? $this->amountPaid->build() : $this->amountPaid;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|Money
      */
-    final public function getKey()
+    public function getAmountRefunded()
     {
-       return $this->key;
+        return $this->amountRefunded instanceof MoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded;
     }
-    
+
     /**
-     *
-     * @return PaymentStatusDraft|null
+     * @return null|Money
      */
-    final public function getPaymentStatus()
+    public function getAmountPlanned()
     {
-       return ($this->paymentStatus instanceof PaymentStatusDraftBuilder ? $this->paymentStatus->build() : $this->paymentStatus);
+        return $this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
     }
-    
+
     /**
-     *
-     * @return CustomerResourceIdentifier|null
+     * @return null|CustomFieldsDraftCollection
      */
-    final public function getCustomer()
+    public function getInterfaceInteractions()
     {
-       return ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer);
+        return $this->interfaceInteractions;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getInterfaceId()
+    {
+        return $this->interfaceId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * @return null|PaymentStatusDraft
+     */
+    public function getPaymentStatus()
+    {
+        return $this->paymentStatus instanceof PaymentStatusDraftBuilder ? $this->paymentStatus->build() : $this->paymentStatus;
+    }
+
+    /**
+     * @return null|CustomerResourceIdentifier
+     */
+    public function getCustomer()
+    {
+        return $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer;
+    }
+
     /**
      * @return $this
      */
-    final public function withAmountAuthorized(?Money $amountAuthorized)
+    public function withAmountAuthorized(?Money $amountAuthorized)
     {
         $this->amountAuthorized = $amountAuthorized;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAnonymousId(?string $anonymousId)
+    public function withAnonymousId(?string $anonymousId)
     {
         $this->anonymousId = $anonymousId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
+    public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFieldsDraft $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAuthorizedUntil(?string $authorizedUntil)
+    public function withAuthorizedUntil(?string $authorizedUntil)
     {
         $this->authorizedUntil = $authorizedUntil;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalId(?string $externalId)
+    public function withExternalId(?string $externalId)
     {
         $this->externalId = $externalId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTransactions(?TransactionDraftCollection $transactions)
+    public function withTransactions(?TransactionDraftCollection $transactions)
     {
         $this->transactions = $transactions;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAmountPaid(?Money $amountPaid)
+    public function withAmountPaid(?Money $amountPaid)
     {
         $this->amountPaid = $amountPaid;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAmountRefunded(?Money $amountRefunded)
+    public function withAmountRefunded(?Money $amountRefunded)
     {
         $this->amountRefunded = $amountRefunded;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAmountPlanned(?Money $amountPlanned)
+    public function withAmountPlanned(?Money $amountPlanned)
     {
         $this->amountPlanned = $amountPlanned;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInterfaceInteractions(?CustomFieldsDraftCollection $interfaceInteractions)
+    public function withInterfaceInteractions(?CustomFieldsDraftCollection $interfaceInteractions)
     {
         $this->interfaceInteractions = $interfaceInteractions;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInterfaceId(?string $interfaceId)
+    public function withInterfaceId(?string $interfaceId)
     {
         $this->interfaceId = $interfaceId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentStatus(?PaymentStatusDraft $paymentStatus)
+    public function withPaymentStatus(?PaymentStatusDraft $paymentStatus)
     {
         $this->paymentStatus = $paymentStatus;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomer(?CustomerResourceIdentifier $customer)
+    public function withCustomer(?CustomerResourceIdentifier $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withAmountAuthorizedBuilder(?MoneyBuilder $amountAuthorized)
+    public function withAmountAuthorizedBuilder(?MoneyBuilder $amountAuthorized)
     {
         $this->amountAuthorized = $amountAuthorized;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
+    public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAmountPaidBuilder(?MoneyBuilder $amountPaid)
+    public function withAmountPaidBuilder(?MoneyBuilder $amountPaid)
     {
         $this->amountPaid = $amountPaid;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAmountRefundedBuilder(?MoneyBuilder $amountRefunded)
+    public function withAmountRefundedBuilder(?MoneyBuilder $amountRefunded)
     {
         $this->amountRefunded = $amountRefunded;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAmountPlannedBuilder(?MoneyBuilder $amountPlanned)
+    public function withAmountPlannedBuilder(?MoneyBuilder $amountPlanned)
     {
         $this->amountPlanned = $amountPlanned;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentStatusBuilder(?PaymentStatusDraftBuilder $paymentStatus)
+    public function withPaymentStatusBuilder(?PaymentStatusDraftBuilder $paymentStatus)
     {
         $this->paymentStatus = $paymentStatus;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
+    public function withCustomerBuilder(?CustomerResourceIdentifierBuilder $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
-    
-    public function build(): PaymentDraft {
+
+    public function build(): PaymentDraft
+    {
         return new PaymentDraftModel(
             ($this->amountAuthorized instanceof MoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized),
             $this->anonymousId,
@@ -484,7 +471,7 @@ final class PaymentDraftBuilder implements Builder
             ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer)
         );
     }
-    
+
     public static function of(): PaymentDraftBuilder
     {
         return new self();

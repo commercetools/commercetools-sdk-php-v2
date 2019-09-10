@@ -1,145 +1,142 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CategorySetAssetCustomFieldAction>
  */
 final class CategorySetAssetCustomFieldActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $assetId;
+
     /**
      * @var ?string
      */
-    protected $assetId;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?JsonObject
      */
-    protected $value;
-    
+    private $value;
+
     /**
      * @var ?string
      */
-    protected $assetKey;
+    private $assetKey;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAssetId()
+    public function getAssetId()
     {
-       return $this->assetId;
+        return $this->assetId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getValue()
+    public function getValue()
     {
-       return $this->value;
+        return $this->value;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAssetKey()
+    public function getAssetKey()
     {
-       return $this->assetKey;
+        return $this->assetKey;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetId(?string $assetId)
+    public function withAssetId(?string $assetId)
     {
         $this->assetId = $assetId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?JsonObject $value)
+    public function withValue(?JsonObject $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetKey(?string $assetKey)
+    public function withAssetKey(?string $assetKey)
     {
         $this->assetKey = $assetKey;
-        
+
         return $this;
     }
-    
-    public function build(): CategorySetAssetCustomFieldAction {
+
+    public function build(): CategorySetAssetCustomFieldAction
+    {
         return new CategorySetAssetCustomFieldActionModel(
             $this->action,
             $this->assetId,
@@ -148,7 +145,7 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
             $this->assetKey
         );
     }
-    
+
     public static function of(): CategorySetAssetCustomFieldActionBuilder
     {
         return new self();

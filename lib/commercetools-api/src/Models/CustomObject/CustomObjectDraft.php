@@ -1,49 +1,47 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CustomObject;
 
 use Commercetools\Base\JsonObject;
 
 interface CustomObjectDraft extends JsonObject
 {
-    
     const FIELD_CONTAINER = 'container';
     const FIELD_KEY = 'key';
     const FIELD_VALUE = 'value';
     const FIELD_VERSION = 'version';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getContainer();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
     public function getValue();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getVersion();
+
     public function setContainer(?string $container): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setValue(?JsonObject $value): void;
-    
+
     public function setVersion(?int $version): void;
 }

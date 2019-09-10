@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MultiBuyCustomLineItemsTarget>
+ *
  * @method MultiBuyCustomLineItemsTarget current()
  * @method MultiBuyCustomLineItemsTarget at($offset)
  */
@@ -20,8 +23,12 @@ class MultiBuyCustomLineItemsTargetCollection extends MapperSequence
     /**
      * @psalm-assert MultiBuyCustomLineItemsTarget $value
      * @psalm-param MultiBuyCustomLineItemsTarget|stdClass $value
-     * @return MultiBuyCustomLineItemsTargetCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return MultiBuyCustomLineItemsTargetCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class MultiBuyCustomLineItemsTargetCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?MultiBuyCustomLineItemsTarget {
+        return function (int $index): ?MultiBuyCustomLineItemsTarget {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = MultiBuyCustomLineItemsTargetModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

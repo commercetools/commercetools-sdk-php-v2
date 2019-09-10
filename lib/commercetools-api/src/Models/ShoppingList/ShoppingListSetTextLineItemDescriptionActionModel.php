@@ -1,22 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ShoppingList;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ShoppingListSetTextLineItemDescriptionActionModel extends JsonObjectModel implements ShoppingListSetTextLineItemDescriptionAction
 {
     const DISCRIMINATOR_VALUE = 'setTextLineItemDescription';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?string
+     */
+    protected $textLineItemId;
+
     public function __construct(
         string $action = null,
         LocalizedString $description = null,
@@ -25,88 +40,72 @@ final class ShoppingListSetTextLineItemDescriptionActionModel extends JsonObject
         $this->action = $action;
         $this->description = $description;
         $this->textLineItemId = $textLineItemId;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?string
-     */
-    protected $textLineItemId;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getAction()
+    public function getDescription()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShoppingListSetTextLineItemDescriptionAction::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getDescription()
+    public function getTextLineItemId()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ShoppingListSetTextLineItemDescriptionAction::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->textLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListSetTextLineItemDescriptionAction::FIELD_TEXT_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->textLineItemId = (string) $data;
+        }
+
+        return $this->textLineItemId;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getTextLineItemId()
-    {
-       if (is_null($this->textLineItemId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShoppingListSetTextLineItemDescriptionAction::FIELD_TEXT_LINE_ITEM_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->textLineItemId = (string)$data;
-       }
-       return $this->textLineItemId;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setTextLineItemId(?string $textLineItemId): void
+
+    public function setTextLineItemId(?string $textLineItemId): void
     {
         $this->textLineItemId = $textLineItemId;
     }
-    
 }

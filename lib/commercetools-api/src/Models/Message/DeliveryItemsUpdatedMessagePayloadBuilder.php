@@ -1,122 +1,119 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<DeliveryItemsUpdatedMessagePayload>
  */
 final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $deliveryId;
-    
-    /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $oldItems;
-    
-    /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $items;
+    private $deliveryId;
 
     /**
-     *
-     * @return string|null
+     * @var ?DeliveryItemCollection
      */
-    final public function getType()
-    {
-       return $this->type;
-    }
-    
+    private $oldItems;
+
     /**
-     *
-     * @return string|null
+     * @var ?DeliveryItemCollection
      */
-    final public function getDeliveryId()
+    private $items;
+
+    public function __construct()
     {
-       return $this->deliveryId;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|string
      */
-    final public function getOldItems()
+    public function getType()
     {
-       return $this->oldItems;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|string
      */
-    final public function getItems()
+    public function getDeliveryId()
     {
-       return $this->items;
+        return $this->deliveryId;
     }
+
+    /**
+     * @return null|DeliveryItemCollection
+     */
+    public function getOldItems()
+    {
+        return $this->oldItems;
+    }
+
+    /**
+     * @return null|DeliveryItemCollection
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDeliveryId(?string $deliveryId)
+    public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldItems(?DeliveryItemCollection $oldItems)
+    public function withOldItems(?DeliveryItemCollection $oldItems)
     {
         $this->oldItems = $oldItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItems(?DeliveryItemCollection $items)
+    public function withItems(?DeliveryItemCollection $items)
     {
         $this->items = $items;
-        
+
         return $this;
     }
-    
-    public function build(): DeliveryItemsUpdatedMessagePayload {
+
+    public function build(): DeliveryItemsUpdatedMessagePayload
+    {
         return new DeliveryItemsUpdatedMessagePayloadModel(
             $this->type,
             $this->deliveryId,
@@ -124,7 +121,7 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
             $this->items
         );
     }
-    
+
     public static function of(): DeliveryItemsUpdatedMessagePayloadBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Inventory;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryPagedQueryResponse>
+ *
  * @method InventoryPagedQueryResponse current()
  * @method InventoryPagedQueryResponse at($offset)
  */
@@ -20,8 +23,12 @@ class InventoryPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert InventoryPagedQueryResponse $value
      * @psalm-param InventoryPagedQueryResponse|stdClass $value
-     * @return InventoryPagedQueryResponseCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InventoryPagedQueryResponseCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InventoryPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InventoryPagedQueryResponse {
+        return function (int $index): ?InventoryPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InventoryPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

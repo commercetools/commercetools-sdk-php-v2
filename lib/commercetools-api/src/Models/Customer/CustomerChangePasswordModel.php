@@ -1,20 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class CustomerChangePasswordModel extends JsonObjectModel implements CustomerChangePassword
 {
-    
+    /**
+     * @var ?string
+     */
+    protected $newPassword;
+
+    /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     * @var ?int
+     */
+    protected $version;
+
+    /**
+     * @var ?string
+     */
+    protected $currentPassword;
+
     public function __construct(
         string $newPassword = null,
         string $id = null,
@@ -25,114 +42,93 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
         $this->id = $id;
         $this->version = $version;
         $this->currentPassword = $currentPassword;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $newPassword;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
-    
-    /**
-     * @var ?string
-     */
-    protected $currentPassword;
+    public function getNewPassword()
+    {
+        if (is_null($this->newPassword)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerChangePassword::FIELD_NEW_PASSWORD);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->newPassword = (string) $data;
+        }
+
+        return $this->newPassword;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getNewPassword()
+    public function getId()
     {
-       if (is_null($this->newPassword)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomerChangePassword::FIELD_NEW_PASSWORD);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->newPassword = (string)$data;
-       }
-       return $this->newPassword;
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerChangePassword::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getId()
+    public function getVersion()
     {
-       if (is_null($this->id)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomerChangePassword::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (string)$data;
-       }
-       return $this->id;
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomerChangePassword::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getVersion()
+    public function getCurrentPassword()
     {
-       if (is_null($this->version)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(CustomerChangePassword::FIELD_VERSION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->version = (int)$data;
-       }
-       return $this->version;
+        if (is_null($this->currentPassword)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerChangePassword::FIELD_CURRENT_PASSWORD);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->currentPassword = (string) $data;
+        }
+
+        return $this->currentPassword;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getCurrentPassword()
-    {
-       if (is_null($this->currentPassword)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomerChangePassword::FIELD_CURRENT_PASSWORD);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->currentPassword = (string)$data;
-       }
-       return $this->currentPassword;
-    }
-    final public function setNewPassword(?string $newPassword): void
+
+    public function setNewPassword(?string $newPassword): void
     {
         $this->newPassword = $newPassword;
     }
-    
-    final public function setId(?string $id): void
+
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    
-    final public function setVersion(?int $version): void
+
+    public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
-    
-    final public function setCurrentPassword(?string $currentPassword): void
+
+    public function setCurrentPassword(?string $currentPassword): void
     {
         $this->currentPassword = $currentPassword;
     }
-    
 }

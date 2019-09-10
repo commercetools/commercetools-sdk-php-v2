@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerResetPassword>
+ *
  * @method CustomerResetPassword current()
  * @method CustomerResetPassword at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerResetPasswordCollection extends MapperSequence
     /**
      * @psalm-assert CustomerResetPassword $value
      * @psalm-param CustomerResetPassword|stdClass $value
-     * @return CustomerResetPasswordCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerResetPasswordCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerResetPasswordCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerResetPassword {
+        return function (int $index): ?CustomerResetPassword {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerResetPasswordModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

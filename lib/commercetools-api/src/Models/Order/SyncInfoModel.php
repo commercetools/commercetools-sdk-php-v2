@@ -1,24 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Order;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
+use stdClass;
 
 final class SyncInfoModel extends JsonObjectModel implements SyncInfo
 {
-    
+    /**
+     * @var ?ChannelReference
+     */
+    protected $channel;
+
+    /**
+     * @var ?string
+     */
+    protected $externalId;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $syncedAt;
+
     public function __construct(
         ChannelReference $channel = null,
         string $externalId = null,
@@ -27,99 +40,86 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
         $this->channel = $channel;
         $this->externalId = $externalId;
         $this->syncedAt = $syncedAt;
-        
     }
 
     /**
-     * @var ?ChannelReference
+     * @return null|ChannelReference
      */
-    protected $channel;
-    
-    /**
-     * @var ?string
-     */
-    protected $externalId;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $syncedAt;
+    public function getChannel()
+    {
+        if (is_null($this->channel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(SyncInfo::FIELD_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->channel = ChannelReferenceModel::of($data);
+        }
+
+        return $this->channel;
+    }
 
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|string
      */
-    final public function getChannel()
+    public function getExternalId()
     {
-       if (is_null($this->channel)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(SyncInfo::FIELD_CHANNEL);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->channel = ChannelReferenceModel::of($data);
-       }
-       return $this->channel;
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SyncInfo::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getExternalId()
+    public function getSyncedAt()
     {
-       if (is_null($this->externalId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(SyncInfo::FIELD_EXTERNAL_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->externalId = (string)$data;
-       }
-       return $this->externalId;
+        if (is_null($this->syncedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SyncInfo::FIELD_SYNCED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->syncedAt = $data;
+        }
+
+        return $this->syncedAt;
     }
-    
-    /**
-     *
-     * @return DateTimeImmutable|null
-     */
-    final public function getSyncedAt()
-    {
-       if (is_null($this->syncedAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(SyncInfo::FIELD_SYNCED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->syncedAt = $data;
-       }
-       return $this->syncedAt;
-    }
-    final public function setChannel(?ChannelReference $channel): void
+
+    public function setChannel(?ChannelReference $channel): void
     {
         $this->channel = $channel;
     }
-    
-    final public function setExternalId(?string $externalId): void
+
+    public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
-    
-    final public function setSyncedAt(?DateTimeImmutable $syncedAt): void
+
+    public function setSyncedAt(?DateTimeImmutable $syncedAt): void
     {
         $this->syncedAt = $syncedAt;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[SyncInfo::FIELD_SYNCED_AT]) && $data[SyncInfo::FIELD_SYNCED_AT] instanceof \DateTimeImmutable) {
-           $data[SyncInfo::FIELD_SYNCED_AT] = $data[SyncInfo::FIELD_SYNCED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[SyncInfo::FIELD_SYNCED_AT] = $data[SyncInfo::FIELD_SYNCED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

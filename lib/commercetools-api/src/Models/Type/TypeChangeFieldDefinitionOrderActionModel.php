@@ -1,80 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel implements TypeChangeFieldDefinitionOrderAction
 {
     const DISCRIMINATOR_VALUE = 'changeFieldDefinitionOrder';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?array
+     */
+    protected $fieldNames;
+
     public function __construct(
         string $action = null,
         array $fieldNames = null
     ) {
         $this->action = $action;
         $this->fieldNames = $fieldNames;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?array
-     */
-    protected $fieldNames;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|array
      */
-    final public function getAction()
+    public function getFieldNames()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(TypeUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->fieldNames)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(TypeChangeFieldDefinitionOrderAction::FIELD_FIELD_NAMES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fieldNames = $data;
+        }
+
+        return $this->fieldNames;
     }
-    
-    /**
-     *
-     * @return array|null
-     */
-    final public function getFieldNames()
-    {
-       if (is_null($this->fieldNames)) {
-           /** @psalm-var ?array<int, mixed> $data */
-           $data = $this->raw(TypeChangeFieldDefinitionOrderAction::FIELD_FIELD_NAMES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->fieldNames = $data;
-       }
-       return $this->fieldNames;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setFieldNames(?array $fieldNames): void
+
+    public function setFieldNames(?array $fieldNames): void
     {
         $this->fieldNames = $fieldNames;
     }
-    
 }

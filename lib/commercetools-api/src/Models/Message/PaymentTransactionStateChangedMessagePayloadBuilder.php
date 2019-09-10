@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<PaymentTransactionStateChangedMessagePayload>
  */
 final class PaymentTransactionStateChangedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $transactionId;
+    private $state;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getType()
+    private $transactionId;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getState()
+    public function getType()
     {
-       return $this->state;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTransactionId()
+    public function getState()
     {
-       return $this->transactionId;
+        return $this->state;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getTransactionId()
+    {
+        return $this->transactionId;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?string $state)
+    public function withState(?string $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTransactionId(?string $transactionId)
+    public function withTransactionId(?string $transactionId)
     {
         $this->transactionId = $transactionId;
-        
+
         return $this;
     }
-    
-    public function build(): PaymentTransactionStateChangedMessagePayload {
+
+    public function build(): PaymentTransactionStateChangedMessagePayload
+    {
         return new PaymentTransactionStateChangedMessagePayloadModel(
             $this->type,
             $this->state,
             $this->transactionId
         );
     }
-    
+
     public static function of(): PaymentTransactionStateChangedMessagePayloadBuilder
     {
         return new self();

@@ -1,81 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 
 /**
  * @implements Builder<StagedOrderSetCustomerIdAction>
  */
 final class StagedOrderSetCustomerIdActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerId;
+    private $customerId;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCustomerId()
+    public function getCustomerId()
     {
-       return $this->customerId;
+        return $this->customerId;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerId(?string $customerId)
+    public function withCustomerId(?string $customerId)
     {
         $this->customerId = $customerId;
-        
+
         return $this;
     }
-    
-    public function build(): StagedOrderSetCustomerIdAction {
+
+    public function build(): StagedOrderSetCustomerIdAction
+    {
         return new StagedOrderSetCustomerIdActionModel(
             $this->action,
             $this->customerId
         );
     }
-    
+
     public static function of(): StagedOrderSetCustomerIdActionBuilder
     {
         return new self();

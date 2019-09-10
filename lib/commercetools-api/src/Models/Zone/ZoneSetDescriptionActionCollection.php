@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Zone;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZoneSetDescriptionAction>
+ *
  * @method ZoneSetDescriptionAction current()
  * @method ZoneSetDescriptionAction at($offset)
  */
@@ -20,8 +23,12 @@ class ZoneSetDescriptionActionCollection extends MapperSequence
     /**
      * @psalm-assert ZoneSetDescriptionAction $value
      * @psalm-param ZoneSetDescriptionAction|stdClass $value
-     * @return ZoneSetDescriptionActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ZoneSetDescriptionActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ZoneSetDescriptionActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ZoneSetDescriptionAction {
+        return function (int $index): ?ZoneSetDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ZoneSetDescriptionActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

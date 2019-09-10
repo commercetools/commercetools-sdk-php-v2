@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Review;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifierModel;
@@ -17,10 +14,67 @@ use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
 {
-    
+    /**
+     * @var ?string
+     */
+    protected $uniquenessValue;
+
+    /**
+     * @var ?string
+     */
+    protected $authorName;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?int
+     */
+    protected $rating;
+
+    /**
+     * @var ?StateResourceIdentifier
+     */
+    protected $state;
+
+    /**
+     * @var ?string
+     */
+    protected $text;
+
+    /**
+     * @var ?string
+     */
+    protected $title;
+
+    /**
+     * @var ?string
+     */
+    protected $locale;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?CustomerResourceIdentifier
+     */
+    protected $customer;
+
+    /**
+     * @var ?JsonObject
+     */
+    protected $target;
+
     public function __construct(
         string $uniquenessValue = null,
         string $authorName = null,
@@ -45,306 +99,250 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
         $this->key = $key;
         $this->customer = $customer;
         $this->target = $target;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $uniquenessValue;
-    
-    /**
-     * @var ?string
-     */
-    protected $authorName;
-    
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?int
-     */
-    protected $rating;
-    
-    /**
-     * @var ?StateResourceIdentifier
-     */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $text;
-    
-    /**
-     * @var ?string
-     */
-    protected $title;
-    
-    /**
-     * @var ?string
-     */
-    protected $locale;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?CustomerResourceIdentifier
-     */
-    protected $customer;
-    
-    /**
-     * @var ?JsonObject
-     */
-    protected $target;
+    public function getUniquenessValue()
+    {
+        if (is_null($this->uniquenessValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReviewDraft::FIELD_UNIQUENESS_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->uniquenessValue = (string) $data;
+        }
+
+        return $this->uniquenessValue;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getUniquenessValue()
+    public function getAuthorName()
     {
-       if (is_null($this->uniquenessValue)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReviewDraft::FIELD_UNIQUENESS_VALUE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->uniquenessValue = (string)$data;
-       }
-       return $this->uniquenessValue;
+        if (is_null($this->authorName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReviewDraft::FIELD_AUTHOR_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authorName = (string) $data;
+        }
+
+        return $this->authorName;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getAuthorName()
+    public function getCustom()
     {
-       if (is_null($this->authorName)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReviewDraft::FIELD_AUTHOR_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->authorName = (string)$data;
-       }
-       return $this->authorName;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ReviewDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|int
      */
-    final public function getCustom()
+    public function getRating()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ReviewDraft::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsDraftModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->rating)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ReviewDraft::FIELD_RATING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->rating = (int) $data;
+        }
+
+        return $this->rating;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|StateResourceIdentifier
      */
-    final public function getRating()
+    public function getState()
     {
-       if (is_null($this->rating)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ReviewDraft::FIELD_RATING);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->rating = (int)$data;
-       }
-       return $this->rating;
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ReviewDraft::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateResourceIdentifierModel::of($data);
+        }
+
+        return $this->state;
     }
-    
+
     /**
-     *
-     * @return StateResourceIdentifier|null
+     * @return null|string
      */
-    final public function getState()
+    public function getText()
     {
-       if (is_null($this->state)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ReviewDraft::FIELD_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->state = StateResourceIdentifierModel::of($data);
-       }
-       return $this->state;
+        if (is_null($this->text)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReviewDraft::FIELD_TEXT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->text = (string) $data;
+        }
+
+        return $this->text;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getText()
+    public function getTitle()
     {
-       if (is_null($this->text)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReviewDraft::FIELD_TEXT);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->text = (string)$data;
-       }
-       return $this->text;
+        if (is_null($this->title)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReviewDraft::FIELD_TITLE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->title = (string) $data;
+        }
+
+        return $this->title;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTitle()
+    public function getLocale()
     {
-       if (is_null($this->title)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReviewDraft::FIELD_TITLE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->title = (string)$data;
-       }
-       return $this->title;
+        if (is_null($this->locale)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReviewDraft::FIELD_LOCALE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->locale = (string) $data;
+        }
+
+        return $this->locale;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getLocale()
+    public function getKey()
     {
-       if (is_null($this->locale)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReviewDraft::FIELD_LOCALE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->locale = (string)$data;
-       }
-       return $this->locale;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReviewDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomerResourceIdentifier
      */
-    final public function getKey()
+    public function getCustomer()
     {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReviewDraft::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
+        if (is_null($this->customer)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ReviewDraft::FIELD_CUSTOMER);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customer = CustomerResourceIdentifierModel::of($data);
+        }
+
+        return $this->customer;
     }
-    
+
     /**
-     *
-     * @return CustomerResourceIdentifier|null
+     * @return null|JsonObject
      */
-    final public function getCustomer()
+    public function getTarget()
     {
-       if (is_null($this->customer)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ReviewDraft::FIELD_CUSTOMER);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->customer = CustomerResourceIdentifierModel::of($data);
-       }
-       return $this->customer;
+        if (is_null($this->target)) {
+            /** @psalm-var ?stdClass $data */
+            $data = $this->raw(ReviewDraft::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->target = JsonObjectModel::of($data);
+        }
+
+        return $this->target;
     }
-    
-    /**
-     *
-     * @return JsonObject|null
-     */
-    final public function getTarget()
-    {
-       if (is_null($this->target)) {
-           /** @psalm-var ?stdClass $data */
-           $data = $this->raw(ReviewDraft::FIELD_TARGET);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->target = JsonObjectModel::of($data);
-       }
-       return $this->target;
-    }
-    final public function setUniquenessValue(?string $uniquenessValue): void
+
+    public function setUniquenessValue(?string $uniquenessValue): void
     {
         $this->uniquenessValue = $uniquenessValue;
     }
-    
-    final public function setAuthorName(?string $authorName): void
+
+    public function setAuthorName(?string $authorName): void
     {
         $this->authorName = $authorName;
     }
-    
-    final public function setCustom(?CustomFieldsDraft $custom): void
+
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setRating(?int $rating): void
+
+    public function setRating(?int $rating): void
     {
         $this->rating = $rating;
     }
-    
-    final public function setState(?StateResourceIdentifier $state): void
+
+    public function setState(?StateResourceIdentifier $state): void
     {
         $this->state = $state;
     }
-    
-    final public function setText(?string $text): void
+
+    public function setText(?string $text): void
     {
         $this->text = $text;
     }
-    
-    final public function setTitle(?string $title): void
+
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
-    
-    final public function setLocale(?string $locale): void
+
+    public function setLocale(?string $locale): void
     {
         $this->locale = $locale;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
-    final public function setCustomer(?CustomerResourceIdentifier $customer): void
+
+    public function setCustomer(?CustomerResourceIdentifier $customer): void
     {
         $this->customer = $customer;
     }
-    
-    final public function setTarget(?JsonObject $target): void
+
+    public function setTarget(?JsonObject $target): void
     {
         $this->target = $target;
     }
-    
 }

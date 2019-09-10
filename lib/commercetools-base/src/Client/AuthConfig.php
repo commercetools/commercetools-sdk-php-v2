@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Client;
 
@@ -24,6 +25,6 @@ interface AuthConfig
     public function setClientOptions(array $options): AuthConfig;
 
     public function getOptions(): array;
-    
+
     public function getCacheKey(): string;
 }

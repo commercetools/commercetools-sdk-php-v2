@@ -1,22 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Cart;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class CartSetShippingMethodActionModel extends JsonObjectModel implements CartSetShippingMethodAction
 {
     const DISCRIMINATOR_VALUE = 'setShippingMethod';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
+    /**
+     * @var ?ShippingMethodResourceIdentifier
+     */
+    protected $shippingMethod;
+
     public function __construct(
         string $action = null,
         ExternalTaxRateDraft $externalTaxRate = null,
@@ -25,89 +40,73 @@ final class CartSetShippingMethodActionModel extends JsonObjectModel implements 
         $this->action = $action;
         $this->externalTaxRate = $externalTaxRate;
         $this->shippingMethod = $shippingMethod;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-    
-    /**
-     * @var ?ShippingMethodResourceIdentifier
-     */
-    protected $shippingMethod;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|ExternalTaxRateDraft
      */
-    final public function getAction()
+    public function getExternalTaxRate()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartSetShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
     }
-    
+
     /**
-     *
-     * @return ExternalTaxRateDraft|null
+     * @return null|ShippingMethodResourceIdentifier
      */
-    final public function getExternalTaxRate()
+    public function getShippingMethod()
     {
-       if (is_null($this->externalTaxRate)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartSetShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-       }
-       return $this->externalTaxRate;
+        if (is_null($this->shippingMethod)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartSetShippingMethodAction::FIELD_SHIPPING_METHOD);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingMethod = ShippingMethodResourceIdentifierModel::of($data);
+        }
+
+        return $this->shippingMethod;
     }
-    
-    /**
-     *
-     * @return ShippingMethodResourceIdentifier|null
-     */
-    final public function getShippingMethod()
-    {
-       if (is_null($this->shippingMethod)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartSetShippingMethodAction::FIELD_SHIPPING_METHOD);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->shippingMethod = ShippingMethodResourceIdentifierModel::of($data);
-       }
-       return $this->shippingMethod;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
     }
-    
-    final public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
+
+    public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {
         $this->shippingMethod = $shippingMethod;
     }
-    
 }

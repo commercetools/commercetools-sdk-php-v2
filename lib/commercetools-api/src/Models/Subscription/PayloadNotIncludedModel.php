@@ -1,80 +1,76 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class PayloadNotIncludedModel extends JsonObjectModel implements PayloadNotIncluded
 {
-    
+    /**
+     * @var ?string
+     */
+    protected $reason;
+
+    /**
+     * @var ?string
+     */
+    protected $payloadType;
+
     public function __construct(
         string $reason = null,
         string $payloadType = null
     ) {
         $this->reason = $reason;
         $this->payloadType = $payloadType;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $reason;
-    
-    /**
-     * @var ?string
-     */
-    protected $payloadType;
+    public function getReason()
+    {
+        if (is_null($this->reason)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PayloadNotIncluded::FIELD_REASON);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->reason = (string) $data;
+        }
+
+        return $this->reason;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getReason()
+    public function getPayloadType()
     {
-       if (is_null($this->reason)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(PayloadNotIncluded::FIELD_REASON);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->reason = (string)$data;
-       }
-       return $this->reason;
+        if (is_null($this->payloadType)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PayloadNotIncluded::FIELD_PAYLOAD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->payloadType = (string) $data;
+        }
+
+        return $this->payloadType;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getPayloadType()
-    {
-       if (is_null($this->payloadType)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(PayloadNotIncluded::FIELD_PAYLOAD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->payloadType = (string)$data;
-       }
-       return $this->payloadType;
-    }
-    final public function setReason(?string $reason): void
+
+    public function setReason(?string $reason): void
     {
         $this->reason = $reason;
     }
-    
-    final public function setPayloadType(?string $payloadType): void
+
+    public function setPayloadType(?string $payloadType): void
     {
         $this->payloadType = $payloadType;
     }
-    
 }

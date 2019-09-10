@@ -1,168 +1,165 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Type\FieldContainer;
 use Commercetools\Api\Models\Type\FieldContainerBuilder;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductSetProductPriceCustomTypeAction>
  */
 final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
-     * @var ?FieldContainerBuilder|FieldContainer
+     * @var FieldContainer|?FieldContainerBuilder
      */
-    protected $fields;
-    
+    private $fields;
+
     /**
-     * @var ?TypeResourceIdentifierBuilder|TypeResourceIdentifier
+     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?string
      */
-    protected $priceId;
+    private $priceId;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getStaged()
+    public function getStaged()
     {
-       return $this->staged;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return FieldContainer|null
+     * @return null|FieldContainer
      */
-    final public function getFields()
+    public function getFields()
     {
-       return ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields);
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
-    
+
     /**
-     *
-     * @return TypeResourceIdentifier|null
+     * @return null|TypeResourceIdentifier
      */
-    final public function getType()
+    public function getType()
     {
-       return ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type);
+        return $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getPriceId()
+    public function getPriceId()
     {
-       return $this->priceId;
+        return $this->priceId;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFields(?FieldContainer $fields)
+    public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?TypeResourceIdentifier $type)
+    public function withType(?TypeResourceIdentifier $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPriceId(?string $priceId)
+    public function withPriceId(?string $priceId)
     {
         $this->priceId = $priceId;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
     {
         $this->fields = $fields;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTypeBuilder(?TypeResourceIdentifierBuilder $type)
+    public function withTypeBuilder(?TypeResourceIdentifierBuilder $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
-    public function build(): ProductSetProductPriceCustomTypeAction {
+
+    public function build(): ProductSetProductPriceCustomTypeAction
+    {
         return new ProductSetProductPriceCustomTypeActionModel(
             $this->action,
             $this->staged,
@@ -171,7 +168,7 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
             $this->priceId
         );
     }
-    
+
     public static function of(): ProductSetProductPriceCustomTypeActionBuilder
     {
         return new self();

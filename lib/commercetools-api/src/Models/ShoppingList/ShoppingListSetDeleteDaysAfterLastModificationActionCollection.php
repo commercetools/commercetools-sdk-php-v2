@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShoppingListSetDeleteDaysAfterLastModificationAction>
+ *
  * @method ShoppingListSetDeleteDaysAfterLastModificationAction current()
  * @method ShoppingListSetDeleteDaysAfterLastModificationAction at($offset)
  */
@@ -20,8 +23,12 @@ class ShoppingListSetDeleteDaysAfterLastModificationActionCollection extends Map
     /**
      * @psalm-assert ShoppingListSetDeleteDaysAfterLastModificationAction $value
      * @psalm-param ShoppingListSetDeleteDaysAfterLastModificationAction|stdClass $value
-     * @return ShoppingListSetDeleteDaysAfterLastModificationActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ShoppingListSetDeleteDaysAfterLastModificationActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ShoppingListSetDeleteDaysAfterLastModificationActionCollection extends Map
      */
     protected function mapper()
     {
-        return function(int $index): ?ShoppingListSetDeleteDaysAfterLastModificationAction {
+        return function (int $index): ?ShoppingListSetDeleteDaysAfterLastModificationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ShoppingListSetDeleteDaysAfterLastModificationActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

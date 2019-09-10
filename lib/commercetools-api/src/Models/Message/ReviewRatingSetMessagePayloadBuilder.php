@@ -1,156 +1,153 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ReviewRatingSetMessagePayload>
  */
 final class ReviewRatingSetMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?int
      */
-    protected $oldRating;
-    
+    private $oldRating;
+
     /**
      * @var ?bool
      */
-    protected $includedInStatistics;
-    
+    private $includedInStatistics;
+
     /**
      * @var ?int
      */
-    protected $newRating;
-    
-    /**
-     * @var ?ReferenceBuilder|Reference
-     */
-    protected $target;
+    private $newRating;
 
     /**
-     *
-     * @return string|null
+     * @var Reference|?ReferenceBuilder
      */
-    final public function getType()
+    private $target;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getOldRating()
+    public function getType()
     {
-       return $this->oldRating;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|int
      */
-    final public function getIncludedInStatistics()
+    public function getOldRating()
     {
-       return $this->includedInStatistics;
+        return $this->oldRating;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|bool
      */
-    final public function getNewRating()
+    public function getIncludedInStatistics()
     {
-       return $this->newRating;
+        return $this->includedInStatistics;
     }
-    
+
     /**
-     *
-     * @return Reference|null
+     * @return null|int
      */
-    final public function getTarget()
+    public function getNewRating()
     {
-       return ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target);
+        return $this->newRating;
     }
+
+    /**
+     * @return null|Reference
+     */
+    public function getTarget()
+    {
+        return $this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldRating(?int $oldRating)
+    public function withOldRating(?int $oldRating)
     {
         $this->oldRating = $oldRating;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withIncludedInStatistics(?bool $includedInStatistics)
+    public function withIncludedInStatistics(?bool $includedInStatistics)
     {
         $this->includedInStatistics = $includedInStatistics;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNewRating(?int $newRating)
+    public function withNewRating(?int $newRating)
     {
         $this->newRating = $newRating;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTarget(?Reference $target)
+    public function withTarget(?Reference $target)
     {
         $this->target = $target;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTargetBuilder(?ReferenceBuilder $target)
+    public function withTargetBuilder(?ReferenceBuilder $target)
     {
         $this->target = $target;
-        
+
         return $this;
     }
-    
-    public function build(): ReviewRatingSetMessagePayload {
+
+    public function build(): ReviewRatingSetMessagePayload
+    {
         return new ReviewRatingSetMessagePayloadModel(
             $this->type,
             $this->oldRating,
@@ -159,7 +156,7 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
             ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target)
         );
     }
-    
+
     public static function of(): ReviewRatingSetMessagePayloadBuilder
     {
         return new self();

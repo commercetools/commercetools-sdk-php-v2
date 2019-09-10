@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Extension;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionDraft>
+ *
  * @method ExtensionDraft current()
  * @method ExtensionDraft at($offset)
  */
@@ -20,8 +23,12 @@ class ExtensionDraftCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionDraft $value
      * @psalm-param ExtensionDraft|stdClass $value
-     * @return ExtensionDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ExtensionDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ExtensionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ExtensionDraft {
+        return function (int $index): ?ExtensionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ExtensionDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

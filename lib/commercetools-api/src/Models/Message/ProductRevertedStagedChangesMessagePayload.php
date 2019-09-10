@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Message;
 
 interface ProductRevertedStagedChangesMessagePayload extends MessagePayload
 {
-    
     const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getRemovedImageUrls();
+
     public function setRemovedImageUrls(?array $removedImageUrls): void;
 }

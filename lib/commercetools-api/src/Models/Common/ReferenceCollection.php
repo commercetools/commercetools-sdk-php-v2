@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Reference>
+ *
  * @method Reference current()
  * @method Reference at($offset)
  */
@@ -20,8 +23,12 @@ class ReferenceCollection extends MapperSequence
     /**
      * @psalm-assert Reference $value
      * @psalm-param Reference|stdClass $value
-     * @return ReferenceCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ReferenceCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ReferenceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?Reference {
+        return function (int $index): ?Reference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ReferenceModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

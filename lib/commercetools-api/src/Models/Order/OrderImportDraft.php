@@ -1,12 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Common\Address;
@@ -14,11 +15,11 @@ use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface OrderImportDraft extends JsonObject
 {
-    
     const FIELD_ORDER_NUMBER = 'orderNumber';
     const FIELD_CUSTOMER_ID = 'customerId';
     const FIELD_CUSTOMER_EMAIL = 'customerEmail';
@@ -41,161 +42,142 @@ interface OrderImportDraft extends JsonObject
     const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getOrderNumber();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerEmail();
-    
+
     /**
-     *
-     * @return LineItemImportDraftCollection|null
+     * @return null|LineItemImportDraftCollection
      */
     public function getLineItems();
-    
+
     /**
-     *
-     * @return CustomLineItemDraftCollection|null
+     * @return null|CustomLineItemDraftCollection
      */
     public function getCustomLineItems();
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
     public function getTotalPrice();
-    
+
     /**
-     *
-     * @return TaxedPrice|null
+     * @return null|TaxedPrice
      */
     public function getTaxedPrice();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getShippingAddress();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getBillingAddress();
-    
+
     /**
-     *
-     * @return CustomerGroupResourceIdentifier|null
+     * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCountry();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getOrderState();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getShipmentState();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getPaymentState();
-    
+
     /**
-     *
-     * @return ShippingInfoImportDraft|null
+     * @return null|ShippingInfoImportDraft
      */
     public function getShippingInfo();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getCompletedAt();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getInventoryMode();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTaxRoundingMode();
-    
+
     /**
-     *
-     * @return AddressCollection|null
+     * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
+
     public function setOrderNumber(?string $orderNumber): void;
-    
+
     public function setCustomerId(?string $customerId): void;
-    
+
     public function setCustomerEmail(?string $customerEmail): void;
-    
+
     public function setLineItems(?LineItemImportDraftCollection $lineItems): void;
-    
+
     public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void;
-    
+
     public function setTotalPrice(?Money $totalPrice): void;
-    
+
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void;
-    
+
     public function setShippingAddress(?Address $shippingAddress): void;
-    
+
     public function setBillingAddress(?Address $billingAddress): void;
-    
+
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void;
-    
+
     public function setCountry(?string $country): void;
-    
+
     public function setOrderState(?string $orderState): void;
-    
+
     public function setShipmentState(?string $shipmentState): void;
-    
+
     public function setPaymentState(?string $paymentState): void;
-    
+
     public function setShippingInfo(?ShippingInfoImportDraft $shippingInfo): void;
-    
+
     public function setCompletedAt(?DateTimeImmutable $completedAt): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setInventoryMode(?string $inventoryMode): void;
-    
+
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
-    
+
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 }

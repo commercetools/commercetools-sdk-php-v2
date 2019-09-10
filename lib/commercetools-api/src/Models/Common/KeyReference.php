@@ -1,13 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\JsonObject;
-use Commercetools\Api\Models\Store\StoreKeyReference;
 
 interface KeyReference extends JsonObject
 {
@@ -16,17 +17,16 @@ interface KeyReference extends JsonObject
     const FIELD_KEY = 'key';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTypeId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
+
     public function setTypeId(?string $typeId): void;
-    
+
     public function setKey(?string $key): void;
 }

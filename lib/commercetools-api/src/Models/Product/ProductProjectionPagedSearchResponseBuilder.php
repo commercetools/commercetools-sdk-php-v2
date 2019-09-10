@@ -1,154 +1,151 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ProductProjectionPagedSearchResponse>
  */
 final class ProductProjectionPagedSearchResponseBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?int
+     */
+    private $total;
 
     /**
      * @var ?int
      */
-    protected $total;
-    
+    private $offset;
+
     /**
      * @var ?int
      */
-    protected $offset;
-    
-    /**
-     * @var ?int
-     */
-    protected $count;
-    
+    private $count;
+
     /**
      * @var ?ProductProjectionCollection
      */
-    protected $results;
-    
-    /**
-     * @var ?FacetResultsBuilder|FacetResults
-     */
-    protected $facets;
+    private $results;
 
     /**
-     *
-     * @return int|null
+     * @var FacetResults|?FacetResultsBuilder
      */
-    final public function getTotal()
+    private $facets;
+
+    public function __construct()
     {
-       return $this->total;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getOffset()
+    public function getTotal()
     {
-       return $this->offset;
+        return $this->total;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getCount()
+    public function getOffset()
     {
-       return $this->count;
+        return $this->offset;
     }
-    
+
     /**
-     *
-     * @return ProductProjectionCollection|null
+     * @return null|int
      */
-    final public function getResults()
+    public function getCount()
     {
-       return $this->results;
+        return $this->count;
     }
-    
+
     /**
-     *
-     * @return FacetResults|null
+     * @return null|ProductProjectionCollection
      */
-    final public function getFacets()
+    public function getResults()
     {
-       return ($this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets);
+        return $this->results;
     }
+
+    /**
+     * @return null|FacetResults
+     */
+    public function getFacets()
+    {
+        return $this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets;
+    }
+
     /**
      * @return $this
      */
-    final public function withTotal(?int $total)
+    public function withTotal(?int $total)
     {
         $this->total = $total;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOffset(?int $offset)
+    public function withOffset(?int $offset)
     {
         $this->offset = $offset;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCount(?int $count)
+    public function withCount(?int $count)
     {
         $this->count = $count;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResults(?ProductProjectionCollection $results)
+    public function withResults(?ProductProjectionCollection $results)
     {
         $this->results = $results;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFacets(?FacetResults $facets)
+    public function withFacets(?FacetResults $facets)
     {
         $this->facets = $facets;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withFacetsBuilder(?FacetResultsBuilder $facets)
+    public function withFacetsBuilder(?FacetResultsBuilder $facets)
     {
         $this->facets = $facets;
-        
+
         return $this;
     }
-    
-    public function build(): ProductProjectionPagedSearchResponse {
+
+    public function build(): ProductProjectionPagedSearchResponse
+    {
         return new ProductProjectionPagedSearchResponseModel(
             $this->total,
             $this->offset,
@@ -157,7 +154,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
             ($this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets)
         );
     }
-    
+
     public static function of(): ProductProjectionPagedSearchResponseBuilder
     {
         return new self();

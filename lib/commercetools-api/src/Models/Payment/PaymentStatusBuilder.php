@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<PaymentStatus>
  */
 final class PaymentStatusBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $interfaceText;
+
+    /**
+     * @var StateReference|?StateReferenceBuilder
+     */
+    private $state;
 
     /**
      * @var ?string
      */
-    protected $interfaceText;
-    
-    /**
-     * @var ?StateReferenceBuilder|StateReference
-     */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $interfaceCode;
+    private $interfaceCode;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getInterfaceText()
+    public function getInterfaceText()
     {
-       return $this->interfaceText;
+        return $this->interfaceText;
     }
-    
+
     /**
-     *
-     * @return StateReference|null
+     * @return null|StateReference
      */
-    final public function getState()
+    public function getState()
     {
-       return ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state);
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getInterfaceCode()
+    public function getInterfaceCode()
     {
-       return $this->interfaceCode;
+        return $this->interfaceCode;
     }
+
     /**
      * @return $this
      */
-    final public function withInterfaceText(?string $interfaceText)
+    public function withInterfaceText(?string $interfaceText)
     {
         $this->interfaceText = $interfaceText;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?StateReference $state)
+    public function withState(?StateReference $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInterfaceCode(?string $interfaceCode)
+    public function withInterfaceCode(?string $interfaceCode)
     {
         $this->interfaceCode = $interfaceCode;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withStateBuilder(?StateReferenceBuilder $state)
+    public function withStateBuilder(?StateReferenceBuilder $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
-    public function build(): PaymentStatus {
+
+    public function build(): PaymentStatus
+    {
         return new PaymentStatusModel(
             $this->interfaceText,
             ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
             $this->interfaceCode
         );
     }
-    
+
     public static function of(): PaymentStatusBuilder
     {
         return new self();

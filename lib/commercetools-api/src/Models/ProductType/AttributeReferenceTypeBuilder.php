@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<AttributeReferenceType>
  */
 final class AttributeReferenceTypeBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $name;
 
     /**
      * @var ?string
      */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $referenceTypeId;
+    private $referenceTypeId;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getReferenceTypeId()
+    public function getReferenceTypeId()
     {
-       return $this->referenceTypeId;
+        return $this->referenceTypeId;
     }
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withReferenceTypeId(?string $referenceTypeId)
+    public function withReferenceTypeId(?string $referenceTypeId)
     {
         $this->referenceTypeId = $referenceTypeId;
-        
+
         return $this;
     }
-    
-    public function build(): AttributeReferenceType {
+
+    public function build(): AttributeReferenceType
+    {
         return new AttributeReferenceTypeModel(
             $this->name,
             $this->referenceTypeId
         );
     }
-    
+
     public static function of(): AttributeReferenceTypeBuilder
     {
         return new self();

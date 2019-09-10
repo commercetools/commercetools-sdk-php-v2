@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CustomerGroup;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerGroupChangeNameAction>
+ *
  * @method CustomerGroupChangeNameAction current()
  * @method CustomerGroupChangeNameAction at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerGroupChangeNameActionCollection extends MapperSequence
     /**
      * @psalm-assert CustomerGroupChangeNameAction $value
      * @psalm-param CustomerGroupChangeNameAction|stdClass $value
-     * @return CustomerGroupChangeNameActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerGroupChangeNameActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerGroupChangeNameActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerGroupChangeNameAction {
+        return function (int $index): ?CustomerGroupChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerGroupChangeNameActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

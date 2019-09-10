@@ -1,132 +1,130 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\ParcelMeasurementsBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ParcelMeasurementsUpdatedMessagePayload>
  */
 final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $deliveryId;
-    
-    /**
-     * @var ?ParcelMeasurementsBuilder|ParcelMeasurements
-     */
-    protected $measurements;
-    
-    /**
-     * @var ?string
-     */
-    protected $parcelId;
+    private $deliveryId;
 
     /**
-     *
-     * @return string|null
+     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
      */
-    final public function getType()
-    {
-       return $this->type;
-    }
-    
+    private $measurements;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getDeliveryId()
+    private $parcelId;
+
+    public function __construct()
     {
-       return $this->deliveryId;
     }
-    
+
     /**
-     *
-     * @return ParcelMeasurements|null
+     * @return null|string
      */
-    final public function getMeasurements()
+    public function getType()
     {
-       return ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements);
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getParcelId()
+    public function getDeliveryId()
     {
-       return $this->parcelId;
+        return $this->deliveryId;
     }
+
+    /**
+     * @return null|ParcelMeasurements
+     */
+    public function getMeasurements()
+    {
+        return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getParcelId()
+    {
+        return $this->parcelId;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDeliveryId(?string $deliveryId)
+    public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMeasurements(?ParcelMeasurements $measurements)
+    public function withMeasurements(?ParcelMeasurements $measurements)
     {
         $this->measurements = $measurements;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withParcelId(?string $parcelId)
+    public function withParcelId(?string $parcelId)
     {
         $this->parcelId = $parcelId;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)
+    public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)
     {
         $this->measurements = $measurements;
-        
+
         return $this;
     }
-    
-    public function build(): ParcelMeasurementsUpdatedMessagePayload {
+
+    public function build(): ParcelMeasurementsUpdatedMessagePayload
+    {
         return new ParcelMeasurementsUpdatedMessagePayloadModel(
             $this->type,
             $this->deliveryId,
@@ -134,7 +132,7 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
             $this->parcelId
         );
     }
-    
+
     public static function of(): ParcelMeasurementsUpdatedMessagePayloadBuilder
     {
         return new self();

@@ -1,16 +1,15 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\CartDiscount;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\CartDiscount;
 
 interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget
 {
-    
     const FIELD_PREDICATE = 'predicate';
     const FIELD_TRIGGER_QUANTITY = 'triggerQuantity';
     const FIELD_DISCOUNTED_QUANTITY = 'discountedQuantity';
@@ -19,41 +18,45 @@ interface MultiBuyCustomLineItemsTarget extends CartDiscountTarget
 
     /**
      * <p>A valid custom line item target predicate. The discount will be applied to custom line items that are
-    * matched by the predicate.</p>
-     * @return string|null
+     * matched by the predicate.</p>.
+     *
+     * @return null|string
      */
     public function getPredicate();
-    
+
     /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
-     * @return int|null
+     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>.
+     *
+     * @return null|int
      */
     public function getTriggerQuantity();
-    
+
     /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>
-     * @return int|null
+     * <p>Quantity of line items that are discounted per application of this discount.</p>.
+     *
+     * @return null|int
      */
     public function getDiscountedQuantity();
-    
+
     /**
-     * <p>Maximum number of applications of this discount.</p>
-     * @return int|null
+     * <p>Maximum number of applications of this discount.</p>.
+     *
+     * @return null|int
      */
     public function getMaxOccurrence();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSelectionMode();
+
     public function setPredicate(?string $predicate): void;
-    
+
     public function setTriggerQuantity(?int $triggerQuantity): void;
-    
+
     public function setDiscountedQuantity(?int $discountedQuantity): void;
-    
+
     public function setMaxOccurrence(?int $maxOccurrence): void;
-    
+
     public function setSelectionMode(?string $selectionMode): void;
 }

@@ -1,16 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
 use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Cart\TaxedPriceBuilder;
@@ -23,6 +20,7 @@ use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -30,558 +28,542 @@ use DateTimeImmutable;
  */
 final class OrderImportDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $shipmentState;
 
     /**
      * @var ?string
      */
-    protected $shipmentState;
-    
-    /**
-     * @var ?string
-     */
-    protected $country;
-    
+    private $country;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $completedAt;
-    
+    private $completedAt;
+
     /**
      * @var ?string
      */
-    protected $orderNumber;
-    
+    private $orderNumber;
+
     /**
-     * @var ?MoneyBuilder|Money
+     * @var Money|?MoneyBuilder
      */
-    protected $totalPrice;
-    
+    private $totalPrice;
+
     /**
-     * @var ?CustomerGroupResourceIdentifierBuilder|CustomerGroupResourceIdentifier
+     * @var CustomerGroupResourceIdentifier|?CustomerGroupResourceIdentifierBuilder
      */
-    protected $customerGroup;
-    
+    private $customerGroup;
+
     /**
-     * @var ?TaxedPriceBuilder|TaxedPrice
+     * @var TaxedPrice|?TaxedPriceBuilder
      */
-    protected $taxedPrice;
-    
+    private $taxedPrice;
+
     /**
-     * @var ?CustomFieldsDraftBuilder|CustomFieldsDraft
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
-     * @var ?ShippingInfoImportDraftBuilder|ShippingInfoImportDraft
+     * @var ShippingInfoImportDraft|?ShippingInfoImportDraftBuilder
      */
-    protected $shippingInfo;
-    
-    /**
-     * @var ?string
-     */
-    protected $inventoryMode;
-    
+    private $shippingInfo;
+
     /**
      * @var ?string
      */
-    protected $orderState;
-    
+    private $inventoryMode;
+
     /**
      * @var ?string
      */
-    protected $taxRoundingMode;
-    
+    private $orderState;
+
+    /**
+     * @var ?string
+     */
+    private $taxRoundingMode;
+
     /**
      * @var ?LineItemImportDraftCollection
      */
-    protected $lineItems;
-    
+    private $lineItems;
+
     /**
      * @var ?CustomLineItemDraftCollection
      */
-    protected $customLineItems;
-    
+    private $customLineItems;
+
     /**
      * @var ?AddressCollection
      */
-    protected $itemShippingAddresses;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerEmail;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerId;
-    
-    /**
-     * @var ?AddressBuilder|Address
-     */
-    protected $shippingAddress;
-    
-    /**
-     * @var ?AddressBuilder|Address
-     */
-    protected $billingAddress;
-    
-    /**
-     * @var ?string
-     */
-    protected $paymentState;
+    private $itemShippingAddresses;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getShipmentState()
-    {
-       return $this->shipmentState;
-    }
-    
+    private $customerEmail;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCountry()
-    {
-       return $this->country;
-    }
-    
+    private $customerId;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var Address|?AddressBuilder
      */
-    final public function getCompletedAt()
-    {
-       return $this->completedAt;
-    }
-    
+    private $shippingAddress;
+
     /**
-     *
-     * @return string|null
+     * @var Address|?AddressBuilder
      */
-    final public function getOrderNumber()
-    {
-       return $this->orderNumber;
-    }
-    
+    private $billingAddress;
+
     /**
-     *
-     * @return Money|null
+     * @var ?string
      */
-    final public function getTotalPrice()
+    private $paymentState;
+
+    public function __construct()
     {
-       return ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice);
     }
-    
+
     /**
-     *
-     * @return CustomerGroupResourceIdentifier|null
+     * @return null|string
      */
-    final public function getCustomerGroup()
+    public function getShipmentState()
     {
-       return ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup);
+        return $this->shipmentState;
     }
-    
+
     /**
-     *
-     * @return TaxedPrice|null
+     * @return null|string
      */
-    final public function getTaxedPrice()
+    public function getCountry()
     {
-       return ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice);
+        return $this->country;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCustom()
+    public function getCompletedAt()
     {
-       return ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom);
+        return $this->completedAt;
     }
-    
+
     /**
-     *
-     * @return ShippingInfoImportDraft|null
+     * @return null|string
      */
-    final public function getShippingInfo()
+    public function getOrderNumber()
     {
-       return ($this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo);
+        return $this->orderNumber;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|Money
      */
-    final public function getInventoryMode()
+    public function getTotalPrice()
     {
-       return $this->inventoryMode;
+        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomerGroupResourceIdentifier
      */
-    final public function getOrderState()
+    public function getCustomerGroup()
     {
-       return $this->orderState;
+        return $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|TaxedPrice
      */
-    final public function getTaxRoundingMode()
+    public function getTaxedPrice()
     {
-       return $this->taxRoundingMode;
+        return $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
-    
+
     /**
-     *
-     * @return LineItemImportDraftCollection|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getLineItems()
+    public function getCustom()
     {
-       return $this->lineItems;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomLineItemDraftCollection|null
+     * @return null|ShippingInfoImportDraft
      */
-    final public function getCustomLineItems()
+    public function getShippingInfo()
     {
-       return $this->customLineItems;
+        return $this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo;
     }
-    
+
     /**
-     *
-     * @return AddressCollection|null
+     * @return null|string
      */
-    final public function getItemShippingAddresses()
+    public function getInventoryMode()
     {
-       return $this->itemShippingAddresses;
+        return $this->inventoryMode;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCustomerEmail()
+    public function getOrderState()
     {
-       return $this->customerEmail;
+        return $this->orderState;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCustomerId()
+    public function getTaxRoundingMode()
     {
-       return $this->customerId;
+        return $this->taxRoundingMode;
     }
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|LineItemImportDraftCollection
      */
-    final public function getShippingAddress()
+    public function getLineItems()
     {
-       return ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress);
+        return $this->lineItems;
     }
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|CustomLineItemDraftCollection
      */
-    final public function getBillingAddress()
+    public function getCustomLineItems()
     {
-       return ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress);
+        return $this->customLineItems;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|AddressCollection
      */
-    final public function getPaymentState()
+    public function getItemShippingAddresses()
     {
-       return $this->paymentState;
+        return $this->itemShippingAddresses;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getCustomerEmail()
+    {
+        return $this->customerEmail;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCustomerId()
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * @return null|Address
+     */
+    public function getShippingAddress()
+    {
+        return $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress;
+    }
+
+    /**
+     * @return null|Address
+     */
+    public function getBillingAddress()
+    {
+        return $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPaymentState()
+    {
+        return $this->paymentState;
+    }
+
     /**
      * @return $this
      */
-    final public function withShipmentState(?string $shipmentState)
+    public function withShipmentState(?string $shipmentState)
     {
         $this->shipmentState = $shipmentState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCountry(?string $country)
+    public function withCountry(?string $country)
     {
         $this->country = $country;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCompletedAt(?DateTimeImmutable $completedAt)
+    public function withCompletedAt(?DateTimeImmutable $completedAt)
     {
         $this->completedAt = $completedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOrderNumber(?string $orderNumber)
+    public function withOrderNumber(?string $orderNumber)
     {
         $this->orderNumber = $orderNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotalPrice(?Money $totalPrice)
+    public function withTotalPrice(?Money $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
+    public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPrice(?TaxedPrice $taxedPrice)
+    public function withTaxedPrice(?TaxedPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFieldsDraft $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingInfo(?ShippingInfoImportDraft $shippingInfo)
+    public function withShippingInfo(?ShippingInfoImportDraft $shippingInfo)
     {
         $this->shippingInfo = $shippingInfo;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInventoryMode(?string $inventoryMode)
+    public function withInventoryMode(?string $inventoryMode)
     {
         $this->inventoryMode = $inventoryMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOrderState(?string $orderState)
+    public function withOrderState(?string $orderState)
     {
         $this->orderState = $orderState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxRoundingMode(?string $taxRoundingMode)
+    public function withTaxRoundingMode(?string $taxRoundingMode)
     {
         $this->taxRoundingMode = $taxRoundingMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLineItems(?LineItemImportDraftCollection $lineItems)
+    public function withLineItems(?LineItemImportDraftCollection $lineItems)
     {
         $this->lineItems = $lineItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomLineItems(?CustomLineItemDraftCollection $customLineItems)
+    public function withCustomLineItems(?CustomLineItemDraftCollection $customLineItems)
     {
         $this->customLineItems = $customLineItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
+    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerEmail(?string $customerEmail)
+    public function withCustomerEmail(?string $customerEmail)
     {
         $this->customerEmail = $customerEmail;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerId(?string $customerId)
+    public function withCustomerId(?string $customerId)
     {
         $this->customerId = $customerId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingAddress(?Address $shippingAddress)
+    public function withShippingAddress(?Address $shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withBillingAddress(?Address $billingAddress)
+    public function withBillingAddress(?Address $billingAddress)
     {
         $this->billingAddress = $billingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentState(?string $paymentState)
+    public function withPaymentState(?string $paymentState)
     {
         $this->paymentState = $paymentState;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
+    public function withCustomerGroupBuilder(?CustomerGroupResourceIdentifierBuilder $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
+    public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingInfoBuilder(?ShippingInfoImportDraftBuilder $shippingInfo)
+    public function withShippingInfoBuilder(?ShippingInfoImportDraftBuilder $shippingInfo)
     {
         $this->shippingInfo = $shippingInfo;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
+    public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
+    public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
     {
         $this->billingAddress = $billingAddress;
-        
+
         return $this;
     }
-    
-    public function build(): OrderImportDraft {
+
+    public function build(): OrderImportDraft
+    {
         return new OrderImportDraftModel(
             $this->shipmentState,
             $this->country,
@@ -605,7 +587,7 @@ final class OrderImportDraftBuilder implements Builder
             $this->paymentState
         );
     }
-    
+
     public static function of(): OrderImportDraftBuilder
     {
         return new self();

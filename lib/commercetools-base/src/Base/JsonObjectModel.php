@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Base;
 
@@ -21,9 +22,10 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
             return JsonObjectModel::of($data);
         }
         if (is_array($data) && isset($data[0]) && $data[0] instanceof stdClass) {
-            /** @psalm-var ?array<int, stdClass> $data */
+            // @psalm-var ?array<int, stdClass> $data
             return new JsonObjectCollection($data);
         }
+
         return $data;
     }
 
@@ -33,14 +35,17 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
             get_object_vars($this),
             /**
              * @psalm-param mixed|null $value
+             *
+             * @param mixed $value
+             *
              * @return bool
              */
-            function($value) {
+            function ($value) {
                 return !is_null($value);
             },
             ARRAY_FILTER_USE_BOTH
         );
-        $data = array_merge($this->getRawDataArray(), $data);
-        return $data;
+
+        return array_merge($this->getRawDataArray(), $data);
     }
 }

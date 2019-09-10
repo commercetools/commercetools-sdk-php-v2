@@ -1,18 +1,19 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ProductDiscountDraft extends JsonObject
 {
-    
     const FIELD_NAME = 'name';
     const FIELD_KEY = 'key';
     const FIELD_DESCRIPTION = 'description';
@@ -24,73 +25,65 @@ interface ProductDiscountDraft extends JsonObject
     const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getDescription();
-    
+
     /**
-     *
-     * @return ProductDiscountValue|null
+     * @return null|ProductDiscountValue
      */
     public function getValue();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getPredicate();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSortOrder();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getIsActive();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getValidFrom();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getValidUntil();
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setDescription(?LocalizedString $description): void;
-    
+
     public function setValue(?ProductDiscountValue $value): void;
-    
+
     public function setPredicate(?string $predicate): void;
-    
+
     public function setSortOrder(?string $sortOrder): void;
-    
+
     public function setIsActive(?bool $isActive): void;
-    
+
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
-    
+
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
 }

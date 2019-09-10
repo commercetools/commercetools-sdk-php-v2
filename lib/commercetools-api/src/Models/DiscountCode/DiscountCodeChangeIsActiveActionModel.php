@@ -1,80 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implements DiscountCodeChangeIsActiveAction
 {
     const DISCRIMINATOR_VALUE = 'changeIsActive';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?bool
+     */
+    protected $isActive;
+
     public function __construct(
         string $action = null,
         bool $isActive = null
     ) {
         $this->action = $action;
         $this->isActive = $isActive;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?bool
-     */
-    protected $isActive;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getAction()
+    public function getIsActive()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(DiscountCodeUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->isActive)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(DiscountCodeChangeIsActiveAction::FIELD_IS_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isActive = (bool) $data;
+        }
+
+        return $this->isActive;
     }
-    
-    /**
-     *
-     * @return bool|null
-     */
-    final public function getIsActive()
-    {
-       if (is_null($this->isActive)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(DiscountCodeChangeIsActiveAction::FIELD_IS_ACTIVE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->isActive = (bool)$data;
-       }
-       return $this->isActive;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setIsActive(?bool $isActive): void
+
+    public function setIsActive(?bool $isActive): void
     {
         $this->isActive = $isActive;
     }
-    
 }

@@ -1,125 +1,124 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<TaxedPrice>
  */
 final class TaxedPriceBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?TaxPortionCollection
      */
-    protected $taxPortions;
-    
-    /**
-     * @var ?MoneyBuilder|Money
-     */
-    protected $totalGross;
-    
-    /**
-     * @var ?MoneyBuilder|Money
-     */
-    protected $totalNet;
+    private $taxPortions;
 
     /**
-     *
-     * @return TaxPortionCollection|null
+     * @var Money|?MoneyBuilder
      */
-    final public function getTaxPortions()
-    {
-       return $this->taxPortions;
-    }
-    
+    private $totalGross;
+
     /**
-     *
-     * @return Money|null
+     * @var Money|?MoneyBuilder
      */
-    final public function getTotalGross()
+    private $totalNet;
+
+    public function __construct()
     {
-       return ($this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross);
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|TaxPortionCollection
      */
-    final public function getTotalNet()
+    public function getTaxPortions()
     {
-       return ($this->totalNet instanceof MoneyBuilder ? $this->totalNet->build() : $this->totalNet);
+        return $this->taxPortions;
     }
+
+    /**
+     * @return null|Money
+     */
+    public function getTotalGross()
+    {
+        return $this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross;
+    }
+
+    /**
+     * @return null|Money
+     */
+    public function getTotalNet()
+    {
+        return $this->totalNet instanceof MoneyBuilder ? $this->totalNet->build() : $this->totalNet;
+    }
+
     /**
      * @return $this
      */
-    final public function withTaxPortions(?TaxPortionCollection $taxPortions)
+    public function withTaxPortions(?TaxPortionCollection $taxPortions)
     {
         $this->taxPortions = $taxPortions;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotalGross(?Money $totalGross)
+    public function withTotalGross(?Money $totalGross)
     {
         $this->totalGross = $totalGross;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotalNet(?Money $totalNet)
+    public function withTotalNet(?Money $totalNet)
     {
         $this->totalNet = $totalNet;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTotalGrossBuilder(?MoneyBuilder $totalGross)
+    public function withTotalGrossBuilder(?MoneyBuilder $totalGross)
     {
         $this->totalGross = $totalGross;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotalNetBuilder(?MoneyBuilder $totalNet)
+    public function withTotalNetBuilder(?MoneyBuilder $totalNet)
     {
         $this->totalNet = $totalNet;
-        
+
         return $this;
     }
-    
-    public function build(): TaxedPrice {
+
+    public function build(): TaxedPrice
+    {
         return new TaxedPriceModel(
             $this->taxPortions,
             ($this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross),
             ($this->totalNet instanceof MoneyBuilder ? $this->totalNet->build() : $this->totalNet)
         );
     }
-    
+
     public static function of(): TaxedPriceBuilder
     {
         return new self();

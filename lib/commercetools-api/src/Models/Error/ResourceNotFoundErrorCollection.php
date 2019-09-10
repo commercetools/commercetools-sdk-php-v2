@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ResourceNotFoundError>
+ *
  * @method ResourceNotFoundError current()
  * @method ResourceNotFoundError at($offset)
  */
@@ -20,8 +23,12 @@ class ResourceNotFoundErrorCollection extends MapperSequence
     /**
      * @psalm-assert ResourceNotFoundError $value
      * @psalm-param ResourceNotFoundError|stdClass $value
-     * @return ResourceNotFoundErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ResourceNotFoundErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ResourceNotFoundErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ResourceNotFoundError {
+        return function (int $index): ?ResourceNotFoundError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ResourceNotFoundErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

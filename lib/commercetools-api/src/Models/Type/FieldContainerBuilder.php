@@ -1,19 +1,29 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\MapperMap;
 use Commercetools\Base\Builder;
+use Commercetools\Base\MapperMap;
 
 /**
  * @extends Builder<FieldContainer>
  */
 final class FieldContainerBuilder extends MapperMap implements Builder
 {
+    /**
+     * @return FieldContainer
+     */
+    public function build()
+    {
+        return new FieldContainerModel($this->toArray());
+    }
+
     /**
      * @psalm-return callable(string):?mixed
      */
@@ -23,15 +33,8 @@ final class FieldContainerBuilder extends MapperMap implements Builder
             /**
              * @psalm-return ?mixed
              */
-            function(string $key) {
-               return $this->get($key);
+            function (string $key) {
+                return $this->get($key);
             };
-    }
-    
-    /**
-     * @return FieldContainer
-     */
-    public function build() {
-        return new FieldContainerModel($this->toArray());
     }
 }

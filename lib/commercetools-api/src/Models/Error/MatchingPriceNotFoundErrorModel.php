@@ -1,24 +1,64 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Error;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements MatchingPriceNotFoundError
 {
     const DISCRIMINATOR_VALUE = 'MatchingPriceNotFound';
+
+    /**
+     * @var ?string
+     */
+    protected $code;
+
+    /**
+     * @var ?string
+     */
+    protected $message;
+
+    /**
+     * @var ?string
+     */
+    protected $country;
+
+    /**
+     * @var ?string
+     */
+    protected $productId;
+
+    /**
+     * @var ?CustomerGroupReference
+     */
+    protected $customerGroup;
+
+    /**
+     * @var ?ChannelReference
+     */
+    protected $channel;
+
+    /**
+     * @var ?string
+     */
+    protected $currency;
+
+    /**
+     * @var ?int
+     */
+    protected $variantId;
+
     public function __construct(
         string $code = null,
         string $message = null,
@@ -37,224 +77,183 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
         $this->channel = $channel;
         $this->currency = $currency;
         $this->variantId = $variantId;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
-    /**
-     * @var ?string
-     */
-    protected $country;
-    
-    /**
-     * @var ?string
-     */
-    protected $productId;
-    
-    /**
-     * @var ?CustomerGroupReference
-     */
-    protected $customerGroup;
-    
-    /**
-     * @var ?ChannelReference
-     */
-    protected $channel;
-    
-    /**
-     * @var ?string
-     */
-    protected $currency;
-    
-    /**
-     * @var ?int
-     */
-    protected $variantId;
+    public function getCode()
+    {
+        if (is_null($this->code)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ErrorObject::FIELD_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->code = (string) $data;
+        }
+
+        return $this->code;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCode()
+    public function getMessage()
     {
-       if (is_null($this->code)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ErrorObject::FIELD_CODE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->code = (string)$data;
-       }
-       return $this->code;
+        if (is_null($this->message)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->message = (string) $data;
+        }
+
+        return $this->message;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMessage()
+    public function getCountry()
     {
-       if (is_null($this->message)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ErrorObject::FIELD_MESSAGE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->message = (string)$data;
-       }
-       return $this->message;
+        if (is_null($this->country)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MatchingPriceNotFoundError::FIELD_COUNTRY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->country = (string) $data;
+        }
+
+        return $this->country;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCountry()
+    public function getProductId()
     {
-       if (is_null($this->country)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MatchingPriceNotFoundError::FIELD_COUNTRY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->country = (string)$data;
-       }
-       return $this->country;
+        if (is_null($this->productId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MatchingPriceNotFoundError::FIELD_PRODUCT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productId = (string) $data;
+        }
+
+        return $this->productId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomerGroupReference
      */
-    final public function getProductId()
+    public function getCustomerGroup()
     {
-       if (is_null($this->productId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MatchingPriceNotFoundError::FIELD_PRODUCT_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->productId = (string)$data;
-       }
-       return $this->productId;
+        if (is_null($this->customerGroup)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(MatchingPriceNotFoundError::FIELD_CUSTOMER_GROUP);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customerGroup = CustomerGroupReferenceModel::of($data);
+        }
+
+        return $this->customerGroup;
     }
-    
+
     /**
-     *
-     * @return CustomerGroupReference|null
+     * @return null|ChannelReference
      */
-    final public function getCustomerGroup()
+    public function getChannel()
     {
-       if (is_null($this->customerGroup)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(MatchingPriceNotFoundError::FIELD_CUSTOMER_GROUP);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->customerGroup = CustomerGroupReferenceModel::of($data);
-       }
-       return $this->customerGroup;
+        if (is_null($this->channel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(MatchingPriceNotFoundError::FIELD_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->channel = ChannelReferenceModel::of($data);
+        }
+
+        return $this->channel;
     }
-    
+
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|string
      */
-    final public function getChannel()
+    public function getCurrency()
     {
-       if (is_null($this->channel)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(MatchingPriceNotFoundError::FIELD_CHANNEL);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->channel = ChannelReferenceModel::of($data);
-       }
-       return $this->channel;
+        if (is_null($this->currency)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MatchingPriceNotFoundError::FIELD_CURRENCY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->currency = (string) $data;
+        }
+
+        return $this->currency;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getCurrency()
+    public function getVariantId()
     {
-       if (is_null($this->currency)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MatchingPriceNotFoundError::FIELD_CURRENCY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->currency = (string)$data;
-       }
-       return $this->currency;
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MatchingPriceNotFoundError::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
     }
-    
-    /**
-     *
-     * @return int|null
-     */
-    final public function getVariantId()
-    {
-       if (is_null($this->variantId)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(MatchingPriceNotFoundError::FIELD_VARIANT_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->variantId = (int)$data;
-       }
-       return $this->variantId;
-    }
-    final public function setCode(?string $code): void
+
+    public function setCode(?string $code): void
     {
         $this->code = $code;
     }
-    
-    final public function setMessage(?string $message): void
+
+    public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
-    
-    final public function setCountry(?string $country): void
+
+    public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
-    
-    final public function setProductId(?string $productId): void
+
+    public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
     }
-    
-    final public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
+
+    public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
-    
-    final public function setChannel(?ChannelReference $channel): void
+
+    public function setChannel(?ChannelReference $channel): void
     {
         $this->channel = $channel;
     }
-    
-    final public function setCurrency(?string $currency): void
+
+    public function setCurrency(?string $currency): void
     {
         $this->currency = $currency;
     }
-    
-    final public function setVariantId(?int $variantId): void
+
+    public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
-    
 }

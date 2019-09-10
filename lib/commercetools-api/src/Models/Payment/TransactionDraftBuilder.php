@@ -1,18 +1,16 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -20,138 +18,137 @@ use DateTimeImmutable;
  */
 final class TransactionDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $interactionId;
+
+    /**
+     * @var Money|?MoneyBuilder
+     */
+    private $amount;
 
     /**
      * @var ?string
      */
-    protected $interactionId;
-    
-    /**
-     * @var ?MoneyBuilder|Money
-     */
-    protected $amount;
-    
+    private $state;
+
     /**
      * @var ?string
      */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $timestamp;
+    private $timestamp;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getInteractionId()
+    public function getInteractionId()
     {
-       return $this->interactionId;
+        return $this->interactionId;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
-    final public function getAmount()
+    public function getAmount()
     {
-       return ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount);
+        return $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getState()
+    public function getState()
     {
-       return $this->state;
+        return $this->state;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getTimestamp()
+    public function getTimestamp()
     {
-       return $this->timestamp;
+        return $this->timestamp;
     }
+
     /**
      * @return $this
      */
-    final public function withInteractionId(?string $interactionId)
+    public function withInteractionId(?string $interactionId)
     {
         $this->interactionId = $interactionId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAmount(?Money $amount)
+    public function withAmount(?Money $amount)
     {
         $this->amount = $amount;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?string $state)
+    public function withState(?string $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTimestamp(?DateTimeImmutable $timestamp)
+    public function withTimestamp(?DateTimeImmutable $timestamp)
     {
         $this->timestamp = $timestamp;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withAmountBuilder(?MoneyBuilder $amount)
+    public function withAmountBuilder(?MoneyBuilder $amount)
     {
         $this->amount = $amount;
-        
+
         return $this;
     }
-    
-    public function build(): TransactionDraft {
+
+    public function build(): TransactionDraft
+    {
         return new TransactionDraftModel(
             $this->interactionId,
             ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount),
@@ -160,7 +157,7 @@ final class TransactionDraftBuilder implements Builder
             $this->timestamp
         );
     }
-    
+
     public static function of(): TransactionDraftBuilder
     {
         return new self();

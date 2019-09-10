@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<TypeChangeFieldDefinitionLabelAction>
  */
 final class TypeChangeFieldDefinitionLabelActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $fieldName;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $label;
+    private $fieldName;
 
     /**
-     *
-     * @return string|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getAction()
+    private $label;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getFieldName()
+    public function getAction()
     {
-       return $this->fieldName;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getLabel()
+    public function getFieldName()
     {
-       return ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label);
+        return $this->fieldName;
     }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getLabel()
+    {
+        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFieldName(?string $fieldName)
+    public function withFieldName(?string $fieldName)
     {
         $this->fieldName = $fieldName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLabel(?LocalizedString $label)
+    public function withLabel(?LocalizedString $label)
     {
         $this->label = $label;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withLabelBuilder(?LocalizedStringBuilder $label)
+    public function withLabelBuilder(?LocalizedStringBuilder $label)
     {
         $this->label = $label;
-        
+
         return $this;
     }
-    
-    public function build(): TypeChangeFieldDefinitionLabelAction {
+
+    public function build(): TypeChangeFieldDefinitionLabelAction
+    {
         return new TypeChangeFieldDefinitionLabelActionModel(
             $this->action,
             $this->fieldName,
             ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label)
         );
     }
-    
+
     public static function of(): TypeChangeFieldDefinitionLabelActionBuilder
     {
         return new self();

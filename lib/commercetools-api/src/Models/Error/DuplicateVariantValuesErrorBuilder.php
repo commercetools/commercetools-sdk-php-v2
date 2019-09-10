@@ -1,113 +1,112 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<DuplicateVariantValuesError>
  */
 final class DuplicateVariantValuesErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
-    /**
-     * @var ?VariantValuesBuilder|VariantValues
-     */
-    protected $variantValues;
+    private $message;
 
     /**
-     *
-     * @return string|null
+     * @var VariantValues|?VariantValuesBuilder
      */
-    final public function getCode()
+    private $variantValues;
+
+    public function __construct()
     {
-       return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMessage()
+    public function getCode()
     {
-       return $this->message;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return VariantValues|null
+     * @return null|string
      */
-    final public function getVariantValues()
+    public function getMessage()
     {
-       return ($this->variantValues instanceof VariantValuesBuilder ? $this->variantValues->build() : $this->variantValues);
+        return $this->message;
     }
+
+    /**
+     * @return null|VariantValues
+     */
+    public function getVariantValues()
+    {
+        return $this->variantValues instanceof VariantValuesBuilder ? $this->variantValues->build() : $this->variantValues;
+    }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantValues(?VariantValues $variantValues)
+    public function withVariantValues(?VariantValues $variantValues)
     {
         $this->variantValues = $variantValues;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withVariantValuesBuilder(?VariantValuesBuilder $variantValues)
+    public function withVariantValuesBuilder(?VariantValuesBuilder $variantValues)
     {
         $this->variantValues = $variantValues;
-        
+
         return $this;
     }
-    
-    public function build(): DuplicateVariantValuesError {
+
+    public function build(): DuplicateVariantValuesError
+    {
         return new DuplicateVariantValuesErrorModel(
             $this->code,
             $this->message,
             ($this->variantValues instanceof VariantValuesBuilder ? $this->variantValues->build() : $this->variantValues)
         );
     }
-    
+
     public static function of(): DuplicateVariantValuesErrorBuilder
     {
         return new self();

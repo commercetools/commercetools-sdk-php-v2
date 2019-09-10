@@ -1,12 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\ReferenceCollection;
@@ -15,7 +16,6 @@ use DateTimeImmutable;
 
 interface CartDiscount extends LoggedResource
 {
-    
     const FIELD_NAME = 'name';
     const FIELD_KEY = 'key';
     const FIELD_DESCRIPTION = 'description';
@@ -32,114 +32,103 @@ interface CartDiscount extends LoggedResource
     const FIELD_CUSTOM = 'custom';
 
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getDescription();
-    
+
     /**
-     *
-     * @return CartDiscountValue|null
+     * @return null|CartDiscountValue
      */
     public function getValue();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCartPredicate();
-    
+
     /**
-     *
-     * @return CartDiscountTarget|null
+     * @return null|CartDiscountTarget
      */
     public function getTarget();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSortOrder();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getIsActive();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getValidFrom();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getValidUntil();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getRequiresDiscountCode();
-    
+
     /**
-     *
-     * @return ReferenceCollection|null
+     * @return null|ReferenceCollection
      */
     public function getReferences();
-    
+
     /**
      * <p>Specifies whether the application of this discount causes the following discounts to be ignored.
-    * Defaults to Stacking.</p>
-     * @return string|null
+     * Defaults to Stacking.</p>.
+     *
+     * @return null|string
      */
     public function getStackingMode();
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
     public function getCustom();
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setDescription(?LocalizedString $description): void;
-    
+
     public function setValue(?CartDiscountValue $value): void;
-    
+
     public function setCartPredicate(?string $cartPredicate): void;
-    
+
     public function setTarget(?CartDiscountTarget $target): void;
-    
+
     public function setSortOrder(?string $sortOrder): void;
-    
+
     public function setIsActive(?bool $isActive): void;
-    
+
     public function setValidFrom(?DateTimeImmutable $validFrom): void;
-    
+
     public function setValidUntil(?DateTimeImmutable $validUntil): void;
-    
+
     public function setRequiresDiscountCode(?bool $requiresDiscountCode): void;
-    
+
     public function setReferences(?ReferenceCollection $references): void;
-    
+
     public function setStackingMode(?string $stackingMode): void;
-    
+
     public function setCustom(?CustomFields $custom): void;
 }

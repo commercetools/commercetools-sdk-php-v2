@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifier;
 use Commercetools\Api\Models\Zone\ZoneResourceIdentifierBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ZoneRateDraft>
  */
 final class ZoneRateDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
-     * @var ?ZoneResourceIdentifierBuilder|ZoneResourceIdentifier
+     * @var ZoneResourceIdentifier|?ZoneResourceIdentifierBuilder
      */
-    protected $zone;
-    
+    private $zone;
+
     /**
      * @var ?ShippingRateDraftCollection
      */
-    protected $shippingRates;
+    private $shippingRates;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return ZoneResourceIdentifier|null
+     * @return null|ZoneResourceIdentifier
      */
-    final public function getZone()
+    public function getZone()
     {
-       return ($this->zone instanceof ZoneResourceIdentifierBuilder ? $this->zone->build() : $this->zone);
+        return $this->zone instanceof ZoneResourceIdentifierBuilder ? $this->zone->build() : $this->zone;
     }
-    
+
     /**
-     *
-     * @return ShippingRateDraftCollection|null
+     * @return null|ShippingRateDraftCollection
      */
-    final public function getShippingRates()
+    public function getShippingRates()
     {
-       return $this->shippingRates;
+        return $this->shippingRates;
     }
+
     /**
      * @return $this
      */
-    final public function withZone(?ZoneResourceIdentifier $zone)
+    public function withZone(?ZoneResourceIdentifier $zone)
     {
         $this->zone = $zone;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingRates(?ShippingRateDraftCollection $shippingRates)
+    public function withShippingRates(?ShippingRateDraftCollection $shippingRates)
     {
         $this->shippingRates = $shippingRates;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withZoneBuilder(?ZoneResourceIdentifierBuilder $zone)
+    public function withZoneBuilder(?ZoneResourceIdentifierBuilder $zone)
     {
         $this->zone = $zone;
-        
+
         return $this;
     }
-    
-    public function build(): ZoneRateDraft {
+
+    public function build(): ZoneRateDraft
+    {
         return new ZoneRateDraftModel(
             ($this->zone instanceof ZoneResourceIdentifierBuilder ? $this->zone->build() : $this->zone),
             $this->shippingRates
         );
     }
-    
+
     public static function of(): ZoneRateDraftBuilder
     {
         return new self();

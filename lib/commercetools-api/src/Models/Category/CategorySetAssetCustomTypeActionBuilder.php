@@ -1,156 +1,154 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierBuilder;
+use Commercetools\Base\Builder;
+use Commercetools\Base\JsonObject;
 
 /**
  * @implements Builder<CategorySetAssetCustomTypeAction>
  */
 final class CategorySetAssetCustomTypeActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetId;
-    
+    private $assetId;
+
     /**
      * @var ?JsonObject
      */
-    protected $fields;
-    
+    private $fields;
+
     /**
-     * @var ?TypeResourceIdentifierBuilder|TypeResourceIdentifier
+     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?string
      */
-    protected $assetKey;
+    private $assetKey;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAssetId()
+    public function getAssetId()
     {
-       return $this->assetId;
+        return $this->assetId;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getFields()
+    public function getFields()
     {
-       return $this->fields;
+        return $this->fields;
     }
-    
+
     /**
-     *
-     * @return TypeResourceIdentifier|null
+     * @return null|TypeResourceIdentifier
      */
-    final public function getType()
+    public function getType()
     {
-       return ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type);
+        return $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAssetKey()
+    public function getAssetKey()
     {
-       return $this->assetKey;
+        return $this->assetKey;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetId(?string $assetId)
+    public function withAssetId(?string $assetId)
     {
         $this->assetId = $assetId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFields(?JsonObject $fields)
+    public function withFields(?JsonObject $fields)
     {
         $this->fields = $fields;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?TypeResourceIdentifier $type)
+    public function withType(?TypeResourceIdentifier $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetKey(?string $assetKey)
+    public function withAssetKey(?string $assetKey)
     {
         $this->assetKey = $assetKey;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTypeBuilder(?TypeResourceIdentifierBuilder $type)
+    public function withTypeBuilder(?TypeResourceIdentifierBuilder $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
-    public function build(): CategorySetAssetCustomTypeAction {
+
+    public function build(): CategorySetAssetCustomTypeAction
+    {
         return new CategorySetAssetCustomTypeActionModel(
             $this->action,
             $this->assetId,
@@ -159,7 +157,7 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
             $this->assetKey
         );
     }
-    
+
     public static function of(): CategorySetAssetCustomTypeActionBuilder
     {
         return new self();

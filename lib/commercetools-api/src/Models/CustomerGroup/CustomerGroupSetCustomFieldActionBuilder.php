@@ -1,104 +1,103 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CustomerGroup;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CustomerGroupSetCustomFieldAction>
  */
 final class CustomerGroupSetCustomFieldActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?JsonObject
      */
-    protected $value;
+    private $value;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getValue()
+    public function getValue()
     {
-       return $this->value;
+        return $this->value;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?JsonObject $value)
+    public function withValue(?JsonObject $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerGroupSetCustomFieldAction {
+
+    public function build(): CustomerGroupSetCustomFieldAction
+    {
         return new CustomerGroupSetCustomFieldActionModel(
             $this->action,
             $this->name,
             $this->value
         );
     }
-    
+
     public static function of(): CustomerGroupSetCustomFieldActionBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderChangeCustomLineItemQuantityAction>
+ *
  * @method StagedOrderChangeCustomLineItemQuantityAction current()
  * @method StagedOrderChangeCustomLineItemQuantityAction at($offset)
  */
@@ -20,8 +23,12 @@ class StagedOrderChangeCustomLineItemQuantityActionCollection extends MapperSequ
     /**
      * @psalm-assert StagedOrderChangeCustomLineItemQuantityAction $value
      * @psalm-param StagedOrderChangeCustomLineItemQuantityAction|stdClass $value
-     * @return StagedOrderChangeCustomLineItemQuantityActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StagedOrderChangeCustomLineItemQuantityActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StagedOrderChangeCustomLineItemQuantityActionCollection extends MapperSequ
      */
     protected function mapper()
     {
-        return function(int $index): ?StagedOrderChangeCustomLineItemQuantityAction {
+        return function (int $index): ?StagedOrderChangeCustomLineItemQuantityAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StagedOrderChangeCustomLineItemQuantityActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

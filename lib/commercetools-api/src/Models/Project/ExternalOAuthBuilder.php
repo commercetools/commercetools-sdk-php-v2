@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ExternalOAuth>
  */
 final class ExternalOAuthBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $authorizationHeader;
 
     /**
      * @var ?string
      */
-    protected $authorizationHeader;
-    
-    /**
-     * @var ?string
-     */
-    protected $url;
+    private $url;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAuthorizationHeader()
+    public function getAuthorizationHeader()
     {
-       return $this->authorizationHeader;
+        return $this->authorizationHeader;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getUrl()
+    public function getUrl()
     {
-       return $this->url;
+        return $this->url;
     }
+
     /**
      * @return $this
      */
-    final public function withAuthorizationHeader(?string $authorizationHeader)
+    public function withAuthorizationHeader(?string $authorizationHeader)
     {
         $this->authorizationHeader = $authorizationHeader;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withUrl(?string $url)
+    public function withUrl(?string $url)
     {
         $this->url = $url;
-        
+
         return $this;
     }
-    
-    public function build(): ExternalOAuth {
+
+    public function build(): ExternalOAuth
+    {
         return new ExternalOAuthModel(
             $this->authorizationHeader,
             $this->url
         );
     }
-    
+
     public static function of(): ExternalOAuthBuilder
     {
         return new self();

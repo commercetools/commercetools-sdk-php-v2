@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductSetCategoryOrderHintAction>
+ *
  * @method ProductSetCategoryOrderHintAction current()
  * @method ProductSetCategoryOrderHintAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductSetCategoryOrderHintActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductSetCategoryOrderHintAction $value
      * @psalm-param ProductSetCategoryOrderHintAction|stdClass $value
-     * @return ProductSetCategoryOrderHintActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductSetCategoryOrderHintActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductSetCategoryOrderHintActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductSetCategoryOrderHintAction {
+        return function (int $index): ?ProductSetCategoryOrderHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductSetCategoryOrderHintActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

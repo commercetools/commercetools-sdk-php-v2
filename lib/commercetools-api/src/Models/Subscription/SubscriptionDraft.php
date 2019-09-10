@@ -1,16 +1,17 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Base\JsonObject;
 
 interface SubscriptionDraft extends JsonObject
 {
-    
     const FIELD_CHANGES = 'changes';
     const FIELD_DESTINATION = 'destination';
     const FIELD_KEY = 'key';
@@ -18,41 +19,37 @@ interface SubscriptionDraft extends JsonObject
     const FIELD_FORMAT = 'format';
 
     /**
-     *
-     * @return ChangeSubscriptionCollection|null
+     * @return null|ChangeSubscriptionCollection
      */
     public function getChanges();
-    
+
     /**
-     *
-     * @return Destination|null
+     * @return null|Destination
      */
     public function getDestination();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return MessageSubscriptionCollection|null
+     * @return null|MessageSubscriptionCollection
      */
     public function getMessages();
-    
+
     /**
-     *
-     * @return DeliveryFormat|null
+     * @return null|DeliveryFormat
      */
     public function getFormat();
+
     public function setChanges(?ChangeSubscriptionCollection $changes): void;
-    
+
     public function setDestination(?Destination $destination): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setMessages(?MessageSubscriptionCollection $messages): void;
-    
+
     public function setFormat(?DeliveryFormat $format): void;
 }

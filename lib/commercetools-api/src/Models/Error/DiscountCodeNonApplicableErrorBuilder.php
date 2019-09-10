@@ -1,16 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use DateTimeImmutable;
 
 /**
@@ -18,201 +16,196 @@ use DateTimeImmutable;
  */
 final class DiscountCodeNonApplicableErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
-    /**
-     * @var ?string
-     */
-    protected $reason;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validityCheckTime;
-    
-    /**
-     * @var ?string
-     */
-    protected $discountCode;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validUntil;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validFrom;
-    
-    /**
-     * @var ?string
-     */
-    protected $dicountCodeId;
+    private $message;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCode()
-    {
-       return $this->code;
-    }
-    
+    private $reason;
+
     /**
-     *
-     * @return string|null
+     * @var ?DateTimeImmutable
      */
-    final public function getMessage()
-    {
-       return $this->message;
-    }
-    
+    private $validityCheckTime;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getReason()
-    {
-       return $this->reason;
-    }
-    
+    private $discountCode;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?DateTimeImmutable
      */
-    final public function getValidityCheckTime()
-    {
-       return $this->validityCheckTime;
-    }
-    
+    private $validUntil;
+
     /**
-     *
-     * @return string|null
+     * @var ?DateTimeImmutable
      */
-    final public function getDiscountCode()
-    {
-       return $this->discountCode;
-    }
-    
+    private $validFrom;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getValidUntil()
+    private $dicountCodeId;
+
+    public function __construct()
     {
-       return $this->validUntil;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|string
      */
-    final public function getValidFrom()
+    public function getCode()
     {
-       return $this->validFrom;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getDicountCodeId()
+    public function getMessage()
     {
-       return $this->dicountCodeId;
+        return $this->message;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getReason()
+    {
+        return $this->reason;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getValidityCheckTime()
+    {
+        return $this->validityCheckTime;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDiscountCode()
+    {
+        return $this->discountCode;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
+    {
+        return $this->validUntil;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getValidFrom()
+    {
+        return $this->validFrom;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDicountCodeId()
+    {
+        return $this->dicountCodeId;
+    }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withReason(?string $reason)
+    public function withReason(?string $reason)
     {
         $this->reason = $reason;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValidityCheckTime(?DateTimeImmutable $validityCheckTime)
+    public function withValidityCheckTime(?DateTimeImmutable $validityCheckTime)
     {
         $this->validityCheckTime = $validityCheckTime;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountCode(?string $discountCode)
+    public function withDiscountCode(?string $discountCode)
     {
         $this->discountCode = $discountCode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValidUntil(?DateTimeImmutable $validUntil)
+    public function withValidUntil(?DateTimeImmutable $validUntil)
     {
         $this->validUntil = $validUntil;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValidFrom(?DateTimeImmutable $validFrom)
+    public function withValidFrom(?DateTimeImmutable $validFrom)
     {
         $this->validFrom = $validFrom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDicountCodeId(?string $dicountCodeId)
+    public function withDicountCodeId(?string $dicountCodeId)
     {
         $this->dicountCodeId = $dicountCodeId;
-        
+
         return $this;
     }
-    
-    public function build(): DiscountCodeNonApplicableError {
+
+    public function build(): DiscountCodeNonApplicableError
+    {
         return new DiscountCodeNonApplicableErrorModel(
             $this->code,
             $this->message,
@@ -224,7 +217,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
             $this->dicountCodeId
         );
     }
-    
+
     public static function of(): DiscountCodeNonApplicableErrorBuilder
     {
         return new self();

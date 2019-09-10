@@ -1,130 +1,128 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ProductVariantAvailability>
  */
 final class ProductVariantAvailabilityBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?int
+     */
+    private $availableQuantity;
+
+    /**
+     * @var ProductVariantChannelAvailabilityMap|?ProductVariantChannelAvailabilityMapBuilder
+     */
+    private $channels;
 
     /**
      * @var ?int
      */
-    protected $availableQuantity;
-    
-    /**
-     * @var ?ProductVariantChannelAvailabilityMapBuilder|ProductVariantChannelAvailabilityMap
-     */
-    protected $channels;
-    
-    /**
-     * @var ?int
-     */
-    protected $restockableInDays;
-    
+    private $restockableInDays;
+
     /**
      * @var ?bool
      */
-    protected $isOnStock;
+    private $isOnStock;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getAvailableQuantity()
+    public function getAvailableQuantity()
     {
-       return $this->availableQuantity;
+        return $this->availableQuantity;
     }
-    
+
     /**
-     *
-     * @return ProductVariantChannelAvailabilityMap|null
+     * @return null|ProductVariantChannelAvailabilityMap
      */
-    final public function getChannels()
+    public function getChannels()
     {
-       return ($this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels);
+        return $this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getRestockableInDays()
+    public function getRestockableInDays()
     {
-       return $this->restockableInDays;
+        return $this->restockableInDays;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getIsOnStock()
+    public function getIsOnStock()
     {
-       return $this->isOnStock;
+        return $this->isOnStock;
     }
+
     /**
      * @return $this
      */
-    final public function withAvailableQuantity(?int $availableQuantity)
+    public function withAvailableQuantity(?int $availableQuantity)
     {
         $this->availableQuantity = $availableQuantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withChannels(?ProductVariantChannelAvailabilityMap $channels)
+    public function withChannels(?ProductVariantChannelAvailabilityMap $channels)
     {
         $this->channels = $channels;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRestockableInDays(?int $restockableInDays)
+    public function withRestockableInDays(?int $restockableInDays)
     {
         $this->restockableInDays = $restockableInDays;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withIsOnStock(?bool $isOnStock)
+    public function withIsOnStock(?bool $isOnStock)
     {
         $this->isOnStock = $isOnStock;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withChannelsBuilder(?ProductVariantChannelAvailabilityMapBuilder $channels)
+    public function withChannelsBuilder(?ProductVariantChannelAvailabilityMapBuilder $channels)
     {
         $this->channels = $channels;
-        
+
         return $this;
     }
-    
-    public function build(): ProductVariantAvailability {
+
+    public function build(): ProductVariantAvailability
+    {
         return new ProductVariantAvailabilityModel(
             $this->availableQuantity,
             ($this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels),
@@ -132,7 +130,7 @@ final class ProductVariantAvailabilityBuilder implements Builder
             $this->isOnStock
         );
     }
-    
+
     public static function of(): ProductVariantAvailabilityBuilder
     {
         return new self();

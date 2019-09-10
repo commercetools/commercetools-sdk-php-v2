@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LineItem>
+ *
  * @method LineItem current()
  * @method LineItem at($offset)
  */
@@ -20,8 +23,12 @@ class LineItemCollection extends MapperSequence
     /**
      * @psalm-assert LineItem $value
      * @psalm-param LineItem|stdClass $value
-     * @return LineItemCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return LineItemCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class LineItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?LineItem {
+        return function (int $index): ?LineItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = LineItemModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

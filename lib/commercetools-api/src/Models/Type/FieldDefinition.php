@@ -1,17 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\JsonObject;
 
 interface FieldDefinition extends JsonObject
 {
-    
     const FIELD_TYPE = 'type';
     const FIELD_NAME = 'name';
     const FIELD_LABEL = 'label';
@@ -19,41 +20,37 @@ interface FieldDefinition extends JsonObject
     const FIELD_INPUT_HINT = 'inputHint';
 
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
     public function getType();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getName();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getLabel();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getRequired();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getInputHint();
+
     public function setType(?JsonObject $type): void;
-    
+
     public function setName(?string $name): void;
-    
+
     public function setLabel(?LocalizedString $label): void;
-    
+
     public function setRequired(?bool $required): void;
-    
+
     public function setInputHint(?string $inputHint): void;
 }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DiscountCodePagedQueryResponse>
+ *
  * @method DiscountCodePagedQueryResponse current()
  * @method DiscountCodePagedQueryResponse at($offset)
  */
@@ -20,8 +23,12 @@ class DiscountCodePagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert DiscountCodePagedQueryResponse $value
      * @psalm-param DiscountCodePagedQueryResponse|stdClass $value
-     * @return DiscountCodePagedQueryResponseCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return DiscountCodePagedQueryResponseCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class DiscountCodePagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?DiscountCodePagedQueryResponse {
+        return function (int $index): ?DiscountCodePagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = DiscountCodePagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

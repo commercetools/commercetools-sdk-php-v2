@@ -1,16 +1,17 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\JsonObject;
 
 interface Address extends JsonObject
 {
-    
     const FIELD_ID = 'id';
     const FIELD_KEY = 'key';
     const FIELD_TITLE = 'title';
@@ -38,201 +39,179 @@ interface Address extends JsonObject
     const FIELD_EXTERNAL_ID = 'externalId';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTitle();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSalutation();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getFirstName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getLastName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getStreetName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getStreetNumber();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAdditionalStreetInfo();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getPostalCode();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCity();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getRegion();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getState();
-    
+
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
-     * @return string|null
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
+     * @return null|string
      */
     public function getCountry();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCompany();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getDepartment();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getBuilding();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getApartment();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getPOBox();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getPhone();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getMobile();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getEmail();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getFax();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAdditionalAddressInfo();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getExternalId();
+
     public function setId(?string $id): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setTitle(?string $title): void;
-    
+
     public function setSalutation(?string $salutation): void;
-    
+
     public function setFirstName(?string $firstName): void;
-    
+
     public function setLastName(?string $lastName): void;
-    
+
     public function setStreetName(?string $streetName): void;
-    
+
     public function setStreetNumber(?string $streetNumber): void;
-    
+
     public function setAdditionalStreetInfo(?string $additionalStreetInfo): void;
-    
+
     public function setPostalCode(?string $postalCode): void;
-    
+
     public function setCity(?string $city): void;
-    
+
     public function setRegion(?string $region): void;
-    
+
     public function setState(?string $state): void;
-    
+
     public function setCountry(?string $country): void;
-    
+
     public function setCompany(?string $company): void;
-    
+
     public function setDepartment(?string $department): void;
-    
+
     public function setBuilding(?string $building): void;
-    
+
     public function setApartment(?string $apartment): void;
-    
+
     public function setPOBox(?string $pOBox): void;
-    
+
     public function setPhone(?string $phone): void;
-    
+
     public function setMobile(?string $mobile): void;
-    
+
     public function setEmail(?string $email): void;
-    
+
     public function setFax(?string $fax): void;
-    
+
     public function setAdditionalAddressInfo(?string $additionalAddressInfo): void;
-    
+
     public function setExternalId(?string $externalId): void;
 }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartSetBillingAddressAction>
+ *
  * @method CartSetBillingAddressAction current()
  * @method CartSetBillingAddressAction at($offset)
  */
@@ -20,8 +23,12 @@ class CartSetBillingAddressActionCollection extends MapperSequence
     /**
      * @psalm-assert CartSetBillingAddressAction $value
      * @psalm-param CartSetBillingAddressAction|stdClass $value
-     * @return CartSetBillingAddressActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartSetBillingAddressActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartSetBillingAddressActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CartSetBillingAddressAction {
+        return function (int $index): ?CartSetBillingAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartSetBillingAddressActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

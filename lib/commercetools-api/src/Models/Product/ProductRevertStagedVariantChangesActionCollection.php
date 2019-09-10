@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductRevertStagedVariantChangesAction>
+ *
  * @method ProductRevertStagedVariantChangesAction current()
  * @method ProductRevertStagedVariantChangesAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductRevertStagedVariantChangesActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductRevertStagedVariantChangesAction $value
      * @psalm-param ProductRevertStagedVariantChangesAction|stdClass $value
-     * @return ProductRevertStagedVariantChangesActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductRevertStagedVariantChangesActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductRevertStagedVariantChangesActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductRevertStagedVariantChangesAction {
+        return function (int $index): ?ProductRevertStagedVariantChangesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductRevertStagedVariantChangesActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,23 +1,23 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Order\Delivery;
 
 interface DeliveryAddedMessagePayload extends MessagePayload
 {
-    
     const FIELD_DELIVERY = 'delivery';
 
     /**
-     *
-     * @return Delivery|null
+     * @return null|Delivery
      */
     public function getDelivery();
+
     public function setDelivery(?Delivery $delivery): void;
 }

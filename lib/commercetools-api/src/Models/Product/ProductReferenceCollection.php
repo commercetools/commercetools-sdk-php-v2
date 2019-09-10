@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductReference>
+ *
  * @method ProductReference current()
  * @method ProductReference at($offset)
  */
@@ -20,8 +23,12 @@ class ProductReferenceCollection extends MapperSequence
     /**
      * @psalm-assert ProductReference $value
      * @psalm-param ProductReference|stdClass $value
-     * @return ProductReferenceCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductReferenceCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductReferenceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductReference {
+        return function (int $index): ?ProductReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductReferenceModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

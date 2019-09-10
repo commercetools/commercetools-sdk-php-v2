@@ -1,121 +1,118 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<OrderFromCartDraft>
  */
 final class OrderFromCartDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $orderNumber;
 
     /**
      * @var ?string
      */
-    protected $orderNumber;
-    
+    private $id;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
-    /**
-     * @var ?string
-     */
-    protected $paymentState;
-    
+    private $paymentState;
+
     /**
      * @var ?int
      */
-    protected $version;
+    private $version;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getOrderNumber()
+    public function getOrderNumber()
     {
-       return $this->orderNumber;
+        return $this->orderNumber;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getPaymentState()
+    public function getPaymentState()
     {
-       return $this->paymentState;
+        return $this->paymentState;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
+
     /**
      * @return $this
      */
-    final public function withOrderNumber(?string $orderNumber)
+    public function withOrderNumber(?string $orderNumber)
     {
         $this->orderNumber = $orderNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentState(?string $paymentState)
+    public function withPaymentState(?string $paymentState)
     {
         $this->paymentState = $paymentState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
-    public function build(): OrderFromCartDraft {
+
+    public function build(): OrderFromCartDraft
+    {
         return new OrderFromCartDraftModel(
             $this->orderNumber,
             $this->id,
@@ -123,7 +120,7 @@ final class OrderFromCartDraftBuilder implements Builder
             $this->version
         );
     }
-    
+
     public static function of(): OrderFromCartDraftBuilder
     {
         return new self();

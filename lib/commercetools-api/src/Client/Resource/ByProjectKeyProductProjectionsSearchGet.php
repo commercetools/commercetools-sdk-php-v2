@@ -1,27 +1,26 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Client\Resource;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\Exception\ClientException;
-use Commercetools\Base\MapperInterface;
-use Commercetools\Base\ResultMapper;
-use Commercetools\Exception\InvalidArgumentException;
-use Commercetools\Exception\ApiServerException;
-use Commercetools\Exception\ApiClientException;
-use Commercetools\Client\ApiRequest;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
 use Commercetools\Api\Models\Product\ProductProjectionPagedSearchResponse;
 use Commercetools\Api\Models\Product\ProductProjectionPagedSearchResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-
+use Commercetools\Base\ResultMapper;
+use Commercetools\Client\ApiRequest;
+use Commercetools\Exception\ApiClientException;
+use Commercetools\Exception\ApiServerException;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use Psr\Http\Message\ResponseInterface;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -29,9 +28,12 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
 {
     /**
      * @psalm-param scalar $projectKey
+     *
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
+     *
      * @param array $headers
+     * @param mixed $projectKey
      */
     public function __construct($projectKey, $body = null, array $headers = [], Client $client = null)
     {
@@ -52,189 +54,228 @@ class ByProjectKeyProductProjectionsSearchGet extends ApiRequest
         $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case "200": $resultType = ProductProjectionPagedSearchResponseModel::class; break;
-                case "400": $resultType = ErrorResponseModel::class; break;
-                case "401": $resultType = ErrorResponseModel::class; break;
-                case "403": $resultType = ErrorResponseModel::class; break;
-                case "500": $resultType = ErrorResponseModel::class; break;
-                case "503": $resultType = ErrorResponseModel::class; break;
+                case '200': $resultType = ProductProjectionPagedSearchResponseModel::class;
+
+break;
+                case '400': $resultType = ErrorResponseModel::class;
+
+break;
+                case '401': $resultType = ErrorResponseModel::class;
+
+break;
+                case '403': $resultType = ErrorResponseModel::class;
+
+break;
+                case '500': $resultType = ErrorResponseModel::class;
+
+break;
+                case '503': $resultType = ErrorResponseModel::class;
+
+break;
                 default:
-                    $resultType = JsonObjectModel::class; break;
+                    $resultType = JsonObjectModel::class;
+
+break;
             }
         }
+
         return $mapper->mapResponseToClass($resultType, $response);
     }
-    
+
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
+     *
      * @param array $options
-     * @return ErrorResponse|JsonObject|ProductProjectionPagedSearchResponse|null
+     *
+     * @return null|ErrorResponse|JsonObject|ProductProjectionPagedSearchResponse
      */
     public function execute(array $options = [], string $resultType = null)
     {
         try {
-           $response = $this->send($options);
-        } catch(ServerException $e) {
+            $response = $this->send($options);
+        } catch (ServerException $e) {
             $result = $this->mapFromResponse($e->getResponse());
+
             throw new ApiServerException($e->getMessage(), $result, $this, $e->getResponse(), $e, []);
-        } catch(ClientException $e) {
+        } catch (ClientException $e) {
             $result = $this->mapFromResponse($e->getResponse());
+
             throw new ApiClientException($e->getMessage(), $result, $this, $e->getResponse(), $e, []);
         }
+
         return $this->mapFromResponse($response, $resultType);
     }
 
-   /**
-    * 
-    * @psalm-param scalar $fuzzy
-    */
-   public function withFuzzy($fuzzy): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('fuzzy', $fuzzy);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $fuzzyLevel
-    */
-   public function withFuzzyLevel($fuzzyLevel): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('fuzzyLevel', $fuzzyLevel);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $staged
-    */
-   public function withStaged($staged): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('staged', $staged);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $filter
-    */
-   public function withFilter($filter): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('filter', $filter);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $filterFacets
-    */
-   public function withFilterFacets($filterFacets): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('filter.facets', $filterFacets);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $filterQuery
-    */
-   public function withFilterQuery($filterQuery): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('filter.query', $filterQuery);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $facet
-    */
-   public function withFacet($facet): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('facet', $facet);
-   }
-   
-   /**
-    * @psalm-param scalar $locale
-    * @psalm-param scalar $text
-    */
-   public function withText($locale, $text): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam(sprintf('text.%s', $locale), $text);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $sort
-    */
-   public function withSort($sort): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('sort', $sort);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $limit
-    */
-   public function withLimit($limit): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('limit', $limit);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $offset
-    */
-   public function withOffset($offset): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('offset', $offset);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $withTotal
-    */
-   public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('withTotal', $withTotal);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $priceCurrency
-    */
-   public function withPriceCurrency($priceCurrency): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('priceCurrency', $priceCurrency);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $priceCountry
-    */
-   public function withPriceCountry($priceCountry): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('priceCountry', $priceCountry);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $priceCustomerGroup
-    */
-   public function withPriceCustomerGroup($priceCustomerGroup): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('priceCustomerGroup', $priceCustomerGroup);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $priceChannel
-    */
-   public function withPriceChannel($priceChannel): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('priceChannel', $priceChannel);
-   }
-   
-   /**
-    * 
-    * @psalm-param scalar $expand
-    */
-   public function withExpand($expand): ByProjectKeyProductProjectionsSearchGet
-   {
-       return $this->withQueryParam('expand', $expand);
-   }
+    /**
+     * @psalm-param scalar $fuzzy
+     *
+     * @param mixed $fuzzy
+     */
+    public function withFuzzy($fuzzy): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('fuzzy', $fuzzy);
+    }
+
+    /**
+     * @psalm-param scalar $fuzzyLevel
+     *
+     * @param mixed $fuzzyLevel
+     */
+    public function withFuzzyLevel($fuzzyLevel): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('fuzzyLevel', $fuzzyLevel);
+    }
+
+    /**
+     * @psalm-param scalar $staged
+     *
+     * @param mixed $staged
+     */
+    public function withStaged($staged): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('staged', $staged);
+    }
+
+    /**
+     * @psalm-param scalar $filter
+     *
+     * @param mixed $filter
+     */
+    public function withFilter($filter): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('filter', $filter);
+    }
+
+    /**
+     * @psalm-param scalar $filterFacets
+     *
+     * @param mixed $filterFacets
+     */
+    public function withFilterFacets($filterFacets): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('filter.facets', $filterFacets);
+    }
+
+    /**
+     * @psalm-param scalar $filterQuery
+     *
+     * @param mixed $filterQuery
+     */
+    public function withFilterQuery($filterQuery): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('filter.query', $filterQuery);
+    }
+
+    /**
+     * @psalm-param scalar $facet
+     *
+     * @param mixed $facet
+     */
+    public function withFacet($facet): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('facet', $facet);
+    }
+
+    /**
+     * @psalm-param scalar $locale
+     * @psalm-param scalar $text
+     *
+     * @param mixed $locale
+     * @param mixed $text
+     */
+    public function withText($locale, $text): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam(sprintf('text.%s', $locale), $text);
+    }
+
+    /**
+     * @psalm-param scalar $sort
+     *
+     * @param mixed $sort
+     */
+    public function withSort($sort): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('sort', $sort);
+    }
+
+    /**
+     * @psalm-param scalar $limit
+     *
+     * @param mixed $limit
+     */
+    public function withLimit($limit): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('limit', $limit);
+    }
+
+    /**
+     * @psalm-param scalar $offset
+     *
+     * @param mixed $offset
+     */
+    public function withOffset($offset): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('offset', $offset);
+    }
+
+    /**
+     * @psalm-param scalar $withTotal
+     *
+     * @param mixed $withTotal
+     */
+    public function withWithTotal($withTotal): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('withTotal', $withTotal);
+    }
+
+    /**
+     * @psalm-param scalar $priceCurrency
+     *
+     * @param mixed $priceCurrency
+     */
+    public function withPriceCurrency($priceCurrency): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('priceCurrency', $priceCurrency);
+    }
+
+    /**
+     * @psalm-param scalar $priceCountry
+     *
+     * @param mixed $priceCountry
+     */
+    public function withPriceCountry($priceCountry): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('priceCountry', $priceCountry);
+    }
+
+    /**
+     * @psalm-param scalar $priceCustomerGroup
+     *
+     * @param mixed $priceCustomerGroup
+     */
+    public function withPriceCustomerGroup($priceCustomerGroup): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('priceCustomerGroup', $priceCustomerGroup);
+    }
+
+    /**
+     * @psalm-param scalar $priceChannel
+     *
+     * @param mixed $priceChannel
+     */
+    public function withPriceChannel($priceChannel): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('priceChannel', $priceChannel);
+    }
+
+    /**
+     * @psalm-param scalar $expand
+     *
+     * @param mixed $expand
+     */
+    public function withExpand($expand): ByProjectKeyProductProjectionsSearchGet
+    {
+        return $this->withQueryParam('expand', $expand);
+    }
 }

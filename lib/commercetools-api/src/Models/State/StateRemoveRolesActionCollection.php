@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\State;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StateRemoveRolesAction>
+ *
  * @method StateRemoveRolesAction current()
  * @method StateRemoveRolesAction at($offset)
  */
@@ -20,8 +23,12 @@ class StateRemoveRolesActionCollection extends MapperSequence
     /**
      * @psalm-assert StateRemoveRolesAction $value
      * @psalm-param StateRemoveRolesAction|stdClass $value
-     * @return StateRemoveRolesActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StateRemoveRolesActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StateRemoveRolesActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?StateRemoveRolesAction {
+        return function (int $index): ?StateRemoveRolesAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StateRemoveRolesActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

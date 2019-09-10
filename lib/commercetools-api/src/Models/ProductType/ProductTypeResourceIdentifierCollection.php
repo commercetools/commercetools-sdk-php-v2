@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeResourceIdentifier>
+ *
  * @method ProductTypeResourceIdentifier current()
  * @method ProductTypeResourceIdentifier at($offset)
  */
@@ -20,8 +23,12 @@ class ProductTypeResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeResourceIdentifier $value
      * @psalm-param ProductTypeResourceIdentifier|stdClass $value
-     * @return ProductTypeResourceIdentifierCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductTypeResourceIdentifierCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductTypeResourceIdentifierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductTypeResourceIdentifier {
+        return function (int $index): ?ProductTypeResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductTypeResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

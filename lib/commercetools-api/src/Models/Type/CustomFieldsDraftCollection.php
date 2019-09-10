@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldsDraft>
+ *
  * @method CustomFieldsDraft current()
  * @method CustomFieldsDraft at($offset)
  */
@@ -20,8 +23,12 @@ class CustomFieldsDraftCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldsDraft $value
      * @psalm-param CustomFieldsDraft|stdClass $value
-     * @return CustomFieldsDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomFieldsDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomFieldsDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomFieldsDraft {
+        return function (int $index): ?CustomFieldsDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomFieldsDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

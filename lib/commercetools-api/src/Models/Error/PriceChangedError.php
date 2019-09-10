@@ -1,31 +1,29 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Error;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Error;
 
 interface PriceChangedError extends ErrorObject
 {
-    
     const FIELD_LINE_ITEMS = 'lineItems';
     const FIELD_SHIPPING = 'shipping';
 
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getLineItems();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getShipping();
+
     public function setLineItems(?array $lineItems): void;
-    
+
     public function setShipping(?bool $shipping): void;
 }

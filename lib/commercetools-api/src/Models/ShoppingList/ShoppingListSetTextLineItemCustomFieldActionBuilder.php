@@ -1,121 +1,119 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ShoppingListSetTextLineItemCustomFieldAction>
  */
 final class ShoppingListSetTextLineItemCustomFieldActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?JsonObject
      */
-    protected $value;
-    
+    private $value;
+
     /**
      * @var ?string
      */
-    protected $textLineItemId;
+    private $textLineItemId;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getValue()
+    public function getValue()
     {
-       return $this->value;
+        return $this->value;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTextLineItemId()
+    public function getTextLineItemId()
     {
-       return $this->textLineItemId;
+        return $this->textLineItemId;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?JsonObject $value)
+    public function withValue(?JsonObject $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTextLineItemId(?string $textLineItemId)
+    public function withTextLineItemId(?string $textLineItemId)
     {
         $this->textLineItemId = $textLineItemId;
-        
+
         return $this;
     }
-    
-    public function build(): ShoppingListSetTextLineItemCustomFieldAction {
+
+    public function build(): ShoppingListSetTextLineItemCustomFieldAction
+    {
         return new ShoppingListSetTextLineItemCustomFieldActionModel(
             $this->action,
             $this->name,
@@ -123,7 +121,7 @@ final class ShoppingListSetTextLineItemCustomFieldActionBuilder implements Build
             $this->textLineItemId
         );
     }
-    
+
     public static function of(): ShoppingListSetTextLineItemCustomFieldActionBuilder
     {
         return new self();

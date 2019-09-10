@@ -1,12 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
@@ -19,7 +20,6 @@ use Commercetools\Api\Models\Type\CustomFields;
 
 interface Cart extends LoggedResource
 {
-    
     const FIELD_CUSTOMER_ID = 'customerId';
     const FIELD_CUSTOMER_EMAIL = 'customerEmail';
     const FIELD_ANONYMOUS_ID = 'anonymousId';
@@ -49,217 +49,193 @@ interface Cart extends LoggedResource
     const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerEmail();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAnonymousId();
-    
+
     /**
-     *
-     * @return StoreKeyReference|null
+     * @return null|StoreKeyReference
      */
     public function getStore();
-    
+
     /**
-     *
-     * @return LineItemCollection|null
+     * @return null|LineItemCollection
      */
     public function getLineItems();
-    
+
     /**
-     *
-     * @return CustomLineItemCollection|null
+     * @return null|CustomLineItemCollection
      */
     public function getCustomLineItems();
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
     public function getTotalPrice();
-    
+
     /**
-     *
-     * @return TaxedPrice|null
+     * @return null|TaxedPrice
      */
     public function getTaxedPrice();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCartState();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getShippingAddress();
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
     public function getBillingAddress();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getInventoryMode();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTaxMode();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTaxRoundingMode();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTaxCalculationMode();
-    
+
     /**
-     *
-     * @return CustomerGroupReference|null
+     * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
-    
+
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
-     * @return string|null
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
+     * @return null|string
      */
     public function getCountry();
-    
+
     /**
-     *
-     * @return ShippingInfo|null
+     * @return null|ShippingInfo
      */
     public function getShippingInfo();
-    
+
     /**
-     *
-     * @return DiscountCodeInfoCollection|null
+     * @return null|DiscountCodeInfoCollection
      */
     public function getDiscountCodes();
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return PaymentInfo|null
+     * @return null|PaymentInfo
      */
     public function getPaymentInfo();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getLocale();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
-    
+
     /**
-     *
-     * @return CartDiscountReferenceCollection|null
+     * @return null|CartDiscountReferenceCollection
      */
     public function getRefusedGifts();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getOrigin();
-    
+
     /**
-     *
-     * @return ShippingRateInput|null
+     * @return null|ShippingRateInput
      */
     public function getShippingRateInput();
-    
+
     /**
-     *
-     * @return AddressCollection|null
+     * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
+
     public function setCustomerId(?string $customerId): void;
-    
+
     public function setCustomerEmail(?string $customerEmail): void;
-    
+
     public function setAnonymousId(?string $anonymousId): void;
-    
+
     public function setStore(?StoreKeyReference $store): void;
-    
+
     public function setLineItems(?LineItemCollection $lineItems): void;
-    
+
     public function setCustomLineItems(?CustomLineItemCollection $customLineItems): void;
-    
+
     public function setTotalPrice(?TypedMoney $totalPrice): void;
-    
+
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void;
-    
+
     public function setCartState(?string $cartState): void;
-    
+
     public function setShippingAddress(?Address $shippingAddress): void;
-    
+
     public function setBillingAddress(?Address $billingAddress): void;
-    
+
     public function setInventoryMode(?string $inventoryMode): void;
-    
+
     public function setTaxMode(?string $taxMode): void;
-    
+
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
-    
+
     public function setTaxCalculationMode(?string $taxCalculationMode): void;
-    
+
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void;
-    
+
     public function setCountry(?string $country): void;
-    
+
     public function setShippingInfo(?ShippingInfo $shippingInfo): void;
-    
+
     public function setDiscountCodes(?DiscountCodeInfoCollection $discountCodes): void;
-    
+
     public function setCustom(?CustomFields $custom): void;
-    
+
     public function setPaymentInfo(?PaymentInfo $paymentInfo): void;
-    
+
     public function setLocale(?string $locale): void;
-    
+
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
-    
+
     public function setRefusedGifts(?CartDiscountReferenceCollection $refusedGifts): void;
-    
+
     public function setOrigin(?string $origin): void;
-    
+
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void;
-    
+
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 }

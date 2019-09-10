@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ShippingMethod;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\ShippingMethod;
 
 interface ShippingMethodChangeIsDefaultAction extends ShippingMethodUpdateAction
 {
-    
     const FIELD_IS_DEFAULT = 'isDefault';
 
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getIsDefault();
+
     public function setIsDefault(?bool $isDefault): void;
 }

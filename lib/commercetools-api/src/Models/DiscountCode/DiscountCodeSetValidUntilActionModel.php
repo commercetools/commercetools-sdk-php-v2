@@ -1,93 +1,94 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
-use DateTimeImmutableModel;
 
 final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel implements DiscountCodeSetValidUntilAction
 {
     const DISCRIMINATOR_VALUE = 'setValidUntil';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $validUntil;
+
     public function __construct(
         string $action = null,
         DateTimeImmutable $validUntil = null
     ) {
         $this->action = $action;
         $this->validUntil = $validUntil;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validUntil;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getAction()
+    public function getValidUntil()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(DiscountCodeUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->validUntil)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validUntil = $data;
+        }
+
+        return $this->validUntil;
     }
-    
-    /**
-     *
-     * @return DateTimeImmutable|null
-     */
-    final public function getValidUntil()
-    {
-       if (is_null($this->validUntil)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->validUntil = $data;
-       }
-       return $this->validUntil;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setValidUntil(?DateTimeImmutable $validUntil): void
+
+    public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL]) && $data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
-           $data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL] = $data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL] = $data[DiscountCodeSetValidUntilAction::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

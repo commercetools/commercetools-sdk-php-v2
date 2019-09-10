@@ -1,133 +1,131 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<OrderCustomLineItemDiscountSetMessagePayload>
  */
 final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $customLineItemId;
+
     /**
-     * @var ?string
+     * @var TaxedItemPrice|?TaxedItemPriceBuilder
      */
-    protected $customLineItemId;
-    
-    /**
-     * @var ?TaxedItemPriceBuilder|TaxedItemPrice
-     */
-    protected $taxedPrice;
-    
+    private $taxedPrice;
+
     /**
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
-    protected $discountedPricePerQuantity;
+    private $discountedPricePerQuantity;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCustomLineItemId()
+    public function getCustomLineItemId()
     {
-       return $this->customLineItemId;
+        return $this->customLineItemId;
     }
-    
+
     /**
-     *
-     * @return TaxedItemPrice|null
+     * @return null|TaxedItemPrice
      */
-    final public function getTaxedPrice()
+    public function getTaxedPrice()
     {
-       return ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice);
+        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
-    
+
     /**
-     *
-     * @return DiscountedLineItemPriceForQuantityCollection|null
+     * @return null|DiscountedLineItemPriceForQuantityCollection
      */
-    final public function getDiscountedPricePerQuantity()
+    public function getDiscountedPricePerQuantity()
     {
-       return $this->discountedPricePerQuantity;
+        return $this->discountedPricePerQuantity;
     }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomLineItemId(?string $customLineItemId)
+    public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
+    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
+    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
+    public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
-    public function build(): OrderCustomLineItemDiscountSetMessagePayload {
+
+    public function build(): OrderCustomLineItemDiscountSetMessagePayload
+    {
         return new OrderCustomLineItemDiscountSetMessagePayloadModel(
             $this->type,
             $this->customLineItemId,
@@ -135,7 +133,7 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
             $this->discountedPricePerQuantity
         );
     }
-    
+
     public static function of(): OrderCustomLineItemDiscountSetMessagePayloadBuilder
     {
         return new self();

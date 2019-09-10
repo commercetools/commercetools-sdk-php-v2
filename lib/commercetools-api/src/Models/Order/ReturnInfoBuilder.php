@@ -1,16 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use DateTimeImmutable;
 
 /**
@@ -18,88 +16,88 @@ use DateTimeImmutable;
  */
 final class ReturnInfoBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?DateTimeImmutable
      */
-    protected $returnDate;
-    
+    private $returnDate;
+
     /**
      * @var ?string
      */
-    protected $returnTrackingId;
-    
+    private $returnTrackingId;
+
     /**
      * @var ?ReturnItemCollection
      */
-    protected $items;
+    private $items;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getReturnDate()
+    public function getReturnDate()
     {
-       return $this->returnDate;
+        return $this->returnDate;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getReturnTrackingId()
+    public function getReturnTrackingId()
     {
-       return $this->returnTrackingId;
+        return $this->returnTrackingId;
     }
-    
+
     /**
-     *
-     * @return ReturnItemCollection|null
+     * @return null|ReturnItemCollection
      */
-    final public function getItems()
+    public function getItems()
     {
-       return $this->items;
+        return $this->items;
     }
+
     /**
      * @return $this
      */
-    final public function withReturnDate(?DateTimeImmutable $returnDate)
+    public function withReturnDate(?DateTimeImmutable $returnDate)
     {
         $this->returnDate = $returnDate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withReturnTrackingId(?string $returnTrackingId)
+    public function withReturnTrackingId(?string $returnTrackingId)
     {
         $this->returnTrackingId = $returnTrackingId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItems(?ReturnItemCollection $items)
+    public function withItems(?ReturnItemCollection $items)
     {
         $this->items = $items;
-        
+
         return $this;
     }
-    
-    public function build(): ReturnInfo {
+
+    public function build(): ReturnInfo
+    {
         return new ReturnInfoModel(
             $this->returnDate,
             $this->returnTrackingId,
             $this->items
         );
     }
-    
+
     public static function of(): ReturnInfoBuilder
     {
         return new self();

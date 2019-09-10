@@ -1,22 +1,23 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\JsonObject;
 
 interface LineItemImportDraft extends JsonObject
 {
-    
     const FIELD_PRODUCT_ID = 'productId';
     const FIELD_NAME = 'name';
     const FIELD_VARIANT = 'variant';
@@ -30,89 +31,79 @@ interface LineItemImportDraft extends JsonObject
     const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getProductId();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return ProductVariantImportDraft|null
+     * @return null|ProductVariantImportDraft
      */
     public function getVariant();
-    
+
     /**
-     *
-     * @return PriceDraft|null
+     * @return null|PriceDraft
      */
     public function getPrice();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getQuantity();
-    
+
     /**
-     *
-     * @return ItemStateCollection|null
+     * @return null|ItemStateCollection
      */
     public function getState();
-    
+
     /**
-     *
-     * @return ChannelResourceIdentifier|null
+     * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
-    
+
     /**
-     *
-     * @return ChannelResourceIdentifier|null
+     * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
-    
+
     /**
-     *
-     * @return TaxRate|null
+     * @return null|TaxRate
      */
     public function getTaxRate();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return ItemShippingDetailsDraft|null
+     * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
+
     public function setProductId(?string $productId): void;
-    
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setVariant(?ProductVariantImportDraft $variant): void;
-    
+
     public function setPrice(?PriceDraft $price): void;
-    
+
     public function setQuantity(?int $quantity): void;
-    
+
     public function setState(?ItemStateCollection $state): void;
-    
+
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
-    
+
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
-    
+
     public function setTaxRate(?TaxRate $taxRate): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
 }

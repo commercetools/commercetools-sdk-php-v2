@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Inventory;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntrySetRestockableInDaysAction>
+ *
  * @method InventoryEntrySetRestockableInDaysAction current()
  * @method InventoryEntrySetRestockableInDaysAction at($offset)
  */
@@ -20,8 +23,12 @@ class InventoryEntrySetRestockableInDaysActionCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntrySetRestockableInDaysAction $value
      * @psalm-param InventoryEntrySetRestockableInDaysAction|stdClass $value
-     * @return InventoryEntrySetRestockableInDaysActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InventoryEntrySetRestockableInDaysActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InventoryEntrySetRestockableInDaysActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InventoryEntrySetRestockableInDaysAction {
+        return function (int $index): ?InventoryEntrySetRestockableInDaysAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InventoryEntrySetRestockableInDaysActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

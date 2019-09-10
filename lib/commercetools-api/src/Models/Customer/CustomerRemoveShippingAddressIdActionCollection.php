@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerRemoveShippingAddressIdAction>
+ *
  * @method CustomerRemoveShippingAddressIdAction current()
  * @method CustomerRemoveShippingAddressIdAction at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerRemoveShippingAddressIdActionCollection extends MapperSequence
     /**
      * @psalm-assert CustomerRemoveShippingAddressIdAction $value
      * @psalm-param CustomerRemoveShippingAddressIdAction|stdClass $value
-     * @return CustomerRemoveShippingAddressIdActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerRemoveShippingAddressIdActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerRemoveShippingAddressIdActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerRemoveShippingAddressIdAction {
+        return function (int $index): ?CustomerRemoveShippingAddressIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerRemoveShippingAddressIdActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

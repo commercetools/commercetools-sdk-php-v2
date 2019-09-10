@@ -1,121 +1,118 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Zone;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ZoneDraft>
  */
 final class ZoneDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $name;
 
     /**
      * @var ?string
      */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $description;
-    
+    private $description;
+
     /**
      * @var ?LocationCollection
      */
-    protected $locations;
-    
+    private $locations;
+
     /**
      * @var ?string
      */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getDescription()
+    public function getDescription()
     {
-       return $this->description;
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocationCollection|null
+     * @return null|LocationCollection
      */
-    final public function getLocations()
+    public function getLocations()
     {
-       return $this->locations;
+        return $this->locations;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?string $description)
+    public function withDescription(?string $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLocations(?LocationCollection $locations)
+    public function withLocations(?LocationCollection $locations)
     {
         $this->locations = $locations;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
-    public function build(): ZoneDraft {
+
+    public function build(): ZoneDraft
+    {
         return new ZoneDraftModel(
             $this->name,
             $this->description,
@@ -123,7 +120,7 @@ final class ZoneDraftBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): ZoneDraftBuilder
     {
         return new self();

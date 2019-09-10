@@ -1,80 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class CustomerSetCustomerNumberActionModel extends JsonObjectModel implements CustomerSetCustomerNumberAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomerNumber';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?string
+     */
+    protected $customerNumber;
+
     public function __construct(
         string $action = null,
         string $customerNumber = null
     ) {
         $this->action = $action;
         $this->customerNumber = $customerNumber;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerNumber;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getCustomerNumber()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->customerNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerSetCustomerNumberAction::FIELD_CUSTOMER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerNumber = (string) $data;
+        }
+
+        return $this->customerNumber;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getCustomerNumber()
-    {
-       if (is_null($this->customerNumber)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomerSetCustomerNumberAction::FIELD_CUSTOMER_NUMBER);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->customerNumber = (string)$data;
-       }
-       return $this->customerNumber;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setCustomerNumber(?string $customerNumber): void
+
+    public function setCustomerNumber(?string $customerNumber): void
     {
         $this->customerNumber = $customerNumber;
     }
-    
 }

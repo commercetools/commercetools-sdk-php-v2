@@ -1,20 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiers;
 use Commercetools\Api\Models\Message\UserProvidedIdentifiersBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -22,172 +20,170 @@ use DateTimeImmutable;
  */
 final class ResourceCreatedDeliveryBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $projectKey;
+
+    /**
+     * @var Reference|?ReferenceBuilder
+     */
+    private $resource;
+
+    /**
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
+     */
+    private $resourceUserProvidedIdentifiers;
 
     /**
      * @var ?string
      */
-    protected $projectKey;
-    
-    /**
-     * @var ?ReferenceBuilder|Reference
-     */
-    protected $resource;
-    
-    /**
-     * @var ?UserProvidedIdentifiersBuilder|UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-    
-    /**
-     * @var ?string
-     */
-    protected $notificationType;
-    
+    private $notificationType;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $modifiedAt;
-    
+    private $modifiedAt;
+
     /**
      * @var ?int
      */
-    protected $version;
+    private $version;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getProjectKey()
+    public function getProjectKey()
     {
-       return $this->projectKey;
+        return $this->projectKey;
     }
-    
+
     /**
-     *
-     * @return Reference|null
+     * @return null|Reference
      */
-    final public function getResource()
+    public function getResource()
     {
-       return ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource);
+        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
     }
-    
+
     /**
-     *
-     * @return UserProvidedIdentifiers|null
+     * @return null|UserProvidedIdentifiers
      */
-    final public function getResourceUserProvidedIdentifiers()
+    public function getResourceUserProvidedIdentifiers()
     {
-       return ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers);
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getNotificationType()
+    public function getNotificationType()
     {
-       return $this->notificationType;
+        return $this->notificationType;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getModifiedAt()
+    public function getModifiedAt()
     {
-       return $this->modifiedAt;
+        return $this->modifiedAt;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
+
     /**
      * @return $this
      */
-    final public function withProjectKey(?string $projectKey)
+    public function withProjectKey(?string $projectKey)
     {
         $this->projectKey = $projectKey;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResource(?Reference $resource)
+    public function withResource(?Reference $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNotificationType(?string $notificationType)
+    public function withNotificationType(?string $notificationType)
     {
         $this->notificationType = $notificationType;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withModifiedAt(?DateTimeImmutable $modifiedAt)
+    public function withModifiedAt(?DateTimeImmutable $modifiedAt)
     {
         $this->modifiedAt = $modifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withResourceBuilder(?ReferenceBuilder $resource)
+    public function withResourceBuilder(?ReferenceBuilder $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
-    public function build(): ResourceCreatedDelivery {
+
+    public function build(): ResourceCreatedDelivery
+    {
         return new ResourceCreatedDeliveryModel(
             $this->projectKey,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
@@ -197,7 +193,7 @@ final class ResourceCreatedDeliveryBuilder implements Builder
             $this->version
         );
     }
-    
+
     public static function of(): ResourceCreatedDeliveryBuilder
     {
         return new self();

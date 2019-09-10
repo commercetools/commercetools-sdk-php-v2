@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerEmailVerify>
+ *
  * @method CustomerEmailVerify current()
  * @method CustomerEmailVerify at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerEmailVerifyCollection extends MapperSequence
     /**
      * @psalm-assert CustomerEmailVerify $value
      * @psalm-param CustomerEmailVerify|stdClass $value
-     * @return CustomerEmailVerifyCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerEmailVerifyCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerEmailVerifyCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerEmailVerify {
+        return function (int $index): ?CustomerEmailVerify {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerEmailVerifyModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

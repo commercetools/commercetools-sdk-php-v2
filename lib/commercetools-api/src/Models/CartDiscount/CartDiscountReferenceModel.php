@@ -1,22 +1,36 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\Reference;
-use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class CartDiscountReferenceModel extends JsonObjectModel implements CartDiscountReference
 {
     const DISCRIMINATOR_VALUE = 'cart-discount';
+
+    /**
+     * @var ?string
+     */
+    protected $typeId;
+
+    /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     * @var ?CartDiscount
+     */
+    protected $obj;
+
     public function __construct(
         string $typeId = null,
         string $id = null,
@@ -25,88 +39,72 @@ final class CartDiscountReferenceModel extends JsonObjectModel implements CartDi
         $this->typeId = $typeId;
         $this->id = $id;
         $this->obj = $obj;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $typeId;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?CartDiscount
-     */
-    protected $obj;
+    public function getTypeId()
+    {
+        if (is_null($this->typeId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Reference::FIELD_TYPE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->typeId = (string) $data;
+        }
+
+        return $this->typeId;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTypeId()
+    public function getId()
     {
-       if (is_null($this->typeId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(Reference::FIELD_TYPE_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->typeId = (string)$data;
-       }
-       return $this->typeId;
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Reference::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CartDiscount
      */
-    final public function getId()
+    public function getObj()
     {
-       if (is_null($this->id)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(Reference::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (string)$data;
-       }
-       return $this->id;
+        if (is_null($this->obj)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDiscountReference::FIELD_OBJ);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->obj = CartDiscountModel::of($data);
+        }
+
+        return $this->obj;
     }
-    
-    /**
-     *
-     * @return CartDiscount|null
-     */
-    final public function getObj()
-    {
-       if (is_null($this->obj)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartDiscountReference::FIELD_OBJ);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->obj = CartDiscountModel::of($data);
-       }
-       return $this->obj;
-    }
-    final public function setTypeId(?string $typeId): void
+
+    public function setTypeId(?string $typeId): void
     {
         $this->typeId = $typeId;
     }
-    
-    final public function setId(?string $id): void
+
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    
-    final public function setObj(?CartDiscount $obj): void
+
+    public function setObj(?CartDiscount $obj): void
     {
         $this->obj = $obj;
     }
-    
 }

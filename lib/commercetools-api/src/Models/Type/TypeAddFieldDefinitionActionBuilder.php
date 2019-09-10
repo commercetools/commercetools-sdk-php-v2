@@ -1,88 +1,88 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<TypeAddFieldDefinitionAction>
  */
 final class TypeAddFieldDefinitionActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?FieldDefinitionBuilder|FieldDefinition
-     */
-    protected $fieldDefinition;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var FieldDefinition|?FieldDefinitionBuilder
      */
-    final public function getAction()
+    private $fieldDefinition;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return FieldDefinition|null
+     * @return null|string
      */
-    final public function getFieldDefinition()
+    public function getAction()
     {
-       return ($this->fieldDefinition instanceof FieldDefinitionBuilder ? $this->fieldDefinition->build() : $this->fieldDefinition);
+        return $this->action;
     }
+
+    /**
+     * @return null|FieldDefinition
+     */
+    public function getFieldDefinition()
+    {
+        return $this->fieldDefinition instanceof FieldDefinitionBuilder ? $this->fieldDefinition->build() : $this->fieldDefinition;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFieldDefinition(?FieldDefinition $fieldDefinition)
+    public function withFieldDefinition(?FieldDefinition $fieldDefinition)
     {
         $this->fieldDefinition = $fieldDefinition;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withFieldDefinitionBuilder(?FieldDefinitionBuilder $fieldDefinition)
+    public function withFieldDefinitionBuilder(?FieldDefinitionBuilder $fieldDefinition)
     {
         $this->fieldDefinition = $fieldDefinition;
-        
+
         return $this;
     }
-    
-    public function build(): TypeAddFieldDefinitionAction {
+
+    public function build(): TypeAddFieldDefinitionAction
+    {
         return new TypeAddFieldDefinitionActionModel(
             $this->action,
             ($this->fieldDefinition instanceof FieldDefinitionBuilder ? $this->fieldDefinition->build() : $this->fieldDefinition)
         );
     }
-    
+
     public static function of(): TypeAddFieldDefinitionActionBuilder
     {
         return new self();

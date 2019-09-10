@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Product;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Category\CategoryResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -20,10 +17,91 @@ use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifierModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductDraftModel extends JsonObjectModel implements ProductDraft
 {
-    
+    /**
+     * @var ?SearchKeywords
+     */
+    protected $searchKeywords;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?ProductVariantDraftCollection
+     */
+    protected $variants;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaDescription;
+
+    /**
+     * @var ?TaxCategoryResourceIdentifier
+     */
+    protected $taxCategory;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaKeywords;
+
+    /**
+     * @var ?CategoryOrderHints
+     */
+    protected $categoryOrderHints;
+
+    /**
+     * @var ?bool
+     */
+    protected $publish;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaTitle;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?StateResourceIdentifier
+     */
+    protected $state;
+
+    /**
+     * @var ?ProductVariantDraft
+     */
+    protected $masterVariant;
+
+    /**
+     * @var ?CategoryResourceIdentifierCollection
+     */
+    protected $categories;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
+
+    /**
+     * @var ?ProductTypeResourceIdentifier
+     */
+    protected $productType;
+
     public function __construct(
         SearchKeywords $searchKeywords = null,
         LocalizedString $description = null,
@@ -58,450 +136,369 @@ final class ProductDraftModel extends JsonObjectModel implements ProductDraft
         $this->key = $key;
         $this->slug = $slug;
         $this->productType = $productType;
-        
     }
 
     /**
-     * @var ?SearchKeywords
+     * @return null|SearchKeywords
      */
-    protected $searchKeywords;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?ProductVariantDraftCollection
-     */
-    protected $variants;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaDescription;
-    
-    /**
-     * @var ?TaxCategoryResourceIdentifier
-     */
-    protected $taxCategory;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaKeywords;
-    
-    /**
-     * @var ?CategoryOrderHints
-     */
-    protected $categoryOrderHints;
-    
-    /**
-     * @var ?bool
-     */
-    protected $publish;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaTitle;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?StateResourceIdentifier
-     */
-    protected $state;
-    
-    /**
-     * @var ?ProductVariantDraft
-     */
-    protected $masterVariant;
-    
-    /**
-     * @var ?CategoryResourceIdentifierCollection
-     */
-    protected $categories;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
-    
-    /**
-     * @var ?ProductTypeResourceIdentifier
-     */
-    protected $productType;
+    public function getSearchKeywords()
+    {
+        if (is_null($this->searchKeywords)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_SEARCH_KEYWORDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->searchKeywords = SearchKeywordsModel::of($data);
+        }
+
+        return $this->searchKeywords;
+    }
 
     /**
-     *
-     * @return SearchKeywords|null
+     * @return null|LocalizedString
      */
-    final public function getSearchKeywords()
+    public function getDescription()
     {
-       if (is_null($this->searchKeywords)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_SEARCH_KEYWORDS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->searchKeywords = SearchKeywordsModel::of($data);
-       }
-       return $this->searchKeywords;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|ProductVariantDraftCollection
      */
-    final public function getDescription()
+    public function getVariants()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->variants)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductDraft::FIELD_VARIANTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variants = ProductVariantDraftCollection::fromArray($data);
+        }
+
+        return $this->variants;
     }
-    
+
     /**
-     *
-     * @return ProductVariantDraftCollection|null
+     * @return null|LocalizedString
      */
-    final public function getVariants()
+    public function getMetaDescription()
     {
-       if (is_null($this->variants)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductDraft::FIELD_VARIANTS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->variants = ProductVariantDraftCollection::fromArray($data);
-       }
-       return $this->variants;
+        if (is_null($this->metaDescription)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_META_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaDescription = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaDescription;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|TaxCategoryResourceIdentifier
      */
-    final public function getMetaDescription()
+    public function getTaxCategory()
     {
-       if (is_null($this->metaDescription)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_META_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->metaDescription = LocalizedStringModel::of($data);
-       }
-       return $this->metaDescription;
+        if (is_null($this->taxCategory)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_TAX_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxCategory = TaxCategoryResourceIdentifierModel::of($data);
+        }
+
+        return $this->taxCategory;
     }
-    
+
     /**
-     *
-     * @return TaxCategoryResourceIdentifier|null
+     * @return null|LocalizedString
      */
-    final public function getTaxCategory()
+    public function getMetaKeywords()
     {
-       if (is_null($this->taxCategory)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_TAX_CATEGORY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->taxCategory = TaxCategoryResourceIdentifierModel::of($data);
-       }
-       return $this->taxCategory;
+        if (is_null($this->metaKeywords)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_META_KEYWORDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaKeywords = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaKeywords;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|CategoryOrderHints
      */
-    final public function getMetaKeywords()
+    public function getCategoryOrderHints()
     {
-       if (is_null($this->metaKeywords)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_META_KEYWORDS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->metaKeywords = LocalizedStringModel::of($data);
-       }
-       return $this->metaKeywords;
+        if (is_null($this->categoryOrderHints)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_CATEGORY_ORDER_HINTS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->categoryOrderHints = CategoryOrderHintsModel::of($data);
+        }
+
+        return $this->categoryOrderHints;
     }
-    
+
     /**
-     *
-     * @return CategoryOrderHints|null
+     * @return null|bool
      */
-    final public function getCategoryOrderHints()
+    public function getPublish()
     {
-       if (is_null($this->categoryOrderHints)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_CATEGORY_ORDER_HINTS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->categoryOrderHints = CategoryOrderHintsModel::of($data);
-       }
-       return $this->categoryOrderHints;
+        if (is_null($this->publish)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductDraft::FIELD_PUBLISH);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->publish = (bool) $data;
+        }
+
+        return $this->publish;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|LocalizedString
      */
-    final public function getPublish()
+    public function getMetaTitle()
     {
-       if (is_null($this->publish)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(ProductDraft::FIELD_PUBLISH);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->publish = (bool)$data;
-       }
-       return $this->publish;
+        if (is_null($this->metaTitle)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_META_TITLE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaTitle = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaTitle;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getMetaTitle()
+    public function getName()
     {
-       if (is_null($this->metaTitle)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_META_TITLE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->metaTitle = LocalizedStringModel::of($data);
-       }
-       return $this->metaTitle;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|StateResourceIdentifier
      */
-    final public function getName()
+    public function getState()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateResourceIdentifierModel::of($data);
+        }
+
+        return $this->state;
     }
-    
+
     /**
-     *
-     * @return StateResourceIdentifier|null
+     * @return null|ProductVariantDraft
      */
-    final public function getState()
+    public function getMasterVariant()
     {
-       if (is_null($this->state)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->state = StateResourceIdentifierModel::of($data);
-       }
-       return $this->state;
+        if (is_null($this->masterVariant)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_MASTER_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->masterVariant = ProductVariantDraftModel::of($data);
+        }
+
+        return $this->masterVariant;
     }
-    
+
     /**
-     *
-     * @return ProductVariantDraft|null
+     * @return null|CategoryResourceIdentifierCollection
      */
-    final public function getMasterVariant()
+    public function getCategories()
     {
-       if (is_null($this->masterVariant)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_MASTER_VARIANT);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->masterVariant = ProductVariantDraftModel::of($data);
-       }
-       return $this->masterVariant;
+        if (is_null($this->categories)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductDraft::FIELD_CATEGORIES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->categories = CategoryResourceIdentifierCollection::fromArray($data);
+        }
+
+        return $this->categories;
     }
-    
+
     /**
-     *
-     * @return CategoryResourceIdentifierCollection|null
+     * @return null|string
      */
-    final public function getCategories()
+    public function getKey()
     {
-       if (is_null($this->categories)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductDraft::FIELD_CATEGORIES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->categories = CategoryResourceIdentifierCollection::fromArray($data);
-       }
-       return $this->categories;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getKey()
+    public function getSlug()
     {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductDraft::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|ProductTypeResourceIdentifier
      */
-    final public function getSlug()
+    public function getProductType()
     {
-       if (is_null($this->slug)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_SLUG);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->slug = LocalizedStringModel::of($data);
-       }
-       return $this->slug;
+        if (is_null($this->productType)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDraft::FIELD_PRODUCT_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->productType = ProductTypeResourceIdentifierModel::of($data);
+        }
+
+        return $this->productType;
     }
-    
-    /**
-     *
-     * @return ProductTypeResourceIdentifier|null
-     */
-    final public function getProductType()
-    {
-       if (is_null($this->productType)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductDraft::FIELD_PRODUCT_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->productType = ProductTypeResourceIdentifierModel::of($data);
-       }
-       return $this->productType;
-    }
-    final public function setSearchKeywords(?SearchKeywords $searchKeywords): void
+
+    public function setSearchKeywords(?SearchKeywords $searchKeywords): void
     {
         $this->searchKeywords = $searchKeywords;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setVariants(?ProductVariantDraftCollection $variants): void
+
+    public function setVariants(?ProductVariantDraftCollection $variants): void
     {
         $this->variants = $variants;
     }
-    
-    final public function setMetaDescription(?LocalizedString $metaDescription): void
+
+    public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
-    
-    final public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
+
+    public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
-    
-    final public function setMetaKeywords(?LocalizedString $metaKeywords): void
+
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
-    
-    final public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
+
+    public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
     {
         $this->categoryOrderHints = $categoryOrderHints;
     }
-    
-    final public function setPublish(?bool $publish): void
+
+    public function setPublish(?bool $publish): void
     {
         $this->publish = $publish;
     }
-    
-    final public function setMetaTitle(?LocalizedString $metaTitle): void
+
+    public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setState(?StateResourceIdentifier $state): void
+
+    public function setState(?StateResourceIdentifier $state): void
     {
         $this->state = $state;
     }
-    
-    final public function setMasterVariant(?ProductVariantDraft $masterVariant): void
+
+    public function setMasterVariant(?ProductVariantDraft $masterVariant): void
     {
         $this->masterVariant = $masterVariant;
     }
-    
-    final public function setCategories(?CategoryResourceIdentifierCollection $categories): void
+
+    public function setCategories(?CategoryResourceIdentifierCollection $categories): void
     {
         $this->categories = $categories;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
-    final public function setSlug(?LocalizedString $slug): void
+
+    public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
-    
-    final public function setProductType(?ProductTypeResourceIdentifier $productType): void
+
+    public function setProductType(?ProductTypeResourceIdentifier $productType): void
     {
         $this->productType = $productType;
     }
-    
 }

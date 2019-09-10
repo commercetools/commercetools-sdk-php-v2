@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategorySetMetaDescriptionAction>
+ *
  * @method CategorySetMetaDescriptionAction current()
  * @method CategorySetMetaDescriptionAction at($offset)
  */
@@ -20,8 +23,12 @@ class CategorySetMetaDescriptionActionCollection extends MapperSequence
     /**
      * @psalm-assert CategorySetMetaDescriptionAction $value
      * @psalm-param CategorySetMetaDescriptionAction|stdClass $value
-     * @return CategorySetMetaDescriptionActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CategorySetMetaDescriptionActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CategorySetMetaDescriptionActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CategorySetMetaDescriptionAction {
+        return function (int $index): ?CategorySetMetaDescriptionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CategorySetMetaDescriptionActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

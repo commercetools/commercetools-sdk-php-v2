@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CustomerCreateEmailToken>
  */
 final class CustomerCreateEmailTokenBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?int
      */
-    protected $ttlMinutes;
-    
+    private $ttlMinutes;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
+    private $version;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getTtlMinutes()
+    public function getTtlMinutes()
     {
-       return $this->ttlMinutes;
+        return $this->ttlMinutes;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
+
     /**
      * @return $this
      */
-    final public function withTtlMinutes(?int $ttlMinutes)
+    public function withTtlMinutes(?int $ttlMinutes)
     {
         $this->ttlMinutes = $ttlMinutes;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerCreateEmailToken {
+
+    public function build(): CustomerCreateEmailToken
+    {
         return new CustomerCreateEmailTokenModel(
             $this->ttlMinutes,
             $this->id,
             $this->version
         );
     }
-    
+
     public static function of(): CustomerCreateEmailTokenBuilder
     {
         return new self();

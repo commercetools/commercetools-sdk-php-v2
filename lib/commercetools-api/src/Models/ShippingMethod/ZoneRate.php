@@ -1,32 +1,32 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Zone\ZoneReference;
+use Commercetools\Base\JsonObject;
 
 interface ZoneRate extends JsonObject
 {
-    
     const FIELD_ZONE = 'zone';
     const FIELD_SHIPPING_RATES = 'shippingRates';
 
     /**
-     *
-     * @return ZoneReference|null
+     * @return null|ZoneReference
      */
     public function getZone();
-    
+
     /**
-     *
-     * @return ShippingRateCollection|null
+     * @return null|ShippingRateCollection
      */
     public function getShippingRates();
+
     public function setZone(?ZoneReference $zone): void;
-    
+
     public function setShippingRates(?ShippingRateCollection $shippingRates): void;
 }

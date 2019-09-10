@@ -1,20 +1,38 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\State;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use stdClass;
-
 
 final class StatePagedQueryResponseModel extends JsonObjectModel implements StatePagedQueryResponse
 {
-    
+    /**
+     * @var ?int
+     */
+    protected $total;
+
+    /**
+     * @var ?int
+     */
+    protected $offset;
+
+    /**
+     * @var ?int
+     */
+    protected $count;
+
+    /**
+     * @var ?StateCollection
+     */
+    protected $results;
+
     public function __construct(
         int $total = null,
         int $offset = null,
@@ -25,114 +43,93 @@ final class StatePagedQueryResponseModel extends JsonObjectModel implements Stat
         $this->offset = $offset;
         $this->count = $count;
         $this->results = $results;
-        
     }
 
     /**
-     * @var ?int
+     * @return null|int
      */
-    protected $total;
-    
-    /**
-     * @var ?int
-     */
-    protected $offset;
-    
-    /**
-     * @var ?int
-     */
-    protected $count;
-    
-    /**
-     * @var ?StateCollection
-     */
-    protected $results;
+    public function getTotal()
+    {
+        if (is_null($this->total)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(StatePagedQueryResponse::FIELD_TOTAL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->total = (int) $data;
+        }
+
+        return $this->total;
+    }
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getTotal()
+    public function getOffset()
     {
-       if (is_null($this->total)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(StatePagedQueryResponse::FIELD_TOTAL);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->total = (int)$data;
-       }
-       return $this->total;
+        if (is_null($this->offset)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(StatePagedQueryResponse::FIELD_OFFSET);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->offset = (int) $data;
+        }
+
+        return $this->offset;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getOffset()
+    public function getCount()
     {
-       if (is_null($this->offset)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(StatePagedQueryResponse::FIELD_OFFSET);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->offset = (int)$data;
-       }
-       return $this->offset;
+        if (is_null($this->count)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(StatePagedQueryResponse::FIELD_COUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->count = (int) $data;
+        }
+
+        return $this->count;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|StateCollection
      */
-    final public function getCount()
+    public function getResults()
     {
-       if (is_null($this->count)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(StatePagedQueryResponse::FIELD_COUNT);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->count = (int)$data;
-       }
-       return $this->count;
+        if (is_null($this->results)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(StatePagedQueryResponse::FIELD_RESULTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->results = StateCollection::fromArray($data);
+        }
+
+        return $this->results;
     }
-    
-    /**
-     *
-     * @return StateCollection|null
-     */
-    final public function getResults()
-    {
-       if (is_null($this->results)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(StatePagedQueryResponse::FIELD_RESULTS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->results = StateCollection::fromArray($data);
-       }
-       return $this->results;
-    }
-    final public function setTotal(?int $total): void
+
+    public function setTotal(?int $total): void
     {
         $this->total = $total;
     }
-    
-    final public function setOffset(?int $offset): void
+
+    public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
     }
-    
-    final public function setCount(?int $count): void
+
+    public function setCount(?int $count): void
     {
         $this->count = $count;
     }
-    
-    final public function setResults(?StateCollection $results): void
+
+    public function setResults(?StateCollection $results): void
     {
         $this->results = $results;
     }
-    
 }

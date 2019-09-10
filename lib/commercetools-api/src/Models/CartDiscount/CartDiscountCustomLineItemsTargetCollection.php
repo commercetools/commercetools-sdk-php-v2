@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartDiscountCustomLineItemsTarget>
+ *
  * @method CartDiscountCustomLineItemsTarget current()
  * @method CartDiscountCustomLineItemsTarget at($offset)
  */
@@ -20,8 +23,12 @@ class CartDiscountCustomLineItemsTargetCollection extends MapperSequence
     /**
      * @psalm-assert CartDiscountCustomLineItemsTarget $value
      * @psalm-param CartDiscountCustomLineItemsTarget|stdClass $value
-     * @return CartDiscountCustomLineItemsTargetCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartDiscountCustomLineItemsTargetCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartDiscountCustomLineItemsTargetCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CartDiscountCustomLineItemsTarget {
+        return function (int $index): ?CartDiscountCustomLineItemsTarget {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartDiscountCustomLineItemsTargetModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

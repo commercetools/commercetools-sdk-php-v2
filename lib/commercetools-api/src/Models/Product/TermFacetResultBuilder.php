@@ -1,169 +1,164 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<TermFacetResult>
  */
 final class TermFacetResultBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?int
      */
-    protected $other;
-    
+    private $other;
+
     /**
      * @var ?int
      */
-    protected $total;
-    
+    private $total;
+
     /**
      * @var ?FacetResultTermCollection
      */
-    protected $terms;
-    
+    private $terms;
+
     /**
      * @var ?string
      */
-    protected $dataType;
-    
+    private $dataType;
+
     /**
      * @var ?int
      */
-    protected $missing;
+    private $missing;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getOther()
+    public function getOther()
     {
-       return $this->other;
+        return $this->other;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getTotal()
+    public function getTotal()
     {
-       return $this->total;
+        return $this->total;
     }
-    
+
     /**
-     *
-     * @return FacetResultTermCollection|null
+     * @return null|FacetResultTermCollection
      */
-    final public function getTerms()
+    public function getTerms()
     {
-       return $this->terms;
+        return $this->terms;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getDataType()
+    public function getDataType()
     {
-       return $this->dataType;
+        return $this->dataType;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getMissing()
+    public function getMissing()
     {
-       return $this->missing;
+        return $this->missing;
     }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOther(?int $other)
+    public function withOther(?int $other)
     {
         $this->other = $other;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotal(?int $total)
+    public function withTotal(?int $total)
     {
         $this->total = $total;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTerms(?FacetResultTermCollection $terms)
+    public function withTerms(?FacetResultTermCollection $terms)
     {
         $this->terms = $terms;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDataType(?string $dataType)
+    public function withDataType(?string $dataType)
     {
         $this->dataType = $dataType;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMissing(?int $missing)
+    public function withMissing(?int $missing)
     {
         $this->missing = $missing;
-        
+
         return $this;
     }
-    
-    public function build(): TermFacetResult {
+
+    public function build(): TermFacetResult
+    {
         return new TermFacetResultModel(
             $this->type,
             $this->other,
@@ -173,7 +168,7 @@ final class TermFacetResultBuilder implements Builder
             $this->missing
         );
     }
-    
+
     public static function of(): TermFacetResultBuilder
     {
         return new self();

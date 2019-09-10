@@ -1,127 +1,126 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Cart\TaxedPriceBuilder;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<OrderExcerpt>
  */
 final class OrderExcerptBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var Money|?MoneyBuilder
+     */
+    private $totalPrice;
 
     /**
-     * @var ?MoneyBuilder|Money
+     * @var TaxedPrice|?TaxedPriceBuilder
      */
-    protected $totalPrice;
-    
-    /**
-     * @var ?TaxedPriceBuilder|TaxedPrice
-     */
-    protected $taxedPrice;
-    
+    private $taxedPrice;
+
     /**
      * @var ?int
      */
-    protected $version;
+    private $version;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
-    final public function getTotalPrice()
+    public function getTotalPrice()
     {
-       return ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice);
+        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
-    
+
     /**
-     *
-     * @return TaxedPrice|null
+     * @return null|TaxedPrice
      */
-    final public function getTaxedPrice()
+    public function getTaxedPrice()
     {
-       return ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice);
+        return $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
+
     /**
      * @return $this
      */
-    final public function withTotalPrice(?Money $totalPrice)
+    public function withTotalPrice(?Money $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPrice(?TaxedPrice $taxedPrice)
+    public function withTaxedPrice(?TaxedPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
+    public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
-    public function build(): OrderExcerpt {
+
+    public function build(): OrderExcerpt
+    {
         return new OrderExcerptModel(
             ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
             ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
             $this->version
         );
     }
-    
+
     public static function of(): OrderExcerptBuilder
     {
         return new self();

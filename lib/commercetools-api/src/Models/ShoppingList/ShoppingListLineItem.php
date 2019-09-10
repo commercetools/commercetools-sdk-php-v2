@@ -1,21 +1,22 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Product\ProductVariant;
+use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface ShoppingListLineItem extends JsonObject
 {
-    
     const FIELD_ADDED_AT = 'addedAt';
     const FIELD_CUSTOM = 'custom';
     const FIELD_DEACTIVATED_AT = 'deactivatedAt';
@@ -29,89 +30,79 @@ interface ShoppingListLineItem extends JsonObject
     const FIELD_VARIANT_ID = 'variantId';
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getAddedAt();
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getDeactivatedAt();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getId();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getProductId();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getProductSlug();
-    
+
     /**
-     *
-     * @return ProductTypeReference|null
+     * @return null|ProductTypeReference
      */
     public function getProductType();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getQuantity();
-    
+
     /**
-     *
-     * @return ProductVariant|null
+     * @return null|ProductVariant
      */
     public function getVariant();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getVariantId();
+
     public function setAddedAt(?DateTimeImmutable $addedAt): void;
-    
+
     public function setCustom(?CustomFields $custom): void;
-    
+
     public function setDeactivatedAt(?DateTimeImmutable $deactivatedAt): void;
-    
+
     public function setId(?string $id): void;
-    
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setProductId(?string $productId): void;
-    
+
     public function setProductSlug(?LocalizedString $productSlug): void;
-    
+
     public function setProductType(?ProductTypeReference $productType): void;
-    
+
     public function setQuantity(?int $quantity): void;
-    
+
     public function setVariant(?ProductVariant $variant): void;
-    
+
     public function setVariantId(?int $variantId): void;
 }

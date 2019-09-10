@@ -1,17 +1,17 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
-use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface MessageDelivery extends SubscriptionDelivery
 {
-    
     const FIELD_ID = 'id';
     const FIELD_VERSION = 'version';
     const FIELD_CREATED_AT = 'createdAt';
@@ -21,57 +21,51 @@ interface MessageDelivery extends SubscriptionDelivery
     const FIELD_PAYLOAD_NOT_INCLUDED = 'payloadNotIncluded';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getId();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getVersion();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getSequenceNumber();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getResourceVersion();
-    
+
     /**
-     *
-     * @return PayloadNotIncluded|null
+     * @return null|PayloadNotIncluded
      */
     public function getPayloadNotIncluded();
+
     public function setId(?string $id): void;
-    
+
     public function setVersion(?int $version): void;
-    
+
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
-    
+
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
-    
+
     public function setSequenceNumber(?int $sequenceNumber): void;
-    
+
     public function setResourceVersion(?int $resourceVersion): void;
-    
+
     public function setPayloadNotIncluded(?PayloadNotIncluded $payloadNotIncluded): void;
 }

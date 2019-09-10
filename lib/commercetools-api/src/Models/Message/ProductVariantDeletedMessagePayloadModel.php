@@ -1,22 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel implements ProductVariantDeletedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ProductVariantDeleted';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?array
+     */
+    protected $removedImageUrls;
+
+    /**
+     * @var ?ProductVariant
+     */
+    protected $variant;
+
     public function __construct(
         string $type = null,
         array $removedImageUrls = null,
@@ -25,88 +40,72 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
         $this->type = $type;
         $this->removedImageUrls = $removedImageUrls;
         $this->variant = $variant;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?array
-     */
-    protected $removedImageUrls;
-    
-    /**
-     * @var ?ProductVariant
-     */
-    protected $variant;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|array
      */
-    final public function getType()
+    public function getRemovedImageUrls()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MessagePayload::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->removedImageUrls)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(ProductVariantDeletedMessagePayload::FIELD_REMOVED_IMAGE_URLS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedImageUrls = $data;
+        }
+
+        return $this->removedImageUrls;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|ProductVariant
      */
-    final public function getRemovedImageUrls()
+    public function getVariant()
     {
-       if (is_null($this->removedImageUrls)) {
-           /** @psalm-var ?array<int, mixed> $data */
-           $data = $this->raw(ProductVariantDeletedMessagePayload::FIELD_REMOVED_IMAGE_URLS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->removedImageUrls = $data;
-       }
-       return $this->removedImageUrls;
+        if (is_null($this->variant)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductVariantDeletedMessagePayload::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->variant = ProductVariantModel::of($data);
+        }
+
+        return $this->variant;
     }
-    
-    /**
-     *
-     * @return ProductVariant|null
-     */
-    final public function getVariant()
-    {
-       if (is_null($this->variant)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductVariantDeletedMessagePayload::FIELD_VARIANT);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->variant = ProductVariantModel::of($data);
-       }
-       return $this->variant;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setRemovedImageUrls(?array $removedImageUrls): void
+
+    public function setRemovedImageUrls(?array $removedImageUrls): void
     {
         $this->removedImageUrls = $removedImageUrls;
     }
-    
-    final public function setVariant(?ProductVariant $variant): void
+
+    public function setVariant(?ProductVariant $variant): void
     {
         $this->variant = $variant;
     }
-    
 }

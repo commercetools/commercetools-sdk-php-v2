@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductSlugChangedMessagePayload>
  */
 final class ProductSlugChangedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $slug;
+    private $type;
 
     /**
-     *
-     * @return string|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getType()
+    private $slug;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getSlug()
+    public function getType()
     {
-       return ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug);
+        return $this->type;
     }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSlug(?LocalizedString $slug)
+    public function withSlug(?LocalizedString $slug)
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withSlugBuilder(?LocalizedStringBuilder $slug)
+    public function withSlugBuilder(?LocalizedStringBuilder $slug)
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
-    
-    public function build(): ProductSlugChangedMessagePayload {
+
+    public function build(): ProductSlugChangedMessagePayload
+    {
         return new ProductSlugChangedMessagePayloadModel(
             $this->type,
             ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
         );
     }
-    
+
     public static function of(): ProductSlugChangedMessagePayloadBuilder
     {
         return new self();

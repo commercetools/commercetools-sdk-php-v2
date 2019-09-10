@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DuplicateAttributeValueError>
+ *
  * @method DuplicateAttributeValueError current()
  * @method DuplicateAttributeValueError at($offset)
  */
@@ -20,8 +23,12 @@ class DuplicateAttributeValueErrorCollection extends MapperSequence
     /**
      * @psalm-assert DuplicateAttributeValueError $value
      * @psalm-param DuplicateAttributeValueError|stdClass $value
-     * @return DuplicateAttributeValueErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return DuplicateAttributeValueErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class DuplicateAttributeValueErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?DuplicateAttributeValueError {
+        return function (int $index): ?DuplicateAttributeValueError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = DuplicateAttributeValueErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

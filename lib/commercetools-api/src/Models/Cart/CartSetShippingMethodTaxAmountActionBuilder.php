@@ -1,88 +1,88 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CartSetShippingMethodTaxAmountAction>
  */
 final class CartSetShippingMethodTaxAmountActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?ExternalTaxAmountDraftBuilder|ExternalTaxAmountDraft
-     */
-    protected $externalTaxAmount;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var ExternalTaxAmountDraft|?ExternalTaxAmountDraftBuilder
      */
-    final public function getAction()
+    private $externalTaxAmount;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return ExternalTaxAmountDraft|null
+     * @return null|string
      */
-    final public function getExternalTaxAmount()
+    public function getAction()
     {
-       return ($this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount);
+        return $this->action;
     }
+
+    /**
+     * @return null|ExternalTaxAmountDraft
+     */
+    public function getExternalTaxAmount()
+    {
+        return $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount)
+    public function withExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount)
     {
         $this->externalTaxAmount = $externalTaxAmount;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withExternalTaxAmountBuilder(?ExternalTaxAmountDraftBuilder $externalTaxAmount)
+    public function withExternalTaxAmountBuilder(?ExternalTaxAmountDraftBuilder $externalTaxAmount)
     {
         $this->externalTaxAmount = $externalTaxAmount;
-        
+
         return $this;
     }
-    
-    public function build(): CartSetShippingMethodTaxAmountAction {
+
+    public function build(): CartSetShippingMethodTaxAmountAction
+    {
         return new CartSetShippingMethodTaxAmountActionModel(
             $this->action,
             ($this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount)
         );
     }
-    
+
     public static function of(): CartSetShippingMethodTaxAmountActionBuilder
     {
         return new self();

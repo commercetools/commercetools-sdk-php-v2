@@ -1,22 +1,20 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
-use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceBuilder;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -24,380 +22,371 @@ use DateTimeImmutable;
  */
 final class OrderCustomerSetMessageBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
-    
-    /**
-     * @var ?int
-     */
-    protected $sequenceNumber;
-    
-    /**
-     * @var ?ReferenceBuilder|Reference
-     */
-    protected $resource;
-    
-    /**
-     * @var ?UserProvidedIdentifiersBuilder|UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-    
-    /**
-     * @var ?int
-     */
-    protected $resourceVersion;
-    
-    /**
-     * @var ?string
-     */
-    protected $type;
-    
-    /**
-     * @var ?CustomerGroupReferenceBuilder|CustomerGroupReference
-     */
-    protected $oldCustomerGroup;
-    
-    /**
-     * @var ?CustomerGroupReferenceBuilder|CustomerGroupReference
-     */
-    protected $customerGroup;
-    
-    /**
-     * @var ?CustomerReferenceBuilder|CustomerReference
-     */
-    protected $oldCustomer;
-    
-    /**
-     * @var ?CustomerReferenceBuilder|CustomerReference
-     */
-    protected $customer;
+    private $lastModifiedAt;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $id;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?int
      */
-    final public function getLastModifiedAt()
-    {
-       return $this->lastModifiedAt;
-    }
-    
+    private $version;
+
     /**
-     *
-     * @return string|null
+     * @var ?int
      */
-    final public function getId()
-    {
-       return $this->id;
-    }
-    
+    private $sequenceNumber;
+
     /**
-     *
-     * @return int|null
+     * @var Reference|?ReferenceBuilder
      */
-    final public function getVersion()
-    {
-       return $this->version;
-    }
-    
+    private $resource;
+
     /**
-     *
-     * @return int|null
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
-    final public function getSequenceNumber()
-    {
-       return $this->sequenceNumber;
-    }
-    
+    private $resourceUserProvidedIdentifiers;
+
     /**
-     *
-     * @return Reference|null
+     * @var ?int
      */
-    final public function getResource()
-    {
-       return ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource);
-    }
-    
+    private $resourceVersion;
+
     /**
-     *
-     * @return UserProvidedIdentifiers|null
+     * @var ?string
      */
-    final public function getResourceUserProvidedIdentifiers()
-    {
-       return ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers);
-    }
-    
+    private $type;
+
     /**
-     *
-     * @return int|null
+     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
-    final public function getResourceVersion()
-    {
-       return $this->resourceVersion;
-    }
-    
+    private $oldCustomerGroup;
+
     /**
-     *
-     * @return string|null
+     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
-    final public function getType()
-    {
-       return $this->type;
-    }
-    
+    private $customerGroup;
+
     /**
-     *
-     * @return CustomerGroupReference|null
+     * @var CustomerReference|?CustomerReferenceBuilder
      */
-    final public function getOldCustomerGroup()
-    {
-       return ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup);
-    }
-    
+    private $oldCustomer;
+
     /**
-     *
-     * @return CustomerGroupReference|null
+     * @var CustomerReference|?CustomerReferenceBuilder
      */
-    final public function getCustomerGroup()
+    private $customer;
+
+    public function __construct()
     {
-       return ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup);
     }
-    
+
     /**
-     *
-     * @return CustomerReference|null
+     * @return null|DateTimeImmutable
      */
-    final public function getOldCustomer()
+    public function getCreatedAt()
     {
-       return ($this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer);
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return CustomerReference|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCustomer()
+    public function getLastModifiedAt()
     {
-       return ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer);
+        return $this->lastModifiedAt;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getSequenceNumber()
+    {
+        return $this->sequenceNumber;
+    }
+
+    /**
+     * @return null|Reference
+     */
+    public function getResource()
+    {
+        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
+    }
+
+    /**
+     * @return null|UserProvidedIdentifiers
+     */
+    public function getResourceUserProvidedIdentifiers()
+    {
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getResourceVersion()
+    {
+        return $this->resourceVersion;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return null|CustomerGroupReference
+     */
+    public function getOldCustomerGroup()
+    {
+        return $this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup;
+    }
+
+    /**
+     * @return null|CustomerGroupReference
+     */
+    public function getCustomerGroup()
+    {
+        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
+    }
+
+    /**
+     * @return null|CustomerReference
+     */
+    public function getOldCustomer()
+    {
+        return $this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer;
+    }
+
+    /**
+     * @return null|CustomerReference
+     */
+    public function getCustomer()
+    {
+        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSequenceNumber(?int $sequenceNumber)
+    public function withSequenceNumber(?int $sequenceNumber)
     {
         $this->sequenceNumber = $sequenceNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResource(?Reference $resource)
+    public function withResource(?Reference $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceVersion(?int $resourceVersion)
+    public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup)
+    public function withOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup)
     {
         $this->oldCustomerGroup = $oldCustomerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroup(?CustomerGroupReference $customerGroup)
+    public function withCustomerGroup(?CustomerGroupReference $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldCustomer(?CustomerReference $oldCustomer)
+    public function withOldCustomer(?CustomerReference $oldCustomer)
     {
         $this->oldCustomer = $oldCustomer;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomer(?CustomerReference $customer)
+    public function withCustomer(?CustomerReference $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withResourceBuilder(?ReferenceBuilder $resource)
+    public function withResourceBuilder(?ReferenceBuilder $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldCustomerGroupBuilder(?CustomerGroupReferenceBuilder $oldCustomerGroup)
+    public function withOldCustomerGroupBuilder(?CustomerGroupReferenceBuilder $oldCustomerGroup)
     {
         $this->oldCustomerGroup = $oldCustomerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
+    public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldCustomerBuilder(?CustomerReferenceBuilder $oldCustomer)
+    public function withOldCustomerBuilder(?CustomerReferenceBuilder $oldCustomer)
     {
         $this->oldCustomer = $oldCustomer;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
+    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
-    
-    public function build(): OrderCustomerSetMessage {
+
+    public function build(): OrderCustomerSetMessage
+    {
         return new OrderCustomerSetMessageModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -414,7 +403,7 @@ final class OrderCustomerSetMessageBuilder implements Builder
             ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)
         );
     }
-    
+
     public static function of(): OrderCustomerSetMessageBuilder
     {
         return new self();

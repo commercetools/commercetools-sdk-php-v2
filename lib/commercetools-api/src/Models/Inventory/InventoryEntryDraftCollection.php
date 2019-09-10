@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Inventory;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InventoryEntryDraft>
+ *
  * @method InventoryEntryDraft current()
  * @method InventoryEntryDraft at($offset)
  */
@@ -20,8 +23,12 @@ class InventoryEntryDraftCollection extends MapperSequence
     /**
      * @psalm-assert InventoryEntryDraft $value
      * @psalm-param InventoryEntryDraft|stdClass $value
-     * @return InventoryEntryDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InventoryEntryDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InventoryEntryDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InventoryEntryDraft {
+        return function (int $index): ?InventoryEntryDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InventoryEntryDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

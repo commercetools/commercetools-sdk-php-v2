@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidTokenError>
+ *
  * @method InvalidTokenError current()
  * @method InvalidTokenError at($offset)
  */
@@ -20,8 +23,12 @@ class InvalidTokenErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidTokenError $value
      * @psalm-param InvalidTokenError|stdClass $value
-     * @return InvalidTokenErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InvalidTokenErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InvalidTokenErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InvalidTokenError {
+        return function (int $index): ?InvalidTokenError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InvalidTokenErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

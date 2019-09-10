@@ -1,25 +1,83 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Category;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
 {
-    
+    /**
+     * @var ?CategoryResourceIdentifier
+     */
+    protected $parent;
+
+    /**
+     * @var ?AssetDraftCollection
+     */
+    protected $assets;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaKeywords;
+
+    /**
+     * @var ?string
+     */
+    protected $orderHint;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaTitle;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $externalId;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaDescription;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
+
     public function __construct(
         CategoryResourceIdentifier $parent = null,
         AssetDraftCollection $assets = null,
@@ -46,338 +104,277 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
         $this->metaDescription = $metaDescription;
         $this->key = $key;
         $this->slug = $slug;
-        
     }
 
     /**
-     * @var ?CategoryResourceIdentifier
+     * @return null|CategoryResourceIdentifier
      */
-    protected $parent;
-    
-    /**
-     * @var ?AssetDraftCollection
-     */
-    protected $assets;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaKeywords;
-    
-    /**
-     * @var ?string
-     */
-    protected $orderHint;
-    
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaTitle;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $externalId;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaDescription;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
+    public function getParent()
+    {
+        if (is_null($this->parent)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_PARENT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->parent = CategoryResourceIdentifierModel::of($data);
+        }
+
+        return $this->parent;
+    }
 
     /**
-     *
-     * @return CategoryResourceIdentifier|null
+     * @return null|AssetDraftCollection
      */
-    final public function getParent()
+    public function getAssets()
     {
-       if (is_null($this->parent)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CategoryDraft::FIELD_PARENT);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->parent = CategoryResourceIdentifierModel::of($data);
-       }
-       return $this->parent;
+        if (is_null($this->assets)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CategoryDraft::FIELD_ASSETS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assets = AssetDraftCollection::fromArray($data);
+        }
+
+        return $this->assets;
     }
-    
+
     /**
-     *
-     * @return AssetDraftCollection|null
+     * @return null|LocalizedString
      */
-    final public function getAssets()
+    public function getMetaKeywords()
     {
-       if (is_null($this->assets)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(CategoryDraft::FIELD_ASSETS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->assets = AssetDraftCollection::fromArray($data);
-       }
-       return $this->assets;
+        if (is_null($this->metaKeywords)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_META_KEYWORDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaKeywords = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaKeywords;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getMetaKeywords()
+    public function getOrderHint()
     {
-       if (is_null($this->metaKeywords)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CategoryDraft::FIELD_META_KEYWORDS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->metaKeywords = LocalizedStringModel::of($data);
-       }
-       return $this->metaKeywords;
+        if (is_null($this->orderHint)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategoryDraft::FIELD_ORDER_HINT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->orderHint = (string) $data;
+        }
+
+        return $this->orderHint;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getOrderHint()
+    public function getCustom()
     {
-       if (is_null($this->orderHint)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CategoryDraft::FIELD_ORDER_HINT);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->orderHint = (string)$data;
-       }
-       return $this->orderHint;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|LocalizedString
      */
-    final public function getCustom()
+    public function getMetaTitle()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CategoryDraft::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsDraftModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->metaTitle)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_META_TITLE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaTitle = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaTitle;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getMetaTitle()
+    public function getName()
     {
-       if (is_null($this->metaTitle)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CategoryDraft::FIELD_META_TITLE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->metaTitle = LocalizedStringModel::of($data);
-       }
-       return $this->metaTitle;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getName()
+    public function getExternalId()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CategoryDraft::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategoryDraft::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getExternalId()
+    public function getDescription()
     {
-       if (is_null($this->externalId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CategoryDraft::FIELD_EXTERNAL_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->externalId = (string)$data;
-       }
-       return $this->externalId;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getDescription()
+    public function getMetaDescription()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CategoryDraft::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->metaDescription)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_META_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaDescription = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaDescription;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getMetaDescription()
+    public function getKey()
     {
-       if (is_null($this->metaDescription)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CategoryDraft::FIELD_META_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->metaDescription = LocalizedStringModel::of($data);
-       }
-       return $this->metaDescription;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategoryDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getKey()
+    public function getSlug()
     {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CategoryDraft::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
     }
-    
-    /**
-     *
-     * @return LocalizedString|null
-     */
-    final public function getSlug()
-    {
-       if (is_null($this->slug)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CategoryDraft::FIELD_SLUG);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->slug = LocalizedStringModel::of($data);
-       }
-       return $this->slug;
-    }
-    final public function setParent(?CategoryResourceIdentifier $parent): void
+
+    public function setParent(?CategoryResourceIdentifier $parent): void
     {
         $this->parent = $parent;
     }
-    
-    final public function setAssets(?AssetDraftCollection $assets): void
+
+    public function setAssets(?AssetDraftCollection $assets): void
     {
         $this->assets = $assets;
     }
-    
-    final public function setMetaKeywords(?LocalizedString $metaKeywords): void
+
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
-    
-    final public function setOrderHint(?string $orderHint): void
+
+    public function setOrderHint(?string $orderHint): void
     {
         $this->orderHint = $orderHint;
     }
-    
-    final public function setCustom(?CustomFieldsDraft $custom): void
+
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setMetaTitle(?LocalizedString $metaTitle): void
+
+    public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setExternalId(?string $externalId): void
+
+    public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setMetaDescription(?LocalizedString $metaDescription): void
+
+    public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
-    final public function setSlug(?LocalizedString $slug): void
+
+    public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
-    
 }

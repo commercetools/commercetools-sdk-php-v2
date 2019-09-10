@@ -1,21 +1,22 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceCollection;
 use Commercetools\Api\Models\Common\ScopedPrice;
+use Commercetools\Base\JsonObject;
 
 interface ProductVariant extends JsonObject
 {
-    
     const FIELD_ID = 'id';
     const FIELD_SKU = 'sku';
     const FIELD_KEY = 'key';
@@ -30,97 +31,86 @@ interface ProductVariant extends JsonObject
     const FIELD_SCOPED_PRICE_DISCOUNTED = 'scopedPriceDiscounted';
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSku();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return PriceCollection|null
+     * @return null|PriceCollection
      */
     public function getPrices();
-    
+
     /**
-     *
-     * @return AttributeCollection|null
+     * @return null|AttributeCollection
      */
     public function getAttributes();
-    
+
     /**
-     *
-     * @return Price|null
+     * @return null|Price
      */
     public function getPrice();
-    
+
     /**
-     *
-     * @return ImageCollection|null
+     * @return null|ImageCollection
      */
     public function getImages();
-    
+
     /**
-     *
-     * @return AssetCollection|null
+     * @return null|AssetCollection
      */
     public function getAssets();
-    
+
     /**
-     *
-     * @return ProductVariantAvailability|null
+     * @return null|ProductVariantAvailability
      */
     public function getAvailability();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getIsMatchingVariant();
-    
+
     /**
-     *
-     * @return ScopedPrice|null
+     * @return null|ScopedPrice
      */
     public function getScopedPrice();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getScopedPriceDiscounted();
+
     public function setId(?int $id): void;
-    
+
     public function setSku(?string $sku): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setPrices(?PriceCollection $prices): void;
-    
+
     public function setAttributes(?AttributeCollection $attributes): void;
-    
+
     public function setPrice(?Price $price): void;
-    
+
     public function setImages(?ImageCollection $images): void;
-    
+
     public function setAssets(?AssetCollection $assets): void;
-    
+
     public function setAvailability(?ProductVariantAvailability $availability): void;
-    
+
     public function setIsMatchingVariant(?bool $isMatchingVariant): void;
-    
+
     public function setScopedPrice(?ScopedPrice $scopedPrice): void;
-    
+
     public function setScopedPriceDiscounted(?bool $scopedPriceDiscounted): void;
 }

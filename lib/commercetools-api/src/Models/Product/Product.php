@@ -1,12 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
@@ -15,7 +16,6 @@ use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 
 interface Product extends LoggedResource
 {
-    
     const FIELD_KEY = 'key';
     const FIELD_PRODUCT_TYPE = 'productType';
     const FIELD_MASTER_DATA = 'masterData';
@@ -24,49 +24,44 @@ interface Product extends LoggedResource
     const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return ProductTypeReference|null
+     * @return null|ProductTypeReference
      */
     public function getProductType();
-    
+
     /**
-     *
-     * @return ProductCatalogData|null
+     * @return null|ProductCatalogData
      */
     public function getMasterData();
-    
+
     /**
-     *
-     * @return TaxCategoryReference|null
+     * @return null|TaxCategoryReference
      */
     public function getTaxCategory();
-    
+
     /**
-     *
-     * @return StateReference|null
+     * @return null|StateReference
      */
     public function getState();
-    
+
     /**
-     *
-     * @return ReviewRatingStatistics|null
+     * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics();
+
     public function setKey(?string $key): void;
-    
+
     public function setProductType(?ProductTypeReference $productType): void;
-    
+
     public function setMasterData(?ProductCatalogData $masterData): void;
-    
+
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void;
-    
+
     public function setState(?StateReference $state): void;
-    
+
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void;
 }

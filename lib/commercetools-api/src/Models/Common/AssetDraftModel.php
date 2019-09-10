@@ -1,22 +1,50 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Common;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class AssetDraftModel extends JsonObjectModel implements AssetDraft
 {
-    
+    /**
+     * @var ?AssetSourceCollection
+     */
+    protected $sources;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?array
+     */
+    protected $tags;
+
     public function __construct(
         AssetSourceCollection $sources = null,
         CustomFieldsDraft $custom = null,
@@ -31,171 +59,140 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
         $this->description = $description;
         $this->key = $key;
         $this->tags = $tags;
-        
     }
 
     /**
-     * @var ?AssetSourceCollection
+     * @return null|AssetSourceCollection
      */
-    protected $sources;
-    
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?array
-     */
-    protected $tags;
+    public function getSources()
+    {
+        if (is_null($this->sources)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(AssetDraft::FIELD_SOURCES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sources = AssetSourceCollection::fromArray($data);
+        }
+
+        return $this->sources;
+    }
 
     /**
-     *
-     * @return AssetSourceCollection|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getSources()
+    public function getCustom()
     {
-       if (is_null($this->sources)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(AssetDraft::FIELD_SOURCES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sources = AssetSourceCollection::fromArray($data);
-       }
-       return $this->sources;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AssetDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|LocalizedString
      */
-    final public function getCustom()
+    public function getName()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(AssetDraft::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsDraftModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AssetDraft::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getName()
+    public function getDescription()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(AssetDraft::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AssetDraft::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getDescription()
+    public function getKey()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(AssetDraft::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AssetDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|array
      */
-    final public function getKey()
+    public function getTags()
     {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(AssetDraft::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
+        if (is_null($this->tags)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(AssetDraft::FIELD_TAGS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tags = $data;
+        }
+
+        return $this->tags;
     }
-    
-    /**
-     *
-     * @return array|null
-     */
-    final public function getTags()
-    {
-       if (is_null($this->tags)) {
-           /** @psalm-var ?array<int, mixed> $data */
-           $data = $this->raw(AssetDraft::FIELD_TAGS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->tags = $data;
-       }
-       return $this->tags;
-    }
-    final public function setSources(?AssetSourceCollection $sources): void
+
+    public function setSources(?AssetSourceCollection $sources): void
     {
         $this->sources = $sources;
     }
-    
-    final public function setCustom(?CustomFieldsDraft $custom): void
+
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
-    final public function setTags(?array $tags): void
+
+    public function setTags(?array $tags): void
     {
         $this->tags = $tags;
     }
-    
 }

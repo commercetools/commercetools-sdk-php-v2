@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeAddAttributeDefinitionAction>
+ *
  * @method ProductTypeAddAttributeDefinitionAction current()
  * @method ProductTypeAddAttributeDefinitionAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductTypeAddAttributeDefinitionActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeAddAttributeDefinitionAction $value
      * @psalm-param ProductTypeAddAttributeDefinitionAction|stdClass $value
-     * @return ProductTypeAddAttributeDefinitionActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductTypeAddAttributeDefinitionActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductTypeAddAttributeDefinitionActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductTypeAddAttributeDefinitionAction {
+        return function (int $index): ?ProductTypeAddAttributeDefinitionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductTypeAddAttributeDefinitionActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

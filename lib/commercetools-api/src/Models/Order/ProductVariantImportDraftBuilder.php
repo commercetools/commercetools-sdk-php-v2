@@ -1,148 +1,144 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductVariantImportDraft>
  */
 final class ProductVariantImportDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?ImageCollection
      */
-    protected $images;
-    
+    private $images;
+
     /**
      * @var ?AttributeCollection
      */
-    protected $attributes;
-    
+    private $attributes;
+
     /**
      * @var ?int
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?PriceDraftCollection
      */
-    protected $prices;
-    
+    private $prices;
+
     /**
      * @var ?string
      */
-    protected $sku;
+    private $sku;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return ImageCollection|null
+     * @return null|ImageCollection
      */
-    final public function getImages()
+    public function getImages()
     {
-       return $this->images;
+        return $this->images;
     }
-    
+
     /**
-     *
-     * @return AttributeCollection|null
+     * @return null|AttributeCollection
      */
-    final public function getAttributes()
+    public function getAttributes()
     {
-       return $this->attributes;
+        return $this->attributes;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return PriceDraftCollection|null
+     * @return null|PriceDraftCollection
      */
-    final public function getPrices()
+    public function getPrices()
     {
-       return $this->prices;
+        return $this->prices;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSku()
+    public function getSku()
     {
-       return $this->sku;
+        return $this->sku;
     }
+
     /**
      * @return $this
      */
-    final public function withImages(?ImageCollection $images)
+    public function withImages(?ImageCollection $images)
     {
         $this->images = $images;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAttributes(?AttributeCollection $attributes)
+    public function withAttributes(?AttributeCollection $attributes)
     {
         $this->attributes = $attributes;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?int $id)
+    public function withId(?int $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrices(?PriceDraftCollection $prices)
+    public function withPrices(?PriceDraftCollection $prices)
     {
         $this->prices = $prices;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
-    public function build(): ProductVariantImportDraft {
+
+    public function build(): ProductVariantImportDraft
+    {
         return new ProductVariantImportDraftModel(
             $this->images,
             $this->attributes,
@@ -151,7 +147,7 @@ final class ProductVariantImportDraftBuilder implements Builder
             $this->sku
         );
     }
-    
+
     public static function of(): ProductVariantImportDraftBuilder
     {
         return new self();

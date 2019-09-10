@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelChangeNameAction>
+ *
  * @method ChannelChangeNameAction current()
  * @method ChannelChangeNameAction at($offset)
  */
@@ -20,8 +23,12 @@ class ChannelChangeNameActionCollection extends MapperSequence
     /**
      * @psalm-assert ChannelChangeNameAction $value
      * @psalm-param ChannelChangeNameAction|stdClass $value
-     * @return ChannelChangeNameActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ChannelChangeNameActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ChannelChangeNameActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ChannelChangeNameAction {
+        return function (int $index): ?ChannelChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ChannelChangeNameActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategorySlugChangedMessage>
+ *
  * @method CategorySlugChangedMessage current()
  * @method CategorySlugChangedMessage at($offset)
  */
@@ -20,8 +23,12 @@ class CategorySlugChangedMessageCollection extends MapperSequence
     /**
      * @psalm-assert CategorySlugChangedMessage $value
      * @psalm-param CategorySlugChangedMessage|stdClass $value
-     * @return CategorySlugChangedMessageCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CategorySlugChangedMessageCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CategorySlugChangedMessageCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CategorySlugChangedMessage {
+        return function (int $index): ?CategorySlugChangedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CategorySlugChangedMessageModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

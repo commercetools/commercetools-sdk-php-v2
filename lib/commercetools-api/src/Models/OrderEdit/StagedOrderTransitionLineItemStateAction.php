@@ -1,19 +1,19 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use DateTimeImmutable;
 
 interface StagedOrderTransitionLineItemStateAction extends StagedOrderUpdateAction
 {
-    
     const FIELD_LINE_ITEM_ID = 'lineItemId';
     const FIELD_QUANTITY = 'quantity';
     const FIELD_FROM_STATE = 'fromState';
@@ -21,41 +21,37 @@ interface StagedOrderTransitionLineItemStateAction extends StagedOrderUpdateActi
     const FIELD_ACTUAL_TRANSITION_DATE = 'actualTransitionDate';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getLineItemId();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getQuantity();
-    
+
     /**
-     *
-     * @return StateResourceIdentifier|null
+     * @return null|StateResourceIdentifier
      */
     public function getFromState();
-    
+
     /**
-     *
-     * @return StateResourceIdentifier|null
+     * @return null|StateResourceIdentifier
      */
     public function getToState();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getActualTransitionDate();
+
     public function setLineItemId(?string $lineItemId): void;
-    
+
     public function setQuantity(?int $quantity): void;
-    
+
     public function setFromState(?StateResourceIdentifier $fromState): void;
-    
+
     public function setToState(?StateResourceIdentifier $toState): void;
-    
+
     public function setActualTransitionDate(?DateTimeImmutable $actualTransitionDate): void;
 }

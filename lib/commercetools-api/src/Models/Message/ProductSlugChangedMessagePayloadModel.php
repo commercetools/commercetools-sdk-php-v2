@@ -1,83 +1,82 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductSlugChangedMessagePayloadModel extends JsonObjectModel implements ProductSlugChangedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ProductSlugChanged';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
+
     public function __construct(
         string $type = null,
         LocalizedString $slug = null
     ) {
         $this->type = $type;
         $this->slug = $slug;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getType()
+    public function getSlug()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MessagePayload::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductSlugChangedMessagePayload::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
     }
-    
-    /**
-     *
-     * @return LocalizedString|null
-     */
-    final public function getSlug()
-    {
-       if (is_null($this->slug)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductSlugChangedMessagePayload::FIELD_SLUG);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->slug = LocalizedStringModel::of($data);
-       }
-       return $this->slug;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setSlug(?LocalizedString $slug): void
+
+    public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
-    
 }

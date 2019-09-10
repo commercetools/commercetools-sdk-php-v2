@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<EnumValueIsUsedError>
+ *
  * @method EnumValueIsUsedError current()
  * @method EnumValueIsUsedError at($offset)
  */
@@ -20,8 +23,12 @@ class EnumValueIsUsedErrorCollection extends MapperSequence
     /**
      * @psalm-assert EnumValueIsUsedError $value
      * @psalm-param EnumValueIsUsedError|stdClass $value
-     * @return EnumValueIsUsedErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return EnumValueIsUsedErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class EnumValueIsUsedErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?EnumValueIsUsedError {
+        return function (int $index): ?EnumValueIsUsedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = EnumValueIsUsedErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

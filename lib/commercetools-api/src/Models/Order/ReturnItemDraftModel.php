@@ -1,20 +1,42 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDraft
 {
-    
+    /**
+     * @var ?string
+     */
+    protected $shipmentState;
+
+    /**
+     * @var ?string
+     */
+    protected $customLineItemId;
+
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?string
+     */
+    protected $lineItemId;
+
+    /**
+     * @var ?string
+     */
+    protected $comment;
+
     public function __construct(
         string $shipmentState = null,
         string $customLineItemId = null,
@@ -27,141 +49,115 @@ final class ReturnItemDraftModel extends JsonObjectModel implements ReturnItemDr
         $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
         $this->comment = $comment;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $shipmentState;
-    
-    /**
-     * @var ?string
-     */
-    protected $customLineItemId;
-    
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-    
-    /**
-     * @var ?string
-     */
-    protected $lineItemId;
-    
-    /**
-     * @var ?string
-     */
-    protected $comment;
+    public function getShipmentState()
+    {
+        if (is_null($this->shipmentState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReturnItemDraft::FIELD_SHIPMENT_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shipmentState = (string) $data;
+        }
+
+        return $this->shipmentState;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getShipmentState()
+    public function getCustomLineItemId()
     {
-       if (is_null($this->shipmentState)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReturnItemDraft::FIELD_SHIPMENT_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->shipmentState = (string)$data;
-       }
-       return $this->shipmentState;
+        if (is_null($this->customLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReturnItemDraft::FIELD_CUSTOM_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemId = (string) $data;
+        }
+
+        return $this->customLineItemId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getCustomLineItemId()
+    public function getQuantity()
     {
-       if (is_null($this->customLineItemId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReturnItemDraft::FIELD_CUSTOM_LINE_ITEM_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->customLineItemId = (string)$data;
-       }
-       return $this->customLineItemId;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ReturnItemDraft::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getQuantity()
+    public function getLineItemId()
     {
-       if (is_null($this->quantity)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ReturnItemDraft::FIELD_QUANTITY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->quantity = (int)$data;
-       }
-       return $this->quantity;
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReturnItemDraft::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getLineItemId()
+    public function getComment()
     {
-       if (is_null($this->lineItemId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReturnItemDraft::FIELD_LINE_ITEM_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->lineItemId = (string)$data;
-       }
-       return $this->lineItemId;
+        if (is_null($this->comment)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReturnItemDraft::FIELD_COMMENT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->comment = (string) $data;
+        }
+
+        return $this->comment;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getComment()
-    {
-       if (is_null($this->comment)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ReturnItemDraft::FIELD_COMMENT);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->comment = (string)$data;
-       }
-       return $this->comment;
-    }
-    final public function setShipmentState(?string $shipmentState): void
+
+    public function setShipmentState(?string $shipmentState): void
     {
         $this->shipmentState = $shipmentState;
     }
-    
-    final public function setCustomLineItemId(?string $customLineItemId): void
+
+    public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
-    
-    final public function setQuantity(?int $quantity): void
+
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
-    
-    final public function setLineItemId(?string $lineItemId): void
+
+    public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
-    
-    final public function setComment(?string $comment): void
+
+    public function setComment(?string $comment): void
     {
         $this->comment = $comment;
     }
-    
 }

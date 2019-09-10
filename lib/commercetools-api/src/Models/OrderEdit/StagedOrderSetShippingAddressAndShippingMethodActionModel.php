@@ -1,28 +1,47 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\OrderEdit;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends JsonObjectModel implements StagedOrderSetShippingAddressAndShippingMethodAction
 {
     const DISCRIMINATOR_VALUE = 'setShippingAddressAndShippingMethod';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
+    /**
+     * @var ?Address
+     */
+    protected $address;
+
+    /**
+     * @var ?ShippingMethodResourceIdentifier
+     */
+    protected $shippingMethod;
+
     public function __construct(
         string $action = null,
         ExternalTaxRateDraft $externalTaxRate = null,
@@ -33,117 +52,96 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
         $this->externalTaxRate = $externalTaxRate;
         $this->address = $address;
         $this->shippingMethod = $shippingMethod;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-    
-    /**
-     * @var ?Address
-     */
-    protected $address;
-    
-    /**
-     * @var ?ShippingMethodResourceIdentifier
-     */
-    protected $shippingMethod;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|ExternalTaxRateDraft
      */
-    final public function getAction()
+    public function getExternalTaxRate()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderSetShippingAddressAndShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
     }
-    
+
     /**
-     *
-     * @return ExternalTaxRateDraft|null
+     * @return null|Address
      */
-    final public function getExternalTaxRate()
+    public function getAddress()
     {
-       if (is_null($this->externalTaxRate)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderSetShippingAddressAndShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-       }
-       return $this->externalTaxRate;
+        if (is_null($this->address)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderSetShippingAddressAndShippingMethodAction::FIELD_ADDRESS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->address = AddressModel::of($data);
+        }
+
+        return $this->address;
     }
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|ShippingMethodResourceIdentifier
      */
-    final public function getAddress()
+    public function getShippingMethod()
     {
-       if (is_null($this->address)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderSetShippingAddressAndShippingMethodAction::FIELD_ADDRESS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->address = AddressModel::of($data);
-       }
-       return $this->address;
+        if (is_null($this->shippingMethod)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderSetShippingAddressAndShippingMethodAction::FIELD_SHIPPING_METHOD);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingMethod = ShippingMethodResourceIdentifierModel::of($data);
+        }
+
+        return $this->shippingMethod;
     }
-    
-    /**
-     *
-     * @return ShippingMethodResourceIdentifier|null
-     */
-    final public function getShippingMethod()
-    {
-       if (is_null($this->shippingMethod)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderSetShippingAddressAndShippingMethodAction::FIELD_SHIPPING_METHOD);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->shippingMethod = ShippingMethodResourceIdentifierModel::of($data);
-       }
-       return $this->shippingMethod;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
     }
-    
-    final public function setAddress(?Address $address): void
+
+    public function setAddress(?Address $address): void
     {
         $this->address = $address;
     }
-    
-    final public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
+
+    public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {
         $this->shippingMethod = $shippingMethod;
     }
-    
 }

@@ -1,41 +1,39 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface OrderAddReturnInfoAction extends OrderUpdateAction
 {
-    
     const FIELD_RETURN_TRACKING_ID = 'returnTrackingId';
     const FIELD_ITEMS = 'items';
     const FIELD_RETURN_DATE = 'returnDate';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getReturnTrackingId();
-    
+
     /**
-     *
-     * @return ReturnItemDraftCollection|null
+     * @return null|ReturnItemDraftCollection
      */
     public function getItems();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getReturnDate();
+
     public function setReturnTrackingId(?string $returnTrackingId): void;
-    
+
     public function setItems(?ReturnItemDraftCollection $items): void;
-    
+
     public function setReturnDate(?DateTimeImmutable $returnDate): void;
 }

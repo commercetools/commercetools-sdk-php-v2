@@ -1,156 +1,153 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\PriceDraft;
 use Commercetools\Api\Models\Common\PriceDraftBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductAddPriceAction>
  */
 final class ProductAddPriceActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
-     * @var ?PriceDraftBuilder|PriceDraft
+     * @var PriceDraft|?PriceDraftBuilder
      */
-    protected $price;
-    
+    private $price;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
      * @var ?int
      */
-    protected $variantId;
-    
+    private $variantId;
+
     /**
      * @var ?string
      */
-    protected $sku;
+    private $sku;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return PriceDraft|null
+     * @return null|PriceDraft
      */
-    final public function getPrice()
+    public function getPrice()
     {
-       return ($this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price);
+        return $this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getStaged()
+    public function getStaged()
     {
-       return $this->staged;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVariantId()
+    public function getVariantId()
     {
-       return $this->variantId;
+        return $this->variantId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSku()
+    public function getSku()
     {
-       return $this->sku;
+        return $this->sku;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrice(?PriceDraft $price)
+    public function withPrice(?PriceDraft $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withPriceBuilder(?PriceDraftBuilder $price)
+    public function withPriceBuilder(?PriceDraftBuilder $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
-    public function build(): ProductAddPriceAction {
+
+    public function build(): ProductAddPriceAction
+    {
         return new ProductAddPriceActionModel(
             $this->action,
             ($this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price),
@@ -159,7 +156,7 @@ final class ProductAddPriceActionBuilder implements Builder
             $this->sku
         );
     }
-    
+
     public static function of(): ProductAddPriceActionBuilder
     {
         return new self();

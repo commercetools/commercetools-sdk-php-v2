@@ -1,80 +1,80 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use stdClass;
-
 
 final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements ChannelSetGeoLocationAction
 {
     const DISCRIMINATOR_VALUE = 'setGeoLocation';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?JsonObject
+     */
+    protected $geoLocation;
+
     public function __construct(
         string $action = null,
         JsonObject $geoLocation = null
     ) {
         $this->action = $action;
         $this->geoLocation = $geoLocation;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?JsonObject
-     */
-    protected $geoLocation;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ChannelUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|JsonObject
      */
-    final public function getAction()
+    public function getGeoLocation()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ChannelUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->geoLocation)) {
+            /** @psalm-var ?stdClass $data */
+            $data = $this->raw(ChannelSetGeoLocationAction::FIELD_GEO_LOCATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->geoLocation = JsonObjectModel::of($data);
+        }
+
+        return $this->geoLocation;
     }
-    
-    /**
-     *
-     * @return JsonObject|null
-     */
-    final public function getGeoLocation()
-    {
-       if (is_null($this->geoLocation)) {
-           /** @psalm-var ?stdClass $data */
-           $data = $this->raw(ChannelSetGeoLocationAction::FIELD_GEO_LOCATION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->geoLocation = JsonObjectModel::of($data);
-       }
-       return $this->geoLocation;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setGeoLocation(?JsonObject $geoLocation): void
+
+    public function setGeoLocation(?JsonObject $geoLocation): void
     {
         $this->geoLocation = $geoLocation;
     }
-    
 }

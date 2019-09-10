@@ -1,18 +1,16 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -20,138 +18,137 @@ use DateTimeImmutable;
  */
 final class DeliveryBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
+    private $createdAt;
+
     /**
-     * @var ?AddressBuilder|Address
+     * @var Address|?AddressBuilder
      */
-    protected $address;
-    
+    private $address;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?DeliveryItemCollection
      */
-    protected $items;
-    
+    private $items;
+
     /**
      * @var ?ParcelCollection
      */
-    protected $parcels;
+    private $parcels;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getCreatedAt()
     {
-       return $this->createdAt;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
-    final public function getAddress()
+    public function getAddress()
     {
-       return ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address);
+        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|DeliveryItemCollection
      */
-    final public function getItems()
+    public function getItems()
     {
-       return $this->items;
+        return $this->items;
     }
-    
+
     /**
-     *
-     * @return ParcelCollection|null
+     * @return null|ParcelCollection
      */
-    final public function getParcels()
+    public function getParcels()
     {
-       return $this->parcels;
+        return $this->parcels;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAddress(?Address $address)
+    public function withAddress(?Address $address)
     {
         $this->address = $address;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItems(?DeliveryItemCollection $items)
+    public function withItems(?DeliveryItemCollection $items)
     {
         $this->items = $items;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withParcels(?ParcelCollection $parcels)
+    public function withParcels(?ParcelCollection $parcels)
     {
         $this->parcels = $parcels;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withAddressBuilder(?AddressBuilder $address)
+    public function withAddressBuilder(?AddressBuilder $address)
     {
         $this->address = $address;
-        
+
         return $this;
     }
-    
-    public function build(): Delivery {
+
+    public function build(): Delivery
+    {
         return new DeliveryModel(
             $this->createdAt,
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
@@ -160,7 +157,7 @@ final class DeliveryBuilder implements Builder
             $this->parcels
         );
     }
-    
+
     public static function of(): DeliveryBuilder
     {
         return new self();

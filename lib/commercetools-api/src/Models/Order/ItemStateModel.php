@@ -1,83 +1,80 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Order;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ItemStateModel extends JsonObjectModel implements ItemState
 {
-    
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?StateReference
+     */
+    protected $state;
+
     public function __construct(
         int $quantity = null,
         StateReference $state = null
     ) {
         $this->quantity = $quantity;
         $this->state = $state;
-        
     }
 
     /**
-     * @var ?int
+     * @return null|int
      */
-    protected $quantity;
-    
-    /**
-     * @var ?StateReference
-     */
-    protected $state;
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ItemState::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
+    }
 
     /**
-     *
-     * @return int|null
+     * @return null|StateReference
      */
-    final public function getQuantity()
+    public function getState()
     {
-       if (is_null($this->quantity)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ItemState::FIELD_QUANTITY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->quantity = (int)$data;
-       }
-       return $this->quantity;
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ItemState::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateReferenceModel::of($data);
+        }
+
+        return $this->state;
     }
-    
-    /**
-     *
-     * @return StateReference|null
-     */
-    final public function getState()
-    {
-       if (is_null($this->state)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ItemState::FIELD_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->state = StateReferenceModel::of($data);
-       }
-       return $this->state;
-    }
-    final public function setQuantity(?int $quantity): void
+
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
-    
-    final public function setState(?StateReference $state): void
+
+    public function setState(?StateReference $state): void
     {
         $this->state = $state;
     }
-    
 }

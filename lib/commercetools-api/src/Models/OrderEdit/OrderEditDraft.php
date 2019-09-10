@@ -1,19 +1,20 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\JsonObject;
 
 interface OrderEditDraft extends JsonObject
 {
-    
     const FIELD_KEY = 'key';
     const FIELD_RESOURCE = 'resource';
     const FIELD_STAGED_ACTIONS = 'stagedActions';
@@ -22,49 +23,44 @@ interface OrderEditDraft extends JsonObject
     const FIELD_DRY_RUN = 'dryRun';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return OrderReference|null
+     * @return null|OrderReference
      */
     public function getResource();
-    
+
     /**
-     *
-     * @return StagedOrderUpdateActionCollection|null
+     * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getComment();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getDryRun();
+
     public function setKey(?string $key): void;
-    
+
     public function setResource(?OrderReference $resource): void;
-    
+
     public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setComment(?string $comment): void;
-    
+
     public function setDryRun(?bool $dryRun): void;
 }

@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Client;
 
@@ -19,26 +20,36 @@ class ClientFactory
     /**
      * @psalm-param CacheItemPoolInterface|CacheInterface|null $cache
      * @psalm-param array<string, callable> $middlewares
+     *
+     * @param null|mixed $cache
+     *
      * @throws InvalidArgumentException
      */
     public function createGuzzleClient(Config $config, AuthConfig $authConfig, LoggerInterface $logger, $cache = null, array $middlewares = []): HttpClient
     {
         $middlewares = array_merge(
-           MiddlewareFactory::createDefaultMiddlewares($logger, $authConfig, $cache),
-           $middlewares
+            MiddlewareFactory::createDefaultMiddlewares($logger, $authConfig, $cache),
+            $middlewares
         );
+
         return $this->createGuzzle6Client($config->getOptions(), $middlewares);
     }
 
     /**
      * @psalm-param array<string, callable> $middlewares
+     *
      * @throws InvalidArgumentException
      */
     public function createGuzzleClientForMiddlewares(
-       Config $config,
-       array $middlewares = []): HttpClient
-    {
+        Config $config,
+        array $middlewares = []
+    ): HttpClient {
         return $this->createGuzzle6Client($config->getOptions(), $middlewares);
+    }
+
+    public static function of(): ClientFactory
+    {
+        return new self();
     }
 
     /**
@@ -59,29 +70,22 @@ class ClientFactory
                 'verify' => true,
                 'timeout' => 60,
                 'connect_timeout' => 10,
-                'pool_size' => 25
+                'pool_size' => 25,
             ],
             $options
         );
         /**
-         * @var string $key
+         * @var string
          * @var callable $middleware
          */
         foreach ($middlewares as $key => $middleware) {
-            if(!is_callable($middleware)) {
+            if (!is_callable($middleware)) {
                 throw new InvalidArgumentException('Middleware isn\'t callable');
             }
             $name = is_numeric($key) ? '' : $key;
             $stack->push($middleware, $name);
         }
 
-        $client = new HttpClient($options);
-
-        return $client;
-    }
-
-    public static function of(): ClientFactory
-    {
-        return new self();
+        return new HttpClient($options);
     }
 }

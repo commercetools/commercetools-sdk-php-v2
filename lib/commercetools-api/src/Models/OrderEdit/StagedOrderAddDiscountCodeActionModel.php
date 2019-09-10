@@ -1,82 +1,79 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\JsonObjectModel;
 
 final class StagedOrderAddDiscountCodeActionModel extends JsonObjectModel implements StagedOrderAddDiscountCodeAction
 {
     const DISCRIMINATOR_VALUE = 'addDiscountCode';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?string
+     */
+    protected $code;
+
     public function __construct(
         string $action = null,
         string $code = null
     ) {
         $this->action = $action;
         $this->code = $code;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $code;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getCode()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->code)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderAddDiscountCodeAction::FIELD_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->code = (string) $data;
+        }
+
+        return $this->code;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getCode()
-    {
-       if (is_null($this->code)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderAddDiscountCodeAction::FIELD_CODE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->code = (string)$data;
-       }
-       return $this->code;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setCode(?string $code): void
+
+    public function setCode(?string $code): void
     {
         $this->code = $code;
     }
-    
 }

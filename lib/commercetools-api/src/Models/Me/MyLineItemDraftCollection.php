@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<MyLineItemDraft>
+ *
  * @method MyLineItemDraft current()
  * @method MyLineItemDraft at($offset)
  */
@@ -20,8 +23,12 @@ class MyLineItemDraftCollection extends MapperSequence
     /**
      * @psalm-assert MyLineItemDraft $value
      * @psalm-param MyLineItemDraft|stdClass $value
-     * @return MyLineItemDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return MyLineItemDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class MyLineItemDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?MyLineItemDraft {
+        return function (int $index): ?MyLineItemDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = MyLineItemDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

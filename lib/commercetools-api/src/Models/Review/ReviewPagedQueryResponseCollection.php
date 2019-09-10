@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewPagedQueryResponse>
+ *
  * @method ReviewPagedQueryResponse current()
  * @method ReviewPagedQueryResponse at($offset)
  */
@@ -20,8 +23,12 @@ class ReviewPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert ReviewPagedQueryResponse $value
      * @psalm-param ReviewPagedQueryResponse|stdClass $value
-     * @return ReviewPagedQueryResponseCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ReviewPagedQueryResponseCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ReviewPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ReviewPagedQueryResponse {
+        return function (int $index): ?ReviewPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ReviewPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

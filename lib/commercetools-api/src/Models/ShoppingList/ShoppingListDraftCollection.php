@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShoppingListDraft>
+ *
  * @method ShoppingListDraft current()
  * @method ShoppingListDraft at($offset)
  */
@@ -20,8 +23,12 @@ class ShoppingListDraftCollection extends MapperSequence
     /**
      * @psalm-assert ShoppingListDraft $value
      * @psalm-param ShoppingListDraft|stdClass $value
-     * @return ShoppingListDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ShoppingListDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ShoppingListDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ShoppingListDraft {
+        return function (int $index): ?ShoppingListDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ShoppingListDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

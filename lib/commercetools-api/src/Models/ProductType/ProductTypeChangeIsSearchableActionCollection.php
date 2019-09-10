@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeChangeIsSearchableAction>
+ *
  * @method ProductTypeChangeIsSearchableAction current()
  * @method ProductTypeChangeIsSearchableAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductTypeChangeIsSearchableActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeChangeIsSearchableAction $value
      * @psalm-param ProductTypeChangeIsSearchableAction|stdClass $value
-     * @return ProductTypeChangeIsSearchableActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductTypeChangeIsSearchableActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductTypeChangeIsSearchableActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductTypeChangeIsSearchableAction {
+        return function (int $index): ?ProductTypeChangeIsSearchableAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductTypeChangeIsSearchableActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

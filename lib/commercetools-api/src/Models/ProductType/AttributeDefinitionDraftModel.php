@@ -1,22 +1,60 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ProductType;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class AttributeDefinitionDraftModel extends JsonObjectModel implements AttributeDefinitionDraft
 {
-    
+    /**
+     * @var ?bool
+     */
+    protected $isRequired;
+
+    /**
+     * @var ?string
+     */
+    protected $attributeConstraint;
+
+    /**
+     * @var ?string
+     */
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $inputHint;
+
+    /**
+     * @var ?bool
+     */
+    protected $isSearchable;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $label;
+
+    /**
+     * @var ?AttributeType
+     */
+    protected $type;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $inputTip;
+
     public function __construct(
         bool $isRequired = null,
         string $attributeConstraint = null,
@@ -35,225 +73,184 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
         $this->label = $label;
         $this->type = $type;
         $this->inputTip = $inputTip;
-        
     }
 
     /**
-     * @var ?bool
+     * @return null|bool
      */
-    protected $isRequired;
-    
-    /**
-     * @var ?string
-     */
-    protected $attributeConstraint;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $inputHint;
-    
-    /**
-     * @var ?bool
-     */
-    protected $isSearchable;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $label;
-    
-    /**
-     * @var ?AttributeType
-     */
-    protected $type;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $inputTip;
+    public function getIsRequired()
+    {
+        if (is_null($this->isRequired)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(AttributeDefinitionDraft::FIELD_IS_REQUIRED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isRequired = (bool) $data;
+        }
+
+        return $this->isRequired;
+    }
 
     /**
-     *
-     * @return bool|null
+     * @return null|string
      */
-    final public function getIsRequired()
+    public function getAttributeConstraint()
     {
-       if (is_null($this->isRequired)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(AttributeDefinitionDraft::FIELD_IS_REQUIRED);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->isRequired = (bool)$data;
-       }
-       return $this->isRequired;
+        if (is_null($this->attributeConstraint)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AttributeDefinitionDraft::FIELD_ATTRIBUTE_CONSTRAINT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeConstraint = (string) $data;
+        }
+
+        return $this->attributeConstraint;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAttributeConstraint()
+    public function getName()
     {
-       if (is_null($this->attributeConstraint)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(AttributeDefinitionDraft::FIELD_ATTRIBUTE_CONSTRAINT);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->attributeConstraint = (string)$data;
-       }
-       return $this->attributeConstraint;
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AttributeDefinitionDraft::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->name = (string) $data;
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getInputHint()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(AttributeDefinitionDraft::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->name = (string)$data;
-       }
-       return $this->name;
+        if (is_null($this->inputHint)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AttributeDefinitionDraft::FIELD_INPUT_HINT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inputHint = (string) $data;
+        }
+
+        return $this->inputHint;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getInputHint()
+    public function getIsSearchable()
     {
-       if (is_null($this->inputHint)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(AttributeDefinitionDraft::FIELD_INPUT_HINT);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->inputHint = (string)$data;
-       }
-       return $this->inputHint;
+        if (is_null($this->isSearchable)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(AttributeDefinitionDraft::FIELD_IS_SEARCHABLE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isSearchable = (bool) $data;
+        }
+
+        return $this->isSearchable;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|LocalizedString
      */
-    final public function getIsSearchable()
+    public function getLabel()
     {
-       if (is_null($this->isSearchable)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(AttributeDefinitionDraft::FIELD_IS_SEARCHABLE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->isSearchable = (bool)$data;
-       }
-       return $this->isSearchable;
+        if (is_null($this->label)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AttributeDefinitionDraft::FIELD_LABEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->label = LocalizedStringModel::of($data);
+        }
+
+        return $this->label;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|AttributeType
      */
-    final public function getLabel()
+    public function getType()
     {
-       if (is_null($this->label)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(AttributeDefinitionDraft::FIELD_LABEL);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->label = LocalizedStringModel::of($data);
-       }
-       return $this->label;
+        if (is_null($this->type)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = AttributeTypeModel::resolveDiscriminatorClass($data);
+            $this->type = $className::of($data);
+        }
+
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return AttributeType|null
+     * @return null|LocalizedString
      */
-    final public function getType()
+    public function getInputTip()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(AttributeDefinitionDraft::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $className = AttributeTypeModel::resolveDiscriminatorClass($data);
-           $this->type = $className::of($data);
-       }
-       return $this->type;
+        if (is_null($this->inputTip)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AttributeDefinitionDraft::FIELD_INPUT_TIP);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->inputTip = LocalizedStringModel::of($data);
+        }
+
+        return $this->inputTip;
     }
-    
-    /**
-     *
-     * @return LocalizedString|null
-     */
-    final public function getInputTip()
-    {
-       if (is_null($this->inputTip)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(AttributeDefinitionDraft::FIELD_INPUT_TIP);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->inputTip = LocalizedStringModel::of($data);
-       }
-       return $this->inputTip;
-    }
-    final public function setIsRequired(?bool $isRequired): void
+
+    public function setIsRequired(?bool $isRequired): void
     {
         $this->isRequired = $isRequired;
     }
-    
-    final public function setAttributeConstraint(?string $attributeConstraint): void
+
+    public function setAttributeConstraint(?string $attributeConstraint): void
     {
         $this->attributeConstraint = $attributeConstraint;
     }
-    
-    final public function setName(?string $name): void
+
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setInputHint(?string $inputHint): void
+
+    public function setInputHint(?string $inputHint): void
     {
         $this->inputHint = $inputHint;
     }
-    
-    final public function setIsSearchable(?bool $isSearchable): void
+
+    public function setIsSearchable(?bool $isSearchable): void
     {
         $this->isSearchable = $isSearchable;
     }
-    
-    final public function setLabel(?LocalizedString $label): void
+
+    public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;
     }
-    
-    final public function setType(?AttributeType $type): void
+
+    public function setType(?AttributeType $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setInputTip(?LocalizedString $inputTip): void
+
+    public function setInputTip(?LocalizedString $inputTip): void
     {
         $this->inputTip = $inputTip;
     }
-    
 }

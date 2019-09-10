@@ -1,31 +1,29 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Message;
 
 interface PaymentStatusInterfaceCodeSetMessage extends Message
 {
-    
     const FIELD_PAYMENT_ID = 'paymentId';
     const FIELD_INTERFACE_CODE = 'interfaceCode';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getPaymentId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getInterfaceCode();
+
     public function setPaymentId(?string $paymentId): void;
-    
+
     public function setInterfaceCode(?string $interfaceCode): void;
 }

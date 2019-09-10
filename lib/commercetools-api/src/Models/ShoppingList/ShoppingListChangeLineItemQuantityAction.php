@@ -1,31 +1,29 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ShoppingList;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\ShoppingList;
 
 interface ShoppingListChangeLineItemQuantityAction extends ShoppingListUpdateAction
 {
-    
     const FIELD_LINE_ITEM_ID = 'lineItemId';
     const FIELD_QUANTITY = 'quantity';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getLineItemId();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getQuantity();
+
     public function setLineItemId(?string $lineItemId): void;
-    
+
     public function setQuantity(?int $quantity): void;
 }

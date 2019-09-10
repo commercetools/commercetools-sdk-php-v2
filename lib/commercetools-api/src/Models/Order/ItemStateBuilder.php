@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ItemState>
  */
 final class ItemStateBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?int
      */
-    protected $quantity;
-    
-    /**
-     * @var ?StateReferenceBuilder|StateReference
-     */
-    protected $state;
+    private $quantity;
 
     /**
-     *
-     * @return int|null
+     * @var StateReference|?StateReferenceBuilder
      */
-    final public function getQuantity()
+    private $state;
+
+    public function __construct()
     {
-       return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return StateReference|null
+     * @return null|int
      */
-    final public function getState()
+    public function getQuantity()
     {
-       return ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state);
+        return $this->quantity;
     }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?StateReference $state)
+    public function withState(?StateReference $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withStateBuilder(?StateReferenceBuilder $state)
+    public function withStateBuilder(?StateReferenceBuilder $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
-    public function build(): ItemState {
+
+    public function build(): ItemState
+    {
         return new ItemStateModel(
             $this->quantity,
             ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state)
         );
     }
-    
+
     public static function of(): ItemStateBuilder
     {
         return new self();

@@ -1,84 +1,81 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Cart;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ExternalTaxAmountDraftModel extends JsonObjectModel implements ExternalTaxAmountDraft
 {
-    
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $taxRate;
+
+    /**
+     * @var ?Money
+     */
+    protected $totalGross;
+
     public function __construct(
         ExternalTaxRateDraft $taxRate = null,
         Money $totalGross = null
     ) {
         $this->taxRate = $taxRate;
         $this->totalGross = $totalGross;
-        
     }
 
     /**
-     * @var ?ExternalTaxRateDraft
+     * @return null|ExternalTaxRateDraft
      */
-    protected $taxRate;
-    
-    /**
-     * @var ?Money
-     */
-    protected $totalGross;
+    public function getTaxRate()
+    {
+        if (is_null($this->taxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ExternalTaxAmountDraft::FIELD_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->taxRate;
+    }
 
     /**
-     *
-     * @return ExternalTaxRateDraft|null
+     * @return null|Money
      */
-    final public function getTaxRate()
+    public function getTotalGross()
     {
-       if (is_null($this->taxRate)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ExternalTaxAmountDraft::FIELD_TAX_RATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->taxRate = ExternalTaxRateDraftModel::of($data);
-       }
-       return $this->taxRate;
+        if (is_null($this->totalGross)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ExternalTaxAmountDraft::FIELD_TOTAL_GROSS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalGross = MoneyModel::of($data);
+        }
+
+        return $this->totalGross;
     }
-    
-    /**
-     *
-     * @return Money|null
-     */
-    final public function getTotalGross()
-    {
-       if (is_null($this->totalGross)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ExternalTaxAmountDraft::FIELD_TOTAL_GROSS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->totalGross = MoneyModel::of($data);
-       }
-       return $this->totalGross;
-    }
-    final public function setTaxRate(?ExternalTaxRateDraft $taxRate): void
+
+    public function setTaxRate(?ExternalTaxRateDraft $taxRate): void
     {
         $this->taxRate = $taxRate;
     }
-    
-    final public function setTotalGross(?Money $totalGross): void
+
+    public function setTotalGross(?Money $totalGross): void
     {
         $this->totalGross = $totalGross;
     }
-    
 }

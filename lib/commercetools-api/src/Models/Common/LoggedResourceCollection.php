@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LoggedResource>
+ *
  * @method LoggedResource current()
  * @method LoggedResource at($offset)
  */
@@ -20,8 +23,12 @@ class LoggedResourceCollection extends MapperSequence
     /**
      * @psalm-assert LoggedResource $value
      * @psalm-param LoggedResource|stdClass $value
-     * @return LoggedResourceCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return LoggedResourceCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class LoggedResourceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?LoggedResource {
+        return function (int $index): ?LoggedResource {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = LoggedResourceModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

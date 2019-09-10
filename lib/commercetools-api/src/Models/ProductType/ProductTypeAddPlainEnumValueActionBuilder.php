@@ -1,113 +1,112 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ProductTypeAddPlainEnumValueAction>
  */
 final class ProductTypeAddPlainEnumValueActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $attributeName;
-    
-    /**
-     * @var ?AttributePlainEnumValueBuilder|AttributePlainEnumValue
-     */
-    protected $value;
+    private $attributeName;
 
     /**
-     *
-     * @return string|null
+     * @var AttributePlainEnumValue|?AttributePlainEnumValueBuilder
      */
-    final public function getAction()
+    private $value;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAttributeName()
+    public function getAction()
     {
-       return $this->attributeName;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return AttributePlainEnumValue|null
+     * @return null|string
      */
-    final public function getValue()
+    public function getAttributeName()
     {
-       return ($this->value instanceof AttributePlainEnumValueBuilder ? $this->value->build() : $this->value);
+        return $this->attributeName;
     }
+
+    /**
+     * @return null|AttributePlainEnumValue
+     */
+    public function getValue()
+    {
+        return $this->value instanceof AttributePlainEnumValueBuilder ? $this->value->build() : $this->value;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAttributeName(?string $attributeName)
+    public function withAttributeName(?string $attributeName)
     {
         $this->attributeName = $attributeName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?AttributePlainEnumValue $value)
+    public function withValue(?AttributePlainEnumValue $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withValueBuilder(?AttributePlainEnumValueBuilder $value)
+    public function withValueBuilder(?AttributePlainEnumValueBuilder $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
-    public function build(): ProductTypeAddPlainEnumValueAction {
+
+    public function build(): ProductTypeAddPlainEnumValueAction
+    {
         return new ProductTypeAddPlainEnumValueActionModel(
             $this->action,
             $this->attributeName,
             ($this->value instanceof AttributePlainEnumValueBuilder ? $this->value->build() : $this->value)
         );
     }
-    
+
     public static function of(): ProductTypeAddPlainEnumValueActionBuilder
     {
         return new self();

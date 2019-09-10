@@ -1,121 +1,120 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<HighPrecisionMoneyDraft>
  */
 final class HighPrecisionMoneyDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?int
+     */
+    private $centAmount;
+
+    /**
+     * @var ?string
+     */
+    private $currencyCode;
+
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?int
      */
-    protected $centAmount;
-    
-    /**
-     * @var ?string
-     */
-    protected $currencyCode;
-    
-    /**
-     * @var ?string
-     */
-    protected $type;
-    
-    /**
-     * @var ?int
-     */
-    protected $preciseAmount;
+    private $preciseAmount;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getCentAmount()
+    public function getCentAmount()
     {
-       return $this->centAmount;
+        return $this->centAmount;
     }
-    
+
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-     * @return string|null
-     */
-    final public function getCurrencyCode()
-    {
-       return $this->currencyCode;
-    }
-    
-    /**
+     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
      *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getCurrencyCode()
     {
-       return $this->type;
+        return $this->currencyCode;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getPreciseAmount()
+    public function getType()
     {
-       return $this->preciseAmount;
+        return $this->type;
     }
+
+    /**
+     * @return null|int
+     */
+    public function getPreciseAmount()
+    {
+        return $this->preciseAmount;
+    }
+
     /**
      * @return $this
      */
-    final public function withCentAmount(?int $centAmount)
+    public function withCentAmount(?int $centAmount)
     {
         $this->centAmount = $centAmount;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCurrencyCode(?string $currencyCode)
+    public function withCurrencyCode(?string $currencyCode)
     {
         $this->currencyCode = $currencyCode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPreciseAmount(?int $preciseAmount)
+    public function withPreciseAmount(?int $preciseAmount)
     {
         $this->preciseAmount = $preciseAmount;
-        
+
         return $this;
     }
-    
-    public function build(): HighPrecisionMoneyDraft {
+
+    public function build(): HighPrecisionMoneyDraft
+    {
         return new HighPrecisionMoneyDraftModel(
             $this->centAmount,
             $this->currencyCode,
@@ -123,7 +122,7 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
             $this->preciseAmount
         );
     }
-    
+
     public static function of(): HighPrecisionMoneyDraftBuilder
     {
         return new self();

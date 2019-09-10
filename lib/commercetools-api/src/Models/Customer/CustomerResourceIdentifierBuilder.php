@@ -1,106 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-use Commercetools\Api\Models\Common\ResourceIdentifier;
-use Commercetools\Api\Models\Common\ResourceIdentifierBuilder;
 
 /**
  * @implements Builder<CustomerResourceIdentifier>
  */
 final class CustomerResourceIdentifierBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $typeId;
 
     /**
      * @var ?string
      */
-    protected $typeId;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    private $id;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getTypeId()
+    private $key;
+
+    public function __construct()
     {
-       return $this->typeId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getTypeId()
     {
-       return $this->id;
+        return $this->typeId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getId()
     {
-       return $this->key;
+        return $this->id;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
     /**
      * @return $this
      */
-    final public function withTypeId(?string $typeId)
+    public function withTypeId(?string $typeId)
     {
         $this->typeId = $typeId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerResourceIdentifier {
+
+    public function build(): CustomerResourceIdentifier
+    {
         return new CustomerResourceIdentifierModel(
             $this->typeId,
             $this->id,
             $this->key
         );
     }
-    
+
     public static function of(): CustomerResourceIdentifierBuilder
     {
         return new self();

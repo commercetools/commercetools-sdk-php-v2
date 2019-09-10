@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<PaymentStatusStateTransitionMessagePayload>
  */
 final class PaymentStatusStateTransitionMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?bool
      */
-    protected $force;
-    
-    /**
-     * @var ?StateReferenceBuilder|StateReference
-     */
-    protected $state;
+    private $force;
 
     /**
-     *
-     * @return string|null
+     * @var StateReference|?StateReferenceBuilder
      */
-    final public function getType()
+    private $state;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|string
      */
-    final public function getForce()
+    public function getType()
     {
-       return $this->force;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return StateReference|null
+     * @return null|bool
      */
-    final public function getState()
+    public function getForce()
     {
-       return ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state);
+        return $this->force;
     }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withForce(?bool $force)
+    public function withForce(?bool $force)
     {
         $this->force = $force;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?StateReference $state)
+    public function withState(?StateReference $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withStateBuilder(?StateReferenceBuilder $state)
+    public function withStateBuilder(?StateReferenceBuilder $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
-    public function build(): PaymentStatusStateTransitionMessagePayload {
+
+    public function build(): PaymentStatusStateTransitionMessagePayload
+    {
         return new PaymentStatusStateTransitionMessagePayloadModel(
             $this->type,
             $this->force,
             ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state)
         );
     }
-    
+
     public static function of(): PaymentStatusStateTransitionMessagePayloadBuilder
     {
         return new self();

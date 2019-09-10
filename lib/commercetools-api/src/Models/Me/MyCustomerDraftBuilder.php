@@ -1,19 +1,17 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -21,354 +19,344 @@ use DateTimeImmutable;
  */
 final class MyCustomerDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $lastName;
-    
+    private $lastName;
+
     /**
      * @var ?AddressCollection
      */
-    protected $addresses;
-    
+    private $addresses;
+
     /**
      * @var ?int
      */
-    protected $defaultShippingAddress;
-    
+    private $defaultShippingAddress;
+
     /**
-     * @var ?CustomFieldsBuilder|CustomFields
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    protected $custom;
-    
-    /**
-     * @var ?string
-     */
-    protected $companyName;
-    
+    private $custom;
+
     /**
      * @var ?string
      */
-    protected $vatId;
-    
+    private $companyName;
+
+    /**
+     * @var ?string
+     */
+    private $vatId;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $dateOfBirth;
-    
+    private $dateOfBirth;
+
     /**
      * @var ?string
      */
-    protected $locale;
-    
+    private $locale;
+
     /**
      * @var ?string
      */
-    protected $title;
-    
+    private $title;
+
     /**
      * @var ?string
      */
-    protected $firstName;
-    
+    private $firstName;
+
     /**
      * @var ?string
      */
-    protected $password;
-    
+    private $password;
+
     /**
      * @var ?string
      */
-    protected $middleName;
-    
+    private $middleName;
+
     /**
      * @var ?int
      */
-    protected $defaultBillingAddress;
-    
+    private $defaultBillingAddress;
+
     /**
      * @var ?string
      */
-    protected $email;
+    private $email;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getLastName()
+    public function getLastName()
     {
-       return $this->lastName;
+        return $this->lastName;
     }
-    
+
     /**
-     *
-     * @return AddressCollection|null
+     * @return null|AddressCollection
      */
-    final public function getAddresses()
+    public function getAddresses()
     {
-       return $this->addresses;
+        return $this->addresses;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getDefaultShippingAddress()
+    public function getDefaultShippingAddress()
     {
-       return $this->defaultShippingAddress;
+        return $this->defaultShippingAddress;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
-    final public function getCustom()
+    public function getCustom()
     {
-       return ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom);
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCompanyName()
+    public function getCompanyName()
     {
-       return $this->companyName;
+        return $this->companyName;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getVatId()
+    public function getVatId()
     {
-       return $this->vatId;
+        return $this->vatId;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getDateOfBirth()
+    public function getDateOfBirth()
     {
-       return $this->dateOfBirth;
+        return $this->dateOfBirth;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getLocale()
+    public function getLocale()
     {
-       return $this->locale;
+        return $this->locale;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTitle()
+    public function getTitle()
     {
-       return $this->title;
+        return $this->title;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getFirstName()
+    public function getFirstName()
     {
-       return $this->firstName;
+        return $this->firstName;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getPassword()
+    public function getPassword()
     {
-       return $this->password;
+        return $this->password;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMiddleName()
+    public function getMiddleName()
     {
-       return $this->middleName;
+        return $this->middleName;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getDefaultBillingAddress()
+    public function getDefaultBillingAddress()
     {
-       return $this->defaultBillingAddress;
+        return $this->defaultBillingAddress;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getEmail()
+    public function getEmail()
     {
-       return $this->email;
+        return $this->email;
     }
+
     /**
      * @return $this
      */
-    final public function withLastName(?string $lastName)
+    public function withLastName(?string $lastName)
     {
         $this->lastName = $lastName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAddresses(?AddressCollection $addresses)
+    public function withAddresses(?AddressCollection $addresses)
     {
         $this->addresses = $addresses;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDefaultShippingAddress(?int $defaultShippingAddress)
+    public function withDefaultShippingAddress(?int $defaultShippingAddress)
     {
         $this->defaultShippingAddress = $defaultShippingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCompanyName(?string $companyName)
+    public function withCompanyName(?string $companyName)
     {
         $this->companyName = $companyName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVatId(?string $vatId)
+    public function withVatId(?string $vatId)
     {
         $this->vatId = $vatId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
+    public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
     {
         $this->dateOfBirth = $dateOfBirth;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLocale(?string $locale)
+    public function withLocale(?string $locale)
     {
         $this->locale = $locale;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTitle(?string $title)
+    public function withTitle(?string $title)
     {
         $this->title = $title;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFirstName(?string $firstName)
+    public function withFirstName(?string $firstName)
     {
         $this->firstName = $firstName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPassword(?string $password)
+    public function withPassword(?string $password)
     {
         $this->password = $password;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMiddleName(?string $middleName)
+    public function withMiddleName(?string $middleName)
     {
         $this->middleName = $middleName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDefaultBillingAddress(?int $defaultBillingAddress)
+    public function withDefaultBillingAddress(?int $defaultBillingAddress)
     {
         $this->defaultBillingAddress = $defaultBillingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withEmail(?string $email)
+    public function withEmail(?string $email)
     {
         $this->email = $email;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
-    public function build(): MyCustomerDraft {
+
+    public function build(): MyCustomerDraft
+    {
         return new MyCustomerDraftModel(
             $this->lastName,
             $this->addresses,
@@ -386,7 +374,7 @@ final class MyCustomerDraftBuilder implements Builder
             $this->email
         );
     }
-    
+
     public static function of(): MyCustomerDraftBuilder
     {
         return new self();

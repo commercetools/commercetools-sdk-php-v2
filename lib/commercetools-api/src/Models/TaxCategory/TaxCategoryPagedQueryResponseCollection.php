@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\TaxCategory;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TaxCategoryPagedQueryResponse>
+ *
  * @method TaxCategoryPagedQueryResponse current()
  * @method TaxCategoryPagedQueryResponse at($offset)
  */
@@ -20,8 +23,12 @@ class TaxCategoryPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert TaxCategoryPagedQueryResponse $value
      * @psalm-param TaxCategoryPagedQueryResponse|stdClass $value
-     * @return TaxCategoryPagedQueryResponseCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TaxCategoryPagedQueryResponseCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TaxCategoryPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TaxCategoryPagedQueryResponse {
+        return function (int $index): ?TaxCategoryPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TaxCategoryPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

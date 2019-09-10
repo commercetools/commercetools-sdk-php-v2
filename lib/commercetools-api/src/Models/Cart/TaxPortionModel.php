@@ -1,22 +1,35 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Cart;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class TaxPortionModel extends JsonObjectModel implements TaxPortion
 {
-    
+    /**
+     * @var ?Money
+     */
+    protected $amount;
+
+    /**
+     * @var ?int
+     */
+    protected $rate;
+
+    /**
+     * @var ?string
+     */
+    protected $name;
+
     public function __construct(
         Money $amount = null,
         int $rate = null,
@@ -25,88 +38,72 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
         $this->amount = $amount;
         $this->rate = $rate;
         $this->name = $name;
-        
     }
 
     /**
-     * @var ?Money
+     * @return null|Money
      */
-    protected $amount;
-    
-    /**
-     * @var ?int
-     */
-    protected $rate;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
+    public function getAmount()
+    {
+        if (is_null($this->amount)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TaxPortion::FIELD_AMOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->amount = MoneyModel::of($data);
+        }
+
+        return $this->amount;
+    }
 
     /**
-     *
-     * @return Money|null
+     * @return null|int
      */
-    final public function getAmount()
+    public function getRate()
     {
-       if (is_null($this->amount)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(TaxPortion::FIELD_AMOUNT);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->amount = MoneyModel::of($data);
-       }
-       return $this->amount;
+        if (is_null($this->rate)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(TaxPortion::FIELD_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->rate = (int) $data;
+        }
+
+        return $this->rate;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getRate()
+    public function getName()
     {
-       if (is_null($this->rate)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(TaxPortion::FIELD_RATE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->rate = (int)$data;
-       }
-       return $this->rate;
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TaxPortion::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->name = (string) $data;
+        }
+
+        return $this->name;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getName()
-    {
-       if (is_null($this->name)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(TaxPortion::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->name = (string)$data;
-       }
-       return $this->name;
-    }
-    final public function setAmount(?Money $amount): void
+
+    public function setAmount(?Money $amount): void
     {
         $this->amount = $amount;
     }
-    
-    final public function setRate(?int $rate): void
+
+    public function setRate(?int $rate): void
     {
         $this->rate = $rate;
     }
-    
-    final public function setName(?string $name): void
+
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    
 }

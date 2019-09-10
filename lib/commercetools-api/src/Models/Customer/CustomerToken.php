@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\JsonObject;
@@ -11,7 +13,6 @@ use DateTimeImmutable;
 
 interface CustomerToken extends JsonObject
 {
-    
     const FIELD_ID = 'id';
     const FIELD_CREATED_AT = 'createdAt';
     const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
@@ -20,49 +21,44 @@ interface CustomerToken extends JsonObject
     const FIELD_VALUE = 'value';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getId();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerId();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getExpiresAt();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getValue();
+
     public function setId(?string $id): void;
-    
+
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
-    
+
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
-    
+
     public function setCustomerId(?string $customerId): void;
-    
+
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
-    
+
     public function setValue(?string $value): void;
 }

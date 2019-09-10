@@ -1,121 +1,118 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CustomerChangePassword>
  */
 final class CustomerChangePasswordBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $newPassword;
 
     /**
      * @var ?string
      */
-    protected $newPassword;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
      * @var ?string
      */
-    protected $currentPassword;
+    private $currentPassword;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getNewPassword()
+    public function getNewPassword()
     {
-       return $this->newPassword;
+        return $this->newPassword;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCurrentPassword()
+    public function getCurrentPassword()
     {
-       return $this->currentPassword;
+        return $this->currentPassword;
     }
+
     /**
      * @return $this
      */
-    final public function withNewPassword(?string $newPassword)
+    public function withNewPassword(?string $newPassword)
     {
         $this->newPassword = $newPassword;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCurrentPassword(?string $currentPassword)
+    public function withCurrentPassword(?string $currentPassword)
     {
         $this->currentPassword = $currentPassword;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerChangePassword {
+
+    public function build(): CustomerChangePassword
+    {
         return new CustomerChangePasswordModel(
             $this->newPassword,
             $this->id,
@@ -123,7 +120,7 @@ final class CustomerChangePasswordBuilder implements Builder
             $this->currentPassword
         );
     }
-    
+
     public static function of(): CustomerChangePasswordBuilder
     {
         return new self();

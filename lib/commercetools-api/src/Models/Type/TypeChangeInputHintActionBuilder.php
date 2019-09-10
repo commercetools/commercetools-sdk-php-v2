@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<TypeChangeInputHintAction>
  */
 final class TypeChangeInputHintActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $fieldName;
-    
-    /**
-     * @var ?string
-     */
-    protected $inputHint;
+    private $fieldName;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAction()
+    private $inputHint;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getFieldName()
+    public function getAction()
     {
-       return $this->fieldName;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getInputHint()
+    public function getFieldName()
     {
-       return $this->inputHint;
+        return $this->fieldName;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getInputHint()
+    {
+        return $this->inputHint;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFieldName(?string $fieldName)
+    public function withFieldName(?string $fieldName)
     {
         $this->fieldName = $fieldName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInputHint(?string $inputHint)
+    public function withInputHint(?string $inputHint)
     {
         $this->inputHint = $inputHint;
-        
+
         return $this;
     }
-    
-    public function build(): TypeChangeInputHintAction {
+
+    public function build(): TypeChangeInputHintAction
+    {
         return new TypeChangeInputHintActionModel(
             $this->action,
             $this->fieldName,
             $this->inputHint
         );
     }
-    
+
     public static function of(): TypeChangeInputHintActionBuilder
     {
         return new self();

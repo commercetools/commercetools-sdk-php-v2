@@ -1,20 +1,46 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use stdClass;
-
 
 final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFieldError
 {
     const DISCRIMINATOR_VALUE = 'InvalidField';
+
+    /**
+     * @var ?string
+     */
+    protected $code;
+
+    /**
+     * @var ?string
+     */
+    protected $message;
+
+    /**
+     * @var ?array
+     */
+    protected $allowedValues;
+
+    /**
+     * @var ?string
+     */
+    protected $field;
+
+    /**
+     * @var ?JsonObject
+     */
+    protected $invalidValue;
+
     public function __construct(
         string $code = null,
         string $message = null,
@@ -27,141 +53,115 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
         $this->allowedValues = $allowedValues;
         $this->field = $field;
         $this->invalidValue = $invalidValue;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
-    /**
-     * @var ?array
-     */
-    protected $allowedValues;
-    
-    /**
-     * @var ?string
-     */
-    protected $field;
-    
-    /**
-     * @var ?JsonObject
-     */
-    protected $invalidValue;
+    public function getCode()
+    {
+        if (is_null($this->code)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ErrorObject::FIELD_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->code = (string) $data;
+        }
+
+        return $this->code;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCode()
+    public function getMessage()
     {
-       if (is_null($this->code)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ErrorObject::FIELD_CODE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->code = (string)$data;
-       }
-       return $this->code;
+        if (is_null($this->message)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ErrorObject::FIELD_MESSAGE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->message = (string) $data;
+        }
+
+        return $this->message;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|array
      */
-    final public function getMessage()
+    public function getAllowedValues()
     {
-       if (is_null($this->message)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ErrorObject::FIELD_MESSAGE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->message = (string)$data;
-       }
-       return $this->message;
+        if (is_null($this->allowedValues)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(InvalidFieldError::FIELD_ALLOWED_VALUES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->allowedValues = $data;
+        }
+
+        return $this->allowedValues;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|string
      */
-    final public function getAllowedValues()
+    public function getField()
     {
-       if (is_null($this->allowedValues)) {
-           /** @psalm-var ?array<int, mixed> $data */
-           $data = $this->raw(InvalidFieldError::FIELD_ALLOWED_VALUES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->allowedValues = $data;
-       }
-       return $this->allowedValues;
+        if (is_null($this->field)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(InvalidFieldError::FIELD_FIELD);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->field = (string) $data;
+        }
+
+        return $this->field;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|JsonObject
      */
-    final public function getField()
+    public function getInvalidValue()
     {
-       if (is_null($this->field)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(InvalidFieldError::FIELD_FIELD);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->field = (string)$data;
-       }
-       return $this->field;
+        if (is_null($this->invalidValue)) {
+            /** @psalm-var ?stdClass $data */
+            $data = $this->raw(InvalidFieldError::FIELD_INVALID_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->invalidValue = JsonObjectModel::of($data);
+        }
+
+        return $this->invalidValue;
     }
-    
-    /**
-     *
-     * @return JsonObject|null
-     */
-    final public function getInvalidValue()
-    {
-       if (is_null($this->invalidValue)) {
-           /** @psalm-var ?stdClass $data */
-           $data = $this->raw(InvalidFieldError::FIELD_INVALID_VALUE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->invalidValue = JsonObjectModel::of($data);
-       }
-       return $this->invalidValue;
-    }
-    final public function setCode(?string $code): void
+
+    public function setCode(?string $code): void
     {
         $this->code = $code;
     }
-    
-    final public function setMessage(?string $message): void
+
+    public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
-    
-    final public function setAllowedValues(?array $allowedValues): void
+
+    public function setAllowedValues(?array $allowedValues): void
     {
         $this->allowedValues = $allowedValues;
     }
-    
-    final public function setField(?string $field): void
+
+    public function setField(?string $field): void
     {
         $this->field = $field;
     }
-    
-    final public function setInvalidValue(?JsonObject $invalidValue): void
+
+    public function setInvalidValue(?JsonObject $invalidValue): void
     {
         $this->invalidValue = $invalidValue;
     }
-    
 }

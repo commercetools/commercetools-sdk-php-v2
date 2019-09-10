@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Cart;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
@@ -22,10 +19,126 @@ use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class CartDraftModel extends JsonObjectModel implements CartDraft
 {
-    
+    /**
+     * @var ?string
+     */
+    protected $country;
+
+    /**
+     * @var ?string
+     */
+    protected $anonymousId;
+
+    /**
+     * @var ?ShippingRateInputDraft
+     */
+    protected $shippingRateInput;
+
+    /**
+     * @var ?CustomerGroupResourceIdentifier
+     */
+    protected $customerGroup;
+
+    /**
+     * @var ?string
+     */
+    protected $origin;
+
+    /**
+     * @var ?int
+     */
+    protected $deleteDaysAfterLastModification;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?ShippingMethodResourceIdentifier
+     */
+    protected $shippingMethod;
+
+    /**
+     * @var ?string
+     */
+    protected $taxCalculationMode;
+
+    /**
+     * @var ?StoreResourceIdentifier
+     */
+    protected $store;
+
+    /**
+     * @var ?string
+     */
+    protected $locale;
+
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRateForShippingMethod;
+
+    /**
+     * @var ?string
+     */
+    protected $inventoryMode;
+
+    /**
+     * @var ?LineItemDraftCollection
+     */
+    protected $lineItems;
+
+    /**
+     * @var ?string
+     */
+    protected $taxRoundingMode;
+
+    /**
+     * @var ?CustomLineItemDraftCollection
+     */
+    protected $customLineItems;
+
+    /**
+     * @var ?AddressCollection
+     */
+    protected $itemShippingAddresses;
+
+    /**
+     * @var ?string
+     */
+    protected $taxMode;
+
+    /**
+     * @var ?string
+     */
+    protected $customerEmail;
+
+    /**
+     * @var ?string
+     */
+    protected $customerId;
+
+    /**
+     * @var ?Address
+     */
+    protected $shippingAddress;
+
+    /**
+     * @var ?string
+     */
+    protected $currency;
+
+    /**
+     * @var ?Address
+     */
+    protected $billingAddress;
+
     public function __construct(
         string $country = null,
         string $anonymousId = null,
@@ -74,635 +187,521 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         $this->shippingAddress = $shippingAddress;
         $this->currency = $currency;
         $this->billingAddress = $billingAddress;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $country;
-    
-    /**
-     * @var ?string
-     */
-    protected $anonymousId;
-    
-    /**
-     * @var ?ShippingRateInputDraft
-     */
-    protected $shippingRateInput;
-    
-    /**
-     * @var ?CustomerGroupResourceIdentifier
-     */
-    protected $customerGroup;
-    
-    /**
-     * @var ?string
-     */
-    protected $origin;
-    
-    /**
-     * @var ?int
-     */
-    protected $deleteDaysAfterLastModification;
-    
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?ShippingMethodResourceIdentifier
-     */
-    protected $shippingMethod;
-    
-    /**
-     * @var ?string
-     */
-    protected $taxCalculationMode;
-    
-    /**
-     * @var ?StoreResourceIdentifier
-     */
-    protected $store;
-    
-    /**
-     * @var ?string
-     */
-    protected $locale;
-    
-    /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRateForShippingMethod;
-    
-    /**
-     * @var ?string
-     */
-    protected $inventoryMode;
-    
-    /**
-     * @var ?LineItemDraftCollection
-     */
-    protected $lineItems;
-    
-    /**
-     * @var ?string
-     */
-    protected $taxRoundingMode;
-    
-    /**
-     * @var ?CustomLineItemDraftCollection
-     */
-    protected $customLineItems;
-    
-    /**
-     * @var ?AddressCollection
-     */
-    protected $itemShippingAddresses;
-    
-    /**
-     * @var ?string
-     */
-    protected $taxMode;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerEmail;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerId;
-    
-    /**
-     * @var ?Address
-     */
-    protected $shippingAddress;
-    
-    /**
-     * @var ?string
-     */
-    protected $currency;
-    
-    /**
-     * @var ?Address
-     */
-    protected $billingAddress;
+    public function getCountry()
+    {
+        if (is_null($this->country)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_COUNTRY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->country = (string) $data;
+        }
+
+        return $this->country;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCountry()
+    public function getAnonymousId()
     {
-       if (is_null($this->country)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_COUNTRY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->country = (string)$data;
-       }
-       return $this->country;
+        if (is_null($this->anonymousId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_ANONYMOUS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->anonymousId = (string) $data;
+        }
+
+        return $this->anonymousId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ShippingRateInputDraft
      */
-    final public function getAnonymousId()
+    public function getShippingRateInput()
     {
-       if (is_null($this->anonymousId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_ANONYMOUS_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->anonymousId = (string)$data;
-       }
-       return $this->anonymousId;
+        if (is_null($this->shippingRateInput)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDraft::FIELD_SHIPPING_RATE_INPUT);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ShippingRateInputDraftModel::resolveDiscriminatorClass($data);
+            $this->shippingRateInput = $className::of($data);
+        }
+
+        return $this->shippingRateInput;
     }
-    
+
     /**
-     *
-     * @return ShippingRateInputDraft|null
+     * @return null|CustomerGroupResourceIdentifier
      */
-    final public function getShippingRateInput()
+    public function getCustomerGroup()
     {
-       if (is_null($this->shippingRateInput)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartDraft::FIELD_SHIPPING_RATE_INPUT);
-           if (is_null($data)) {
-               return null;
-           }
-           $className = ShippingRateInputDraftModel::resolveDiscriminatorClass($data);
-           $this->shippingRateInput = $className::of($data);
-       }
-       return $this->shippingRateInput;
+        if (is_null($this->customerGroup)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDraft::FIELD_CUSTOMER_GROUP);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customerGroup = CustomerGroupResourceIdentifierModel::of($data);
+        }
+
+        return $this->customerGroup;
     }
-    
+
     /**
-     *
-     * @return CustomerGroupResourceIdentifier|null
+     * @return null|string
      */
-    final public function getCustomerGroup()
+    public function getOrigin()
     {
-       if (is_null($this->customerGroup)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartDraft::FIELD_CUSTOMER_GROUP);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->customerGroup = CustomerGroupResourceIdentifierModel::of($data);
-       }
-       return $this->customerGroup;
+        if (is_null($this->origin)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_ORIGIN);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->origin = (string) $data;
+        }
+
+        return $this->origin;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getOrigin()
+    public function getDeleteDaysAfterLastModification()
     {
-       if (is_null($this->origin)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_ORIGIN);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->origin = (string)$data;
-       }
-       return $this->origin;
+        if (is_null($this->deleteDaysAfterLastModification)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CartDraft::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deleteDaysAfterLastModification = (int) $data;
+        }
+
+        return $this->deleteDaysAfterLastModification;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getDeleteDaysAfterLastModification()
+    public function getCustom()
     {
-       if (is_null($this->deleteDaysAfterLastModification)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(CartDraft::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->deleteDaysAfterLastModification = (int)$data;
-       }
-       return $this->deleteDaysAfterLastModification;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|ShippingMethodResourceIdentifier
      */
-    final public function getCustom()
+    public function getShippingMethod()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartDraft::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsDraftModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->shippingMethod)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDraft::FIELD_SHIPPING_METHOD);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingMethod = ShippingMethodResourceIdentifierModel::of($data);
+        }
+
+        return $this->shippingMethod;
     }
-    
+
     /**
-     *
-     * @return ShippingMethodResourceIdentifier|null
+     * @return null|string
      */
-    final public function getShippingMethod()
+    public function getTaxCalculationMode()
     {
-       if (is_null($this->shippingMethod)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartDraft::FIELD_SHIPPING_METHOD);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->shippingMethod = ShippingMethodResourceIdentifierModel::of($data);
-       }
-       return $this->shippingMethod;
+        if (is_null($this->taxCalculationMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_TAX_CALCULATION_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxCalculationMode = (string) $data;
+        }
+
+        return $this->taxCalculationMode;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|StoreResourceIdentifier
      */
-    final public function getTaxCalculationMode()
+    public function getStore()
     {
-       if (is_null($this->taxCalculationMode)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_TAX_CALCULATION_MODE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->taxCalculationMode = (string)$data;
-       }
-       return $this->taxCalculationMode;
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDraft::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreResourceIdentifierModel::of($data);
+        }
+
+        return $this->store;
     }
-    
+
     /**
-     *
-     * @return StoreResourceIdentifier|null
+     * @return null|string
      */
-    final public function getStore()
+    public function getLocale()
     {
-       if (is_null($this->store)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartDraft::FIELD_STORE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->store = StoreResourceIdentifierModel::of($data);
-       }
-       return $this->store;
+        if (is_null($this->locale)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_LOCALE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->locale = (string) $data;
+        }
+
+        return $this->locale;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ExternalTaxRateDraft
      */
-    final public function getLocale()
+    public function getExternalTaxRateForShippingMethod()
     {
-       if (is_null($this->locale)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_LOCALE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->locale = (string)$data;
-       }
-       return $this->locale;
+        if (is_null($this->externalTaxRateForShippingMethod)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDraft::FIELD_EXTERNAL_TAX_RATE_FOR_SHIPPING_METHOD);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRateForShippingMethod = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRateForShippingMethod;
     }
-    
+
     /**
-     *
-     * @return ExternalTaxRateDraft|null
+     * @return null|string
      */
-    final public function getExternalTaxRateForShippingMethod()
+    public function getInventoryMode()
     {
-       if (is_null($this->externalTaxRateForShippingMethod)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartDraft::FIELD_EXTERNAL_TAX_RATE_FOR_SHIPPING_METHOD);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->externalTaxRateForShippingMethod = ExternalTaxRateDraftModel::of($data);
-       }
-       return $this->externalTaxRateForShippingMethod;
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LineItemDraftCollection
      */
-    final public function getInventoryMode()
+    public function getLineItems()
     {
-       if (is_null($this->inventoryMode)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_INVENTORY_MODE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->inventoryMode = (string)$data;
-       }
-       return $this->inventoryMode;
+        if (is_null($this->lineItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CartDraft::FIELD_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItems = LineItemDraftCollection::fromArray($data);
+        }
+
+        return $this->lineItems;
     }
-    
+
     /**
-     *
-     * @return LineItemDraftCollection|null
+     * @return null|string
      */
-    final public function getLineItems()
+    public function getTaxRoundingMode()
     {
-       if (is_null($this->lineItems)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(CartDraft::FIELD_LINE_ITEMS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->lineItems = LineItemDraftCollection::fromArray($data);
-       }
-       return $this->lineItems;
+        if (is_null($this->taxRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_TAX_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxRoundingMode = (string) $data;
+        }
+
+        return $this->taxRoundingMode;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomLineItemDraftCollection
      */
-    final public function getTaxRoundingMode()
+    public function getCustomLineItems()
     {
-       if (is_null($this->taxRoundingMode)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_TAX_ROUNDING_MODE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->taxRoundingMode = (string)$data;
-       }
-       return $this->taxRoundingMode;
+        if (is_null($this->customLineItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CartDraft::FIELD_CUSTOM_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItems = CustomLineItemDraftCollection::fromArray($data);
+        }
+
+        return $this->customLineItems;
     }
-    
+
     /**
-     *
-     * @return CustomLineItemDraftCollection|null
+     * @return null|AddressCollection
      */
-    final public function getCustomLineItems()
+    public function getItemShippingAddresses()
     {
-       if (is_null($this->customLineItems)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(CartDraft::FIELD_CUSTOM_LINE_ITEMS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->customLineItems = CustomLineItemDraftCollection::fromArray($data);
-       }
-       return $this->customLineItems;
+        if (is_null($this->itemShippingAddresses)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CartDraft::FIELD_ITEM_SHIPPING_ADDRESSES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->itemShippingAddresses = AddressCollection::fromArray($data);
+        }
+
+        return $this->itemShippingAddresses;
     }
-    
+
     /**
-     *
-     * @return AddressCollection|null
+     * @return null|string
      */
-    final public function getItemShippingAddresses()
+    public function getTaxMode()
     {
-       if (is_null($this->itemShippingAddresses)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(CartDraft::FIELD_ITEM_SHIPPING_ADDRESSES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->itemShippingAddresses = AddressCollection::fromArray($data);
-       }
-       return $this->itemShippingAddresses;
+        if (is_null($this->taxMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_TAX_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxMode = (string) $data;
+        }
+
+        return $this->taxMode;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTaxMode()
+    public function getCustomerEmail()
     {
-       if (is_null($this->taxMode)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_TAX_MODE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->taxMode = (string)$data;
-       }
-       return $this->taxMode;
+        if (is_null($this->customerEmail)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_CUSTOMER_EMAIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerEmail = (string) $data;
+        }
+
+        return $this->customerEmail;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCustomerEmail()
+    public function getCustomerId()
     {
-       if (is_null($this->customerEmail)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_CUSTOMER_EMAIL);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->customerEmail = (string)$data;
-       }
-       return $this->customerEmail;
+        if (is_null($this->customerId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_CUSTOMER_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerId = (string) $data;
+        }
+
+        return $this->customerId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|Address
      */
-    final public function getCustomerId()
+    public function getShippingAddress()
     {
-       if (is_null($this->customerId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_CUSTOMER_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->customerId = (string)$data;
-       }
-       return $this->customerId;
+        if (is_null($this->shippingAddress)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDraft::FIELD_SHIPPING_ADDRESS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingAddress = AddressModel::of($data);
+        }
+
+        return $this->shippingAddress;
     }
-    
+
     /**
+     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
      *
-     * @return Address|null
+     * @return null|string
      */
-    final public function getShippingAddress()
+    public function getCurrency()
     {
-       if (is_null($this->shippingAddress)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartDraft::FIELD_SHIPPING_ADDRESS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->shippingAddress = AddressModel::of($data);
-       }
-       return $this->shippingAddress;
+        if (is_null($this->currency)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDraft::FIELD_CURRENCY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->currency = (string) $data;
+        }
+
+        return $this->currency;
     }
-    
+
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-     * @return string|null
+     * @return null|Address
      */
-    final public function getCurrency()
+    public function getBillingAddress()
     {
-       if (is_null($this->currency)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CartDraft::FIELD_CURRENCY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->currency = (string)$data;
-       }
-       return $this->currency;
+        if (is_null($this->billingAddress)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDraft::FIELD_BILLING_ADDRESS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->billingAddress = AddressModel::of($data);
+        }
+
+        return $this->billingAddress;
     }
-    
-    /**
-     *
-     * @return Address|null
-     */
-    final public function getBillingAddress()
-    {
-       if (is_null($this->billingAddress)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartDraft::FIELD_BILLING_ADDRESS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->billingAddress = AddressModel::of($data);
-       }
-       return $this->billingAddress;
-    }
-    final public function setCountry(?string $country): void
+
+    public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
-    
-    final public function setAnonymousId(?string $anonymousId): void
+
+    public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
     }
-    
-    final public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void
+
+    public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void
     {
         $this->shippingRateInput = $shippingRateInput;
     }
-    
-    final public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
+
+    public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
-    
-    final public function setOrigin(?string $origin): void
+
+    public function setOrigin(?string $origin): void
     {
         $this->origin = $origin;
     }
-    
-    final public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
+
+    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
-    
-    final public function setCustom(?CustomFieldsDraft $custom): void
+
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
+
+    public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {
         $this->shippingMethod = $shippingMethod;
     }
-    
-    final public function setTaxCalculationMode(?string $taxCalculationMode): void
+
+    public function setTaxCalculationMode(?string $taxCalculationMode): void
     {
         $this->taxCalculationMode = $taxCalculationMode;
     }
-    
-    final public function setStore(?StoreResourceIdentifier $store): void
+
+    public function setStore(?StoreResourceIdentifier $store): void
     {
         $this->store = $store;
     }
-    
-    final public function setLocale(?string $locale): void
+
+    public function setLocale(?string $locale): void
     {
         $this->locale = $locale;
     }
-    
-    final public function setExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod): void
+
+    public function setExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod): void
     {
         $this->externalTaxRateForShippingMethod = $externalTaxRateForShippingMethod;
     }
-    
-    final public function setInventoryMode(?string $inventoryMode): void
+
+    public function setInventoryMode(?string $inventoryMode): void
     {
         $this->inventoryMode = $inventoryMode;
     }
-    
-    final public function setLineItems(?LineItemDraftCollection $lineItems): void
+
+    public function setLineItems(?LineItemDraftCollection $lineItems): void
     {
         $this->lineItems = $lineItems;
     }
-    
-    final public function setTaxRoundingMode(?string $taxRoundingMode): void
+
+    public function setTaxRoundingMode(?string $taxRoundingMode): void
     {
         $this->taxRoundingMode = $taxRoundingMode;
     }
-    
-    final public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void
+
+    public function setCustomLineItems(?CustomLineItemDraftCollection $customLineItems): void
     {
         $this->customLineItems = $customLineItems;
     }
-    
-    final public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
+
+    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
     }
-    
-    final public function setTaxMode(?string $taxMode): void
+
+    public function setTaxMode(?string $taxMode): void
     {
         $this->taxMode = $taxMode;
     }
-    
-    final public function setCustomerEmail(?string $customerEmail): void
+
+    public function setCustomerEmail(?string $customerEmail): void
     {
         $this->customerEmail = $customerEmail;
     }
-    
-    final public function setCustomerId(?string $customerId): void
+
+    public function setCustomerId(?string $customerId): void
     {
         $this->customerId = $customerId;
     }
-    
-    final public function setShippingAddress(?Address $shippingAddress): void
+
+    public function setShippingAddress(?Address $shippingAddress): void
     {
         $this->shippingAddress = $shippingAddress;
     }
-    
-    final public function setCurrency(?string $currency): void
+
+    public function setCurrency(?string $currency): void
     {
         $this->currency = $currency;
     }
-    
-    final public function setBillingAddress(?Address $billingAddress): void
+
+    public function setBillingAddress(?Address $billingAddress): void
     {
         $this->billingAddress = $billingAddress;
     }
-    
 }

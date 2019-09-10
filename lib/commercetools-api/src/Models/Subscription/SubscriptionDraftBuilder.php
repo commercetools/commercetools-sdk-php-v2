@@ -1,164 +1,161 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<SubscriptionDraft>
  */
 final class SubscriptionDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var DeliveryFormat|?DeliveryFormatBuilder
+     */
+    private $format;
 
     /**
-     * @var ?DeliveryFormatBuilder|DeliveryFormat
+     * @var Destination|?DestinationBuilder
      */
-    protected $format;
-    
-    /**
-     * @var ?DestinationBuilder|Destination
-     */
-    protected $destination;
-    
+    private $destination;
+
     /**
      * @var ?ChangeSubscriptionCollection
      */
-    protected $changes;
-    
+    private $changes;
+
     /**
      * @var ?MessageSubscriptionCollection
      */
-    protected $messages;
-    
+    private $messages;
+
     /**
      * @var ?string
      */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return DeliveryFormat|null
+     * @return null|DeliveryFormat
      */
-    final public function getFormat()
+    public function getFormat()
     {
-       return ($this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format);
+        return $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format;
     }
-    
+
     /**
-     *
-     * @return Destination|null
+     * @return null|Destination
      */
-    final public function getDestination()
+    public function getDestination()
     {
-       return ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination);
+        return $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination;
     }
-    
+
     /**
-     *
-     * @return ChangeSubscriptionCollection|null
+     * @return null|ChangeSubscriptionCollection
      */
-    final public function getChanges()
+    public function getChanges()
     {
-       return $this->changes;
+        return $this->changes;
     }
-    
+
     /**
-     *
-     * @return MessageSubscriptionCollection|null
+     * @return null|MessageSubscriptionCollection
      */
-    final public function getMessages()
+    public function getMessages()
     {
-       return $this->messages;
+        return $this->messages;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withFormat(?DeliveryFormat $format)
+    public function withFormat(?DeliveryFormat $format)
     {
         $this->format = $format;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDestination(?Destination $destination)
+    public function withDestination(?Destination $destination)
     {
         $this->destination = $destination;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withChanges(?ChangeSubscriptionCollection $changes)
+    public function withChanges(?ChangeSubscriptionCollection $changes)
     {
         $this->changes = $changes;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessages(?MessageSubscriptionCollection $messages)
+    public function withMessages(?MessageSubscriptionCollection $messages)
     {
         $this->messages = $messages;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withFormatBuilder(?DeliveryFormatBuilder $format)
+    public function withFormatBuilder(?DeliveryFormatBuilder $format)
     {
         $this->format = $format;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDestinationBuilder(?DestinationBuilder $destination)
+    public function withDestinationBuilder(?DestinationBuilder $destination)
     {
         $this->destination = $destination;
-        
+
         return $this;
     }
-    
-    public function build(): SubscriptionDraft {
+
+    public function build(): SubscriptionDraft
+    {
         return new SubscriptionDraftModel(
             ($this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format),
             ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination),
@@ -167,7 +164,7 @@ final class SubscriptionDraftBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): SubscriptionDraftBuilder
     {
         return new self();

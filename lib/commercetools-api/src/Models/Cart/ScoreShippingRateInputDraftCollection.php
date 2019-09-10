@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ScoreShippingRateInputDraft>
+ *
  * @method ScoreShippingRateInputDraft current()
  * @method ScoreShippingRateInputDraft at($offset)
  */
@@ -20,8 +23,12 @@ class ScoreShippingRateInputDraftCollection extends MapperSequence
     /**
      * @psalm-assert ScoreShippingRateInputDraft $value
      * @psalm-param ScoreShippingRateInputDraft|stdClass $value
-     * @return ScoreShippingRateInputDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ScoreShippingRateInputDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ScoreShippingRateInputDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ScoreShippingRateInputDraft {
+        return function (int $index): ?ScoreShippingRateInputDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ScoreShippingRateInputDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

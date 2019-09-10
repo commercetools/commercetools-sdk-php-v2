@@ -1,169 +1,165 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ProductSetAttributeAction>
  */
 final class ProductSetAttributeActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
      * @var ?int
      */
-    protected $variantId;
-    
+    private $variantId;
+
     /**
      * @var ?string
      */
-    protected $sku;
-    
+    private $sku;
+
     /**
      * @var ?JsonObject
      */
-    protected $value;
+    private $value;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getStaged()
+    public function getStaged()
     {
-       return $this->staged;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVariantId()
+    public function getVariantId()
     {
-       return $this->variantId;
+        return $this->variantId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSku()
+    public function getSku()
     {
-       return $this->sku;
+        return $this->sku;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getValue()
+    public function getValue()
     {
-       return $this->value;
+        return $this->value;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?JsonObject $value)
+    public function withValue(?JsonObject $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
-    public function build(): ProductSetAttributeAction {
+
+    public function build(): ProductSetAttributeAction
+    {
         return new ProductSetAttributeActionModel(
             $this->action,
             $this->name,
@@ -173,7 +169,7 @@ final class ProductSetAttributeActionBuilder implements Builder
             $this->value
         );
     }
-    
+
     public static function of(): ProductSetAttributeActionBuilder
     {
         return new self();

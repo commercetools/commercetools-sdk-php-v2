@@ -1,20 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Customer\CustomerResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftCollection;
+use Commercetools\Base\JsonObject;
 
 interface PaymentDraft extends JsonObject
 {
-    
     const FIELD_CUSTOMER = 'customer';
     const FIELD_ANONYMOUS_ID = 'anonymousId';
     const FIELD_EXTERNAL_ID = 'externalId';
@@ -32,121 +33,107 @@ interface PaymentDraft extends JsonObject
     const FIELD_KEY = 'key';
 
     /**
-     *
-     * @return CustomerResourceIdentifier|null
+     * @return null|CustomerResourceIdentifier
      */
     public function getCustomer();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAnonymousId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getExternalId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getInterfaceId();
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
     public function getAmountPlanned();
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
     public function getAmountAuthorized();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAuthorizedUntil();
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
     public function getAmountPaid();
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
     public function getAmountRefunded();
-    
+
     /**
-     *
-     * @return PaymentMethodInfo|null
+     * @return null|PaymentMethodInfo
      */
     public function getPaymentMethodInfo();
-    
+
     /**
-     *
-     * @return PaymentStatusDraft|null
+     * @return null|PaymentStatusDraft
      */
     public function getPaymentStatus();
-    
+
     /**
-     *
-     * @return TransactionDraftCollection|null
+     * @return null|TransactionDraftCollection
      */
     public function getTransactions();
-    
+
     /**
-     *
-     * @return CustomFieldsDraftCollection|null
+     * @return null|CustomFieldsDraftCollection
      */
     public function getInterfaceInteractions();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
+
     public function setCustomer(?CustomerResourceIdentifier $customer): void;
-    
+
     public function setAnonymousId(?string $anonymousId): void;
-    
+
     public function setExternalId(?string $externalId): void;
-    
+
     public function setInterfaceId(?string $interfaceId): void;
-    
+
     public function setAmountPlanned(?Money $amountPlanned): void;
-    
+
     public function setAmountAuthorized(?Money $amountAuthorized): void;
-    
+
     public function setAuthorizedUntil(?string $authorizedUntil): void;
-    
+
     public function setAmountPaid(?Money $amountPaid): void;
-    
+
     public function setAmountRefunded(?Money $amountRefunded): void;
-    
+
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void;
-    
+
     public function setPaymentStatus(?PaymentStatusDraft $paymentStatus): void;
-    
+
     public function setTransactions(?TransactionDraftCollection $transactions): void;
-    
+
     public function setInterfaceInteractions(?CustomFieldsDraftCollection $interfaceInteractions): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setKey(?string $key): void;
 }

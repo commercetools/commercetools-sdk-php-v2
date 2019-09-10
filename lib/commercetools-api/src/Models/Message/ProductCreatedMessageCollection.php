@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductCreatedMessage>
+ *
  * @method ProductCreatedMessage current()
  * @method ProductCreatedMessage at($offset)
  */
@@ -20,8 +23,12 @@ class ProductCreatedMessageCollection extends MapperSequence
     /**
      * @psalm-assert ProductCreatedMessage $value
      * @psalm-param ProductCreatedMessage|stdClass $value
-     * @return ProductCreatedMessageCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductCreatedMessageCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductCreatedMessageCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductCreatedMessage {
+        return function (int $index): ?ProductCreatedMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductCreatedMessageModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

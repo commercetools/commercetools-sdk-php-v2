@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewUpdateAction>
+ *
  * @method ReviewUpdateAction current()
  * @method ReviewUpdateAction at($offset)
  */
@@ -20,8 +23,12 @@ class ReviewUpdateActionCollection extends MapperSequence
     /**
      * @psalm-assert ReviewUpdateAction $value
      * @psalm-param ReviewUpdateAction|stdClass $value
-     * @return ReviewUpdateActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ReviewUpdateActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ReviewUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ReviewUpdateAction {
+        return function (int $index): ?ReviewUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ReviewUpdateActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

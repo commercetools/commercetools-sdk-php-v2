@@ -1,122 +1,119 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\AssetSourceCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CategorySetAssetSourcesAction>
  */
 final class CategorySetAssetSourcesActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?AssetSourceCollection
      */
-    protected $sources;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetId;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetKey;
+    private $sources;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAction()
-    {
-       return $this->action;
-    }
-    
+    private $assetId;
+
     /**
-     *
-     * @return AssetSourceCollection|null
+     * @var ?string
      */
-    final public function getSources()
+    private $assetKey;
+
+    public function __construct()
     {
-       return $this->sources;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAssetId()
+    public function getAction()
     {
-       return $this->assetId;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|AssetSourceCollection
      */
-    final public function getAssetKey()
+    public function getSources()
     {
-       return $this->assetKey;
+        return $this->sources;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        return $this->assetId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetKey()
+    {
+        return $this->assetKey;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSources(?AssetSourceCollection $sources)
+    public function withSources(?AssetSourceCollection $sources)
     {
         $this->sources = $sources;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetId(?string $assetId)
+    public function withAssetId(?string $assetId)
     {
         $this->assetId = $assetId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetKey(?string $assetKey)
+    public function withAssetKey(?string $assetKey)
     {
         $this->assetKey = $assetKey;
-        
+
         return $this;
     }
-    
-    public function build(): CategorySetAssetSourcesAction {
+
+    public function build(): CategorySetAssetSourcesAction
+    {
         return new CategorySetAssetSourcesActionModel(
             $this->action,
             $this->sources,
@@ -124,7 +121,7 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
             $this->assetKey
         );
     }
-    
+
     public static function of(): CategorySetAssetSourcesActionBuilder
     {
         return new self();

@@ -1,12 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
@@ -14,7 +15,6 @@ use Commercetools\Api\Models\Type\CustomFieldsDraft;
 
 interface CartAddCustomLineItemAction extends CartUpdateAction
 {
-    
     const FIELD_MONEY = 'money';
     const FIELD_NAME = 'name';
     const FIELD_QUANTITY = 'quantity';
@@ -24,57 +24,51 @@ interface CartAddCustomLineItemAction extends CartUpdateAction
     const FIELD_EXTERNAL_TAX_RATE = 'externalTaxRate';
 
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
     public function getMoney();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getQuantity();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSlug();
-    
+
     /**
-     *
-     * @return TaxCategoryResourceIdentifier|null
+     * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return ExternalTaxRateDraft|null
+     * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
+
     public function setMoney(?Money $money): void;
-    
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setQuantity(?int $quantity): void;
-    
+
     public function setSlug(?string $slug): void;
-    
+
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void;
 }

@@ -1,238 +1,234 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
+use Commercetools\Base\Builder;
+use Commercetools\Base\JsonObject;
 
 /**
  * @implements Builder<ChannelDraft>
  */
 final class ChannelDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
-     * @var ?AddressBuilder|Address
+     * @var Address|?AddressBuilder
      */
-    protected $address;
-    
+    private $address;
+
     /**
      * @var ?JsonObject
      */
-    protected $geoLocation;
-    
+    private $geoLocation;
+
     /**
-     * @var ?CustomFieldsDraftBuilder|CustomFieldsDraft
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
      * @var ?array
      */
-    protected $roles;
-    
+    private $roles;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $name;
-    
+    private $name;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $description;
-    
+    private $description;
+
     /**
      * @var ?string
      */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return Address|null
+     * @return null|Address
      */
-    final public function getAddress()
+    public function getAddress()
     {
-       return ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address);
+        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getGeoLocation()
+    public function getGeoLocation()
     {
-       return $this->geoLocation;
+        return $this->geoLocation;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getCustom()
+    public function getCustom()
     {
-       return ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom);
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getRoles()
+    public function getRoles()
     {
-       return $this->roles;
+        return $this->roles;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getName()
+    public function getName()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getDescription()
+    public function getDescription()
     {
-       return ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description);
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withAddress(?Address $address)
+    public function withAddress(?Address $address)
     {
         $this->address = $address;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withGeoLocation(?JsonObject $geoLocation)
+    public function withGeoLocation(?JsonObject $geoLocation)
     {
         $this->geoLocation = $geoLocation;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFieldsDraft $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRoles(?array $roles)
+    public function withRoles(?array $roles)
     {
         $this->roles = $roles;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?LocalizedString $description)
+    public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withAddressBuilder(?AddressBuilder $address)
+    public function withAddressBuilder(?AddressBuilder $address)
     {
         $this->address = $address;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
-    public function build(): ChannelDraft {
+
+    public function build(): ChannelDraft
+    {
         return new ChannelDraftModel(
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
             $this->geoLocation,
@@ -243,7 +239,7 @@ final class ChannelDraftBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): ChannelDraftBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidOperationError>
+ *
  * @method InvalidOperationError current()
  * @method InvalidOperationError at($offset)
  */
@@ -20,8 +23,12 @@ class InvalidOperationErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidOperationError $value
      * @psalm-param InvalidOperationError|stdClass $value
-     * @return InvalidOperationErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InvalidOperationErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InvalidOperationErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InvalidOperationError {
+        return function (int $index): ?InvalidOperationError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InvalidOperationErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

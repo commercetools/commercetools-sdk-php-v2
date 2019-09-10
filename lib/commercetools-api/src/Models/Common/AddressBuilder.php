@@ -1,625 +1,603 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<Address>
  */
 final class AddressBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $country;
 
     /**
      * @var ?string
      */
-    protected $country;
-    
-    /**
-     * @var ?string
-     */
-    protected $lastName;
-    
-    /**
-     * @var ?string
-     */
-    protected $pOBox;
-    
-    /**
-     * @var ?string
-     */
-    protected $city;
-    
-    /**
-     * @var ?string
-     */
-    protected $streetNumber;
-    
-    /**
-     * @var ?string
-     */
-    protected $postalCode;
-    
-    /**
-     * @var ?string
-     */
-    protected $mobile;
-    
-    /**
-     * @var ?string
-     */
-    protected $externalId;
-    
-    /**
-     * @var ?string
-     */
-    protected $additionalAddressInfo;
-    
-    /**
-     * @var ?string
-     */
-    protected $title;
-    
-    /**
-     * @var ?string
-     */
-    protected $building;
-    
-    /**
-     * @var ?string
-     */
-    protected $firstName;
-    
-    /**
-     * @var ?string
-     */
-    protected $streetName;
-    
-    /**
-     * @var ?string
-     */
-    protected $phone;
-    
-    /**
-     * @var ?string
-     */
-    protected $additionalStreetInfo;
-    
-    /**
-     * @var ?string
-     */
-    protected $company;
-    
-    /**
-     * @var ?string
-     */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $salutation;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?string
-     */
-    protected $fax;
-    
-    /**
-     * @var ?string
-     */
-    protected $department;
-    
-    /**
-     * @var ?string
-     */
-    protected $region;
-    
-    /**
-     * @var ?string
-     */
-    protected $email;
-    
-    /**
-     * @var ?string
-     */
-    protected $apartment;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    private $lastName;
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
-     * @return string|null
+     * @var ?string
      */
-    final public function getCountry()
-    {
-       return $this->country;
-    }
-    
+    private $pOBox;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getLastName()
-    {
-       return $this->lastName;
-    }
-    
+    private $city;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getPOBox()
-    {
-       return $this->pOBox;
-    }
-    
+    private $streetNumber;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCity()
-    {
-       return $this->city;
-    }
-    
+    private $postalCode;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getStreetNumber()
-    {
-       return $this->streetNumber;
-    }
-    
+    private $mobile;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getPostalCode()
-    {
-       return $this->postalCode;
-    }
-    
+    private $externalId;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getMobile()
-    {
-       return $this->mobile;
-    }
-    
+    private $additionalAddressInfo;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getExternalId()
-    {
-       return $this->externalId;
-    }
-    
+    private $title;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAdditionalAddressInfo()
-    {
-       return $this->additionalAddressInfo;
-    }
-    
+    private $building;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getTitle()
-    {
-       return $this->title;
-    }
-    
+    private $firstName;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getBuilding()
-    {
-       return $this->building;
-    }
-    
+    private $streetName;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getFirstName()
-    {
-       return $this->firstName;
-    }
-    
+    private $phone;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getStreetName()
-    {
-       return $this->streetName;
-    }
-    
+    private $additionalStreetInfo;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getPhone()
-    {
-       return $this->phone;
-    }
-    
+    private $company;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAdditionalStreetInfo()
-    {
-       return $this->additionalStreetInfo;
-    }
-    
+    private $state;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCompany()
-    {
-       return $this->company;
-    }
-    
+    private $salutation;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getState()
-    {
-       return $this->state;
-    }
-    
+    private $id;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getSalutation()
-    {
-       return $this->salutation;
-    }
-    
+    private $fax;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getId()
-    {
-       return $this->id;
-    }
-    
+    private $department;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getFax()
-    {
-       return $this->fax;
-    }
-    
+    private $region;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getDepartment()
-    {
-       return $this->department;
-    }
-    
+    private $email;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getRegion()
-    {
-       return $this->region;
-    }
-    
+    private $apartment;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getEmail()
+    private $key;
+
+    public function __construct()
     {
-       return $this->email;
     }
-    
+
     /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
      *
-     * @return string|null
+     * @return null|string
      */
-    final public function getApartment()
+    public function getCountry()
     {
-       return $this->apartment;
+        return $this->country;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getLastName()
     {
-       return $this->key;
+        return $this->lastName;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getPOBox()
+    {
+        return $this->pOBox;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getStreetNumber()
+    {
+        return $this->streetNumber;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getMobile()
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAdditionalAddressInfo()
+    {
+        return $this->additionalAddressInfo;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getBuilding()
+    {
+        return $this->building;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getStreetName()
+    {
+        return $this->streetName;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAdditionalStreetInfo()
+    {
+        return $this->additionalStreetInfo;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSalutation()
+    {
+        return $this->salutation;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getFax()
+    {
+        return $this->fax;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDepartment()
+    {
+        return $this->department;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getApartment()
+    {
+        return $this->apartment;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
     /**
      * @return $this
      */
-    final public function withCountry(?string $country)
+    public function withCountry(?string $country)
     {
         $this->country = $country;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastName(?string $lastName)
+    public function withLastName(?string $lastName)
     {
         $this->lastName = $lastName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPOBox(?string $pOBox)
+    public function withPOBox(?string $pOBox)
     {
         $this->pOBox = $pOBox;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCity(?string $city)
+    public function withCity(?string $city)
     {
         $this->city = $city;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStreetNumber(?string $streetNumber)
+    public function withStreetNumber(?string $streetNumber)
     {
         $this->streetNumber = $streetNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPostalCode(?string $postalCode)
+    public function withPostalCode(?string $postalCode)
     {
         $this->postalCode = $postalCode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMobile(?string $mobile)
+    public function withMobile(?string $mobile)
     {
         $this->mobile = $mobile;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalId(?string $externalId)
+    public function withExternalId(?string $externalId)
     {
         $this->externalId = $externalId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAdditionalAddressInfo(?string $additionalAddressInfo)
+    public function withAdditionalAddressInfo(?string $additionalAddressInfo)
     {
         $this->additionalAddressInfo = $additionalAddressInfo;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTitle(?string $title)
+    public function withTitle(?string $title)
     {
         $this->title = $title;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withBuilding(?string $building)
+    public function withBuilding(?string $building)
     {
         $this->building = $building;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFirstName(?string $firstName)
+    public function withFirstName(?string $firstName)
     {
         $this->firstName = $firstName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStreetName(?string $streetName)
+    public function withStreetName(?string $streetName)
     {
         $this->streetName = $streetName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPhone(?string $phone)
+    public function withPhone(?string $phone)
     {
         $this->phone = $phone;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAdditionalStreetInfo(?string $additionalStreetInfo)
+    public function withAdditionalStreetInfo(?string $additionalStreetInfo)
     {
         $this->additionalStreetInfo = $additionalStreetInfo;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCompany(?string $company)
+    public function withCompany(?string $company)
     {
         $this->company = $company;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?string $state)
+    public function withState(?string $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSalutation(?string $salutation)
+    public function withSalutation(?string $salutation)
     {
         $this->salutation = $salutation;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFax(?string $fax)
+    public function withFax(?string $fax)
     {
         $this->fax = $fax;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDepartment(?string $department)
+    public function withDepartment(?string $department)
     {
         $this->department = $department;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRegion(?string $region)
+    public function withRegion(?string $region)
     {
         $this->region = $region;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withEmail(?string $email)
+    public function withEmail(?string $email)
     {
         $this->email = $email;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withApartment(?string $apartment)
+    public function withApartment(?string $apartment)
     {
         $this->apartment = $apartment;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
-    public function build(): Address {
+
+    public function build(): Address
+    {
         return new AddressModel(
             $this->country,
             $this->lastName,
@@ -648,7 +626,7 @@ final class AddressBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): AddressBuilder
     {
         return new self();

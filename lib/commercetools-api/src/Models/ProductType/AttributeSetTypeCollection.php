@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeSetType>
+ *
  * @method AttributeSetType current()
  * @method AttributeSetType at($offset)
  */
@@ -20,8 +23,12 @@ class AttributeSetTypeCollection extends MapperSequence
     /**
      * @psalm-assert AttributeSetType $value
      * @psalm-param AttributeSetType|stdClass $value
-     * @return AttributeSetTypeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return AttributeSetTypeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class AttributeSetTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?AttributeSetType {
+        return function (int $index): ?AttributeSetType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = AttributeSetTypeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

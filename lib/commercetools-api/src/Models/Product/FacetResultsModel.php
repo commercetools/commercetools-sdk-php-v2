@@ -1,25 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use stdClass;
-
 
 final class FacetResultsModel extends JsonObjectModel implements FacetResults
 {
-    
     public function __construct(
     ) {
-        
     }
-
 
     /**
      * @return mixed
@@ -30,11 +26,11 @@ final class FacetResultsModel extends JsonObjectModel implements FacetResults
         if (is_null($data)) {
             return null;
         }
-        if (preg_match(FacetResults::FIELD_PATTERN0, $key) === 1) {
-            /** @psalm-var stdClass $data */
+        if (1 === preg_match(FacetResults::FIELD_PATTERN0, $key)) {
+            // @psalm-var stdClass $data
             return JsonObjectModel::of($data);
         }
+
         return $data;
     }
-    
 }

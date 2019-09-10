@@ -1,23 +1,46 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Order;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductVariantImportDraftModel extends JsonObjectModel implements ProductVariantImportDraft
 {
-    
+    /**
+     * @var ?ImageCollection
+     */
+    protected $images;
+
+    /**
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
+
+    /**
+     * @var ?int
+     */
+    protected $id;
+
+    /**
+     * @var ?PriceDraftCollection
+     */
+    protected $prices;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
     public function __construct(
         ImageCollection $images = null,
         AttributeCollection $attributes = null,
@@ -30,141 +53,115 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
         $this->id = $id;
         $this->prices = $prices;
         $this->sku = $sku;
-        
     }
 
     /**
-     * @var ?ImageCollection
+     * @return null|ImageCollection
      */
-    protected $images;
-    
-    /**
-     * @var ?AttributeCollection
-     */
-    protected $attributes;
-    
-    /**
-     * @var ?int
-     */
-    protected $id;
-    
-    /**
-     * @var ?PriceDraftCollection
-     */
-    protected $prices;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
+    public function getImages()
+    {
+        if (is_null($this->images)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantImportDraft::FIELD_IMAGES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->images = ImageCollection::fromArray($data);
+        }
+
+        return $this->images;
+    }
 
     /**
-     *
-     * @return ImageCollection|null
+     * @return null|AttributeCollection
      */
-    final public function getImages()
+    public function getAttributes()
     {
-       if (is_null($this->images)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductVariantImportDraft::FIELD_IMAGES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->images = ImageCollection::fromArray($data);
-       }
-       return $this->images;
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantImportDraft::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
     }
-    
+
     /**
-     *
-     * @return AttributeCollection|null
+     * @return null|int
      */
-    final public function getAttributes()
+    public function getId()
     {
-       if (is_null($this->attributes)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductVariantImportDraft::FIELD_ATTRIBUTES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->attributes = AttributeCollection::fromArray($data);
-       }
-       return $this->attributes;
+        if (is_null($this->id)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductVariantImportDraft::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (int) $data;
+        }
+
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|PriceDraftCollection
      */
-    final public function getId()
+    public function getPrices()
     {
-       if (is_null($this->id)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ProductVariantImportDraft::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (int)$data;
-       }
-       return $this->id;
+        if (is_null($this->prices)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantImportDraft::FIELD_PRICES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->prices = PriceDraftCollection::fromArray($data);
+        }
+
+        return $this->prices;
     }
-    
+
     /**
-     *
-     * @return PriceDraftCollection|null
+     * @return null|string
      */
-    final public function getPrices()
+    public function getSku()
     {
-       if (is_null($this->prices)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductVariantImportDraft::FIELD_PRICES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->prices = PriceDraftCollection::fromArray($data);
-       }
-       return $this->prices;
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductVariantImportDraft::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getSku()
-    {
-       if (is_null($this->sku)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductVariantImportDraft::FIELD_SKU);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sku = (string)$data;
-       }
-       return $this->sku;
-    }
-    final public function setImages(?ImageCollection $images): void
+
+    public function setImages(?ImageCollection $images): void
     {
         $this->images = $images;
     }
-    
-    final public function setAttributes(?AttributeCollection $attributes): void
+
+    public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
     }
-    
-    final public function setId(?int $id): void
+
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
-    
-    final public function setPrices(?PriceDraftCollection $prices): void
+
+    public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
-    
-    final public function setSku(?string $sku): void
+
+    public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
-    
 }

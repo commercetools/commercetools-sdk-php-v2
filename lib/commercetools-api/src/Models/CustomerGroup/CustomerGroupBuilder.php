@@ -1,24 +1,20 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
-use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -26,254 +22,249 @@ use DateTimeImmutable;
  */
 final class CustomerGroupBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
-    /**
-     * @var ?CreatedByBuilder|CreatedBy
-     */
-    protected $createdBy;
-    
-    /**
-     * @var ?LastModifiedByBuilder|LastModifiedBy
-     */
-    protected $lastModifiedBy;
-    
-    /**
-     * @var ?CustomFieldsBuilder|CustomFields
-     */
-    protected $custom;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    private $version;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var CreatedBy|?CreatedByBuilder
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $createdBy;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var LastModifiedBy|?LastModifiedByBuilder
      */
-    final public function getLastModifiedAt()
-    {
-       return $this->lastModifiedAt;
-    }
-    
+    private $lastModifiedBy;
+
     /**
-     *
-     * @return string|null
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    final public function getId()
-    {
-       return $this->id;
-    }
-    
+    private $custom;
+
     /**
-     *
-     * @return int|null
+     * @var ?string
      */
-    final public function getVersion()
-    {
-       return $this->version;
-    }
-    
+    private $name;
+
     /**
-     *
-     * @return CreatedBy|null
+     * @var ?string
      */
-    final public function getCreatedBy()
+    private $key;
+
+    public function __construct()
     {
-       return ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy);
     }
-    
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @return null|DateTimeImmutable
      */
-    final public function getLastModifiedBy()
+    public function getCreatedAt()
     {
-       return ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy);
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCustom()
+    public function getLastModifiedAt()
     {
-       return ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom);
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getId()
     {
-       return $this->name;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getKey()
+    public function getVersion()
     {
-       return $this->key;
+        return $this->version;
     }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+    }
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerGroup {
+
+    public function build(): CustomerGroup
+    {
         return new CustomerGroupModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -286,7 +277,7 @@ final class CustomerGroupBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): CustomerGroupBuilder
     {
         return new self();

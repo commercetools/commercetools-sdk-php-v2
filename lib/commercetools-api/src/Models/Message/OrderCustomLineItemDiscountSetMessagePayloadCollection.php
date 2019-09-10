@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderCustomLineItemDiscountSetMessagePayload>
+ *
  * @method OrderCustomLineItemDiscountSetMessagePayload current()
  * @method OrderCustomLineItemDiscountSetMessagePayload at($offset)
  */
@@ -20,8 +23,12 @@ class OrderCustomLineItemDiscountSetMessagePayloadCollection extends MapperSeque
     /**
      * @psalm-assert OrderCustomLineItemDiscountSetMessagePayload $value
      * @psalm-param OrderCustomLineItemDiscountSetMessagePayload|stdClass $value
-     * @return OrderCustomLineItemDiscountSetMessagePayloadCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderCustomLineItemDiscountSetMessagePayloadCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderCustomLineItemDiscountSetMessagePayloadCollection extends MapperSeque
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderCustomLineItemDiscountSetMessagePayload {
+        return function (int $index): ?OrderCustomLineItemDiscountSetMessagePayload {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderCustomLineItemDiscountSetMessagePayloadModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

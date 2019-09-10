@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DiscountCodeSetValidFromAction>
+ *
  * @method DiscountCodeSetValidFromAction current()
  * @method DiscountCodeSetValidFromAction at($offset)
  */
@@ -20,8 +23,12 @@ class DiscountCodeSetValidFromActionCollection extends MapperSequence
     /**
      * @psalm-assert DiscountCodeSetValidFromAction $value
      * @psalm-param DiscountCodeSetValidFromAction|stdClass $value
-     * @return DiscountCodeSetValidFromActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return DiscountCodeSetValidFromActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class DiscountCodeSetValidFromActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?DiscountCodeSetValidFromAction {
+        return function (int $index): ?DiscountCodeSetValidFromAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = DiscountCodeSetValidFromActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

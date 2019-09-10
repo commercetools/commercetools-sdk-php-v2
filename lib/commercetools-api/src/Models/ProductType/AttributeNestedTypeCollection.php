@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeNestedType>
+ *
  * @method AttributeNestedType current()
  * @method AttributeNestedType at($offset)
  */
@@ -20,8 +23,12 @@ class AttributeNestedTypeCollection extends MapperSequence
     /**
      * @psalm-assert AttributeNestedType $value
      * @psalm-param AttributeNestedType|stdClass $value
-     * @return AttributeNestedTypeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return AttributeNestedTypeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class AttributeNestedTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?AttributeNestedType {
+        return function (int $index): ?AttributeNestedType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = AttributeNestedTypeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

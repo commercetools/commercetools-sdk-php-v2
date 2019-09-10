@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExternalTaxRateDraft>
+ *
  * @method ExternalTaxRateDraft current()
  * @method ExternalTaxRateDraft at($offset)
  */
@@ -20,8 +23,12 @@ class ExternalTaxRateDraftCollection extends MapperSequence
     /**
      * @psalm-assert ExternalTaxRateDraft $value
      * @psalm-param ExternalTaxRateDraft|stdClass $value
-     * @return ExternalTaxRateDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ExternalTaxRateDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ExternalTaxRateDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ExternalTaxRateDraft {
+        return function (int $index): ?ExternalTaxRateDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ExternalTaxRateDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

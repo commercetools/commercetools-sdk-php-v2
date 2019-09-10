@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<OrderEditUpdate>
  */
 final class OrderEditUpdateBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?bool
      */
-    protected $dryRun;
-    
+    private $dryRun;
+
     /**
      * @var ?OrderEditUpdateActionCollection
      */
-    protected $actions;
-    
+    private $actions;
+
     /**
      * @var ?int
      */
-    protected $version;
+    private $version;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getDryRun()
+    public function getDryRun()
     {
-       return $this->dryRun;
+        return $this->dryRun;
     }
-    
+
     /**
-     *
-     * @return OrderEditUpdateActionCollection|null
+     * @return null|OrderEditUpdateActionCollection
      */
-    final public function getActions()
+    public function getActions()
     {
-       return $this->actions;
+        return $this->actions;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
+
     /**
      * @return $this
      */
-    final public function withDryRun(?bool $dryRun)
+    public function withDryRun(?bool $dryRun)
     {
         $this->dryRun = $dryRun;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withActions(?OrderEditUpdateActionCollection $actions)
+    public function withActions(?OrderEditUpdateActionCollection $actions)
     {
         $this->actions = $actions;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
-    public function build(): OrderEditUpdate {
+
+    public function build(): OrderEditUpdate
+    {
         return new OrderEditUpdateModel(
             $this->dryRun,
             $this->actions,
             $this->version
         );
     }
-    
+
     public static function of(): OrderEditUpdateBuilder
     {
         return new self();

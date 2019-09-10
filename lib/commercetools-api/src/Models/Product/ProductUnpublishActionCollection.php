@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductUnpublishAction>
+ *
  * @method ProductUnpublishAction current()
  * @method ProductUnpublishAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductUnpublishActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductUnpublishAction $value
      * @psalm-param ProductUnpublishAction|stdClass $value
-     * @return ProductUnpublishActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductUnpublishActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductUnpublishActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductUnpublishAction {
+        return function (int $index): ?ProductUnpublishAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductUnpublishActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

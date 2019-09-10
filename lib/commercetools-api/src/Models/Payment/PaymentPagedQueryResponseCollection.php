@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PaymentPagedQueryResponse>
+ *
  * @method PaymentPagedQueryResponse current()
  * @method PaymentPagedQueryResponse at($offset)
  */
@@ -20,8 +23,12 @@ class PaymentPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert PaymentPagedQueryResponse $value
      * @psalm-param PaymentPagedQueryResponse|stdClass $value
-     * @return PaymentPagedQueryResponseCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return PaymentPagedQueryResponseCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class PaymentPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?PaymentPagedQueryResponse {
+        return function (int $index): ?PaymentPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = PaymentPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

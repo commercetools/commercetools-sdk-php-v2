@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<OrderReturnShipmentStateChangedMessagePayload>
  */
 final class OrderReturnShipmentStateChangedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $returnItemId;
-    
-    /**
-     * @var ?string
-     */
-    protected $returnShipmentState;
+    private $returnItemId;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getType()
+    private $returnShipmentState;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getReturnItemId()
+    public function getType()
     {
-       return $this->returnItemId;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getReturnShipmentState()
+    public function getReturnItemId()
     {
-       return $this->returnShipmentState;
+        return $this->returnItemId;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getReturnShipmentState()
+    {
+        return $this->returnShipmentState;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withReturnItemId(?string $returnItemId)
+    public function withReturnItemId(?string $returnItemId)
     {
         $this->returnItemId = $returnItemId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withReturnShipmentState(?string $returnShipmentState)
+    public function withReturnShipmentState(?string $returnShipmentState)
     {
         $this->returnShipmentState = $returnShipmentState;
-        
+
         return $this;
     }
-    
-    public function build(): OrderReturnShipmentStateChangedMessagePayload {
+
+    public function build(): OrderReturnShipmentStateChangedMessagePayload
+    {
         return new OrderReturnShipmentStateChangedMessagePayloadModel(
             $this->type,
             $this->returnItemId,
             $this->returnShipmentState
         );
     }
-    
+
     public static function of(): OrderReturnShipmentStateChangedMessagePayloadBuilder
     {
         return new self();

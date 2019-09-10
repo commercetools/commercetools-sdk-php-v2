@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderSetReturnPaymentStateAction>
+ *
  * @method OrderSetReturnPaymentStateAction current()
  * @method OrderSetReturnPaymentStateAction at($offset)
  */
@@ -20,8 +23,12 @@ class OrderSetReturnPaymentStateActionCollection extends MapperSequence
     /**
      * @psalm-assert OrderSetReturnPaymentStateAction $value
      * @psalm-param OrderSetReturnPaymentStateAction|stdClass $value
-     * @return OrderSetReturnPaymentStateActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderSetReturnPaymentStateActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderSetReturnPaymentStateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderSetReturnPaymentStateAction {
+        return function (int $index): ?OrderSetReturnPaymentStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderSetReturnPaymentStateActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,22 +1,35 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Payment;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMethodInfo
 {
-    
+    /**
+     * @var ?string
+     */
+    protected $method;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $paymentInterface;
+
     public function __construct(
         string $method = null,
         LocalizedString $name = null,
@@ -25,88 +38,72 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
         $this->method = $method;
         $this->name = $name;
         $this->paymentInterface = $paymentInterface;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $method;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $paymentInterface;
+    public function getMethod()
+    {
+        if (is_null($this->method)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentMethodInfo::FIELD_METHOD);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->method = (string) $data;
+        }
+
+        return $this->method;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getMethod()
+    public function getName()
     {
-       if (is_null($this->method)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(PaymentMethodInfo::FIELD_METHOD);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->method = (string)$data;
-       }
-       return $this->method;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(PaymentMethodInfo::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getName()
+    public function getPaymentInterface()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(PaymentMethodInfo::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->paymentInterface)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentMethodInfo::FIELD_PAYMENT_INTERFACE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->paymentInterface = (string) $data;
+        }
+
+        return $this->paymentInterface;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getPaymentInterface()
-    {
-       if (is_null($this->paymentInterface)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(PaymentMethodInfo::FIELD_PAYMENT_INTERFACE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->paymentInterface = (string)$data;
-       }
-       return $this->paymentInterface;
-    }
-    final public function setMethod(?string $method): void
+
+    public function setMethod(?string $method): void
     {
         $this->method = $method;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setPaymentInterface(?string $paymentInterface): void
+
+    public function setPaymentInterface(?string $paymentInterface): void
     {
         $this->paymentInterface = $paymentInterface;
     }
-    
 }

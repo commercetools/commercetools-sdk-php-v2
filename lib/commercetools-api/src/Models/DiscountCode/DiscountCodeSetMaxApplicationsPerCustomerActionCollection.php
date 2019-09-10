@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DiscountCodeSetMaxApplicationsPerCustomerAction>
+ *
  * @method DiscountCodeSetMaxApplicationsPerCustomerAction current()
  * @method DiscountCodeSetMaxApplicationsPerCustomerAction at($offset)
  */
@@ -20,8 +23,12 @@ class DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends MapperSe
     /**
      * @psalm-assert DiscountCodeSetMaxApplicationsPerCustomerAction $value
      * @psalm-param DiscountCodeSetMaxApplicationsPerCustomerAction|stdClass $value
-     * @return DiscountCodeSetMaxApplicationsPerCustomerActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return DiscountCodeSetMaxApplicationsPerCustomerActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class DiscountCodeSetMaxApplicationsPerCustomerActionCollection extends MapperSe
      */
     protected function mapper()
     {
-        return function(int $index): ?DiscountCodeSetMaxApplicationsPerCustomerAction {
+        return function (int $index): ?DiscountCodeSetMaxApplicationsPerCustomerAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = DiscountCodeSetMaxApplicationsPerCustomerActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

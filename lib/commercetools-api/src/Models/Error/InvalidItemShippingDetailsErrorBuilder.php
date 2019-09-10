@@ -1,121 +1,118 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<InvalidItemShippingDetailsError>
  */
 final class InvalidItemShippingDetailsErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
-    /**
-     * @var ?string
-     */
-    protected $itemId;
-    
-    /**
-     * @var ?string
-     */
-    protected $subject;
+    private $message;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCode()
-    {
-       return $this->code;
-    }
-    
+    private $itemId;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getMessage()
+    private $subject;
+
+    public function __construct()
     {
-       return $this->message;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getItemId()
+    public function getCode()
     {
-       return $this->itemId;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSubject()
+    public function getMessage()
     {
-       return $this->subject;
+        return $this->message;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getItemId()
+    {
+        return $this->itemId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItemId(?string $itemId)
+    public function withItemId(?string $itemId)
     {
         $this->itemId = $itemId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSubject(?string $subject)
+    public function withSubject(?string $subject)
     {
         $this->subject = $subject;
-        
+
         return $this;
     }
-    
-    public function build(): InvalidItemShippingDetailsError {
+
+    public function build(): InvalidItemShippingDetailsError
+    {
         return new InvalidItemShippingDetailsErrorModel(
             $this->code,
             $this->message,
@@ -123,7 +120,7 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
             $this->subject
         );
     }
-    
+
     public static function of(): InvalidItemShippingDetailsErrorBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<GoogleCloudPubSubDestination>
+ *
  * @method GoogleCloudPubSubDestination current()
  * @method GoogleCloudPubSubDestination at($offset)
  */
@@ -20,8 +23,12 @@ class GoogleCloudPubSubDestinationCollection extends MapperSequence
     /**
      * @psalm-assert GoogleCloudPubSubDestination $value
      * @psalm-param GoogleCloudPubSubDestination|stdClass $value
-     * @return GoogleCloudPubSubDestinationCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return GoogleCloudPubSubDestinationCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class GoogleCloudPubSubDestinationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?GoogleCloudPubSubDestination {
+        return function (int $index): ?GoogleCloudPubSubDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = GoogleCloudPubSubDestinationModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

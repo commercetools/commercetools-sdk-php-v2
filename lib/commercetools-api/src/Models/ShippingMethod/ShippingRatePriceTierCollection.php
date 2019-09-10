@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingRatePriceTier>
+ *
  * @method ShippingRatePriceTier current()
  * @method ShippingRatePriceTier at($offset)
  */
@@ -20,8 +23,12 @@ class ShippingRatePriceTierCollection extends MapperSequence
     /**
      * @psalm-assert ShippingRatePriceTier $value
      * @psalm-param ShippingRatePriceTier|stdClass $value
-     * @return ShippingRatePriceTierCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ShippingRatePriceTierCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ShippingRatePriceTierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ShippingRatePriceTier {
+        return function (int $index): ?ShippingRatePriceTier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ShippingRatePriceTierModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

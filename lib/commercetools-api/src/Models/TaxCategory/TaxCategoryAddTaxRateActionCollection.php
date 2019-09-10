@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\TaxCategory;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TaxCategoryAddTaxRateAction>
+ *
  * @method TaxCategoryAddTaxRateAction current()
  * @method TaxCategoryAddTaxRateAction at($offset)
  */
@@ -20,8 +23,12 @@ class TaxCategoryAddTaxRateActionCollection extends MapperSequence
     /**
      * @psalm-assert TaxCategoryAddTaxRateAction $value
      * @psalm-param TaxCategoryAddTaxRateAction|stdClass $value
-     * @return TaxCategoryAddTaxRateActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TaxCategoryAddTaxRateActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TaxCategoryAddTaxRateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TaxCategoryAddTaxRateAction {
+        return function (int $index): ?TaxCategoryAddTaxRateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TaxCategoryAddTaxRateActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

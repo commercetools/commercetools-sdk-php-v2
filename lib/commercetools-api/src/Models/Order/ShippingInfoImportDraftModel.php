@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Order;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
@@ -21,10 +18,56 @@ use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ShippingInfoImportDraftModel extends JsonObjectModel implements ShippingInfoImportDraft
 {
-    
+    /**
+     * @var ?TaxRate
+     */
+    protected $taxRate;
+
+    /**
+     * @var ?ShippingRateDraft
+     */
+    protected $shippingRate;
+
+    /**
+     * @var ?DiscountedLineItemPriceDraft
+     */
+    protected $discountedPrice;
+
+    /**
+     * @var ?string
+     */
+    protected $shippingMethodState;
+
+    /**
+     * @var ?Money
+     */
+    protected $price;
+
+    /**
+     * @var ?ShippingMethodResourceIdentifier
+     */
+    protected $shippingMethod;
+
+    /**
+     * @var ?string
+     */
+    protected $shippingMethodName;
+
+    /**
+     * @var ?DeliveryCollection
+     */
+    protected $deliveries;
+
+    /**
+     * @var ?TaxCategoryResourceIdentifier
+     */
+    protected $taxCategory;
+
     public function __construct(
         TaxRate $taxRate = null,
         ShippingRateDraft $shippingRate = null,
@@ -45,255 +88,209 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
         $this->shippingMethodName = $shippingMethodName;
         $this->deliveries = $deliveries;
         $this->taxCategory = $taxCategory;
-        
     }
 
     /**
-     * @var ?TaxRate
+     * @return null|TaxRate
      */
-    protected $taxRate;
-    
-    /**
-     * @var ?ShippingRateDraft
-     */
-    protected $shippingRate;
-    
-    /**
-     * @var ?DiscountedLineItemPriceDraft
-     */
-    protected $discountedPrice;
-    
-    /**
-     * @var ?string
-     */
-    protected $shippingMethodState;
-    
-    /**
-     * @var ?Money
-     */
-    protected $price;
-    
-    /**
-     * @var ?ShippingMethodResourceIdentifier
-     */
-    protected $shippingMethod;
-    
-    /**
-     * @var ?string
-     */
-    protected $shippingMethodName;
-    
-    /**
-     * @var ?DeliveryCollection
-     */
-    protected $deliveries;
-    
-    /**
-     * @var ?TaxCategoryResourceIdentifier
-     */
-    protected $taxCategory;
+    public function getTaxRate()
+    {
+        if (is_null($this->taxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShippingInfoImportDraft::FIELD_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxRate = TaxRateModel::of($data);
+        }
+
+        return $this->taxRate;
+    }
 
     /**
-     *
-     * @return TaxRate|null
+     * @return null|ShippingRateDraft
      */
-    final public function getTaxRate()
+    public function getShippingRate()
     {
-       if (is_null($this->taxRate)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ShippingInfoImportDraft::FIELD_TAX_RATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->taxRate = TaxRateModel::of($data);
-       }
-       return $this->taxRate;
+        if (is_null($this->shippingRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingRate = ShippingRateDraftModel::of($data);
+        }
+
+        return $this->shippingRate;
     }
-    
+
     /**
-     *
-     * @return ShippingRateDraft|null
+     * @return null|DiscountedLineItemPriceDraft
      */
-    final public function getShippingRate()
+    public function getDiscountedPrice()
     {
-       if (is_null($this->shippingRate)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_RATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->shippingRate = ShippingRateDraftModel::of($data);
-       }
-       return $this->shippingRate;
+        if (is_null($this->discountedPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShippingInfoImportDraft::FIELD_DISCOUNTED_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discountedPrice = DiscountedLineItemPriceDraftModel::of($data);
+        }
+
+        return $this->discountedPrice;
     }
-    
+
     /**
-     *
-     * @return DiscountedLineItemPriceDraft|null
+     * @return null|string
      */
-    final public function getDiscountedPrice()
+    public function getShippingMethodState()
     {
-       if (is_null($this->discountedPrice)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ShippingInfoImportDraft::FIELD_DISCOUNTED_PRICE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->discountedPrice = DiscountedLineItemPriceDraftModel::of($data);
-       }
-       return $this->discountedPrice;
+        if (is_null($this->shippingMethodState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_METHOD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingMethodState = (string) $data;
+        }
+
+        return $this->shippingMethodState;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|Money
      */
-    final public function getShippingMethodState()
+    public function getPrice()
     {
-       if (is_null($this->shippingMethodState)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_METHOD_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->shippingMethodState = (string)$data;
-       }
-       return $this->shippingMethodState;
+        if (is_null($this->price)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShippingInfoImportDraft::FIELD_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->price = MoneyModel::of($data);
+        }
+
+        return $this->price;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|ShippingMethodResourceIdentifier
      */
-    final public function getPrice()
+    public function getShippingMethod()
     {
-       if (is_null($this->price)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ShippingInfoImportDraft::FIELD_PRICE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->price = MoneyModel::of($data);
-       }
-       return $this->price;
+        if (is_null($this->shippingMethod)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_METHOD);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingMethod = ShippingMethodResourceIdentifierModel::of($data);
+        }
+
+        return $this->shippingMethod;
     }
-    
+
     /**
-     *
-     * @return ShippingMethodResourceIdentifier|null
+     * @return null|string
      */
-    final public function getShippingMethod()
+    public function getShippingMethodName()
     {
-       if (is_null($this->shippingMethod)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_METHOD);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->shippingMethod = ShippingMethodResourceIdentifierModel::of($data);
-       }
-       return $this->shippingMethod;
+        if (is_null($this->shippingMethodName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_METHOD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingMethodName = (string) $data;
+        }
+
+        return $this->shippingMethodName;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DeliveryCollection
      */
-    final public function getShippingMethodName()
+    public function getDeliveries()
     {
-       if (is_null($this->shippingMethodName)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShippingInfoImportDraft::FIELD_SHIPPING_METHOD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->shippingMethodName = (string)$data;
-       }
-       return $this->shippingMethodName;
+        if (is_null($this->deliveries)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShippingInfoImportDraft::FIELD_DELIVERIES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveries = DeliveryCollection::fromArray($data);
+        }
+
+        return $this->deliveries;
     }
-    
+
     /**
-     *
-     * @return DeliveryCollection|null
+     * @return null|TaxCategoryResourceIdentifier
      */
-    final public function getDeliveries()
+    public function getTaxCategory()
     {
-       if (is_null($this->deliveries)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ShippingInfoImportDraft::FIELD_DELIVERIES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->deliveries = DeliveryCollection::fromArray($data);
-       }
-       return $this->deliveries;
+        if (is_null($this->taxCategory)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShippingInfoImportDraft::FIELD_TAX_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxCategory = TaxCategoryResourceIdentifierModel::of($data);
+        }
+
+        return $this->taxCategory;
     }
-    
-    /**
-     *
-     * @return TaxCategoryResourceIdentifier|null
-     */
-    final public function getTaxCategory()
-    {
-       if (is_null($this->taxCategory)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ShippingInfoImportDraft::FIELD_TAX_CATEGORY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->taxCategory = TaxCategoryResourceIdentifierModel::of($data);
-       }
-       return $this->taxCategory;
-    }
-    final public function setTaxRate(?TaxRate $taxRate): void
+
+    public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
     }
-    
-    final public function setShippingRate(?ShippingRateDraft $shippingRate): void
+
+    public function setShippingRate(?ShippingRateDraft $shippingRate): void
     {
         $this->shippingRate = $shippingRate;
     }
-    
-    final public function setDiscountedPrice(?DiscountedLineItemPriceDraft $discountedPrice): void
+
+    public function setDiscountedPrice(?DiscountedLineItemPriceDraft $discountedPrice): void
     {
         $this->discountedPrice = $discountedPrice;
     }
-    
-    final public function setShippingMethodState(?string $shippingMethodState): void
+
+    public function setShippingMethodState(?string $shippingMethodState): void
     {
         $this->shippingMethodState = $shippingMethodState;
     }
-    
-    final public function setPrice(?Money $price): void
+
+    public function setPrice(?Money $price): void
     {
         $this->price = $price;
     }
-    
-    final public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
+
+    public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {
         $this->shippingMethod = $shippingMethod;
     }
-    
-    final public function setShippingMethodName(?string $shippingMethodName): void
+
+    public function setShippingMethodName(?string $shippingMethodName): void
     {
         $this->shippingMethodName = $shippingMethodName;
     }
-    
-    final public function setDeliveries(?DeliveryCollection $deliveries): void
+
+    public function setDeliveries(?DeliveryCollection $deliveries): void
     {
         $this->deliveries = $deliveries;
     }
-    
-    final public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
+
+    public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
-    
 }

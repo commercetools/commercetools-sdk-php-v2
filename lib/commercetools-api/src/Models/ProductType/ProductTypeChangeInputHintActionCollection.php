@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductTypeChangeInputHintAction>
+ *
  * @method ProductTypeChangeInputHintAction current()
  * @method ProductTypeChangeInputHintAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductTypeChangeInputHintActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductTypeChangeInputHintAction $value
      * @psalm-param ProductTypeChangeInputHintAction|stdClass $value
-     * @return ProductTypeChangeInputHintActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductTypeChangeInputHintActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductTypeChangeInputHintActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductTypeChangeInputHintAction {
+        return function (int $index): ?ProductTypeChangeInputHintAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductTypeChangeInputHintActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,22 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Order;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class OrderSetCustomLineItemShippingDetailsActionModel extends JsonObjectModel implements OrderSetCustomLineItemShippingDetailsAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomLineItemShippingDetails';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?string
+     */
+    protected $customLineItemId;
+
+    /**
+     * @var ?ItemShippingDetailsDraft
+     */
+    protected $shippingDetails;
+
     public function __construct(
         string $action = null,
         string $customLineItemId = null,
@@ -25,88 +40,72 @@ final class OrderSetCustomLineItemShippingDetailsActionModel extends JsonObjectM
         $this->action = $action;
         $this->customLineItemId = $customLineItemId;
         $this->shippingDetails = $shippingDetails;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $customLineItemId;
-    
-    /**
-     * @var ?ItemShippingDetailsDraft
-     */
-    protected $shippingDetails;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getCustomLineItemId()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(OrderUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->customLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderSetCustomLineItemShippingDetailsAction::FIELD_CUSTOM_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemId = (string) $data;
+        }
+
+        return $this->customLineItemId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ItemShippingDetailsDraft
      */
-    final public function getCustomLineItemId()
+    public function getShippingDetails()
     {
-       if (is_null($this->customLineItemId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(OrderSetCustomLineItemShippingDetailsAction::FIELD_CUSTOM_LINE_ITEM_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->customLineItemId = (string)$data;
-       }
-       return $this->customLineItemId;
+        if (is_null($this->shippingDetails)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderSetCustomLineItemShippingDetailsAction::FIELD_SHIPPING_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
+        }
+
+        return $this->shippingDetails;
     }
-    
-    /**
-     *
-     * @return ItemShippingDetailsDraft|null
-     */
-    final public function getShippingDetails()
-    {
-       if (is_null($this->shippingDetails)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(OrderSetCustomLineItemShippingDetailsAction::FIELD_SHIPPING_DETAILS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
-       }
-       return $this->shippingDetails;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setCustomLineItemId(?string $customLineItemId): void
+
+    public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
-    
-    final public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
+
+    public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
     }
-    
 }

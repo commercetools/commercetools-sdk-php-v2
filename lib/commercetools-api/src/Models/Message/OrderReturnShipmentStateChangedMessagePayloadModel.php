@@ -1,20 +1,34 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjectModel implements OrderReturnShipmentStateChangedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'OrderReturnShipmentStateChanged';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?string
+     */
+    protected $returnItemId;
+
+    /**
+     * @var ?string
+     */
+    protected $returnShipmentState;
+
     public function __construct(
         string $type = null,
         string $returnItemId = null,
@@ -23,87 +37,71 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
         $this->type = $type;
         $this->returnItemId = $returnItemId;
         $this->returnShipmentState = $returnShipmentState;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $returnItemId;
-    
-    /**
-     * @var ?string
-     */
-    protected $returnShipmentState;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getReturnItemId()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MessagePayload::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->returnItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderReturnShipmentStateChangedMessagePayload::FIELD_RETURN_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->returnItemId = (string) $data;
+        }
+
+        return $this->returnItemId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getReturnItemId()
+    public function getReturnShipmentState()
     {
-       if (is_null($this->returnItemId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(OrderReturnShipmentStateChangedMessagePayload::FIELD_RETURN_ITEM_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->returnItemId = (string)$data;
-       }
-       return $this->returnItemId;
+        if (is_null($this->returnShipmentState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderReturnShipmentStateChangedMessagePayload::FIELD_RETURN_SHIPMENT_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->returnShipmentState = (string) $data;
+        }
+
+        return $this->returnShipmentState;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getReturnShipmentState()
-    {
-       if (is_null($this->returnShipmentState)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(OrderReturnShipmentStateChangedMessagePayload::FIELD_RETURN_SHIPMENT_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->returnShipmentState = (string)$data;
-       }
-       return $this->returnShipmentState;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setReturnItemId(?string $returnItemId): void
+
+    public function setReturnItemId(?string $returnItemId): void
     {
         $this->returnItemId = $returnItemId;
     }
-    
-    final public function setReturnShipmentState(?string $returnShipmentState): void
+
+    public function setReturnShipmentState(?string $returnShipmentState): void
     {
         $this->returnShipmentState = $returnShipmentState;
     }
-    
 }

@@ -1,170 +1,165 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\TaxCategory\SubRateCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ExternalTaxRateDraft>
  */
 final class ExternalTaxRateDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $country;
-    
+    private $country;
+
     /**
      * @var ?int
      */
-    protected $amount;
-    
+    private $amount;
+
     /**
      * @var ?bool
      */
-    protected $includedInPrice;
-    
+    private $includedInPrice;
+
     /**
      * @var ?string
      */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?string
      */
-    protected $state;
-    
+    private $state;
+
     /**
      * @var ?SubRateCollection
      */
-    protected $subRates;
+    private $subRates;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCountry()
+    public function getCountry()
     {
-       return $this->country;
+        return $this->country;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getAmount()
+    public function getAmount()
     {
-       return $this->amount;
+        return $this->amount;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getIncludedInPrice()
+    public function getIncludedInPrice()
     {
-       return $this->includedInPrice;
+        return $this->includedInPrice;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getState()
+    public function getState()
     {
-       return $this->state;
+        return $this->state;
     }
-    
+
     /**
-     *
-     * @return SubRateCollection|null
+     * @return null|SubRateCollection
      */
-    final public function getSubRates()
+    public function getSubRates()
     {
-       return $this->subRates;
+        return $this->subRates;
     }
+
     /**
      * @return $this
      */
-    final public function withCountry(?string $country)
+    public function withCountry(?string $country)
     {
         $this->country = $country;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAmount(?int $amount)
+    public function withAmount(?int $amount)
     {
         $this->amount = $amount;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withIncludedInPrice(?bool $includedInPrice)
+    public function withIncludedInPrice(?bool $includedInPrice)
     {
         $this->includedInPrice = $includedInPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?string $state)
+    public function withState(?string $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSubRates(?SubRateCollection $subRates)
+    public function withSubRates(?SubRateCollection $subRates)
     {
         $this->subRates = $subRates;
-        
+
         return $this;
     }
-    
-    public function build(): ExternalTaxRateDraft {
+
+    public function build(): ExternalTaxRateDraft
+    {
         return new ExternalTaxRateDraftModel(
             $this->country,
             $this->amount,
@@ -174,7 +169,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
             $this->subRates
         );
     }
-    
+
     public static function of(): ExternalTaxRateDraftBuilder
     {
         return new self();

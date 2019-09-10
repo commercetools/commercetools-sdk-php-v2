@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<OrderStateChangedMessagePayload>
  */
 final class OrderStateChangedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $oldOrderState;
-    
-    /**
-     * @var ?string
-     */
-    protected $orderState;
+    private $oldOrderState;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getType()
+    private $orderState;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getOldOrderState()
+    public function getType()
     {
-       return $this->oldOrderState;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getOrderState()
+    public function getOldOrderState()
     {
-       return $this->orderState;
+        return $this->oldOrderState;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getOrderState()
+    {
+        return $this->orderState;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldOrderState(?string $oldOrderState)
+    public function withOldOrderState(?string $oldOrderState)
     {
         $this->oldOrderState = $oldOrderState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOrderState(?string $orderState)
+    public function withOrderState(?string $orderState)
     {
         $this->orderState = $orderState;
-        
+
         return $this;
     }
-    
-    public function build(): OrderStateChangedMessagePayload {
+
+    public function build(): OrderStateChangedMessagePayload
+    {
         return new OrderStateChangedMessagePayloadModel(
             $this->type,
             $this->oldOrderState,
             $this->orderState
         );
     }
-    
+
     public static function of(): OrderStateChangedMessagePayloadBuilder
     {
         return new self();

@@ -1,19 +1,20 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
+use Commercetools\Base\JsonObject;
 
 interface MyLineItemDraft extends JsonObject
 {
-    
     const FIELD_PRODUCT_ID = 'productId';
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_QUANTITY = 'quantity';
@@ -23,57 +24,51 @@ interface MyLineItemDraft extends JsonObject
     const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getProductId();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getVariantId();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getQuantity();
-    
+
     /**
-     *
-     * @return ChannelResourceIdentifier|null
+     * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
-    
+
     /**
-     *
-     * @return ChannelResourceIdentifier|null
+     * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return ItemShippingDetailsDraft|null
+     * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();
+
     public function setProductId(?string $productId): void;
-    
+
     public function setVariantId(?int $variantId): void;
-    
+
     public function setQuantity(?int $quantity): void;
-    
+
     public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void;
-    
+
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void;
-    
+
     public function setCustom(?CustomFieldsDraft $custom): void;
-    
+
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
 }

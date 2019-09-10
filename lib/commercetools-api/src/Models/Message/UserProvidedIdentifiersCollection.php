@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<UserProvidedIdentifiers>
+ *
  * @method UserProvidedIdentifiers current()
  * @method UserProvidedIdentifiers at($offset)
  */
@@ -20,8 +23,12 @@ class UserProvidedIdentifiersCollection extends MapperSequence
     /**
      * @psalm-assert UserProvidedIdentifiers $value
      * @psalm-param UserProvidedIdentifiers|stdClass $value
-     * @return UserProvidedIdentifiersCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return UserProvidedIdentifiersCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class UserProvidedIdentifiersCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?UserProvidedIdentifiers {
+        return function (int $index): ?UserProvidedIdentifiers {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = UserProvidedIdentifiersModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

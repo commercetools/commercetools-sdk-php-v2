@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Cart;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
@@ -22,10 +19,76 @@ use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class CustomLineItemModel extends JsonObjectModel implements CustomLineItem
 {
-    
+    /**
+     * @var ?TaxRate
+     */
+    protected $taxRate;
+
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?ItemShippingDetails
+     */
+    protected $shippingDetails;
+
+    /**
+     * @var ?TypedMoney
+     */
+    protected $money;
+
+    /**
+     * @var ?TypedMoney
+     */
+    protected $totalPrice;
+
+    /**
+     * @var ?TaxedItemPrice
+     */
+    protected $taxedPrice;
+
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?ItemStateCollection
+     */
+    protected $state;
+
+    /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     * @var ?DiscountedLineItemPriceForQuantityCollection
+     */
+    protected $discountedPricePerQuantity;
+
+    /**
+     * @var ?string
+     */
+    protected $slug;
+
+    /**
+     * @var ?TaxCategoryReference
+     */
+    protected $taxCategory;
+
     public function __construct(
         TaxRate $taxRate = null,
         int $quantity = null,
@@ -54,365 +117,299 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
         $this->slug = $slug;
         $this->taxCategory = $taxCategory;
-        
     }
 
     /**
-     * @var ?TaxRate
+     * @return null|TaxRate
      */
-    protected $taxRate;
-    
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-    
-    /**
-     * @var ?ItemShippingDetails
-     */
-    protected $shippingDetails;
-    
-    /**
-     * @var ?TypedMoney
-     */
-    protected $money;
-    
-    /**
-     * @var ?TypedMoney
-     */
-    protected $totalPrice;
-    
-    /**
-     * @var ?TaxedItemPrice
-     */
-    protected $taxedPrice;
-    
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?ItemStateCollection
-     */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?DiscountedLineItemPriceForQuantityCollection
-     */
-    protected $discountedPricePerQuantity;
-    
-    /**
-     * @var ?string
-     */
-    protected $slug;
-    
-    /**
-     * @var ?TaxCategoryReference
-     */
-    protected $taxCategory;
+    public function getTaxRate()
+    {
+        if (is_null($this->taxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxRate = TaxRateModel::of($data);
+        }
+
+        return $this->taxRate;
+    }
 
     /**
-     *
-     * @return TaxRate|null
+     * @return null|int
      */
-    final public function getTaxRate()
+    public function getQuantity()
     {
-       if (is_null($this->taxRate)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CustomLineItem::FIELD_TAX_RATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->taxRate = TaxRateModel::of($data);
-       }
-       return $this->taxRate;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomLineItem::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|ItemShippingDetails
      */
-    final public function getQuantity()
+    public function getShippingDetails()
     {
-       if (is_null($this->quantity)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(CustomLineItem::FIELD_QUANTITY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->quantity = (int)$data;
-       }
-       return $this->quantity;
+        if (is_null($this->shippingDetails)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_SHIPPING_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingDetails = ItemShippingDetailsModel::of($data);
+        }
+
+        return $this->shippingDetails;
     }
-    
+
     /**
-     *
-     * @return ItemShippingDetails|null
+     * @return null|TypedMoney
      */
-    final public function getShippingDetails()
+    public function getMoney()
     {
-       if (is_null($this->shippingDetails)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CustomLineItem::FIELD_SHIPPING_DETAILS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->shippingDetails = ItemShippingDetailsModel::of($data);
-       }
-       return $this->shippingDetails;
+        if (is_null($this->money)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_MONEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->money = $className::of($data);
+        }
+
+        return $this->money;
     }
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
-    final public function getMoney()
+    public function getTotalPrice()
     {
-       if (is_null($this->money)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CustomLineItem::FIELD_MONEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-           $this->money = $className::of($data);
-       }
-       return $this->money;
+        if (is_null($this->totalPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_TOTAL_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->totalPrice = $className::of($data);
+        }
+
+        return $this->totalPrice;
     }
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TaxedItemPrice
      */
-    final public function getTotalPrice()
+    public function getTaxedPrice()
     {
-       if (is_null($this->totalPrice)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CustomLineItem::FIELD_TOTAL_PRICE);
-           if (is_null($data)) {
-               return null;
-           }
-           $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-           $this->totalPrice = $className::of($data);
-       }
-       return $this->totalPrice;
+        if (is_null($this->taxedPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_TAXED_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxedPrice = TaxedItemPriceModel::of($data);
+        }
+
+        return $this->taxedPrice;
     }
-    
+
     /**
-     *
-     * @return TaxedItemPrice|null
+     * @return null|CustomFields
      */
-    final public function getTaxedPrice()
+    public function getCustom()
     {
-       if (is_null($this->taxedPrice)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CustomLineItem::FIELD_TAXED_PRICE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->taxedPrice = TaxedItemPriceModel::of($data);
-       }
-       return $this->taxedPrice;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|LocalizedString
      */
-    final public function getCustom()
+    public function getName()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CustomLineItem::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|ItemStateCollection
      */
-    final public function getName()
+    public function getState()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CustomLineItem::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->state)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CustomLineItem::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = ItemStateCollection::fromArray($data);
+        }
+
+        return $this->state;
     }
-    
+
     /**
-     *
-     * @return ItemStateCollection|null
+     * @return null|string
      */
-    final public function getState()
+    public function getId()
     {
-       if (is_null($this->state)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(CustomLineItem::FIELD_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->state = ItemStateCollection::fromArray($data);
-       }
-       return $this->state;
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomLineItem::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DiscountedLineItemPriceForQuantityCollection
      */
-    final public function getId()
+    public function getDiscountedPricePerQuantity()
     {
-       if (is_null($this->id)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomLineItem::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (string)$data;
-       }
-       return $this->id;
+        if (is_null($this->discountedPricePerQuantity)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CustomLineItem::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
+        }
+
+        return $this->discountedPricePerQuantity;
     }
-    
+
     /**
-     *
-     * @return DiscountedLineItemPriceForQuantityCollection|null
+     * @return null|string
      */
-    final public function getDiscountedPricePerQuantity()
+    public function getSlug()
     {
-       if (is_null($this->discountedPricePerQuantity)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(CustomLineItem::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
-       }
-       return $this->discountedPricePerQuantity;
+        if (is_null($this->slug)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomLineItem::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->slug = (string) $data;
+        }
+
+        return $this->slug;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|TaxCategoryReference
      */
-    final public function getSlug()
+    public function getTaxCategory()
     {
-       if (is_null($this->slug)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomLineItem::FIELD_SLUG);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->slug = (string)$data;
-       }
-       return $this->slug;
+        if (is_null($this->taxCategory)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_TAX_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxCategory = TaxCategoryReferenceModel::of($data);
+        }
+
+        return $this->taxCategory;
     }
-    
-    /**
-     *
-     * @return TaxCategoryReference|null
-     */
-    final public function getTaxCategory()
-    {
-       if (is_null($this->taxCategory)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CustomLineItem::FIELD_TAX_CATEGORY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->taxCategory = TaxCategoryReferenceModel::of($data);
-       }
-       return $this->taxCategory;
-    }
-    final public function setTaxRate(?TaxRate $taxRate): void
+
+    public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
     }
-    
-    final public function setQuantity(?int $quantity): void
+
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
-    
-    final public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
+
+    public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
     }
-    
-    final public function setMoney(?TypedMoney $money): void
+
+    public function setMoney(?TypedMoney $money): void
     {
         $this->money = $money;
     }
-    
-    final public function setTotalPrice(?TypedMoney $totalPrice): void
+
+    public function setTotalPrice(?TypedMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
-    
-    final public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
+
+    public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
     }
-    
-    final public function setCustom(?CustomFields $custom): void
+
+    public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setState(?ItemStateCollection $state): void
+
+    public function setState(?ItemStateCollection $state): void
     {
         $this->state = $state;
     }
-    
-    final public function setId(?string $id): void
+
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    
-    final public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
+
+    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
     }
-    
-    final public function setSlug(?string $slug): void
+
+    public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
     }
-    
-    final public function setTaxCategory(?TaxCategoryReference $taxCategory): void
+
+    public function setTaxCategory(?TaxCategoryReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
-    
 }

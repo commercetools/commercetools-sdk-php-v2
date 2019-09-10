@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartSetCustomLineItemShippingDetailsAction>
+ *
  * @method CartSetCustomLineItemShippingDetailsAction current()
  * @method CartSetCustomLineItemShippingDetailsAction at($offset)
  */
@@ -20,8 +23,12 @@ class CartSetCustomLineItemShippingDetailsActionCollection extends MapperSequenc
     /**
      * @psalm-assert CartSetCustomLineItemShippingDetailsAction $value
      * @psalm-param CartSetCustomLineItemShippingDetailsAction|stdClass $value
-     * @return CartSetCustomLineItemShippingDetailsActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartSetCustomLineItemShippingDetailsActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartSetCustomLineItemShippingDetailsActionCollection extends MapperSequenc
      */
     protected function mapper()
     {
-        return function(int $index): ?CartSetCustomLineItemShippingDetailsAction {
+        return function (int $index): ?CartSetCustomLineItemShippingDetailsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartSetCustomLineItemShippingDetailsActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

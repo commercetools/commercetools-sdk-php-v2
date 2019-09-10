@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SyncInfo>
+ *
  * @method SyncInfo current()
  * @method SyncInfo at($offset)
  */
@@ -20,8 +23,12 @@ class SyncInfoCollection extends MapperSequence
     /**
      * @psalm-assert SyncInfo $value
      * @psalm-param SyncInfo|stdClass $value
-     * @return SyncInfoCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return SyncInfoCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class SyncInfoCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?SyncInfo {
+        return function (int $index): ?SyncInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = SyncInfoModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

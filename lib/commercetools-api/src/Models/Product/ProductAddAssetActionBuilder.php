@@ -1,180 +1,176 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\AssetDraft;
 use Commercetools\Api\Models\Common\AssetDraftBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductAddAssetAction>
  */
 final class ProductAddAssetActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?int
      */
-    protected $position;
-    
+    private $position;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
      * @var ?int
      */
-    protected $variantId;
-    
+    private $variantId;
+
     /**
-     * @var ?AssetDraftBuilder|AssetDraft
+     * @var AssetDraft|?AssetDraftBuilder
      */
-    protected $asset;
-    
+    private $asset;
+
     /**
      * @var ?string
      */
-    protected $sku;
+    private $sku;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getPosition()
+    public function getPosition()
     {
-       return $this->position;
+        return $this->position;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getStaged()
+    public function getStaged()
     {
-       return $this->staged;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVariantId()
+    public function getVariantId()
     {
-       return $this->variantId;
+        return $this->variantId;
     }
-    
+
     /**
-     *
-     * @return AssetDraft|null
+     * @return null|AssetDraft
      */
-    final public function getAsset()
+    public function getAsset()
     {
-       return ($this->asset instanceof AssetDraftBuilder ? $this->asset->build() : $this->asset);
+        return $this->asset instanceof AssetDraftBuilder ? $this->asset->build() : $this->asset;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSku()
+    public function getSku()
     {
-       return $this->sku;
+        return $this->sku;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPosition(?int $position)
+    public function withPosition(?int $position)
     {
         $this->position = $position;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAsset(?AssetDraft $asset)
+    public function withAsset(?AssetDraft $asset)
     {
         $this->asset = $asset;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withAssetBuilder(?AssetDraftBuilder $asset)
+    public function withAssetBuilder(?AssetDraftBuilder $asset)
     {
         $this->asset = $asset;
-        
+
         return $this;
     }
-    
-    public function build(): ProductAddAssetAction {
+
+    public function build(): ProductAddAssetAction
+    {
         return new ProductAddAssetActionModel(
             $this->action,
             $this->position,
@@ -184,7 +180,7 @@ final class ProductAddAssetActionBuilder implements Builder
             $this->sku
         );
     }
-    
+
     public static function of(): ProductAddAssetActionBuilder
     {
         return new self();

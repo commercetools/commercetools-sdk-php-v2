@@ -1,23 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\OrderEdit;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel implements StagedOrderSetParcelItemsAction
 {
     const DISCRIMINATOR_VALUE = 'setParcelItems';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?DeliveryItemCollection
+     */
+    protected $items;
+
+    /**
+     * @var ?string
+     */
+    protected $parcelId;
+
     public function __construct(
         string $action = null,
         DeliveryItemCollection $items = null,
@@ -26,87 +40,71 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
         $this->action = $action;
         $this->items = $items;
         $this->parcelId = $parcelId;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $items;
-    
-    /**
-     * @var ?string
-     */
-    protected $parcelId;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|DeliveryItemCollection
      */
-    final public function getAction()
+    public function getItems()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(StagedOrderSetParcelItemsAction::FIELD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->items = DeliveryItemCollection::fromArray($data);
+        }
+
+        return $this->items;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|string
      */
-    final public function getItems()
+    public function getParcelId()
     {
-       if (is_null($this->items)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(StagedOrderSetParcelItemsAction::FIELD_ITEMS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->items = DeliveryItemCollection::fromArray($data);
-       }
-       return $this->items;
+        if (is_null($this->parcelId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderSetParcelItemsAction::FIELD_PARCEL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->parcelId = (string) $data;
+        }
+
+        return $this->parcelId;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getParcelId()
-    {
-       if (is_null($this->parcelId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderSetParcelItemsAction::FIELD_PARCEL_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->parcelId = (string)$data;
-       }
-       return $this->parcelId;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setItems(?DeliveryItemCollection $items): void
+
+    public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
-    
-    final public function setParcelId(?string $parcelId): void
+
+    public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
     }
-    
 }

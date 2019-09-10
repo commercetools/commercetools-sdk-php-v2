@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ProductType;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\ProductType;
 
 interface AttributeEnumType extends AttributeType
 {
-    
     const FIELD_VALUES = 'values';
 
     /**
-     *
-     * @return AttributePlainEnumValueCollection|null
+     * @return null|AttributePlainEnumValueCollection
      */
     public function getValues();
+
     public function setValues(?AttributePlainEnumValueCollection $values): void;
 }

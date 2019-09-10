@@ -1,50 +1,48 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\Price;
+use Commercetools\Base\JsonObject;
 
 interface ProductDiscountMatchQuery extends JsonObject
 {
-    
     const FIELD_PRODUCT_ID = 'productId';
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_STAGED = 'staged';
     const FIELD_PRICE = 'price';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getProductId();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getVariantId();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getStaged();
-    
+
     /**
-     *
-     * @return Price|null
+     * @return null|Price
      */
     public function getPrice();
+
     public function setProductId(?string $productId): void;
-    
+
     public function setVariantId(?int $variantId): void;
-    
+
     public function setStaged(?bool $staged): void;
-    
+
     public function setPrice(?Price $price): void;
 }

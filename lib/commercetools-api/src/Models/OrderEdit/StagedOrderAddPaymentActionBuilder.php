@@ -1,92 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifier;
 use Commercetools\Api\Models\Payment\PaymentResourceIdentifierBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<StagedOrderAddPaymentAction>
  */
 final class StagedOrderAddPaymentActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?PaymentResourceIdentifierBuilder|PaymentResourceIdentifier
-     */
-    protected $payment;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var PaymentResourceIdentifier|?PaymentResourceIdentifierBuilder
      */
-    final public function getAction()
+    private $payment;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return PaymentResourceIdentifier|null
+     * @return null|string
      */
-    final public function getPayment()
+    public function getAction()
     {
-       return ($this->payment instanceof PaymentResourceIdentifierBuilder ? $this->payment->build() : $this->payment);
+        return $this->action;
     }
+
+    /**
+     * @return null|PaymentResourceIdentifier
+     */
+    public function getPayment()
+    {
+        return $this->payment instanceof PaymentResourceIdentifierBuilder ? $this->payment->build() : $this->payment;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPayment(?PaymentResourceIdentifier $payment)
+    public function withPayment(?PaymentResourceIdentifier $payment)
     {
         $this->payment = $payment;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withPaymentBuilder(?PaymentResourceIdentifierBuilder $payment)
+    public function withPaymentBuilder(?PaymentResourceIdentifierBuilder $payment)
     {
         $this->payment = $payment;
-        
+
         return $this;
     }
-    
-    public function build(): StagedOrderAddPaymentAction {
+
+    public function build(): StagedOrderAddPaymentAction
+    {
         return new StagedOrderAddPaymentActionModel(
             $this->action,
             ($this->payment instanceof PaymentResourceIdentifierBuilder ? $this->payment->build() : $this->payment)
         );
     }
-    
+
     public static function of(): StagedOrderAddPaymentActionBuilder
     {
         return new self();

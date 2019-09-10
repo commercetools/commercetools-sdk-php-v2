@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZoneRateDraft>
+ *
  * @method ZoneRateDraft current()
  * @method ZoneRateDraft at($offset)
  */
@@ -20,8 +23,12 @@ class ZoneRateDraftCollection extends MapperSequence
     /**
      * @psalm-assert ZoneRateDraft $value
      * @psalm-param ZoneRateDraft|stdClass $value
-     * @return ZoneRateDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ZoneRateDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ZoneRateDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ZoneRateDraft {
+        return function (int $index): ?ZoneRateDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ZoneRateDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

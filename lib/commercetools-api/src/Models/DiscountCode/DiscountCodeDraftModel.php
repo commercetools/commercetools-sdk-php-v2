@@ -1,27 +1,85 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\DiscountCode;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
+use stdClass;
 
 final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCodeDraft
 {
-    
+    /**
+     * @var ?CartDiscountResourceIdentifierCollection
+     */
+    protected $cartDiscounts;
+
+    /**
+     * @var ?string
+     */
+    protected $code;
+
+    /**
+     * @var ?string
+     */
+    protected $cartPredicate;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $validUntil;
+
+    /**
+     * @var ?array
+     */
+    protected $groups;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $validFrom;
+
+    /**
+     * @var ?int
+     */
+    protected $maxApplicationsPerCustomer;
+
+    /**
+     * @var ?bool
+     */
+    protected $isActive;
+
+    /**
+     * @var ?int
+     */
+    protected $maxApplications;
+
     public function __construct(
         CartDiscountResourceIdentifierCollection $cartDiscounts = null,
         string $code = null,
@@ -48,352 +106,294 @@ final class DiscountCodeDraftModel extends JsonObjectModel implements DiscountCo
         $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
         $this->isActive = $isActive;
         $this->maxApplications = $maxApplications;
-        
     }
 
     /**
-     * @var ?CartDiscountResourceIdentifierCollection
+     * @return null|CartDiscountResourceIdentifierCollection
      */
-    protected $cartDiscounts;
-    
-    /**
-     * @var ?string
-     */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $cartPredicate;
-    
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validUntil;
-    
-    /**
-     * @var ?array
-     */
-    protected $groups;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validFrom;
-    
-    /**
-     * @var ?int
-     */
-    protected $maxApplicationsPerCustomer;
-    
-    /**
-     * @var ?bool
-     */
-    protected $isActive;
-    
-    /**
-     * @var ?int
-     */
-    protected $maxApplications;
+    public function getCartDiscounts()
+    {
+        if (is_null($this->cartDiscounts)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_CART_DISCOUNTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->cartDiscounts = CartDiscountResourceIdentifierCollection::fromArray($data);
+        }
+
+        return $this->cartDiscounts;
+    }
 
     /**
-     *
-     * @return CartDiscountResourceIdentifierCollection|null
+     * @return null|string
      */
-    final public function getCartDiscounts()
+    public function getCode()
     {
-       if (is_null($this->cartDiscounts)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_CART_DISCOUNTS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->cartDiscounts = CartDiscountResourceIdentifierCollection::fromArray($data);
-       }
-       return $this->cartDiscounts;
+        if (is_null($this->code)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->code = (string) $data;
+        }
+
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCode()
+    public function getCartPredicate()
     {
-       if (is_null($this->code)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_CODE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->code = (string)$data;
-       }
-       return $this->code;
+        if (is_null($this->cartPredicate)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_CART_PREDICATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->cartPredicate = (string) $data;
+        }
+
+        return $this->cartPredicate;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getCartPredicate()
+    public function getCustom()
     {
-       if (is_null($this->cartPredicate)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_CART_PREDICATE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->cartPredicate = (string)$data;
-       }
-       return $this->cartPredicate;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|LocalizedString
      */
-    final public function getCustom()
+    public function getName()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsDraftModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|DateTimeImmutable
      */
-    final public function getName()
+    public function getValidUntil()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->validUntil)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_VALID_UNTIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validUntil = $data;
+        }
+
+        return $this->validUntil;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|array
      */
-    final public function getValidUntil()
+    public function getGroups()
     {
-       if (is_null($this->validUntil)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_VALID_UNTIL);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->validUntil = $data;
-       }
-       return $this->validUntil;
+        if (is_null($this->groups)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_GROUPS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->groups = $data;
+        }
+
+        return $this->groups;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|LocalizedString
      */
-    final public function getGroups()
+    public function getDescription()
     {
-       if (is_null($this->groups)) {
-           /** @psalm-var ?array<int, mixed> $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_GROUPS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->groups = $data;
-       }
-       return $this->groups;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|DateTimeImmutable
      */
-    final public function getDescription()
+    public function getValidFrom()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->validFrom)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_VALID_FROM);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validFrom = $data;
+        }
+
+        return $this->validFrom;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|int
      */
-    final public function getValidFrom()
+    public function getMaxApplicationsPerCustomer()
     {
-       if (is_null($this->validFrom)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_VALID_FROM);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->validFrom = $data;
-       }
-       return $this->validFrom;
+        if (is_null($this->maxApplicationsPerCustomer)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->maxApplicationsPerCustomer = (int) $data;
+        }
+
+        return $this->maxApplicationsPerCustomer;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|bool
      */
-    final public function getMaxApplicationsPerCustomer()
+    public function getIsActive()
     {
-       if (is_null($this->maxApplicationsPerCustomer)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->maxApplicationsPerCustomer = (int)$data;
-       }
-       return $this->maxApplicationsPerCustomer;
+        if (is_null($this->isActive)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_IS_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isActive = (bool) $data;
+        }
+
+        return $this->isActive;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|int
      */
-    final public function getIsActive()
+    public function getMaxApplications()
     {
-       if (is_null($this->isActive)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_IS_ACTIVE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->isActive = (bool)$data;
-       }
-       return $this->isActive;
+        if (is_null($this->maxApplications)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(DiscountCodeDraft::FIELD_MAX_APPLICATIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->maxApplications = (int) $data;
+        }
+
+        return $this->maxApplications;
     }
-    
-    /**
-     *
-     * @return int|null
-     */
-    final public function getMaxApplications()
-    {
-       if (is_null($this->maxApplications)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(DiscountCodeDraft::FIELD_MAX_APPLICATIONS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->maxApplications = (int)$data;
-       }
-       return $this->maxApplications;
-    }
-    final public function setCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts): void
+
+    public function setCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts): void
     {
         $this->cartDiscounts = $cartDiscounts;
     }
-    
-    final public function setCode(?string $code): void
+
+    public function setCode(?string $code): void
     {
         $this->code = $code;
     }
-    
-    final public function setCartPredicate(?string $cartPredicate): void
+
+    public function setCartPredicate(?string $cartPredicate): void
     {
         $this->cartPredicate = $cartPredicate;
     }
-    
-    final public function setCustom(?CustomFieldsDraft $custom): void
+
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setValidUntil(?DateTimeImmutable $validUntil): void
+
+    public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
     }
-    
-    final public function setGroups(?array $groups): void
+
+    public function setGroups(?array $groups): void
     {
         $this->groups = $groups;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setValidFrom(?DateTimeImmutable $validFrom): void
+
+    public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
-    
-    final public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
+
+    public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
     {
         $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
     }
-    
-    final public function setIsActive(?bool $isActive): void
+
+    public function setIsActive(?bool $isActive): void
     {
         $this->isActive = $isActive;
     }
-    
-    final public function setMaxApplications(?int $maxApplications): void
+
+    public function setMaxApplications(?int $maxApplications): void
     {
         $this->maxApplications = $maxApplications;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[DiscountCodeDraft::FIELD_VALID_UNTIL]) && $data[DiscountCodeDraft::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
-           $data[DiscountCodeDraft::FIELD_VALID_UNTIL] = $data[DiscountCodeDraft::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[DiscountCodeDraft::FIELD_VALID_UNTIL] = $data[DiscountCodeDraft::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        
+
         if (isset($data[DiscountCodeDraft::FIELD_VALID_FROM]) && $data[DiscountCodeDraft::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
-           $data[DiscountCodeDraft::FIELD_VALID_FROM] = $data[DiscountCodeDraft::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[DiscountCodeDraft::FIELD_VALID_FROM] = $data[DiscountCodeDraft::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

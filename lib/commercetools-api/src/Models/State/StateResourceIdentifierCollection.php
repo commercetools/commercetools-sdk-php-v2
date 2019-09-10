@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\State;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StateResourceIdentifier>
+ *
  * @method StateResourceIdentifier current()
  * @method StateResourceIdentifier at($offset)
  */
@@ -20,8 +23,12 @@ class StateResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert StateResourceIdentifier $value
      * @psalm-param StateResourceIdentifier|stdClass $value
-     * @return StateResourceIdentifierCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StateResourceIdentifierCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StateResourceIdentifierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?StateResourceIdentifier {
+        return function (int $index): ?StateResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StateResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

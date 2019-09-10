@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<VariantValues>
+ *
  * @method VariantValues current()
  * @method VariantValues at($offset)
  */
@@ -20,8 +23,12 @@ class VariantValuesCollection extends MapperSequence
     /**
      * @psalm-assert VariantValues $value
      * @psalm-param VariantValues|stdClass $value
-     * @return VariantValuesCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return VariantValuesCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class VariantValuesCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?VariantValues {
+        return function (int $index): ?VariantValues {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = VariantValuesModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

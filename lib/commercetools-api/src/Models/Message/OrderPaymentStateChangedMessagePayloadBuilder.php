@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<OrderPaymentStateChangedMessagePayload>
  */
 final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $oldPaymentState;
-    
-    /**
-     * @var ?string
-     */
-    protected $paymentState;
+    private $oldPaymentState;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getType()
+    private $paymentState;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getOldPaymentState()
+    public function getType()
     {
-       return $this->oldPaymentState;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getPaymentState()
+    public function getOldPaymentState()
     {
-       return $this->paymentState;
+        return $this->oldPaymentState;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getPaymentState()
+    {
+        return $this->paymentState;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldPaymentState(?string $oldPaymentState)
+    public function withOldPaymentState(?string $oldPaymentState)
     {
         $this->oldPaymentState = $oldPaymentState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentState(?string $paymentState)
+    public function withPaymentState(?string $paymentState)
     {
         $this->paymentState = $paymentState;
-        
+
         return $this;
     }
-    
-    public function build(): OrderPaymentStateChangedMessagePayload {
+
+    public function build(): OrderPaymentStateChangedMessagePayload
+    {
         return new OrderPaymentStateChangedMessagePayloadModel(
             $this->type,
             $this->oldPaymentState,
             $this->paymentState
         );
     }
-    
+
     public static function of(): OrderPaymentStateChangedMessagePayloadBuilder
     {
         return new self();

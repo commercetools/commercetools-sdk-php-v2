@@ -1,22 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Product;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductChangeSlugActionModel extends JsonObjectModel implements ProductChangeSlugAction
 {
     const DISCRIMINATOR_VALUE = 'changeSlug';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
+
     public function __construct(
         string $action = null,
         bool $staged = null,
@@ -25,88 +40,72 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
         $this->action = $action;
         $this->staged = $staged;
         $this->slug = $slug;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getAction()
+    public function getStaged()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductChangeSlugAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|LocalizedString
      */
-    final public function getStaged()
+    public function getSlug()
     {
-       if (is_null($this->staged)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(ProductChangeSlugAction::FIELD_STAGED);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->staged = (bool)$data;
-       }
-       return $this->staged;
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductChangeSlugAction::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
     }
-    
-    /**
-     *
-     * @return LocalizedString|null
-     */
-    final public function getSlug()
-    {
-       if (is_null($this->slug)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductChangeSlugAction::FIELD_SLUG);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->slug = LocalizedStringModel::of($data);
-       }
-       return $this->slug;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setStaged(?bool $staged): void
+
+    public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
-    
-    final public function setSlug(?LocalizedString $slug): void
+
+    public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
-    
 }

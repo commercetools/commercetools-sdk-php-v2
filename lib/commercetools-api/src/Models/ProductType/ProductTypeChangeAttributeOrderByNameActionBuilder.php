@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ProductTypeChangeAttributeOrderByNameAction>
  */
 final class ProductTypeChangeAttributeOrderByNameActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?array
      */
-    protected $attributeNames;
+    private $attributeNames;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getAttributeNames()
+    public function getAttributeNames()
     {
-       return $this->attributeNames;
+        return $this->attributeNames;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAttributeNames(?array $attributeNames)
+    public function withAttributeNames(?array $attributeNames)
     {
         $this->attributeNames = $attributeNames;
-        
+
         return $this;
     }
-    
-    public function build(): ProductTypeChangeAttributeOrderByNameAction {
+
+    public function build(): ProductTypeChangeAttributeOrderByNameAction
+    {
         return new ProductTypeChangeAttributeOrderByNameActionModel(
             $this->action,
             $this->attributeNames
         );
     }
-    
+
     public static function of(): ProductTypeChangeAttributeOrderByNameActionBuilder
     {
         return new self();

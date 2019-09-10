@@ -1,16 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Me;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\AddressCollection;
@@ -18,366 +15,360 @@ use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<MyCartDraft>
  */
 final class MyCartDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?MyLineItemDraftCollection
      */
-    protected $lineItems;
-    
+    private $lineItems;
+
     /**
      * @var ?string
      */
-    protected $country;
-    
+    private $country;
+
     /**
      * @var ?AddressCollection
      */
-    protected $itemShippingAddresses;
-    
+    private $itemShippingAddresses;
+
     /**
      * @var ?string
      */
-    protected $taxMode;
-    
+    private $taxMode;
+
     /**
      * @var ?int
      */
-    protected $deleteDaysAfterLastModification;
-    
-    /**
-     * @var ?CustomFieldsDraftBuilder|CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?ShippingMethodResourceIdentifierBuilder|ShippingMethodResourceIdentifier
-     */
-    protected $shippingMethod;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerEmail;
-    
-    /**
-     * @var ?AddressBuilder|Address
-     */
-    protected $shippingAddress;
-    
-    /**
-     * @var ?string
-     */
-    protected $currency;
-    
-    /**
-     * @var ?AddressBuilder|Address
-     */
-    protected $billingAddress;
-    
-    /**
-     * @var ?string
-     */
-    protected $locale;
-    
-    /**
-     * @var ?string
-     */
-    protected $inventoryMode;
+    private $deleteDaysAfterLastModification;
 
     /**
-     *
-     * @return MyLineItemDraftCollection|null
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    final public function getLineItems()
-    {
-       return $this->lineItems;
-    }
-    
+    private $custom;
+
     /**
-     *
-     * @return string|null
+     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
      */
-    final public function getCountry()
-    {
-       return $this->country;
-    }
-    
+    private $shippingMethod;
+
     /**
-     *
-     * @return AddressCollection|null
+     * @var ?string
      */
-    final public function getItemShippingAddresses()
-    {
-       return $this->itemShippingAddresses;
-    }
-    
+    private $customerEmail;
+
     /**
-     *
-     * @return string|null
+     * @var Address|?AddressBuilder
      */
-    final public function getTaxMode()
-    {
-       return $this->taxMode;
-    }
-    
+    private $shippingAddress;
+
     /**
-     *
-     * @return int|null
+     * @var ?string
      */
-    final public function getDeleteDaysAfterLastModification()
-    {
-       return $this->deleteDaysAfterLastModification;
-    }
-    
+    private $currency;
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @var Address|?AddressBuilder
      */
-    final public function getCustom()
-    {
-       return ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom);
-    }
-    
+    private $billingAddress;
+
     /**
-     *
-     * @return ShippingMethodResourceIdentifier|null
+     * @var ?string
      */
-    final public function getShippingMethod()
-    {
-       return ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod);
-    }
-    
+    private $locale;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCustomerEmail()
+    private $inventoryMode;
+
+    public function __construct()
     {
-       return $this->customerEmail;
     }
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|MyLineItemDraftCollection
      */
-    final public function getShippingAddress()
+    public function getLineItems()
     {
-       return ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress);
+        return $this->lineItems;
     }
-    
+
     /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
-     * @return string|null
+     * @return null|string
      */
-    final public function getCurrency()
+    public function getCountry()
     {
-       return $this->currency;
+        return $this->country;
     }
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|AddressCollection
      */
-    final public function getBillingAddress()
+    public function getItemShippingAddresses()
     {
-       return ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress);
+        return $this->itemShippingAddresses;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getLocale()
+    public function getTaxMode()
     {
-       return $this->locale;
+        return $this->taxMode;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getInventoryMode()
+    public function getDeleteDaysAfterLastModification()
     {
-       return $this->inventoryMode;
+        return $this->deleteDaysAfterLastModification;
     }
+
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return null|ShippingMethodResourceIdentifier
+     */
+    public function getShippingMethod()
+    {
+        return $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCustomerEmail()
+    {
+        return $this->customerEmail;
+    }
+
+    /**
+     * @return null|Address
+     */
+    public function getShippingAddress()
+    {
+        return $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress;
+    }
+
+    /**
+     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     *
+     * @return null|string
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @return null|Address
+     */
+    public function getBillingAddress()
+    {
+        return $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
+    }
+
     /**
      * @return $this
      */
-    final public function withLineItems(?MyLineItemDraftCollection $lineItems)
+    public function withLineItems(?MyLineItemDraftCollection $lineItems)
     {
         $this->lineItems = $lineItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCountry(?string $country)
+    public function withCountry(?string $country)
     {
         $this->country = $country;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
+    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxMode(?string $taxMode)
+    public function withTaxMode(?string $taxMode)
     {
         $this->taxMode = $taxMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
+    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFieldsDraft $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
+    public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerEmail(?string $customerEmail)
+    public function withCustomerEmail(?string $customerEmail)
     {
         $this->customerEmail = $customerEmail;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingAddress(?Address $shippingAddress)
+    public function withShippingAddress(?Address $shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCurrency(?string $currency)
+    public function withCurrency(?string $currency)
     {
         $this->currency = $currency;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withBillingAddress(?Address $billingAddress)
+    public function withBillingAddress(?Address $billingAddress)
     {
         $this->billingAddress = $billingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLocale(?string $locale)
+    public function withLocale(?string $locale)
     {
         $this->locale = $locale;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInventoryMode(?string $inventoryMode)
+    public function withInventoryMode(?string $inventoryMode)
     {
         $this->inventoryMode = $inventoryMode;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
+    public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
+    public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
+    public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
     {
         $this->billingAddress = $billingAddress;
-        
+
         return $this;
     }
-    
-    public function build(): MyCartDraft {
+
+    public function build(): MyCartDraft
+    {
         return new MyCartDraftModel(
             $this->lineItems,
             $this->country,
@@ -394,7 +385,7 @@ final class MyCartDraftBuilder implements Builder
             $this->inventoryMode
         );
     }
-    
+
     public static function of(): MyCartDraftBuilder
     {
         return new self();

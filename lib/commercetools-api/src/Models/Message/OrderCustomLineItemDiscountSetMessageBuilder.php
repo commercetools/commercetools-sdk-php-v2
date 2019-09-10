@@ -1,21 +1,19 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Cart\DiscountedLineItemPriceForQuantityCollection;
 use Commercetools\Api\Models\Cart\TaxedItemPrice;
 use Commercetools\Api\Models\Cart\TaxedItemPriceBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -23,326 +21,318 @@ use DateTimeImmutable;
  */
 final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
      * @var ?int
      */
-    protected $sequenceNumber;
-    
+    private $sequenceNumber;
+
     /**
-     * @var ?ReferenceBuilder|Reference
+     * @var Reference|?ReferenceBuilder
      */
-    protected $resource;
-    
+    private $resource;
+
     /**
-     * @var ?UserProvidedIdentifiersBuilder|UserProvidedIdentifiers
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
-    protected $resourceUserProvidedIdentifiers;
-    
+    private $resourceUserProvidedIdentifiers;
+
     /**
      * @var ?int
      */
-    protected $resourceVersion;
-    
+    private $resourceVersion;
+
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?string
      */
-    protected $customLineItemId;
-    
+    private $customLineItemId;
+
     /**
-     * @var ?TaxedItemPriceBuilder|TaxedItemPrice
+     * @var TaxedItemPrice|?TaxedItemPriceBuilder
      */
-    protected $taxedPrice;
-    
+    private $taxedPrice;
+
     /**
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
-    protected $discountedPricePerQuantity;
+    private $discountedPricePerQuantity;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getCreatedAt()
     {
-       return $this->createdAt;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getLastModifiedAt()
+    public function getLastModifiedAt()
     {
-       return $this->lastModifiedAt;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getSequenceNumber()
+    public function getSequenceNumber()
     {
-       return $this->sequenceNumber;
+        return $this->sequenceNumber;
     }
-    
+
     /**
-     *
-     * @return Reference|null
+     * @return null|Reference
      */
-    final public function getResource()
+    public function getResource()
     {
-       return ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource);
+        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
     }
-    
+
     /**
-     *
-     * @return UserProvidedIdentifiers|null
+     * @return null|UserProvidedIdentifiers
      */
-    final public function getResourceUserProvidedIdentifiers()
+    public function getResourceUserProvidedIdentifiers()
     {
-       return ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers);
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getResourceVersion()
+    public function getResourceVersion()
     {
-       return $this->resourceVersion;
+        return $this->resourceVersion;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCustomLineItemId()
+    public function getCustomLineItemId()
     {
-       return $this->customLineItemId;
+        return $this->customLineItemId;
     }
-    
+
     /**
-     *
-     * @return TaxedItemPrice|null
+     * @return null|TaxedItemPrice
      */
-    final public function getTaxedPrice()
+    public function getTaxedPrice()
     {
-       return ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice);
+        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
-    
+
     /**
-     *
-     * @return DiscountedLineItemPriceForQuantityCollection|null
+     * @return null|DiscountedLineItemPriceForQuantityCollection
      */
-    final public function getDiscountedPricePerQuantity()
+    public function getDiscountedPricePerQuantity()
     {
-       return $this->discountedPricePerQuantity;
+        return $this->discountedPricePerQuantity;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSequenceNumber(?int $sequenceNumber)
+    public function withSequenceNumber(?int $sequenceNumber)
     {
         $this->sequenceNumber = $sequenceNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResource(?Reference $resource)
+    public function withResource(?Reference $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceVersion(?int $resourceVersion)
+    public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomLineItemId(?string $customLineItemId)
+    public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
+    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
+    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withResourceBuilder(?ReferenceBuilder $resource)
+    public function withResourceBuilder(?ReferenceBuilder $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
+    public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
-    public function build(): OrderCustomLineItemDiscountSetMessage {
+
+    public function build(): OrderCustomLineItemDiscountSetMessage
+    {
         return new OrderCustomLineItemDiscountSetMessageModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -358,7 +348,7 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
             $this->discountedPricePerQuantity
         );
     }
-    
+
     public static function of(): OrderCustomLineItemDiscountSetMessageBuilder
     {
         return new self();

@@ -1,156 +1,154 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
+use Commercetools\Base\JsonObject;
 
 /**
  * @implements Builder<FieldDefinition>
  */
 final class FieldDefinitionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $name;
 
     /**
      * @var ?string
      */
-    protected $name;
-    
+    private $inputHint;
+
     /**
-     * @var ?string
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $inputHint;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $label;
-    
+    private $label;
+
     /**
      * @var ?JsonObject
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?bool
      */
-    protected $required;
+    private $required;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getInputHint()
+    public function getInputHint()
     {
-       return $this->inputHint;
+        return $this->inputHint;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getLabel()
+    public function getLabel()
     {
-       return ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label);
+        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getRequired()
+    public function getRequired()
     {
-       return $this->required;
+        return $this->required;
     }
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInputHint(?string $inputHint)
+    public function withInputHint(?string $inputHint)
     {
         $this->inputHint = $inputHint;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLabel(?LocalizedString $label)
+    public function withLabel(?LocalizedString $label)
     {
         $this->label = $label;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?JsonObject $type)
+    public function withType(?JsonObject $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRequired(?bool $required)
+    public function withRequired(?bool $required)
     {
         $this->required = $required;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withLabelBuilder(?LocalizedStringBuilder $label)
+    public function withLabelBuilder(?LocalizedStringBuilder $label)
     {
         $this->label = $label;
-        
+
         return $this;
     }
-    
-    public function build(): FieldDefinition {
+
+    public function build(): FieldDefinition
+    {
         return new FieldDefinitionModel(
             $this->name,
             $this->inputHint,
@@ -159,7 +157,7 @@ final class FieldDefinitionBuilder implements Builder
             $this->required
         );
     }
-    
+
     public static function of(): FieldDefinitionBuilder
     {
         return new self();

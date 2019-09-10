@@ -1,20 +1,33 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use stdClass;
-
 
 final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpdate
 {
-    
+    /**
+     * @var ?bool
+     */
+    protected $dryRun;
+
+    /**
+     * @var ?OrderEditUpdateActionCollection
+     */
+    protected $actions;
+
+    /**
+     * @var ?int
+     */
+    protected $version;
+
     public function __construct(
         bool $dryRun = null,
         OrderEditUpdateActionCollection $actions = null,
@@ -23,87 +36,71 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
         $this->dryRun = $dryRun;
         $this->actions = $actions;
         $this->version = $version;
-        
     }
 
     /**
-     * @var ?bool
+     * @return null|bool
      */
-    protected $dryRun;
-    
-    /**
-     * @var ?OrderEditUpdateActionCollection
-     */
-    protected $actions;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
+    public function getDryRun()
+    {
+        if (is_null($this->dryRun)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(OrderEditUpdate::FIELD_DRY_RUN);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->dryRun = (bool) $data;
+        }
+
+        return $this->dryRun;
+    }
 
     /**
-     *
-     * @return bool|null
+     * @return null|OrderEditUpdateActionCollection
      */
-    final public function getDryRun()
+    public function getActions()
     {
-       if (is_null($this->dryRun)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(OrderEditUpdate::FIELD_DRY_RUN);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->dryRun = (bool)$data;
-       }
-       return $this->dryRun;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderEditUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = OrderEditUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
-    
+
     /**
-     *
-     * @return OrderEditUpdateActionCollection|null
+     * @return null|int
      */
-    final public function getActions()
+    public function getVersion()
     {
-       if (is_null($this->actions)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(OrderEditUpdate::FIELD_ACTIONS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->actions = OrderEditUpdateActionCollection::fromArray($data);
-       }
-       return $this->actions;
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(OrderEditUpdate::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
-    
-    /**
-     *
-     * @return int|null
-     */
-    final public function getVersion()
-    {
-       if (is_null($this->version)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(OrderEditUpdate::FIELD_VERSION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->version = (int)$data;
-       }
-       return $this->version;
-    }
-    final public function setDryRun(?bool $dryRun): void
+
+    public function setDryRun(?bool $dryRun): void
     {
         $this->dryRun = $dryRun;
     }
-    
-    final public function setActions(?OrderEditUpdateActionCollection $actions): void
+
+    public function setActions(?OrderEditUpdateActionCollection $actions): void
     {
         $this->actions = $actions;
     }
-    
-    final public function setVersion(?int $version): void
+
+    public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
-    
 }

@@ -1,88 +1,89 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CustomerSignInResult>
  */
 final class CustomerSignInResultBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?JsonObject
      */
-    protected $cart;
-    
-    /**
-     * @var ?CustomerBuilder|Customer
-     */
-    protected $customer;
+    private $cart;
 
     /**
-     *
-     * @return JsonObject|null
+     * @var Customer|?CustomerBuilder
      */
-    final public function getCart()
+    private $customer;
+
+    public function __construct()
     {
-       return $this->cart;
     }
-    
+
     /**
-     *
-     * @return Customer|null
+     * @return null|JsonObject
      */
-    final public function getCustomer()
+    public function getCart()
     {
-       return ($this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer);
+        return $this->cart;
     }
+
+    /**
+     * @return null|Customer
+     */
+    public function getCustomer()
+    {
+        return $this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer;
+    }
+
     /**
      * @return $this
      */
-    final public function withCart(?JsonObject $cart)
+    public function withCart(?JsonObject $cart)
     {
         $this->cart = $cart;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomer(?Customer $customer)
+    public function withCustomer(?Customer $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomerBuilder(?CustomerBuilder $customer)
+    public function withCustomerBuilder(?CustomerBuilder $customer)
     {
         $this->customer = $customer;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerSignInResult {
+
+    public function build(): CustomerSignInResult
+    {
         return new CustomerSignInResultModel(
             $this->cart,
             ($this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer)
         );
     }
-    
+
     public static function of(): CustomerSignInResultBuilder
     {
         return new self();

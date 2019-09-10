@@ -1,20 +1,34 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel implements ProductTypeChangeIsSearchableAction
 {
     const DISCRIMINATOR_VALUE = 'changeIsSearchable';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?string
+     */
+    protected $attributeName;
+
+    /**
+     * @var ?bool
+     */
+    protected $isSearchable;
+
     public function __construct(
         string $action = null,
         string $attributeName = null,
@@ -23,87 +37,71 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
         $this->action = $action;
         $this->attributeName = $attributeName;
         $this->isSearchable = $isSearchable;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $attributeName;
-    
-    /**
-     * @var ?bool
-     */
-    protected $isSearchable;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAttributeName()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductTypeChangeIsSearchableAction::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getAttributeName()
+    public function getIsSearchable()
     {
-       if (is_null($this->attributeName)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductTypeChangeIsSearchableAction::FIELD_ATTRIBUTE_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->attributeName = (string)$data;
-       }
-       return $this->attributeName;
+        if (is_null($this->isSearchable)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductTypeChangeIsSearchableAction::FIELD_IS_SEARCHABLE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isSearchable = (bool) $data;
+        }
+
+        return $this->isSearchable;
     }
-    
-    /**
-     *
-     * @return bool|null
-     */
-    final public function getIsSearchable()
-    {
-       if (is_null($this->isSearchable)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(ProductTypeChangeIsSearchableAction::FIELD_IS_SEARCHABLE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->isSearchable = (bool)$data;
-       }
-       return $this->isSearchable;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setAttributeName(?string $attributeName): void
+
+    public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
-    
-    final public function setIsSearchable(?bool $isSearchable): void
+
+    public function setIsSearchable(?bool $isSearchable): void
     {
         $this->isSearchable = $isSearchable;
     }
-    
 }

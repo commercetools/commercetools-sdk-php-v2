@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidJsonInputError>
+ *
  * @method InvalidJsonInputError current()
  * @method InvalidJsonInputError at($offset)
  */
@@ -20,8 +23,12 @@ class InvalidJsonInputErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidJsonInputError $value
      * @psalm-param InvalidJsonInputError|stdClass $value
-     * @return InvalidJsonInputErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InvalidJsonInputErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InvalidJsonInputErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InvalidJsonInputError {
+        return function (int $index): ?InvalidJsonInputError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InvalidJsonInputErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

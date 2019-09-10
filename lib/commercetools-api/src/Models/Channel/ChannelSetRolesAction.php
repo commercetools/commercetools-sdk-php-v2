@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Channel;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Channel;
 
 interface ChannelSetRolesAction extends ChannelUpdateAction
 {
-    
     const FIELD_ROLES = 'roles';
 
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getRoles();
+
     public function setRoles(?array $roles): void;
 }

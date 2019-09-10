@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CustomerGroup;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerGroupSetCustomTypeAction>
+ *
  * @method CustomerGroupSetCustomTypeAction current()
  * @method CustomerGroupSetCustomTypeAction at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerGroupSetCustomTypeActionCollection extends MapperSequence
     /**
      * @psalm-assert CustomerGroupSetCustomTypeAction $value
      * @psalm-param CustomerGroupSetCustomTypeAction|stdClass $value
-     * @return CustomerGroupSetCustomTypeActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerGroupSetCustomTypeActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerGroupSetCustomTypeActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerGroupSetCustomTypeAction {
+        return function (int $index): ?CustomerGroupSetCustomTypeAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerGroupSetCustomTypeActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

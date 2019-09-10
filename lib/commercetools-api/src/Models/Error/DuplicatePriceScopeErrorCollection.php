@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DuplicatePriceScopeError>
+ *
  * @method DuplicatePriceScopeError current()
  * @method DuplicatePriceScopeError at($offset)
  */
@@ -20,8 +23,12 @@ class DuplicatePriceScopeErrorCollection extends MapperSequence
     /**
      * @psalm-assert DuplicatePriceScopeError $value
      * @psalm-param DuplicatePriceScopeError|stdClass $value
-     * @return DuplicatePriceScopeErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return DuplicatePriceScopeErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class DuplicatePriceScopeErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?DuplicatePriceScopeError {
+        return function (int $index): ?DuplicatePriceScopeError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = DuplicatePriceScopeErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

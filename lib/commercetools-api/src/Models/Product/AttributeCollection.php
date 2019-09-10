@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Attribute>
+ *
  * @method Attribute current()
  * @method Attribute at($offset)
  */
@@ -20,8 +23,12 @@ class AttributeCollection extends MapperSequence
     /**
      * @psalm-assert Attribute $value
      * @psalm-param Attribute|stdClass $value
-     * @return AttributeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return AttributeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class AttributeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?Attribute {
+        return function (int $index): ?Attribute {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = AttributeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

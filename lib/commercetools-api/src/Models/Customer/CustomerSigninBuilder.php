@@ -1,145 +1,141 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CustomerSignin>
  */
 final class CustomerSigninBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $anonymousId;
 
     /**
      * @var ?string
      */
-    protected $anonymousId;
-    
-    /**
-     * @var ?string
-     */
-    protected $password;
-    
-    /**
-     * @var ?string
-     */
-    protected $anonymousCartSignInMode;
-    
-    /**
-     * @var ?string
-     */
-    protected $anonymousCartId;
-    
-    /**
-     * @var ?string
-     */
-    protected $email;
+    private $password;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAnonymousId()
-    {
-       return $this->anonymousId;
-    }
-    
+    private $anonymousCartSignInMode;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getPassword()
-    {
-       return $this->password;
-    }
-    
+    private $anonymousCartId;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAnonymousCartSignInMode()
+    private $email;
+
+    public function __construct()
     {
-       return $this->anonymousCartSignInMode;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAnonymousCartId()
+    public function getAnonymousId()
     {
-       return $this->anonymousCartId;
+        return $this->anonymousId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getEmail()
+    public function getPassword()
     {
-       return $this->email;
+        return $this->password;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getAnonymousCartSignInMode()
+    {
+        return $this->anonymousCartSignInMode;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAnonymousCartId()
+    {
+        return $this->anonymousCartId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
     /**
      * @return $this
      */
-    final public function withAnonymousId(?string $anonymousId)
+    public function withAnonymousId(?string $anonymousId)
     {
         $this->anonymousId = $anonymousId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPassword(?string $password)
+    public function withPassword(?string $password)
     {
         $this->password = $password;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAnonymousCartSignInMode(?string $anonymousCartSignInMode)
+    public function withAnonymousCartSignInMode(?string $anonymousCartSignInMode)
     {
         $this->anonymousCartSignInMode = $anonymousCartSignInMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAnonymousCartId(?string $anonymousCartId)
+    public function withAnonymousCartId(?string $anonymousCartId)
     {
         $this->anonymousCartId = $anonymousCartId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withEmail(?string $email)
+    public function withEmail(?string $email)
     {
         $this->email = $email;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerSignin {
+
+    public function build(): CustomerSignin
+    {
         return new CustomerSigninModel(
             $this->anonymousId,
             $this->password,
@@ -148,7 +144,7 @@ final class CustomerSigninBuilder implements Builder
             $this->email
         );
     }
-    
+
     public static function of(): CustomerSigninBuilder
     {
         return new self();

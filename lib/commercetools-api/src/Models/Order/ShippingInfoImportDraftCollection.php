@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingInfoImportDraft>
+ *
  * @method ShippingInfoImportDraft current()
  * @method ShippingInfoImportDraft at($offset)
  */
@@ -20,8 +23,12 @@ class ShippingInfoImportDraftCollection extends MapperSequence
     /**
      * @psalm-assert ShippingInfoImportDraft $value
      * @psalm-param ShippingInfoImportDraft|stdClass $value
-     * @return ShippingInfoImportDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ShippingInfoImportDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ShippingInfoImportDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ShippingInfoImportDraft {
+        return function (int $index): ?ShippingInfoImportDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ShippingInfoImportDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

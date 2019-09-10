@@ -1,20 +1,35 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use stdClass;
-
 
 final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObjectModel implements ProductTypeChangeLocalizedEnumValueOrderAction
 {
     const DISCRIMINATOR_VALUE = 'changeLocalizedEnumValueOrder';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?AttributeLocalizedEnumValueCollection
+     */
+    protected $values;
+
+    /**
+     * @var ?string
+     */
+    protected $attributeName;
+
     public function __construct(
         string $action = null,
         AttributeLocalizedEnumValueCollection $values = null,
@@ -23,87 +38,71 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
         $this->action = $action;
         $this->values = $values;
         $this->attributeName = $attributeName;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?AttributeLocalizedEnumValueCollection
-     */
-    protected $values;
-    
-    /**
-     * @var ?string
-     */
-    protected $attributeName;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|AttributeLocalizedEnumValueCollection
      */
-    final public function getAction()
+    public function getValues()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductTypeUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->values)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductTypeChangeLocalizedEnumValueOrderAction::FIELD_VALUES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->values = AttributeLocalizedEnumValueCollection::fromArray($data);
+        }
+
+        return $this->values;
     }
-    
+
     /**
-     *
-     * @return AttributeLocalizedEnumValueCollection|null
+     * @return null|string
      */
-    final public function getValues()
+    public function getAttributeName()
     {
-       if (is_null($this->values)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductTypeChangeLocalizedEnumValueOrderAction::FIELD_VALUES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->values = AttributeLocalizedEnumValueCollection::fromArray($data);
-       }
-       return $this->values;
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductTypeChangeLocalizedEnumValueOrderAction::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getAttributeName()
-    {
-       if (is_null($this->attributeName)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductTypeChangeLocalizedEnumValueOrderAction::FIELD_ATTRIBUTE_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->attributeName = (string)$data;
-       }
-       return $this->attributeName;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setValues(?AttributeLocalizedEnumValueCollection $values): void
+
+    public function setValues(?AttributeLocalizedEnumValueCollection $values): void
     {
         $this->values = $values;
     }
-    
-    final public function setAttributeName(?string $attributeName): void
+
+    public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
     }
-    
 }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<InvalidItemShippingDetailsError>
+ *
  * @method InvalidItemShippingDetailsError current()
  * @method InvalidItemShippingDetailsError at($offset)
  */
@@ -20,8 +23,12 @@ class InvalidItemShippingDetailsErrorCollection extends MapperSequence
     /**
      * @psalm-assert InvalidItemShippingDetailsError $value
      * @psalm-param InvalidItemShippingDetailsError|stdClass $value
-     * @return InvalidItemShippingDetailsErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return InvalidItemShippingDetailsErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class InvalidItemShippingDetailsErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?InvalidItemShippingDetailsError {
+        return function (int $index): ?InvalidItemShippingDetailsError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = InvalidItemShippingDetailsErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

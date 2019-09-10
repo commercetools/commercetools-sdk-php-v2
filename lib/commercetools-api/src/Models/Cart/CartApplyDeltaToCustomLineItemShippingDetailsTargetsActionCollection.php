@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction>
+ *
  * @method CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction current()
  * @method CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction at($offset)
  */
@@ -20,8 +23,12 @@ class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionCollection exten
     /**
      * @psalm-assert CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction $value
      * @psalm-param CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction|stdClass $value
-     * @return CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionCollection exten
      */
     protected function mapper()
     {
-        return function(int $index): ?CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction {
+        return function (int $index): ?CartApplyDeltaToCustomLineItemShippingDetailsTargetsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartApplyDeltaToCustomLineItemShippingDetailsTargetsActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

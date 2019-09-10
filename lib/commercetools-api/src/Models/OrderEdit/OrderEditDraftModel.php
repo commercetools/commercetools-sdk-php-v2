@@ -1,25 +1,53 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\OrderEdit;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\OrderReferenceModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraft
 {
-    
+    /**
+     * @var ?bool
+     */
+    protected $dryRun;
+
+    /**
+     * @var ?OrderReference
+     */
+    protected $resource;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?string
+     */
+    protected $comment;
+
+    /**
+     * @var ?StagedOrderUpdateActionCollection
+     */
+    protected $stagedActions;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
     public function __construct(
         bool $dryRun = null,
         OrderReference $resource = null,
@@ -34,170 +62,139 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
         $this->comment = $comment;
         $this->stagedActions = $stagedActions;
         $this->key = $key;
-        
     }
 
     /**
-     * @var ?bool
+     * @return null|bool
      */
-    protected $dryRun;
-    
-    /**
-     * @var ?OrderReference
-     */
-    protected $resource;
-    
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?string
-     */
-    protected $comment;
-    
-    /**
-     * @var ?StagedOrderUpdateActionCollection
-     */
-    protected $stagedActions;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    public function getDryRun()
+    {
+        if (is_null($this->dryRun)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(OrderEditDraft::FIELD_DRY_RUN);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->dryRun = (bool) $data;
+        }
+
+        return $this->dryRun;
+    }
 
     /**
-     *
-     * @return bool|null
+     * @return null|OrderReference
      */
-    final public function getDryRun()
+    public function getResource()
     {
-       if (is_null($this->dryRun)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(OrderEditDraft::FIELD_DRY_RUN);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->dryRun = (bool)$data;
-       }
-       return $this->dryRun;
+        if (is_null($this->resource)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderEditDraft::FIELD_RESOURCE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->resource = OrderReferenceModel::of($data);
+        }
+
+        return $this->resource;
     }
-    
+
     /**
-     *
-     * @return OrderReference|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getResource()
+    public function getCustom()
     {
-       if (is_null($this->resource)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(OrderEditDraft::FIELD_RESOURCE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->resource = OrderReferenceModel::of($data);
-       }
-       return $this->resource;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderEditDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|string
      */
-    final public function getCustom()
+    public function getComment()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(OrderEditDraft::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsDraftModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->comment)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderEditDraft::FIELD_COMMENT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->comment = (string) $data;
+        }
+
+        return $this->comment;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|StagedOrderUpdateActionCollection
      */
-    final public function getComment()
+    public function getStagedActions()
     {
-       if (is_null($this->comment)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(OrderEditDraft::FIELD_COMMENT);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->comment = (string)$data;
-       }
-       return $this->comment;
+        if (is_null($this->stagedActions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderEditDraft::FIELD_STAGED_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stagedActions = StagedOrderUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->stagedActions;
     }
-    
+
     /**
-     *
-     * @return StagedOrderUpdateActionCollection|null
+     * @return null|string
      */
-    final public function getStagedActions()
+    public function getKey()
     {
-       if (is_null($this->stagedActions)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(OrderEditDraft::FIELD_STAGED_ACTIONS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->stagedActions = StagedOrderUpdateActionCollection::fromArray($data);
-       }
-       return $this->stagedActions;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderEditDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getKey()
-    {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(OrderEditDraft::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
-    }
-    final public function setDryRun(?bool $dryRun): void
+
+    public function setDryRun(?bool $dryRun): void
     {
         $this->dryRun = $dryRun;
     }
-    
-    final public function setResource(?OrderReference $resource): void
+
+    public function setResource(?OrderReference $resource): void
     {
         $this->resource = $resource;
     }
-    
-    final public function setCustom(?CustomFieldsDraft $custom): void
+
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setComment(?string $comment): void
+
+    public function setComment(?string $comment): void
     {
         $this->comment = $comment;
     }
-    
-    final public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void
+
+    public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void
     {
         $this->stagedActions = $stagedActions;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
 }

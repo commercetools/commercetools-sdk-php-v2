@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Extension;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ExtensionDestination>
+ *
  * @method ExtensionDestination current()
  * @method ExtensionDestination at($offset)
  */
@@ -20,8 +23,12 @@ class ExtensionDestinationCollection extends MapperSequence
     /**
      * @psalm-assert ExtensionDestination $value
      * @psalm-param ExtensionDestination|stdClass $value
-     * @return ExtensionDestinationCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ExtensionDestinationCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ExtensionDestinationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ExtensionDestination {
+        return function (int $index): ?ExtensionDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ExtensionDestinationModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

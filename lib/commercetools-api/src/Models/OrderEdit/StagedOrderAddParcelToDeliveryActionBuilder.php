@@ -1,171 +1,166 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\ParcelMeasurementsBuilder;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 use Commercetools\Api\Models\Order\TrackingData;
 use Commercetools\Api\Models\Order\TrackingDataBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<StagedOrderAddParcelToDeliveryAction>
  */
 final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $deliveryId;
-    
+    private $deliveryId;
+
     /**
      * @var ?DeliveryItemCollection
      */
-    protected $items;
-    
-    /**
-     * @var ?TrackingDataBuilder|TrackingData
-     */
-    protected $trackingData;
-    
-    /**
-     * @var ?ParcelMeasurementsBuilder|ParcelMeasurements
-     */
-    protected $measurements;
+    private $items;
 
     /**
-     *
-     * @return string|null
+     * @var TrackingData|?TrackingDataBuilder
      */
-    final public function getAction()
-    {
-       return $this->action;
-    }
-    
+    private $trackingData;
+
     /**
-     *
-     * @return string|null
+     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
      */
-    final public function getDeliveryId()
+    private $measurements;
+
+    public function __construct()
     {
-       return $this->deliveryId;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|string
      */
-    final public function getItems()
+    public function getAction()
     {
-       return $this->items;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return TrackingData|null
+     * @return null|string
      */
-    final public function getTrackingData()
+    public function getDeliveryId()
     {
-       return ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData);
+        return $this->deliveryId;
     }
-    
+
     /**
-     *
-     * @return ParcelMeasurements|null
+     * @return null|DeliveryItemCollection
      */
-    final public function getMeasurements()
+    public function getItems()
     {
-       return ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements);
+        return $this->items;
     }
+
+    /**
+     * @return null|TrackingData
+     */
+    public function getTrackingData()
+    {
+        return $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData;
+    }
+
+    /**
+     * @return null|ParcelMeasurements
+     */
+    public function getMeasurements()
+    {
+        return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDeliveryId(?string $deliveryId)
+    public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItems(?DeliveryItemCollection $items)
+    public function withItems(?DeliveryItemCollection $items)
     {
         $this->items = $items;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTrackingData(?TrackingData $trackingData)
+    public function withTrackingData(?TrackingData $trackingData)
     {
         $this->trackingData = $trackingData;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMeasurements(?ParcelMeasurements $measurements)
+    public function withMeasurements(?ParcelMeasurements $measurements)
     {
         $this->measurements = $measurements;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTrackingDataBuilder(?TrackingDataBuilder $trackingData)
+    public function withTrackingDataBuilder(?TrackingDataBuilder $trackingData)
     {
         $this->trackingData = $trackingData;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)
+    public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)
     {
         $this->measurements = $measurements;
-        
+
         return $this;
     }
-    
-    public function build(): StagedOrderAddParcelToDeliveryAction {
+
+    public function build(): StagedOrderAddParcelToDeliveryAction
+    {
         return new StagedOrderAddParcelToDeliveryActionModel(
             $this->action,
             $this->deliveryId,
@@ -174,7 +169,7 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
             ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements)
         );
     }
-    
+
     public static function of(): StagedOrderAddParcelToDeliveryActionBuilder
     {
         return new self();

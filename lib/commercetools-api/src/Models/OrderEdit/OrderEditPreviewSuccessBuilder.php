@@ -1,114 +1,113 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Message\MessagePayloadCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<OrderEditPreviewSuccess>
  */
 final class OrderEditPreviewSuccessBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
-     * @var ?StagedOrderBuilder|StagedOrder
+     * @var StagedOrder|?StagedOrderBuilder
      */
-    protected $preview;
-    
+    private $preview;
+
     /**
      * @var ?MessagePayloadCollection
      */
-    protected $messagePayloads;
+    private $messagePayloads;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return StagedOrder|null
+     * @return null|StagedOrder
      */
-    final public function getPreview()
+    public function getPreview()
     {
-       return ($this->preview instanceof StagedOrderBuilder ? $this->preview->build() : $this->preview);
+        return $this->preview instanceof StagedOrderBuilder ? $this->preview->build() : $this->preview;
     }
-    
+
     /**
-     *
-     * @return MessagePayloadCollection|null
+     * @return null|MessagePayloadCollection
      */
-    final public function getMessagePayloads()
+    public function getMessagePayloads()
     {
-       return $this->messagePayloads;
+        return $this->messagePayloads;
     }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPreview(?StagedOrder $preview)
+    public function withPreview(?StagedOrder $preview)
     {
         $this->preview = $preview;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessagePayloads(?MessagePayloadCollection $messagePayloads)
+    public function withMessagePayloads(?MessagePayloadCollection $messagePayloads)
     {
         $this->messagePayloads = $messagePayloads;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withPreviewBuilder(?StagedOrderBuilder $preview)
+    public function withPreviewBuilder(?StagedOrderBuilder $preview)
     {
         $this->preview = $preview;
-        
+
         return $this;
     }
-    
-    public function build(): OrderEditPreviewSuccess {
+
+    public function build(): OrderEditPreviewSuccess
+    {
         return new OrderEditPreviewSuccessModel(
             $this->type,
             ($this->preview instanceof StagedOrderBuilder ? $this->preview->build() : $this->preview),
             $this->messagePayloads
         );
     }
-    
+
     public static function of(): OrderEditPreviewSuccessBuilder
     {
         return new self();

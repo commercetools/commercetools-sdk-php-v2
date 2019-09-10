@@ -1,31 +1,31 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\TaxCategory;
 
 use Commercetools\Base\JsonObject;
 
 interface SubRate extends JsonObject
 {
-    
     const FIELD_NAME = 'name';
     const FIELD_AMOUNT = 'amount';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getName();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getAmount();
+
     public function setName(?string $name): void;
-    
+
     public function setAmount(?int $amount): void;
 }

@@ -1,180 +1,177 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Product\FacetResults;
 use Commercetools\Api\Models\Product\FacetResultsBuilder;
+use Commercetools\Base\Builder;
+use Commercetools\Base\JsonObject;
 
 /**
  * @implements Builder<PagedQueryResponse>
  */
 final class PagedQueryResponseBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?int
+     */
+    private $total;
 
     /**
      * @var ?int
      */
-    protected $total;
-    
-    /**
-     * @var ?int
-     */
-    protected $offset;
-    
+    private $offset;
+
     /**
      * @var ?JsonObject
      */
-    protected $meta;
-    
+    private $meta;
+
     /**
      * @var ?int
      */
-    protected $count;
-    
+    private $count;
+
     /**
      * @var ?BaseResourceCollection
      */
-    protected $results;
-    
-    /**
-     * @var ?FacetResultsBuilder|FacetResults
-     */
-    protected $facets;
+    private $results;
 
     /**
-     *
-     * @return int|null
+     * @var FacetResults|?FacetResultsBuilder
      */
-    final public function getTotal()
+    private $facets;
+
+    public function __construct()
     {
-       return $this->total;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getOffset()
+    public function getTotal()
     {
-       return $this->offset;
+        return $this->total;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|int
      */
-    final public function getMeta()
+    public function getOffset()
     {
-       return $this->meta;
+        return $this->offset;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|JsonObject
      */
-    final public function getCount()
+    public function getMeta()
     {
-       return $this->count;
+        return $this->meta;
     }
-    
+
     /**
-     *
-     * @return BaseResourceCollection|null
+     * @return null|int
      */
-    final public function getResults()
+    public function getCount()
     {
-       return $this->results;
+        return $this->count;
     }
-    
+
     /**
-     *
-     * @return FacetResults|null
+     * @return null|BaseResourceCollection
      */
-    final public function getFacets()
+    public function getResults()
     {
-       return ($this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets);
+        return $this->results;
     }
+
+    /**
+     * @return null|FacetResults
+     */
+    public function getFacets()
+    {
+        return $this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets;
+    }
+
     /**
      * @return $this
      */
-    final public function withTotal(?int $total)
+    public function withTotal(?int $total)
     {
         $this->total = $total;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOffset(?int $offset)
+    public function withOffset(?int $offset)
     {
         $this->offset = $offset;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMeta(?JsonObject $meta)
+    public function withMeta(?JsonObject $meta)
     {
         $this->meta = $meta;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCount(?int $count)
+    public function withCount(?int $count)
     {
         $this->count = $count;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResults(?BaseResourceCollection $results)
+    public function withResults(?BaseResourceCollection $results)
     {
         $this->results = $results;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFacets(?FacetResults $facets)
+    public function withFacets(?FacetResults $facets)
     {
         $this->facets = $facets;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withFacetsBuilder(?FacetResultsBuilder $facets)
+    public function withFacetsBuilder(?FacetResultsBuilder $facets)
     {
         $this->facets = $facets;
-        
+
         return $this;
     }
-    
-    public function build(): PagedQueryResponse {
+
+    public function build(): PagedQueryResponse
+    {
         return new PagedQueryResponseModel(
             $this->total,
             $this->offset,
@@ -184,7 +181,7 @@ final class PagedQueryResponseBuilder implements Builder
             ($this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets)
         );
     }
-    
+
     public static function of(): PagedQueryResponseBuilder
     {
         return new self();

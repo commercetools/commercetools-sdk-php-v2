@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StoreResourceIdentifier>
+ *
  * @method StoreResourceIdentifier current()
  * @method StoreResourceIdentifier at($offset)
  */
@@ -20,8 +23,12 @@ class StoreResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert StoreResourceIdentifier $value
      * @psalm-param StoreResourceIdentifier|stdClass $value
-     * @return StoreResourceIdentifierCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StoreResourceIdentifierCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StoreResourceIdentifierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?StoreResourceIdentifier {
+        return function (int $index): ?StoreResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StoreResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

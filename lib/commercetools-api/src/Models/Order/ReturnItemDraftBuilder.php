@@ -1,145 +1,141 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ReturnItemDraft>
  */
 final class ReturnItemDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $shipmentState;
 
     /**
      * @var ?string
      */
-    protected $shipmentState;
-    
-    /**
-     * @var ?string
-     */
-    protected $customLineItemId;
-    
+    private $customLineItemId;
+
     /**
      * @var ?int
      */
-    protected $quantity;
-    
-    /**
-     * @var ?string
-     */
-    protected $lineItemId;
-    
-    /**
-     * @var ?string
-     */
-    protected $comment;
+    private $quantity;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getShipmentState()
-    {
-       return $this->shipmentState;
-    }
-    
+    private $lineItemId;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCustomLineItemId()
+    private $comment;
+
+    public function __construct()
     {
-       return $this->customLineItemId;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getQuantity()
+    public function getShipmentState()
     {
-       return $this->quantity;
+        return $this->shipmentState;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getLineItemId()
+    public function getCustomLineItemId()
     {
-       return $this->lineItemId;
+        return $this->customLineItemId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getComment()
+    public function getQuantity()
     {
-       return $this->comment;
+        return $this->quantity;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        return $this->lineItemId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
     /**
      * @return $this
      */
-    final public function withShipmentState(?string $shipmentState)
+    public function withShipmentState(?string $shipmentState)
     {
         $this->shipmentState = $shipmentState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomLineItemId(?string $customLineItemId)
+    public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLineItemId(?string $lineItemId)
+    public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withComment(?string $comment)
+    public function withComment(?string $comment)
     {
         $this->comment = $comment;
-        
+
         return $this;
     }
-    
-    public function build(): ReturnItemDraft {
+
+    public function build(): ReturnItemDraft
+    {
         return new ReturnItemDraftModel(
             $this->shipmentState,
             $this->customLineItemId,
@@ -148,7 +144,7 @@ final class ReturnItemDraftBuilder implements Builder
             $this->comment
         );
     }
-    
+
     public static function of(): ReturnItemDraftBuilder
     {
         return new self();

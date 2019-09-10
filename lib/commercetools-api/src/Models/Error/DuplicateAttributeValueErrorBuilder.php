@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Product\Attribute;
 use Commercetools\Api\Models\Product\AttributeBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<DuplicateAttributeValueError>
  */
 final class DuplicateAttributeValueErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
-    /**
-     * @var ?AttributeBuilder|Attribute
-     */
-    protected $attribute;
+    private $message;
 
     /**
-     *
-     * @return string|null
+     * @var Attribute|?AttributeBuilder
      */
-    final public function getCode()
+    private $attribute;
+
+    public function __construct()
     {
-       return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMessage()
+    public function getCode()
     {
-       return $this->message;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return Attribute|null
+     * @return null|string
      */
-    final public function getAttribute()
+    public function getMessage()
     {
-       return ($this->attribute instanceof AttributeBuilder ? $this->attribute->build() : $this->attribute);
+        return $this->message;
     }
+
+    /**
+     * @return null|Attribute
+     */
+    public function getAttribute()
+    {
+        return $this->attribute instanceof AttributeBuilder ? $this->attribute->build() : $this->attribute;
+    }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAttribute(?Attribute $attribute)
+    public function withAttribute(?Attribute $attribute)
     {
         $this->attribute = $attribute;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withAttributeBuilder(?AttributeBuilder $attribute)
+    public function withAttributeBuilder(?AttributeBuilder $attribute)
     {
         $this->attribute = $attribute;
-        
+
         return $this;
     }
-    
-    public function build(): DuplicateAttributeValueError {
+
+    public function build(): DuplicateAttributeValueError
+    {
         return new DuplicateAttributeValueErrorModel(
             $this->code,
             $this->message,
             ($this->attribute instanceof AttributeBuilder ? $this->attribute->build() : $this->attribute)
         );
     }
-    
+
     public static function of(): DuplicateAttributeValueErrorBuilder
     {
         return new self();

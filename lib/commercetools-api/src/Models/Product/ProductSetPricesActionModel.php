@@ -1,21 +1,46 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductSetPricesActionModel extends JsonObjectModel implements ProductSetPricesAction
 {
     const DISCRIMINATOR_VALUE = 'setPrices';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
+    /**
+     * @var ?int
+     */
+    protected $variantId;
+
+    /**
+     * @var ?PriceDraftCollection
+     */
+    protected $prices;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
     public function __construct(
         string $action = null,
         bool $staged = null,
@@ -28,141 +53,115 @@ final class ProductSetPricesActionModel extends JsonObjectModel implements Produ
         $this->variantId = $variantId;
         $this->prices = $prices;
         $this->sku = $sku;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-    
-    /**
-     * @var ?int
-     */
-    protected $variantId;
-    
-    /**
-     * @var ?PriceDraftCollection
-     */
-    protected $prices;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getAction()
+    public function getStaged()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetPricesAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|int
      */
-    final public function getStaged()
+    public function getVariantId()
     {
-       if (is_null($this->staged)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(ProductSetPricesAction::FIELD_STAGED);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->staged = (bool)$data;
-       }
-       return $this->staged;
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductSetPricesAction::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|PriceDraftCollection
      */
-    final public function getVariantId()
+    public function getPrices()
     {
-       if (is_null($this->variantId)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ProductSetPricesAction::FIELD_VARIANT_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->variantId = (int)$data;
-       }
-       return $this->variantId;
+        if (is_null($this->prices)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductSetPricesAction::FIELD_PRICES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->prices = PriceDraftCollection::fromArray($data);
+        }
+
+        return $this->prices;
     }
-    
+
     /**
-     *
-     * @return PriceDraftCollection|null
+     * @return null|string
      */
-    final public function getPrices()
+    public function getSku()
     {
-       if (is_null($this->prices)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductSetPricesAction::FIELD_PRICES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->prices = PriceDraftCollection::fromArray($data);
-       }
-       return $this->prices;
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetPricesAction::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getSku()
-    {
-       if (is_null($this->sku)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductSetPricesAction::FIELD_SKU);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sku = (string)$data;
-       }
-       return $this->sku;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setStaged(?bool $staged): void
+
+    public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
-    
-    final public function setVariantId(?int $variantId): void
+
+    public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
-    
-    final public function setPrices(?PriceDraftCollection $prices): void
+
+    public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
-    
-    final public function setSku(?string $sku): void
+
+    public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
-    
 }

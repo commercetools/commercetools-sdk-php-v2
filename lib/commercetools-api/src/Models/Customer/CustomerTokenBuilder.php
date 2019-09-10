@@ -1,16 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use DateTimeImmutable;
 
 /**
@@ -18,153 +16,150 @@ use DateTimeImmutable;
  */
 final class CustomerTokenBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerId;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?string
-     */
-    protected $value;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $expiresAt;
+    private $lastModifiedAt;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $customerId;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getLastModifiedAt()
-    {
-       return $this->lastModifiedAt;
-    }
-    
+    private $id;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCustomerId()
-    {
-       return $this->customerId;
-    }
-    
+    private $value;
+
     /**
-     *
-     * @return string|null
+     * @var ?DateTimeImmutable
      */
-    final public function getId()
+    private $expiresAt;
+
+    public function __construct()
     {
-       return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getValue()
+    public function getCreatedAt()
     {
-       return $this->value;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getExpiresAt()
+    public function getLastModifiedAt()
     {
-       return $this->expiresAt;
+        return $this->lastModifiedAt;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getCustomerId()
+    {
+        return $this->customerId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerId(?string $customerId)
+    public function withCustomerId(?string $customerId)
     {
         $this->customerId = $customerId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?string $value)
+    public function withValue(?string $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExpiresAt(?DateTimeImmutable $expiresAt)
+    public function withExpiresAt(?DateTimeImmutable $expiresAt)
     {
         $this->expiresAt = $expiresAt;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerToken {
+
+    public function build(): CustomerToken
+    {
         return new CustomerTokenModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -174,7 +169,7 @@ final class CustomerTokenBuilder implements Builder
             $this->expiresAt
         );
     }
-    
+
     public static function of(): CustomerTokenBuilder
     {
         return new self();

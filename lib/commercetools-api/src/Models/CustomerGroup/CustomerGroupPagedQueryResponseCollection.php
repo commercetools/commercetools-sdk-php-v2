@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CustomerGroup;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerGroupPagedQueryResponse>
+ *
  * @method CustomerGroupPagedQueryResponse current()
  * @method CustomerGroupPagedQueryResponse at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerGroupPagedQueryResponseCollection extends MapperSequence
     /**
      * @psalm-assert CustomerGroupPagedQueryResponse $value
      * @psalm-param CustomerGroupPagedQueryResponse|stdClass $value
-     * @return CustomerGroupPagedQueryResponseCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerGroupPagedQueryResponseCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerGroupPagedQueryResponseCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerGroupPagedQueryResponse {
+        return function (int $index): ?CustomerGroupPagedQueryResponse {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerGroupPagedQueryResponseModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

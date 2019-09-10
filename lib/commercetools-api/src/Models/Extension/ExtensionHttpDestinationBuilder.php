@@ -1,113 +1,112 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Extension;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ExtensionHttpDestination>
  */
 final class ExtensionHttpDestinationBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $url;
-    
-    /**
-     * @var ?ExtensionHttpDestinationAuthenticationBuilder|ExtensionHttpDestinationAuthentication
-     */
-    protected $authentication;
+    private $url;
 
     /**
-     *
-     * @return string|null
+     * @var ExtensionHttpDestinationAuthentication|?ExtensionHttpDestinationAuthenticationBuilder
      */
-    final public function getType()
+    private $authentication;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getUrl()
+    public function getType()
     {
-       return $this->url;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return ExtensionHttpDestinationAuthentication|null
+     * @return null|string
      */
-    final public function getAuthentication()
+    public function getUrl()
     {
-       return ($this->authentication instanceof ExtensionHttpDestinationAuthenticationBuilder ? $this->authentication->build() : $this->authentication);
+        return $this->url;
     }
+
+    /**
+     * @return null|ExtensionHttpDestinationAuthentication
+     */
+    public function getAuthentication()
+    {
+        return $this->authentication instanceof ExtensionHttpDestinationAuthenticationBuilder ? $this->authentication->build() : $this->authentication;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withUrl(?string $url)
+    public function withUrl(?string $url)
     {
         $this->url = $url;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAuthentication(?ExtensionHttpDestinationAuthentication $authentication)
+    public function withAuthentication(?ExtensionHttpDestinationAuthentication $authentication)
     {
         $this->authentication = $authentication;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withAuthenticationBuilder(?ExtensionHttpDestinationAuthenticationBuilder $authentication)
+    public function withAuthenticationBuilder(?ExtensionHttpDestinationAuthenticationBuilder $authentication)
     {
         $this->authentication = $authentication;
-        
+
         return $this;
     }
-    
-    public function build(): ExtensionHttpDestination {
+
+    public function build(): ExtensionHttpDestination
+    {
         return new ExtensionHttpDestinationModel(
             $this->type,
             $this->url,
             ($this->authentication instanceof ExtensionHttpDestinationAuthenticationBuilder ? $this->authentication->build() : $this->authentication)
         );
     }
-    
+
     public static function of(): ExtensionHttpDestinationBuilder
     {
         return new self();

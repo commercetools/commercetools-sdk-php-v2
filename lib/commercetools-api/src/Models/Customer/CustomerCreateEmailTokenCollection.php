@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerCreateEmailToken>
+ *
  * @method CustomerCreateEmailToken current()
  * @method CustomerCreateEmailToken at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerCreateEmailTokenCollection extends MapperSequence
     /**
      * @psalm-assert CustomerCreateEmailToken $value
      * @psalm-param CustomerCreateEmailToken|stdClass $value
-     * @return CustomerCreateEmailTokenCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerCreateEmailTokenCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerCreateEmailTokenCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerCreateEmailToken {
+        return function (int $index): ?CustomerCreateEmailToken {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerCreateEmailTokenModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,18 +1,16 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -20,172 +18,170 @@ use DateTimeImmutable;
  */
 final class LineItemStateTransitionMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
-     * @var ?StateReferenceBuilder|StateReference
+     * @var StateReference|?StateReferenceBuilder
      */
-    protected $toState;
-    
+    private $toState;
+
     /**
-     * @var ?StateReferenceBuilder|StateReference
+     * @var StateReference|?StateReferenceBuilder
      */
-    protected $fromState;
-    
+    private $fromState;
+
     /**
      * @var ?int
      */
-    protected $quantity;
-    
+    private $quantity;
+
     /**
      * @var ?string
      */
-    protected $lineItemId;
-    
+    private $lineItemId;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $transitionDate;
+    private $transitionDate;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return StateReference|null
+     * @return null|StateReference
      */
-    final public function getToState()
+    public function getToState()
     {
-       return ($this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState);
+        return $this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState;
     }
-    
+
     /**
-     *
-     * @return StateReference|null
+     * @return null|StateReference
      */
-    final public function getFromState()
+    public function getFromState()
     {
-       return ($this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState);
+        return $this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getQuantity()
+    public function getQuantity()
     {
-       return $this->quantity;
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getLineItemId()
+    public function getLineItemId()
     {
-       return $this->lineItemId;
+        return $this->lineItemId;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getTransitionDate()
+    public function getTransitionDate()
     {
-       return $this->transitionDate;
+        return $this->transitionDate;
     }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withToState(?StateReference $toState)
+    public function withToState(?StateReference $toState)
     {
         $this->toState = $toState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFromState(?StateReference $fromState)
+    public function withFromState(?StateReference $fromState)
     {
         $this->fromState = $fromState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLineItemId(?string $lineItemId)
+    public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTransitionDate(?DateTimeImmutable $transitionDate)
+    public function withTransitionDate(?DateTimeImmutable $transitionDate)
     {
         $this->transitionDate = $transitionDate;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withToStateBuilder(?StateReferenceBuilder $toState)
+    public function withToStateBuilder(?StateReferenceBuilder $toState)
     {
         $this->toState = $toState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFromStateBuilder(?StateReferenceBuilder $fromState)
+    public function withFromStateBuilder(?StateReferenceBuilder $fromState)
     {
         $this->fromState = $fromState;
-        
+
         return $this;
     }
-    
-    public function build(): LineItemStateTransitionMessagePayload {
+
+    public function build(): LineItemStateTransitionMessagePayload
+    {
         return new LineItemStateTransitionMessagePayloadModel(
             $this->type,
             ($this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState),
@@ -195,7 +191,7 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
             $this->transitionDate
         );
     }
-    
+
     public static function of(): LineItemStateTransitionMessagePayloadBuilder
     {
         return new self();

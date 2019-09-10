@@ -1,16 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -20,598 +17,584 @@ use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceBuilder;
 use Commercetools\Api\Models\Order\ItemStateCollection;
-use Commercetools\Api\Models\ProductType\ProductTypeReference;
-use Commercetools\Api\Models\ProductType\ProductTypeReferenceBuilder;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantBuilder;
+use Commercetools\Api\Models\ProductType\ProductTypeReference;
+use Commercetools\Api\Models\ProductType\ProductTypeReferenceBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<LineItem>
  */
 final class LineItemBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?int
      */
-    protected $quantity;
-    
+    private $quantity;
+
     /**
      * @var ?string
      */
-    protected $priceMode;
-    
+    private $priceMode;
+
     /**
      * @var ?string
      */
-    protected $productId;
-    
+    private $productId;
+
     /**
-     * @var ?MoneyBuilder|Money
+     * @var Money|?MoneyBuilder
      */
-    protected $totalPrice;
-    
+    private $totalPrice;
+
     /**
-     * @var ?TaxedItemPriceBuilder|TaxedItemPrice
+     * @var TaxedItemPrice|?TaxedItemPriceBuilder
      */
-    protected $taxedPrice;
-    
+    private $taxedPrice;
+
     /**
-     * @var ?CustomFieldsBuilder|CustomFields
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
-    protected $discountedPricePerQuantity;
-    
+    private $discountedPricePerQuantity;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $productSlug;
-    
+    private $productSlug;
+
     /**
-     * @var ?TaxRateBuilder|TaxRate
+     * @var TaxRate|?TaxRateBuilder
      */
-    protected $taxRate;
-    
+    private $taxRate;
+
     /**
-     * @var ?ItemShippingDetailsBuilder|ItemShippingDetails
+     * @var ItemShippingDetails|?ItemShippingDetailsBuilder
      */
-    protected $shippingDetails;
-    
+    private $shippingDetails;
+
     /**
-     * @var ?PriceBuilder|Price
+     * @var Price|?PriceBuilder
      */
-    protected $price;
-    
+    private $price;
+
     /**
-     * @var ?ProductVariantBuilder|ProductVariant
+     * @var ProductVariant|?ProductVariantBuilder
      */
-    protected $variant;
-    
+    private $variant;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $name;
-    
+    private $name;
+
     /**
-     * @var ?ChannelReferenceBuilder|ChannelReference
+     * @var ChannelReference|?ChannelReferenceBuilder
      */
-    protected $supplyChannel;
-    
+    private $supplyChannel;
+
     /**
      * @var ?ItemStateCollection
      */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?ChannelReferenceBuilder|ChannelReference
-     */
-    protected $distributionChannel;
-    
-    /**
-     * @var ?string
-     */
-    protected $lineItemMode;
-    
-    /**
-     * @var ?ProductTypeReferenceBuilder|ProductTypeReference
-     */
-    protected $productType;
+    private $state;
 
     /**
-     *
-     * @return int|null
+     * @var ?string
      */
-    final public function getQuantity()
-    {
-       return $this->quantity;
-    }
-    
+    private $id;
+
     /**
-     *
-     * @return string|null
+     * @var ChannelReference|?ChannelReferenceBuilder
      */
-    final public function getPriceMode()
-    {
-       return $this->priceMode;
-    }
-    
+    private $distributionChannel;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getProductId()
-    {
-       return $this->productId;
-    }
-    
+    private $lineItemMode;
+
     /**
-     *
-     * @return Money|null
+     * @var ProductTypeReference|?ProductTypeReferenceBuilder
      */
-    final public function getTotalPrice()
+    private $productType;
+
+    public function __construct()
     {
-       return ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice);
     }
-    
+
     /**
-     *
-     * @return TaxedItemPrice|null
+     * @return null|int
      */
-    final public function getTaxedPrice()
+    public function getQuantity()
     {
-       return ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice);
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|string
      */
-    final public function getCustom()
+    public function getPriceMode()
     {
-       return ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom);
+        return $this->priceMode;
     }
-    
+
     /**
-     *
-     * @return DiscountedLineItemPriceForQuantityCollection|null
+     * @return null|string
      */
-    final public function getDiscountedPricePerQuantity()
+    public function getProductId()
     {
-       return $this->discountedPricePerQuantity;
+        return $this->productId;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|Money
      */
-    final public function getProductSlug()
+    public function getTotalPrice()
     {
-       return ($this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug);
+        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
-    
+
     /**
-     *
-     * @return TaxRate|null
+     * @return null|TaxedItemPrice
      */
-    final public function getTaxRate()
+    public function getTaxedPrice()
     {
-       return ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate);
+        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
-    
+
     /**
-     *
-     * @return ItemShippingDetails|null
+     * @return null|CustomFields
      */
-    final public function getShippingDetails()
+    public function getCustom()
     {
-       return ($this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails);
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return Price|null
+     * @return null|DiscountedLineItemPriceForQuantityCollection
      */
-    final public function getPrice()
+    public function getDiscountedPricePerQuantity()
     {
-       return ($this->price instanceof PriceBuilder ? $this->price->build() : $this->price);
+        return $this->discountedPricePerQuantity;
     }
-    
+
     /**
-     *
-     * @return ProductVariant|null
+     * @return null|LocalizedString
      */
-    final public function getVariant()
+    public function getProductSlug()
     {
-       return ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant);
+        return $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|TaxRate
      */
-    final public function getName()
+    public function getTaxRate()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
     }
-    
+
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|ItemShippingDetails
      */
-    final public function getSupplyChannel()
+    public function getShippingDetails()
     {
-       return ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel);
+        return $this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
     }
-    
+
     /**
-     *
-     * @return ItemStateCollection|null
+     * @return null|Price
      */
-    final public function getState()
+    public function getPrice()
     {
-       return $this->state;
+        return $this->price instanceof PriceBuilder ? $this->price->build() : $this->price;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ProductVariant
      */
-    final public function getId()
+    public function getVariant()
     {
-       return $this->id;
+        return $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant;
     }
-    
+
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|LocalizedString
      */
-    final public function getDistributionChannel()
+    public function getName()
     {
-       return ($this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel);
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ChannelReference
      */
-    final public function getLineItemMode()
+    public function getSupplyChannel()
     {
-       return $this->lineItemMode;
+        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
-    
+
     /**
-     *
-     * @return ProductTypeReference|null
+     * @return null|ItemStateCollection
      */
-    final public function getProductType()
+    public function getState()
     {
-       return ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType);
+        return $this->state;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|ChannelReference
+     */
+    public function getDistributionChannel()
+    {
+        return $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getLineItemMode()
+    {
+        return $this->lineItemMode;
+    }
+
+    /**
+     * @return null|ProductTypeReference
+     */
+    public function getProductType()
+    {
+        return $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType;
+    }
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPriceMode(?string $priceMode)
+    public function withPriceMode(?string $priceMode)
     {
         $this->priceMode = $priceMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductId(?string $productId)
+    public function withProductId(?string $productId)
     {
         $this->productId = $productId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotalPrice(?Money $totalPrice)
+    public function withTotalPrice(?Money $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
+    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
+    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductSlug(?LocalizedString $productSlug)
+    public function withProductSlug(?LocalizedString $productSlug)
     {
         $this->productSlug = $productSlug;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxRate(?TaxRate $taxRate)
+    public function withTaxRate(?TaxRate $taxRate)
     {
         $this->taxRate = $taxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingDetails(?ItemShippingDetails $shippingDetails)
+    public function withShippingDetails(?ItemShippingDetails $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrice(?Price $price)
+    public function withPrice(?Price $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariant(?ProductVariant $variant)
+    public function withVariant(?ProductVariant $variant)
     {
         $this->variant = $variant;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSupplyChannel(?ChannelReference $supplyChannel)
+    public function withSupplyChannel(?ChannelReference $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?ItemStateCollection $state)
+    public function withState(?ItemStateCollection $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDistributionChannel(?ChannelReference $distributionChannel)
+    public function withDistributionChannel(?ChannelReference $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLineItemMode(?string $lineItemMode)
+    public function withLineItemMode(?string $lineItemMode)
     {
         $this->lineItemMode = $lineItemMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductType(?ProductTypeReference $productType)
+    public function withProductType(?ProductTypeReference $productType)
     {
         $this->productType = $productType;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
+    public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductSlugBuilder(?LocalizedStringBuilder $productSlug)
+    public function withProductSlugBuilder(?LocalizedStringBuilder $productSlug)
     {
         $this->productSlug = $productSlug;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
+    public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
     {
         $this->taxRate = $taxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingDetailsBuilder(?ItemShippingDetailsBuilder $shippingDetails)
+    public function withShippingDetailsBuilder(?ItemShippingDetailsBuilder $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPriceBuilder(?PriceBuilder $price)
+    public function withPriceBuilder(?PriceBuilder $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantBuilder(?ProductVariantBuilder $variant)
+    public function withVariantBuilder(?ProductVariantBuilder $variant)
     {
         $this->variant = $variant;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)
+    public function withSupplyChannelBuilder(?ChannelReferenceBuilder $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDistributionChannelBuilder(?ChannelReferenceBuilder $distributionChannel)
+    public function withDistributionChannelBuilder(?ChannelReferenceBuilder $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
+    public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
     {
         $this->productType = $productType;
-        
+
         return $this;
     }
-    
-    public function build(): LineItem {
+
+    public function build(): LineItem
+    {
         return new LineItemModel(
             $this->quantity,
             $this->priceMode,
@@ -634,7 +617,7 @@ final class LineItemBuilder implements Builder
             ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType)
         );
     }
-    
+
     public static function of(): LineItemBuilder
     {
         return new self();

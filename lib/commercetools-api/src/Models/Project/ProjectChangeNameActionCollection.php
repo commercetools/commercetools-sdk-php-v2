@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProjectChangeNameAction>
+ *
  * @method ProjectChangeNameAction current()
  * @method ProjectChangeNameAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProjectChangeNameActionCollection extends MapperSequence
     /**
      * @psalm-assert ProjectChangeNameAction $value
      * @psalm-param ProjectChangeNameAction|stdClass $value
-     * @return ProjectChangeNameActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProjectChangeNameActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProjectChangeNameActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProjectChangeNameAction {
+        return function (int $index): ?ProjectChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProjectChangeNameActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

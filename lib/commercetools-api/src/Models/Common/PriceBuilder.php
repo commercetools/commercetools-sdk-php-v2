@@ -1,22 +1,20 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -24,298 +22,294 @@ use DateTimeImmutable;
  */
 final class PriceBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
-     * @var ?DiscountedPriceBuilder|DiscountedPrice
+     * @var DiscountedPrice|?DiscountedPriceBuilder
      */
-    protected $discounted;
-    
+    private $discounted;
+
     /**
      * @var ?string
      */
-    protected $country;
-    
+    private $country;
+
     /**
      * @var ?PriceTierCollection
      */
-    protected $tiers;
-    
+    private $tiers;
+
     /**
-     * @var ?CustomerGroupReferenceBuilder|CustomerGroupReference
+     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
-    protected $customerGroup;
-    
+    private $customerGroup;
+
     /**
-     * @var ?CustomFieldsBuilder|CustomFields
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
-     * @var ?ChannelReferenceBuilder|ChannelReference
+     * @var ChannelReference|?ChannelReferenceBuilder
      */
-    protected $channel;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validUntil;
-    
+    private $channel;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validFrom;
-    
+    private $validUntil;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $validFrom;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
-    /**
-     * @var ?MoneyBuilder|Money
-     */
-    protected $value;
+    private $id;
 
     /**
-     *
-     * @return DiscountedPrice|null
+     * @var Money|?MoneyBuilder
      */
-    final public function getDiscounted()
+    private $value;
+
+    public function __construct()
     {
-       return ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted);
     }
-    
+
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
-     * @return string|null
+     * @return null|DiscountedPrice
      */
-    final public function getCountry()
+    public function getDiscounted()
     {
-       return $this->country;
+        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
     }
-    
+
     /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
      *
-     * @return PriceTierCollection|null
+     * @return null|string
      */
-    final public function getTiers()
+    public function getCountry()
     {
-       return $this->tiers;
+        return $this->country;
     }
-    
+
     /**
-     *
-     * @return CustomerGroupReference|null
+     * @return null|PriceTierCollection
      */
-    final public function getCustomerGroup()
+    public function getTiers()
     {
-       return ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup);
+        return $this->tiers;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomerGroupReference
      */
-    final public function getCustom()
+    public function getCustomerGroup()
     {
-       return ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom);
+        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
     }
-    
+
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|CustomFields
      */
-    final public function getChannel()
+    public function getCustom()
     {
-       return ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel);
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|ChannelReference
      */
-    final public function getValidUntil()
+    public function getChannel()
     {
-       return $this->validUntil;
+        return $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getValidFrom()
+    public function getValidUntil()
     {
-       return $this->validFrom;
+        return $this->validUntil;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getId()
+    public function getValidFrom()
     {
-       return $this->id;
+        return $this->validFrom;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|string
      */
-    final public function getValue()
+    public function getId()
     {
-       return ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value);
+        return $this->id;
     }
+
+    /**
+     * @return null|Money
+     */
+    public function getValue()
+    {
+        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+    }
+
     /**
      * @return $this
      */
-    final public function withDiscounted(?DiscountedPrice $discounted)
+    public function withDiscounted(?DiscountedPrice $discounted)
     {
         $this->discounted = $discounted;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCountry(?string $country)
+    public function withCountry(?string $country)
     {
         $this->country = $country;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTiers(?PriceTierCollection $tiers)
+    public function withTiers(?PriceTierCollection $tiers)
     {
         $this->tiers = $tiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroup(?CustomerGroupReference $customerGroup)
+    public function withCustomerGroup(?CustomerGroupReference $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withChannel(?ChannelReference $channel)
+    public function withChannel(?ChannelReference $channel)
     {
         $this->channel = $channel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValidUntil(?DateTimeImmutable $validUntil)
+    public function withValidUntil(?DateTimeImmutable $validUntil)
     {
         $this->validUntil = $validUntil;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValidFrom(?DateTimeImmutable $validFrom)
+    public function withValidFrom(?DateTimeImmutable $validFrom)
     {
         $this->validFrom = $validFrom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?Money $value)
+    public function withValue(?Money $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
     {
         $this->discounted = $discounted;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
+    public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withChannelBuilder(?ChannelReferenceBuilder $channel)
+    public function withChannelBuilder(?ChannelReferenceBuilder $channel)
     {
         $this->channel = $channel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?MoneyBuilder $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
-    public function build(): Price {
+
+    public function build(): Price
+    {
         return new PriceModel(
             ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
             $this->country,
@@ -329,7 +323,7 @@ final class PriceBuilder implements Builder
             ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value)
         );
     }
-    
+
     public static function of(): PriceBuilder
     {
         return new self();

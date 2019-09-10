@@ -1,226 +1,221 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ReviewStateTransitionMessagePayload>
  */
 final class ReviewStateTransitionMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?bool
-     */
-    protected $newIncludedInStatistics;
-    
-    /**
-     * @var ?StateReferenceBuilder|StateReference
-     */
-    protected $oldState;
-    
-    /**
-     * @var ?bool
-     */
-    protected $force;
-    
-    /**
-     * @var ?bool
-     */
-    protected $oldIncludedInStatistics;
-    
-    /**
-     * @var ?StateReferenceBuilder|StateReference
-     */
-    protected $newState;
-    
-    /**
-     * @var ?ReferenceBuilder|Reference
-     */
-    protected $target;
+    private $type;
 
     /**
-     *
-     * @return string|null
+     * @var ?bool
      */
-    final public function getType()
-    {
-       return $this->type;
-    }
-    
+    private $newIncludedInStatistics;
+
     /**
-     *
-     * @return bool|null
+     * @var StateReference|?StateReferenceBuilder
      */
-    final public function getNewIncludedInStatistics()
-    {
-       return $this->newIncludedInStatistics;
-    }
-    
+    private $oldState;
+
     /**
-     *
-     * @return StateReference|null
+     * @var ?bool
      */
-    final public function getOldState()
-    {
-       return ($this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState);
-    }
-    
+    private $force;
+
     /**
-     *
-     * @return bool|null
+     * @var ?bool
      */
-    final public function getForce()
-    {
-       return $this->force;
-    }
-    
+    private $oldIncludedInStatistics;
+
     /**
-     *
-     * @return bool|null
+     * @var StateReference|?StateReferenceBuilder
      */
-    final public function getOldIncludedInStatistics()
-    {
-       return $this->oldIncludedInStatistics;
-    }
-    
+    private $newState;
+
     /**
-     *
-     * @return StateReference|null
+     * @var Reference|?ReferenceBuilder
      */
-    final public function getNewState()
+    private $target;
+
+    public function __construct()
     {
-       return ($this->newState instanceof StateReferenceBuilder ? $this->newState->build() : $this->newState);
     }
-    
+
     /**
-     *
-     * @return Reference|null
+     * @return null|string
      */
-    final public function getTarget()
+    public function getType()
     {
-       return ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target);
+        return $this->type;
     }
+
+    /**
+     * @return null|bool
+     */
+    public function getNewIncludedInStatistics()
+    {
+        return $this->newIncludedInStatistics;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getOldState()
+    {
+        return $this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getForce()
+    {
+        return $this->force;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getOldIncludedInStatistics()
+    {
+        return $this->oldIncludedInStatistics;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getNewState()
+    {
+        return $this->newState instanceof StateReferenceBuilder ? $this->newState->build() : $this->newState;
+    }
+
+    /**
+     * @return null|Reference
+     */
+    public function getTarget()
+    {
+        return $this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNewIncludedInStatistics(?bool $newIncludedInStatistics)
+    public function withNewIncludedInStatistics(?bool $newIncludedInStatistics)
     {
         $this->newIncludedInStatistics = $newIncludedInStatistics;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldState(?StateReference $oldState)
+    public function withOldState(?StateReference $oldState)
     {
         $this->oldState = $oldState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withForce(?bool $force)
+    public function withForce(?bool $force)
     {
         $this->force = $force;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldIncludedInStatistics(?bool $oldIncludedInStatistics)
+    public function withOldIncludedInStatistics(?bool $oldIncludedInStatistics)
     {
         $this->oldIncludedInStatistics = $oldIncludedInStatistics;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNewState(?StateReference $newState)
+    public function withNewState(?StateReference $newState)
     {
         $this->newState = $newState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTarget(?Reference $target)
+    public function withTarget(?Reference $target)
     {
         $this->target = $target;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withOldStateBuilder(?StateReferenceBuilder $oldState)
+    public function withOldStateBuilder(?StateReferenceBuilder $oldState)
     {
         $this->oldState = $oldState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNewStateBuilder(?StateReferenceBuilder $newState)
+    public function withNewStateBuilder(?StateReferenceBuilder $newState)
     {
         $this->newState = $newState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTargetBuilder(?ReferenceBuilder $target)
+    public function withTargetBuilder(?ReferenceBuilder $target)
     {
         $this->target = $target;
-        
+
         return $this;
     }
-    
-    public function build(): ReviewStateTransitionMessagePayload {
+
+    public function build(): ReviewStateTransitionMessagePayload
+    {
         return new ReviewStateTransitionMessagePayloadModel(
             $this->type,
             $this->newIncludedInStatistics,
@@ -231,7 +226,7 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
             ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target)
         );
     }
-    
+
     public static function of(): ReviewStateTransitionMessagePayloadBuilder
     {
         return new self();

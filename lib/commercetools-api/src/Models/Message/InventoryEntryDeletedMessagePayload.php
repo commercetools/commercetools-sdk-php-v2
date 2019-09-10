@@ -1,32 +1,31 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Channel\ChannelReference;
 
 interface InventoryEntryDeletedMessagePayload extends MessagePayload
 {
-    
     const FIELD_SKU = 'sku';
     const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSku();
-    
+
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|ChannelReference
      */
     public function getSupplyChannel();
+
     public function setSku(?string $sku): void;
-    
+
     public function setSupplyChannel(?ChannelReference $supplyChannel): void;
 }

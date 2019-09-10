@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewStateTransitionMessage>
+ *
  * @method ReviewStateTransitionMessage current()
  * @method ReviewStateTransitionMessage at($offset)
  */
@@ -20,8 +23,12 @@ class ReviewStateTransitionMessageCollection extends MapperSequence
     /**
      * @psalm-assert ReviewStateTransitionMessage $value
      * @psalm-param ReviewStateTransitionMessage|stdClass $value
-     * @return ReviewStateTransitionMessageCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ReviewStateTransitionMessageCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ReviewStateTransitionMessageCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ReviewStateTransitionMessage {
+        return function (int $index): ?ReviewStateTransitionMessage {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ReviewStateTransitionMessageModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

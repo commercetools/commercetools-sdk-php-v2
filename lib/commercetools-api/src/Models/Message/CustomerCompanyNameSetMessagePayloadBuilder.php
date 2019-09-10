@@ -1,79 +1,78 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CustomerCompanyNameSetMessagePayload>
  */
 final class CustomerCompanyNameSetMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $companyName;
+    private $companyName;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCompanyName()
+    public function getCompanyName()
     {
-       return $this->companyName;
+        return $this->companyName;
     }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCompanyName(?string $companyName)
+    public function withCompanyName(?string $companyName)
     {
         $this->companyName = $companyName;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerCompanyNameSetMessagePayload {
+
+    public function build(): CustomerCompanyNameSetMessagePayload
+    {
         return new CustomerCompanyNameSetMessagePayloadModel(
             $this->type,
             $this->companyName
         );
     }
-    
+
     public static function of(): CustomerCompanyNameSetMessagePayloadBuilder
     {
         return new self();

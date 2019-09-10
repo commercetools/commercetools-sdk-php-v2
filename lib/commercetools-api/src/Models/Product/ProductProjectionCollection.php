@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductProjection>
+ *
  * @method ProductProjection current()
  * @method ProductProjection at($offset)
  */
@@ -20,8 +23,12 @@ class ProductProjectionCollection extends MapperSequence
     /**
      * @psalm-assert ProductProjection $value
      * @psalm-param ProductProjection|stdClass $value
-     * @return ProductProjectionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductProjectionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductProjectionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductProjection {
+        return function (int $index): ?ProductProjection {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductProjectionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

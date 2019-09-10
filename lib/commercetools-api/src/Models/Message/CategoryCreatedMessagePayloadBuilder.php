@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CategoryCreatedMessagePayload>
  */
 final class CategoryCreatedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?CategoryBuilder|Category
-     */
-    protected $category;
+    private $type;
 
     /**
-     *
-     * @return string|null
+     * @var Category|?CategoryBuilder
      */
-    final public function getType()
+    private $category;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return Category|null
+     * @return null|string
      */
-    final public function getCategory()
+    public function getType()
     {
-       return ($this->category instanceof CategoryBuilder ? $this->category->build() : $this->category);
+        return $this->type;
     }
+
+    /**
+     * @return null|Category
+     */
+    public function getCategory()
+    {
+        return $this->category instanceof CategoryBuilder ? $this->category->build() : $this->category;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCategory(?Category $category)
+    public function withCategory(?Category $category)
     {
         $this->category = $category;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCategoryBuilder(?CategoryBuilder $category)
+    public function withCategoryBuilder(?CategoryBuilder $category)
     {
         $this->category = $category;
-        
+
         return $this;
     }
-    
-    public function build(): CategoryCreatedMessagePayload {
+
+    public function build(): CategoryCreatedMessagePayload
+    {
         return new CategoryCreatedMessagePayloadModel(
             $this->type,
             ($this->category instanceof CategoryBuilder ? $this->category->build() : $this->category)
         );
     }
-    
+
     public static function of(): CategoryCreatedMessagePayloadBuilder
     {
         return new self();

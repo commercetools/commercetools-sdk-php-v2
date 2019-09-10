@@ -1,14 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Client;
 
-use GuzzleHttp\Client;
-use Psr\Cache\CacheItemInterface;
-use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
 
 class OAuth2Handler
@@ -18,6 +17,7 @@ class OAuth2Handler
 
     /**
      * OAuth2Handler constructor.
+     *
      * @param TokenProvider $provider
      */
     public function __construct(TokenProvider $provider)
@@ -32,7 +32,7 @@ class OAuth2Handler
 
     public function getAuthorizationHeader(): string
     {
-        return 'Bearer ' . $this->provider->getToken()->getValue();
+        return 'Bearer '.$this->provider->getToken()->getValue();
     }
 
     public function refreshToken(): Token

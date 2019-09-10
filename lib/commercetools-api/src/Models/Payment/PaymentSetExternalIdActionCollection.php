@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PaymentSetExternalIdAction>
+ *
  * @method PaymentSetExternalIdAction current()
  * @method PaymentSetExternalIdAction at($offset)
  */
@@ -20,8 +23,12 @@ class PaymentSetExternalIdActionCollection extends MapperSequence
     /**
      * @psalm-assert PaymentSetExternalIdAction $value
      * @psalm-param PaymentSetExternalIdAction|stdClass $value
-     * @return PaymentSetExternalIdActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return PaymentSetExternalIdActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class PaymentSetExternalIdActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?PaymentSetExternalIdAction {
+        return function (int $index): ?PaymentSetExternalIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = PaymentSetExternalIdActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

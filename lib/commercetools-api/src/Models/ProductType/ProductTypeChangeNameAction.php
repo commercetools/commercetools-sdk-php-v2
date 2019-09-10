@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ProductType;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\ProductType;
 
 interface ProductTypeChangeNameAction extends ProductTypeUpdateAction
 {
-    
     const FIELD_NAME = 'name';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getName();
+
     public function setName(?string $name): void;
 }

@@ -1,27 +1,51 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\OrderEdit;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Order\DeliveryItemCollection;
 use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\ParcelMeasurementsModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\Order\TrackingData;
 use Commercetools\Api\Models\Order\TrackingDataModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel implements StagedOrderAddParcelToDeliveryAction
 {
     const DISCRIMINATOR_VALUE = 'addParcelToDelivery';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?string
+     */
+    protected $deliveryId;
+
+    /**
+     * @var ?DeliveryItemCollection
+     */
+    protected $items;
+
+    /**
+     * @var ?TrackingData
+     */
+    protected $trackingData;
+
+    /**
+     * @var ?ParcelMeasurements
+     */
+    protected $measurements;
+
     public function __construct(
         string $action = null,
         string $deliveryId = null,
@@ -34,143 +58,117 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
         $this->items = $items;
         $this->trackingData = $trackingData;
         $this->measurements = $measurements;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $deliveryId;
-    
-    /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $items;
-    
-    /**
-     * @var ?TrackingData
-     */
-    protected $trackingData;
-    
-    /**
-     * @var ?ParcelMeasurements
-     */
-    protected $measurements;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getDeliveryId()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DeliveryItemCollection
      */
-    final public function getDeliveryId()
+    public function getItems()
     {
-       if (is_null($this->deliveryId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_DELIVERY_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->deliveryId = (string)$data;
-       }
-       return $this->deliveryId;
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->items = DeliveryItemCollection::fromArray($data);
+        }
+
+        return $this->items;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|TrackingData
      */
-    final public function getItems()
+    public function getTrackingData()
     {
-       if (is_null($this->items)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_ITEMS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->items = DeliveryItemCollection::fromArray($data);
-       }
-       return $this->items;
+        if (is_null($this->trackingData)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_TRACKING_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->trackingData = TrackingDataModel::of($data);
+        }
+
+        return $this->trackingData;
     }
-    
+
     /**
-     *
-     * @return TrackingData|null
+     * @return null|ParcelMeasurements
      */
-    final public function getTrackingData()
+    public function getMeasurements()
     {
-       if (is_null($this->trackingData)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_TRACKING_DATA);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->trackingData = TrackingDataModel::of($data);
-       }
-       return $this->trackingData;
+        if (is_null($this->measurements)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_MEASUREMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->measurements = ParcelMeasurementsModel::of($data);
+        }
+
+        return $this->measurements;
     }
-    
-    /**
-     *
-     * @return ParcelMeasurements|null
-     */
-    final public function getMeasurements()
-    {
-       if (is_null($this->measurements)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderAddParcelToDeliveryAction::FIELD_MEASUREMENTS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->measurements = ParcelMeasurementsModel::of($data);
-       }
-       return $this->measurements;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setDeliveryId(?string $deliveryId): void
+
+    public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
-    
-    final public function setItems(?DeliveryItemCollection $items): void
+
+    public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
-    
-    final public function setTrackingData(?TrackingData $trackingData): void
+
+    public function setTrackingData(?TrackingData $trackingData): void
     {
         $this->trackingData = $trackingData;
     }
-    
-    final public function setMeasurements(?ParcelMeasurements $measurements): void
+
+    public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;
     }
-    
 }

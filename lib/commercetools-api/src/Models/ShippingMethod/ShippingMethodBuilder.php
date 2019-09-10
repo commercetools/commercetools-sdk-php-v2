@@ -1,20 +1,16 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-use Commercetools\Api\Models\Common\BaseResource;
-use Commercetools\Api\Models\Common\BaseResourceBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -22,282 +18,275 @@ use DateTimeImmutable;
  */
 final class ShippingMethodBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
      * @var ?ZoneRateCollection
      */
-    protected $zoneRates;
-    
+    private $zoneRates;
+
     /**
      * @var ?string
      */
-    protected $predicate;
-    
+    private $predicate;
+
     /**
      * @var ?bool
      */
-    protected $isDefault;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $description;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?TaxCategoryReferenceBuilder|TaxCategoryReference
-     */
-    protected $taxCategory;
+    private $isDefault;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $name;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getLastModifiedAt()
-    {
-       return $this->lastModifiedAt;
-    }
-    
+    private $description;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getId()
-    {
-       return $this->id;
-    }
-    
+    private $key;
+
     /**
-     *
-     * @return int|null
+     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
      */
-    final public function getVersion()
+    private $taxCategory;
+
+    public function __construct()
     {
-       return $this->version;
     }
-    
+
     /**
-     *
-     * @return ZoneRateCollection|null
+     * @return null|DateTimeImmutable
      */
-    final public function getZoneRates()
+    public function getCreatedAt()
     {
-       return $this->zoneRates;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getPredicate()
+    public function getLastModifiedAt()
     {
-       return $this->predicate;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|string
      */
-    final public function getIsDefault()
+    public function getId()
     {
-       return $this->isDefault;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getName()
+    public function getVersion()
     {
-       return $this->name;
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ZoneRateCollection
      */
-    final public function getDescription()
+    public function getZoneRates()
     {
-       return $this->description;
+        return $this->zoneRates;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getPredicate()
     {
-       return $this->key;
+        return $this->predicate;
     }
-    
+
     /**
-     *
-     * @return TaxCategoryReference|null
+     * @return null|bool
      */
-    final public function getTaxCategory()
+    public function getIsDefault()
     {
-       return ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory);
+        return $this->isDefault;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * @return null|TaxCategoryReference
+     */
+    public function getTaxCategory()
+    {
+        return $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withZoneRates(?ZoneRateCollection $zoneRates)
+    public function withZoneRates(?ZoneRateCollection $zoneRates)
     {
         $this->zoneRates = $zoneRates;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPredicate(?string $predicate)
+    public function withPredicate(?string $predicate)
     {
         $this->predicate = $predicate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withIsDefault(?bool $isDefault)
+    public function withIsDefault(?bool $isDefault)
     {
         $this->isDefault = $isDefault;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?string $description)
+    public function withDescription(?string $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxCategory(?TaxCategoryReference $taxCategory)
+    public function withTaxCategory(?TaxCategoryReference $taxCategory)
     {
         $this->taxCategory = $taxCategory;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
+    public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
     {
         $this->taxCategory = $taxCategory;
-        
+
         return $this;
     }
-    
-    public function build(): ShippingMethod {
+
+    public function build(): ShippingMethod
+    {
         return new ShippingMethodModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -312,7 +301,7 @@ final class ShippingMethodBuilder implements Builder
             ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory)
         );
     }
-    
+
     public static function of(): ShippingMethodBuilder
     {
         return new self();

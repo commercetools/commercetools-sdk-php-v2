@@ -1,83 +1,80 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Cart;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class DiscountCodeInfoModel extends JsonObjectModel implements DiscountCodeInfo
 {
-    
+    /**
+     * @var ?DiscountCodeReference
+     */
+    protected $discountCode;
+
+    /**
+     * @var ?string
+     */
+    protected $state;
+
     public function __construct(
         DiscountCodeReference $discountCode = null,
         string $state = null
     ) {
         $this->discountCode = $discountCode;
         $this->state = $state;
-        
     }
 
     /**
-     * @var ?DiscountCodeReference
+     * @return null|DiscountCodeReference
      */
-    protected $discountCode;
-    
-    /**
-     * @var ?string
-     */
-    protected $state;
+    public function getDiscountCode()
+    {
+        if (is_null($this->discountCode)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountCodeInfo::FIELD_DISCOUNT_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discountCode = DiscountCodeReferenceModel::of($data);
+        }
+
+        return $this->discountCode;
+    }
 
     /**
-     *
-     * @return DiscountCodeReference|null
+     * @return null|string
      */
-    final public function getDiscountCode()
+    public function getState()
     {
-       if (is_null($this->discountCode)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(DiscountCodeInfo::FIELD_DISCOUNT_CODE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->discountCode = DiscountCodeReferenceModel::of($data);
-       }
-       return $this->discountCode;
+        if (is_null($this->state)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeInfo::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = (string) $data;
+        }
+
+        return $this->state;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getState()
-    {
-       if (is_null($this->state)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(DiscountCodeInfo::FIELD_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->state = (string)$data;
-       }
-       return $this->state;
-    }
-    final public function setDiscountCode(?DiscountCodeReference $discountCode): void
+
+    public function setDiscountCode(?DiscountCodeReference $discountCode): void
     {
         $this->discountCode = $discountCode;
     }
-    
-    final public function setState(?string $state): void
+
+    public function setState(?string $state): void
     {
         $this->state = $state;
     }
-    
 }

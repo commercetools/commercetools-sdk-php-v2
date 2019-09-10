@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerSignin>
+ *
  * @method CustomerSignin current()
  * @method CustomerSignin at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerSigninCollection extends MapperSequence
     /**
      * @psalm-assert CustomerSignin $value
      * @psalm-param CustomerSignin|stdClass $value
-     * @return CustomerSigninCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerSigninCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerSigninCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerSignin {
+        return function (int $index): ?CustomerSignin {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerSigninModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,145 +1,142 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ReviewRatingStatistics>
  */
 final class ReviewRatingStatisticsBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?int
+     */
+    private $highestRating;
 
     /**
      * @var ?int
      */
-    protected $highestRating;
-    
+    private $averageRating;
+
     /**
      * @var ?int
      */
-    protected $averageRating;
-    
-    /**
-     * @var ?int
-     */
-    protected $count;
-    
+    private $count;
+
     /**
      * @var ?JsonObject
      */
-    protected $ratingsDistribution;
-    
+    private $ratingsDistribution;
+
     /**
      * @var ?int
      */
-    protected $lowestRating;
+    private $lowestRating;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getHighestRating()
+    public function getHighestRating()
     {
-       return $this->highestRating;
+        return $this->highestRating;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getAverageRating()
+    public function getAverageRating()
     {
-       return $this->averageRating;
+        return $this->averageRating;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getCount()
+    public function getCount()
     {
-       return $this->count;
+        return $this->count;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getRatingsDistribution()
+    public function getRatingsDistribution()
     {
-       return $this->ratingsDistribution;
+        return $this->ratingsDistribution;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getLowestRating()
+    public function getLowestRating()
     {
-       return $this->lowestRating;
+        return $this->lowestRating;
     }
+
     /**
      * @return $this
      */
-    final public function withHighestRating(?int $highestRating)
+    public function withHighestRating(?int $highestRating)
     {
         $this->highestRating = $highestRating;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAverageRating(?int $averageRating)
+    public function withAverageRating(?int $averageRating)
     {
         $this->averageRating = $averageRating;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCount(?int $count)
+    public function withCount(?int $count)
     {
         $this->count = $count;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRatingsDistribution(?JsonObject $ratingsDistribution)
+    public function withRatingsDistribution(?JsonObject $ratingsDistribution)
     {
         $this->ratingsDistribution = $ratingsDistribution;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLowestRating(?int $lowestRating)
+    public function withLowestRating(?int $lowestRating)
     {
         $this->lowestRating = $lowestRating;
-        
+
         return $this;
     }
-    
-    public function build(): ReviewRatingStatistics {
+
+    public function build(): ReviewRatingStatistics
+    {
         return new ReviewRatingStatisticsModel(
             $this->highestRating,
             $this->averageRating,
@@ -148,7 +145,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
             $this->lowestRating
         );
     }
-    
+
     public static function of(): ReviewRatingStatisticsBuilder
     {
         return new self();

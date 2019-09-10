@@ -1,18 +1,16 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -20,97 +18,98 @@ use DateTimeImmutable;
  */
 final class SyncInfoBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
-     * @var ?ChannelReferenceBuilder|ChannelReference
+     * @var ChannelReference|?ChannelReferenceBuilder
      */
-    protected $channel;
-    
+    private $channel;
+
     /**
      * @var ?string
      */
-    protected $externalId;
-    
+    private $externalId;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $syncedAt;
+    private $syncedAt;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|ChannelReference
      */
-    final public function getChannel()
+    public function getChannel()
     {
-       return ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel);
+        return $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getExternalId()
+    public function getExternalId()
     {
-       return $this->externalId;
+        return $this->externalId;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getSyncedAt()
+    public function getSyncedAt()
     {
-       return $this->syncedAt;
+        return $this->syncedAt;
     }
+
     /**
      * @return $this
      */
-    final public function withChannel(?ChannelReference $channel)
+    public function withChannel(?ChannelReference $channel)
     {
         $this->channel = $channel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalId(?string $externalId)
+    public function withExternalId(?string $externalId)
     {
         $this->externalId = $externalId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSyncedAt(?DateTimeImmutable $syncedAt)
+    public function withSyncedAt(?DateTimeImmutable $syncedAt)
     {
         $this->syncedAt = $syncedAt;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withChannelBuilder(?ChannelReferenceBuilder $channel)
+    public function withChannelBuilder(?ChannelReferenceBuilder $channel)
     {
         $this->channel = $channel;
-        
+
         return $this;
     }
-    
-    public function build(): SyncInfo {
+
+    public function build(): SyncInfo
+    {
         return new SyncInfoModel(
             ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel),
             $this->externalId,
             $this->syncedAt
         );
     }
-    
+
     public static function of(): SyncInfoBuilder
     {
         return new self();

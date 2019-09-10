@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeBooleanType>
+ *
  * @method AttributeBooleanType current()
  * @method AttributeBooleanType at($offset)
  */
@@ -20,8 +23,12 @@ class AttributeBooleanTypeCollection extends MapperSequence
     /**
      * @psalm-assert AttributeBooleanType $value
      * @psalm-param AttributeBooleanType|stdClass $value
-     * @return AttributeBooleanTypeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return AttributeBooleanTypeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class AttributeBooleanTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?AttributeBooleanType {
+        return function (int $index): ?AttributeBooleanType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = AttributeBooleanTypeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

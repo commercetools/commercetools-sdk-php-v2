@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<LineItemReturnItem>
+ *
  * @method LineItemReturnItem current()
  * @method LineItemReturnItem at($offset)
  */
@@ -20,8 +23,12 @@ class LineItemReturnItemCollection extends MapperSequence
     /**
      * @psalm-assert LineItemReturnItem $value
      * @psalm-param LineItemReturnItem|stdClass $value
-     * @return LineItemReturnItemCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return LineItemReturnItemCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class LineItemReturnItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?LineItemReturnItem {
+        return function (int $index): ?LineItemReturnItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = LineItemReturnItemModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

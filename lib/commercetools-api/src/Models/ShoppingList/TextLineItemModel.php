@@ -1,26 +1,54 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ShoppingList;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
+use stdClass;
 
 final class TextLineItemModel extends JsonObjectModel implements TextLineItem
 {
-    
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
+
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?string
+     */
+    protected $id;
+
     public function __construct(
         DateTimeImmutable $addedAt = null,
         int $quantity = null,
@@ -35,182 +63,154 @@ final class TextLineItemModel extends JsonObjectModel implements TextLineItem
         $this->name = $name;
         $this->description = $description;
         $this->id = $id;
-        
     }
 
     /**
-     * @var ?DateTimeImmutable
+     * @return null|DateTimeImmutable
      */
-    protected $addedAt;
-    
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-    
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
+    public function getAddedAt()
+    {
+        if (is_null($this->addedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TextLineItem::FIELD_ADDED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->addedAt = $data;
+        }
+
+        return $this->addedAt;
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|int
      */
-    final public function getAddedAt()
+    public function getQuantity()
     {
-       if (is_null($this->addedAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(TextLineItem::FIELD_ADDED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->addedAt = $data;
-       }
-       return $this->addedAt;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(TextLineItem::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|CustomFields
      */
-    final public function getQuantity()
+    public function getCustom()
     {
-       if (is_null($this->quantity)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(TextLineItem::FIELD_QUANTITY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->quantity = (int)$data;
-       }
-       return $this->quantity;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TextLineItem::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|LocalizedString
      */
-    final public function getCustom()
+    public function getName()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(TextLineItem::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TextLineItem::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getName()
+    public function getDescription()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(TextLineItem::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TextLineItem::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getDescription()
+    public function getId()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(TextLineItem::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TextLineItem::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getId()
-    {
-       if (is_null($this->id)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(TextLineItem::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (string)$data;
-       }
-       return $this->id;
-    }
-    final public function setAddedAt(?DateTimeImmutable $addedAt): void
+
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
     }
-    
-    final public function setQuantity(?int $quantity): void
+
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
-    
-    final public function setCustom(?CustomFields $custom): void
+
+    public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setId(?string $id): void
+
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[TextLineItem::FIELD_ADDED_AT]) && $data[TextLineItem::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
-           $data[TextLineItem::FIELD_ADDED_AT] = $data[TextLineItem::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[TextLineItem::FIELD_ADDED_AT] = $data[TextLineItem::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

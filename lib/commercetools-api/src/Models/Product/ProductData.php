@@ -1,18 +1,19 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\JsonObject;
 
 interface ProductData extends JsonObject
 {
-    
     const FIELD_NAME = 'name';
     const FIELD_CATEGORIES = 'categories';
     const FIELD_CATEGORY_ORDER_HINTS = 'categoryOrderHints';
@@ -26,89 +27,79 @@ interface ProductData extends JsonObject
     const FIELD_SEARCH_KEYWORDS = 'searchKeywords';
 
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return CategoryReferenceCollection|null
+     * @return null|CategoryReferenceCollection
      */
     public function getCategories();
-    
+
     /**
-     *
-     * @return CategoryOrderHints|null
+     * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getDescription();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getSlug();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getMetaTitle();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getMetaDescription();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getMetaKeywords();
-    
+
     /**
-     *
-     * @return ProductVariant|null
+     * @return null|ProductVariant
      */
     public function getMasterVariant();
-    
+
     /**
-     *
-     * @return ProductVariantCollection|null
+     * @return null|ProductVariantCollection
      */
     public function getVariants();
-    
+
     /**
-     *
-     * @return SearchKeywords|null
+     * @return null|SearchKeywords
      */
     public function getSearchKeywords();
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setCategories(?CategoryReferenceCollection $categories): void;
-    
+
     public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void;
-    
+
     public function setDescription(?LocalizedString $description): void;
-    
+
     public function setSlug(?LocalizedString $slug): void;
-    
+
     public function setMetaTitle(?LocalizedString $metaTitle): void;
-    
+
     public function setMetaDescription(?LocalizedString $metaDescription): void;
-    
+
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
-    
+
     public function setMasterVariant(?ProductVariant $masterVariant): void;
-    
+
     public function setVariants(?ProductVariantCollection $variants): void;
-    
+
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
 }

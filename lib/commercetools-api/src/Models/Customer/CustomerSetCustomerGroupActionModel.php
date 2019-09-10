@@ -1,83 +1,82 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Customer;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implements CustomerSetCustomerGroupAction
 {
     const DISCRIMINATOR_VALUE = 'setCustomerGroup';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?CustomerGroupResourceIdentifier
+     */
+    protected $customerGroup;
+
     public function __construct(
         string $action = null,
         CustomerGroupResourceIdentifier $customerGroup = null
     ) {
         $this->action = $action;
         $this->customerGroup = $customerGroup;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?CustomerGroupResourceIdentifier
-     */
-    protected $customerGroup;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|CustomerGroupResourceIdentifier
      */
-    final public function getAction()
+    public function getCustomerGroup()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomerUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->customerGroup)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomerSetCustomerGroupAction::FIELD_CUSTOMER_GROUP);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customerGroup = CustomerGroupResourceIdentifierModel::of($data);
+        }
+
+        return $this->customerGroup;
     }
-    
-    /**
-     *
-     * @return CustomerGroupResourceIdentifier|null
-     */
-    final public function getCustomerGroup()
-    {
-       if (is_null($this->customerGroup)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CustomerSetCustomerGroupAction::FIELD_CUSTOMER_GROUP);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->customerGroup = CustomerGroupResourceIdentifierModel::of($data);
-       }
-       return $this->customerGroup;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
+
+    public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
     {
         $this->customerGroup = $customerGroup;
     }
-    
 }

@@ -1,132 +1,130 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<OrderDiscountCodeStateSetMessagePayload>
  */
 final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
+
+    /**
+     * @var DiscountCodeReference|?DiscountCodeReferenceBuilder
+     */
+    private $discountCode;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?DiscountCodeReferenceBuilder|DiscountCodeReference
-     */
-    protected $discountCode;
-    
-    /**
-     * @var ?string
-     */
-    protected $oldState;
-    
-    /**
-     * @var ?string
-     */
-    protected $state;
+    private $oldState;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getType()
+    private $state;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return DiscountCodeReference|null
+     * @return null|string
      */
-    final public function getDiscountCode()
+    public function getType()
     {
-       return ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode);
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DiscountCodeReference
      */
-    final public function getOldState()
+    public function getDiscountCode()
     {
-       return $this->oldState;
+        return $this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getState()
+    public function getOldState()
     {
-       return $this->state;
+        return $this->oldState;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountCode(?DiscountCodeReference $discountCode)
+    public function withDiscountCode(?DiscountCodeReference $discountCode)
     {
         $this->discountCode = $discountCode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldState(?string $oldState)
+    public function withOldState(?string $oldState)
     {
         $this->oldState = $oldState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?string $state)
+    public function withState(?string $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withDiscountCodeBuilder(?DiscountCodeReferenceBuilder $discountCode)
+    public function withDiscountCodeBuilder(?DiscountCodeReferenceBuilder $discountCode)
     {
         $this->discountCode = $discountCode;
-        
+
         return $this;
     }
-    
-    public function build(): OrderDiscountCodeStateSetMessagePayload {
+
+    public function build(): OrderDiscountCodeStateSetMessagePayload
+    {
         return new OrderDiscountCodeStateSetMessagePayloadModel(
             $this->type,
             ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode),
@@ -134,7 +132,7 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
             $this->state
         );
     }
-    
+
     public static function of(): OrderDiscountCodeStateSetMessagePayloadBuilder
     {
         return new self();

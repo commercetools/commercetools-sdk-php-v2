@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ShoppingListRemoveTextLineItemAction>
  */
 final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?int
      */
-    protected $quantity;
-    
+    private $quantity;
+
     /**
      * @var ?string
      */
-    protected $textLineItemId;
+    private $textLineItemId;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getQuantity()
+    public function getQuantity()
     {
-       return $this->quantity;
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTextLineItemId()
+    public function getTextLineItemId()
     {
-       return $this->textLineItemId;
+        return $this->textLineItemId;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTextLineItemId(?string $textLineItemId)
+    public function withTextLineItemId(?string $textLineItemId)
     {
         $this->textLineItemId = $textLineItemId;
-        
+
         return $this;
     }
-    
-    public function build(): ShoppingListRemoveTextLineItemAction {
+
+    public function build(): ShoppingListRemoveTextLineItemAction
+    {
         return new ShoppingListRemoveTextLineItemActionModel(
             $this->action,
             $this->quantity,
             $this->textLineItemId
         );
     }
-    
+
     public static function of(): ShoppingListRemoveTextLineItemActionBuilder
     {
         return new self();

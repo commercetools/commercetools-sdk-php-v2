@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Client;
 
@@ -37,6 +38,11 @@ class ApiResource
         $this->client = $client;
     }
 
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
     /**
      * @return string
      */
@@ -51,10 +57,5 @@ class ApiResource
     final protected function getArgs(): array
     {
         return $this->args;
-    }
-
-    public function getClient(): ?Client
-    {
-       return $this->client;
     }
 }

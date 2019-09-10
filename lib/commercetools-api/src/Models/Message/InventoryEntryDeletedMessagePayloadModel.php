@@ -1,22 +1,37 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel implements InventoryEntryDeletedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'InventoryEntryDeleted';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?ChannelReference
+     */
+    protected $supplyChannel;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
     public function __construct(
         string $type = null,
         ChannelReference $supplyChannel = null,
@@ -25,88 +40,72 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
         $this->type = $type;
         $this->supplyChannel = $supplyChannel;
         $this->sku = $sku;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?ChannelReference
-     */
-    protected $supplyChannel;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|ChannelReference
      */
-    final public function getType()
+    public function getSupplyChannel()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MessagePayload::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->supplyChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(InventoryEntryDeletedMessagePayload::FIELD_SUPPLY_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->supplyChannel = ChannelReferenceModel::of($data);
+        }
+
+        return $this->supplyChannel;
     }
-    
+
     /**
-     *
-     * @return ChannelReference|null
+     * @return null|string
      */
-    final public function getSupplyChannel()
+    public function getSku()
     {
-       if (is_null($this->supplyChannel)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(InventoryEntryDeletedMessagePayload::FIELD_SUPPLY_CHANNEL);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->supplyChannel = ChannelReferenceModel::of($data);
-       }
-       return $this->supplyChannel;
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(InventoryEntryDeletedMessagePayload::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getSku()
-    {
-       if (is_null($this->sku)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(InventoryEntryDeletedMessagePayload::FIELD_SKU);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sku = (string)$data;
-       }
-       return $this->sku;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setSupplyChannel(?ChannelReference $supplyChannel): void
+
+    public function setSupplyChannel(?ChannelReference $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
     }
-    
-    final public function setSku(?string $sku): void
+
+    public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
-    
 }

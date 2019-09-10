@@ -1,206 +1,200 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
 use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceBuilder;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftBuilder;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<StagedOrderRemoveLineItemAction>
  */
 final class StagedOrderRemoveLineItemActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?int
      */
-    protected $quantity;
-    
+    private $quantity;
+
     /**
-     * @var ?ExternalLineItemTotalPriceBuilder|ExternalLineItemTotalPrice
+     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
      */
-    protected $externalTotalPrice;
-    
+    private $externalTotalPrice;
+
     /**
      * @var ?string
      */
-    protected $lineItemId;
-    
-    /**
-     * @var ?ItemShippingDetailsDraftBuilder|ItemShippingDetailsDraft
-     */
-    protected $shippingDetailsToRemove;
-    
-    /**
-     * @var ?MoneyBuilder|Money
-     */
-    protected $externalPrice;
+    private $lineItemId;
 
     /**
-     *
-     * @return string|null
+     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
      */
-    final public function getAction()
-    {
-       return $this->action;
-    }
-    
+    private $shippingDetailsToRemove;
+
     /**
-     *
-     * @return int|null
+     * @var Money|?MoneyBuilder
      */
-    final public function getQuantity()
+    private $externalPrice;
+
+    public function __construct()
     {
-       return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return ExternalLineItemTotalPrice|null
+     * @return null|string
      */
-    final public function getExternalTotalPrice()
+    public function getAction()
     {
-       return ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice);
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getLineItemId()
+    public function getQuantity()
     {
-       return $this->lineItemId;
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return ItemShippingDetailsDraft|null
+     * @return null|ExternalLineItemTotalPrice
      */
-    final public function getShippingDetailsToRemove()
+    public function getExternalTotalPrice()
     {
-       return ($this->shippingDetailsToRemove instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetailsToRemove->build() : $this->shippingDetailsToRemove);
+        return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|string
      */
-    final public function getExternalPrice()
+    public function getLineItemId()
     {
-       return ($this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice);
+        return $this->lineItemId;
     }
+
+    /**
+     * @return null|ItemShippingDetailsDraft
+     */
+    public function getShippingDetailsToRemove()
+    {
+        return $this->shippingDetailsToRemove instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetailsToRemove->build() : $this->shippingDetailsToRemove;
+    }
+
+    /**
+     * @return null|Money
+     */
+    public function getExternalPrice()
+    {
+        return $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
+    public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
     {
         $this->externalTotalPrice = $externalTotalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLineItemId(?string $lineItemId)
+    public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingDetailsToRemove(?ItemShippingDetailsDraft $shippingDetailsToRemove)
+    public function withShippingDetailsToRemove(?ItemShippingDetailsDraft $shippingDetailsToRemove)
     {
         $this->shippingDetailsToRemove = $shippingDetailsToRemove;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalPrice(?Money $externalPrice)
+    public function withExternalPrice(?Money $externalPrice)
     {
         $this->externalPrice = $externalPrice;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
+    public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
     {
         $this->externalTotalPrice = $externalTotalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingDetailsToRemoveBuilder(?ItemShippingDetailsDraftBuilder $shippingDetailsToRemove)
+    public function withShippingDetailsToRemoveBuilder(?ItemShippingDetailsDraftBuilder $shippingDetailsToRemove)
     {
         $this->shippingDetailsToRemove = $shippingDetailsToRemove;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)
+    public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)
     {
         $this->externalPrice = $externalPrice;
-        
+
         return $this;
     }
-    
-    public function build(): StagedOrderRemoveLineItemAction {
+
+    public function build(): StagedOrderRemoveLineItemAction
+    {
         return new StagedOrderRemoveLineItemActionModel(
             $this->action,
             $this->quantity,
@@ -210,7 +204,7 @@ final class StagedOrderRemoveLineItemActionBuilder implements Builder
             ($this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice)
         );
     }
-    
+
     public static function of(): StagedOrderRemoveLineItemActionBuilder
     {
         return new self();

@@ -1,20 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -22,418 +20,407 @@ use DateTimeImmutable;
  */
 final class ReviewStateTransitionMessageBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
-    
-    /**
-     * @var ?int
-     */
-    protected $sequenceNumber;
-    
-    /**
-     * @var ?ReferenceBuilder|Reference
-     */
-    protected $resource;
-    
-    /**
-     * @var ?UserProvidedIdentifiersBuilder|UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-    
-    /**
-     * @var ?int
-     */
-    protected $resourceVersion;
-    
-    /**
-     * @var ?string
-     */
-    protected $type;
-    
-    /**
-     * @var ?bool
-     */
-    protected $newIncludedInStatistics;
-    
-    /**
-     * @var ?StateReferenceBuilder|StateReference
-     */
-    protected $oldState;
-    
-    /**
-     * @var ?bool
-     */
-    protected $force;
-    
-    /**
-     * @var ?bool
-     */
-    protected $oldIncludedInStatistics;
-    
-    /**
-     * @var ?StateReferenceBuilder|StateReference
-     */
-    protected $newState;
-    
-    /**
-     * @var ?ReferenceBuilder|Reference
-     */
-    protected $target;
+    private $lastModifiedAt;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $id;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?int
      */
-    final public function getLastModifiedAt()
-    {
-       return $this->lastModifiedAt;
-    }
-    
+    private $version;
+
     /**
-     *
-     * @return string|null
+     * @var ?int
      */
-    final public function getId()
-    {
-       return $this->id;
-    }
-    
+    private $sequenceNumber;
+
     /**
-     *
-     * @return int|null
+     * @var Reference|?ReferenceBuilder
      */
-    final public function getVersion()
-    {
-       return $this->version;
-    }
-    
+    private $resource;
+
     /**
-     *
-     * @return int|null
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
-    final public function getSequenceNumber()
-    {
-       return $this->sequenceNumber;
-    }
-    
+    private $resourceUserProvidedIdentifiers;
+
     /**
-     *
-     * @return Reference|null
+     * @var ?int
      */
-    final public function getResource()
-    {
-       return ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource);
-    }
-    
+    private $resourceVersion;
+
     /**
-     *
-     * @return UserProvidedIdentifiers|null
+     * @var ?string
      */
-    final public function getResourceUserProvidedIdentifiers()
-    {
-       return ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers);
-    }
-    
+    private $type;
+
     /**
-     *
-     * @return int|null
+     * @var ?bool
      */
-    final public function getResourceVersion()
-    {
-       return $this->resourceVersion;
-    }
-    
+    private $newIncludedInStatistics;
+
     /**
-     *
-     * @return string|null
+     * @var StateReference|?StateReferenceBuilder
      */
-    final public function getType()
-    {
-       return $this->type;
-    }
-    
+    private $oldState;
+
     /**
-     *
-     * @return bool|null
+     * @var ?bool
      */
-    final public function getNewIncludedInStatistics()
-    {
-       return $this->newIncludedInStatistics;
-    }
-    
+    private $force;
+
     /**
-     *
-     * @return StateReference|null
+     * @var ?bool
      */
-    final public function getOldState()
-    {
-       return ($this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState);
-    }
-    
+    private $oldIncludedInStatistics;
+
     /**
-     *
-     * @return bool|null
+     * @var StateReference|?StateReferenceBuilder
      */
-    final public function getForce()
-    {
-       return $this->force;
-    }
-    
+    private $newState;
+
     /**
-     *
-     * @return bool|null
+     * @var Reference|?ReferenceBuilder
      */
-    final public function getOldIncludedInStatistics()
+    private $target;
+
+    public function __construct()
     {
-       return $this->oldIncludedInStatistics;
     }
-    
+
     /**
-     *
-     * @return StateReference|null
+     * @return null|DateTimeImmutable
      */
-    final public function getNewState()
+    public function getCreatedAt()
     {
-       return ($this->newState instanceof StateReferenceBuilder ? $this->newState->build() : $this->newState);
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return Reference|null
+     * @return null|DateTimeImmutable
      */
-    final public function getTarget()
+    public function getLastModifiedAt()
     {
-       return ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target);
+        return $this->lastModifiedAt;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getSequenceNumber()
+    {
+        return $this->sequenceNumber;
+    }
+
+    /**
+     * @return null|Reference
+     */
+    public function getResource()
+    {
+        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
+    }
+
+    /**
+     * @return null|UserProvidedIdentifiers
+     */
+    public function getResourceUserProvidedIdentifiers()
+    {
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getResourceVersion()
+    {
+        return $this->resourceVersion;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getNewIncludedInStatistics()
+    {
+        return $this->newIncludedInStatistics;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getOldState()
+    {
+        return $this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getForce()
+    {
+        return $this->force;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getOldIncludedInStatistics()
+    {
+        return $this->oldIncludedInStatistics;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getNewState()
+    {
+        return $this->newState instanceof StateReferenceBuilder ? $this->newState->build() : $this->newState;
+    }
+
+    /**
+     * @return null|Reference
+     */
+    public function getTarget()
+    {
+        return $this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSequenceNumber(?int $sequenceNumber)
+    public function withSequenceNumber(?int $sequenceNumber)
     {
         $this->sequenceNumber = $sequenceNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResource(?Reference $resource)
+    public function withResource(?Reference $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceVersion(?int $resourceVersion)
+    public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNewIncludedInStatistics(?bool $newIncludedInStatistics)
+    public function withNewIncludedInStatistics(?bool $newIncludedInStatistics)
     {
         $this->newIncludedInStatistics = $newIncludedInStatistics;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldState(?StateReference $oldState)
+    public function withOldState(?StateReference $oldState)
     {
         $this->oldState = $oldState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withForce(?bool $force)
+    public function withForce(?bool $force)
     {
         $this->force = $force;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldIncludedInStatistics(?bool $oldIncludedInStatistics)
+    public function withOldIncludedInStatistics(?bool $oldIncludedInStatistics)
     {
         $this->oldIncludedInStatistics = $oldIncludedInStatistics;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNewState(?StateReference $newState)
+    public function withNewState(?StateReference $newState)
     {
         $this->newState = $newState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTarget(?Reference $target)
+    public function withTarget(?Reference $target)
     {
         $this->target = $target;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withResourceBuilder(?ReferenceBuilder $resource)
+    public function withResourceBuilder(?ReferenceBuilder $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOldStateBuilder(?StateReferenceBuilder $oldState)
+    public function withOldStateBuilder(?StateReferenceBuilder $oldState)
     {
         $this->oldState = $oldState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNewStateBuilder(?StateReferenceBuilder $newState)
+    public function withNewStateBuilder(?StateReferenceBuilder $newState)
     {
         $this->newState = $newState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTargetBuilder(?ReferenceBuilder $target)
+    public function withTargetBuilder(?ReferenceBuilder $target)
     {
         $this->target = $target;
-        
+
         return $this;
     }
-    
-    public function build(): ReviewStateTransitionMessage {
+
+    public function build(): ReviewStateTransitionMessage
+    {
         return new ReviewStateTransitionMessageModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -452,7 +439,7 @@ final class ReviewStateTransitionMessageBuilder implements Builder
             ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target)
         );
     }
-    
+
     public static function of(): ReviewStateTransitionMessageBuilder
     {
         return new self();

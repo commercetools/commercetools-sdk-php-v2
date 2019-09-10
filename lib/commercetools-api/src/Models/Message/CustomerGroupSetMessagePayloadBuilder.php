@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CustomerGroupSetMessagePayload>
  */
 final class CustomerGroupSetMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?CustomerGroupReferenceBuilder|CustomerGroupReference
-     */
-    protected $customerGroup;
+    private $type;
 
     /**
-     *
-     * @return string|null
+     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
-    final public function getType()
+    private $customerGroup;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return CustomerGroupReference|null
+     * @return null|string
      */
-    final public function getCustomerGroup()
+    public function getType()
     {
-       return ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup);
+        return $this->type;
     }
+
+    /**
+     * @return null|CustomerGroupReference
+     */
+    public function getCustomerGroup()
+    {
+        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroup(?CustomerGroupReference $customerGroup)
+    public function withCustomerGroup(?CustomerGroupReference $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
+    public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
-    public function build(): CustomerGroupSetMessagePayload {
+
+    public function build(): CustomerGroupSetMessagePayload
+    {
         return new CustomerGroupSetMessagePayloadModel(
             $this->type,
             ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup)
         );
     }
-    
+
     public static function of(): CustomerGroupSetMessagePayloadBuilder
     {
         return new self();

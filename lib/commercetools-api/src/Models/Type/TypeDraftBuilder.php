@@ -1,166 +1,163 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<TypeDraft>
  */
 final class TypeDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?FieldDefinitionCollection
      */
-    protected $fieldDefinitions;
-    
+    private $fieldDefinitions;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $description;
-    
+    private $description;
+
     /**
      * @var ?string
      */
-    protected $key;
-    
+    private $key;
+
     /**
      * @var ?array
      */
-    protected $resourceTypeIds;
+    private $resourceTypeIds;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getName()
+    public function getName()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return FieldDefinitionCollection|null
+     * @return null|FieldDefinitionCollection
      */
-    final public function getFieldDefinitions()
+    public function getFieldDefinitions()
     {
-       return $this->fieldDefinitions;
+        return $this->fieldDefinitions;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getDescription()
+    public function getDescription()
     {
-       return ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description);
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getResourceTypeIds()
+    public function getResourceTypeIds()
     {
-       return $this->resourceTypeIds;
+        return $this->resourceTypeIds;
     }
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions)
+    public function withFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions)
     {
         $this->fieldDefinitions = $fieldDefinitions;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?LocalizedString $description)
+    public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceTypeIds(?array $resourceTypeIds)
+    public function withResourceTypeIds(?array $resourceTypeIds)
     {
         $this->resourceTypeIds = $resourceTypeIds;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
-    public function build(): TypeDraft {
+
+    public function build(): TypeDraft
+    {
         return new TypeDraftModel(
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             $this->fieldDefinitions,
@@ -169,7 +166,7 @@ final class TypeDraftBuilder implements Builder
             $this->resourceTypeIds
         );
     }
-    
+
     public static function of(): TypeDraftBuilder
     {
         return new self();

@@ -1,16 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use DateTimeImmutable;
 
 /**
@@ -18,88 +16,88 @@ use DateTimeImmutable;
  */
 final class PaymentChangeTransactionTimestampActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $transactionId;
-    
+    private $transactionId;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $timestamp;
+    private $timestamp;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAction()
     {
-       return $this->action;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTransactionId()
+    public function getTransactionId()
     {
-       return $this->transactionId;
+        return $this->transactionId;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getTimestamp()
+    public function getTimestamp()
     {
-       return $this->timestamp;
+        return $this->timestamp;
     }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTransactionId(?string $transactionId)
+    public function withTransactionId(?string $transactionId)
     {
         $this->transactionId = $transactionId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTimestamp(?DateTimeImmutable $timestamp)
+    public function withTimestamp(?DateTimeImmutable $timestamp)
     {
         $this->timestamp = $timestamp;
-        
+
         return $this;
     }
-    
-    public function build(): PaymentChangeTransactionTimestampAction {
+
+    public function build(): PaymentChangeTransactionTimestampAction
+    {
         return new PaymentChangeTransactionTimestampActionModel(
             $this->action,
             $this->transactionId,
             $this->timestamp
         );
     }
-    
+
     public static function of(): PaymentChangeTransactionTimestampActionBuilder
     {
         return new self();

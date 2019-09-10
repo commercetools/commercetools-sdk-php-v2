@@ -1,88 +1,88 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Zone;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<ZoneAddLocationAction>
  */
 final class ZoneAddLocationActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?LocationBuilder|Location
-     */
-    protected $location;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var Location|?LocationBuilder
      */
-    final public function getAction()
+    private $location;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return Location|null
+     * @return null|string
      */
-    final public function getLocation()
+    public function getAction()
     {
-       return ($this->location instanceof LocationBuilder ? $this->location->build() : $this->location);
+        return $this->action;
     }
+
+    /**
+     * @return null|Location
+     */
+    public function getLocation()
+    {
+        return $this->location instanceof LocationBuilder ? $this->location->build() : $this->location;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLocation(?Location $location)
+    public function withLocation(?Location $location)
     {
         $this->location = $location;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withLocationBuilder(?LocationBuilder $location)
+    public function withLocationBuilder(?LocationBuilder $location)
     {
         $this->location = $location;
-        
+
         return $this;
     }
-    
-    public function build(): ZoneAddLocationAction {
+
+    public function build(): ZoneAddLocationAction
+    {
         return new ZoneAddLocationActionModel(
             $this->action,
             ($this->location instanceof LocationBuilder ? $this->location->build() : $this->location)
         );
     }
-    
+
     public static function of(): ZoneAddLocationActionBuilder
     {
         return new self();

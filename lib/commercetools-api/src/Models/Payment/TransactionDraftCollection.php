@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TransactionDraft>
+ *
  * @method TransactionDraft current()
  * @method TransactionDraft at($offset)
  */
@@ -20,8 +23,12 @@ class TransactionDraftCollection extends MapperSequence
     /**
      * @psalm-assert TransactionDraft $value
      * @psalm-param TransactionDraft|stdClass $value
-     * @return TransactionDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TransactionDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TransactionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TransactionDraft {
+        return function (int $index): ?TransactionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TransactionDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

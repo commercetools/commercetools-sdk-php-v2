@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\JsonObject;
@@ -14,9 +16,9 @@ interface OrderEditResult extends JsonObject
     const FIELD_TYPE = 'type';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getType();
+
     public function setType(?string $type): void;
 }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Review;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReviewSetLocaleAction>
+ *
  * @method ReviewSetLocaleAction current()
  * @method ReviewSetLocaleAction at($offset)
  */
@@ -20,8 +23,12 @@ class ReviewSetLocaleActionCollection extends MapperSequence
     /**
      * @psalm-assert ReviewSetLocaleAction $value
      * @psalm-param ReviewSetLocaleAction|stdClass $value
-     * @return ReviewSetLocaleActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ReviewSetLocaleActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ReviewSetLocaleActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ReviewSetLocaleAction {
+        return function (int $index): ?ReviewSetLocaleAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ReviewSetLocaleActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

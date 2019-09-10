@@ -1,16 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use DateTimeImmutable;
 
 /**
@@ -18,201 +16,196 @@ use DateTimeImmutable;
  */
 final class ReturnItemBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $shipmentState;
-    
+    private $shipmentState;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
+    private $createdAt;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?int
      */
-    protected $quantity;
-    
-    /**
-     * @var ?string
-     */
-    protected $comment;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?string
-     */
-    protected $paymentState;
-    
-    /**
-     * @var ?string
-     */
-    protected $type;
+    private $quantity;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getShipmentState()
-    {
-       return $this->shipmentState;
-    }
-    
+    private $comment;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $id;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getLastModifiedAt()
-    {
-       return $this->lastModifiedAt;
-    }
-    
+    private $paymentState;
+
     /**
-     *
-     * @return int|null
+     * @var ?string
      */
-    final public function getQuantity()
+    private $type;
+
+    public function __construct()
     {
-       return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getComment()
+    public function getShipmentState()
     {
-       return $this->comment;
+        return $this->shipmentState;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getId()
+    public function getCreatedAt()
     {
-       return $this->id;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getPaymentState()
+    public function getLastModifiedAt()
     {
-       return $this->paymentState;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getType()
+    public function getQuantity()
     {
-       return $this->type;
+        return $this->quantity;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPaymentState()
+    {
+        return $this->paymentState;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
     /**
      * @return $this
      */
-    final public function withShipmentState(?string $shipmentState)
+    public function withShipmentState(?string $shipmentState)
     {
         $this->shipmentState = $shipmentState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withComment(?string $comment)
+    public function withComment(?string $comment)
     {
         $this->comment = $comment;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentState(?string $paymentState)
+    public function withPaymentState(?string $paymentState)
     {
         $this->paymentState = $paymentState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
-    public function build(): ReturnItem {
+
+    public function build(): ReturnItem
+    {
         return new ReturnItemModel(
             $this->shipmentState,
             $this->createdAt,
@@ -224,7 +217,7 @@ final class ReturnItemBuilder implements Builder
             $this->type
         );
     }
-    
+
     public static function of(): ReturnItemBuilder
     {
         return new self();

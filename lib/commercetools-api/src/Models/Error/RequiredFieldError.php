@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Error;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Error;
 
 interface RequiredFieldError extends ErrorObject
 {
-    
     const FIELD_FIELD = 'field';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getField();
+
     public function setField(?string $field): void;
 }

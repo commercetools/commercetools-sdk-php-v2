@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<RequiredFieldError>
  */
 final class RequiredFieldErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
-    /**
-     * @var ?string
-     */
-    protected $field;
+    private $message;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCode()
+    private $field;
+
+    public function __construct()
     {
-       return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMessage()
+    public function getCode()
     {
-       return $this->message;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getField()
+    public function getMessage()
     {
-       return $this->field;
+        return $this->message;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getField()
+    {
+        return $this->field;
+    }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withField(?string $field)
+    public function withField(?string $field)
     {
         $this->field = $field;
-        
+
         return $this;
     }
-    
-    public function build(): RequiredFieldError {
+
+    public function build(): RequiredFieldError
+    {
         return new RequiredFieldErrorModel(
             $this->code,
             $this->message,
             $this->field
         );
     }
-    
+
     public static function of(): RequiredFieldErrorBuilder
     {
         return new self();

@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Category;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Category;
 
 interface CategoryChangeOrderHintAction extends CategoryUpdateAction
 {
-    
     const FIELD_ORDER_HINT = 'orderHint';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getOrderHint();
+
     public function setOrderHint(?string $orderHint): void;
 }

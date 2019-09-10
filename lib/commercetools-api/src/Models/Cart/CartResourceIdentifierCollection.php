@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartResourceIdentifier>
+ *
  * @method CartResourceIdentifier current()
  * @method CartResourceIdentifier at($offset)
  */
@@ -20,8 +23,12 @@ class CartResourceIdentifierCollection extends MapperSequence
     /**
      * @psalm-assert CartResourceIdentifier $value
      * @psalm-param CartResourceIdentifier|stdClass $value
-     * @return CartResourceIdentifierCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartResourceIdentifierCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartResourceIdentifierCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CartResourceIdentifier {
+        return function (int $index): ?CartResourceIdentifier {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartResourceIdentifierModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

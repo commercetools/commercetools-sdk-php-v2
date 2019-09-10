@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AssetSource>
+ *
  * @method AssetSource current()
  * @method AssetSource at($offset)
  */
@@ -20,8 +23,12 @@ class AssetSourceCollection extends MapperSequence
     /**
      * @psalm-assert AssetSource $value
      * @psalm-param AssetSource|stdClass $value
-     * @return AssetSourceCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return AssetSourceCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class AssetSourceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?AssetSource {
+        return function (int $index): ?AssetSource {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = AssetSourceModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

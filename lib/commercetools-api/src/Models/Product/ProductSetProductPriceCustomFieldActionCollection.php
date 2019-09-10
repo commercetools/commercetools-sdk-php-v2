@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductSetProductPriceCustomFieldAction>
+ *
  * @method ProductSetProductPriceCustomFieldAction current()
  * @method ProductSetProductPriceCustomFieldAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductSetProductPriceCustomFieldActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductSetProductPriceCustomFieldAction $value
      * @psalm-param ProductSetProductPriceCustomFieldAction|stdClass $value
-     * @return ProductSetProductPriceCustomFieldActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductSetProductPriceCustomFieldActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductSetProductPriceCustomFieldActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductSetProductPriceCustomFieldAction {
+        return function (int $index): ?ProductSetProductPriceCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductSetProductPriceCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

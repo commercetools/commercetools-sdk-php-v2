@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductTypeSetInputTipAction>
  */
 final class ProductTypeSetInputTipActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $attributeName;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $inputTip;
+    private $attributeName;
 
     /**
-     *
-     * @return string|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getAction()
+    private $inputTip;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAttributeName()
+    public function getAction()
     {
-       return $this->attributeName;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getInputTip()
+    public function getAttributeName()
     {
-       return ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip);
+        return $this->attributeName;
     }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getInputTip()
+    {
+        return $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAttributeName(?string $attributeName)
+    public function withAttributeName(?string $attributeName)
     {
         $this->attributeName = $attributeName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInputTip(?LocalizedString $inputTip)
+    public function withInputTip(?LocalizedString $inputTip)
     {
         $this->inputTip = $inputTip;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withInputTipBuilder(?LocalizedStringBuilder $inputTip)
+    public function withInputTipBuilder(?LocalizedStringBuilder $inputTip)
     {
         $this->inputTip = $inputTip;
-        
+
         return $this;
     }
-    
-    public function build(): ProductTypeSetInputTipAction {
+
+    public function build(): ProductTypeSetInputTipAction
+    {
         return new ProductTypeSetInputTipActionModel(
             $this->action,
             $this->attributeName,
             ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip)
         );
     }
-    
+
     public static function of(): ProductTypeSetInputTipActionBuilder
     {
         return new self();

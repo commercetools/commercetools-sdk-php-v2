@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Payment;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PaymentMethodInfo>
+ *
  * @method PaymentMethodInfo current()
  * @method PaymentMethodInfo at($offset)
  */
@@ -20,8 +23,12 @@ class PaymentMethodInfoCollection extends MapperSequence
     /**
      * @psalm-assert PaymentMethodInfo $value
      * @psalm-param PaymentMethodInfo|stdClass $value
-     * @return PaymentMethodInfoCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return PaymentMethodInfoCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class PaymentMethodInfoCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?PaymentMethodInfo {
+        return function (int $index): ?PaymentMethodInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = PaymentMethodInfoModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

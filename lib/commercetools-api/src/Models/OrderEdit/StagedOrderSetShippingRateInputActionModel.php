@@ -1,85 +1,83 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\OrderEdit;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ShippingRateInputDraft;
 use Commercetools\Api\Models\Cart\ShippingRateInputDraftModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class StagedOrderSetShippingRateInputActionModel extends JsonObjectModel implements StagedOrderSetShippingRateInputAction
 {
     const DISCRIMINATOR_VALUE = 'setShippingRateInput';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?ShippingRateInputDraft
+     */
+    protected $shippingRateInput;
+
     public function __construct(
         string $action = null,
         ShippingRateInputDraft $shippingRateInput = null
     ) {
         $this->action = $action;
         $this->shippingRateInput = $shippingRateInput;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?ShippingRateInputDraft
-     */
-    protected $shippingRateInput;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|ShippingRateInputDraft
      */
-    final public function getAction()
+    public function getShippingRateInput()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->shippingRateInput)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderSetShippingRateInputAction::FIELD_SHIPPING_RATE_INPUT);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ShippingRateInputDraftModel::resolveDiscriminatorClass($data);
+            $this->shippingRateInput = $className::of($data);
+        }
+
+        return $this->shippingRateInput;
     }
-    
-    /**
-     *
-     * @return ShippingRateInputDraft|null
-     */
-    final public function getShippingRateInput()
-    {
-       if (is_null($this->shippingRateInput)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderSetShippingRateInputAction::FIELD_SHIPPING_RATE_INPUT);
-           if (is_null($data)) {
-               return null;
-           }
-           $className = ShippingRateInputDraftModel::resolveDiscriminatorClass($data);
-           $this->shippingRateInput = $className::of($data);
-       }
-       return $this->shippingRateInput;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void
+
+    public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void
     {
         $this->shippingRateInput = $shippingRateInput;
     }
-    
 }

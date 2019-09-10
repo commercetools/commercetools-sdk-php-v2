@@ -1,88 +1,88 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CartSetShippingRateInputAction>
  */
 final class CartSetShippingRateInputActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?ShippingRateInputDraftBuilder|ShippingRateInputDraft
-     */
-    protected $shippingRateInput;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var ShippingRateInputDraft|?ShippingRateInputDraftBuilder
      */
-    final public function getAction()
+    private $shippingRateInput;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return ShippingRateInputDraft|null
+     * @return null|string
      */
-    final public function getShippingRateInput()
+    public function getAction()
     {
-       return ($this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput);
+        return $this->action;
     }
+
+    /**
+     * @return null|ShippingRateInputDraft
+     */
+    public function getShippingRateInput()
+    {
+        return $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingRateInput(?ShippingRateInputDraft $shippingRateInput)
+    public function withShippingRateInput(?ShippingRateInputDraft $shippingRateInput)
     {
         $this->shippingRateInput = $shippingRateInput;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withShippingRateInputBuilder(?ShippingRateInputDraftBuilder $shippingRateInput)
+    public function withShippingRateInputBuilder(?ShippingRateInputDraftBuilder $shippingRateInput)
     {
         $this->shippingRateInput = $shippingRateInput;
-        
+
         return $this;
     }
-    
-    public function build(): CartSetShippingRateInputAction {
+
+    public function build(): CartSetShippingRateInputAction
+    {
         return new CartSetShippingRateInputActionModel(
             $this->action,
             ($this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput)
         );
     }
-    
+
     public static function of(): CartSetShippingRateInputActionBuilder
     {
         return new self();

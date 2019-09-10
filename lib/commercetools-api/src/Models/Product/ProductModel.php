@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Product;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -17,7 +14,6 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\ProductType\ProductTypeReferenceModel;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
@@ -26,12 +22,73 @@ use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\State\StateReferenceModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
+use stdClass;
 
 final class ProductModel extends JsonObjectModel implements Product
 {
-    
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
+
+    /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     * @var ?int
+     */
+    protected $version;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
+    /**
+     * @var ?ProductCatalogData
+     */
+    protected $masterData;
+
+    /**
+     * @var ?StateReference
+     */
+    protected $state;
+
+    /**
+     * @var ?ReviewRatingStatistics
+     */
+    protected $reviewRatingStatistics;
+
+    /**
+     * @var ?ProductTypeReference
+     */
+    protected $productType;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?TaxCategoryReference
+     */
+    protected $taxCategory;
+
     public function __construct(
         DateTimeImmutable $createdAt = null,
         DateTimeImmutable $lastModifiedAt = null,
@@ -58,356 +115,298 @@ final class ProductModel extends JsonObjectModel implements Product
         $this->productType = $productType;
         $this->key = $key;
         $this->taxCategory = $taxCategory;
-        
     }
 
     /**
-     * @var ?DateTimeImmutable
+     * @return null|DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
-    
-    /**
-     * @var ?CreatedBy
-     */
-    protected $createdBy;
-    
-    /**
-     * @var ?LastModifiedBy
-     */
-    protected $lastModifiedBy;
-    
-    /**
-     * @var ?ProductCatalogData
-     */
-    protected $masterData;
-    
-    /**
-     * @var ?StateReference
-     */
-    protected $state;
-    
-    /**
-     * @var ?ReviewRatingStatistics
-     */
-    protected $reviewRatingStatistics;
-    
-    /**
-     * @var ?ProductTypeReference
-     */
-    protected $productType;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?TaxCategoryReference
-     */
-    protected $taxCategory;
+    public function getCreatedAt()
+    {
+        if (is_null($this->createdAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->createdAt = $data;
+        }
+
+        return $this->createdAt;
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getLastModifiedAt()
     {
-       if (is_null($this->createdAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_CREATED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->createdAt = $data;
-       }
-       return $this->createdAt;
+        if (is_null($this->lastModifiedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->lastModifiedAt = $data;
+        }
+
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|string
      */
-    final public function getLastModifiedAt()
+    public function getId()
     {
-       if (is_null($this->lastModifiedAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->lastModifiedAt = $data;
-       }
-       return $this->lastModifiedAt;
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getId()
+    public function getVersion()
     {
-       if (is_null($this->id)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (string)$data;
-       }
-       return $this->id;
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(BaseResource::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|CreatedBy
      */
-    final public function getVersion()
+    public function getCreatedBy()
     {
-       if (is_null($this->version)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(BaseResource::FIELD_VERSION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->version = (int)$data;
-       }
-       return $this->version;
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
     }
-    
+
     /**
-     *
-     * @return CreatedBy|null
+     * @return null|LastModifiedBy
      */
-    final public function getCreatedBy()
+    public function getLastModifiedBy()
     {
-       if (is_null($this->createdBy)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->createdBy = CreatedByModel::of($data);
-       }
-       return $this->createdBy;
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
+        }
+
+        return $this->lastModifiedBy;
     }
-    
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @return null|ProductCatalogData
      */
-    final public function getLastModifiedBy()
+    public function getMasterData()
     {
-       if (is_null($this->lastModifiedBy)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->lastModifiedBy = LastModifiedByModel::of($data);
-       }
-       return $this->lastModifiedBy;
+        if (is_null($this->masterData)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Product::FIELD_MASTER_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->masterData = ProductCatalogDataModel::of($data);
+        }
+
+        return $this->masterData;
     }
-    
+
     /**
-     *
-     * @return ProductCatalogData|null
+     * @return null|StateReference
      */
-    final public function getMasterData()
+    public function getState()
     {
-       if (is_null($this->masterData)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Product::FIELD_MASTER_DATA);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->masterData = ProductCatalogDataModel::of($data);
-       }
-       return $this->masterData;
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Product::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateReferenceModel::of($data);
+        }
+
+        return $this->state;
     }
-    
+
     /**
-     *
-     * @return StateReference|null
+     * @return null|ReviewRatingStatistics
      */
-    final public function getState()
+    public function getReviewRatingStatistics()
     {
-       if (is_null($this->state)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Product::FIELD_STATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->state = StateReferenceModel::of($data);
-       }
-       return $this->state;
+        if (is_null($this->reviewRatingStatistics)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Product::FIELD_REVIEW_RATING_STATISTICS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->reviewRatingStatistics = ReviewRatingStatisticsModel::of($data);
+        }
+
+        return $this->reviewRatingStatistics;
     }
-    
+
     /**
-     *
-     * @return ReviewRatingStatistics|null
+     * @return null|ProductTypeReference
      */
-    final public function getReviewRatingStatistics()
+    public function getProductType()
     {
-       if (is_null($this->reviewRatingStatistics)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Product::FIELD_REVIEW_RATING_STATISTICS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->reviewRatingStatistics = ReviewRatingStatisticsModel::of($data);
-       }
-       return $this->reviewRatingStatistics;
+        if (is_null($this->productType)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Product::FIELD_PRODUCT_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->productType = ProductTypeReferenceModel::of($data);
+        }
+
+        return $this->productType;
     }
-    
+
     /**
-     *
-     * @return ProductTypeReference|null
+     * @return null|string
      */
-    final public function getProductType()
+    public function getKey()
     {
-       if (is_null($this->productType)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Product::FIELD_PRODUCT_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->productType = ProductTypeReferenceModel::of($data);
-       }
-       return $this->productType;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Product::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|TaxCategoryReference
      */
-    final public function getKey()
+    public function getTaxCategory()
     {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(Product::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
+        if (is_null($this->taxCategory)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Product::FIELD_TAX_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxCategory = TaxCategoryReferenceModel::of($data);
+        }
+
+        return $this->taxCategory;
     }
-    
-    /**
-     *
-     * @return TaxCategoryReference|null
-     */
-    final public function getTaxCategory()
-    {
-       if (is_null($this->taxCategory)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Product::FIELD_TAX_CATEGORY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->taxCategory = TaxCategoryReferenceModel::of($data);
-       }
-       return $this->taxCategory;
-    }
-    final public function setCreatedAt(?DateTimeImmutable $createdAt): void
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
-    
-    final public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
-    
-    final public function setId(?string $id): void
+
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    
-    final public function setVersion(?int $version): void
+
+    public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
-    
-    final public function setCreatedBy(?CreatedBy $createdBy): void
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
-    
-    final public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
-    
-    final public function setMasterData(?ProductCatalogData $masterData): void
+
+    public function setMasterData(?ProductCatalogData $masterData): void
     {
         $this->masterData = $masterData;
     }
-    
-    final public function setState(?StateReference $state): void
+
+    public function setState(?StateReference $state): void
     {
         $this->state = $state;
     }
-    
-    final public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void
+
+    public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void
     {
         $this->reviewRatingStatistics = $reviewRatingStatistics;
     }
-    
-    final public function setProductType(?ProductTypeReference $productType): void
+
+    public function setProductType(?ProductTypeReference $productType): void
     {
         $this->productType = $productType;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
-    final public function setTaxCategory(?TaxCategoryReference $taxCategory): void
+
+    public function setTaxCategory(?TaxCategoryReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-           $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        
+
         if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-           $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

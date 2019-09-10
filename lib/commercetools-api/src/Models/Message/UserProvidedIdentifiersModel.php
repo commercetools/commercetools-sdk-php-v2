@@ -1,22 +1,50 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class UserProvidedIdentifiersModel extends JsonObjectModel implements UserProvidedIdentifiers
 {
-    
+    /**
+     * @var ?string
+     */
+    protected $orderNumber;
+
+    /**
+     * @var ?string
+     */
+    protected $externalId;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     * @var ?string
+     */
+    protected $customerNumber;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
     public function __construct(
         string $orderNumber = null,
         string $externalId = null,
@@ -31,169 +59,138 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
         $this->customerNumber = $customerNumber;
         $this->slug = $slug;
         $this->key = $key;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $orderNumber;
-    
-    /**
-     * @var ?string
-     */
-    protected $externalId;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?string
-     */
-    protected $customerNumber;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    public function getOrderNumber()
+    {
+        if (is_null($this->orderNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(UserProvidedIdentifiers::FIELD_ORDER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->orderNumber = (string) $data;
+        }
+
+        return $this->orderNumber;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getOrderNumber()
+    public function getExternalId()
     {
-       if (is_null($this->orderNumber)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(UserProvidedIdentifiers::FIELD_ORDER_NUMBER);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->orderNumber = (string)$data;
-       }
-       return $this->orderNumber;
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(UserProvidedIdentifiers::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getExternalId()
+    public function getSku()
     {
-       if (is_null($this->externalId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(UserProvidedIdentifiers::FIELD_EXTERNAL_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->externalId = (string)$data;
-       }
-       return $this->externalId;
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(UserProvidedIdentifiers::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSku()
+    public function getCustomerNumber()
     {
-       if (is_null($this->sku)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(UserProvidedIdentifiers::FIELD_SKU);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sku = (string)$data;
-       }
-       return $this->sku;
+        if (is_null($this->customerNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(UserProvidedIdentifiers::FIELD_CUSTOMER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerNumber = (string) $data;
+        }
+
+        return $this->customerNumber;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getCustomerNumber()
+    public function getSlug()
     {
-       if (is_null($this->customerNumber)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(UserProvidedIdentifiers::FIELD_CUSTOMER_NUMBER);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->customerNumber = (string)$data;
-       }
-       return $this->customerNumber;
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(UserProvidedIdentifiers::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getSlug()
+    public function getKey()
     {
-       if (is_null($this->slug)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(UserProvidedIdentifiers::FIELD_SLUG);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->slug = LocalizedStringModel::of($data);
-       }
-       return $this->slug;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(UserProvidedIdentifiers::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getKey()
-    {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(UserProvidedIdentifiers::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
-    }
-    final public function setOrderNumber(?string $orderNumber): void
+
+    public function setOrderNumber(?string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;
     }
-    
-    final public function setExternalId(?string $externalId): void
+
+    public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
-    
-    final public function setSku(?string $sku): void
+
+    public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
-    
-    final public function setCustomerNumber(?string $customerNumber): void
+
+    public function setCustomerNumber(?string $customerNumber): void
     {
         $this->customerNumber = $customerNumber;
     }
-    
-    final public function setSlug(?LocalizedString $slug): void
+
+    public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
 }

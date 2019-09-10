@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomFieldReferenceType>
+ *
  * @method CustomFieldReferenceType current()
  * @method CustomFieldReferenceType at($offset)
  */
@@ -20,8 +23,12 @@ class CustomFieldReferenceTypeCollection extends MapperSequence
     /**
      * @psalm-assert CustomFieldReferenceType $value
      * @psalm-param CustomFieldReferenceType|stdClass $value
-     * @return CustomFieldReferenceTypeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomFieldReferenceTypeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomFieldReferenceTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomFieldReferenceType {
+        return function (int $index): ?CustomFieldReferenceType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomFieldReferenceTypeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

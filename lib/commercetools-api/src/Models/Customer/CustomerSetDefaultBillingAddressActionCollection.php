@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerSetDefaultBillingAddressAction>
+ *
  * @method CustomerSetDefaultBillingAddressAction current()
  * @method CustomerSetDefaultBillingAddressAction at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerSetDefaultBillingAddressActionCollection extends MapperSequence
     /**
      * @psalm-assert CustomerSetDefaultBillingAddressAction $value
      * @psalm-param CustomerSetDefaultBillingAddressAction|stdClass $value
-     * @return CustomerSetDefaultBillingAddressActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerSetDefaultBillingAddressActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerSetDefaultBillingAddressActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerSetDefaultBillingAddressAction {
+        return function (int $index): ?CustomerSetDefaultBillingAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerSetDefaultBillingAddressActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

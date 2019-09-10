@@ -1,129 +1,126 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftBuilder;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifierBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<StagedOrderSetShippingMethodAction>
  */
 final class StagedOrderSetShippingMethodActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?ExternalTaxRateDraftBuilder|ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-    
-    /**
-     * @var ?ShippingMethodResourceIdentifierBuilder|ShippingMethodResourceIdentifier
-     */
-    protected $shippingMethod;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
-    final public function getAction()
-    {
-       return $this->action;
-    }
-    
+    private $externalTaxRate;
+
     /**
-     *
-     * @return ExternalTaxRateDraft|null
+     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
      */
-    final public function getExternalTaxRate()
+    private $shippingMethod;
+
+    public function __construct()
     {
-       return ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate);
     }
-    
+
     /**
-     *
-     * @return ShippingMethodResourceIdentifier|null
+     * @return null|string
      */
-    final public function getShippingMethod()
+    public function getAction()
     {
-       return ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod);
+        return $this->action;
     }
+
+    /**
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
+    {
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+    }
+
+    /**
+     * @return null|ShippingMethodResourceIdentifier
+     */
+    public function getShippingMethod()
+    {
+        return $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
+    public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
+    public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
-        
+
         return $this;
     }
-    
-    public function build(): StagedOrderSetShippingMethodAction {
+
+    public function build(): StagedOrderSetShippingMethodAction
+    {
         return new StagedOrderSetShippingMethodActionModel(
             $this->action,
             ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
             ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod)
         );
     }
-    
+
     public static function of(): StagedOrderSetShippingMethodActionBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypeChangeNameAction>
+ *
  * @method TypeChangeNameAction current()
  * @method TypeChangeNameAction at($offset)
  */
@@ -20,8 +23,12 @@ class TypeChangeNameActionCollection extends MapperSequence
     /**
      * @psalm-assert TypeChangeNameAction $value
      * @psalm-param TypeChangeNameAction|stdClass $value
-     * @return TypeChangeNameActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TypeChangeNameActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TypeChangeNameActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TypeChangeNameAction {
+        return function (int $index): ?TypeChangeNameAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TypeChangeNameActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

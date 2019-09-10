@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Base;
 
@@ -15,10 +16,12 @@ interface JsonObject extends \JsonSerializable
      * @psalm-return scalar|array<int|string, mixed>|JsonObject|JsonObjectCollection|null
      */
     public function get(string $field);
-    
+
     /**
      * @psalm-param stdClass|array<string, mixed>|null $data
      * @psalm-return static
+     *
+     * @param null|mixed $data
      */
     public static function of($data = null);
 

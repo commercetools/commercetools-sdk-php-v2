@@ -1,17 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\DiscountedPrice;
+use Commercetools\Base\JsonObject;
 
 interface ProductPriceDiscountsSetUpdatedPrice extends JsonObject
 {
-    
     const FIELD_VARIANT_ID = 'variantId';
     const FIELD_VARIANT_KEY = 'variantKey';
     const FIELD_SKU = 'sku';
@@ -20,49 +21,44 @@ interface ProductPriceDiscountsSetUpdatedPrice extends JsonObject
     const FIELD_STAGED = 'staged';
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getVariantId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getVariantKey();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSku();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getPriceId();
-    
+
     /**
-     *
-     * @return DiscountedPrice|null
+     * @return null|DiscountedPrice
      */
     public function getDiscounted();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getStaged();
+
     public function setVariantId(?int $variantId): void;
-    
+
     public function setVariantKey(?string $variantKey): void;
-    
+
     public function setSku(?string $sku): void;
-    
+
     public function setPriceId(?string $priceId): void;
-    
+
     public function setDiscounted(?DiscountedPrice $discounted): void;
-    
+
     public function setStaged(?bool $staged): void;
 }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ReturnInfo>
+ *
  * @method ReturnInfo current()
  * @method ReturnInfo at($offset)
  */
@@ -20,8 +23,12 @@ class ReturnInfoCollection extends MapperSequence
     /**
      * @psalm-assert ReturnInfo $value
      * @psalm-param ReturnInfo|stdClass $value
-     * @return ReturnInfoCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ReturnInfoCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ReturnInfoCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ReturnInfo {
+        return function (int $index): ?ReturnInfo {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ReturnInfoModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

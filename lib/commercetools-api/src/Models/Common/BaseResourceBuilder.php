@@ -1,28 +1,14 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-use Commercetools\Api\Models\CustomObject\CustomObject;
-use Commercetools\Api\Models\CustomObject\CustomObjectBuilder;
-use Commercetools\Api\Models\Message\Message;
-use Commercetools\Api\Models\Message\MessageBuilder;
-use Commercetools\Api\Models\Product\ProductProjection;
-use Commercetools\Api\Models\Product\ProductProjectionBuilder;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethod;
-use Commercetools\Api\Models\ShippingMethod\ShippingMethodBuilder;
-use Commercetools\Api\Models\Store\Store;
-use Commercetools\Api\Models\Store\StoreBuilder;
-use Commercetools\Api\Models\Zone\Zone;
-use Commercetools\Api\Models\Zone\ZoneBuilder;
 use DateTimeImmutable;
 
 /**
@@ -30,105 +16,104 @@ use DateTimeImmutable;
  */
 final class BaseResourceBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
+    private $version;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getCreatedAt()
     {
-       return $this->createdAt;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getLastModifiedAt()
+    public function getLastModifiedAt()
     {
-       return $this->lastModifiedAt;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
-    public function build(): BaseResource {
+
+    public function build(): BaseResource
+    {
         return new BaseResourceModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -136,7 +121,7 @@ final class BaseResourceBuilder implements Builder
             $this->version
         );
     }
-    
+
     public static function of(): BaseResourceBuilder
     {
         return new self();

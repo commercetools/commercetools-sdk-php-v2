@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<DeliveryItem>
+ *
  * @method DeliveryItem current()
  * @method DeliveryItem at($offset)
  */
@@ -20,8 +23,12 @@ class DeliveryItemCollection extends MapperSequence
     /**
      * @psalm-assert DeliveryItem $value
      * @psalm-param DeliveryItem|stdClass $value
-     * @return DeliveryItemCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return DeliveryItemCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class DeliveryItemCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?DeliveryItem {
+        return function (int $index): ?DeliveryItem {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = DeliveryItemModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SearchKeyword>
+ *
  * @method SearchKeyword current()
  * @method SearchKeyword at($offset)
  */
@@ -20,8 +23,12 @@ class SearchKeywordCollection extends MapperSequence
     /**
      * @psalm-assert SearchKeyword $value
      * @psalm-param SearchKeyword|stdClass $value
-     * @return SearchKeywordCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return SearchKeywordCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class SearchKeywordCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?SearchKeyword {
+        return function (int $index): ?SearchKeyword {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = SearchKeywordModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

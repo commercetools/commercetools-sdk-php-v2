@@ -1,22 +1,47 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implements ReviewRatingSetMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ReviewRatingSet';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?int
+     */
+    protected $oldRating;
+
+    /**
+     * @var ?bool
+     */
+    protected $includedInStatistics;
+
+    /**
+     * @var ?int
+     */
+    protected $newRating;
+
+    /**
+     * @var ?Reference
+     */
+    protected $target;
+
     public function __construct(
         string $type = null,
         int $oldRating = null,
@@ -29,142 +54,116 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
         $this->includedInStatistics = $includedInStatistics;
         $this->newRating = $newRating;
         $this->target = $target;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?int
-     */
-    protected $oldRating;
-    
-    /**
-     * @var ?bool
-     */
-    protected $includedInStatistics;
-    
-    /**
-     * @var ?int
-     */
-    protected $newRating;
-    
-    /**
-     * @var ?Reference
-     */
-    protected $target;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getType()
+    public function getOldRating()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MessagePayload::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->oldRating)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_OLD_RATING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldRating = (int) $data;
+        }
+
+        return $this->oldRating;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|bool
      */
-    final public function getOldRating()
+    public function getIncludedInStatistics()
     {
-       if (is_null($this->oldRating)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_OLD_RATING);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->oldRating = (int)$data;
-       }
-       return $this->oldRating;
+        if (is_null($this->includedInStatistics)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_INCLUDED_IN_STATISTICS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->includedInStatistics = (bool) $data;
+        }
+
+        return $this->includedInStatistics;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|int
      */
-    final public function getIncludedInStatistics()
+    public function getNewRating()
     {
-       if (is_null($this->includedInStatistics)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_INCLUDED_IN_STATISTICS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->includedInStatistics = (bool)$data;
-       }
-       return $this->includedInStatistics;
+        if (is_null($this->newRating)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_NEW_RATING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->newRating = (int) $data;
+        }
+
+        return $this->newRating;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|Reference
      */
-    final public function getNewRating()
+    public function getTarget()
     {
-       if (is_null($this->newRating)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_NEW_RATING);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->newRating = (int)$data;
-       }
-       return $this->newRating;
+        if (is_null($this->target)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->target = $className::of($data);
+        }
+
+        return $this->target;
     }
-    
-    /**
-     *
-     * @return Reference|null
-     */
-    final public function getTarget()
-    {
-       if (is_null($this->target)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_TARGET);
-           if (is_null($data)) {
-               return null;
-           }
-           $className = ReferenceModel::resolveDiscriminatorClass($data);
-           $this->target = $className::of($data);
-       }
-       return $this->target;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setOldRating(?int $oldRating): void
+
+    public function setOldRating(?int $oldRating): void
     {
         $this->oldRating = $oldRating;
     }
-    
-    final public function setIncludedInStatistics(?bool $includedInStatistics): void
+
+    public function setIncludedInStatistics(?bool $includedInStatistics): void
     {
         $this->includedInStatistics = $includedInStatistics;
     }
-    
-    final public function setNewRating(?int $newRating): void
+
+    public function setNewRating(?int $newRating): void
     {
         $this->newRating = $newRating;
     }
-    
-    final public function setTarget(?Reference $target): void
+
+    public function setTarget(?Reference $target): void
     {
         $this->target = $target;
     }
-    
 }

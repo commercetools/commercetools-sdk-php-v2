@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductType;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AttributeLocalizableTextType>
+ *
  * @method AttributeLocalizableTextType current()
  * @method AttributeLocalizableTextType at($offset)
  */
@@ -20,8 +23,12 @@ class AttributeLocalizableTextTypeCollection extends MapperSequence
     /**
      * @psalm-assert AttributeLocalizableTextType $value
      * @psalm-param AttributeLocalizableTextType|stdClass $value
-     * @return AttributeLocalizableTextTypeCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return AttributeLocalizableTextTypeCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class AttributeLocalizableTextTypeCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?AttributeLocalizableTextType {
+        return function (int $index): ?AttributeLocalizableTextType {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = AttributeLocalizableTextTypeModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

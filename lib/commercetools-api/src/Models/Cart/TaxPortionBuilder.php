@@ -1,115 +1,114 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<TaxPortion>
  */
 final class TaxPortionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
-     * @var ?MoneyBuilder|Money
+     * @var Money|?MoneyBuilder
      */
-    protected $amount;
-    
+    private $amount;
+
     /**
      * @var ?int
      */
-    protected $rate;
-    
+    private $rate;
+
     /**
      * @var ?string
      */
-    protected $name;
+    private $name;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
-    final public function getAmount()
+    public function getAmount()
     {
-       return ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount);
+        return $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getRate()
+    public function getRate()
     {
-       return $this->rate;
+        return $this->rate;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getName()
     {
-       return $this->name;
+        return $this->name;
     }
+
     /**
      * @return $this
      */
-    final public function withAmount(?Money $amount)
+    public function withAmount(?Money $amount)
     {
         $this->amount = $amount;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRate(?int $rate)
+    public function withRate(?int $rate)
     {
         $this->rate = $rate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?string $name)
+    public function withName(?string $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withAmountBuilder(?MoneyBuilder $amount)
+    public function withAmountBuilder(?MoneyBuilder $amount)
     {
         $this->amount = $amount;
-        
+
         return $this;
     }
-    
-    public function build(): TaxPortion {
+
+    public function build(): TaxPortion
+    {
         return new TaxPortionModel(
             ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount),
             $this->rate,
             $this->name
         );
     }
-    
+
     public static function of(): TaxPortionBuilder
     {
         return new self();

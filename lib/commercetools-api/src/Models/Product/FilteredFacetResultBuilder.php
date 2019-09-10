@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<FilteredFacetResult>
  */
 final class FilteredFacetResultBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?int
-     */
-    protected $count;
-    
-    /**
-     * @var ?int
-     */
-    protected $productCount;
+    private $type;
 
     /**
-     *
-     * @return string|null
+     * @var ?int
      */
-    final public function getType()
-    {
-       return $this->type;
-    }
-    
+    private $count;
+
     /**
-     *
-     * @return int|null
+     * @var ?int
      */
-    final public function getCount()
+    private $productCount;
+
+    public function __construct()
     {
-       return $this->count;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getProductCount()
+    public function getType()
     {
-       return $this->productCount;
+        return $this->type;
     }
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getProductCount()
+    {
+        return $this->productCount;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCount(?int $count)
+    public function withCount(?int $count)
     {
         $this->count = $count;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductCount(?int $productCount)
+    public function withProductCount(?int $productCount)
     {
         $this->productCount = $productCount;
-        
+
         return $this;
     }
-    
-    public function build(): FilteredFacetResult {
+
+    public function build(): FilteredFacetResult
+    {
         return new FilteredFacetResultModel(
             $this->type,
             $this->count,
             $this->productCount
         );
     }
-    
+
     public static function of(): FilteredFacetResultBuilder
     {
         return new self();

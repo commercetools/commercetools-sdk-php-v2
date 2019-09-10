@@ -1,21 +1,19 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\DiscountCode;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\CartDiscount\CartDiscountResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -23,326 +21,318 @@ use DateTimeImmutable;
  */
 final class DiscountCodeDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?CartDiscountResourceIdentifierCollection
      */
-    protected $cartDiscounts;
-    
+    private $cartDiscounts;
+
     /**
      * @var ?string
      */
-    protected $code;
-    
+    private $code;
+
     /**
      * @var ?string
      */
-    protected $cartPredicate;
-    
+    private $cartPredicate;
+
     /**
-     * @var ?CustomFieldsDraftBuilder|CustomFieldsDraft
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    protected $custom;
-    
+    private $custom;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $name;
-    
+    private $name;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validUntil;
-    
+    private $validUntil;
+
     /**
      * @var ?array
      */
-    protected $groups;
-    
+    private $groups;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $description;
-    
+    private $description;
+
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validFrom;
-    
+    private $validFrom;
+
     /**
      * @var ?int
      */
-    protected $maxApplicationsPerCustomer;
-    
+    private $maxApplicationsPerCustomer;
+
     /**
      * @var ?bool
      */
-    protected $isActive;
-    
+    private $isActive;
+
     /**
      * @var ?int
      */
-    protected $maxApplications;
+    private $maxApplications;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return CartDiscountResourceIdentifierCollection|null
+     * @return null|CartDiscountResourceIdentifierCollection
      */
-    final public function getCartDiscounts()
+    public function getCartDiscounts()
     {
-       return $this->cartDiscounts;
+        return $this->cartDiscounts;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCode()
+    public function getCode()
     {
-       return $this->code;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCartPredicate()
+    public function getCartPredicate()
     {
-       return $this->cartPredicate;
+        return $this->cartPredicate;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getCustom()
+    public function getCustom()
     {
-       return ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom);
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getName()
+    public function getName()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getValidUntil()
+    public function getValidUntil()
     {
-       return $this->validUntil;
+        return $this->validUntil;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
-    final public function getGroups()
+    public function getGroups()
     {
-       return $this->groups;
+        return $this->groups;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getDescription()
+    public function getDescription()
     {
-       return ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description);
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getValidFrom()
+    public function getValidFrom()
     {
-       return $this->validFrom;
+        return $this->validFrom;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getMaxApplicationsPerCustomer()
+    public function getMaxApplicationsPerCustomer()
     {
-       return $this->maxApplicationsPerCustomer;
+        return $this->maxApplicationsPerCustomer;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getIsActive()
+    public function getIsActive()
     {
-       return $this->isActive;
+        return $this->isActive;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getMaxApplications()
+    public function getMaxApplications()
     {
-       return $this->maxApplications;
+        return $this->maxApplications;
     }
+
     /**
      * @return $this
      */
-    final public function withCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts)
+    public function withCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts)
     {
         $this->cartDiscounts = $cartDiscounts;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCartPredicate(?string $cartPredicate)
+    public function withCartPredicate(?string $cartPredicate)
     {
         $this->cartPredicate = $cartPredicate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFieldsDraft $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValidUntil(?DateTimeImmutable $validUntil)
+    public function withValidUntil(?DateTimeImmutable $validUntil)
     {
         $this->validUntil = $validUntil;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withGroups(?array $groups)
+    public function withGroups(?array $groups)
     {
         $this->groups = $groups;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?LocalizedString $description)
+    public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValidFrom(?DateTimeImmutable $validFrom)
+    public function withValidFrom(?DateTimeImmutable $validFrom)
     {
         $this->validFrom = $validFrom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
+    public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
     {
         $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withIsActive(?bool $isActive)
+    public function withIsActive(?bool $isActive)
     {
         $this->isActive = $isActive;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMaxApplications(?int $maxApplications)
+    public function withMaxApplications(?int $maxApplications)
     {
         $this->maxApplications = $maxApplications;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
-    public function build(): DiscountCodeDraft {
+
+    public function build(): DiscountCodeDraft
+    {
         return new DiscountCodeDraftModel(
             $this->cartDiscounts,
             $this->code,
@@ -358,7 +348,7 @@ final class DiscountCodeDraftBuilder implements Builder
             $this->maxApplications
         );
     }
-    
+
     public static function of(): DiscountCodeDraftBuilder
     {
         return new self();

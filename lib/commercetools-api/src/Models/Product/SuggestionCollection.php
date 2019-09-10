@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<Suggestion>
+ *
  * @method Suggestion current()
  * @method Suggestion at($offset)
  */
@@ -20,8 +23,12 @@ class SuggestionCollection extends MapperSequence
     /**
      * @psalm-assert Suggestion $value
      * @psalm-param Suggestion|stdClass $value
-     * @return SuggestionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return SuggestionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class SuggestionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?Suggestion {
+        return function (int $index): ?Suggestion {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = SuggestionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

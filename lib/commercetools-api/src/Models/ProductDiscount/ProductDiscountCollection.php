@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ProductDiscount;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductDiscount>
+ *
  * @method ProductDiscount current()
  * @method ProductDiscount at($offset)
  */
@@ -20,8 +23,12 @@ class ProductDiscountCollection extends MapperSequence
     /**
      * @psalm-assert ProductDiscount $value
      * @psalm-param ProductDiscount|stdClass $value
-     * @return ProductDiscountCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductDiscountCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductDiscountCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductDiscount {
+        return function (int $index): ?ProductDiscount {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductDiscountModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

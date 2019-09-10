@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\OrderEdit;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraftModel;
@@ -18,15 +15,57 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel implements StagedOrderAddCustomLineItemAction
 {
     const DISCRIMINATOR_VALUE = 'addCustomLineItem';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?Money
+     */
+    protected $money;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $slug;
+
+    /**
+     * @var ?TaxCategoryResourceIdentifier
+     */
+    protected $taxCategory;
+
     public function __construct(
         string $action = null,
         ExternalTaxRateDraft $externalTaxRate = null,
@@ -45,227 +84,186 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         $this->name = $name;
         $this->slug = $slug;
         $this->taxCategory = $taxCategory;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-    
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-    
-    /**
-     * @var ?Money
-     */
-    protected $money;
-    
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $slug;
-    
-    /**
-     * @var ?TaxCategoryResourceIdentifier
-     */
-    protected $taxCategory;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|ExternalTaxRateDraft
      */
-    final public function getAction()
+    public function getExternalTaxRate()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
     }
-    
+
     /**
-     *
-     * @return ExternalTaxRateDraft|null
+     * @return null|int
      */
-    final public function getExternalTaxRate()
+    public function getQuantity()
     {
-       if (is_null($this->externalTaxRate)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_EXTERNAL_TAX_RATE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-       }
-       return $this->externalTaxRate;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|Money
      */
-    final public function getQuantity()
+    public function getMoney()
     {
-       if (is_null($this->quantity)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_QUANTITY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->quantity = (int)$data;
-       }
-       return $this->quantity;
+        if (is_null($this->money)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_MONEY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->money = MoneyModel::of($data);
+        }
+
+        return $this->money;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getMoney()
+    public function getCustom()
     {
-       if (is_null($this->money)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_MONEY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->money = MoneyModel::of($data);
-       }
-       return $this->money;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|LocalizedString
      */
-    final public function getCustom()
+    public function getName()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsDraftModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getName()
+    public function getSlug()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->slug)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->slug = (string) $data;
+        }
+
+        return $this->slug;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|TaxCategoryResourceIdentifier
      */
-    final public function getSlug()
+    public function getTaxCategory()
     {
-       if (is_null($this->slug)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_SLUG);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->slug = (string)$data;
-       }
-       return $this->slug;
+        if (is_null($this->taxCategory)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_TAX_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxCategory = TaxCategoryResourceIdentifierModel::of($data);
+        }
+
+        return $this->taxCategory;
     }
-    
-    /**
-     *
-     * @return TaxCategoryResourceIdentifier|null
-     */
-    final public function getTaxCategory()
-    {
-       if (is_null($this->taxCategory)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderAddCustomLineItemAction::FIELD_TAX_CATEGORY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->taxCategory = TaxCategoryResourceIdentifierModel::of($data);
-       }
-       return $this->taxCategory;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
     }
-    
-    final public function setQuantity(?int $quantity): void
+
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
-    
-    final public function setMoney(?Money $money): void
+
+    public function setMoney(?Money $money): void
     {
         $this->money = $money;
     }
-    
-    final public function setCustom(?CustomFieldsDraft $custom): void
+
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setSlug(?string $slug): void
+
+    public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
     }
-    
-    final public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
+
+    public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }
-    
 }

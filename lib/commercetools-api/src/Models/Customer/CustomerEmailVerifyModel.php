@@ -1,80 +1,76 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
-
 
 final class CustomerEmailVerifyModel extends JsonObjectModel implements CustomerEmailVerify
 {
-    
+    /**
+     * @var ?string
+     */
+    protected $tokenValue;
+
+    /**
+     * @var ?int
+     */
+    protected $version;
+
     public function __construct(
         string $tokenValue = null,
         int $version = null
     ) {
         $this->tokenValue = $tokenValue;
         $this->version = $version;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $tokenValue;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
+    public function getTokenValue()
+    {
+        if (is_null($this->tokenValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerEmailVerify::FIELD_TOKEN_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tokenValue = (string) $data;
+        }
+
+        return $this->tokenValue;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getTokenValue()
+    public function getVersion()
     {
-       if (is_null($this->tokenValue)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(CustomerEmailVerify::FIELD_TOKEN_VALUE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->tokenValue = (string)$data;
-       }
-       return $this->tokenValue;
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomerEmailVerify::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
-    
-    /**
-     *
-     * @return int|null
-     */
-    final public function getVersion()
-    {
-       if (is_null($this->version)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(CustomerEmailVerify::FIELD_VERSION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->version = (int)$data;
-       }
-       return $this->version;
-    }
-    final public function setTokenValue(?string $tokenValue): void
+
+    public function setTokenValue(?string $tokenValue): void
     {
         $this->tokenValue = $tokenValue;
     }
-    
-    final public function setVersion(?int $version): void
+
+    public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
-    
 }

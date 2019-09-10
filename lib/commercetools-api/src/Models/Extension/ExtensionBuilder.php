@@ -1,22 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Extension;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
-use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -24,278 +20,272 @@ use DateTimeImmutable;
  */
 final class ExtensionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
-     * @var ?CreatedByBuilder|CreatedBy
+     * @var CreatedBy|?CreatedByBuilder
      */
-    protected $createdBy;
-    
+    private $createdBy;
+
     /**
-     * @var ?LastModifiedByBuilder|LastModifiedBy
+     * @var LastModifiedBy|?LastModifiedByBuilder
      */
-    protected $lastModifiedBy;
-    
+    private $lastModifiedBy;
+
     /**
      * @var ?int
      */
-    protected $timeoutInMs;
-    
+    private $timeoutInMs;
+
     /**
-     * @var ?ExtensionDestinationBuilder|ExtensionDestination
+     * @var ExtensionDestination|?ExtensionDestinationBuilder
      */
-    protected $destination;
-    
+    private $destination;
+
     /**
      * @var ?ExtensionTriggerCollection
      */
-    protected $triggers;
-    
+    private $triggers;
+
     /**
      * @var ?string
      */
-    protected $key;
+    private $key;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getCreatedAt()
     {
-       return $this->createdAt;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getLastModifiedAt()
+    public function getLastModifiedAt()
     {
-       return $this->lastModifiedAt;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getId()
+    public function getId()
     {
-       return $this->id;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVersion()
+    public function getVersion()
     {
-       return $this->version;
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return CreatedBy|null
+     * @return null|CreatedBy
      */
-    final public function getCreatedBy()
+    public function getCreatedBy()
     {
-       return ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy);
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
-    
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @return null|LastModifiedBy
      */
-    final public function getLastModifiedBy()
+    public function getLastModifiedBy()
     {
-       return ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy);
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getTimeoutInMs()
+    public function getTimeoutInMs()
     {
-       return $this->timeoutInMs;
+        return $this->timeoutInMs;
     }
-    
+
     /**
-     *
-     * @return ExtensionDestination|null
+     * @return null|ExtensionDestination
      */
-    final public function getDestination()
+    public function getDestination()
     {
-       return ($this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination);
+        return $this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination;
     }
-    
+
     /**
-     *
-     * @return ExtensionTriggerCollection|null
+     * @return null|ExtensionTriggerCollection
      */
-    final public function getTriggers()
+    public function getTriggers()
     {
-       return $this->triggers;
+        return $this->triggers;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getKey()
+    public function getKey()
     {
-       return $this->key;
+        return $this->key;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTimeoutInMs(?int $timeoutInMs)
+    public function withTimeoutInMs(?int $timeoutInMs)
     {
         $this->timeoutInMs = $timeoutInMs;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDestination(?ExtensionDestination $destination)
+    public function withDestination(?ExtensionDestination $destination)
     {
         $this->destination = $destination;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTriggers(?ExtensionTriggerCollection $triggers)
+    public function withTriggers(?ExtensionTriggerCollection $triggers)
     {
         $this->triggers = $triggers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDestinationBuilder(?ExtensionDestinationBuilder $destination)
+    public function withDestinationBuilder(?ExtensionDestinationBuilder $destination)
     {
         $this->destination = $destination;
-        
+
         return $this;
     }
-    
-    public function build(): Extension {
+
+    public function build(): Extension
+    {
         return new ExtensionModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -309,7 +299,7 @@ final class ExtensionBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): ExtensionBuilder
     {
         return new self();

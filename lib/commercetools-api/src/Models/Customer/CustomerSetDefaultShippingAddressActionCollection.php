@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomerSetDefaultShippingAddressAction>
+ *
  * @method CustomerSetDefaultShippingAddressAction current()
  * @method CustomerSetDefaultShippingAddressAction at($offset)
  */
@@ -20,8 +23,12 @@ class CustomerSetDefaultShippingAddressActionCollection extends MapperSequence
     /**
      * @psalm-assert CustomerSetDefaultShippingAddressAction $value
      * @psalm-param CustomerSetDefaultShippingAddressAction|stdClass $value
-     * @return CustomerSetDefaultShippingAddressActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomerSetDefaultShippingAddressActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomerSetDefaultShippingAddressActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomerSetDefaultShippingAddressAction {
+        return function (int $index): ?CustomerSetDefaultShippingAddressAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomerSetDefaultShippingAddressActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

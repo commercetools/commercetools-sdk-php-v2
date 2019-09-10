@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<FacetResult>
+ *
  * @method FacetResult current()
  * @method FacetResult at($offset)
  */
@@ -20,8 +23,12 @@ class FacetResultCollection extends MapperSequence
     /**
      * @psalm-assert FacetResult $value
      * @psalm-param FacetResult|stdClass $value
-     * @return FacetResultCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return FacetResultCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class FacetResultCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?FacetResult {
+        return function (int $index): ?FacetResult {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = FacetResultModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

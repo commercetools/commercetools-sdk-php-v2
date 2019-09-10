@@ -1,21 +1,22 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Category\CategoryResourceIdentifierCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\ProductType\ProductTypeResourceIdentifier;
 use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryResourceIdentifier;
+use Commercetools\Base\JsonObject;
 
 interface ProductDraft extends JsonObject
 {
-    
     const FIELD_PRODUCT_TYPE = 'productType';
     const FIELD_NAME = 'name';
     const FIELD_SLUG = 'slug';
@@ -34,129 +35,114 @@ interface ProductDraft extends JsonObject
     const FIELD_PUBLISH = 'publish';
 
     /**
-     *
-     * @return ProductTypeResourceIdentifier|null
+     * @return null|ProductTypeResourceIdentifier
      */
     public function getProductType();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getSlug();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getDescription();
-    
+
     /**
-     *
-     * @return CategoryResourceIdentifierCollection|null
+     * @return null|CategoryResourceIdentifierCollection
      */
     public function getCategories();
-    
+
     /**
-     *
-     * @return CategoryOrderHints|null
+     * @return null|CategoryOrderHints
      */
     public function getCategoryOrderHints();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getMetaTitle();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getMetaDescription();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getMetaKeywords();
-    
+
     /**
-     *
-     * @return ProductVariantDraft|null
+     * @return null|ProductVariantDraft
      */
     public function getMasterVariant();
-    
+
     /**
-     *
-     * @return ProductVariantDraftCollection|null
+     * @return null|ProductVariantDraftCollection
      */
     public function getVariants();
-    
+
     /**
-     *
-     * @return TaxCategoryResourceIdentifier|null
+     * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory();
-    
+
     /**
-     *
-     * @return SearchKeywords|null
+     * @return null|SearchKeywords
      */
     public function getSearchKeywords();
-    
+
     /**
-     *
-     * @return StateResourceIdentifier|null
+     * @return null|StateResourceIdentifier
      */
     public function getState();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getPublish();
+
     public function setProductType(?ProductTypeResourceIdentifier $productType): void;
-    
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setSlug(?LocalizedString $slug): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setDescription(?LocalizedString $description): void;
-    
+
     public function setCategories(?CategoryResourceIdentifierCollection $categories): void;
-    
+
     public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void;
-    
+
     public function setMetaTitle(?LocalizedString $metaTitle): void;
-    
+
     public function setMetaDescription(?LocalizedString $metaDescription): void;
-    
+
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
-    
+
     public function setMasterVariant(?ProductVariantDraft $masterVariant): void;
-    
+
     public function setVariants(?ProductVariantDraftCollection $variants): void;
-    
+
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void;
-    
+
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
-    
+
     public function setState(?StateResourceIdentifier $state): void;
-    
+
     public function setPublish(?bool $publish): void;
 }

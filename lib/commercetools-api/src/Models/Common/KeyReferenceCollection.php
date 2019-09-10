@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<KeyReference>
+ *
  * @method KeyReference current()
  * @method KeyReference at($offset)
  */
@@ -20,8 +23,12 @@ class KeyReferenceCollection extends MapperSequence
     /**
      * @psalm-assert KeyReference $value
      * @psalm-param KeyReference|stdClass $value
-     * @return KeyReferenceCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return KeyReferenceCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class KeyReferenceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?KeyReference {
+        return function (int $index): ?KeyReference {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = KeyReferenceModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

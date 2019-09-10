@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderEditPreviewFailure>
+ *
  * @method OrderEditPreviewFailure current()
  * @method OrderEditPreviewFailure at($offset)
  */
@@ -20,8 +23,12 @@ class OrderEditPreviewFailureCollection extends MapperSequence
     /**
      * @psalm-assert OrderEditPreviewFailure $value
      * @psalm-param OrderEditPreviewFailure|stdClass $value
-     * @return OrderEditPreviewFailureCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderEditPreviewFailureCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderEditPreviewFailureCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderEditPreviewFailure {
+        return function (int $index): ?OrderEditPreviewFailure {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderEditPreviewFailureModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

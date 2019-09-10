@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Base;
 
@@ -17,12 +18,15 @@ abstract class BaseJsonObject implements JsonObject
     /**
      * @psalm-param ?stdClass|array<string, mixed> $data
      * @psalm-return static
+     *
+     * @param null|mixed $data
      */
     final public static function of($data = null)
     {
         if (is_array($data)) {
             return self::fromArray($data);
         }
+
         return self::fromStdClass($data);
     }
 
@@ -34,6 +38,7 @@ abstract class BaseJsonObject implements JsonObject
     {
         $t = new static();
         $t->rawData = $data;
+
         return $t;
     }
 
@@ -43,7 +48,12 @@ abstract class BaseJsonObject implements JsonObject
      */
     final public static function fromArray(array $data = [])
     {
-        return static::of((object)$data);
+        return static::of((object) $data);
+    }
+
+    public function jsonSerialize()
+    {
+        return (object) $this->toArray();
     }
 
     /**
@@ -51,19 +61,15 @@ abstract class BaseJsonObject implements JsonObject
      */
     final protected function raw(string $field)
     {
-        if (isset($this->rawData->$field)) {
-            /**
+        if (isset($this->rawData->{$field})) {
+            /*
              * @psalm-suppress PossiblyNullPropertyFetch
              * @psalm-var scalar|array<int, mixed>|array<string, mixed>|stdClass|null
              */
-            return $this->rawData->$field;
+            return $this->rawData->{$field};
         }
-        return null;
-    }
 
-    public function jsonSerialize()
-    {
-        return (object)$this->toArray();
+        return null;
     }
 
     /**
@@ -74,6 +80,7 @@ abstract class BaseJsonObject implements JsonObject
         if (is_null($this->rawData)) {
             return [];
         }
+
         return get_object_vars($this->rawData);
     }
 

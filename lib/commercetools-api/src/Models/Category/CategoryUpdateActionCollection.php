@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CategoryUpdateAction>
+ *
  * @method CategoryUpdateAction current()
  * @method CategoryUpdateAction at($offset)
  */
@@ -20,8 +23,12 @@ class CategoryUpdateActionCollection extends MapperSequence
     /**
      * @psalm-assert CategoryUpdateAction $value
      * @psalm-param CategoryUpdateAction|stdClass $value
-     * @return CategoryUpdateActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CategoryUpdateActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CategoryUpdateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CategoryUpdateAction {
+        return function (int $index): ?CategoryUpdateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CategoryUpdateActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

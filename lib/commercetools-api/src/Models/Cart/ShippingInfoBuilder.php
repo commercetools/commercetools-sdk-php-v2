@@ -1,16 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\Order\DeliveryCollection;
@@ -22,324 +19,319 @@ use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceBuilder;
 use Commercetools\Api\Models\TaxCategory\TaxRate;
 use Commercetools\Api\Models\TaxCategory\TaxRateBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ShippingInfo>
  */
 final class ShippingInfoBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var TaxRate|?TaxRateBuilder
+     */
+    private $taxRate;
 
     /**
-     * @var ?TaxRateBuilder|TaxRate
+     * @var ShippingRate|?ShippingRateBuilder
      */
-    protected $taxRate;
-    
+    private $shippingRate;
+
     /**
-     * @var ?ShippingRateBuilder|ShippingRate
+     * @var DiscountedLineItemPrice|?DiscountedLineItemPriceBuilder
      */
-    protected $shippingRate;
-    
-    /**
-     * @var ?DiscountedLineItemPriceBuilder|DiscountedLineItemPrice
-     */
-    protected $discountedPrice;
-    
+    private $discountedPrice;
+
     /**
      * @var ?string
      */
-    protected $shippingMethodState;
-    
+    private $shippingMethodState;
+
     /**
-     * @var ?TaxedItemPriceBuilder|TaxedItemPrice
+     * @var TaxedItemPrice|?TaxedItemPriceBuilder
      */
-    protected $taxedPrice;
-    
+    private $taxedPrice;
+
     /**
-     * @var ?TypedMoneyBuilder|TypedMoney
+     * @var TypedMoney|?TypedMoneyBuilder
      */
-    protected $price;
-    
+    private $price;
+
     /**
-     * @var ?ShippingMethodReferenceBuilder|ShippingMethodReference
+     * @var ShippingMethodReference|?ShippingMethodReferenceBuilder
      */
-    protected $shippingMethod;
-    
+    private $shippingMethod;
+
     /**
      * @var ?string
      */
-    protected $shippingMethodName;
-    
+    private $shippingMethodName;
+
     /**
      * @var ?DeliveryCollection
      */
-    protected $deliveries;
-    
-    /**
-     * @var ?TaxCategoryReferenceBuilder|TaxCategoryReference
-     */
-    protected $taxCategory;
+    private $deliveries;
 
     /**
-     *
-     * @return TaxRate|null
+     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
      */
-    final public function getTaxRate()
+    private $taxCategory;
+
+    public function __construct()
     {
-       return ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate);
     }
-    
+
     /**
-     *
-     * @return ShippingRate|null
+     * @return null|TaxRate
      */
-    final public function getShippingRate()
+    public function getTaxRate()
     {
-       return ($this->shippingRate instanceof ShippingRateBuilder ? $this->shippingRate->build() : $this->shippingRate);
+        return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
     }
-    
+
     /**
-     *
-     * @return DiscountedLineItemPrice|null
+     * @return null|ShippingRate
      */
-    final public function getDiscountedPrice()
+    public function getShippingRate()
     {
-       return ($this->discountedPrice instanceof DiscountedLineItemPriceBuilder ? $this->discountedPrice->build() : $this->discountedPrice);
+        return $this->shippingRate instanceof ShippingRateBuilder ? $this->shippingRate->build() : $this->shippingRate;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DiscountedLineItemPrice
      */
-    final public function getShippingMethodState()
+    public function getDiscountedPrice()
     {
-       return $this->shippingMethodState;
+        return $this->discountedPrice instanceof DiscountedLineItemPriceBuilder ? $this->discountedPrice->build() : $this->discountedPrice;
     }
-    
+
     /**
-     *
-     * @return TaxedItemPrice|null
+     * @return null|string
      */
-    final public function getTaxedPrice()
+    public function getShippingMethodState()
     {
-       return ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice);
+        return $this->shippingMethodState;
     }
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TaxedItemPrice
      */
-    final public function getPrice()
+    public function getTaxedPrice()
     {
-       return ($this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price);
+        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
-    
+
     /**
-     *
-     * @return ShippingMethodReference|null
+     * @return null|TypedMoney
      */
-    final public function getShippingMethod()
+    public function getPrice()
     {
-       return ($this->shippingMethod instanceof ShippingMethodReferenceBuilder ? $this->shippingMethod->build() : $this->shippingMethod);
+        return $this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ShippingMethodReference
      */
-    final public function getShippingMethodName()
+    public function getShippingMethod()
     {
-       return $this->shippingMethodName;
+        return $this->shippingMethod instanceof ShippingMethodReferenceBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
     }
-    
+
     /**
-     *
-     * @return DeliveryCollection|null
+     * @return null|string
      */
-    final public function getDeliveries()
+    public function getShippingMethodName()
     {
-       return $this->deliveries;
+        return $this->shippingMethodName;
     }
-    
+
     /**
-     *
-     * @return TaxCategoryReference|null
+     * @return null|DeliveryCollection
      */
-    final public function getTaxCategory()
+    public function getDeliveries()
     {
-       return ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory);
+        return $this->deliveries;
     }
+
+    /**
+     * @return null|TaxCategoryReference
+     */
+    public function getTaxCategory()
+    {
+        return $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory;
+    }
+
     /**
      * @return $this
      */
-    final public function withTaxRate(?TaxRate $taxRate)
+    public function withTaxRate(?TaxRate $taxRate)
     {
         $this->taxRate = $taxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingRate(?ShippingRate $shippingRate)
+    public function withShippingRate(?ShippingRate $shippingRate)
     {
         $this->shippingRate = $shippingRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountedPrice(?DiscountedLineItemPrice $discountedPrice)
+    public function withDiscountedPrice(?DiscountedLineItemPrice $discountedPrice)
     {
         $this->discountedPrice = $discountedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingMethodState(?string $shippingMethodState)
+    public function withShippingMethodState(?string $shippingMethodState)
     {
         $this->shippingMethodState = $shippingMethodState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
+    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrice(?TypedMoney $price)
+    public function withPrice(?TypedMoney $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingMethod(?ShippingMethodReference $shippingMethod)
+    public function withShippingMethod(?ShippingMethodReference $shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingMethodName(?string $shippingMethodName)
+    public function withShippingMethodName(?string $shippingMethodName)
     {
         $this->shippingMethodName = $shippingMethodName;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDeliveries(?DeliveryCollection $deliveries)
+    public function withDeliveries(?DeliveryCollection $deliveries)
     {
         $this->deliveries = $deliveries;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxCategory(?TaxCategoryReference $taxCategory)
+    public function withTaxCategory(?TaxCategoryReference $taxCategory)
     {
         $this->taxCategory = $taxCategory;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
+    public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
     {
         $this->taxRate = $taxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingRateBuilder(?ShippingRateBuilder $shippingRate)
+    public function withShippingRateBuilder(?ShippingRateBuilder $shippingRate)
     {
         $this->shippingRate = $shippingRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountedPriceBuilder(?DiscountedLineItemPriceBuilder $discountedPrice)
+    public function withDiscountedPriceBuilder(?DiscountedLineItemPriceBuilder $discountedPrice)
     {
         $this->discountedPrice = $discountedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
+    public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPriceBuilder(?TypedMoneyBuilder $price)
+    public function withPriceBuilder(?TypedMoneyBuilder $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingMethodBuilder(?ShippingMethodReferenceBuilder $shippingMethod)
+    public function withShippingMethodBuilder(?ShippingMethodReferenceBuilder $shippingMethod)
     {
         $this->shippingMethod = $shippingMethod;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
+    public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
     {
         $this->taxCategory = $taxCategory;
-        
+
         return $this;
     }
-    
-    public function build(): ShippingInfo {
+
+    public function build(): ShippingInfo
+    {
         return new ShippingInfoModel(
             ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate),
             ($this->shippingRate instanceof ShippingRateBuilder ? $this->shippingRate->build() : $this->shippingRate),
@@ -353,7 +345,7 @@ final class ShippingInfoBuilder implements Builder
             ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory)
         );
     }
-    
+
     public static function of(): ShippingInfoBuilder
     {
         return new self();

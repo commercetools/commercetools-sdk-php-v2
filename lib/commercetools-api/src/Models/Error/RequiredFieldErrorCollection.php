@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<RequiredFieldError>
+ *
  * @method RequiredFieldError current()
  * @method RequiredFieldError at($offset)
  */
@@ -20,8 +23,12 @@ class RequiredFieldErrorCollection extends MapperSequence
     /**
      * @psalm-assert RequiredFieldError $value
      * @psalm-param RequiredFieldError|stdClass $value
-     * @return RequiredFieldErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return RequiredFieldErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class RequiredFieldErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?RequiredFieldError {
+        return function (int $index): ?RequiredFieldError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = RequiredFieldErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

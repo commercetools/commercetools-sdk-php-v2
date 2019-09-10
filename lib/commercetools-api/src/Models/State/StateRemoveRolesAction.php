@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\State;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\State;
 
 interface StateRemoveRolesAction extends StateUpdateAction
 {
-    
     const FIELD_ROLES = 'roles';
 
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getRoles();
+
     public function setRoles(?array $roles): void;
 }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Project;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProjectChangeMessagesConfigurationAction>
+ *
  * @method ProjectChangeMessagesConfigurationAction current()
  * @method ProjectChangeMessagesConfigurationAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProjectChangeMessagesConfigurationActionCollection extends MapperSequence
     /**
      * @psalm-assert ProjectChangeMessagesConfigurationAction $value
      * @psalm-param ProjectChangeMessagesConfigurationAction|stdClass $value
-     * @return ProjectChangeMessagesConfigurationActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProjectChangeMessagesConfigurationActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProjectChangeMessagesConfigurationActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProjectChangeMessagesConfigurationAction {
+        return function (int $index): ?ProjectChangeMessagesConfigurationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProjectChangeMessagesConfigurationActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartApplyDeltaToLineItemShippingDetailsTargetsAction>
+ *
  * @method CartApplyDeltaToLineItemShippingDetailsTargetsAction current()
  * @method CartApplyDeltaToLineItemShippingDetailsTargetsAction at($offset)
  */
@@ -20,8 +23,12 @@ class CartApplyDeltaToLineItemShippingDetailsTargetsActionCollection extends Map
     /**
      * @psalm-assert CartApplyDeltaToLineItemShippingDetailsTargetsAction $value
      * @psalm-param CartApplyDeltaToLineItemShippingDetailsTargetsAction|stdClass $value
-     * @return CartApplyDeltaToLineItemShippingDetailsTargetsActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartApplyDeltaToLineItemShippingDetailsTargetsActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartApplyDeltaToLineItemShippingDetailsTargetsActionCollection extends Map
      */
     protected function mapper()
     {
-        return function(int $index): ?CartApplyDeltaToLineItemShippingDetailsTargetsAction {
+        return function (int $index): ?CartApplyDeltaToLineItemShippingDetailsTargetsAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartApplyDeltaToLineItemShippingDetailsTargetsActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

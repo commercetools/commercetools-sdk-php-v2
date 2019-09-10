@@ -1,145 +1,141 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<MissingTaxRateForCountryError>
  */
 final class MissingTaxRateForCountryErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
-    /**
-     * @var ?string
-     */
-    protected $country;
-    
-    /**
-     * @var ?string
-     */
-    protected $state;
-    
-    /**
-     * @var ?string
-     */
-    protected $taxCategoryId;
+    private $message;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCode()
-    {
-       return $this->code;
-    }
-    
+    private $country;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getMessage()
-    {
-       return $this->message;
-    }
-    
+    private $state;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCountry()
+    private $taxCategoryId;
+
+    public function __construct()
     {
-       return $this->country;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getState()
+    public function getCode()
     {
-       return $this->state;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTaxCategoryId()
+    public function getMessage()
     {
-       return $this->taxCategoryId;
+        return $this->message;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxCategoryId()
+    {
+        return $this->taxCategoryId;
+    }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCountry(?string $country)
+    public function withCountry(?string $country)
     {
         $this->country = $country;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withState(?string $state)
+    public function withState(?string $state)
     {
         $this->state = $state;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxCategoryId(?string $taxCategoryId)
+    public function withTaxCategoryId(?string $taxCategoryId)
     {
         $this->taxCategoryId = $taxCategoryId;
-        
+
         return $this;
     }
-    
-    public function build(): MissingTaxRateForCountryError {
+
+    public function build(): MissingTaxRateForCountryError
+    {
         return new MissingTaxRateForCountryErrorModel(
             $this->code,
             $this->message,
@@ -148,7 +144,7 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
             $this->taxCategoryId
         );
     }
-    
+
     public static function of(): MissingTaxRateForCountryErrorBuilder
     {
         return new self();

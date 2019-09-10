@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<HighPrecisionMoneyDraft>
+ *
  * @method HighPrecisionMoneyDraft current()
  * @method HighPrecisionMoneyDraft at($offset)
  */
@@ -20,8 +23,12 @@ class HighPrecisionMoneyDraftCollection extends MapperSequence
     /**
      * @psalm-assert HighPrecisionMoneyDraft $value
      * @psalm-param HighPrecisionMoneyDraft|stdClass $value
-     * @return HighPrecisionMoneyDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return HighPrecisionMoneyDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class HighPrecisionMoneyDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?HighPrecisionMoneyDraft {
+        return function (int $index): ?HighPrecisionMoneyDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = HighPrecisionMoneyDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

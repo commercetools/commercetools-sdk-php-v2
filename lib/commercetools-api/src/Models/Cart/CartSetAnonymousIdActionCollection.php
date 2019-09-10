@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CartSetAnonymousIdAction>
+ *
  * @method CartSetAnonymousIdAction current()
  * @method CartSetAnonymousIdAction at($offset)
  */
@@ -20,8 +23,12 @@ class CartSetAnonymousIdActionCollection extends MapperSequence
     /**
      * @psalm-assert CartSetAnonymousIdAction $value
      * @psalm-param CartSetAnonymousIdAction|stdClass $value
-     * @return CartSetAnonymousIdActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CartSetAnonymousIdActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CartSetAnonymousIdActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CartSetAnonymousIdAction {
+        return function (int $index): ?CartSetAnonymousIdAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CartSetAnonymousIdActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

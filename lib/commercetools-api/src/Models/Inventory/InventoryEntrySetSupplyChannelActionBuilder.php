@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Inventory;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<InventoryEntrySetSupplyChannelAction>
  */
 final class InventoryEntrySetSupplyChannelActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?ChannelResourceIdentifierBuilder|ChannelResourceIdentifier
-     */
-    protected $supplyChannel;
+    private $action;
 
     /**
-     *
-     * @return string|null
+     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
      */
-    final public function getAction()
+    private $supplyChannel;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return ChannelResourceIdentifier|null
+     * @return null|string
      */
-    final public function getSupplyChannel()
+    public function getAction()
     {
-       return ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel);
+        return $this->action;
     }
+
+    /**
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getSupplyChannel()
+    {
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
-    
-    public function build(): InventoryEntrySetSupplyChannelAction {
+
+    public function build(): InventoryEntrySetSupplyChannelAction
+    {
         return new InventoryEntrySetSupplyChannelActionModel(
             $this->action,
             ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel)
         );
     }
-    
+
     public static function of(): InventoryEntrySetSupplyChannelActionBuilder
     {
         return new self();

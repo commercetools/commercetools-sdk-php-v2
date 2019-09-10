@@ -1,17 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Base\JsonObject;
 
 interface UserProvidedIdentifiers extends JsonObject
 {
-    
     const FIELD_KEY = 'key';
     const FIELD_EXTERNAL_ID = 'externalId';
     const FIELD_ORDER_NUMBER = 'orderNumber';
@@ -20,49 +21,44 @@ interface UserProvidedIdentifiers extends JsonObject
     const FIELD_SLUG = 'slug';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getExternalId();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getOrderNumber();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCustomerNumber();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getSku();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getSlug();
+
     public function setKey(?string $key): void;
-    
+
     public function setExternalId(?string $externalId): void;
-    
+
     public function setOrderNumber(?string $orderNumber): void;
-    
+
     public function setCustomerNumber(?string $customerNumber): void;
-    
+
     public function setSku(?string $sku): void;
-    
+
     public function setSlug(?LocalizedString $slug): void;
 }

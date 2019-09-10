@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderSetReturnPaymentStateAction>
+ *
  * @method StagedOrderSetReturnPaymentStateAction current()
  * @method StagedOrderSetReturnPaymentStateAction at($offset)
  */
@@ -20,8 +23,12 @@ class StagedOrderSetReturnPaymentStateActionCollection extends MapperSequence
     /**
      * @psalm-assert StagedOrderSetReturnPaymentStateAction $value
      * @psalm-param StagedOrderSetReturnPaymentStateAction|stdClass $value
-     * @return StagedOrderSetReturnPaymentStateActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StagedOrderSetReturnPaymentStateActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StagedOrderSetReturnPaymentStateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?StagedOrderSetReturnPaymentStateAction {
+        return function (int $index): ?StagedOrderSetReturnPaymentStateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StagedOrderSetReturnPaymentStateActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

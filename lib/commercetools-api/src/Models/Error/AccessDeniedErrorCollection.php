@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<AccessDeniedError>
+ *
  * @method AccessDeniedError current()
  * @method AccessDeniedError at($offset)
  */
@@ -20,8 +23,12 @@ class AccessDeniedErrorCollection extends MapperSequence
     /**
      * @psalm-assert AccessDeniedError $value
      * @psalm-param AccessDeniedError|stdClass $value
-     * @return AccessDeniedErrorCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return AccessDeniedErrorCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class AccessDeniedErrorCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?AccessDeniedError {
+        return function (int $index): ?AccessDeniedError {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = AccessDeniedErrorModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

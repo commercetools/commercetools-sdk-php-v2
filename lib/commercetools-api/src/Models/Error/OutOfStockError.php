@@ -1,31 +1,29 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Error;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Error;
 
 interface OutOfStockError extends ErrorObject
 {
-    
     const FIELD_LINE_ITEMS = 'lineItems';
     const FIELD_SKUS = 'skus';
 
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getLineItems();
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getSkus();
+
     public function setLineItems(?array $lineItems): void;
-    
+
     public function setSkus(?array $skus): void;
 }

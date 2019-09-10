@@ -1,220 +1,213 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductAddVariantAction>
  */
 final class ProductAddVariantActionBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $action;
-    
+    private $action;
+
     /**
      * @var ?ImageCollection
      */
-    protected $images;
-    
+    private $images;
+
     /**
      * @var ?AssetCollection
      */
-    protected $assets;
-    
+    private $assets;
+
     /**
      * @var ?AttributeCollection
      */
-    protected $attributes;
-    
+    private $attributes;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
      * @var ?PriceDraftCollection
      */
-    protected $prices;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    private $prices;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAction()
-    {
-       return $this->action;
-    }
-    
+    private $sku;
+
     /**
-     *
-     * @return ImageCollection|null
+     * @var ?string
      */
-    final public function getImages()
+    private $key;
+
+    public function __construct()
     {
-       return $this->images;
     }
-    
+
     /**
-     *
-     * @return AssetCollection|null
+     * @return null|string
      */
-    final public function getAssets()
+    public function getAction()
     {
-       return $this->assets;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return AttributeCollection|null
+     * @return null|ImageCollection
      */
-    final public function getAttributes()
+    public function getImages()
     {
-       return $this->attributes;
+        return $this->images;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|AssetCollection
      */
-    final public function getStaged()
+    public function getAssets()
     {
-       return $this->staged;
+        return $this->assets;
     }
-    
+
     /**
-     *
-     * @return PriceDraftCollection|null
+     * @return null|AttributeCollection
      */
-    final public function getPrices()
+    public function getAttributes()
     {
-       return $this->prices;
+        return $this->attributes;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getSku()
+    public function getStaged()
     {
-       return $this->sku;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|PriceDraftCollection
      */
-    final public function getKey()
+    public function getPrices()
     {
-       return $this->key;
+        return $this->prices;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withImages(?ImageCollection $images)
+    public function withImages(?ImageCollection $images)
     {
         $this->images = $images;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssets(?AssetCollection $assets)
+    public function withAssets(?AssetCollection $assets)
     {
         $this->assets = $assets;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAttributes(?AttributeCollection $attributes)
+    public function withAttributes(?AttributeCollection $attributes)
     {
         $this->attributes = $attributes;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrices(?PriceDraftCollection $prices)
+    public function withPrices(?PriceDraftCollection $prices)
     {
         $this->prices = $prices;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withKey(?string $key)
+    public function withKey(?string $key)
     {
         $this->key = $key;
-        
+
         return $this;
     }
-    
-    public function build(): ProductAddVariantAction {
+
+    public function build(): ProductAddVariantAction
+    {
         return new ProductAddVariantActionModel(
             $this->action,
             $this->images,
@@ -226,7 +219,7 @@ final class ProductAddVariantActionBuilder implements Builder
             $this->key
         );
     }
-    
+
     public static function of(): ProductAddVariantActionBuilder
     {
         return new self();

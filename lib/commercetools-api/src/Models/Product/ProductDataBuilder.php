@@ -1,381 +1,372 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ProductData>
  */
 final class ProductDataBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $metaKeywords;
 
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var CategoryOrderHints|?CategoryOrderHintsBuilder
      */
-    protected $metaKeywords;
-    
+    private $categoryOrderHints;
+
     /**
-     * @var ?CategoryOrderHintsBuilder|CategoryOrderHints
+     * @var SearchKeywords|?SearchKeywordsBuilder
      */
-    protected $categoryOrderHints;
-    
+    private $searchKeywords;
+
     /**
-     * @var ?SearchKeywordsBuilder|SearchKeywords
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $searchKeywords;
-    
+    private $metaTitle;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $metaTitle;
-    
+    private $name;
+
     /**
-     * @var ?LocalizedStringBuilder|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    protected $name;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $description;
-    
+    private $description;
+
     /**
      * @var ?ProductVariantCollection
      */
-    protected $variants;
-    
+    private $variants;
+
     /**
-     * @var ?ProductVariantBuilder|ProductVariant
+     * @var ProductVariant|?ProductVariantBuilder
      */
-    protected $masterVariant;
-    
+    private $masterVariant;
+
     /**
      * @var ?CategoryReferenceCollection
      */
-    protected $categories;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $metaDescription;
-    
-    /**
-     * @var ?LocalizedStringBuilder|LocalizedString
-     */
-    protected $slug;
+    private $categories;
 
     /**
-     *
-     * @return LocalizedString|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getMetaKeywords()
-    {
-       return ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords);
-    }
-    
+    private $metaDescription;
+
     /**
-     *
-     * @return CategoryOrderHints|null
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    final public function getCategoryOrderHints()
+    private $slug;
+
+    public function __construct()
     {
-       return ($this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints);
     }
-    
+
     /**
-     *
-     * @return SearchKeywords|null
+     * @return null|LocalizedString
      */
-    final public function getSearchKeywords()
+    public function getMetaKeywords()
     {
-       return ($this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords);
+        return $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|CategoryOrderHints
      */
-    final public function getMetaTitle()
+    public function getCategoryOrderHints()
     {
-       return ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle);
+        return $this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|SearchKeywords
      */
-    final public function getName()
+    public function getSearchKeywords()
     {
-       return ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name);
+        return $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getDescription()
+    public function getMetaTitle()
     {
-       return ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description);
+        return $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle;
     }
-    
+
     /**
-     *
-     * @return ProductVariantCollection|null
+     * @return null|LocalizedString
      */
-    final public function getVariants()
+    public function getName()
     {
-       return $this->variants;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
-    
+
     /**
-     *
-     * @return ProductVariant|null
+     * @return null|LocalizedString
      */
-    final public function getMasterVariant()
+    public function getDescription()
     {
-       return ($this->masterVariant instanceof ProductVariantBuilder ? $this->masterVariant->build() : $this->masterVariant);
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
-    
+
     /**
-     *
-     * @return CategoryReferenceCollection|null
+     * @return null|ProductVariantCollection
      */
-    final public function getCategories()
+    public function getVariants()
     {
-       return $this->categories;
+        return $this->variants;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|ProductVariant
      */
-    final public function getMetaDescription()
+    public function getMasterVariant()
     {
-       return ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription);
+        return $this->masterVariant instanceof ProductVariantBuilder ? $this->masterVariant->build() : $this->masterVariant;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|CategoryReferenceCollection
      */
-    final public function getSlug()
+    public function getCategories()
     {
-       return ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug);
+        return $this->categories;
     }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
     /**
      * @return $this
      */
-    final public function withMetaKeywords(?LocalizedString $metaKeywords)
+    public function withMetaKeywords(?LocalizedString $metaKeywords)
     {
         $this->metaKeywords = $metaKeywords;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCategoryOrderHints(?CategoryOrderHints $categoryOrderHints)
+    public function withCategoryOrderHints(?CategoryOrderHints $categoryOrderHints)
     {
         $this->categoryOrderHints = $categoryOrderHints;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSearchKeywords(?SearchKeywords $searchKeywords)
+    public function withSearchKeywords(?SearchKeywords $searchKeywords)
     {
         $this->searchKeywords = $searchKeywords;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMetaTitle(?LocalizedString $metaTitle)
+    public function withMetaTitle(?LocalizedString $metaTitle)
     {
         $this->metaTitle = $metaTitle;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withName(?LocalizedString $name)
+    public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescription(?LocalizedString $description)
+    public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariants(?ProductVariantCollection $variants)
+    public function withVariants(?ProductVariantCollection $variants)
     {
         $this->variants = $variants;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMasterVariant(?ProductVariant $masterVariant)
+    public function withMasterVariant(?ProductVariant $masterVariant)
     {
         $this->masterVariant = $masterVariant;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCategories(?CategoryReferenceCollection $categories)
+    public function withCategories(?CategoryReferenceCollection $categories)
     {
         $this->categories = $categories;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMetaDescription(?LocalizedString $metaDescription)
+    public function withMetaDescription(?LocalizedString $metaDescription)
     {
         $this->metaDescription = $metaDescription;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSlug(?LocalizedString $slug)
+    public function withSlug(?LocalizedString $slug)
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
+    public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
     {
         $this->metaKeywords = $metaKeywords;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCategoryOrderHintsBuilder(?CategoryOrderHintsBuilder $categoryOrderHints)
+    public function withCategoryOrderHintsBuilder(?CategoryOrderHintsBuilder $categoryOrderHints)
     {
         $this->categoryOrderHints = $categoryOrderHints;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSearchKeywordsBuilder(?SearchKeywordsBuilder $searchKeywords)
+    public function withSearchKeywordsBuilder(?SearchKeywordsBuilder $searchKeywords)
     {
         $this->searchKeywords = $searchKeywords;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
+    public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
     {
         $this->metaTitle = $metaTitle;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMasterVariantBuilder(?ProductVariantBuilder $masterVariant)
+    public function withMasterVariantBuilder(?ProductVariantBuilder $masterVariant)
     {
         $this->masterVariant = $masterVariant;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
+    public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
     {
         $this->metaDescription = $metaDescription;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSlugBuilder(?LocalizedStringBuilder $slug)
+    public function withSlugBuilder(?LocalizedStringBuilder $slug)
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
-    
-    public function build(): ProductData {
+
+    public function build(): ProductData
+    {
         return new ProductDataModel(
             ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
             ($this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints),
@@ -390,7 +381,7 @@ final class ProductDataBuilder implements Builder
             ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
         );
     }
-    
+
     public static function of(): ProductDataBuilder
     {
         return new self();

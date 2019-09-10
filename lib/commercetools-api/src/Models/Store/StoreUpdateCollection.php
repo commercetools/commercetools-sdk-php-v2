@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StoreUpdate>
+ *
  * @method StoreUpdate current()
  * @method StoreUpdate at($offset)
  */
@@ -20,8 +23,12 @@ class StoreUpdateCollection extends MapperSequence
     /**
      * @psalm-assert StoreUpdate $value
      * @psalm-param StoreUpdate|stdClass $value
-     * @return StoreUpdateCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StoreUpdateCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StoreUpdateCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?StoreUpdate {
+        return function (int $index): ?StoreUpdate {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StoreUpdateModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

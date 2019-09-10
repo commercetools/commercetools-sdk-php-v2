@@ -1,170 +1,173 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CartDiscount;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<MultiBuyCustomLineItemsTarget>
  */
 final class MultiBuyCustomLineItemsTargetBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $predicate;
-    
-    /**
-     * @var ?int
-     */
-    protected $triggerQuantity;
-    
-    /**
-     * @var ?int
-     */
-    protected $discountedQuantity;
-    
-    /**
-     * @var ?int
-     */
-    protected $maxOccurrence;
-    
-    /**
-     * @var ?string
-     */
-    protected $selectionMode;
+    private $predicate;
 
     /**
-     *
-     * @return string|null
+     * @var ?int
      */
-    final public function getType()
+    private $triggerQuantity;
+
+    /**
+     * @var ?int
+     */
+    private $discountedQuantity;
+
+    /**
+     * @var ?int
+     */
+    private $maxOccurrence;
+
+    /**
+     * @var ?string
+     */
+    private $selectionMode;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
+    /**
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
     /**
      * <p>A valid custom line item target predicate. The discount will be applied to custom line items that are
-    * matched by the predicate.</p>
-     * @return string|null
-     */
-    final public function getPredicate()
-    {
-       return $this->predicate;
-    }
-    
-    /**
-     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>
-     * @return int|null
-     */
-    final public function getTriggerQuantity()
-    {
-       return $this->triggerQuantity;
-    }
-    
-    /**
-     * <p>Quantity of line items that are discounted per application of this discount.</p>
-     * @return int|null
-     */
-    final public function getDiscountedQuantity()
-    {
-       return $this->discountedQuantity;
-    }
-    
-    /**
-     * <p>Maximum number of applications of this discount.</p>
-     * @return int|null
-     */
-    final public function getMaxOccurrence()
-    {
-       return $this->maxOccurrence;
-    }
-    
-    /**
+     * matched by the predicate.</p>.
      *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSelectionMode()
+    public function getPredicate()
     {
-       return $this->selectionMode;
+        return $this->predicate;
     }
+
+    /**
+     * <p>Quantity of line items that need to be present in order to trigger an application of this discount.</p>.
+     *
+     * @return null|int
+     */
+    public function getTriggerQuantity()
+    {
+        return $this->triggerQuantity;
+    }
+
+    /**
+     * <p>Quantity of line items that are discounted per application of this discount.</p>.
+     *
+     * @return null|int
+     */
+    public function getDiscountedQuantity()
+    {
+        return $this->discountedQuantity;
+    }
+
+    /**
+     * <p>Maximum number of applications of this discount.</p>.
+     *
+     * @return null|int
+     */
+    public function getMaxOccurrence()
+    {
+        return $this->maxOccurrence;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSelectionMode()
+    {
+        return $this->selectionMode;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPredicate(?string $predicate)
+    public function withPredicate(?string $predicate)
     {
         $this->predicate = $predicate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTriggerQuantity(?int $triggerQuantity)
+    public function withTriggerQuantity(?int $triggerQuantity)
     {
         $this->triggerQuantity = $triggerQuantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountedQuantity(?int $discountedQuantity)
+    public function withDiscountedQuantity(?int $discountedQuantity)
     {
         $this->discountedQuantity = $discountedQuantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMaxOccurrence(?int $maxOccurrence)
+    public function withMaxOccurrence(?int $maxOccurrence)
     {
         $this->maxOccurrence = $maxOccurrence;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSelectionMode(?string $selectionMode)
+    public function withSelectionMode(?string $selectionMode)
     {
         $this->selectionMode = $selectionMode;
-        
+
         return $this;
     }
-    
-    public function build(): MultiBuyCustomLineItemsTarget {
+
+    public function build(): MultiBuyCustomLineItemsTarget
+    {
         return new MultiBuyCustomLineItemsTargetModel(
             $this->type,
             $this->predicate,
@@ -174,7 +177,7 @@ final class MultiBuyCustomLineItemsTargetBuilder implements Builder
             $this->selectionMode
         );
     }
-    
+
     public static function of(): MultiBuyCustomLineItemsTargetBuilder
     {
         return new self();

@@ -1,156 +1,154 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
+use Commercetools\Base\Builder;
+use Commercetools\Base\JsonObject;
 
 /**
  * @implements Builder<DuplicateFieldWithConflictingResourceError>
  */
 final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
+    private $message;
+
     /**
-     * @var ?string
+     * @var Reference|?ReferenceBuilder
      */
-    protected $message;
-    
-    /**
-     * @var ?ReferenceBuilder|Reference
-     */
-    protected $conflictingResource;
-    
+    private $conflictingResource;
+
     /**
      * @var ?JsonObject
      */
-    protected $duplicateValue;
-    
+    private $duplicateValue;
+
     /**
      * @var ?string
      */
-    protected $field;
+    private $field;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCode()
+    public function getCode()
     {
-       return $this->code;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMessage()
+    public function getMessage()
     {
-       return $this->message;
+        return $this->message;
     }
-    
+
     /**
-     *
-     * @return Reference|null
+     * @return null|Reference
      */
-    final public function getConflictingResource()
+    public function getConflictingResource()
     {
-       return ($this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource);
+        return $this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getDuplicateValue()
+    public function getDuplicateValue()
     {
-       return $this->duplicateValue;
+        return $this->duplicateValue;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getField()
+    public function getField()
     {
-       return $this->field;
+        return $this->field;
     }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withConflictingResource(?Reference $conflictingResource)
+    public function withConflictingResource(?Reference $conflictingResource)
     {
         $this->conflictingResource = $conflictingResource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDuplicateValue(?JsonObject $duplicateValue)
+    public function withDuplicateValue(?JsonObject $duplicateValue)
     {
         $this->duplicateValue = $duplicateValue;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withField(?string $field)
+    public function withField(?string $field)
     {
         $this->field = $field;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withConflictingResourceBuilder(?ReferenceBuilder $conflictingResource)
+    public function withConflictingResourceBuilder(?ReferenceBuilder $conflictingResource)
     {
         $this->conflictingResource = $conflictingResource;
-        
+
         return $this;
     }
-    
-    public function build(): DuplicateFieldWithConflictingResourceError {
+
+    public function build(): DuplicateFieldWithConflictingResourceError
+    {
         return new DuplicateFieldWithConflictingResourceErrorModel(
             $this->code,
             $this->message,
@@ -159,7 +157,7 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
             $this->field
         );
     }
-    
+
     public static function of(): DuplicateFieldWithConflictingResourceErrorBuilder
     {
         return new self();

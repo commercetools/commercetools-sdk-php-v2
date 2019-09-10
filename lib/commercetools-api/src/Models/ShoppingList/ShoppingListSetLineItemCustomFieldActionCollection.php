@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShoppingListSetLineItemCustomFieldAction>
+ *
  * @method ShoppingListSetLineItemCustomFieldAction current()
  * @method ShoppingListSetLineItemCustomFieldAction at($offset)
  */
@@ -20,8 +23,12 @@ class ShoppingListSetLineItemCustomFieldActionCollection extends MapperSequence
     /**
      * @psalm-assert ShoppingListSetLineItemCustomFieldAction $value
      * @psalm-param ShoppingListSetLineItemCustomFieldAction|stdClass $value
-     * @return ShoppingListSetLineItemCustomFieldActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ShoppingListSetLineItemCustomFieldActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ShoppingListSetLineItemCustomFieldActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ShoppingListSetLineItemCustomFieldAction {
+        return function (int $index): ?ShoppingListSetLineItemCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ShoppingListSetLineItemCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

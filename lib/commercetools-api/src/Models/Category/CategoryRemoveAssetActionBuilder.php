@@ -1,104 +1,102 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<CategoryRemoveAssetAction>
  */
 final class CategoryRemoveAssetActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetId;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetKey;
+    private $assetId;
 
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getAction()
+    private $assetKey;
+
+    public function __construct()
     {
-       return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAssetId()
+    public function getAction()
     {
-       return $this->assetId;
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAssetKey()
+    public function getAssetId()
     {
-       return $this->assetKey;
+        return $this->assetId;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetKey()
+    {
+        return $this->assetKey;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetId(?string $assetId)
+    public function withAssetId(?string $assetId)
     {
         $this->assetId = $assetId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAssetKey(?string $assetKey)
+    public function withAssetKey(?string $assetKey)
     {
         $this->assetKey = $assetKey;
-        
+
         return $this;
     }
-    
-    public function build(): CategoryRemoveAssetAction {
+
+    public function build(): CategoryRemoveAssetAction
+    {
         return new CategoryRemoveAssetActionModel(
             $this->action,
             $this->assetId,
             $this->assetKey
         );
     }
-    
+
     public static function of(): CategoryRemoveAssetActionBuilder
     {
         return new self();

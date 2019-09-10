@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Type;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
@@ -19,13 +16,68 @@ use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceModel;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
+use stdClass;
 
 final class TypeModel extends JsonObjectModel implements Type
 {
-    
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
+
+    /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     * @var ?int
+     */
+    protected $version;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?FieldDefinitionCollection
+     */
+    protected $fieldDefinitions;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?array
+     */
+    protected $resourceTypeIds;
+
     public function __construct(
         DateTimeImmutable $createdAt = null,
         DateTimeImmutable $lastModifiedAt = null,
@@ -50,326 +102,273 @@ final class TypeModel extends JsonObjectModel implements Type
         $this->description = $description;
         $this->key = $key;
         $this->resourceTypeIds = $resourceTypeIds;
-        
     }
 
     /**
-     * @var ?DateTimeImmutable
+     * @return null|DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
-    
-    /**
-     * @var ?CreatedBy
-     */
-    protected $createdBy;
-    
-    /**
-     * @var ?LastModifiedBy
-     */
-    protected $lastModifiedBy;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?FieldDefinitionCollection
-     */
-    protected $fieldDefinitions;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?array
-     */
-    protected $resourceTypeIds;
+    public function getCreatedAt()
+    {
+        if (is_null($this->createdAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->createdAt = $data;
+        }
+
+        return $this->createdAt;
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getLastModifiedAt()
     {
-       if (is_null($this->createdAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_CREATED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->createdAt = $data;
-       }
-       return $this->createdAt;
+        if (is_null($this->lastModifiedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->lastModifiedAt = $data;
+        }
+
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|string
      */
-    final public function getLastModifiedAt()
+    public function getId()
     {
-       if (is_null($this->lastModifiedAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->lastModifiedAt = $data;
-       }
-       return $this->lastModifiedAt;
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getId()
+    public function getVersion()
     {
-       if (is_null($this->id)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (string)$data;
-       }
-       return $this->id;
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(BaseResource::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|CreatedBy
      */
-    final public function getVersion()
+    public function getCreatedBy()
     {
-       if (is_null($this->version)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(BaseResource::FIELD_VERSION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->version = (int)$data;
-       }
-       return $this->version;
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
     }
-    
+
     /**
-     *
-     * @return CreatedBy|null
+     * @return null|LastModifiedBy
      */
-    final public function getCreatedBy()
+    public function getLastModifiedBy()
     {
-       if (is_null($this->createdBy)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->createdBy = CreatedByModel::of($data);
-       }
-       return $this->createdBy;
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
+        }
+
+        return $this->lastModifiedBy;
     }
-    
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @return null|LocalizedString
      */
-    final public function getLastModifiedBy()
+    public function getName()
     {
-       if (is_null($this->lastModifiedBy)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->lastModifiedBy = LastModifiedByModel::of($data);
-       }
-       return $this->lastModifiedBy;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Type::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|FieldDefinitionCollection
      */
-    final public function getName()
+    public function getFieldDefinitions()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Type::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->fieldDefinitions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(Type::FIELD_FIELD_DEFINITIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fieldDefinitions = FieldDefinitionCollection::fromArray($data);
+        }
+
+        return $this->fieldDefinitions;
     }
-    
+
     /**
-     *
-     * @return FieldDefinitionCollection|null
+     * @return null|LocalizedString
      */
-    final public function getFieldDefinitions()
+    public function getDescription()
     {
-       if (is_null($this->fieldDefinitions)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(Type::FIELD_FIELD_DEFINITIONS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->fieldDefinitions = FieldDefinitionCollection::fromArray($data);
-       }
-       return $this->fieldDefinitions;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Type::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getDescription()
+    public function getKey()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Type::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Type::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|array
      */
-    final public function getKey()
+    public function getResourceTypeIds()
     {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(Type::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
+        if (is_null($this->resourceTypeIds)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(Type::FIELD_RESOURCE_TYPE_IDS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->resourceTypeIds = $data;
+        }
+
+        return $this->resourceTypeIds;
     }
-    
-    /**
-     *
-     * @return array|null
-     */
-    final public function getResourceTypeIds()
-    {
-       if (is_null($this->resourceTypeIds)) {
-           /** @psalm-var ?array<int, mixed> $data */
-           $data = $this->raw(Type::FIELD_RESOURCE_TYPE_IDS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->resourceTypeIds = $data;
-       }
-       return $this->resourceTypeIds;
-    }
-    final public function setCreatedAt(?DateTimeImmutable $createdAt): void
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
-    
-    final public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
-    
-    final public function setId(?string $id): void
+
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    
-    final public function setVersion(?int $version): void
+
+    public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
-    
-    final public function setCreatedBy(?CreatedBy $createdBy): void
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
-    
-    final public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions): void
+
+    public function setFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions): void
     {
         $this->fieldDefinitions = $fieldDefinitions;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
-    final public function setResourceTypeIds(?array $resourceTypeIds): void
+
+    public function setResourceTypeIds(?array $resourceTypeIds): void
     {
         $this->resourceTypeIds = $resourceTypeIds;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-           $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        
+
         if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-           $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

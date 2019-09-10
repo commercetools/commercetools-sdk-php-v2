@@ -1,24 +1,59 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ShoppingList;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\ShoppingList;
 
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
+use stdClass;
 
 final class ShoppingListAddLineItemActionModel extends JsonObjectModel implements ShoppingListAddLineItemAction
 {
     const DISCRIMINATOR_VALUE = 'addLineItem';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
+
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?string
+     */
+    protected $productId;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?int
+     */
+    protected $variantId;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
     public function __construct(
         string $action = null,
         DateTimeImmutable $addedAt = null,
@@ -35,207 +70,174 @@ final class ShoppingListAddLineItemActionModel extends JsonObjectModel implement
         $this->custom = $custom;
         $this->variantId = $variantId;
         $this->sku = $sku;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $addedAt;
-    
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-    
-    /**
-     * @var ?string
-     */
-    protected $productId;
-    
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?int
-     */
-    protected $variantId;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getAction()
+    public function getAddedAt()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShoppingListUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->addedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListAddLineItemAction::FIELD_ADDED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->addedAt = $data;
+        }
+
+        return $this->addedAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|int
      */
-    final public function getAddedAt()
+    public function getQuantity()
     {
-       if (is_null($this->addedAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShoppingListAddLineItemAction::FIELD_ADDED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->addedAt = $data;
-       }
-       return $this->addedAt;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ShoppingListAddLineItemAction::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getQuantity()
+    public function getProductId()
     {
-       if (is_null($this->quantity)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ShoppingListAddLineItemAction::FIELD_QUANTITY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->quantity = (int)$data;
-       }
-       return $this->quantity;
+        if (is_null($this->productId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListAddLineItemAction::FIELD_PRODUCT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productId = (string) $data;
+        }
+
+        return $this->productId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomFieldsDraft
      */
-    final public function getProductId()
+    public function getCustom()
     {
-       if (is_null($this->productId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShoppingListAddLineItemAction::FIELD_PRODUCT_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->productId = (string)$data;
-       }
-       return $this->productId;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShoppingListAddLineItemAction::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @return null|int
      */
-    final public function getCustom()
+    public function getVariantId()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ShoppingListAddLineItemAction::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsDraftModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ShoppingListAddLineItemAction::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getVariantId()
+    public function getSku()
     {
-       if (is_null($this->variantId)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ShoppingListAddLineItemAction::FIELD_VARIANT_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->variantId = (int)$data;
-       }
-       return $this->variantId;
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListAddLineItemAction::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getSku()
-    {
-       if (is_null($this->sku)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShoppingListAddLineItemAction::FIELD_SKU);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sku = (string)$data;
-       }
-       return $this->sku;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setAddedAt(?DateTimeImmutable $addedAt): void
+
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
     }
-    
-    final public function setQuantity(?int $quantity): void
+
+    public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
-    
-    final public function setProductId(?string $productId): void
+
+    public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
     }
-    
-    final public function setCustom(?CustomFieldsDraft $custom): void
+
+    public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setVariantId(?int $variantId): void
+
+    public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
-    
-    final public function setSku(?string $sku): void
+
+    public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[ShoppingListAddLineItemAction::FIELD_ADDED_AT]) && $data[ShoppingListAddLineItemAction::FIELD_ADDED_AT] instanceof \DateTimeImmutable) {
-           $data[ShoppingListAddLineItemAction::FIELD_ADDED_AT] = $data[ShoppingListAddLineItemAction::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[ShoppingListAddLineItemAction::FIELD_ADDED_AT] = $data[ShoppingListAddLineItemAction::FIELD_ADDED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

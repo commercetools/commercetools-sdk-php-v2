@@ -1,16 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Cart\ExternalLineItemTotalPrice;
 use Commercetools\Api\Models\Cart\ExternalLineItemTotalPriceBuilder;
 use Commercetools\Api\Models\Cart\ExternalTaxRateDraft;
@@ -21,376 +18,367 @@ use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierBuilder;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
-use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<StagedOrderAddLineItemAction>
  */
 final class StagedOrderAddLineItemActionBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $action;
+
+    /**
+     * @var ?int
+     */
+    private $quantity;
+
+    /**
+     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
+     */
+    private $externalTaxRate;
+
+    /**
+     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
+     */
+    private $shippingDetails;
 
     /**
      * @var ?string
      */
-    protected $action;
-    
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-    
-    /**
-     * @var ?ExternalTaxRateDraftBuilder|ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-    
-    /**
-     * @var ?ItemShippingDetailsDraftBuilder|ItemShippingDetailsDraft
-     */
-    protected $shippingDetails;
-    
-    /**
-     * @var ?string
-     */
-    protected $productId;
-    
-    /**
-     * @var ?ExternalLineItemTotalPriceBuilder|ExternalLineItemTotalPrice
-     */
-    protected $externalTotalPrice;
-    
-    /**
-     * @var ?CustomFieldsDraftBuilder|CustomFieldsDraft
-     */
-    protected $custom;
-    
-    /**
-     * @var ?ChannelResourceIdentifierBuilder|ChannelResourceIdentifier
-     */
-    protected $supplyChannel;
-    
-    /**
-     * @var ?int
-     */
-    protected $variantId;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?ChannelResourceIdentifierBuilder|ChannelResourceIdentifier
-     */
-    protected $distributionChannel;
-    
-    /**
-     * @var ?MoneyBuilder|Money
-     */
-    protected $externalPrice;
+    private $productId;
 
     /**
-     *
-     * @return string|null
+     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
      */
-    final public function getAction()
-    {
-       return $this->action;
-    }
-    
+    private $externalTotalPrice;
+
     /**
-     *
-     * @return int|null
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    final public function getQuantity()
-    {
-       return $this->quantity;
-    }
-    
+    private $custom;
+
     /**
-     *
-     * @return ExternalTaxRateDraft|null
+     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
      */
-    final public function getExternalTaxRate()
-    {
-       return ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate);
-    }
-    
+    private $supplyChannel;
+
     /**
-     *
-     * @return ItemShippingDetailsDraft|null
+     * @var ?int
      */
-    final public function getShippingDetails()
-    {
-       return ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails);
-    }
-    
+    private $variantId;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getProductId()
-    {
-       return $this->productId;
-    }
-    
+    private $sku;
+
     /**
-     *
-     * @return ExternalLineItemTotalPrice|null
+     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
      */
-    final public function getExternalTotalPrice()
-    {
-       return ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice);
-    }
-    
+    private $distributionChannel;
+
     /**
-     *
-     * @return CustomFieldsDraft|null
+     * @var Money|?MoneyBuilder
      */
-    final public function getCustom()
+    private $externalPrice;
+
+    public function __construct()
     {
-       return ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom);
     }
-    
+
     /**
-     *
-     * @return ChannelResourceIdentifier|null
+     * @return null|string
      */
-    final public function getSupplyChannel()
+    public function getAction()
     {
-       return ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel);
+        return $this->action;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getVariantId()
+    public function getQuantity()
     {
-       return $this->variantId;
+        return $this->quantity;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ExternalTaxRateDraft
      */
-    final public function getSku()
+    public function getExternalTaxRate()
     {
-       return $this->sku;
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
     }
-    
+
     /**
-     *
-     * @return ChannelResourceIdentifier|null
+     * @return null|ItemShippingDetailsDraft
      */
-    final public function getDistributionChannel()
+    public function getShippingDetails()
     {
-       return ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel);
+        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|string
      */
-    final public function getExternalPrice()
+    public function getProductId()
     {
-       return ($this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice);
+        return $this->productId;
     }
+
+    /**
+     * @return null|ExternalLineItemTotalPrice
+     */
+    public function getExternalTotalPrice()
+    {
+        return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
+    }
+
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getSupplyChannel()
+    {
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        return $this->variantId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getDistributionChannel()
+    {
+        return $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
+    }
+
+    /**
+     * @return null|Money
+     */
+    public function getExternalPrice()
+    {
+        return $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice;
+    }
+
     /**
      * @return $this
      */
-    final public function withAction(?string $action)
+    public function withAction(?string $action)
     {
         $this->action = $action;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withQuantity(?int $quantity)
+    public function withQuantity(?int $quantity)
     {
         $this->quantity = $quantity;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
+    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductId(?string $productId)
+    public function withProductId(?string $productId)
     {
         $this->productId = $productId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
+    public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
     {
         $this->externalTotalPrice = $externalTotalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFieldsDraft $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
+    public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalPrice(?Money $externalPrice)
+    public function withExternalPrice(?Money $externalPrice)
     {
         $this->externalPrice = $externalPrice;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
+    public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
+    public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
     {
         $this->externalTotalPrice = $externalTotalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)
+    public function withDistributionChannelBuilder(?ChannelResourceIdentifierBuilder $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)
+    public function withExternalPriceBuilder(?MoneyBuilder $externalPrice)
     {
         $this->externalPrice = $externalPrice;
-        
+
         return $this;
     }
-    
-    public function build(): StagedOrderAddLineItemAction {
+
+    public function build(): StagedOrderAddLineItemAction
+    {
         return new StagedOrderAddLineItemActionModel(
             $this->action,
             $this->quantity,
@@ -406,7 +394,7 @@ final class StagedOrderAddLineItemActionBuilder implements Builder
             ($this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice)
         );
     }
-    
+
     public static function of(): StagedOrderAddLineItemActionBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ShippingMethodSetPredicateAction>
+ *
  * @method ShippingMethodSetPredicateAction current()
  * @method ShippingMethodSetPredicateAction at($offset)
  */
@@ -20,8 +23,12 @@ class ShippingMethodSetPredicateActionCollection extends MapperSequence
     /**
      * @psalm-assert ShippingMethodSetPredicateAction $value
      * @psalm-param ShippingMethodSetPredicateAction|stdClass $value
-     * @return ShippingMethodSetPredicateActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ShippingMethodSetPredicateActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ShippingMethodSetPredicateActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ShippingMethodSetPredicateAction {
+        return function (int $index): ?ShippingMethodSetPredicateAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ShippingMethodSetPredicateActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

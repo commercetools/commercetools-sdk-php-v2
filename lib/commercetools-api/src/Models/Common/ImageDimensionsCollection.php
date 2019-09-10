@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ImageDimensions>
+ *
  * @method ImageDimensions current()
  * @method ImageDimensions at($offset)
  */
@@ -20,8 +23,12 @@ class ImageDimensionsCollection extends MapperSequence
     /**
      * @psalm-assert ImageDimensions $value
      * @psalm-param ImageDimensions|stdClass $value
-     * @return ImageDimensionsCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ImageDimensionsCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ImageDimensionsCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ImageDimensions {
+        return function (int $index): ?ImageDimensions {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ImageDimensionsModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

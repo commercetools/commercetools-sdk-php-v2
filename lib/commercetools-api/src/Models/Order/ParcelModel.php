@@ -1,22 +1,45 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
-use stdClass;
-
 use DateTimeImmutable;
-use DateTimeImmutableModel;
+use stdClass;
 
 final class ParcelModel extends JsonObjectModel implements Parcel
 {
-    
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
+
+    /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     * @var ?DeliveryItemCollection
+     */
+    protected $items;
+
+    /**
+     * @var ?TrackingData
+     */
+    protected $trackingData;
+
+    /**
+     * @var ?ParcelMeasurements
+     */
+    protected $measurements;
+
     public function __construct(
         DateTimeImmutable $createdAt = null,
         string $id = null,
@@ -29,154 +52,131 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         $this->items = $items;
         $this->trackingData = $trackingData;
         $this->measurements = $measurements;
-        
     }
 
     /**
-     * @var ?DateTimeImmutable
+     * @return null|DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $items;
-    
-    /**
-     * @var ?TrackingData
-     */
-    protected $trackingData;
-    
-    /**
-     * @var ?ParcelMeasurements
-     */
-    protected $measurements;
+    public function getCreatedAt()
+    {
+        if (is_null($this->createdAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Parcel::FIELD_CREATED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->createdAt = $data;
+        }
+
+        return $this->createdAt;
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|string
      */
-    final public function getCreatedAt()
+    public function getId()
     {
-       if (is_null($this->createdAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(Parcel::FIELD_CREATED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->createdAt = $data;
-       }
-       return $this->createdAt;
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Parcel::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DeliveryItemCollection
      */
-    final public function getId()
+    public function getItems()
     {
-       if (is_null($this->id)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(Parcel::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (string)$data;
-       }
-       return $this->id;
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(Parcel::FIELD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->items = DeliveryItemCollection::fromArray($data);
+        }
+
+        return $this->items;
     }
-    
+
     /**
-     *
-     * @return DeliveryItemCollection|null
+     * @return null|TrackingData
      */
-    final public function getItems()
+    public function getTrackingData()
     {
-       if (is_null($this->items)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(Parcel::FIELD_ITEMS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->items = DeliveryItemCollection::fromArray($data);
-       }
-       return $this->items;
+        if (is_null($this->trackingData)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Parcel::FIELD_TRACKING_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->trackingData = TrackingDataModel::of($data);
+        }
+
+        return $this->trackingData;
     }
-    
+
     /**
-     *
-     * @return TrackingData|null
+     * @return null|ParcelMeasurements
      */
-    final public function getTrackingData()
+    public function getMeasurements()
     {
-       if (is_null($this->trackingData)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Parcel::FIELD_TRACKING_DATA);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->trackingData = TrackingDataModel::of($data);
-       }
-       return $this->trackingData;
+        if (is_null($this->measurements)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Parcel::FIELD_MEASUREMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->measurements = ParcelMeasurementsModel::of($data);
+        }
+
+        return $this->measurements;
     }
-    
-    /**
-     *
-     * @return ParcelMeasurements|null
-     */
-    final public function getMeasurements()
-    {
-       if (is_null($this->measurements)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Parcel::FIELD_MEASUREMENTS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->measurements = ParcelMeasurementsModel::of($data);
-       }
-       return $this->measurements;
-    }
-    final public function setCreatedAt(?DateTimeImmutable $createdAt): void
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
-    
-    final public function setId(?string $id): void
+
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    
-    final public function setItems(?DeliveryItemCollection $items): void
+
+    public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
-    
-    final public function setTrackingData(?TrackingData $trackingData): void
+
+    public function setTrackingData(?TrackingData $trackingData): void
     {
         $this->trackingData = $trackingData;
     }
-    
-    final public function setMeasurements(?ParcelMeasurements $measurements): void
+
+    public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[Parcel::FIELD_CREATED_AT]) && $data[Parcel::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-           $data[Parcel::FIELD_CREATED_AT] = $data[Parcel::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[Parcel::FIELD_CREATED_AT] = $data[Parcel::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

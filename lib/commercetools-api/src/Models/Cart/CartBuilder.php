@@ -1,16 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
@@ -19,8 +16,6 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
-use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceBuilder;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
@@ -31,6 +26,7 @@ use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -38,920 +34,893 @@ use DateTimeImmutable;
  */
 final class CartBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
-     * @var ?CreatedByBuilder|CreatedBy
+     * @var CreatedBy|?CreatedByBuilder
      */
-    protected $createdBy;
-    
+    private $createdBy;
+
     /**
-     * @var ?LastModifiedByBuilder|LastModifiedBy
+     * @var LastModifiedBy|?LastModifiedByBuilder
      */
-    protected $lastModifiedBy;
-    
-    /**
-     * @var ?string
-     */
-    protected $country;
-    
-    /**
-     * @var ?TypedMoneyBuilder|TypedMoney
-     */
-    protected $totalPrice;
-    
-    /**
-     * @var ?ShippingRateInputBuilder|ShippingRateInput
-     */
-    protected $shippingRateInput;
-    
-    /**
-     * @var ?TaxedPriceBuilder|TaxedPrice
-     */
-    protected $taxedPrice;
-    
+    private $lastModifiedBy;
+
     /**
      * @var ?string
      */
-    protected $origin;
-    
+    private $country;
+
+    /**
+     * @var TypedMoney|?TypedMoneyBuilder
+     */
+    private $totalPrice;
+
+    /**
+     * @var ShippingRateInput|?ShippingRateInputBuilder
+     */
+    private $shippingRateInput;
+
+    /**
+     * @var TaxedPrice|?TaxedPriceBuilder
+     */
+    private $taxedPrice;
+
+    /**
+     * @var ?string
+     */
+    private $origin;
+
     /**
      * @var ?int
      */
-    protected $deleteDaysAfterLastModification;
-    
+    private $deleteDaysAfterLastModification;
+
     /**
-     * @var ?ShippingInfoBuilder|ShippingInfo
+     * @var ShippingInfo|?ShippingInfoBuilder
      */
-    protected $shippingInfo;
-    
+    private $shippingInfo;
+
     /**
      * @var ?CartDiscountReferenceCollection
      */
-    protected $refusedGifts;
-    
+    private $refusedGifts;
+
     /**
      * @var ?string
      */
-    protected $locale;
-    
+    private $locale;
+
     /**
      * @var ?string
      */
-    protected $inventoryMode;
-    
+    private $inventoryMode;
+
     /**
      * @var ?LineItemCollection
      */
-    protected $lineItems;
-    
+    private $lineItems;
+
     /**
      * @var ?CustomLineItemCollection
      */
-    protected $customLineItems;
-    
+    private $customLineItems;
+
     /**
      * @var ?AddressCollection
      */
-    protected $itemShippingAddresses;
-    
+    private $itemShippingAddresses;
+
     /**
      * @var ?string
      */
-    protected $customerEmail;
-    
+    private $customerEmail;
+
     /**
      * @var ?string
      */
-    protected $cartState;
-    
+    private $cartState;
+
     /**
      * @var ?string
      */
-    protected $customerId;
-    
+    private $customerId;
+
     /**
      * @var ?string
      */
-    protected $anonymousId;
-    
+    private $anonymousId;
+
     /**
      * @var ?DiscountCodeInfoCollection
      */
-    protected $discountCodes;
-    
-    /**
-     * @var ?CustomerGroupReferenceBuilder|CustomerGroupReference
-     */
-    protected $customerGroup;
-    
-    /**
-     * @var ?CustomFieldsBuilder|CustomFields
-     */
-    protected $custom;
-    
-    /**
-     * @var ?string
-     */
-    protected $taxCalculationMode;
-    
-    /**
-     * @var ?StoreKeyReferenceBuilder|StoreKeyReference
-     */
-    protected $store;
-    
-    /**
-     * @var ?string
-     */
-    protected $taxRoundingMode;
-    
-    /**
-     * @var ?string
-     */
-    protected $taxMode;
-    
-    /**
-     * @var ?AddressBuilder|Address
-     */
-    protected $shippingAddress;
-    
-    /**
-     * @var ?AddressBuilder|Address
-     */
-    protected $billingAddress;
-    
-    /**
-     * @var ?PaymentInfoBuilder|PaymentInfo
-     */
-    protected $paymentInfo;
+    private $discountCodes;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $customerGroup;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    final public function getLastModifiedAt()
-    {
-       return $this->lastModifiedAt;
-    }
-    
+    private $custom;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getId()
-    {
-       return $this->id;
-    }
-    
+    private $taxCalculationMode;
+
     /**
-     *
-     * @return int|null
+     * @var StoreKeyReference|?StoreKeyReferenceBuilder
      */
-    final public function getVersion()
-    {
-       return $this->version;
-    }
-    
+    private $store;
+
     /**
-     *
-     * @return CreatedBy|null
+     * @var ?string
      */
-    final public function getCreatedBy()
-    {
-       return ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy);
-    }
-    
+    private $taxRoundingMode;
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @var ?string
      */
-    final public function getLastModifiedBy()
-    {
-       return ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy);
-    }
-    
+    private $taxMode;
+
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>
-     * @return string|null
+     * @var Address|?AddressBuilder
      */
-    final public function getCountry()
-    {
-       return $this->country;
-    }
-    
+    private $shippingAddress;
+
     /**
-     *
-     * @return TypedMoney|null
+     * @var Address|?AddressBuilder
      */
-    final public function getTotalPrice()
-    {
-       return ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice);
-    }
-    
+    private $billingAddress;
+
     /**
-     *
-     * @return ShippingRateInput|null
+     * @var PaymentInfo|?PaymentInfoBuilder
      */
-    final public function getShippingRateInput()
+    private $paymentInfo;
+
+    public function __construct()
     {
-       return ($this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput);
     }
-    
+
     /**
-     *
-     * @return TaxedPrice|null
+     * @return null|DateTimeImmutable
      */
-    final public function getTaxedPrice()
+    public function getCreatedAt()
     {
-       return ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice);
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getOrigin()
+    public function getLastModifiedAt()
     {
-       return $this->origin;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getDeleteDaysAfterLastModification()
+    public function getId()
     {
-       return $this->deleteDaysAfterLastModification;
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return ShippingInfo|null
+     * @return null|int
      */
-    final public function getShippingInfo()
+    public function getVersion()
     {
-       return ($this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo);
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return CartDiscountReferenceCollection|null
+     * @return null|CreatedBy
      */
-    final public function getRefusedGifts()
+    public function getCreatedBy()
     {
-       return $this->refusedGifts;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LastModifiedBy
      */
-    final public function getLocale()
+    public function getLastModifiedBy()
     {
-       return $this->locale;
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
-    
+
     /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
      *
-     * @return string|null
+     * @return null|string
      */
-    final public function getInventoryMode()
+    public function getCountry()
     {
-       return $this->inventoryMode;
+        return $this->country;
     }
-    
+
     /**
-     *
-     * @return LineItemCollection|null
+     * @return null|TypedMoney
      */
-    final public function getLineItems()
+    public function getTotalPrice()
     {
-       return $this->lineItems;
+        return $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
-    
+
     /**
-     *
-     * @return CustomLineItemCollection|null
+     * @return null|ShippingRateInput
      */
-    final public function getCustomLineItems()
+    public function getShippingRateInput()
     {
-       return $this->customLineItems;
+        return $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput;
     }
-    
+
     /**
-     *
-     * @return AddressCollection|null
+     * @return null|TaxedPrice
      */
-    final public function getItemShippingAddresses()
+    public function getTaxedPrice()
     {
-       return $this->itemShippingAddresses;
+        return $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCustomerEmail()
+    public function getOrigin()
     {
-       return $this->customerEmail;
+        return $this->origin;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getCartState()
+    public function getDeleteDaysAfterLastModification()
     {
-       return $this->cartState;
+        return $this->deleteDaysAfterLastModification;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ShippingInfo
      */
-    final public function getCustomerId()
+    public function getShippingInfo()
     {
-       return $this->customerId;
+        return $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CartDiscountReferenceCollection
      */
-    final public function getAnonymousId()
+    public function getRefusedGifts()
     {
-       return $this->anonymousId;
+        return $this->refusedGifts;
     }
-    
+
     /**
-     *
-     * @return DiscountCodeInfoCollection|null
+     * @return null|string
      */
-    final public function getDiscountCodes()
+    public function getLocale()
     {
-       return $this->discountCodes;
+        return $this->locale;
     }
-    
+
     /**
-     *
-     * @return CustomerGroupReference|null
+     * @return null|string
      */
-    final public function getCustomerGroup()
+    public function getInventoryMode()
     {
-       return ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup);
+        return $this->inventoryMode;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|LineItemCollection
      */
-    final public function getCustom()
+    public function getLineItems()
     {
-       return ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom);
+        return $this->lineItems;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomLineItemCollection
      */
-    final public function getTaxCalculationMode()
+    public function getCustomLineItems()
     {
-       return $this->taxCalculationMode;
+        return $this->customLineItems;
     }
-    
+
     /**
-     *
-     * @return StoreKeyReference|null
+     * @return null|AddressCollection
      */
-    final public function getStore()
+    public function getItemShippingAddresses()
     {
-       return ($this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store);
+        return $this->itemShippingAddresses;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTaxRoundingMode()
+    public function getCustomerEmail()
     {
-       return $this->taxRoundingMode;
+        return $this->customerEmail;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getTaxMode()
+    public function getCartState()
     {
-       return $this->taxMode;
+        return $this->cartState;
     }
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|string
      */
-    final public function getShippingAddress()
+    public function getCustomerId()
     {
-       return ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress);
+        return $this->customerId;
     }
-    
+
     /**
-     *
-     * @return Address|null
+     * @return null|string
      */
-    final public function getBillingAddress()
+    public function getAnonymousId()
     {
-       return ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress);
+        return $this->anonymousId;
     }
-    
+
     /**
-     *
-     * @return PaymentInfo|null
+     * @return null|DiscountCodeInfoCollection
      */
-    final public function getPaymentInfo()
+    public function getDiscountCodes()
     {
-       return ($this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo);
+        return $this->discountCodes;
     }
+
+    /**
+     * @return null|CustomerGroupReference
+     */
+    public function getCustomerGroup()
+    {
+        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
+    }
+
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxCalculationMode()
+    {
+        return $this->taxCalculationMode;
+    }
+
+    /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxRoundingMode()
+    {
+        return $this->taxRoundingMode;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxMode()
+    {
+        return $this->taxMode;
+    }
+
+    /**
+     * @return null|Address
+     */
+    public function getShippingAddress()
+    {
+        return $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress;
+    }
+
+    /**
+     * @return null|Address
+     */
+    public function getBillingAddress()
+    {
+        return $this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress;
+    }
+
+    /**
+     * @return null|PaymentInfo
+     */
+    public function getPaymentInfo()
+    {
+        return $this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCountry(?string $country)
+    public function withCountry(?string $country)
     {
         $this->country = $country;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotalPrice(?TypedMoney $totalPrice)
+    public function withTotalPrice(?TypedMoney $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingRateInput(?ShippingRateInput $shippingRateInput)
+    public function withShippingRateInput(?ShippingRateInput $shippingRateInput)
     {
         $this->shippingRateInput = $shippingRateInput;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPrice(?TaxedPrice $taxedPrice)
+    public function withTaxedPrice(?TaxedPrice $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withOrigin(?string $origin)
+    public function withOrigin(?string $origin)
     {
         $this->origin = $origin;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
+    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
     {
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingInfo(?ShippingInfo $shippingInfo)
+    public function withShippingInfo(?ShippingInfo $shippingInfo)
     {
         $this->shippingInfo = $shippingInfo;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withRefusedGifts(?CartDiscountReferenceCollection $refusedGifts)
+    public function withRefusedGifts(?CartDiscountReferenceCollection $refusedGifts)
     {
         $this->refusedGifts = $refusedGifts;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLocale(?string $locale)
+    public function withLocale(?string $locale)
     {
         $this->locale = $locale;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withInventoryMode(?string $inventoryMode)
+    public function withInventoryMode(?string $inventoryMode)
     {
         $this->inventoryMode = $inventoryMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLineItems(?LineItemCollection $lineItems)
+    public function withLineItems(?LineItemCollection $lineItems)
     {
         $this->lineItems = $lineItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomLineItems(?CustomLineItemCollection $customLineItems)
+    public function withCustomLineItems(?CustomLineItemCollection $customLineItems)
     {
         $this->customLineItems = $customLineItems;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
+    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
     {
         $this->itemShippingAddresses = $itemShippingAddresses;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerEmail(?string $customerEmail)
+    public function withCustomerEmail(?string $customerEmail)
     {
         $this->customerEmail = $customerEmail;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCartState(?string $cartState)
+    public function withCartState(?string $cartState)
     {
         $this->cartState = $cartState;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerId(?string $customerId)
+    public function withCustomerId(?string $customerId)
     {
         $this->customerId = $customerId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withAnonymousId(?string $anonymousId)
+    public function withAnonymousId(?string $anonymousId)
     {
         $this->anonymousId = $anonymousId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountCodes(?DiscountCodeInfoCollection $discountCodes)
+    public function withDiscountCodes(?DiscountCodeInfoCollection $discountCodes)
     {
         $this->discountCodes = $discountCodes;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroup(?CustomerGroupReference $customerGroup)
+    public function withCustomerGroup(?CustomerGroupReference $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustom(?CustomFields $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxCalculationMode(?string $taxCalculationMode)
+    public function withTaxCalculationMode(?string $taxCalculationMode)
     {
         $this->taxCalculationMode = $taxCalculationMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStore(?StoreKeyReference $store)
+    public function withStore(?StoreKeyReference $store)
     {
         $this->store = $store;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxRoundingMode(?string $taxRoundingMode)
+    public function withTaxRoundingMode(?string $taxRoundingMode)
     {
         $this->taxRoundingMode = $taxRoundingMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxMode(?string $taxMode)
+    public function withTaxMode(?string $taxMode)
     {
         $this->taxMode = $taxMode;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingAddress(?Address $shippingAddress)
+    public function withShippingAddress(?Address $shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withBillingAddress(?Address $billingAddress)
+    public function withBillingAddress(?Address $billingAddress)
     {
         $this->billingAddress = $billingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentInfo(?PaymentInfo $paymentInfo)
+    public function withPaymentInfo(?PaymentInfo $paymentInfo)
     {
         $this->paymentInfo = $paymentInfo;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
         $this->createdBy = $createdBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingRateInputBuilder(?ShippingRateInputBuilder $shippingRateInput)
+    public function withShippingRateInputBuilder(?ShippingRateInputBuilder $shippingRateInput)
     {
         $this->shippingRateInput = $shippingRateInput;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
+    public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingInfoBuilder(?ShippingInfoBuilder $shippingInfo)
+    public function withShippingInfoBuilder(?ShippingInfoBuilder $shippingInfo)
     {
         $this->shippingInfo = $shippingInfo;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
+    public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
     {
         $this->customerGroup = $customerGroup;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
+    public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
     {
         $this->store = $store;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
+    public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
+    public function withBillingAddressBuilder(?AddressBuilder $billingAddress)
     {
         $this->billingAddress = $billingAddress;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPaymentInfoBuilder(?PaymentInfoBuilder $paymentInfo)
+    public function withPaymentInfoBuilder(?PaymentInfoBuilder $paymentInfo)
     {
         $this->paymentInfo = $paymentInfo;
-        
+
         return $this;
     }
-    
-    public function build(): Cart {
+
+    public function build(): Cart
+    {
         return new CartModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -988,7 +957,7 @@ final class CartBuilder implements Builder
             ($this->paymentInfo instanceof PaymentInfoBuilder ? $this->paymentInfo->build() : $this->paymentInfo)
         );
     }
-    
+
     public static function of(): CartBuilder
     {
         return new self();

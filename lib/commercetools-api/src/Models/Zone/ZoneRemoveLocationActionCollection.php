@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Zone;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ZoneRemoveLocationAction>
+ *
  * @method ZoneRemoveLocationAction current()
  * @method ZoneRemoveLocationAction at($offset)
  */
@@ -20,8 +23,12 @@ class ZoneRemoveLocationActionCollection extends MapperSequence
     /**
      * @psalm-assert ZoneRemoveLocationAction $value
      * @psalm-param ZoneRemoveLocationAction|stdClass $value
-     * @return ZoneRemoveLocationActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ZoneRemoveLocationActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ZoneRemoveLocationActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ZoneRemoveLocationAction {
+        return function (int $index): ?ZoneRemoveLocationAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ZoneRemoveLocationActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

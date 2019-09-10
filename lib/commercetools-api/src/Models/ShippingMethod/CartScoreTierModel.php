@@ -1,22 +1,47 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ShippingMethod;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
 {
     const DISCRIMINATOR_VALUE = 'CartScore';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?int
+     */
+    protected $score;
+
+    /**
+     * @var ?Money
+     */
+    protected $price;
+
+    /**
+     * @var ?bool
+     */
+    protected $isMatching;
+
+    /**
+     * @var ?PriceFunction
+     */
+    protected $priceFunction;
+
     public function __construct(
         string $type = null,
         int $score = null,
@@ -29,143 +54,117 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
         $this->price = $price;
         $this->isMatching = $isMatching;
         $this->priceFunction = $priceFunction;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?int
-     */
-    protected $score;
-    
-    /**
-     * @var ?Money
-     */
-    protected $price;
-    
-    /**
-     * @var ?bool
-     */
-    protected $isMatching;
-    
-    /**
-     * @var ?PriceFunction
-     */
-    protected $priceFunction;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShippingRatePriceTier::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getType()
+    public function getScore()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ShippingRatePriceTier::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->score)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CartScoreTier::FIELD_SCORE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->score = (int) $data;
+        }
+
+        return $this->score;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|Money
      */
-    final public function getScore()
+    public function getPrice()
     {
-       if (is_null($this->score)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(CartScoreTier::FIELD_SCORE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->score = (int)$data;
-       }
-       return $this->score;
+        if (is_null($this->price)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartScoreTier::FIELD_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->price = MoneyModel::of($data);
+        }
+
+        return $this->price;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|bool
      */
-    final public function getPrice()
+    public function getIsMatching()
     {
-       if (is_null($this->price)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartScoreTier::FIELD_PRICE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->price = MoneyModel::of($data);
-       }
-       return $this->price;
+        if (is_null($this->isMatching)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(CartScoreTier::FIELD_IS_MATCHING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isMatching = (bool) $data;
+        }
+
+        return $this->isMatching;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|PriceFunction
      */
-    final public function getIsMatching()
+    public function getPriceFunction()
     {
-       if (is_null($this->isMatching)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(CartScoreTier::FIELD_IS_MATCHING);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->isMatching = (bool)$data;
-       }
-       return $this->isMatching;
+        if (is_null($this->priceFunction)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartScoreTier::FIELD_PRICE_FUNCTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->priceFunction = PriceFunctionModel::of($data);
+        }
+
+        return $this->priceFunction;
     }
-    
-    /**
-     *
-     * @return PriceFunction|null
-     */
-    final public function getPriceFunction()
-    {
-       if (is_null($this->priceFunction)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(CartScoreTier::FIELD_PRICE_FUNCTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->priceFunction = PriceFunctionModel::of($data);
-       }
-       return $this->priceFunction;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setScore(?int $score): void
+
+    public function setScore(?int $score): void
     {
         $this->score = $score;
     }
-    
-    final public function setPrice(?Money $price): void
+
+    public function setPrice(?Money $price): void
     {
         $this->price = $price;
     }
-    
-    final public function setIsMatching(?bool $isMatching): void
+
+    public function setIsMatching(?bool $isMatching): void
     {
         $this->isMatching = $isMatching;
     }
-    
-    final public function setPriceFunction(?PriceFunction $priceFunction): void
+
+    public function setPriceFunction(?PriceFunction $priceFunction): void
     {
         $this->priceFunction = $priceFunction;
     }
-    
 }

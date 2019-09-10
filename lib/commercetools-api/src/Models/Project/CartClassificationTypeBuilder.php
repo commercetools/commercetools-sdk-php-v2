@@ -1,80 +1,79 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Type\CustomFieldLocalizedEnumValueCollection;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CartClassificationType>
  */
 final class CartClassificationTypeBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?CustomFieldLocalizedEnumValueCollection
      */
-    protected $values;
+    private $values;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getType()
     {
-       return $this->type;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return CustomFieldLocalizedEnumValueCollection|null
+     * @return null|CustomFieldLocalizedEnumValueCollection
      */
-    final public function getValues()
+    public function getValues()
     {
-       return $this->values;
+        return $this->values;
     }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValues(?CustomFieldLocalizedEnumValueCollection $values)
+    public function withValues(?CustomFieldLocalizedEnumValueCollection $values)
     {
         $this->values = $values;
-        
+
         return $this;
     }
-    
-    public function build(): CartClassificationType {
+
+    public function build(): CartClassificationType
+    {
         return new CartClassificationTypeModel(
             $this->type,
             $this->values
         );
     }
-    
+
     public static function of(): CartClassificationTypeBuilder
     {
         return new self();

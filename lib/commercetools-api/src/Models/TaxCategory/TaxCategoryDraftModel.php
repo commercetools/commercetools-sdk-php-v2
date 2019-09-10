@@ -1,20 +1,38 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\TaxCategory;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
 use stdClass;
-
 
 final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategoryDraft
 {
-    
+    /**
+     * @var ?TaxRateDraftCollection
+     */
+    protected $rates;
+
+    /**
+     * @var ?string
+     */
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $description;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
     public function __construct(
         TaxRateDraftCollection $rates = null,
         string $name = null,
@@ -25,114 +43,93 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
         $this->name = $name;
         $this->description = $description;
         $this->key = $key;
-        
     }
 
     /**
-     * @var ?TaxRateDraftCollection
+     * @return null|TaxRateDraftCollection
      */
-    protected $rates;
-    
-    /**
-     * @var ?string
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $description;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    public function getRates()
+    {
+        if (is_null($this->rates)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(TaxCategoryDraft::FIELD_RATES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->rates = TaxRateDraftCollection::fromArray($data);
+        }
+
+        return $this->rates;
+    }
 
     /**
-     *
-     * @return TaxRateDraftCollection|null
+     * @return null|string
      */
-    final public function getRates()
+    public function getName()
     {
-       if (is_null($this->rates)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(TaxCategoryDraft::FIELD_RATES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->rates = TaxRateDraftCollection::fromArray($data);
-       }
-       return $this->rates;
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TaxCategoryDraft::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->name = (string) $data;
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getName()
+    public function getDescription()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(TaxCategoryDraft::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->name = (string)$data;
-       }
-       return $this->name;
+        if (is_null($this->description)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TaxCategoryDraft::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->description = (string) $data;
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getDescription()
+    public function getKey()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(TaxCategoryDraft::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->description = (string)$data;
-       }
-       return $this->description;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TaxCategoryDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getKey()
-    {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(TaxCategoryDraft::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
-    }
-    final public function setRates(?TaxRateDraftCollection $rates): void
+
+    public function setRates(?TaxRateDraftCollection $rates): void
     {
         $this->rates = $rates;
     }
-    
-    final public function setName(?string $name): void
+
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setDescription(?string $description): void
+
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
 }

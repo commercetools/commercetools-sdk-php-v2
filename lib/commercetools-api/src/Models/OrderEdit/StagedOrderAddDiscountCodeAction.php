@@ -1,23 +1,23 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 
 interface StagedOrderAddDiscountCodeAction extends StagedOrderUpdateAction
 {
-    
     const FIELD_CODE = 'code';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getCode();
+
     public function setCode(?string $code): void;
 }

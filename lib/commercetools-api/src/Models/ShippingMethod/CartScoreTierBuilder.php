@@ -1,166 +1,163 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<CartScoreTier>
  */
 final class CartScoreTierBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
      * @var ?int
      */
-    protected $score;
-    
+    private $score;
+
     /**
-     * @var ?MoneyBuilder|Money
+     * @var Money|?MoneyBuilder
      */
-    protected $price;
-    
+    private $price;
+
     /**
      * @var ?bool
      */
-    protected $isMatching;
-    
-    /**
-     * @var ?PriceFunctionBuilder|PriceFunction
-     */
-    protected $priceFunction;
+    private $isMatching;
 
     /**
-     *
-     * @return string|null
+     * @var PriceFunction|?PriceFunctionBuilder
      */
-    final public function getType()
+    private $priceFunction;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getScore()
+    public function getType()
     {
-       return $this->score;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|int
      */
-    final public function getPrice()
+    public function getScore()
     {
-       return ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price);
+        return $this->score;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|Money
      */
-    final public function getIsMatching()
+    public function getPrice()
     {
-       return $this->isMatching;
+        return $this->price instanceof MoneyBuilder ? $this->price->build() : $this->price;
     }
-    
+
     /**
-     *
-     * @return PriceFunction|null
+     * @return null|bool
      */
-    final public function getPriceFunction()
+    public function getIsMatching()
     {
-       return ($this->priceFunction instanceof PriceFunctionBuilder ? $this->priceFunction->build() : $this->priceFunction);
+        return $this->isMatching;
     }
+
+    /**
+     * @return null|PriceFunction
+     */
+    public function getPriceFunction()
+    {
+        return $this->priceFunction instanceof PriceFunctionBuilder ? $this->priceFunction->build() : $this->priceFunction;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withScore(?int $score)
+    public function withScore(?int $score)
     {
         $this->score = $score;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrice(?Money $price)
+    public function withPrice(?Money $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withIsMatching(?bool $isMatching)
+    public function withIsMatching(?bool $isMatching)
     {
         $this->isMatching = $isMatching;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPriceFunction(?PriceFunction $priceFunction)
+    public function withPriceFunction(?PriceFunction $priceFunction)
     {
         $this->priceFunction = $priceFunction;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withPriceBuilder(?MoneyBuilder $price)
+    public function withPriceBuilder(?MoneyBuilder $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPriceFunctionBuilder(?PriceFunctionBuilder $priceFunction)
+    public function withPriceFunctionBuilder(?PriceFunctionBuilder $priceFunction)
     {
         $this->priceFunction = $priceFunction;
-        
+
         return $this;
     }
-    
-    public function build(): CartScoreTier {
+
+    public function build(): CartScoreTier
+    {
         return new CartScoreTierModel(
             $this->type,
             $this->score,
@@ -169,7 +166,7 @@ final class CartScoreTierBuilder implements Builder
             ($this->priceFunction instanceof PriceFunctionBuilder ? $this->priceFunction->build() : $this->priceFunction)
         );
     }
-    
+
     public static function of(): CartScoreTierBuilder
     {
         return new self();

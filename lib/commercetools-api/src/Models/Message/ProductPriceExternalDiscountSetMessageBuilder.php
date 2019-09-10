@@ -1,20 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\DiscountedPrice;
 use Commercetools\Api\Models\Common\DiscountedPriceBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -22,398 +20,387 @@ use DateTimeImmutable;
  */
 final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
+    private $lastModifiedAt;
+
     /**
      * @var ?string
      */
-    protected $id;
-    
+    private $id;
+
     /**
      * @var ?int
      */
-    protected $version;
-    
+    private $version;
+
     /**
      * @var ?int
      */
-    protected $sequenceNumber;
-    
+    private $sequenceNumber;
+
     /**
-     * @var ?ReferenceBuilder|Reference
+     * @var Reference|?ReferenceBuilder
      */
-    protected $resource;
-    
+    private $resource;
+
     /**
-     * @var ?UserProvidedIdentifiersBuilder|UserProvidedIdentifiers
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
-    protected $resourceUserProvidedIdentifiers;
-    
+    private $resourceUserProvidedIdentifiers;
+
     /**
      * @var ?int
      */
-    protected $resourceVersion;
-    
+    private $resourceVersion;
+
     /**
      * @var ?string
      */
-    protected $type;
-    
+    private $type;
+
     /**
-     * @var ?DiscountedPriceBuilder|DiscountedPrice
+     * @var DiscountedPrice|?DiscountedPriceBuilder
      */
-    protected $discounted;
-    
+    private $discounted;
+
     /**
      * @var ?bool
      */
-    protected $staged;
-    
+    private $staged;
+
     /**
      * @var ?int
      */
-    protected $variantId;
-    
-    /**
-     * @var ?string
-     */
-    protected $priceId;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?string
-     */
-    protected $variantKey;
+    private $variantId;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $priceId;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getLastModifiedAt()
-    {
-       return $this->lastModifiedAt;
-    }
-    
+    private $sku;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getId()
+    private $variantKey;
+
+    public function __construct()
     {
-       return $this->id;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|DateTimeImmutable
      */
-    final public function getVersion()
+    public function getCreatedAt()
     {
-       return $this->version;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|DateTimeImmutable
      */
-    final public function getSequenceNumber()
+    public function getLastModifiedAt()
     {
-       return $this->sequenceNumber;
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return Reference|null
+     * @return null|string
      */
-    final public function getResource()
+    public function getId()
     {
-       return ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource);
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return UserProvidedIdentifiers|null
+     * @return null|int
      */
-    final public function getResourceUserProvidedIdentifiers()
+    public function getVersion()
     {
-       return ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers);
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getResourceVersion()
+    public function getSequenceNumber()
     {
-       return $this->resourceVersion;
+        return $this->sequenceNumber;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|Reference
      */
-    final public function getType()
+    public function getResource()
     {
-       return $this->type;
+        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
     }
-    
+
     /**
-     *
-     * @return DiscountedPrice|null
+     * @return null|UserProvidedIdentifiers
      */
-    final public function getDiscounted()
+    public function getResourceUserProvidedIdentifiers()
     {
-       return ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted);
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|int
      */
-    final public function getStaged()
+    public function getResourceVersion()
     {
-       return $this->staged;
+        return $this->resourceVersion;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getVariantId()
+    public function getType()
     {
-       return $this->variantId;
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DiscountedPrice
      */
-    final public function getPriceId()
+    public function getDiscounted()
     {
-       return $this->priceId;
+        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getSku()
+    public function getStaged()
     {
-       return $this->sku;
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getVariantKey()
+    public function getVariantId()
     {
-       return $this->variantKey;
+        return $this->variantId;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        return $this->priceId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getVariantKey()
+    {
+        return $this->variantKey;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSequenceNumber(?int $sequenceNumber)
+    public function withSequenceNumber(?int $sequenceNumber)
     {
         $this->sequenceNumber = $sequenceNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResource(?Reference $resource)
+    public function withResource(?Reference $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceVersion(?int $resourceVersion)
+    public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscounted(?DiscountedPrice $discounted)
+    public function withDiscounted(?DiscountedPrice $discounted)
     {
         $this->discounted = $discounted;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withStaged(?bool $staged)
+    public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantId(?int $variantId)
+    public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPriceId(?string $priceId)
+    public function withPriceId(?string $priceId)
     {
         $this->priceId = $priceId;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSku(?string $sku)
+    public function withSku(?string $sku)
     {
         $this->sku = $sku;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVariantKey(?string $variantKey)
+    public function withVariantKey(?string $variantKey)
     {
         $this->variantKey = $variantKey;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withResourceBuilder(?ReferenceBuilder $resource)
+    public function withResourceBuilder(?ReferenceBuilder $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
     {
         $this->discounted = $discounted;
-        
+
         return $this;
     }
-    
-    public function build(): ProductPriceExternalDiscountSetMessage {
+
+    public function build(): ProductPriceExternalDiscountSetMessage
+    {
         return new ProductPriceExternalDiscountSetMessageModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -432,7 +419,7 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
             $this->variantKey
         );
     }
-    
+
     public static function of(): ProductPriceExternalDiscountSetMessageBuilder
     {
         return new self();

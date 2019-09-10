@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<PriceDraft>
+ *
  * @method PriceDraft current()
  * @method PriceDraft at($offset)
  */
@@ -20,8 +23,12 @@ class PriceDraftCollection extends MapperSequence
     /**
      * @psalm-assert PriceDraft $value
      * @psalm-param PriceDraft|stdClass $value
-     * @return PriceDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return PriceDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class PriceDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?PriceDraft {
+        return function (int $index): ?PriceDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = PriceDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

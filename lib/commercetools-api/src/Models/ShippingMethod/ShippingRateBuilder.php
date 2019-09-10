@@ -1,142 +1,140 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<ShippingRate>
  */
 final class ShippingRateBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?ShippingRatePriceTierCollection
      */
-    protected $tiers;
-    
+    private $tiers;
+
     /**
-     * @var ?TypedMoneyBuilder|TypedMoney
+     * @var TypedMoney|?TypedMoneyBuilder
      */
-    protected $price;
-    
+    private $price;
+
     /**
-     * @var ?TypedMoneyBuilder|TypedMoney
+     * @var TypedMoney|?TypedMoneyBuilder
      */
-    protected $freeAbove;
-    
+    private $freeAbove;
+
     /**
      * @var ?bool
      */
-    protected $isMatching;
+    private $isMatching;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return ShippingRatePriceTierCollection|null
+     * @return null|ShippingRatePriceTierCollection
      */
-    final public function getTiers()
+    public function getTiers()
     {
-       return $this->tiers;
+        return $this->tiers;
     }
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
-    final public function getPrice()
+    public function getPrice()
     {
-       return ($this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price);
+        return $this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price;
     }
-    
+
     /**
-     *
-     * @return TypedMoney|null
+     * @return null|TypedMoney
      */
-    final public function getFreeAbove()
+    public function getFreeAbove()
     {
-       return ($this->freeAbove instanceof TypedMoneyBuilder ? $this->freeAbove->build() : $this->freeAbove);
+        return $this->freeAbove instanceof TypedMoneyBuilder ? $this->freeAbove->build() : $this->freeAbove;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
-    final public function getIsMatching()
+    public function getIsMatching()
     {
-       return $this->isMatching;
+        return $this->isMatching;
     }
+
     /**
      * @return $this
      */
-    final public function withTiers(?ShippingRatePriceTierCollection $tiers)
+    public function withTiers(?ShippingRatePriceTierCollection $tiers)
     {
         $this->tiers = $tiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withPrice(?TypedMoney $price)
+    public function withPrice(?TypedMoney $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFreeAbove(?TypedMoney $freeAbove)
+    public function withFreeAbove(?TypedMoney $freeAbove)
     {
         $this->freeAbove = $freeAbove;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withIsMatching(?bool $isMatching)
+    public function withIsMatching(?bool $isMatching)
     {
         $this->isMatching = $isMatching;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withPriceBuilder(?TypedMoneyBuilder $price)
+    public function withPriceBuilder(?TypedMoneyBuilder $price)
     {
         $this->price = $price;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFreeAboveBuilder(?TypedMoneyBuilder $freeAbove)
+    public function withFreeAboveBuilder(?TypedMoneyBuilder $freeAbove)
     {
         $this->freeAbove = $freeAbove;
-        
+
         return $this;
     }
-    
-    public function build(): ShippingRate {
+
+    public function build(): ShippingRate
+    {
         return new ShippingRateModel(
             $this->tiers,
             ($this->price instanceof TypedMoneyBuilder ? $this->price->build() : $this->price),
@@ -144,7 +142,7 @@ final class ShippingRateBuilder implements Builder
             $this->isMatching
         );
     }
-    
+
     public static function of(): ShippingRateBuilder
     {
         return new self();

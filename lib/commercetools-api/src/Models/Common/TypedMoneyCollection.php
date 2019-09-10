@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TypedMoney>
+ *
  * @method TypedMoney current()
  * @method TypedMoney at($offset)
  */
@@ -20,8 +23,12 @@ class TypedMoneyCollection extends MapperSequence
     /**
      * @psalm-assert TypedMoney $value
      * @psalm-param TypedMoney|stdClass $value
-     * @return TypedMoneyCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TypedMoneyCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TypedMoneyCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TypedMoney {
+        return function (int $index): ?TypedMoney {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TypedMoneyModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

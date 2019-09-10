@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Error;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Error;
 
 interface DuplicateVariantValuesError extends ErrorObject
 {
-    
     const FIELD_VARIANT_VALUES = 'variantValues';
 
     /**
-     *
-     * @return VariantValues|null
+     * @return null|VariantValues
      */
     public function getVariantValues();
+
     public function setVariantValues(?VariantValues $variantValues): void;
 }

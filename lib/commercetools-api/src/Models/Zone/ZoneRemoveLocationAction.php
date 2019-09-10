@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Zone;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Zone;
 
 interface ZoneRemoveLocationAction extends ZoneUpdateAction
 {
-    
     const FIELD_LOCATION = 'location';
 
     /**
-     *
-     * @return Location|null
+     * @return null|Location
      */
     public function getLocation();
+
     public function setLocation(?Location $location): void;
 }

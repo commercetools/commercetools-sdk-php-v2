@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderEditApply>
+ *
  * @method OrderEditApply current()
  * @method OrderEditApply at($offset)
  */
@@ -20,8 +23,12 @@ class OrderEditApplyCollection extends MapperSequence
     /**
      * @psalm-assert OrderEditApply $value
      * @psalm-param OrderEditApply|stdClass $value
-     * @return OrderEditApplyCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderEditApplyCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderEditApplyCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderEditApply {
+        return function (int $index): ?OrderEditApply {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderEditApplyModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

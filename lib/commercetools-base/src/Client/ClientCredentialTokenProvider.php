@@ -1,9 +1,10 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
 
 namespace Commercetools\Client;
 
@@ -33,21 +34,22 @@ class ClientCredentialTokenProvider implements TokenProvider
     public function getToken(): Token
     {
         $data = [
-            self::GRANT_TYPE => $this->authConfig->getGrantType()
+            self::GRANT_TYPE => $this->authConfig->getGrantType(),
         ];
         if (!is_null($this->authConfig->getScope())) {
             $data[self::SCOPE] = $this->authConfig->getScope();
         }
         $options = [
             'form_params' => $data,
-            'auth' => [$this->authConfig->getClientId(), $this->authConfig->getClientSecret()]
+            'auth' => [$this->authConfig->getClientId(), $this->authConfig->getClientSecret()],
         ];
 
         $result = $this->client->post($this->authConfig->getAuthUri(), $options);
 
         /** @var array $body */
-        $body = json_decode((string)$result->getBody(), true);
-        return new TokenModel((string)$body[self::ACCESS_TOKEN], (int)$body[self::EXPIRES_IN]);
+        $body = json_decode((string) $result->getBody(), true);
+
+        return new TokenModel((string) $body[self::ACCESS_TOKEN], (int) $body[self::EXPIRES_IN]);
     }
 
     /**

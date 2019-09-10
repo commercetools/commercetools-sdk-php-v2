@@ -1,265 +1,256 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<FacetResultRange>
  */
 final class FacetResultRangeBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $toStr;
+
+    /**
+     * @var ?int
+     */
+    private $total;
+
+    /**
+     * @var ?int
+     */
+    private $min;
 
     /**
      * @var ?string
      */
-    protected $toStr;
-    
-    /**
-     * @var ?int
-     */
-    protected $total;
-    
-    /**
-     * @var ?int
-     */
-    protected $min;
-    
-    /**
-     * @var ?string
-     */
-    protected $fromStr;
-    
-    /**
-     * @var ?int
-     */
-    protected $max;
-    
-    /**
-     * @var ?int
-     */
-    protected $mean;
-    
-    /**
-     * @var ?int
-     */
-    protected $count;
-    
-    /**
-     * @var ?int
-     */
-    protected $from;
-    
-    /**
-     * @var ?int
-     */
-    protected $to;
-    
-    /**
-     * @var ?int
-     */
-    protected $productCount;
+    private $fromStr;
 
     /**
-     *
-     * @return string|null
+     * @var ?int
      */
-    final public function getToStr()
-    {
-       return $this->toStr;
-    }
-    
+    private $max;
+
     /**
-     *
-     * @return int|null
+     * @var ?int
      */
-    final public function getTotal()
-    {
-       return $this->total;
-    }
-    
+    private $mean;
+
     /**
-     *
-     * @return int|null
+     * @var ?int
      */
-    final public function getMin()
-    {
-       return $this->min;
-    }
-    
+    private $count;
+
     /**
-     *
-     * @return string|null
+     * @var ?int
      */
-    final public function getFromStr()
-    {
-       return $this->fromStr;
-    }
-    
+    private $from;
+
     /**
-     *
-     * @return int|null
+     * @var ?int
      */
-    final public function getMax()
-    {
-       return $this->max;
-    }
-    
+    private $to;
+
     /**
-     *
-     * @return int|null
+     * @var ?int
      */
-    final public function getMean()
+    private $productCount;
+
+    public function __construct()
     {
-       return $this->mean;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getCount()
+    public function getToStr()
     {
-       return $this->count;
+        return $this->toStr;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getFrom()
+    public function getTotal()
     {
-       return $this->from;
+        return $this->total;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getTo()
+    public function getMin()
     {
-       return $this->to;
+        return $this->min;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|string
      */
-    final public function getProductCount()
+    public function getFromStr()
     {
-       return $this->productCount;
+        return $this->fromStr;
     }
+
+    /**
+     * @return null|int
+     */
+    public function getMax()
+    {
+        return $this->max;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getMean()
+    {
+        return $this->mean;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getTo()
+    {
+        return $this->to;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getProductCount()
+    {
+        return $this->productCount;
+    }
+
     /**
      * @return $this
      */
-    final public function withToStr(?string $toStr)
+    public function withToStr(?string $toStr)
     {
         $this->toStr = $toStr;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTotal(?int $total)
+    public function withTotal(?int $total)
     {
         $this->total = $total;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMin(?int $min)
+    public function withMin(?int $min)
     {
         $this->min = $min;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFromStr(?string $fromStr)
+    public function withFromStr(?string $fromStr)
     {
         $this->fromStr = $fromStr;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMax(?int $max)
+    public function withMax(?int $max)
     {
         $this->max = $max;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMean(?int $mean)
+    public function withMean(?int $mean)
     {
         $this->mean = $mean;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCount(?int $count)
+    public function withCount(?int $count)
     {
         $this->count = $count;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withFrom(?int $from)
+    public function withFrom(?int $from)
     {
         $this->from = $from;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTo(?int $to)
+    public function withTo(?int $to)
     {
         $this->to = $to;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProductCount(?int $productCount)
+    public function withProductCount(?int $productCount)
     {
         $this->productCount = $productCount;
-        
+
         return $this;
     }
-    
-    public function build(): FacetResultRange {
+
+    public function build(): FacetResultRange
+    {
         return new FacetResultRangeModel(
             $this->toStr,
             $this->total,
@@ -273,7 +264,7 @@ final class FacetResultRangeBuilder implements Builder
             $this->productCount
         );
     }
-    
+
     public static function of(): FacetResultRangeBuilder
     {
         return new self();

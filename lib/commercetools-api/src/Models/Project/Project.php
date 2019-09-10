@@ -1,18 +1,19 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Project;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Message\MessageConfiguration;
+use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 interface Project extends JsonObject
 {
-    
     const FIELD_VERSION = 'version';
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';
@@ -26,89 +27,79 @@ interface Project extends JsonObject
     const FIELD_EXTERNAL_O_AUTH = 'externalOAuth';
 
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getVersion();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getName();
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getCountries();
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getCurrencies();
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|array
      */
     public function getLanguages();
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getTrialUntil();
-    
+
     /**
-     *
-     * @return MessageConfiguration|null
+     * @return null|MessageConfiguration
      */
     public function getMessages();
-    
+
     /**
-     *
-     * @return ShippingRateInputType|null
+     * @return null|ShippingRateInputType
      */
     public function getShippingRateInputType();
-    
+
     /**
-     *
-     * @return ExternalOAuth|null
+     * @return null|ExternalOAuth
      */
     public function getExternalOAuth();
+
     public function setVersion(?int $version): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setName(?string $name): void;
-    
+
     public function setCountries(?array $countries): void;
-    
+
     public function setCurrencies(?array $currencies): void;
-    
+
     public function setLanguages(?array $languages): void;
-    
+
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
-    
+
     public function setTrialUntil(?string $trialUntil): void;
-    
+
     public function setMessages(?MessageConfiguration $messages): void;
-    
+
     public function setShippingRateInputType(?ShippingRateInputType $shippingRateInputType): void;
-    
+
     public function setExternalOAuth(?ExternalOAuth $externalOAuth): void;
 }

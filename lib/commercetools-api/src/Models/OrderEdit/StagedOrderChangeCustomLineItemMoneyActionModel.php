@@ -1,24 +1,38 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\OrderEdit;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
-use Commercetools\Api\Models\Order\StagedOrderUpdateActionModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class StagedOrderChangeCustomLineItemMoneyActionModel extends JsonObjectModel implements StagedOrderChangeCustomLineItemMoneyAction
 {
     const DISCRIMINATOR_VALUE = 'changeCustomLineItemMoney';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?string
+     */
+    protected $customLineItemId;
+
+    /**
+     * @var ?Money
+     */
+    protected $money;
+
     public function __construct(
         string $action = null,
         string $customLineItemId = null,
@@ -27,88 +41,72 @@ final class StagedOrderChangeCustomLineItemMoneyActionModel extends JsonObjectMo
         $this->action = $action;
         $this->customLineItemId = $customLineItemId;
         $this->money = $money;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $customLineItemId;
-    
-    /**
-     * @var ?Money
-     */
-    protected $money;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getCustomLineItemId()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->customLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderChangeCustomLineItemMoneyAction::FIELD_CUSTOM_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItemId = (string) $data;
+        }
+
+        return $this->customLineItemId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|Money
      */
-    final public function getCustomLineItemId()
+    public function getMoney()
     {
-       if (is_null($this->customLineItemId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(StagedOrderChangeCustomLineItemMoneyAction::FIELD_CUSTOM_LINE_ITEM_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->customLineItemId = (string)$data;
-       }
-       return $this->customLineItemId;
+        if (is_null($this->money)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderChangeCustomLineItemMoneyAction::FIELD_MONEY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->money = MoneyModel::of($data);
+        }
+
+        return $this->money;
     }
-    
-    /**
-     *
-     * @return Money|null
-     */
-    final public function getMoney()
-    {
-       if (is_null($this->money)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(StagedOrderChangeCustomLineItemMoneyAction::FIELD_MONEY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->money = MoneyModel::of($data);
-       }
-       return $this->money;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setCustomLineItemId(?string $customLineItemId): void
+
+    public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
-    
-    final public function setMoney(?Money $money): void
+
+    public function setMoney(?Money $money): void
     {
         $this->money = $money;
     }
-    
 }

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<StagedOrderSetShippingMethodTaxAmountAction>
+ *
  * @method StagedOrderSetShippingMethodTaxAmountAction current()
  * @method StagedOrderSetShippingMethodTaxAmountAction at($offset)
  */
@@ -20,8 +23,12 @@ class StagedOrderSetShippingMethodTaxAmountActionCollection extends MapperSequen
     /**
      * @psalm-assert StagedOrderSetShippingMethodTaxAmountAction $value
      * @psalm-param StagedOrderSetShippingMethodTaxAmountAction|stdClass $value
-     * @return StagedOrderSetShippingMethodTaxAmountActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return StagedOrderSetShippingMethodTaxAmountActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class StagedOrderSetShippingMethodTaxAmountActionCollection extends MapperSequen
      */
     protected function mapper()
     {
-        return function(int $index): ?StagedOrderSetShippingMethodTaxAmountAction {
+        return function (int $index): ?StagedOrderSetShippingMethodTaxAmountAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = StagedOrderSetShippingMethodTaxAmountActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

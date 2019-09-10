@@ -1,22 +1,42 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Order\ParcelMeasurements;
 use Commercetools\Api\Models\Order\ParcelMeasurementsModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel implements ParcelMeasurementsUpdatedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ParcelMeasurementsUpdated';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?string
+     */
+    protected $deliveryId;
+
+    /**
+     * @var ?ParcelMeasurements
+     */
+    protected $measurements;
+
+    /**
+     * @var ?string
+     */
+    protected $parcelId;
+
     public function __construct(
         string $type = null,
         string $deliveryId = null,
@@ -27,115 +47,94 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
         $this->deliveryId = $deliveryId;
         $this->measurements = $measurements;
         $this->parcelId = $parcelId;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $deliveryId;
-    
-    /**
-     * @var ?ParcelMeasurements
-     */
-    protected $measurements;
-    
-    /**
-     * @var ?string
-     */
-    protected $parcelId;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getType()
+    public function getDeliveryId()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MessagePayload::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ParcelMeasurementsUpdatedMessagePayload::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|ParcelMeasurements
      */
-    final public function getDeliveryId()
+    public function getMeasurements()
     {
-       if (is_null($this->deliveryId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ParcelMeasurementsUpdatedMessagePayload::FIELD_DELIVERY_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->deliveryId = (string)$data;
-       }
-       return $this->deliveryId;
+        if (is_null($this->measurements)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ParcelMeasurementsUpdatedMessagePayload::FIELD_MEASUREMENTS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->measurements = ParcelMeasurementsModel::of($data);
+        }
+
+        return $this->measurements;
     }
-    
+
     /**
-     *
-     * @return ParcelMeasurements|null
+     * @return null|string
      */
-    final public function getMeasurements()
+    public function getParcelId()
     {
-       if (is_null($this->measurements)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ParcelMeasurementsUpdatedMessagePayload::FIELD_MEASUREMENTS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->measurements = ParcelMeasurementsModel::of($data);
-       }
-       return $this->measurements;
+        if (is_null($this->parcelId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ParcelMeasurementsUpdatedMessagePayload::FIELD_PARCEL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->parcelId = (string) $data;
+        }
+
+        return $this->parcelId;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getParcelId()
-    {
-       if (is_null($this->parcelId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ParcelMeasurementsUpdatedMessagePayload::FIELD_PARCEL_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->parcelId = (string)$data;
-       }
-       return $this->parcelId;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setDeliveryId(?string $deliveryId): void
+
+    public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
-    
-    final public function setMeasurements(?ParcelMeasurements $measurements): void
+
+    public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;
     }
-    
-    final public function setParcelId(?string $parcelId): void
+
+    public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
     }
-    
 }

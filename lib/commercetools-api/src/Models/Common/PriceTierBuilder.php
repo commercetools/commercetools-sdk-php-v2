@@ -1,88 +1,88 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<PriceTier>
  */
 final class PriceTierBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
-     * @var ?MoneyBuilder|Money
+     * @var Money|?MoneyBuilder
      */
-    protected $value;
-    
+    private $value;
+
     /**
      * @var ?int
      */
-    protected $minimumQuantity;
+    private $minimumQuantity;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return Money|null
+     * @return null|Money
      */
-    final public function getValue()
+    public function getValue()
     {
-       return ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value);
+        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
-    final public function getMinimumQuantity()
+    public function getMinimumQuantity()
     {
-       return $this->minimumQuantity;
+        return $this->minimumQuantity;
     }
+
     /**
      * @return $this
      */
-    final public function withValue(?Money $value)
+    public function withValue(?Money $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMinimumQuantity(?int $minimumQuantity)
+    public function withMinimumQuantity(?int $minimumQuantity)
     {
         $this->minimumQuantity = $minimumQuantity;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?MoneyBuilder $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
-    public function build(): PriceTier {
+
+    public function build(): PriceTier
+    {
         return new PriceTierModel(
             ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value),
             $this->minimumQuantity
         );
     }
-    
+
     public static function of(): PriceTierBuilder
     {
         return new self();

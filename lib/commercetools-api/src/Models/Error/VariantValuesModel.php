@@ -1,22 +1,35 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Error;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Api\Models\Common\PriceDraftCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class VariantValuesModel extends JsonObjectModel implements VariantValues
 {
-    
+    /**
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
+
+    /**
+     * @var ?PriceDraftCollection
+     */
+    protected $prices;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
     public function __construct(
         AttributeCollection $attributes = null,
         PriceDraftCollection $prices = null,
@@ -25,87 +38,71 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
         $this->attributes = $attributes;
         $this->prices = $prices;
         $this->sku = $sku;
-        
     }
 
     /**
-     * @var ?AttributeCollection
+     * @return null|AttributeCollection
      */
-    protected $attributes;
-    
-    /**
-     * @var ?PriceDraftCollection
-     */
-    protected $prices;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(VariantValues::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
+    }
 
     /**
-     *
-     * @return AttributeCollection|null
+     * @return null|PriceDraftCollection
      */
-    final public function getAttributes()
+    public function getPrices()
     {
-       if (is_null($this->attributes)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(VariantValues::FIELD_ATTRIBUTES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->attributes = AttributeCollection::fromArray($data);
-       }
-       return $this->attributes;
+        if (is_null($this->prices)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(VariantValues::FIELD_PRICES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->prices = PriceDraftCollection::fromArray($data);
+        }
+
+        return $this->prices;
     }
-    
+
     /**
-     *
-     * @return PriceDraftCollection|null
+     * @return null|string
      */
-    final public function getPrices()
+    public function getSku()
     {
-       if (is_null($this->prices)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(VariantValues::FIELD_PRICES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->prices = PriceDraftCollection::fromArray($data);
-       }
-       return $this->prices;
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(VariantValues::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getSku()
-    {
-       if (is_null($this->sku)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(VariantValues::FIELD_SKU);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sku = (string)$data;
-       }
-       return $this->sku;
-    }
-    final public function setAttributes(?AttributeCollection $attributes): void
+
+    public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
     }
-    
-    final public function setPrices(?PriceDraftCollection $prices): void
+
+    public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
-    
-    final public function setSku(?string $sku): void
+
+    public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
-    
 }

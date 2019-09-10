@@ -1,121 +1,119 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Error;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<DuplicateFieldError>
  */
 final class DuplicateFieldErrorBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?string
      */
-    protected $code;
-    
-    /**
-     * @var ?string
-     */
-    protected $message;
-    
+    private $message;
+
     /**
      * @var ?JsonObject
      */
-    protected $duplicateValue;
-    
+    private $duplicateValue;
+
     /**
      * @var ?string
      */
-    protected $field;
+    private $field;
+
+    public function __construct()
+    {
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getCode()
+    public function getCode()
     {
-       return $this->code;
+        return $this->code;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getMessage()
+    public function getMessage()
     {
-       return $this->message;
+        return $this->message;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|JsonObject
      */
-    final public function getDuplicateValue()
+    public function getDuplicateValue()
     {
-       return $this->duplicateValue;
+        return $this->duplicateValue;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getField()
+    public function getField()
     {
-       return $this->field;
+        return $this->field;
     }
+
     /**
      * @return $this
      */
-    final public function withCode(?string $code)
+    public function withCode(?string $code)
     {
         $this->code = $code;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withMessage(?string $message)
+    public function withMessage(?string $message)
     {
         $this->message = $message;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDuplicateValue(?JsonObject $duplicateValue)
+    public function withDuplicateValue(?JsonObject $duplicateValue)
     {
         $this->duplicateValue = $duplicateValue;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withField(?string $field)
+    public function withField(?string $field)
     {
         $this->field = $field;
-        
+
         return $this;
     }
-    
-    public function build(): DuplicateFieldError {
+
+    public function build(): DuplicateFieldError
+    {
         return new DuplicateFieldErrorModel(
             $this->code,
             $this->message,
@@ -123,7 +121,7 @@ final class DuplicateFieldErrorBuilder implements Builder
             $this->field
         );
     }
-    
+
     public static function of(): DuplicateFieldErrorBuilder
     {
         return new self();

@@ -1,12 +1,13 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Base\JsonObject;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Customer\CustomerReference;
@@ -14,7 +15,6 @@ use Commercetools\Api\Models\Type\CustomFields;
 
 interface ShoppingList extends LoggedResource
 {
-    
     const FIELD_CUSTOM = 'custom';
     const FIELD_CUSTOMER = 'customer';
     const FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION = 'deleteDaysAfterLastModification';
@@ -27,81 +27,72 @@ interface ShoppingList extends LoggedResource
     const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**
-     *
-     * @return CustomFields|null
+     * @return null|CustomFields
      */
     public function getCustom();
-    
+
     /**
-     *
-     * @return CustomerReference|null
+     * @return null|CustomerReference
      */
     public function getCustomer();
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getDescription();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getKey();
-    
+
     /**
-     *
-     * @return ShoppingListLineItemCollection|null
+     * @return null|ShoppingListLineItemCollection
      */
     public function getLineItems();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getName();
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
     public function getSlug();
-    
+
     /**
-     *
-     * @return TextLineItemCollection|null
+     * @return null|TextLineItemCollection
      */
     public function getTextLineItems();
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAnonymousId();
+
     public function setCustom(?CustomFields $custom): void;
-    
+
     public function setCustomer(?CustomerReference $customer): void;
-    
+
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void;
-    
+
     public function setDescription(?LocalizedString $description): void;
-    
+
     public function setKey(?string $key): void;
-    
+
     public function setLineItems(?ShoppingListLineItemCollection $lineItems): void;
-    
+
     public function setName(?LocalizedString $name): void;
-    
+
     public function setSlug(?LocalizedString $slug): void;
-    
+
     public function setTextLineItems(?TextLineItemCollection $textLineItems): void;
-    
+
     public function setAnonymousId(?string $anonymousId): void;
 }

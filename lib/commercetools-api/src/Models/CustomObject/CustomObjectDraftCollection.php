@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\CustomObject;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<CustomObjectDraft>
+ *
  * @method CustomObjectDraft current()
  * @method CustomObjectDraft at($offset)
  */
@@ -20,8 +23,12 @@ class CustomObjectDraftCollection extends MapperSequence
     /**
      * @psalm-assert CustomObjectDraft $value
      * @psalm-param CustomObjectDraft|stdClass $value
-     * @return CustomObjectDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return CustomObjectDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class CustomObjectDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?CustomObjectDraft {
+        return function (int $index): ?CustomObjectDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = CustomObjectDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

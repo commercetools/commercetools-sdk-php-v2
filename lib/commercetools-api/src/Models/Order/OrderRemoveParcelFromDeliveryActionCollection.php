@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderRemoveParcelFromDeliveryAction>
+ *
  * @method OrderRemoveParcelFromDeliveryAction current()
  * @method OrderRemoveParcelFromDeliveryAction at($offset)
  */
@@ -20,8 +23,12 @@ class OrderRemoveParcelFromDeliveryActionCollection extends MapperSequence
     /**
      * @psalm-assert OrderRemoveParcelFromDeliveryAction $value
      * @psalm-param OrderRemoveParcelFromDeliveryAction|stdClass $value
-     * @return OrderRemoveParcelFromDeliveryActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderRemoveParcelFromDeliveryActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderRemoveParcelFromDeliveryActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderRemoveParcelFromDeliveryAction {
+        return function (int $index): ?OrderRemoveParcelFromDeliveryAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderRemoveParcelFromDeliveryActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

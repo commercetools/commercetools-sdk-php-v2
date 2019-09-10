@@ -1,91 +1,91 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Cart\DiscountedLineItemPortionCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<DiscountedLineItemPriceDraft>
  */
 final class DiscountedLineItemPriceDraftBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?DiscountedLineItemPortionCollection
      */
-    protected $includedDiscounts;
-    
-    /**
-     * @var ?MoneyBuilder|Money
-     */
-    protected $value;
+    private $includedDiscounts;
 
     /**
-     *
-     * @return DiscountedLineItemPortionCollection|null
+     * @var Money|?MoneyBuilder
      */
-    final public function getIncludedDiscounts()
+    private $value;
+
+    public function __construct()
     {
-       return $this->includedDiscounts;
     }
-    
+
     /**
-     *
-     * @return Money|null
+     * @return null|DiscountedLineItemPortionCollection
      */
-    final public function getValue()
+    public function getIncludedDiscounts()
     {
-       return ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value);
+        return $this->includedDiscounts;
     }
+
+    /**
+     * @return null|Money
+     */
+    public function getValue()
+    {
+        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+    }
+
     /**
      * @return $this
      */
-    final public function withIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts)
+    public function withIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts)
     {
         $this->includedDiscounts = $includedDiscounts;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withValue(?Money $value)
+    public function withValue(?Money $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withValueBuilder(?MoneyBuilder $value)
+    public function withValueBuilder(?MoneyBuilder $value)
     {
         $this->value = $value;
-        
+
         return $this;
     }
-    
-    public function build(): DiscountedLineItemPriceDraft {
+
+    public function build(): DiscountedLineItemPriceDraft
+    {
         return new DiscountedLineItemPriceDraftModel(
             $this->includedDiscounts,
             ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value)
         );
     }
-    
+
     public static function of(): DiscountedLineItemPriceDraftBuilder
     {
         return new self();

@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ProductMoveImageToPositionAction>
+ *
  * @method ProductMoveImageToPositionAction current()
  * @method ProductMoveImageToPositionAction at($offset)
  */
@@ -20,8 +23,12 @@ class ProductMoveImageToPositionActionCollection extends MapperSequence
     /**
      * @psalm-assert ProductMoveImageToPositionAction $value
      * @psalm-param ProductMoveImageToPositionAction|stdClass $value
-     * @return ProductMoveImageToPositionActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ProductMoveImageToPositionActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ProductMoveImageToPositionActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ProductMoveImageToPositionAction {
+        return function (int $index): ?ProductMoveImageToPositionAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ProductMoveImageToPositionActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

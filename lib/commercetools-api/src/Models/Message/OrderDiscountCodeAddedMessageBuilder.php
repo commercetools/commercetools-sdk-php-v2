@@ -1,20 +1,18 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReference;
 use Commercetools\Api\Models\DiscountCode\DiscountCodeReferenceBuilder;
+use Commercetools\Base\Builder;
 use DateTimeImmutable;
 
 /**
@@ -22,278 +20,272 @@ use DateTimeImmutable;
  */
 final class OrderDiscountCodeAddedMessageBuilder implements Builder
 {
-    public function __construct() {
-    }
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
-    
-    /**
-     * @var ?int
-     */
-    protected $sequenceNumber;
-    
-    /**
-     * @var ?ReferenceBuilder|Reference
-     */
-    protected $resource;
-    
-    /**
-     * @var ?UserProvidedIdentifiersBuilder|UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-    
-    /**
-     * @var ?int
-     */
-    protected $resourceVersion;
-    
-    /**
-     * @var ?string
-     */
-    protected $type;
-    
-    /**
-     * @var ?DiscountCodeReferenceBuilder|DiscountCodeReference
-     */
-    protected $discountCode;
+    private $lastModifiedAt;
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?string
      */
-    final public function getCreatedAt()
-    {
-       return $this->createdAt;
-    }
-    
+    private $id;
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @var ?int
      */
-    final public function getLastModifiedAt()
-    {
-       return $this->lastModifiedAt;
-    }
-    
+    private $version;
+
     /**
-     *
-     * @return string|null
+     * @var ?int
      */
-    final public function getId()
-    {
-       return $this->id;
-    }
-    
+    private $sequenceNumber;
+
     /**
-     *
-     * @return int|null
+     * @var Reference|?ReferenceBuilder
      */
-    final public function getVersion()
-    {
-       return $this->version;
-    }
-    
+    private $resource;
+
     /**
-     *
-     * @return int|null
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
-    final public function getSequenceNumber()
-    {
-       return $this->sequenceNumber;
-    }
-    
+    private $resourceUserProvidedIdentifiers;
+
     /**
-     *
-     * @return Reference|null
+     * @var ?int
      */
-    final public function getResource()
-    {
-       return ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource);
-    }
-    
+    private $resourceVersion;
+
     /**
-     *
-     * @return UserProvidedIdentifiers|null
+     * @var ?string
      */
-    final public function getResourceUserProvidedIdentifiers()
-    {
-       return ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers);
-    }
-    
+    private $type;
+
     /**
-     *
-     * @return int|null
+     * @var DiscountCodeReference|?DiscountCodeReferenceBuilder
      */
-    final public function getResourceVersion()
+    private $discountCode;
+
+    public function __construct()
     {
-       return $this->resourceVersion;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|DateTimeImmutable
      */
-    final public function getType()
+    public function getCreatedAt()
     {
-       return $this->type;
+        return $this->createdAt;
     }
-    
+
     /**
-     *
-     * @return DiscountCodeReference|null
+     * @return null|DateTimeImmutable
      */
-    final public function getDiscountCode()
+    public function getLastModifiedAt()
     {
-       return ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode);
+        return $this->lastModifiedAt;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getSequenceNumber()
+    {
+        return $this->sequenceNumber;
+    }
+
+    /**
+     * @return null|Reference
+     */
+    public function getResource()
+    {
+        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
+    }
+
+    /**
+     * @return null|UserProvidedIdentifiers
+     */
+    public function getResourceUserProvidedIdentifiers()
+    {
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getResourceVersion()
+    {
+        return $this->resourceVersion;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return null|DiscountCodeReference
+     */
+    public function getDiscountCode()
+    {
+        return $this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode;
+    }
+
     /**
      * @return $this
      */
-    final public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withId(?string $id)
+    public function withId(?string $id)
     {
         $this->id = $id;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withVersion(?int $version)
+    public function withVersion(?int $version)
     {
         $this->version = $version;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withSequenceNumber(?int $sequenceNumber)
+    public function withSequenceNumber(?int $sequenceNumber)
     {
         $this->sequenceNumber = $sequenceNumber;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResource(?Reference $resource)
+    public function withResource(?Reference $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceVersion(?int $resourceVersion)
+    public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountCode(?DiscountCodeReference $discountCode)
+    public function withDiscountCode(?DiscountCodeReference $discountCode)
     {
         $this->discountCode = $discountCode;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withResourceBuilder(?ReferenceBuilder $resource)
+    public function withResourceBuilder(?ReferenceBuilder $resource)
     {
         $this->resource = $resource;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
+    public function withResourceUserProvidedIdentifiersBuilder(?UserProvidedIdentifiersBuilder $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withDiscountCodeBuilder(?DiscountCodeReferenceBuilder $discountCode)
+    public function withDiscountCodeBuilder(?DiscountCodeReferenceBuilder $discountCode)
     {
         $this->discountCode = $discountCode;
-        
+
         return $this;
     }
-    
-    public function build(): OrderDiscountCodeAddedMessage {
+
+    public function build(): OrderDiscountCodeAddedMessage
+    {
         return new OrderDiscountCodeAddedMessageModel(
             $this->createdAt,
             $this->lastModifiedAt,
@@ -307,7 +299,7 @@ final class OrderDiscountCodeAddedMessageBuilder implements Builder
             ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode)
         );
     }
-    
+
     public static function of(): OrderDiscountCodeAddedMessageBuilder
     {
         return new self();

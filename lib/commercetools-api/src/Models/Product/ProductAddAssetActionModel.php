@@ -1,22 +1,52 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Product;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetDraft;
 use Commercetools\Api\Models\Common\AssetDraftModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductAddAssetActionModel extends JsonObjectModel implements ProductAddAssetAction
 {
     const DISCRIMINATOR_VALUE = 'addAsset';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?int
+     */
+    protected $position;
+
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
+    /**
+     * @var ?int
+     */
+    protected $variantId;
+
+    /**
+     * @var ?AssetDraft
+     */
+    protected $asset;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
     public function __construct(
         string $action = null,
         int $position = null,
@@ -31,169 +61,138 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
         $this->variantId = $variantId;
         $this->asset = $asset;
         $this->sku = $sku;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?int
-     */
-    protected $position;
-    
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-    
-    /**
-     * @var ?int
-     */
-    protected $variantId;
-    
-    /**
-     * @var ?AssetDraft
-     */
-    protected $asset;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getAction()
+    public function getPosition()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->position)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductAddAssetAction::FIELD_POSITION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->position = (int) $data;
+        }
+
+        return $this->position;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|bool
      */
-    final public function getPosition()
+    public function getStaged()
     {
-       if (is_null($this->position)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ProductAddAssetAction::FIELD_POSITION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->position = (int)$data;
-       }
-       return $this->position;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductAddAssetAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|int
      */
-    final public function getStaged()
+    public function getVariantId()
     {
-       if (is_null($this->staged)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(ProductAddAssetAction::FIELD_STAGED);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->staged = (bool)$data;
-       }
-       return $this->staged;
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductAddAssetAction::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|AssetDraft
      */
-    final public function getVariantId()
+    public function getAsset()
     {
-       if (is_null($this->variantId)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ProductAddAssetAction::FIELD_VARIANT_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->variantId = (int)$data;
-       }
-       return $this->variantId;
+        if (is_null($this->asset)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductAddAssetAction::FIELD_ASSET);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->asset = AssetDraftModel::of($data);
+        }
+
+        return $this->asset;
     }
-    
+
     /**
-     *
-     * @return AssetDraft|null
+     * @return null|string
      */
-    final public function getAsset()
+    public function getSku()
     {
-       if (is_null($this->asset)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductAddAssetAction::FIELD_ASSET);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->asset = AssetDraftModel::of($data);
-       }
-       return $this->asset;
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductAddAssetAction::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getSku()
-    {
-       if (is_null($this->sku)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductAddAssetAction::FIELD_SKU);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sku = (string)$data;
-       }
-       return $this->sku;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setPosition(?int $position): void
+
+    public function setPosition(?int $position): void
     {
         $this->position = $position;
     }
-    
-    final public function setStaged(?bool $staged): void
+
+    public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
-    
-    final public function setVariantId(?int $variantId): void
+
+    public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
-    
-    final public function setAsset(?AssetDraft $asset): void
+
+    public function setAsset(?AssetDraft $asset): void
     {
         $this->asset = $asset;
     }
-    
-    final public function setSku(?string $sku): void
+
+    public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
-    
 }

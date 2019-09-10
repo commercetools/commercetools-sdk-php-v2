@@ -1,145 +1,141 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 
 /**
  * @implements Builder<TrackingData>
  */
 final class TrackingDataBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?bool
      */
-    protected $isReturn;
-    
-    /**
-     * @var ?string
-     */
-    protected $carrier;
-    
-    /**
-     * @var ?string
-     */
-    protected $providerTransaction;
-    
-    /**
-     * @var ?string
-     */
-    protected $provider;
-    
-    /**
-     * @var ?string
-     */
-    protected $trackingId;
+    private $isReturn;
 
     /**
-     *
-     * @return bool|null
+     * @var ?string
      */
-    final public function getIsReturn()
-    {
-       return $this->isReturn;
-    }
-    
+    private $carrier;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getCarrier()
-    {
-       return $this->carrier;
-    }
-    
+    private $providerTransaction;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getProviderTransaction()
-    {
-       return $this->providerTransaction;
-    }
-    
+    private $provider;
+
     /**
-     *
-     * @return string|null
+     * @var ?string
      */
-    final public function getProvider()
+    private $trackingId;
+
+    public function __construct()
     {
-       return $this->provider;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getTrackingId()
+    public function getIsReturn()
     {
-       return $this->trackingId;
+        return $this->isReturn;
     }
+
+    /**
+     * @return null|string
+     */
+    public function getCarrier()
+    {
+        return $this->carrier;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getProviderTransaction()
+    {
+        return $this->providerTransaction;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getProvider()
+    {
+        return $this->provider;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTrackingId()
+    {
+        return $this->trackingId;
+    }
+
     /**
      * @return $this
      */
-    final public function withIsReturn(?bool $isReturn)
+    public function withIsReturn(?bool $isReturn)
     {
         $this->isReturn = $isReturn;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withCarrier(?string $carrier)
+    public function withCarrier(?string $carrier)
     {
         $this->carrier = $carrier;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProviderTransaction(?string $providerTransaction)
+    public function withProviderTransaction(?string $providerTransaction)
     {
         $this->providerTransaction = $providerTransaction;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withProvider(?string $provider)
+    public function withProvider(?string $provider)
     {
         $this->provider = $provider;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withTrackingId(?string $trackingId)
+    public function withTrackingId(?string $trackingId)
     {
         $this->trackingId = $trackingId;
-        
+
         return $this;
     }
-    
-    public function build(): TrackingData {
+
+    public function build(): TrackingData
+    {
         return new TrackingDataModel(
             $this->isReturn,
             $this->carrier,
@@ -148,7 +144,7 @@ final class TrackingDataBuilder implements Builder
             $this->trackingId
         );
     }
-    
+
     public static function of(): TrackingDataBuilder
     {
         return new self();

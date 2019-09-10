@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<SubscriptionDraft>
+ *
  * @method SubscriptionDraft current()
  * @method SubscriptionDraft at($offset)
  */
@@ -20,8 +23,12 @@ class SubscriptionDraftCollection extends MapperSequence
     /**
      * @psalm-assert SubscriptionDraft $value
      * @psalm-param SubscriptionDraft|stdClass $value
-     * @return SubscriptionDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return SubscriptionDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class SubscriptionDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?SubscriptionDraft {
+        return function (int $index): ?SubscriptionDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = SubscriptionDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

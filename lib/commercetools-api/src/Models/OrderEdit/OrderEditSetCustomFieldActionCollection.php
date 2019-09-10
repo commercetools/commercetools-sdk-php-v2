@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<OrderEditSetCustomFieldAction>
+ *
  * @method OrderEditSetCustomFieldAction current()
  * @method OrderEditSetCustomFieldAction at($offset)
  */
@@ -20,8 +23,12 @@ class OrderEditSetCustomFieldActionCollection extends MapperSequence
     /**
      * @psalm-assert OrderEditSetCustomFieldAction $value
      * @psalm-param OrderEditSetCustomFieldAction|stdClass $value
-     * @return OrderEditSetCustomFieldActionCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return OrderEditSetCustomFieldActionCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class OrderEditSetCustomFieldActionCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?OrderEditSetCustomFieldAction {
+        return function (int $index): ?OrderEditSetCustomFieldAction {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = OrderEditSetCustomFieldActionModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

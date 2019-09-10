@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<TaxedPrice>
+ *
  * @method TaxedPrice current()
  * @method TaxedPrice at($offset)
  */
@@ -20,8 +23,12 @@ class TaxedPriceCollection extends MapperSequence
     /**
      * @psalm-assert TaxedPrice $value
      * @psalm-param TaxedPrice|stdClass $value
-     * @return TaxedPriceCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return TaxedPriceCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class TaxedPriceCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?TaxedPrice {
+        return function (int $index): ?TaxedPrice {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = TaxedPriceModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

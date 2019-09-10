@@ -1,22 +1,42 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Message;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Product\ProductProjection;
 use Commercetools\Api\Models\Product\ProductProjectionModel;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductPublishedMessagePayloadModel extends JsonObjectModel implements ProductPublishedMessagePayload
 {
     const DISCRIMINATOR_VALUE = 'ProductPublished';
+
+    /**
+     * @var ?string
+     */
+    protected $type;
+
+    /**
+     * @var ?array
+     */
+    protected $removedImageUrls;
+
+    /**
+     * @var ?ProductProjection
+     */
+    protected $productProjection;
+
+    /**
+     * @var ?string
+     */
+    protected $scope;
+
     public function __construct(
         string $type = null,
         array $removedImageUrls = null,
@@ -27,115 +47,94 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
         $this->removedImageUrls = $removedImageUrls;
         $this->productProjection = $productProjection;
         $this->scope = $scope;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $type;
-    
-    /**
-     * @var ?array
-     */
-    protected $removedImageUrls;
-    
-    /**
-     * @var ?ProductProjection
-     */
-    protected $productProjection;
-    
-    /**
-     * @var ?string
-     */
-    protected $scope;
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MessagePayload::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|array
      */
-    final public function getType()
+    public function getRemovedImageUrls()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(MessagePayload::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->type = (string)$data;
-       }
-       return $this->type;
+        if (is_null($this->removedImageUrls)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(ProductPublishedMessagePayload::FIELD_REMOVED_IMAGE_URLS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->removedImageUrls = $data;
+        }
+
+        return $this->removedImageUrls;
     }
-    
+
     /**
-     *
-     * @return array|null
+     * @return null|ProductProjection
      */
-    final public function getRemovedImageUrls()
+    public function getProductProjection()
     {
-       if (is_null($this->removedImageUrls)) {
-           /** @psalm-var ?array<int, mixed> $data */
-           $data = $this->raw(ProductPublishedMessagePayload::FIELD_REMOVED_IMAGE_URLS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->removedImageUrls = $data;
-       }
-       return $this->removedImageUrls;
+        if (is_null($this->productProjection)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductPublishedMessagePayload::FIELD_PRODUCT_PROJECTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->productProjection = ProductProjectionModel::of($data);
+        }
+
+        return $this->productProjection;
     }
-    
+
     /**
-     *
-     * @return ProductProjection|null
+     * @return null|string
      */
-    final public function getProductProjection()
+    public function getScope()
     {
-       if (is_null($this->productProjection)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductPublishedMessagePayload::FIELD_PRODUCT_PROJECTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->productProjection = ProductProjectionModel::of($data);
-       }
-       return $this->productProjection;
+        if (is_null($this->scope)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductPublishedMessagePayload::FIELD_SCOPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->scope = (string) $data;
+        }
+
+        return $this->scope;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getScope()
-    {
-       if (is_null($this->scope)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductPublishedMessagePayload::FIELD_SCOPE);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->scope = (string)$data;
-       }
-       return $this->scope;
-    }
-    final public function setType(?string $type): void
+
+    public function setType(?string $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setRemovedImageUrls(?array $removedImageUrls): void
+
+    public function setRemovedImageUrls(?array $removedImageUrls): void
     {
         $this->removedImageUrls = $removedImageUrls;
     }
-    
-    final public function setProductProjection(?ProductProjection $productProjection): void
+
+    public function setProductProjection(?ProductProjection $productProjection): void
     {
         $this->productProjection = $productProjection;
     }
-    
-    final public function setScope(?string $scope): void
+
+    public function setScope(?string $scope): void
     {
         $this->scope = $scope;
     }
-    
 }

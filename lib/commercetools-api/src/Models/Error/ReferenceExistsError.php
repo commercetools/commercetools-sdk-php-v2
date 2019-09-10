@@ -1,22 +1,21 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Error;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\Error;
 
 interface ReferenceExistsError extends ErrorObject
 {
-    
     const FIELD_REFERENCED_BY = 'referencedBy';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getReferencedBy();
+
     public function setReferencedBy(?string $referencedBy): void;
 }

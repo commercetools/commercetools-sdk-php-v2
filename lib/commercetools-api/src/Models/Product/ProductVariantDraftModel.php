@@ -1,23 +1,51 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Product;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Common\PriceDraftCollection;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductVariantDraftModel extends JsonObjectModel implements ProductVariantDraft
 {
-    
+    /**
+     * @var ?ImageCollection
+     */
+    protected $images;
+
+    /**
+     * @var ?AssetDraftCollection
+     */
+    protected $assets;
+
+    /**
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
+
+    /**
+     * @var ?PriceDraftCollection
+     */
+    protected $prices;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
     public function __construct(
         ImageCollection $images = null,
         AssetDraftCollection $assets = null,
@@ -32,168 +60,137 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
         $this->prices = $prices;
         $this->sku = $sku;
         $this->key = $key;
-        
     }
 
     /**
-     * @var ?ImageCollection
+     * @return null|ImageCollection
      */
-    protected $images;
-    
-    /**
-     * @var ?AssetDraftCollection
-     */
-    protected $assets;
-    
-    /**
-     * @var ?AttributeCollection
-     */
-    protected $attributes;
-    
-    /**
-     * @var ?PriceDraftCollection
-     */
-    protected $prices;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
+    public function getImages()
+    {
+        if (is_null($this->images)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_IMAGES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->images = ImageCollection::fromArray($data);
+        }
+
+        return $this->images;
+    }
 
     /**
-     *
-     * @return ImageCollection|null
+     * @return null|AssetDraftCollection
      */
-    final public function getImages()
+    public function getAssets()
     {
-       if (is_null($this->images)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductVariantDraft::FIELD_IMAGES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->images = ImageCollection::fromArray($data);
-       }
-       return $this->images;
+        if (is_null($this->assets)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_ASSETS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assets = AssetDraftCollection::fromArray($data);
+        }
+
+        return $this->assets;
     }
-    
+
     /**
-     *
-     * @return AssetDraftCollection|null
+     * @return null|AttributeCollection
      */
-    final public function getAssets()
+    public function getAttributes()
     {
-       if (is_null($this->assets)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductVariantDraft::FIELD_ASSETS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->assets = AssetDraftCollection::fromArray($data);
-       }
-       return $this->assets;
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
     }
-    
+
     /**
-     *
-     * @return AttributeCollection|null
+     * @return null|PriceDraftCollection
      */
-    final public function getAttributes()
+    public function getPrices()
     {
-       if (is_null($this->attributes)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductVariantDraft::FIELD_ATTRIBUTES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->attributes = AttributeCollection::fromArray($data);
-       }
-       return $this->attributes;
+        if (is_null($this->prices)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_PRICES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->prices = PriceDraftCollection::fromArray($data);
+        }
+
+        return $this->prices;
     }
-    
+
     /**
-     *
-     * @return PriceDraftCollection|null
+     * @return null|string
      */
-    final public function getPrices()
+    public function getSku()
     {
-       if (is_null($this->prices)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(ProductVariantDraft::FIELD_PRICES);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->prices = PriceDraftCollection::fromArray($data);
-       }
-       return $this->prices;
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSku()
+    public function getKey()
     {
-       if (is_null($this->sku)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductVariantDraft::FIELD_SKU);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sku = (string)$data;
-       }
-       return $this->sku;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getKey()
-    {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductVariantDraft::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
-    }
-    final public function setImages(?ImageCollection $images): void
+
+    public function setImages(?ImageCollection $images): void
     {
         $this->images = $images;
     }
-    
-    final public function setAssets(?AssetDraftCollection $assets): void
+
+    public function setAssets(?AssetDraftCollection $assets): void
     {
         $this->assets = $assets;
     }
-    
-    final public function setAttributes(?AttributeCollection $attributes): void
+
+    public function setAttributes(?AttributeCollection $attributes): void
     {
         $this->attributes = $attributes;
     }
-    
-    final public function setPrices(?PriceDraftCollection $prices): void
+
+    public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
-    
-    final public function setSku(?string $sku): void
+
+    public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
 }

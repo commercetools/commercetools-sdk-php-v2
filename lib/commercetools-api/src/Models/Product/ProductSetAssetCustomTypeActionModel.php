@@ -1,22 +1,63 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Product;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Type\TypeResourceIdentifier;
 use Commercetools\Api\Models\Type\TypeResourceIdentifierModel;
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use stdClass;
 
 final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel implements ProductSetAssetCustomTypeAction
 {
     const DISCRIMINATOR_VALUE = 'setAssetCustomType';
+
+    /**
+     * @var ?string
+     */
+    protected $action;
+
+    /**
+     * @var ?string
+     */
+    protected $assetId;
+
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
+    /**
+     * @var ?int
+     */
+    protected $variantId;
+
+    /**
+     * @var ?JsonObject
+     */
+    protected $fields;
+
+    /**
+     * @var ?TypeResourceIdentifier
+     */
+    protected $type;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     * @var ?string
+     */
+    protected $assetKey;
+
     public function __construct(
         string $action = null,
         string $assetId = null,
@@ -35,223 +76,182 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
         $this->type = $type;
         $this->sku = $sku;
         $this->assetKey = $assetKey;
-        
     }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    protected $action;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetId;
-    
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-    
-    /**
-     * @var ?int
-     */
-    protected $variantId;
-    
-    /**
-     * @var ?JsonObject
-     */
-    protected $fields;
-    
-    /**
-     * @var ?TypeResourceIdentifier
-     */
-    protected $type;
-    
-    /**
-     * @var ?string
-     */
-    protected $sku;
-    
-    /**
-     * @var ?string
-     */
-    protected $assetKey;
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
+    }
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getAction()
+    public function getAssetId()
     {
-       if (is_null($this->action)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductUpdateAction::FIELD_ACTION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->action = (string)$data;
-       }
-       return $this->action;
+        if (is_null($this->assetId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_ASSET_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetId = (string) $data;
+        }
+
+        return $this->assetId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|bool
      */
-    final public function getAssetId()
+    public function getStaged()
     {
-       if (is_null($this->assetId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_ASSET_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->assetId = (string)$data;
-       }
-       return $this->assetId;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|int
      */
-    final public function getStaged()
+    public function getVariantId()
     {
-       if (is_null($this->staged)) {
-           /** @psalm-var ?bool $data */
-           $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_STAGED);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->staged = (bool)$data;
-       }
-       return $this->staged;
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|JsonObject
      */
-    final public function getVariantId()
+    public function getFields()
     {
-       if (is_null($this->variantId)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_VARIANT_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->variantId = (int)$data;
-       }
-       return $this->variantId;
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fields = JsonObjectModel::of($data);
+        }
+
+        return $this->fields;
     }
-    
+
     /**
-     *
-     * @return JsonObject|null
+     * @return null|TypeResourceIdentifier
      */
-    final public function getFields()
+    public function getType()
     {
-       if (is_null($this->fields)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_FIELDS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->fields = JsonObjectModel::of($data);
-       }
-       return $this->fields;
+        if (is_null($this->type)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->type = TypeResourceIdentifierModel::of($data);
+        }
+
+        return $this->type;
     }
-    
+
     /**
-     *
-     * @return TypeResourceIdentifier|null
+     * @return null|string
      */
-    final public function getType()
+    public function getSku()
     {
-       if (is_null($this->type)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_TYPE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->type = TypeResourceIdentifierModel::of($data);
-       }
-       return $this->type;
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
-    final public function getSku()
+    public function getAssetKey()
     {
-       if (is_null($this->sku)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_SKU);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->sku = (string)$data;
-       }
-       return $this->sku;
+        if (is_null($this->assetKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_ASSET_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetKey = (string) $data;
+        }
+
+        return $this->assetKey;
     }
-    
-    /**
-     *
-     * @return string|null
-     */
-    final public function getAssetKey()
-    {
-       if (is_null($this->assetKey)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(ProductSetAssetCustomTypeAction::FIELD_ASSET_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->assetKey = (string)$data;
-       }
-       return $this->assetKey;
-    }
-    final public function setAction(?string $action): void
+
+    public function setAction(?string $action): void
     {
         $this->action = $action;
     }
-    
-    final public function setAssetId(?string $assetId): void
+
+    public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
-    
-    final public function setStaged(?bool $staged): void
+
+    public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
     }
-    
-    final public function setVariantId(?int $variantId): void
+
+    public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
     }
-    
-    final public function setFields(?JsonObject $fields): void
+
+    public function setFields(?JsonObject $fields): void
     {
         $this->fields = $fields;
     }
-    
-    final public function setType(?TypeResourceIdentifier $type): void
+
+    public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
     }
-    
-    final public function setSku(?string $sku): void
+
+    public function setSku(?string $sku): void
     {
         $this->sku = $sku;
     }
-    
-    final public function setAssetKey(?string $assetKey): void
+
+    public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
     }
-    
 }

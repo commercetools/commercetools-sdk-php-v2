@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Subscription;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<IronMqDestination>
+ *
  * @method IronMqDestination current()
  * @method IronMqDestination at($offset)
  */
@@ -20,8 +23,12 @@ class IronMqDestinationCollection extends MapperSequence
     /**
      * @psalm-assert IronMqDestination $value
      * @psalm-param IronMqDestination|stdClass $value
-     * @return IronMqDestinationCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return IronMqDestinationCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class IronMqDestinationCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?IronMqDestination {
+        return function (int $index): ?IronMqDestination {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = IronMqDestinationModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }

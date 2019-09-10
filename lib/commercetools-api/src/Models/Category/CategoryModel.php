@@ -1,15 +1,12 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\Category;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
+namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\BaseResource;
@@ -20,15 +17,110 @@ use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\LoggedResourceModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use DateTimeImmutableModel;
+use stdClass;
 
 final class CategoryModel extends JsonObjectModel implements Category
 {
-    
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
+
+    /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     * @var ?int
+     */
+    protected $version;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
+    /**
+     * @var ?CategoryReference
+     */
+    protected $parent;
+
+    /**
+     * @var ?AssetCollection
+     */
+    protected $assets;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaKeywords;
+
+    /**
+     * @var ?string
+     */
+    protected $orderHint;
+
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaTitle;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $externalId;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?CategoryReferenceCollection
+     */
+    protected $ancestors;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaDescription;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
+
     public function __construct(
         DateTimeImmutable $createdAt = null,
         DateTimeImmutable $lastModifiedAt = null,
@@ -69,548 +161,455 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->metaDescription = $metaDescription;
         $this->key = $key;
         $this->slug = $slug;
-        
     }
 
     /**
-     * @var ?DateTimeImmutable
+     * @return null|DateTimeImmutable
      */
-    protected $createdAt;
-    
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-    
-    /**
-     * @var ?string
-     */
-    protected $id;
-    
-    /**
-     * @var ?int
-     */
-    protected $version;
-    
-    /**
-     * @var ?CreatedBy
-     */
-    protected $createdBy;
-    
-    /**
-     * @var ?LastModifiedBy
-     */
-    protected $lastModifiedBy;
-    
-    /**
-     * @var ?CategoryReference
-     */
-    protected $parent;
-    
-    /**
-     * @var ?AssetCollection
-     */
-    protected $assets;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaKeywords;
-    
-    /**
-     * @var ?string
-     */
-    protected $orderHint;
-    
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaTitle;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-    
-    /**
-     * @var ?string
-     */
-    protected $externalId;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-    
-    /**
-     * @var ?CategoryReferenceCollection
-     */
-    protected $ancestors;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaDescription;
-    
-    /**
-     * @var ?string
-     */
-    protected $key;
-    
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
+    public function getCreatedAt()
+    {
+        if (is_null($this->createdAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->createdAt = $data;
+        }
+
+        return $this->createdAt;
+    }
 
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|DateTimeImmutable
      */
-    final public function getCreatedAt()
+    public function getLastModifiedAt()
     {
-       if (is_null($this->createdAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_CREATED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->createdAt = $data;
-       }
-       return $this->createdAt;
+        if (is_null($this->lastModifiedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->lastModifiedAt = $data;
+        }
+
+        return $this->lastModifiedAt;
     }
-    
+
     /**
-     *
-     * @return DateTimeImmutable|null
+     * @return null|string
      */
-    final public function getLastModifiedAt()
+    public function getId()
     {
-       if (is_null($this->lastModifiedAt)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
-           if (is_null($data)) {
-               return null;
-           }
-           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-           if ($data === false) {
-               return null;
-           }
-           $this->lastModifiedAt = $data;
-       }
-       return $this->lastModifiedAt;
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|int
      */
-    final public function getId()
+    public function getVersion()
     {
-       if (is_null($this->id)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(BaseResource::FIELD_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->id = (string)$data;
-       }
-       return $this->id;
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(BaseResource::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
-    
+
     /**
-     *
-     * @return int|null
+     * @return null|CreatedBy
      */
-    final public function getVersion()
+    public function getCreatedBy()
     {
-       if (is_null($this->version)) {
-           /** @psalm-var ?int $data */
-           $data = $this->raw(BaseResource::FIELD_VERSION);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->version = (int)$data;
-       }
-       return $this->version;
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
     }
-    
+
     /**
-     *
-     * @return CreatedBy|null
+     * @return null|LastModifiedBy
      */
-    final public function getCreatedBy()
+    public function getLastModifiedBy()
     {
-       if (is_null($this->createdBy)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->createdBy = CreatedByModel::of($data);
-       }
-       return $this->createdBy;
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
+        }
+
+        return $this->lastModifiedBy;
     }
-    
+
     /**
-     *
-     * @return LastModifiedBy|null
+     * @return null|CategoryReference
      */
-    final public function getLastModifiedBy()
+    public function getParent()
     {
-       if (is_null($this->lastModifiedBy)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->lastModifiedBy = LastModifiedByModel::of($data);
-       }
-       return $this->lastModifiedBy;
+        if (is_null($this->parent)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_PARENT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->parent = CategoryReferenceModel::of($data);
+        }
+
+        return $this->parent;
     }
-    
+
     /**
-     *
-     * @return CategoryReference|null
+     * @return null|AssetCollection
      */
-    final public function getParent()
+    public function getAssets()
     {
-       if (is_null($this->parent)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Category::FIELD_PARENT);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->parent = CategoryReferenceModel::of($data);
-       }
-       return $this->parent;
+        if (is_null($this->assets)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(Category::FIELD_ASSETS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assets = AssetCollection::fromArray($data);
+        }
+
+        return $this->assets;
     }
-    
+
     /**
-     *
-     * @return AssetCollection|null
+     * @return null|LocalizedString
      */
-    final public function getAssets()
+    public function getMetaKeywords()
     {
-       if (is_null($this->assets)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(Category::FIELD_ASSETS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->assets = AssetCollection::fromArray($data);
-       }
-       return $this->assets;
+        if (is_null($this->metaKeywords)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_META_KEYWORDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaKeywords = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaKeywords;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getMetaKeywords()
+    public function getOrderHint()
     {
-       if (is_null($this->metaKeywords)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Category::FIELD_META_KEYWORDS);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->metaKeywords = LocalizedStringModel::of($data);
-       }
-       return $this->metaKeywords;
+        if (is_null($this->orderHint)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Category::FIELD_ORDER_HINT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->orderHint = (string) $data;
+        }
+
+        return $this->orderHint;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|CustomFields
      */
-    final public function getOrderHint()
+    public function getCustom()
     {
-       if (is_null($this->orderHint)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(Category::FIELD_ORDER_HINT);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->orderHint = (string)$data;
-       }
-       return $this->orderHint;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
     }
-    
+
     /**
-     *
-     * @return CustomFields|null
+     * @return null|LocalizedString
      */
-    final public function getCustom()
+    public function getMetaTitle()
     {
-       if (is_null($this->custom)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Category::FIELD_CUSTOM);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->custom = CustomFieldsModel::of($data);
-       }
-       return $this->custom;
+        if (is_null($this->metaTitle)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_META_TITLE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaTitle = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaTitle;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|LocalizedString
      */
-    final public function getMetaTitle()
+    public function getName()
     {
-       if (is_null($this->metaTitle)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Category::FIELD_META_TITLE);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->metaTitle = LocalizedStringModel::of($data);
-       }
-       return $this->metaTitle;
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getName()
+    public function getExternalId()
     {
-       if (is_null($this->name)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Category::FIELD_NAME);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->name = LocalizedStringModel::of($data);
-       }
-       return $this->name;
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Category::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getExternalId()
+    public function getDescription()
     {
-       if (is_null($this->externalId)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(Category::FIELD_EXTERNAL_ID);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->externalId = (string)$data;
-       }
-       return $this->externalId;
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|CategoryReferenceCollection
      */
-    final public function getDescription()
+    public function getAncestors()
     {
-       if (is_null($this->description)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Category::FIELD_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->description = LocalizedStringModel::of($data);
-       }
-       return $this->description;
+        if (is_null($this->ancestors)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(Category::FIELD_ANCESTORS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->ancestors = CategoryReferenceCollection::fromArray($data);
+        }
+
+        return $this->ancestors;
     }
-    
+
     /**
-     *
-     * @return CategoryReferenceCollection|null
+     * @return null|LocalizedString
      */
-    final public function getAncestors()
+    public function getMetaDescription()
     {
-       if (is_null($this->ancestors)) {
-           /** @psalm-var ?array<int, stdClass> $data */
-           $data = $this->raw(Category::FIELD_ANCESTORS);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->ancestors = CategoryReferenceCollection::fromArray($data);
-       }
-       return $this->ancestors;
+        if (is_null($this->metaDescription)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_META_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaDescription = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaDescription;
     }
-    
+
     /**
-     *
-     * @return LocalizedString|null
+     * @return null|string
      */
-    final public function getMetaDescription()
+    public function getKey()
     {
-       if (is_null($this->metaDescription)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Category::FIELD_META_DESCRIPTION);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->metaDescription = LocalizedStringModel::of($data);
-       }
-       return $this->metaDescription;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Category::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
-    
+
     /**
-     *
-     * @return string|null
+     * @return null|LocalizedString
      */
-    final public function getKey()
+    public function getSlug()
     {
-       if (is_null($this->key)) {
-           /** @psalm-var ?string $data */
-           $data = $this->raw(Category::FIELD_KEY);
-           if (is_null($data)) {
-               return null;
-           }
-           $this->key = (string)$data;
-       }
-       return $this->key;
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
     }
-    
-    /**
-     *
-     * @return LocalizedString|null
-     */
-    final public function getSlug()
-    {
-       if (is_null($this->slug)) {
-           /** @psalm-var stdClass|array<string, mixed>|null $data */
-           $data = $this->raw(Category::FIELD_SLUG);
-           if (is_null($data)) {
-               return null;
-           }
-           
-           $this->slug = LocalizedStringModel::of($data);
-       }
-       return $this->slug;
-    }
-    final public function setCreatedAt(?DateTimeImmutable $createdAt): void
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
-    
-    final public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
     }
-    
-    final public function setId(?string $id): void
+
+    public function setId(?string $id): void
     {
         $this->id = $id;
     }
-    
-    final public function setVersion(?int $version): void
+
+    public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
-    
-    final public function setCreatedBy(?CreatedBy $createdBy): void
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
     }
-    
-    final public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
     }
-    
-    final public function setParent(?CategoryReference $parent): void
+
+    public function setParent(?CategoryReference $parent): void
     {
         $this->parent = $parent;
     }
-    
-    final public function setAssets(?AssetCollection $assets): void
+
+    public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;
     }
-    
-    final public function setMetaKeywords(?LocalizedString $metaKeywords): void
+
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
     }
-    
-    final public function setOrderHint(?string $orderHint): void
+
+    public function setOrderHint(?string $orderHint): void
     {
         $this->orderHint = $orderHint;
     }
-    
-    final public function setCustom(?CustomFields $custom): void
+
+    public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
     }
-    
-    final public function setMetaTitle(?LocalizedString $metaTitle): void
+
+    public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
-    
-    final public function setName(?LocalizedString $name): void
+
+    public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
-    
-    final public function setExternalId(?string $externalId): void
+
+    public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
-    
-    final public function setDescription(?LocalizedString $description): void
+
+    public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
-    
-    final public function setAncestors(?CategoryReferenceCollection $ancestors): void
+
+    public function setAncestors(?CategoryReferenceCollection $ancestors): void
     {
         $this->ancestors = $ancestors;
     }
-    
-    final public function setMetaDescription(?LocalizedString $metaDescription): void
+
+    public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
-    
-    final public function setKey(?string $key): void
+
+    public function setKey(?string $key): void
     {
         $this->key = $key;
     }
-    
-    final public function setSlug(?LocalizedString $slug): void
+
+    public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
     }
-    public function jsonSerialize() {
+
+    public function jsonSerialize()
+    {
         $data = $this->toArray();
         if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-           $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        
+
         if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-           $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
-        return (object)$data;
+
+        return (object) $data;
     }
-    
 }

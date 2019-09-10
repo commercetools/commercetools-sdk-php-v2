@@ -1,90 +1,90 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
-use Commercetools\Base\JsonObjectModel;
-use Commercetools\Base\MapperFactory;
-use stdClass;
 use Commercetools\Api\Models\Order\ReturnInfo;
 use Commercetools\Api\Models\Order\ReturnInfoBuilder;
+use Commercetools\Base\Builder;
 
 /**
  * @implements Builder<OrderReturnInfoAddedMessagePayload>
  */
 final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
 {
-    public function __construct() {
-    }
-
     /**
      * @var ?string
      */
-    protected $type;
-    
-    /**
-     * @var ?ReturnInfoBuilder|ReturnInfo
-     */
-    protected $returnInfo;
+    private $type;
 
     /**
-     *
-     * @return string|null
+     * @var ReturnInfo|?ReturnInfoBuilder
      */
-    final public function getType()
+    private $returnInfo;
+
+    public function __construct()
     {
-       return $this->type;
     }
-    
+
     /**
-     *
-     * @return ReturnInfo|null
+     * @return null|string
      */
-    final public function getReturnInfo()
+    public function getType()
     {
-       return ($this->returnInfo instanceof ReturnInfoBuilder ? $this->returnInfo->build() : $this->returnInfo);
+        return $this->type;
     }
+
+    /**
+     * @return null|ReturnInfo
+     */
+    public function getReturnInfo()
+    {
+        return $this->returnInfo instanceof ReturnInfoBuilder ? $this->returnInfo->build() : $this->returnInfo;
+    }
+
     /**
      * @return $this
      */
-    final public function withType(?string $type)
+    public function withType(?string $type)
     {
         $this->type = $type;
-        
+
         return $this;
     }
-    
+
     /**
      * @return $this
      */
-    final public function withReturnInfo(?ReturnInfo $returnInfo)
+    public function withReturnInfo(?ReturnInfo $returnInfo)
     {
         $this->returnInfo = $returnInfo;
-        
+
         return $this;
     }
+
     /**
      * @return $this
      */
-    final public function withReturnInfoBuilder(?ReturnInfoBuilder $returnInfo)
+    public function withReturnInfoBuilder(?ReturnInfoBuilder $returnInfo)
     {
         $this->returnInfo = $returnInfo;
-        
+
         return $this;
     }
-    
-    public function build(): OrderReturnInfoAddedMessagePayload {
+
+    public function build(): OrderReturnInfoAddedMessagePayload
+    {
         return new OrderReturnInfoAddedMessagePayloadModel(
             $this->type,
             ($this->returnInfo instanceof ReturnInfoBuilder ? $this->returnInfo->build() : $this->returnInfo)
         );
     }
-    
+
     public static function of(): OrderReturnInfoAddedMessagePayloadBuilder
     {
         return new self();

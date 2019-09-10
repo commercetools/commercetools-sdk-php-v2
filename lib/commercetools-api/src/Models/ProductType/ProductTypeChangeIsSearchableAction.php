@@ -1,31 +1,29 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
-namespace Commercetools\Api\Models\ProductType;
+ * Do not change it.
+ */
 
-use Commercetools\Base\JsonObject;
+namespace Commercetools\Api\Models\ProductType;
 
 interface ProductTypeChangeIsSearchableAction extends ProductTypeUpdateAction
 {
-    
     const FIELD_ATTRIBUTE_NAME = 'attributeName';
     const FIELD_IS_SEARCHABLE = 'isSearchable';
 
     /**
-     *
-     * @return string|null
+     * @return null|string
      */
     public function getAttributeName();
-    
+
     /**
-     *
-     * @return bool|null
+     * @return null|bool
      */
     public function getIsSearchable();
+
     public function setAttributeName(?string $attributeName): void;
-    
+
     public function setIsSearchable(?bool $isSearchable): void;
 }

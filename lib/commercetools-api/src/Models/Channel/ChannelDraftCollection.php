@@ -1,9 +1,11 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 /**
  * This file has been auto generated
- * Do not change it
-*/
+ * Do not change it.
+ */
+
 namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Base\MapperSequence;
@@ -12,6 +14,7 @@ use stdClass;
 
 /**
  * @extends MapperSequence<ChannelDraft>
+ *
  * @method ChannelDraft current()
  * @method ChannelDraft at($offset)
  */
@@ -20,8 +23,12 @@ class ChannelDraftCollection extends MapperSequence
     /**
      * @psalm-assert ChannelDraft $value
      * @psalm-param ChannelDraft|stdClass $value
-     * @return ChannelDraftCollection
+     *
+     * @param mixed $value
+     *
      * @throws InvalidArgumentException
+     *
+     * @return ChannelDraftCollection
      */
     public function add($value)
     {
@@ -38,12 +45,13 @@ class ChannelDraftCollection extends MapperSequence
      */
     protected function mapper()
     {
-        return function(int $index): ?ChannelDraft {
+        return function (int $index): ?ChannelDraft {
             $data = $this->get($index);
             if ($data instanceof stdClass) {
                 $data = ChannelDraftModel::of($data);
                 $this->set($data, $index);
             }
+
             return $data;
         };
     }
