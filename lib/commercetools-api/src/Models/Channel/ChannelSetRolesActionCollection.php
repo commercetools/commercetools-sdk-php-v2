@@ -1,0 +1,50 @@
+<?php
+declare(strict_types = 1);
+/**
+ * This file has been auto generated
+ * Do not change it
+*/
+namespace Commercetools\Api\Models\Channel;
+
+use Commercetools\Base\MapperSequence;
+use Commercetools\Exception\InvalidArgumentException;
+use stdClass;
+
+/**
+ * @extends MapperSequence<ChannelSetRolesAction>
+ * @method ChannelSetRolesAction current()
+ * @method ChannelSetRolesAction at($offset)
+ */
+class ChannelSetRolesActionCollection extends MapperSequence
+{
+    /**
+     * @psalm-assert ChannelSetRolesAction $value
+     * @psalm-param ChannelSetRolesAction|stdClass $value
+     * @return ChannelSetRolesActionCollection
+     * @throws InvalidArgumentException
+     */
+    public function add($value)
+    {
+        if (!$value instanceof ChannelSetRolesAction) {
+            throw new InvalidArgumentException();
+        }
+        $this->store($value);
+
+        return $this;
+    }
+
+    /**
+     * @psalm-return callable(int):?ChannelSetRolesAction
+     */
+    protected function mapper()
+    {
+        return function(int $index): ?ChannelSetRolesAction {
+            $data = $this->get($index);
+            if ($data instanceof stdClass) {
+                $data = ChannelSetRolesActionModel::of($data);
+                $this->set($data, $index);
+            }
+            return $data;
+        };
+    }
+}

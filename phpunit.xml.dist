@@ -7,18 +7,19 @@
     <testsuites>
         <testsuite name="unit">
             <directory suffix="Test.php">test/unit</directory>
-            <directory suffix="Test.php">lib/test/unit</directory>
+            <directory suffix="Test.php">lib/commercetools-api/test/unit</directory>
+            <directory suffix="Test.php">lib/commercetools-base/test/unit</directory>
         </testsuite>
         <testsuite name="integration">
             <directory suffix="Test.php">test/integration</directory>
-            <directory suffix="Test.php">lib/test/integration</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">src</directory>
-            <directory suffix=".php">lib/src</directory>
+            <directory suffix=".php">lib/commercetools-api/src</directory>
+            <directory suffix=".php">lib/commercetools-base/src</directory>
         </whitelist>
     </filter>
 </phpunit>

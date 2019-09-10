@@ -1,0 +1,676 @@
+<?php
+declare(strict_types = 1);
+/**
+ * This file has been auto generated
+ * Do not change it
+*/
+namespace Commercetools\Api\Models\Payment;
+
+use Commercetools\Base\JsonObject;
+use Commercetools\Base\JsonObjectModel;
+use Commercetools\Base\MapperFactory;
+use stdClass;
+
+use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\CreatedByModel;
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Api\Models\Common\LoggedResource;
+use Commercetools\Api\Models\Common\LoggedResourceModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Customer\CustomerReference;
+use Commercetools\Api\Models\Customer\CustomerReferenceModel;
+use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Type\CustomFieldsCollection;
+use Commercetools\Api\Models\Type\CustomFieldsModel;
+use DateTimeImmutable;
+use DateTimeImmutableModel;
+
+final class PaymentModel extends JsonObjectModel implements Payment
+{
+    
+    public function __construct(
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
+        string $id = null,
+        int $version = null,
+        CreatedBy $createdBy = null,
+        LastModifiedBy $lastModifiedBy = null,
+        TypedMoney $amountAuthorized = null,
+        string $anonymousId = null,
+        PaymentMethodInfo $paymentMethodInfo = null,
+        CustomFields $custom = null,
+        string $authorizedUntil = null,
+        string $externalId = null,
+        TransactionCollection $transactions = null,
+        TypedMoney $amountPaid = null,
+        TypedMoney $amountRefunded = null,
+        TypedMoney $amountPlanned = null,
+        CustomFieldsCollection $interfaceInteractions = null,
+        string $interfaceId = null,
+        string $key = null,
+        PaymentStatus $paymentStatus = null,
+        CustomerReference $customer = null
+    ) {
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
+        $this->id = $id;
+        $this->version = $version;
+        $this->createdBy = $createdBy;
+        $this->lastModifiedBy = $lastModifiedBy;
+        $this->amountAuthorized = $amountAuthorized;
+        $this->anonymousId = $anonymousId;
+        $this->paymentMethodInfo = $paymentMethodInfo;
+        $this->custom = $custom;
+        $this->authorizedUntil = $authorizedUntil;
+        $this->externalId = $externalId;
+        $this->transactions = $transactions;
+        $this->amountPaid = $amountPaid;
+        $this->amountRefunded = $amountRefunded;
+        $this->amountPlanned = $amountPlanned;
+        $this->interfaceInteractions = $interfaceInteractions;
+        $this->interfaceId = $interfaceId;
+        $this->key = $key;
+        $this->paymentStatus = $paymentStatus;
+        $this->customer = $customer;
+        
+    }
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
+    
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
+    
+    /**
+     * @var ?string
+     */
+    protected $id;
+    
+    /**
+     * @var ?int
+     */
+    protected $version;
+    
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+    
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+    
+    /**
+     * @var ?TypedMoney
+     */
+    protected $amountAuthorized;
+    
+    /**
+     * @var ?string
+     */
+    protected $anonymousId;
+    
+    /**
+     * @var ?PaymentMethodInfo
+     */
+    protected $paymentMethodInfo;
+    
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+    
+    /**
+     * @var ?string
+     */
+    protected $authorizedUntil;
+    
+    /**
+     * @var ?string
+     */
+    protected $externalId;
+    
+    /**
+     * @var ?TransactionCollection
+     */
+    protected $transactions;
+    
+    /**
+     * @var ?TypedMoney
+     */
+    protected $amountPaid;
+    
+    /**
+     * @var ?TypedMoney
+     */
+    protected $amountRefunded;
+    
+    /**
+     * @var ?TypedMoney
+     */
+    protected $amountPlanned;
+    
+    /**
+     * @var ?CustomFieldsCollection
+     */
+    protected $interfaceInteractions;
+    
+    /**
+     * @var ?string
+     */
+    protected $interfaceId;
+    
+    /**
+     * @var ?string
+     */
+    protected $key;
+    
+    /**
+     * @var ?PaymentStatus
+     */
+    protected $paymentStatus;
+    
+    /**
+     * @var ?CustomerReference
+     */
+    protected $customer;
+
+    /**
+     *
+     * @return DateTimeImmutable|null
+     */
+    final public function getCreatedAt()
+    {
+       if (is_null($this->createdAt)) {
+           /** @psalm-var ?string $data */
+           $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+           if (is_null($data)) {
+               return null;
+           }
+           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+           if ($data === false) {
+               return null;
+           }
+           $this->createdAt = $data;
+       }
+       return $this->createdAt;
+    }
+    
+    /**
+     *
+     * @return DateTimeImmutable|null
+     */
+    final public function getLastModifiedAt()
+    {
+       if (is_null($this->lastModifiedAt)) {
+           /** @psalm-var ?string $data */
+           $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+           if (is_null($data)) {
+               return null;
+           }
+           $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+           if ($data === false) {
+               return null;
+           }
+           $this->lastModifiedAt = $data;
+       }
+       return $this->lastModifiedAt;
+    }
+    
+    /**
+     *
+     * @return string|null
+     */
+    final public function getId()
+    {
+       if (is_null($this->id)) {
+           /** @psalm-var ?string $data */
+           $data = $this->raw(BaseResource::FIELD_ID);
+           if (is_null($data)) {
+               return null;
+           }
+           $this->id = (string)$data;
+       }
+       return $this->id;
+    }
+    
+    /**
+     *
+     * @return int|null
+     */
+    final public function getVersion()
+    {
+       if (is_null($this->version)) {
+           /** @psalm-var ?int $data */
+           $data = $this->raw(BaseResource::FIELD_VERSION);
+           if (is_null($data)) {
+               return null;
+           }
+           $this->version = (int)$data;
+       }
+       return $this->version;
+    }
+    
+    /**
+     *
+     * @return CreatedBy|null
+     */
+    final public function getCreatedBy()
+    {
+       if (is_null($this->createdBy)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+           if (is_null($data)) {
+               return null;
+           }
+           
+           $this->createdBy = CreatedByModel::of($data);
+       }
+       return $this->createdBy;
+    }
+    
+    /**
+     *
+     * @return LastModifiedBy|null
+     */
+    final public function getLastModifiedBy()
+    {
+       if (is_null($this->lastModifiedBy)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+           if (is_null($data)) {
+               return null;
+           }
+           
+           $this->lastModifiedBy = LastModifiedByModel::of($data);
+       }
+       return $this->lastModifiedBy;
+    }
+    
+    /**
+     *
+     * @return TypedMoney|null
+     */
+    final public function getAmountAuthorized()
+    {
+       if (is_null($this->amountAuthorized)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(Payment::FIELD_AMOUNT_AUTHORIZED);
+           if (is_null($data)) {
+               return null;
+           }
+           $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+           $this->amountAuthorized = $className::of($data);
+       }
+       return $this->amountAuthorized;
+    }
+    
+    /**
+     *
+     * @return string|null
+     */
+    final public function getAnonymousId()
+    {
+       if (is_null($this->anonymousId)) {
+           /** @psalm-var ?string $data */
+           $data = $this->raw(Payment::FIELD_ANONYMOUS_ID);
+           if (is_null($data)) {
+               return null;
+           }
+           $this->anonymousId = (string)$data;
+       }
+       return $this->anonymousId;
+    }
+    
+    /**
+     *
+     * @return PaymentMethodInfo|null
+     */
+    final public function getPaymentMethodInfo()
+    {
+       if (is_null($this->paymentMethodInfo)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(Payment::FIELD_PAYMENT_METHOD_INFO);
+           if (is_null($data)) {
+               return null;
+           }
+           
+           $this->paymentMethodInfo = PaymentMethodInfoModel::of($data);
+       }
+       return $this->paymentMethodInfo;
+    }
+    
+    /**
+     *
+     * @return CustomFields|null
+     */
+    final public function getCustom()
+    {
+       if (is_null($this->custom)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(Payment::FIELD_CUSTOM);
+           if (is_null($data)) {
+               return null;
+           }
+           
+           $this->custom = CustomFieldsModel::of($data);
+       }
+       return $this->custom;
+    }
+    
+    /**
+     *
+     * @return string|null
+     */
+    final public function getAuthorizedUntil()
+    {
+       if (is_null($this->authorizedUntil)) {
+           /** @psalm-var ?string $data */
+           $data = $this->raw(Payment::FIELD_AUTHORIZED_UNTIL);
+           if (is_null($data)) {
+               return null;
+           }
+           $this->authorizedUntil = (string)$data;
+       }
+       return $this->authorizedUntil;
+    }
+    
+    /**
+     *
+     * @return string|null
+     */
+    final public function getExternalId()
+    {
+       if (is_null($this->externalId)) {
+           /** @psalm-var ?string $data */
+           $data = $this->raw(Payment::FIELD_EXTERNAL_ID);
+           if (is_null($data)) {
+               return null;
+           }
+           $this->externalId = (string)$data;
+       }
+       return $this->externalId;
+    }
+    
+    /**
+     *
+     * @return TransactionCollection|null
+     */
+    final public function getTransactions()
+    {
+       if (is_null($this->transactions)) {
+           /** @psalm-var ?array<int, stdClass> $data */
+           $data = $this->raw(Payment::FIELD_TRANSACTIONS);
+           if (is_null($data)) {
+               return null;
+           }
+           $this->transactions = TransactionCollection::fromArray($data);
+       }
+       return $this->transactions;
+    }
+    
+    /**
+     *
+     * @return TypedMoney|null
+     */
+    final public function getAmountPaid()
+    {
+       if (is_null($this->amountPaid)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(Payment::FIELD_AMOUNT_PAID);
+           if (is_null($data)) {
+               return null;
+           }
+           $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+           $this->amountPaid = $className::of($data);
+       }
+       return $this->amountPaid;
+    }
+    
+    /**
+     *
+     * @return TypedMoney|null
+     */
+    final public function getAmountRefunded()
+    {
+       if (is_null($this->amountRefunded)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(Payment::FIELD_AMOUNT_REFUNDED);
+           if (is_null($data)) {
+               return null;
+           }
+           $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+           $this->amountRefunded = $className::of($data);
+       }
+       return $this->amountRefunded;
+    }
+    
+    /**
+     *
+     * @return TypedMoney|null
+     */
+    final public function getAmountPlanned()
+    {
+       if (is_null($this->amountPlanned)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(Payment::FIELD_AMOUNT_PLANNED);
+           if (is_null($data)) {
+               return null;
+           }
+           $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+           $this->amountPlanned = $className::of($data);
+       }
+       return $this->amountPlanned;
+    }
+    
+    /**
+     *
+     * @return CustomFieldsCollection|null
+     */
+    final public function getInterfaceInteractions()
+    {
+       if (is_null($this->interfaceInteractions)) {
+           /** @psalm-var ?array<int, stdClass> $data */
+           $data = $this->raw(Payment::FIELD_INTERFACE_INTERACTIONS);
+           if (is_null($data)) {
+               return null;
+           }
+           $this->interfaceInteractions = CustomFieldsCollection::fromArray($data);
+       }
+       return $this->interfaceInteractions;
+    }
+    
+    /**
+     *
+     * @return string|null
+     */
+    final public function getInterfaceId()
+    {
+       if (is_null($this->interfaceId)) {
+           /** @psalm-var ?string $data */
+           $data = $this->raw(Payment::FIELD_INTERFACE_ID);
+           if (is_null($data)) {
+               return null;
+           }
+           $this->interfaceId = (string)$data;
+       }
+       return $this->interfaceId;
+    }
+    
+    /**
+     *
+     * @return string|null
+     */
+    final public function getKey()
+    {
+       if (is_null($this->key)) {
+           /** @psalm-var ?string $data */
+           $data = $this->raw(Payment::FIELD_KEY);
+           if (is_null($data)) {
+               return null;
+           }
+           $this->key = (string)$data;
+       }
+       return $this->key;
+    }
+    
+    /**
+     *
+     * @return PaymentStatus|null
+     */
+    final public function getPaymentStatus()
+    {
+       if (is_null($this->paymentStatus)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(Payment::FIELD_PAYMENT_STATUS);
+           if (is_null($data)) {
+               return null;
+           }
+           
+           $this->paymentStatus = PaymentStatusModel::of($data);
+       }
+       return $this->paymentStatus;
+    }
+    
+    /**
+     *
+     * @return CustomerReference|null
+     */
+    final public function getCustomer()
+    {
+       if (is_null($this->customer)) {
+           /** @psalm-var stdClass|array<string, mixed>|null $data */
+           $data = $this->raw(Payment::FIELD_CUSTOMER);
+           if (is_null($data)) {
+               return null;
+           }
+           
+           $this->customer = CustomerReferenceModel::of($data);
+       }
+       return $this->customer;
+    }
+    final public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+    
+    final public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+    }
+    
+    final public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
+    
+    final public function setVersion(?int $version): void
+    {
+        $this->version = $version;
+    }
+    
+    final public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+    
+    final public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+    }
+    
+    final public function setAmountAuthorized(?TypedMoney $amountAuthorized): void
+    {
+        $this->amountAuthorized = $amountAuthorized;
+    }
+    
+    final public function setAnonymousId(?string $anonymousId): void
+    {
+        $this->anonymousId = $anonymousId;
+    }
+    
+    final public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
+    {
+        $this->paymentMethodInfo = $paymentMethodInfo;
+    }
+    
+    final public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+    
+    final public function setAuthorizedUntil(?string $authorizedUntil): void
+    {
+        $this->authorizedUntil = $authorizedUntil;
+    }
+    
+    final public function setExternalId(?string $externalId): void
+    {
+        $this->externalId = $externalId;
+    }
+    
+    final public function setTransactions(?TransactionCollection $transactions): void
+    {
+        $this->transactions = $transactions;
+    }
+    
+    final public function setAmountPaid(?TypedMoney $amountPaid): void
+    {
+        $this->amountPaid = $amountPaid;
+    }
+    
+    final public function setAmountRefunded(?TypedMoney $amountRefunded): void
+    {
+        $this->amountRefunded = $amountRefunded;
+    }
+    
+    final public function setAmountPlanned(?TypedMoney $amountPlanned): void
+    {
+        $this->amountPlanned = $amountPlanned;
+    }
+    
+    final public function setInterfaceInteractions(?CustomFieldsCollection $interfaceInteractions): void
+    {
+        $this->interfaceInteractions = $interfaceInteractions;
+    }
+    
+    final public function setInterfaceId(?string $interfaceId): void
+    {
+        $this->interfaceId = $interfaceId;
+    }
+    
+    final public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+    
+    final public function setPaymentStatus(?PaymentStatus $paymentStatus): void
+    {
+        $this->paymentStatus = $paymentStatus;
+    }
+    
+    final public function setCustomer(?CustomerReference $customer): void
+    {
+        $this->customer = $customer;
+    }
+    public function jsonSerialize() {
+        $data = $this->toArray();
+        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+           $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        
+        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+           $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+        return (object)$data;
+    }
+    
+}

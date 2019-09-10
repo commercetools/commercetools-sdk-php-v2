@@ -1,0 +1,50 @@
+<?php
+declare(strict_types = 1);
+/**
+ * This file has been auto generated
+ * Do not change it
+*/
+namespace Commercetools\Api\Models\Cart;
+
+use Commercetools\Base\MapperSequence;
+use Commercetools\Exception\InvalidArgumentException;
+use stdClass;
+
+/**
+ * @extends MapperSequence<CartSetLineItemCustomTypeAction>
+ * @method CartSetLineItemCustomTypeAction current()
+ * @method CartSetLineItemCustomTypeAction at($offset)
+ */
+class CartSetLineItemCustomTypeActionCollection extends MapperSequence
+{
+    /**
+     * @psalm-assert CartSetLineItemCustomTypeAction $value
+     * @psalm-param CartSetLineItemCustomTypeAction|stdClass $value
+     * @return CartSetLineItemCustomTypeActionCollection
+     * @throws InvalidArgumentException
+     */
+    public function add($value)
+    {
+        if (!$value instanceof CartSetLineItemCustomTypeAction) {
+            throw new InvalidArgumentException();
+        }
+        $this->store($value);
+
+        return $this;
+    }
+
+    /**
+     * @psalm-return callable(int):?CartSetLineItemCustomTypeAction
+     */
+    protected function mapper()
+    {
+        return function(int $index): ?CartSetLineItemCustomTypeAction {
+            $data = $this->get($index);
+            if ($data instanceof stdClass) {
+                $data = CartSetLineItemCustomTypeActionModel::of($data);
+                $this->set($data, $index);
+            }
+            return $data;
+        };
+    }
+}

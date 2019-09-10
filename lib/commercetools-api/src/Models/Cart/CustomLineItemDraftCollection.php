@@ -1,0 +1,50 @@
+<?php
+declare(strict_types = 1);
+/**
+ * This file has been auto generated
+ * Do not change it
+*/
+namespace Commercetools\Api\Models\Cart;
+
+use Commercetools\Base\MapperSequence;
+use Commercetools\Exception\InvalidArgumentException;
+use stdClass;
+
+/**
+ * @extends MapperSequence<CustomLineItemDraft>
+ * @method CustomLineItemDraft current()
+ * @method CustomLineItemDraft at($offset)
+ */
+class CustomLineItemDraftCollection extends MapperSequence
+{
+    /**
+     * @psalm-assert CustomLineItemDraft $value
+     * @psalm-param CustomLineItemDraft|stdClass $value
+     * @return CustomLineItemDraftCollection
+     * @throws InvalidArgumentException
+     */
+    public function add($value)
+    {
+        if (!$value instanceof CustomLineItemDraft) {
+            throw new InvalidArgumentException();
+        }
+        $this->store($value);
+
+        return $this;
+    }
+
+    /**
+     * @psalm-return callable(int):?CustomLineItemDraft
+     */
+    protected function mapper()
+    {
+        return function(int $index): ?CustomLineItemDraft {
+            $data = $this->get($index);
+            if ($data instanceof stdClass) {
+                $data = CustomLineItemDraftModel::of($data);
+                $this->set($data, $index);
+            }
+            return $data;
+        };
+    }
+}
