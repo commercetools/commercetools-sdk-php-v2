@@ -2,22 +2,23 @@
   "name": "commercetools/raml-php-sdk",
   "license": "MIT",
   "type": "library",
+  "description": "Lorem ipsum",
   "autoload": {
     "psr-4": {
-      "Commercetools\\": [
-        "lib/commercetools-base/src/"
-      ],
       "Commercetools\\Api\\": [
         "lib/commercetools-api/src/"
+      ],
+      "Commercetools\\": [
+        "lib/commercetools-base/src/"
       ]
     }
   },
-  "autoload": {
+  "autoload-dev": {
     "psr-4": {
-      "Commercetools\\Test\\": [
-        "lib/commercetools-base/test/unit/"
-      ],
       "Commercetools\\Api\\Test\\": [
+        "lib/commercetools-api/test/unit/"
+      ],
+      "Commercetools\\Test\\": [
         "lib/commercetools-base/test/unit/"
       ]
     }

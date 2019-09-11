@@ -15,13 +15,18 @@ use Commercetools\Client\ApiResource;
 class ResourceByProjectKeyCustomObjects extends ApiResource
 {
     /**
+     * @psalm-param scalar $container
      * @psalm-param scalar $key
      *
+     * @param null|mixed $container
      * @param null|mixed $key
      */
-    public function withContainerAndKey($key = null): ResourceByProjectKeyCustomObjectsByContainerByKey
+    public function withContainerAndKey($container = null, $key = null): ResourceByProjectKeyCustomObjectsByContainerByKey
     {
         $args = $this->getArgs();
+        if (!is_null($container)) {
+            $args['container'] = $container;
+        }
         if (!is_null($key)) {
             $args['key'] = $key;
         }
@@ -30,15 +35,15 @@ class ResourceByProjectKeyCustomObjects extends ApiResource
     }
 
     /**
-     * @psalm-param scalar $container
+     * @psalm-param scalar $ID
      *
-     * @param null|mixed $container
+     * @param null|mixed $ID
      */
-    public function withId($container = null): ResourceByProjectKeyCustomObjectsByID
+    public function withId($ID = null): ResourceByProjectKeyCustomObjectsByID
     {
         $args = $this->getArgs();
-        if (!is_null($container)) {
-            $args['container'] = $container;
+        if (!is_null($ID)) {
+            $args['ID'] = $ID;
         }
 
         return new ResourceByProjectKeyCustomObjectsByID($this->getUri().'/{ID}', $args, $this->getClient());

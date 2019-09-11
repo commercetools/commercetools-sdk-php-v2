@@ -73,15 +73,15 @@ class ResourceByProjectKeyCustomers extends ApiResource
     }
 
     /**
-     * @psalm-param scalar $ID
+     * @psalm-param scalar $key
      *
-     * @param null|mixed $ID
+     * @param null|mixed $key
      */
-    public function withKey($ID = null): ResourceByProjectKeyCustomersKeyByKey
+    public function withKey($key = null): ResourceByProjectKeyCustomersKeyByKey
     {
         $args = $this->getArgs();
-        if (!is_null($ID)) {
-            $args['ID'] = $ID;
+        if (!is_null($key)) {
+            $args['key'] = $key;
         }
 
         return new ResourceByProjectKeyCustomersKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());

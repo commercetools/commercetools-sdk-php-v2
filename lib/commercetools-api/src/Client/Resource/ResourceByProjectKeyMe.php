@@ -63,6 +63,20 @@ class ResourceByProjectKeyMe extends ApiResource
         return new ResourceByProjectKeyMeOrders($this->getUri().'/orders', $args, $this->getClient());
     }
 
+    public function payments(): ResourceByProjectKeyMePayments
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyMePayments($this->getUri().'/payments', $args, $this->getClient());
+    }
+
+    public function shoppingLists(): ResourceByProjectKeyMeShoppingLists
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyMeShoppingLists($this->getUri().'/shopping-lists', $args, $this->getClient());
+    }
+
     /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers

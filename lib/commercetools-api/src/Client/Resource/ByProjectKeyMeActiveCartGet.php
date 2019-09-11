@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Cart\Cart;
-use Commercetools\Api\Models\Cart\CartModel;
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
+use Commercetools\Api\Models\Me\MyCart;
+use Commercetools\Api\Models\Me\MyCartModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\ResultMapper;
@@ -44,7 +44,7 @@ class ByProjectKeyMeActiveCartGet extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return Cart|ErrorResponse|JsonObject|T|null
+     * @psalm-return ErrorResponse|JsonObject|MyCart|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -54,7 +54,7 @@ class ByProjectKeyMeActiveCartGet extends ApiRequest
         $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case '200': $resultType = CartModel::class;
+                case '200': $resultType = MyCartModel::class;
 
 break;
                 case '400': $resultType = ErrorResponseModel::class;
@@ -88,7 +88,7 @@ break;
      *
      * @param array $options
      *
-     * @return null|Cart|ErrorResponse|JsonObject
+     * @return null|ErrorResponse|JsonObject|MyCart
      */
     public function execute(array $options = [], string $resultType = null)
     {

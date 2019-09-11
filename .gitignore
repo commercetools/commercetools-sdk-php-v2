@@ -5,3 +5,4 @@ vendor
 /lib/composer.json
 /lib/phpunit.xml.dist
 /lib/docs/build
+.phpunit.result.cache

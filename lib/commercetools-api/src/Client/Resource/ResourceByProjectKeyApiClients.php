@@ -14,9 +14,17 @@ use Commercetools\Client\ApiResource;
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyApiClients extends ApiResource
 {
-    public function withId(): ResourceByProjectKeyApiClientsByID
+    /**
+     * @psalm-param scalar $ID
+     *
+     * @param null|mixed $ID
+     */
+    public function withId($ID = null): ResourceByProjectKeyApiClientsByID
     {
         $args = $this->getArgs();
+        if (!is_null($ID)) {
+            $args['ID'] = $ID;
+        }
 
         return new ResourceByProjectKeyApiClientsByID($this->getUri().'/{ID}', $args, $this->getClient());
     }
