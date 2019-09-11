@@ -54,16 +54,18 @@ class ByProjectKeyPost extends ApiRequest
         $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case '200': $resultType = ProjectModel::class;
+                case '200':
+                    $resultType = ProjectModel::class;
 
-break;
-                case '409': $resultType = ErrorResponseModel::class;
+                    break;
+                case '409':
+                    $resultType = ErrorResponseModel::class;
 
-break;
+                    break;
                 default:
                     $resultType = JsonObjectModel::class;
 
-break;
+                    break;
             }
         }
 

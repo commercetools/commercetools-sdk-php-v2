@@ -61,13 +61,14 @@ class ByProjectKeyProductsByIDImagesPost extends ApiRequest
         $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case '200': $resultType = ProductModel::class;
+                case '200':
+                    $resultType = ProductModel::class;
 
-break;
+                    break;
                 default:
                     $resultType = JsonObjectModel::class;
 
-break;
+                    break;
             }
         }
 

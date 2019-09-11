@@ -54,28 +54,34 @@ class ByProjectKeyCustomersPasswordTokenPost extends ApiRequest
         $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case '201': $resultType = CustomerTokenModel::class;
+                case '201':
+                    $resultType = CustomerTokenModel::class;
 
-break;
-                case '400': $resultType = ErrorResponseModel::class;
+                    break;
+                case '400':
+                    $resultType = ErrorResponseModel::class;
 
-break;
-                case '401': $resultType = ErrorResponseModel::class;
+                    break;
+                case '401':
+                    $resultType = ErrorResponseModel::class;
 
-break;
-                case '403': $resultType = ErrorResponseModel::class;
+                    break;
+                case '403':
+                    $resultType = ErrorResponseModel::class;
 
-break;
-                case '500': $resultType = ErrorResponseModel::class;
+                    break;
+                case '500':
+                    $resultType = ErrorResponseModel::class;
 
-break;
-                case '503': $resultType = ErrorResponseModel::class;
+                    break;
+                case '503':
+                    $resultType = ErrorResponseModel::class;
 
-break;
+                    break;
                 default:
                     $resultType = JsonObjectModel::class;
 
-break;
+                    break;
             }
         }
 

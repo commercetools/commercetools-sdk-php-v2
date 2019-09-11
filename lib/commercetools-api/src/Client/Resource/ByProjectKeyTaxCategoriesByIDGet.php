@@ -56,28 +56,34 @@ class ByProjectKeyTaxCategoriesByIDGet extends ApiRequest
         $mapper = new ResultMapper();
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
-                case '200': $resultType = TaxCategoryModel::class;
+                case '200':
+                    $resultType = TaxCategoryModel::class;
 
-break;
-                case '400': $resultType = ErrorResponseModel::class;
+                    break;
+                case '400':
+                    $resultType = ErrorResponseModel::class;
 
-break;
-                case '401': $resultType = ErrorResponseModel::class;
+                    break;
+                case '401':
+                    $resultType = ErrorResponseModel::class;
 
-break;
-                case '403': $resultType = ErrorResponseModel::class;
+                    break;
+                case '403':
+                    $resultType = ErrorResponseModel::class;
 
-break;
-                case '500': $resultType = ErrorResponseModel::class;
+                    break;
+                case '500':
+                    $resultType = ErrorResponseModel::class;
 
-break;
-                case '503': $resultType = ErrorResponseModel::class;
+                    break;
+                case '503':
+                    $resultType = ErrorResponseModel::class;
 
-break;
+                    break;
                 default:
                     $resultType = JsonObjectModel::class;
 
-break;
+                    break;
             }
         }
 

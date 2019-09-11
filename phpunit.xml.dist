@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="vendor/autoload.php"
-         backupGlobals="false"
-         backupStaticAttributes="false"
-         verbose="true">
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.0/phpunit.xsd"
+    bootstrap="vendor/autoload.php"
+    backupGlobals="false"
+    backupStaticAttributes="false"
+    verbose="true"
+>
     <testsuites>
         <testsuite name="unit">
             <directory suffix="Test.php">test/unit</directory>
@@ -22,4 +26,7 @@
             <directory suffix=".php">lib/commercetools-base/src</directory>
         </whitelist>
     </filter>
+    <php>
+        <ini name="memory_limit" value="-1"/>
+    </php>
 </phpunit>
