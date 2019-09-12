@@ -20,6 +20,12 @@
       ],
       "Commercetools\\Test\\": [
         "lib/commercetools-base/test/unit/"
+      ],
+      "Commercetools\\UnitTest\\": [
+        "test/unit/"
+      ],
+      "Commercetools\\IntegrationTest\\": [
+        "test/unit/"
       ]
     }
   },

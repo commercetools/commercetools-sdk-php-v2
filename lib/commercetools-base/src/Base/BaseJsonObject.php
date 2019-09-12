@@ -17,9 +17,10 @@ abstract class BaseJsonObject implements JsonObject
 
     /**
      * @psalm-param ?stdClass|array<string, mixed> $data
-     * @psalm-return static
      *
      * @param null|mixed $data
+     *
+     * @return static
      */
     final public static function of($data = null)
     {
@@ -32,7 +33,8 @@ abstract class BaseJsonObject implements JsonObject
 
     /**
      * @psalm-param ?stdClass $data
-     * @psalm-return static
+     *
+     * @return static
      */
     final public static function fromStdClass(stdClass $data = null)
     {
@@ -44,7 +46,8 @@ abstract class BaseJsonObject implements JsonObject
 
     /**
      * @psalm-param array<string, mixed> $data
-     * @psalm-return static
+     *
+     * @return static
      */
     final public static function fromArray(array $data = [])
     {

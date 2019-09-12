@@ -6,3 +6,6 @@ vendor
 /lib/phpunit.xml.dist
 /lib/docs/build
 .phpunit.result.cache
+test/unit/cache
+test/integration/cache
+test/integration/logs/requests.log
