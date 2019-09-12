@@ -10,6 +10,7 @@
     <projectFiles>
         <directory name="src" />
         <directory name="lib/commercetools-api/src" />
+        <directory name="lib/commercetools-import/src" />
         <directory name="lib/commercetools-base/src" />
         <ignoreFiles>
             <directory name="vendor" />
