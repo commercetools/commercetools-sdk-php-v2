@@ -16,87 +16,87 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyStatesByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/states/{ID}?expand=expand',
-           ],
-           'ByProjectKeyStatesByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/states/{ID}',
-           ],
-           'ByProjectKeyStatesByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/states/{ID}?expand=expand',
-           ],
-           'ByProjectKeyStatesByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/states/{ID}',
-           ],
-           'ByProjectKeyStatesByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/states/{ID}?version=version',
-           ],
-           'ByProjectKeyStatesByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/states/{ID}?expand=expand',
-           ],
-           'ByProjectKeyStatesByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/states/{ID}',
-           ]
+            'ByProjectKeyStatesByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/states/{ID}?expand=expand',
+            ],
+            'ByProjectKeyStatesByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/states/{ID}',
+            ],
+            'ByProjectKeyStatesByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/states/{ID}?expand=expand',
+            ],
+            'ByProjectKeyStatesByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/states/{ID}',
+            ],
+            'ByProjectKeyStatesByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/states/{ID}?version=version',
+            ],
+            'ByProjectKeyStatesByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/states/{ID}?expand=expand',
+            ],
+            'ByProjectKeyStatesByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/states/{ID}',
+            ]
         ];
     }
     

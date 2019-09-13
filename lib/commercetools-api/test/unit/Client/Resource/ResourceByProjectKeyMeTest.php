@@ -16,113 +16,113 @@ class ResourceByProjectKeyMeTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyMeGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/me?where=where',
-           ],
-           'ByProjectKeyMeGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/me?sort=sort',
-           ],
-           'ByProjectKeyMeGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/me?limit=limit',
-           ],
-           'ByProjectKeyMeGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/me?offset=offset',
-           ],
-           'ByProjectKeyMeGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/me?withTotal=withTotal',
-           ],
-           'ByProjectKeyMeGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/me?expand=expand',
-           ],
-           'ByProjectKeyMeGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/me',
-           ],
-           'ByProjectKeyMePost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/me',
-           ],
-           'ByProjectKeyMeDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/me?version=version',
-           ],
-           'ByProjectKeyMeDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/me',
-           ]
+            'ByProjectKeyMeGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/me?where=where',
+            ],
+            'ByProjectKeyMeGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/me?sort=sort',
+            ],
+            'ByProjectKeyMeGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/me?limit=limit',
+            ],
+            'ByProjectKeyMeGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/me?offset=offset',
+            ],
+            'ByProjectKeyMeGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/me?withTotal=withTotal',
+            ],
+            'ByProjectKeyMeGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/me?expand=expand',
+            ],
+            'ByProjectKeyMeGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/me',
+            ],
+            'ByProjectKeyMePost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/me',
+            ],
+            'ByProjectKeyMeDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/me?version=version',
+            ],
+            'ByProjectKeyMeDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/me',
+            ]
         ];
     }
     

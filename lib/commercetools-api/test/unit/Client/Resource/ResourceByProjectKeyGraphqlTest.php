@@ -16,16 +16,16 @@ class ResourceByProjectKeyGraphqlTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyGraphqlPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->graphql()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/graphql',
-           ]
+            'ByProjectKeyGraphqlPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->graphql()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/graphql',
+            ]
         ];
     }
     

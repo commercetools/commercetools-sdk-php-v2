@@ -16,33 +16,33 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->orders()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/in-store/key={storeKey}/me/orders/{ID}?expand=expand',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->orders()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/in-store/key={storeKey}/me/orders/{ID}',
-           ]
+            'ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->orders()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/in-store/key={storeKey}/me/orders/{ID}?expand=expand',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->orders()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/in-store/key={storeKey}/me/orders/{ID}',
+            ]
         ];
     }
     

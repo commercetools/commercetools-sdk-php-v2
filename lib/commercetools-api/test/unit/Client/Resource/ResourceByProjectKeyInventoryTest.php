@@ -16,103 +16,103 @@ class ResourceByProjectKeyInventoryTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyInventoryGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inventory()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/inventory?expand=expand',
-           ],
-           'ByProjectKeyInventoryGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inventory()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/inventory?where=where',
-           ],
-           'ByProjectKeyInventoryGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inventory()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/inventory?sort=sort',
-           ],
-           'ByProjectKeyInventoryGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inventory()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/inventory?limit=limit',
-           ],
-           'ByProjectKeyInventoryGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inventory()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/inventory?offset=offset',
-           ],
-           'ByProjectKeyInventoryGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inventory()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/inventory?withTotal=withTotal',
-           ],
-           'ByProjectKeyInventoryGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inventory()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/inventory',
-           ],
-           'ByProjectKeyInventoryPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inventory()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/inventory?expand=expand',
-           ],
-           'ByProjectKeyInventoryPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inventory()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/inventory',
-           ]
+            'ByProjectKeyInventoryGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/inventory?expand=expand',
+            ],
+            'ByProjectKeyInventoryGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/inventory?where=where',
+            ],
+            'ByProjectKeyInventoryGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/inventory?sort=sort',
+            ],
+            'ByProjectKeyInventoryGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/inventory?limit=limit',
+            ],
+            'ByProjectKeyInventoryGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/inventory?offset=offset',
+            ],
+            'ByProjectKeyInventoryGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/inventory?withTotal=withTotal',
+            ],
+            'ByProjectKeyInventoryGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/inventory',
+            ],
+            'ByProjectKeyInventoryPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/inventory?expand=expand',
+            ],
+            'ByProjectKeyInventoryPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inventory()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/inventory',
+            ]
         ];
     }
     

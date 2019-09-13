@@ -16,44 +16,44 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyItemsTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyImportSinksByImportSinkKeyItemsGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKeyValue("projectKey")
-                       ->importSinks()
-                       ->withImportSinkKeyValue("importSinkKey")
-                       ->items()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/import-sinks/{importSinkKey}/items?limit=limit',
-           ],
-           'ByProjectKeyImportSinksByImportSinkKeyItemsGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKeyValue("projectKey")
-                       ->importSinks()
-                       ->withImportSinkKeyValue("importSinkKey")
-                       ->items()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/import-sinks/{importSinkKey}/items?offset=offset',
-           ],
-           'ByProjectKeyImportSinksByImportSinkKeyItemsGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKeyValue("projectKey")
-                       ->importSinks()
-                       ->withImportSinkKeyValue("importSinkKey")
-                       ->items()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/import-sinks/{importSinkKey}/items',
-           ]
+            'ByProjectKeyImportSinksByImportSinkKeyItemsGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->items()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/import-sinks/{importSinkKey}/items?limit=limit',
+            ],
+            'ByProjectKeyImportSinksByImportSinkKeyItemsGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->items()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/import-sinks/{importSinkKey}/items?offset=offset',
+            ],
+            'ByProjectKeyImportSinksByImportSinkKeyItemsGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->items()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/import-sinks/{importSinkKey}/items',
+            ]
         ];
     }
     

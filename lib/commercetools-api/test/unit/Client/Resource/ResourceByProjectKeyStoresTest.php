@@ -16,103 +16,103 @@ class ResourceByProjectKeyStoresTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyStoresGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->stores()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/stores?expand=expand',
-           ],
-           'ByProjectKeyStoresGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->stores()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/stores?where=where',
-           ],
-           'ByProjectKeyStoresGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->stores()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/stores?sort=sort',
-           ],
-           'ByProjectKeyStoresGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->stores()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/stores?limit=limit',
-           ],
-           'ByProjectKeyStoresGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->stores()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/stores?offset=offset',
-           ],
-           'ByProjectKeyStoresGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->stores()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/stores?withTotal=withTotal',
-           ],
-           'ByProjectKeyStoresGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->stores()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/stores',
-           ],
-           'ByProjectKeyStoresPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->stores()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/stores?expand=expand',
-           ],
-           'ByProjectKeyStoresPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->stores()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/stores',
-           ]
+            'ByProjectKeyStoresGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/stores?expand=expand',
+            ],
+            'ByProjectKeyStoresGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/stores?where=where',
+            ],
+            'ByProjectKeyStoresGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/stores?sort=sort',
+            ],
+            'ByProjectKeyStoresGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/stores?limit=limit',
+            ],
+            'ByProjectKeyStoresGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/stores?offset=offset',
+            ],
+            'ByProjectKeyStoresGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/stores?withTotal=withTotal',
+            ],
+            'ByProjectKeyStoresGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/stores',
+            ],
+            'ByProjectKeyStoresPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/stores?expand=expand',
+            ],
+            'ByProjectKeyStoresPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->stores()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/stores',
+            ]
         ];
     }
     

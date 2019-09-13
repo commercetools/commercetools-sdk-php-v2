@@ -16,24 +16,24 @@ class ResourceByProjectKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}',
-           ],
-           'ByProjectKeyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}',
-           ]
+            'ByProjectKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}',
+            ],
+            'ByProjectKeyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}',
+            ]
         ];
     }
     

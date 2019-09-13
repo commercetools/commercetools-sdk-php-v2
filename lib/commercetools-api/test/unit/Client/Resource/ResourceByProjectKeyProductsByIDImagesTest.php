@@ -16,70 +16,70 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyProductsByIDImagesPost_withFilename' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->products()
-                       ->withId("ID")
-                       ->images()
-                       ->post(null)
-                       ->withFilename('filename');
-               },
-               'post',
-               '/{projectKey}/products/{ID}/images?filename=filename',
-           ],
-           'ByProjectKeyProductsByIDImagesPost_withVariant' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->products()
-                       ->withId("ID")
-                       ->images()
-                       ->post(null)
-                       ->withVariant('variant');
-               },
-               'post',
-               '/{projectKey}/products/{ID}/images?variant=variant',
-           ],
-           'ByProjectKeyProductsByIDImagesPost_withSku' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->products()
-                       ->withId("ID")
-                       ->images()
-                       ->post(null)
-                       ->withSku('sku');
-               },
-               'post',
-               '/{projectKey}/products/{ID}/images?sku=sku',
-           ],
-           'ByProjectKeyProductsByIDImagesPost_withStaged' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->products()
-                       ->withId("ID")
-                       ->images()
-                       ->post(null)
-                       ->withStaged('staged');
-               },
-               'post',
-               '/{projectKey}/products/{ID}/images?staged=staged',
-           ],
-           'ByProjectKeyProductsByIDImagesPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->products()
-                       ->withId("ID")
-                       ->images()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/products/{ID}/images',
-           ]
+            'ByProjectKeyProductsByIDImagesPost_withFilename' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withId("ID")
+                        ->images()
+                        ->post(null)
+                        ->withFilename('filename');
+                },
+                'post',
+                '/{projectKey}/products/{ID}/images?filename=filename',
+            ],
+            'ByProjectKeyProductsByIDImagesPost_withVariant' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withId("ID")
+                        ->images()
+                        ->post(null)
+                        ->withVariant('variant');
+                },
+                'post',
+                '/{projectKey}/products/{ID}/images?variant=variant',
+            ],
+            'ByProjectKeyProductsByIDImagesPost_withSku' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withId("ID")
+                        ->images()
+                        ->post(null)
+                        ->withSku('sku');
+                },
+                'post',
+                '/{projectKey}/products/{ID}/images?sku=sku',
+            ],
+            'ByProjectKeyProductsByIDImagesPost_withStaged' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withId("ID")
+                        ->images()
+                        ->post(null)
+                        ->withStaged('staged');
+                },
+                'post',
+                '/{projectKey}/products/{ID}/images?staged=staged',
+            ],
+            'ByProjectKeyProductsByIDImagesPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->products()
+                        ->withId("ID")
+                        ->images()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/products/{ID}/images',
+            ]
         ];
     }
     

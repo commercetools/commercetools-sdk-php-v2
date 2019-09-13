@@ -16,103 +16,103 @@ class ResourceByProjectKeyCartDiscountsTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCartDiscountsGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/cart-discounts?expand=expand',
-           ],
-           'ByProjectKeyCartDiscountsGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/cart-discounts?where=where',
-           ],
-           'ByProjectKeyCartDiscountsGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/cart-discounts?sort=sort',
-           ],
-           'ByProjectKeyCartDiscountsGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/cart-discounts?limit=limit',
-           ],
-           'ByProjectKeyCartDiscountsGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/cart-discounts?offset=offset',
-           ],
-           'ByProjectKeyCartDiscountsGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/cart-discounts?withTotal=withTotal',
-           ],
-           'ByProjectKeyCartDiscountsGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/cart-discounts',
-           ],
-           'ByProjectKeyCartDiscountsPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/cart-discounts?expand=expand',
-           ],
-           'ByProjectKeyCartDiscountsPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/cart-discounts',
-           ]
+            'ByProjectKeyCartDiscountsGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/cart-discounts?expand=expand',
+            ],
+            'ByProjectKeyCartDiscountsGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/cart-discounts?where=where',
+            ],
+            'ByProjectKeyCartDiscountsGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/cart-discounts?sort=sort',
+            ],
+            'ByProjectKeyCartDiscountsGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/cart-discounts?limit=limit',
+            ],
+            'ByProjectKeyCartDiscountsGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/cart-discounts?offset=offset',
+            ],
+            'ByProjectKeyCartDiscountsGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/cart-discounts?withTotal=withTotal',
+            ],
+            'ByProjectKeyCartDiscountsGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/cart-discounts',
+            ],
+            'ByProjectKeyCartDiscountsPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/cart-discounts?expand=expand',
+            ],
+            'ByProjectKeyCartDiscountsPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/cart-discounts',
+            ]
         ];
     }
     

@@ -16,18 +16,18 @@ class ResourceByProjectKeyCustomersEmailConfirmTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCustomersEmailConfirmPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customers()
-                       ->email()
-                       ->confirm()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/customers/email/confirm',
-           ]
+            'ByProjectKeyCustomersEmailConfirmPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->email()
+                        ->confirm()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/customers/email/confirm',
+            ]
         ];
     }
     

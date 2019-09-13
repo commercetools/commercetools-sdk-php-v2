@@ -16,87 +16,87 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCategoriesByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->categories()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/categories/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCategoriesByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->categories()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/categories/{ID}',
-           ],
-           'ByProjectKeyCategoriesByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->categories()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/categories/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCategoriesByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->categories()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/categories/{ID}',
-           ],
-           'ByProjectKeyCategoriesByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->categories()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/categories/{ID}?version=version',
-           ],
-           'ByProjectKeyCategoriesByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->categories()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/categories/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCategoriesByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->categories()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/categories/{ID}',
-           ]
+            'ByProjectKeyCategoriesByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/categories/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCategoriesByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/categories/{ID}',
+            ],
+            'ByProjectKeyCategoriesByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/categories/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCategoriesByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/categories/{ID}',
+            ],
+            'ByProjectKeyCategoriesByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/categories/{ID}?version=version',
+            ],
+            'ByProjectKeyCategoriesByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/categories/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCategoriesByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/categories/{ID}',
+            ]
         ];
     }
     

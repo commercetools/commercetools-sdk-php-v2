@@ -16,103 +16,103 @@ class ResourceByProjectKeyApiClientsTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyApiClientsGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/api-clients?expand=expand',
-           ],
-           'ByProjectKeyApiClientsGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/api-clients?where=where',
-           ],
-           'ByProjectKeyApiClientsGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/api-clients?sort=sort',
-           ],
-           'ByProjectKeyApiClientsGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/api-clients?limit=limit',
-           ],
-           'ByProjectKeyApiClientsGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/api-clients?offset=offset',
-           ],
-           'ByProjectKeyApiClientsGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/api-clients?withTotal=withTotal',
-           ],
-           'ByProjectKeyApiClientsGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/api-clients',
-           ],
-           'ByProjectKeyApiClientsPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/api-clients?expand=expand',
-           ],
-           'ByProjectKeyApiClientsPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/api-clients',
-           ]
+            'ByProjectKeyApiClientsGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/api-clients?expand=expand',
+            ],
+            'ByProjectKeyApiClientsGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/api-clients?where=where',
+            ],
+            'ByProjectKeyApiClientsGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/api-clients?sort=sort',
+            ],
+            'ByProjectKeyApiClientsGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/api-clients?limit=limit',
+            ],
+            'ByProjectKeyApiClientsGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/api-clients?offset=offset',
+            ],
+            'ByProjectKeyApiClientsGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/api-clients?withTotal=withTotal',
+            ],
+            'ByProjectKeyApiClientsGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/api-clients',
+            ],
+            'ByProjectKeyApiClientsPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/api-clients?expand=expand',
+            ],
+            'ByProjectKeyApiClientsPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/api-clients',
+            ]
         ];
     }
     

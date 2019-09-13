@@ -16,94 +16,94 @@ class ResourceByProjectKeyMePaymentsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyMePaymentsByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->payments()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/me/payments/{ID}?expand=expand',
-           ],
-           'ByProjectKeyMePaymentsByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->payments()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/me/payments/{ID}',
-           ],
-           'ByProjectKeyMePaymentsByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->payments()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/me/payments/{ID}?expand=expand',
-           ],
-           'ByProjectKeyMePaymentsByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->payments()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/me/payments/{ID}',
-           ],
-           'ByProjectKeyMePaymentsByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->payments()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/me/payments/{ID}?version=version',
-           ],
-           'ByProjectKeyMePaymentsByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->payments()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/me/payments/{ID}?expand=expand',
-           ],
-           'ByProjectKeyMePaymentsByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->payments()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/me/payments/{ID}',
-           ]
+            'ByProjectKeyMePaymentsByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/me/payments/{ID}?expand=expand',
+            ],
+            'ByProjectKeyMePaymentsByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/me/payments/{ID}',
+            ],
+            'ByProjectKeyMePaymentsByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/me/payments/{ID}?expand=expand',
+            ],
+            'ByProjectKeyMePaymentsByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/me/payments/{ID}',
+            ],
+            'ByProjectKeyMePaymentsByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/me/payments/{ID}?version=version',
+            ],
+            'ByProjectKeyMePaymentsByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/me/payments/{ID}?expand=expand',
+            ],
+            'ByProjectKeyMePaymentsByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->payments()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/me/payments/{ID}',
+            ]
         ];
     }
     

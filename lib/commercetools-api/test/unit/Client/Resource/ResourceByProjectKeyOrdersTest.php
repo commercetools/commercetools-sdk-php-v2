@@ -16,103 +16,103 @@ class ResourceByProjectKeyOrdersTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyOrdersGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/orders?expand=expand',
-           ],
-           'ByProjectKeyOrdersGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/orders?where=where',
-           ],
-           'ByProjectKeyOrdersGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/orders?sort=sort',
-           ],
-           'ByProjectKeyOrdersGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/orders?limit=limit',
-           ],
-           'ByProjectKeyOrdersGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/orders?offset=offset',
-           ],
-           'ByProjectKeyOrdersGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/orders?withTotal=withTotal',
-           ],
-           'ByProjectKeyOrdersGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/orders',
-           ],
-           'ByProjectKeyOrdersPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/orders?expand=expand',
-           ],
-           'ByProjectKeyOrdersPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/orders',
-           ]
+            'ByProjectKeyOrdersGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/orders?expand=expand',
+            ],
+            'ByProjectKeyOrdersGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/orders?where=where',
+            ],
+            'ByProjectKeyOrdersGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/orders?sort=sort',
+            ],
+            'ByProjectKeyOrdersGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/orders?limit=limit',
+            ],
+            'ByProjectKeyOrdersGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/orders?offset=offset',
+            ],
+            'ByProjectKeyOrdersGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/orders?withTotal=withTotal',
+            ],
+            'ByProjectKeyOrdersGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/orders',
+            ],
+            'ByProjectKeyOrdersPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/orders?expand=expand',
+            ],
+            'ByProjectKeyOrdersPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/orders',
+            ]
         ];
     }
     

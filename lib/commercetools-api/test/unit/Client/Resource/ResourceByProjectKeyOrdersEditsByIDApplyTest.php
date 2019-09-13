@@ -16,19 +16,19 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyOrdersEditsByIDApplyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->edits()
-                       ->withId("ID")
-                       ->apply()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/orders/edits/{ID}/apply',
-           ]
+            'ByProjectKeyOrdersEditsByIDApplyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withId("ID")
+                        ->apply()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/orders/edits/{ID}/apply',
+            ]
         ];
     }
     

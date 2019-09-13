@@ -16,87 +16,87 @@ class ResourceByProjectKeyExtensionsKeyByKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyExtensionsKeyByKeyGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->extensions()
-                       ->withKey("key")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/extensions/key={key}?expand=expand',
-           ],
-           'ByProjectKeyExtensionsKeyByKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->extensions()
-                       ->withKey("key")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/extensions/key={key}',
-           ],
-           'ByProjectKeyExtensionsKeyByKeyPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->extensions()
-                       ->withKey("key")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/extensions/key={key}?expand=expand',
-           ],
-           'ByProjectKeyExtensionsKeyByKeyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->extensions()
-                       ->withKey("key")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/extensions/key={key}',
-           ],
-           'ByProjectKeyExtensionsKeyByKeyDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->extensions()
-                       ->withKey("key")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/extensions/key={key}?version=version',
-           ],
-           'ByProjectKeyExtensionsKeyByKeyDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->extensions()
-                       ->withKey("key")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/extensions/key={key}?expand=expand',
-           ],
-           'ByProjectKeyExtensionsKeyByKeyDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->extensions()
-                       ->withKey("key")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/extensions/key={key}',
-           ]
+            'ByProjectKeyExtensionsKeyByKeyGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withKey("key")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/extensions/key={key}?expand=expand',
+            ],
+            'ByProjectKeyExtensionsKeyByKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withKey("key")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/extensions/key={key}',
+            ],
+            'ByProjectKeyExtensionsKeyByKeyPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withKey("key")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/extensions/key={key}?expand=expand',
+            ],
+            'ByProjectKeyExtensionsKeyByKeyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/extensions/key={key}',
+            ],
+            'ByProjectKeyExtensionsKeyByKeyDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withKey("key")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/extensions/key={key}?version=version',
+            ],
+            'ByProjectKeyExtensionsKeyByKeyDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withKey("key")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/extensions/key={key}?expand=expand',
+            ],
+            'ByProjectKeyExtensionsKeyByKeyDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->extensions()
+                        ->withKey("key")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/extensions/key={key}',
+            ]
         ];
     }
     

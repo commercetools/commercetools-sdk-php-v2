@@ -16,99 +16,99 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyDiscountCodesByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/discount-codes/{ID}?expand=expand',
-           ],
-           'ByProjectKeyDiscountCodesByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/discount-codes/{ID}',
-           ],
-           'ByProjectKeyDiscountCodesByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/discount-codes/{ID}?expand=expand',
-           ],
-           'ByProjectKeyDiscountCodesByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/discount-codes/{ID}',
-           ],
-           'ByProjectKeyDiscountCodesByIDDelete_withDataErasure' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->withId("ID")
-                       ->delete()
-                       ->withDataErasure('dataErasure');
-               },
-               'delete',
-               '/{projectKey}/discount-codes/{ID}?dataErasure=dataErasure',
-           ],
-           'ByProjectKeyDiscountCodesByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/discount-codes/{ID}?version=version',
-           ],
-           'ByProjectKeyDiscountCodesByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/discount-codes/{ID}?expand=expand',
-           ],
-           'ByProjectKeyDiscountCodesByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/discount-codes/{ID}',
-           ]
+            'ByProjectKeyDiscountCodesByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/discount-codes/{ID}?expand=expand',
+            ],
+            'ByProjectKeyDiscountCodesByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/discount-codes/{ID}',
+            ],
+            'ByProjectKeyDiscountCodesByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/discount-codes/{ID}?expand=expand',
+            ],
+            'ByProjectKeyDiscountCodesByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/discount-codes/{ID}',
+            ],
+            'ByProjectKeyDiscountCodesByIDDelete_withDataErasure' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                '/{projectKey}/discount-codes/{ID}?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyDiscountCodesByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/discount-codes/{ID}?version=version',
+            ],
+            'ByProjectKeyDiscountCodesByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/discount-codes/{ID}?expand=expand',
+            ],
+            'ByProjectKeyDiscountCodesByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/discount-codes/{ID}',
+            ]
         ];
     }
     

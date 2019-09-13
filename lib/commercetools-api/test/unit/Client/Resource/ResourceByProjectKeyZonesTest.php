@@ -16,103 +16,103 @@ class ResourceByProjectKeyZonesTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyZonesGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->zones()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/zones?expand=expand',
-           ],
-           'ByProjectKeyZonesGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->zones()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/zones?where=where',
-           ],
-           'ByProjectKeyZonesGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->zones()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/zones?sort=sort',
-           ],
-           'ByProjectKeyZonesGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->zones()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/zones?limit=limit',
-           ],
-           'ByProjectKeyZonesGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->zones()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/zones?offset=offset',
-           ],
-           'ByProjectKeyZonesGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->zones()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/zones?withTotal=withTotal',
-           ],
-           'ByProjectKeyZonesGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->zones()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/zones',
-           ],
-           'ByProjectKeyZonesPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->zones()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/zones?expand=expand',
-           ],
-           'ByProjectKeyZonesPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->zones()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/zones',
-           ]
+            'ByProjectKeyZonesGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/zones?expand=expand',
+            ],
+            'ByProjectKeyZonesGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/zones?where=where',
+            ],
+            'ByProjectKeyZonesGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/zones?sort=sort',
+            ],
+            'ByProjectKeyZonesGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/zones?limit=limit',
+            ],
+            'ByProjectKeyZonesGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/zones?offset=offset',
+            ],
+            'ByProjectKeyZonesGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/zones?withTotal=withTotal',
+            ],
+            'ByProjectKeyZonesGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/zones',
+            ],
+            'ByProjectKeyZonesPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/zones?expand=expand',
+            ],
+            'ByProjectKeyZonesPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->zones()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/zones',
+            ]
         ];
     }
     

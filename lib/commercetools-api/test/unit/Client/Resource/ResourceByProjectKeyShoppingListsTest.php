@@ -16,103 +16,103 @@ class ResourceByProjectKeyShoppingListsTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyShoppingListsGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/shopping-lists?expand=expand',
-           ],
-           'ByProjectKeyShoppingListsGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/shopping-lists?where=where',
-           ],
-           'ByProjectKeyShoppingListsGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/shopping-lists?sort=sort',
-           ],
-           'ByProjectKeyShoppingListsGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/shopping-lists?limit=limit',
-           ],
-           'ByProjectKeyShoppingListsGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/shopping-lists?offset=offset',
-           ],
-           'ByProjectKeyShoppingListsGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/shopping-lists?withTotal=withTotal',
-           ],
-           'ByProjectKeyShoppingListsGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/shopping-lists',
-           ],
-           'ByProjectKeyShoppingListsPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/shopping-lists?expand=expand',
-           ],
-           'ByProjectKeyShoppingListsPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/shopping-lists',
-           ]
+            'ByProjectKeyShoppingListsGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/shopping-lists?expand=expand',
+            ],
+            'ByProjectKeyShoppingListsGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/shopping-lists?where=where',
+            ],
+            'ByProjectKeyShoppingListsGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/shopping-lists?sort=sort',
+            ],
+            'ByProjectKeyShoppingListsGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/shopping-lists?limit=limit',
+            ],
+            'ByProjectKeyShoppingListsGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/shopping-lists?offset=offset',
+            ],
+            'ByProjectKeyShoppingListsGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/shopping-lists?withTotal=withTotal',
+            ],
+            'ByProjectKeyShoppingListsGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/shopping-lists',
+            ],
+            'ByProjectKeyShoppingListsPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/shopping-lists?expand=expand',
+            ],
+            'ByProjectKeyShoppingListsPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/shopping-lists',
+            ]
         ];
     }
     

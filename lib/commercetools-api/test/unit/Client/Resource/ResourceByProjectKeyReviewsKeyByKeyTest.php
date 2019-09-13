@@ -16,99 +16,99 @@ class ResourceByProjectKeyReviewsKeyByKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyReviewsKeyByKeyGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->reviews()
-                       ->withKey("key")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/reviews/key={key}?expand=expand',
-           ],
-           'ByProjectKeyReviewsKeyByKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->reviews()
-                       ->withKey("key")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/reviews/key={key}',
-           ],
-           'ByProjectKeyReviewsKeyByKeyPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->reviews()
-                       ->withKey("key")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/reviews/key={key}?expand=expand',
-           ],
-           'ByProjectKeyReviewsKeyByKeyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->reviews()
-                       ->withKey("key")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/reviews/key={key}',
-           ],
-           'ByProjectKeyReviewsKeyByKeyDelete_withDataErasure' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->reviews()
-                       ->withKey("key")
-                       ->delete()
-                       ->withDataErasure('dataErasure');
-               },
-               'delete',
-               '/{projectKey}/reviews/key={key}?dataErasure=dataErasure',
-           ],
-           'ByProjectKeyReviewsKeyByKeyDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->reviews()
-                       ->withKey("key")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/reviews/key={key}?version=version',
-           ],
-           'ByProjectKeyReviewsKeyByKeyDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->reviews()
-                       ->withKey("key")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/reviews/key={key}?expand=expand',
-           ],
-           'ByProjectKeyReviewsKeyByKeyDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->reviews()
-                       ->withKey("key")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/reviews/key={key}',
-           ]
+            'ByProjectKeyReviewsKeyByKeyGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withKey("key")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/reviews/key={key}?expand=expand',
+            ],
+            'ByProjectKeyReviewsKeyByKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withKey("key")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/reviews/key={key}',
+            ],
+            'ByProjectKeyReviewsKeyByKeyPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withKey("key")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/reviews/key={key}?expand=expand',
+            ],
+            'ByProjectKeyReviewsKeyByKeyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/reviews/key={key}',
+            ],
+            'ByProjectKeyReviewsKeyByKeyDelete_withDataErasure' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withKey("key")
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                '/{projectKey}/reviews/key={key}?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyReviewsKeyByKeyDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withKey("key")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/reviews/key={key}?version=version',
+            ],
+            'ByProjectKeyReviewsKeyByKeyDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withKey("key")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/reviews/key={key}?expand=expand',
+            ],
+            'ByProjectKeyReviewsKeyByKeyDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->reviews()
+                        ->withKey("key")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/reviews/key={key}',
+            ]
         ];
     }
     

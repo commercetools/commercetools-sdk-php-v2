@@ -16,99 +16,99 @@ class ResourceByProjectKeyShoppingListsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyShoppingListsByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/shopping-lists/{ID}?expand=expand',
-           ],
-           'ByProjectKeyShoppingListsByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/shopping-lists/{ID}',
-           ],
-           'ByProjectKeyShoppingListsByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/shopping-lists/{ID}?expand=expand',
-           ],
-           'ByProjectKeyShoppingListsByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/shopping-lists/{ID}',
-           ],
-           'ByProjectKeyShoppingListsByIDDelete_withDataErasure' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withId("ID")
-                       ->delete()
-                       ->withDataErasure('dataErasure');
-               },
-               'delete',
-               '/{projectKey}/shopping-lists/{ID}?dataErasure=dataErasure',
-           ],
-           'ByProjectKeyShoppingListsByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/shopping-lists/{ID}?version=version',
-           ],
-           'ByProjectKeyShoppingListsByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/shopping-lists/{ID}?expand=expand',
-           ],
-           'ByProjectKeyShoppingListsByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/shopping-lists/{ID}',
-           ]
+            'ByProjectKeyShoppingListsByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/shopping-lists/{ID}?expand=expand',
+            ],
+            'ByProjectKeyShoppingListsByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/shopping-lists/{ID}',
+            ],
+            'ByProjectKeyShoppingListsByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/shopping-lists/{ID}?expand=expand',
+            ],
+            'ByProjectKeyShoppingListsByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/shopping-lists/{ID}',
+            ],
+            'ByProjectKeyShoppingListsByIDDelete_withDataErasure' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                '/{projectKey}/shopping-lists/{ID}?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyShoppingListsByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/shopping-lists/{ID}?version=version',
+            ],
+            'ByProjectKeyShoppingListsByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/shopping-lists/{ID}?expand=expand',
+            ],
+            'ByProjectKeyShoppingListsByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/shopping-lists/{ID}',
+            ]
         ];
     }
     

@@ -16,87 +16,87 @@ class ResourceByProjectKeyProductTypesKeyByKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyProductTypesKeyByKeyGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->withKey("key")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/product-types/key={key}?expand=expand',
-           ],
-           'ByProjectKeyProductTypesKeyByKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->withKey("key")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/product-types/key={key}',
-           ],
-           'ByProjectKeyProductTypesKeyByKeyPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->withKey("key")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/product-types/key={key}?expand=expand',
-           ],
-           'ByProjectKeyProductTypesKeyByKeyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->withKey("key")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/product-types/key={key}',
-           ],
-           'ByProjectKeyProductTypesKeyByKeyDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->withKey("key")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/product-types/key={key}?version=version',
-           ],
-           'ByProjectKeyProductTypesKeyByKeyDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->withKey("key")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/product-types/key={key}?expand=expand',
-           ],
-           'ByProjectKeyProductTypesKeyByKeyDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->withKey("key")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/product-types/key={key}',
-           ]
+            'ByProjectKeyProductTypesKeyByKeyGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withKey("key")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/product-types/key={key}?expand=expand',
+            ],
+            'ByProjectKeyProductTypesKeyByKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withKey("key")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/product-types/key={key}',
+            ],
+            'ByProjectKeyProductTypesKeyByKeyPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withKey("key")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/product-types/key={key}?expand=expand',
+            ],
+            'ByProjectKeyProductTypesKeyByKeyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/product-types/key={key}',
+            ],
+            'ByProjectKeyProductTypesKeyByKeyDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withKey("key")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/product-types/key={key}?version=version',
+            ],
+            'ByProjectKeyProductTypesKeyByKeyDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withKey("key")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/product-types/key={key}?expand=expand',
+            ],
+            'ByProjectKeyProductTypesKeyByKeyDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->withKey("key")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/product-types/key={key}',
+            ]
         ];
     }
     

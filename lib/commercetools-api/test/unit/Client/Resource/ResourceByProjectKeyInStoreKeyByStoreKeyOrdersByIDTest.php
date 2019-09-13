@@ -16,107 +16,107 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->orders()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/in-store/key={storeKey}/orders/{ID}?expand=expand',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->orders()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/in-store/key={storeKey}/orders/{ID}',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->orders()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/in-store/key={storeKey}/orders/{ID}?expand=expand',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->orders()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/in-store/key={storeKey}/orders/{ID}',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete_withDataErasure' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->orders()
-                       ->withId("ID")
-                       ->delete()
-                       ->withDataErasure('dataErasure');
-               },
-               'delete',
-               '/{projectKey}/in-store/key={storeKey}/orders/{ID}?dataErasure=dataErasure',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->orders()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/in-store/key={storeKey}/orders/{ID}?version=version',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->orders()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/in-store/key={storeKey}/orders/{ID}?expand=expand',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->orders()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/in-store/key={storeKey}/orders/{ID}',
-           ]
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/in-store/key={storeKey}/orders/{ID}?expand=expand',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/in-store/key={storeKey}/orders/{ID}',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/in-store/key={storeKey}/orders/{ID}?expand=expand',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/in-store/key={storeKey}/orders/{ID}',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete_withDataErasure' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                '/{projectKey}/in-store/key={storeKey}/orders/{ID}?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/in-store/key={storeKey}/orders/{ID}?version=version',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/in-store/key={storeKey}/orders/{ID}?expand=expand',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyOrdersByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->orders()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/in-store/key={storeKey}/orders/{ID}',
+            ]
         ];
     }
     

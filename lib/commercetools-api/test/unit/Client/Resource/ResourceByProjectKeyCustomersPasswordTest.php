@@ -16,17 +16,17 @@ class ResourceByProjectKeyCustomersPasswordTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCustomersPasswordPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customers()
-                       ->password()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/customers/password',
-           ]
+            'ByProjectKeyCustomersPasswordPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->password()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/customers/password',
+            ]
         ];
     }
     

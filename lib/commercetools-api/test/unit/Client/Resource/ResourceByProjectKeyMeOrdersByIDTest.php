@@ -16,56 +16,56 @@ class ResourceByProjectKeyMeOrdersByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyMeOrdersByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->orders()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/me/orders/{ID}?expand=expand',
-           ],
-           'ByProjectKeyMeOrdersByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->orders()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/me/orders/{ID}',
-           ],
-           'ByProjectKeyMeOrdersByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->orders()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/me/orders/{ID}?expand=expand',
-           ],
-           'ByProjectKeyMeOrdersByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->orders()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/me/orders/{ID}',
-           ]
+            'ByProjectKeyMeOrdersByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/me/orders/{ID}?expand=expand',
+            ],
+            'ByProjectKeyMeOrdersByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/me/orders/{ID}',
+            ],
+            'ByProjectKeyMeOrdersByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/me/orders/{ID}?expand=expand',
+            ],
+            'ByProjectKeyMeOrdersByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->orders()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/me/orders/{ID}',
+            ]
         ];
     }
     

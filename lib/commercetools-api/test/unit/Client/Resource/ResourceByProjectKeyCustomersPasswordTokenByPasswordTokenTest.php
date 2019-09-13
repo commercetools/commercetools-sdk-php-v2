@@ -16,29 +16,29 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordTokenTest extends Test
     public function getRequests()
     {
         return [
-           'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customers()
-                       ->withPasswordToken("passwordToken")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/customers/password-token={passwordToken}?expand=expand',
-           ],
-           'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customers()
-                       ->withPasswordToken("passwordToken")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/customers/password-token={passwordToken}',
-           ]
+            'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withPasswordToken("passwordToken")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/customers/password-token={passwordToken}?expand=expand',
+            ],
+            'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withPasswordToken("passwordToken")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/customers/password-token={passwordToken}',
+            ]
         ];
     }
     

@@ -16,99 +16,99 @@ class ResourceByProjectKeyShoppingListsKeyByKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyShoppingListsKeyByKeyGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withKey("key")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/shopping-lists/key={key}?expand=expand',
-           ],
-           'ByProjectKeyShoppingListsKeyByKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withKey("key")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/shopping-lists/key={key}',
-           ],
-           'ByProjectKeyShoppingListsKeyByKeyPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withKey("key")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/shopping-lists/key={key}?expand=expand',
-           ],
-           'ByProjectKeyShoppingListsKeyByKeyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withKey("key")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/shopping-lists/key={key}',
-           ],
-           'ByProjectKeyShoppingListsKeyByKeyDelete_withDataErasure' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withKey("key")
-                       ->delete()
-                       ->withDataErasure('dataErasure');
-               },
-               'delete',
-               '/{projectKey}/shopping-lists/key={key}?dataErasure=dataErasure',
-           ],
-           'ByProjectKeyShoppingListsKeyByKeyDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withKey("key")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/shopping-lists/key={key}?version=version',
-           ],
-           'ByProjectKeyShoppingListsKeyByKeyDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withKey("key")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/shopping-lists/key={key}?expand=expand',
-           ],
-           'ByProjectKeyShoppingListsKeyByKeyDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shoppingLists()
-                       ->withKey("key")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/shopping-lists/key={key}',
-           ]
+            'ByProjectKeyShoppingListsKeyByKeyGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/shopping-lists/key={key}?expand=expand',
+            ],
+            'ByProjectKeyShoppingListsKeyByKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/shopping-lists/key={key}',
+            ],
+            'ByProjectKeyShoppingListsKeyByKeyPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/shopping-lists/key={key}?expand=expand',
+            ],
+            'ByProjectKeyShoppingListsKeyByKeyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/shopping-lists/key={key}',
+            ],
+            'ByProjectKeyShoppingListsKeyByKeyDelete_withDataErasure' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                '/{projectKey}/shopping-lists/key={key}?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyShoppingListsKeyByKeyDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/shopping-lists/key={key}?version=version',
+            ],
+            'ByProjectKeyShoppingListsKeyByKeyDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/shopping-lists/key={key}?expand=expand',
+            ],
+            'ByProjectKeyShoppingListsKeyByKeyDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shoppingLists()
+                        ->withKey("key")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/shopping-lists/key={key}',
+            ]
         ];
     }
     

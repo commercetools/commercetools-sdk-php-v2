@@ -16,103 +16,103 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCustomObjectsGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/custom-objects?expand=expand',
-           ],
-           'ByProjectKeyCustomObjectsGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/custom-objects?where=where',
-           ],
-           'ByProjectKeyCustomObjectsGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/custom-objects?sort=sort',
-           ],
-           'ByProjectKeyCustomObjectsGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/custom-objects?limit=limit',
-           ],
-           'ByProjectKeyCustomObjectsGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/custom-objects?offset=offset',
-           ],
-           'ByProjectKeyCustomObjectsGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/custom-objects?withTotal=withTotal',
-           ],
-           'ByProjectKeyCustomObjectsGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/custom-objects',
-           ],
-           'ByProjectKeyCustomObjectsPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/custom-objects?expand=expand',
-           ],
-           'ByProjectKeyCustomObjectsPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/custom-objects',
-           ]
+            'ByProjectKeyCustomObjectsGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/custom-objects?expand=expand',
+            ],
+            'ByProjectKeyCustomObjectsGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/custom-objects?where=where',
+            ],
+            'ByProjectKeyCustomObjectsGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/custom-objects?sort=sort',
+            ],
+            'ByProjectKeyCustomObjectsGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/custom-objects?limit=limit',
+            ],
+            'ByProjectKeyCustomObjectsGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/custom-objects?offset=offset',
+            ],
+            'ByProjectKeyCustomObjectsGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/custom-objects?withTotal=withTotal',
+            ],
+            'ByProjectKeyCustomObjectsGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/custom-objects',
+            ],
+            'ByProjectKeyCustomObjectsPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/custom-objects?expand=expand',
+            ],
+            'ByProjectKeyCustomObjectsPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/custom-objects',
+            ]
         ];
     }
     

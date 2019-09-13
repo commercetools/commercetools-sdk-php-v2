@@ -16,87 +16,87 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyShippingMethodsKeyByKeyGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shippingMethods()
-                       ->withKey("key")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/shipping-methods/key={key}?expand=expand',
-           ],
-           'ByProjectKeyShippingMethodsKeyByKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shippingMethods()
-                       ->withKey("key")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/shipping-methods/key={key}',
-           ],
-           'ByProjectKeyShippingMethodsKeyByKeyPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shippingMethods()
-                       ->withKey("key")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/shipping-methods/key={key}?expand=expand',
-           ],
-           'ByProjectKeyShippingMethodsKeyByKeyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shippingMethods()
-                       ->withKey("key")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/shipping-methods/key={key}',
-           ],
-           'ByProjectKeyShippingMethodsKeyByKeyDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shippingMethods()
-                       ->withKey("key")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/shipping-methods/key={key}?version=version',
-           ],
-           'ByProjectKeyShippingMethodsKeyByKeyDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shippingMethods()
-                       ->withKey("key")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/shipping-methods/key={key}?expand=expand',
-           ],
-           'ByProjectKeyShippingMethodsKeyByKeyDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->shippingMethods()
-                       ->withKey("key")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/shipping-methods/key={key}',
-           ]
+            'ByProjectKeyShippingMethodsKeyByKeyGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/shipping-methods/key={key}?expand=expand',
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/shipping-methods/key={key}',
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/shipping-methods/key={key}?expand=expand',
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/shipping-methods/key={key}',
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/shipping-methods/key={key}?version=version',
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/shipping-methods/key={key}?expand=expand',
+            ],
+            'ByProjectKeyShippingMethodsKeyByKeyDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->shippingMethods()
+                        ->withKey("key")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/shipping-methods/key={key}',
+            ]
         ];
     }
     

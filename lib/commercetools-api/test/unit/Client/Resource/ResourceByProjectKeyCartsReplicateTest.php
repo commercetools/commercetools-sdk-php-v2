@@ -16,17 +16,17 @@ class ResourceByProjectKeyCartsReplicateTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCartsReplicatePost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->carts()
-                       ->replicate()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/carts/replicate',
-           ]
+            'ByProjectKeyCartsReplicatePost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->carts()
+                        ->replicate()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/carts/replicate',
+            ]
         ];
     }
     

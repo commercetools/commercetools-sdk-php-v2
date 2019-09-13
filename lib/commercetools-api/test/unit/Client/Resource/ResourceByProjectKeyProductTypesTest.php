@@ -16,103 +16,103 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyProductTypesGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/product-types?expand=expand',
-           ],
-           'ByProjectKeyProductTypesGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/product-types?where=where',
-           ],
-           'ByProjectKeyProductTypesGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/product-types?sort=sort',
-           ],
-           'ByProjectKeyProductTypesGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/product-types?limit=limit',
-           ],
-           'ByProjectKeyProductTypesGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/product-types?offset=offset',
-           ],
-           'ByProjectKeyProductTypesGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/product-types?withTotal=withTotal',
-           ],
-           'ByProjectKeyProductTypesGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/product-types',
-           ],
-           'ByProjectKeyProductTypesPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/product-types?expand=expand',
-           ],
-           'ByProjectKeyProductTypesPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productTypes()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/product-types',
-           ]
+            'ByProjectKeyProductTypesGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/product-types?expand=expand',
+            ],
+            'ByProjectKeyProductTypesGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/product-types?where=where',
+            ],
+            'ByProjectKeyProductTypesGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/product-types?sort=sort',
+            ],
+            'ByProjectKeyProductTypesGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/product-types?limit=limit',
+            ],
+            'ByProjectKeyProductTypesGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/product-types?offset=offset',
+            ],
+            'ByProjectKeyProductTypesGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/product-types?withTotal=withTotal',
+            ],
+            'ByProjectKeyProductTypesGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/product-types',
+            ],
+            'ByProjectKeyProductTypesPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/product-types?expand=expand',
+            ],
+            'ByProjectKeyProductTypesPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productTypes()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/product-types',
+            ]
         ];
     }
     

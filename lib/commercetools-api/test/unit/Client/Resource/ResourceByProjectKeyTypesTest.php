@@ -16,103 +16,103 @@ class ResourceByProjectKeyTypesTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyTypesGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->types()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/types?expand=expand',
-           ],
-           'ByProjectKeyTypesGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->types()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/types?where=where',
-           ],
-           'ByProjectKeyTypesGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->types()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/types?sort=sort',
-           ],
-           'ByProjectKeyTypesGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->types()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/types?limit=limit',
-           ],
-           'ByProjectKeyTypesGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->types()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/types?offset=offset',
-           ],
-           'ByProjectKeyTypesGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->types()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/types?withTotal=withTotal',
-           ],
-           'ByProjectKeyTypesGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->types()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/types',
-           ],
-           'ByProjectKeyTypesPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->types()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/types?expand=expand',
-           ],
-           'ByProjectKeyTypesPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->types()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/types',
-           ]
+            'ByProjectKeyTypesGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/types?expand=expand',
+            ],
+            'ByProjectKeyTypesGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/types?where=where',
+            ],
+            'ByProjectKeyTypesGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/types?sort=sort',
+            ],
+            'ByProjectKeyTypesGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/types?limit=limit',
+            ],
+            'ByProjectKeyTypesGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/types?offset=offset',
+            ],
+            'ByProjectKeyTypesGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/types?withTotal=withTotal',
+            ],
+            'ByProjectKeyTypesGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/types',
+            ],
+            'ByProjectKeyTypesPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/types?expand=expand',
+            ],
+            'ByProjectKeyTypesPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->types()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/types',
+            ]
         ];
     }
     

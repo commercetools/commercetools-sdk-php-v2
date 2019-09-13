@@ -16,76 +16,76 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCustomObjectsByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/custom-objects/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCustomObjectsByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/custom-objects/{ID}',
-           ],
-           'ByProjectKeyCustomObjectsByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/custom-objects/{ID}?version=version',
-           ],
-           'ByProjectKeyCustomObjectsByIDDelete_withDataErasure' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->withId("ID")
-                       ->delete()
-                       ->withDataErasure('dataErasure');
-               },
-               'delete',
-               '/{projectKey}/custom-objects/{ID}?dataErasure=dataErasure',
-           ],
-           'ByProjectKeyCustomObjectsByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/custom-objects/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCustomObjectsByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customObjects()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/custom-objects/{ID}',
-           ]
+            'ByProjectKeyCustomObjectsByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/custom-objects/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCustomObjectsByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/custom-objects/{ID}',
+            ],
+            'ByProjectKeyCustomObjectsByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/custom-objects/{ID}?version=version',
+            ],
+            'ByProjectKeyCustomObjectsByIDDelete_withDataErasure' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withId("ID")
+                        ->delete()
+                        ->withDataErasure('dataErasure');
+                },
+                'delete',
+                '/{projectKey}/custom-objects/{ID}?dataErasure=dataErasure',
+            ],
+            'ByProjectKeyCustomObjectsByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/custom-objects/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCustomObjectsByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customObjects()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/custom-objects/{ID}',
+            ]
         ];
     }
     

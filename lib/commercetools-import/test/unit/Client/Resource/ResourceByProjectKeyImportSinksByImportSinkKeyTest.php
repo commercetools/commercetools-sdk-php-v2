@@ -16,39 +16,39 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyImportSinksByImportSinkKeyPut' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKeyValue("projectKey")
-                       ->importSinks()
-                       ->withImportSinkKeyValue("importSinkKey")
-                       ->put(null);
-               },
-               'put',
-               '/{projectKey}/import-sinks/{importSinkKey}',
-           ],
-           'ByProjectKeyImportSinksByImportSinkKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKeyValue("projectKey")
-                       ->importSinks()
-                       ->withImportSinkKeyValue("importSinkKey")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/import-sinks/{importSinkKey}',
-           ],
-           'ByProjectKeyImportSinksByImportSinkKeyDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKeyValue("projectKey")
-                       ->importSinks()
-                       ->withImportSinkKeyValue("importSinkKey")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/import-sinks/{importSinkKey}',
-           ]
+            'ByProjectKeyImportSinksByImportSinkKeyPut' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->put(null);
+                },
+                'put',
+                '/{projectKey}/import-sinks/{importSinkKey}',
+            ],
+            'ByProjectKeyImportSinksByImportSinkKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/import-sinks/{importSinkKey}',
+            ],
+            'ByProjectKeyImportSinksByImportSinkKeyDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/import-sinks/{importSinkKey}',
+            ]
         ];
     }
     

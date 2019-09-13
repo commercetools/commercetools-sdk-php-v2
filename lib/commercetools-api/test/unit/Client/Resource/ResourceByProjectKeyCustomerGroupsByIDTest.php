@@ -16,87 +16,87 @@ class ResourceByProjectKeyCustomerGroupsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCustomerGroupsByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customerGroups()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/customer-groups/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCustomerGroupsByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customerGroups()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/customer-groups/{ID}',
-           ],
-           'ByProjectKeyCustomerGroupsByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customerGroups()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/customer-groups/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCustomerGroupsByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customerGroups()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/customer-groups/{ID}',
-           ],
-           'ByProjectKeyCustomerGroupsByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customerGroups()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/customer-groups/{ID}?version=version',
-           ],
-           'ByProjectKeyCustomerGroupsByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customerGroups()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/customer-groups/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCustomerGroupsByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customerGroups()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/customer-groups/{ID}',
-           ]
+            'ByProjectKeyCustomerGroupsByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/customer-groups/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCustomerGroupsByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/customer-groups/{ID}',
+            ],
+            'ByProjectKeyCustomerGroupsByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/customer-groups/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCustomerGroupsByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/customer-groups/{ID}',
+            ],
+            'ByProjectKeyCustomerGroupsByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/customer-groups/{ID}?version=version',
+            ],
+            'ByProjectKeyCustomerGroupsByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/customer-groups/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCustomerGroupsByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customerGroups()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/customer-groups/{ID}',
+            ]
         ];
     }
     

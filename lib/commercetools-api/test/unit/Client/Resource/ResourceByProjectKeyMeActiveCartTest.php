@@ -16,17 +16,17 @@ class ResourceByProjectKeyMeActiveCartTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyMeActiveCartGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->activeCart()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/me/active-cart',
-           ]
+            'ByProjectKeyMeActiveCartGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->activeCart()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/me/active-cart',
+            ]
         ];
     }
     

@@ -16,103 +16,103 @@ class ResourceByProjectKeyChannelsTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyChannelsGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->channels()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/channels?expand=expand',
-           ],
-           'ByProjectKeyChannelsGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->channels()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/channels?where=where',
-           ],
-           'ByProjectKeyChannelsGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->channels()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/channels?sort=sort',
-           ],
-           'ByProjectKeyChannelsGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->channels()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/channels?limit=limit',
-           ],
-           'ByProjectKeyChannelsGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->channels()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/channels?offset=offset',
-           ],
-           'ByProjectKeyChannelsGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->channels()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/channels?withTotal=withTotal',
-           ],
-           'ByProjectKeyChannelsGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->channels()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/channels',
-           ],
-           'ByProjectKeyChannelsPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->channels()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/channels?expand=expand',
-           ],
-           'ByProjectKeyChannelsPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->channels()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/channels',
-           ]
+            'ByProjectKeyChannelsGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/channels?expand=expand',
+            ],
+            'ByProjectKeyChannelsGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/channels?where=where',
+            ],
+            'ByProjectKeyChannelsGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/channels?sort=sort',
+            ],
+            'ByProjectKeyChannelsGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/channels?limit=limit',
+            ],
+            'ByProjectKeyChannelsGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/channels?offset=offset',
+            ],
+            'ByProjectKeyChannelsGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/channels?withTotal=withTotal',
+            ],
+            'ByProjectKeyChannelsGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/channels',
+            ],
+            'ByProjectKeyChannelsPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/channels?expand=expand',
+            ],
+            'ByProjectKeyChannelsPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->channels()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/channels',
+            ]
         ];
     }
     

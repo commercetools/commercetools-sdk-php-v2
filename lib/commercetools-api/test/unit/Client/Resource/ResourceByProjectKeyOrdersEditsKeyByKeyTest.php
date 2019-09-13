@@ -16,94 +16,94 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyOrdersEditsKeyByKeyGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->edits()
-                       ->withKey("key")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/orders/edits/key={key}?expand=expand',
-           ],
-           'ByProjectKeyOrdersEditsKeyByKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->edits()
-                       ->withKey("key")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/orders/edits/key={key}',
-           ],
-           'ByProjectKeyOrdersEditsKeyByKeyPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->edits()
-                       ->withKey("key")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/orders/edits/key={key}?expand=expand',
-           ],
-           'ByProjectKeyOrdersEditsKeyByKeyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->edits()
-                       ->withKey("key")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/orders/edits/key={key}',
-           ],
-           'ByProjectKeyOrdersEditsKeyByKeyDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->edits()
-                       ->withKey("key")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/orders/edits/key={key}?version=version',
-           ],
-           'ByProjectKeyOrdersEditsKeyByKeyDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->edits()
-                       ->withKey("key")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/orders/edits/key={key}?expand=expand',
-           ],
-           'ByProjectKeyOrdersEditsKeyByKeyDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->edits()
-                       ->withKey("key")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/orders/edits/key={key}',
-           ]
+            'ByProjectKeyOrdersEditsKeyByKeyGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/orders/edits/key={key}?expand=expand',
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/orders/edits/key={key}',
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/orders/edits/key={key}?expand=expand',
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/orders/edits/key={key}',
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/orders/edits/key={key}?version=version',
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/orders/edits/key={key}?expand=expand',
+            ],
+            'ByProjectKeyOrdersEditsKeyByKeyDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->edits()
+                        ->withKey("key")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/orders/edits/key={key}',
+            ]
         ];
     }
     

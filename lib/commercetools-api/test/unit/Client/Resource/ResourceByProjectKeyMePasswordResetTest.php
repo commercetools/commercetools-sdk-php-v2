@@ -16,18 +16,18 @@ class ResourceByProjectKeyMePasswordResetTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyMePasswordResetPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->me()
-                       ->password()
-                       ->reset()
-                       ->post();
-               },
-               'post',
-               '/{projectKey}/me/password/reset',
-           ]
+            'ByProjectKeyMePasswordResetPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->me()
+                        ->password()
+                        ->reset()
+                        ->post();
+                },
+                'post',
+                '/{projectKey}/me/password/reset',
+            ]
         ];
     }
     

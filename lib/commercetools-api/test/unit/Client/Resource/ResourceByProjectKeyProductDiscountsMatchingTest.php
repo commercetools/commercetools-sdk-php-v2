@@ -16,17 +16,17 @@ class ResourceByProjectKeyProductDiscountsMatchingTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyProductDiscountsMatchingPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productDiscounts()
-                       ->matching()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/product-discounts/matching',
-           ]
+            'ByProjectKeyProductDiscountsMatchingPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->matching()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/product-discounts/matching',
+            ]
         ];
     }
     

@@ -16,29 +16,29 @@ class ResourceByProjectKeyMessagesByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyMessagesByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->messages()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/messages/{ID}?expand=expand',
-           ],
-           'ByProjectKeyMessagesByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->messages()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/messages/{ID}',
-           ]
+            'ByProjectKeyMessagesByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/messages/{ID}?expand=expand',
+            ],
+            'ByProjectKeyMessagesByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/messages/{ID}',
+            ]
         ];
     }
     

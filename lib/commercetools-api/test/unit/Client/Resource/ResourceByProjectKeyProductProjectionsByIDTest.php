@@ -16,89 +16,89 @@ class ResourceByProjectKeyProductProjectionsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyProductProjectionsByIDGet_withStaged' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productProjections()
-                       ->withId("ID")
-                       ->get()
-                       ->withStaged('staged');
-               },
-               'get',
-               '/{projectKey}/product-projections/{ID}?staged=staged',
-           ],
-           'ByProjectKeyProductProjectionsByIDGet_withPriceCurrency' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productProjections()
-                       ->withId("ID")
-                       ->get()
-                       ->withPriceCurrency('priceCurrency');
-               },
-               'get',
-               '/{projectKey}/product-projections/{ID}?priceCurrency=priceCurrency',
-           ],
-           'ByProjectKeyProductProjectionsByIDGet_withPriceCountry' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productProjections()
-                       ->withId("ID")
-                       ->get()
-                       ->withPriceCountry('priceCountry');
-               },
-               'get',
-               '/{projectKey}/product-projections/{ID}?priceCountry=priceCountry',
-           ],
-           'ByProjectKeyProductProjectionsByIDGet_withPriceCustomerGroup' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productProjections()
-                       ->withId("ID")
-                       ->get()
-                       ->withPriceCustomerGroup('priceCustomerGroup');
-               },
-               'get',
-               '/{projectKey}/product-projections/{ID}?priceCustomerGroup=priceCustomerGroup',
-           ],
-           'ByProjectKeyProductProjectionsByIDGet_withPriceChannel' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productProjections()
-                       ->withId("ID")
-                       ->get()
-                       ->withPriceChannel('priceChannel');
-               },
-               'get',
-               '/{projectKey}/product-projections/{ID}?priceChannel=priceChannel',
-           ],
-           'ByProjectKeyProductProjectionsByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productProjections()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/product-projections/{ID}?expand=expand',
-           ],
-           'ByProjectKeyProductProjectionsByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productProjections()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/product-projections/{ID}',
-           ]
+            'ByProjectKeyProductProjectionsByIDGet_withStaged' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->get()
+                        ->withStaged('staged');
+                },
+                'get',
+                '/{projectKey}/product-projections/{ID}?staged=staged',
+            ],
+            'ByProjectKeyProductProjectionsByIDGet_withPriceCurrency' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->get()
+                        ->withPriceCurrency('priceCurrency');
+                },
+                'get',
+                '/{projectKey}/product-projections/{ID}?priceCurrency=priceCurrency',
+            ],
+            'ByProjectKeyProductProjectionsByIDGet_withPriceCountry' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->get()
+                        ->withPriceCountry('priceCountry');
+                },
+                'get',
+                '/{projectKey}/product-projections/{ID}?priceCountry=priceCountry',
+            ],
+            'ByProjectKeyProductProjectionsByIDGet_withPriceCustomerGroup' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->get()
+                        ->withPriceCustomerGroup('priceCustomerGroup');
+                },
+                'get',
+                '/{projectKey}/product-projections/{ID}?priceCustomerGroup=priceCustomerGroup',
+            ],
+            'ByProjectKeyProductProjectionsByIDGet_withPriceChannel' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->get()
+                        ->withPriceChannel('priceChannel');
+                },
+                'get',
+                '/{projectKey}/product-projections/{ID}?priceChannel=priceChannel',
+            ],
+            'ByProjectKeyProductProjectionsByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/product-projections/{ID}?expand=expand',
+            ],
+            'ByProjectKeyProductProjectionsByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productProjections()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/product-projections/{ID}',
+            ]
         ];
     }
     

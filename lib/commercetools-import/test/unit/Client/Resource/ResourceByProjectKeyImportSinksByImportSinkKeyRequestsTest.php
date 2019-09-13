@@ -16,18 +16,18 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyRequestsTest extends TestCas
     public function getRequests()
     {
         return [
-           'ByProjectKeyImportSinksByImportSinkKeyRequestsPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKeyValue("projectKey")
-                       ->importSinks()
-                       ->withImportSinkKeyValue("importSinkKey")
-                       ->requests()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/import-sinks/{importSinkKey}/requests',
-           ]
+            'ByProjectKeyImportSinksByImportSinkKeyRequestsPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->requests()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/import-sinks/{importSinkKey}/requests',
+            ]
         ];
     }
     

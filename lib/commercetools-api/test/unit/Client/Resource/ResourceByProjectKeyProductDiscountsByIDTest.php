@@ -16,87 +16,87 @@ class ResourceByProjectKeyProductDiscountsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyProductDiscountsByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productDiscounts()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/product-discounts/{ID}?expand=expand',
-           ],
-           'ByProjectKeyProductDiscountsByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productDiscounts()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/product-discounts/{ID}',
-           ],
-           'ByProjectKeyProductDiscountsByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productDiscounts()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/product-discounts/{ID}?expand=expand',
-           ],
-           'ByProjectKeyProductDiscountsByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productDiscounts()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/product-discounts/{ID}',
-           ],
-           'ByProjectKeyProductDiscountsByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productDiscounts()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/product-discounts/{ID}?version=version',
-           ],
-           'ByProjectKeyProductDiscountsByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productDiscounts()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/product-discounts/{ID}?expand=expand',
-           ],
-           'ByProjectKeyProductDiscountsByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->productDiscounts()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/product-discounts/{ID}',
-           ]
+            'ByProjectKeyProductDiscountsByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/product-discounts/{ID}?expand=expand',
+            ],
+            'ByProjectKeyProductDiscountsByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/product-discounts/{ID}',
+            ],
+            'ByProjectKeyProductDiscountsByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/product-discounts/{ID}?expand=expand',
+            ],
+            'ByProjectKeyProductDiscountsByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/product-discounts/{ID}',
+            ],
+            'ByProjectKeyProductDiscountsByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/product-discounts/{ID}?version=version',
+            ],
+            'ByProjectKeyProductDiscountsByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/product-discounts/{ID}?expand=expand',
+            ],
+            'ByProjectKeyProductDiscountsByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->productDiscounts()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/product-discounts/{ID}',
+            ]
         ];
     }
     

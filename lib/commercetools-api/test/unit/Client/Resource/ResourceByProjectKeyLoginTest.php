@@ -16,16 +16,16 @@ class ResourceByProjectKeyLoginTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyLoginPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->login()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/login',
-           ]
+            'ByProjectKeyLoginPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->login()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/login',
+            ]
         ];
     }
     

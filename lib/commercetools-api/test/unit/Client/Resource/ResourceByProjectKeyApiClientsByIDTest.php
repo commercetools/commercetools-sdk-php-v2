@@ -16,28 +16,28 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyApiClientsByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/api-clients/{ID}',
-           ],
-           'ByProjectKeyApiClientsByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->apiClients()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/api-clients/{ID}',
-           ]
+            'ByProjectKeyApiClientsByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/api-clients/{ID}',
+            ],
+            'ByProjectKeyApiClientsByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->apiClients()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/api-clients/{ID}',
+            ]
         ];
     }
     

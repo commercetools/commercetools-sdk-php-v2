@@ -16,101 +16,101 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeCartsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->carts()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}?expand=expand',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->carts()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->carts()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}?expand=expand',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->carts()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->carts()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}?version=version',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->carts()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}?expand=expand',
-           ],
-           'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->carts()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}',
-           ]
+            'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->carts()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}?expand=expand',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->carts()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->carts()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}?expand=expand',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->carts()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->carts()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}?version=version',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->carts()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}?expand=expand',
+            ],
+            'ByProjectKeyInStoreKeyByStoreKeyMeCartsByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->carts()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/in-store/key={storeKey}/me/carts/{ID}',
+            ]
         ];
     }
     

@@ -16,82 +16,82 @@ class ResourceByProjectKeyMessagesTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyMessagesGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->messages()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/messages?expand=expand',
-           ],
-           'ByProjectKeyMessagesGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->messages()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/messages?where=where',
-           ],
-           'ByProjectKeyMessagesGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->messages()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/messages?sort=sort',
-           ],
-           'ByProjectKeyMessagesGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->messages()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/messages?limit=limit',
-           ],
-           'ByProjectKeyMessagesGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->messages()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/messages?offset=offset',
-           ],
-           'ByProjectKeyMessagesGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->messages()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/messages?withTotal=withTotal',
-           ],
-           'ByProjectKeyMessagesGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->messages()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/messages',
-           ]
+            'ByProjectKeyMessagesGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/messages?expand=expand',
+            ],
+            'ByProjectKeyMessagesGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/messages?where=where',
+            ],
+            'ByProjectKeyMessagesGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/messages?sort=sort',
+            ],
+            'ByProjectKeyMessagesGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/messages?limit=limit',
+            ],
+            'ByProjectKeyMessagesGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/messages?offset=offset',
+            ],
+            'ByProjectKeyMessagesGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/messages?withTotal=withTotal',
+            ],
+            'ByProjectKeyMessagesGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->messages()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/messages',
+            ]
         ];
     }
     

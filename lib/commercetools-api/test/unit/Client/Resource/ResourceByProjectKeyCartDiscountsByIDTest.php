@@ -16,87 +16,87 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCartDiscountsByIDGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->withId("ID")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/cart-discounts/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCartDiscountsByIDGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->withId("ID")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/cart-discounts/{ID}',
-           ],
-           'ByProjectKeyCartDiscountsByIDPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->withId("ID")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/cart-discounts/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCartDiscountsByIDPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->withId("ID")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/cart-discounts/{ID}',
-           ],
-           'ByProjectKeyCartDiscountsByIDDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->withId("ID")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/cart-discounts/{ID}?version=version',
-           ],
-           'ByProjectKeyCartDiscountsByIDDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->withId("ID")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/cart-discounts/{ID}?expand=expand',
-           ],
-           'ByProjectKeyCartDiscountsByIDDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->cartDiscounts()
-                       ->withId("ID")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/cart-discounts/{ID}',
-           ]
+            'ByProjectKeyCartDiscountsByIDGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/cart-discounts/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCartDiscountsByIDGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/cart-discounts/{ID}',
+            ],
+            'ByProjectKeyCartDiscountsByIDPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/cart-discounts/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCartDiscountsByIDPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/cart-discounts/{ID}',
+            ],
+            'ByProjectKeyCartDiscountsByIDDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/cart-discounts/{ID}?version=version',
+            ],
+            'ByProjectKeyCartDiscountsByIDDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/cart-discounts/{ID}?expand=expand',
+            ],
+            'ByProjectKeyCartDiscountsByIDDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->cartDiscounts()
+                        ->withId("ID")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/cart-discounts/{ID}',
+            ]
         ];
     }
     

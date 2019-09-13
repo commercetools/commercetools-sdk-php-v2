@@ -16,103 +16,103 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeySubscriptionsGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/subscriptions?expand=expand',
-           ],
-           'ByProjectKeySubscriptionsGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/subscriptions?where=where',
-           ],
-           'ByProjectKeySubscriptionsGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/subscriptions?sort=sort',
-           ],
-           'ByProjectKeySubscriptionsGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/subscriptions?limit=limit',
-           ],
-           'ByProjectKeySubscriptionsGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/subscriptions?offset=offset',
-           ],
-           'ByProjectKeySubscriptionsGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/subscriptions?withTotal=withTotal',
-           ],
-           'ByProjectKeySubscriptionsGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/subscriptions',
-           ],
-           'ByProjectKeySubscriptionsPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/subscriptions?expand=expand',
-           ],
-           'ByProjectKeySubscriptionsPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/subscriptions',
-           ]
+            'ByProjectKeySubscriptionsGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/subscriptions?expand=expand',
+            ],
+            'ByProjectKeySubscriptionsGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/subscriptions?where=where',
+            ],
+            'ByProjectKeySubscriptionsGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/subscriptions?sort=sort',
+            ],
+            'ByProjectKeySubscriptionsGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/subscriptions?limit=limit',
+            ],
+            'ByProjectKeySubscriptionsGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/subscriptions?offset=offset',
+            ],
+            'ByProjectKeySubscriptionsGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/subscriptions?withTotal=withTotal',
+            ],
+            'ByProjectKeySubscriptionsGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/subscriptions',
+            ],
+            'ByProjectKeySubscriptionsPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/subscriptions?expand=expand',
+            ],
+            'ByProjectKeySubscriptionsPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/subscriptions',
+            ]
         ];
     }
     

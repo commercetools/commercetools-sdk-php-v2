@@ -16,18 +16,18 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyInStoreKeyByStoreKeyMeActiveCartGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->inStoreKeyWithStoreKeyValue("storeKey")
-                       ->me()
-                       ->activeCart()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/in-store/key={storeKey}/me/active-cart',
-           ]
+            'ByProjectKeyInStoreKeyByStoreKeyMeActiveCartGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->inStoreKeyWithStoreKeyValue("storeKey")
+                        ->me()
+                        ->activeCart()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/in-store/key={storeKey}/me/active-cart',
+            ]
         ];
     }
     

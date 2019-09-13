@@ -16,29 +16,29 @@ class ResourceByProjectKeyCustomersEmailTokenByEmailTokenTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCustomersEmailTokenByEmailTokenGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customers()
-                       ->withEmailToken("emailToken")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/customers/email-token={emailToken}?expand=expand',
-           ],
-           'ByProjectKeyCustomersEmailTokenByEmailTokenGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customers()
-                       ->withEmailToken("emailToken")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/customers/email-token={emailToken}',
-           ]
+            'ByProjectKeyCustomersEmailTokenByEmailTokenGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withEmailToken("emailToken")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/customers/email-token={emailToken}?expand=expand',
+            ],
+            'ByProjectKeyCustomersEmailTokenByEmailTokenGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->withEmailToken("emailToken")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/customers/email-token={emailToken}',
+            ]
         ];
     }
     

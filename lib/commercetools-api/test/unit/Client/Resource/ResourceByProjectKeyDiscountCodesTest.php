@@ -16,103 +16,103 @@ class ResourceByProjectKeyDiscountCodesTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyDiscountCodesGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/discount-codes?expand=expand',
-           ],
-           'ByProjectKeyDiscountCodesGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/discount-codes?where=where',
-           ],
-           'ByProjectKeyDiscountCodesGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/discount-codes?sort=sort',
-           ],
-           'ByProjectKeyDiscountCodesGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/discount-codes?limit=limit',
-           ],
-           'ByProjectKeyDiscountCodesGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/discount-codes?offset=offset',
-           ],
-           'ByProjectKeyDiscountCodesGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/discount-codes?withTotal=withTotal',
-           ],
-           'ByProjectKeyDiscountCodesGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/discount-codes',
-           ],
-           'ByProjectKeyDiscountCodesPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/discount-codes?expand=expand',
-           ],
-           'ByProjectKeyDiscountCodesPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->discountCodes()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/discount-codes',
-           ]
+            'ByProjectKeyDiscountCodesGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/discount-codes?expand=expand',
+            ],
+            'ByProjectKeyDiscountCodesGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/discount-codes?where=where',
+            ],
+            'ByProjectKeyDiscountCodesGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/discount-codes?sort=sort',
+            ],
+            'ByProjectKeyDiscountCodesGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/discount-codes?limit=limit',
+            ],
+            'ByProjectKeyDiscountCodesGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/discount-codes?offset=offset',
+            ],
+            'ByProjectKeyDiscountCodesGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/discount-codes?withTotal=withTotal',
+            ],
+            'ByProjectKeyDiscountCodesGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/discount-codes',
+            ],
+            'ByProjectKeyDiscountCodesPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/discount-codes?expand=expand',
+            ],
+            'ByProjectKeyDiscountCodesPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->discountCodes()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/discount-codes',
+            ]
         ];
     }
     

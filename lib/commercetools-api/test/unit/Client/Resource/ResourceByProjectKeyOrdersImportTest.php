@@ -16,17 +16,17 @@ class ResourceByProjectKeyOrdersImportTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyOrdersImportPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->orders()
-                       ->importOrder()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/orders/import',
-           ]
+            'ByProjectKeyOrdersImportPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->orders()
+                        ->importOrder()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/orders/import',
+            ]
         ];
     }
     

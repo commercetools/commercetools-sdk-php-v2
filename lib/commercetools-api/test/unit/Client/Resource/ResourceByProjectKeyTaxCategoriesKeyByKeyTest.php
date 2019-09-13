@@ -16,87 +16,87 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyTaxCategoriesKeyByKeyGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->taxCategories()
-                       ->withKey("key")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/tax-categories/key={key}?expand=expand',
-           ],
-           'ByProjectKeyTaxCategoriesKeyByKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->taxCategories()
-                       ->withKey("key")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/tax-categories/key={key}',
-           ],
-           'ByProjectKeyTaxCategoriesKeyByKeyPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->taxCategories()
-                       ->withKey("key")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/tax-categories/key={key}?expand=expand',
-           ],
-           'ByProjectKeyTaxCategoriesKeyByKeyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->taxCategories()
-                       ->withKey("key")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/tax-categories/key={key}',
-           ],
-           'ByProjectKeyTaxCategoriesKeyByKeyDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->taxCategories()
-                       ->withKey("key")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/tax-categories/key={key}?version=version',
-           ],
-           'ByProjectKeyTaxCategoriesKeyByKeyDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->taxCategories()
-                       ->withKey("key")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/tax-categories/key={key}?expand=expand',
-           ],
-           'ByProjectKeyTaxCategoriesKeyByKeyDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->taxCategories()
-                       ->withKey("key")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/tax-categories/key={key}',
-           ]
+            'ByProjectKeyTaxCategoriesKeyByKeyGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/tax-categories/key={key}?expand=expand',
+            ],
+            'ByProjectKeyTaxCategoriesKeyByKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/tax-categories/key={key}',
+            ],
+            'ByProjectKeyTaxCategoriesKeyByKeyPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/tax-categories/key={key}?expand=expand',
+            ],
+            'ByProjectKeyTaxCategoriesKeyByKeyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/tax-categories/key={key}',
+            ],
+            'ByProjectKeyTaxCategoriesKeyByKeyDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/tax-categories/key={key}?version=version',
+            ],
+            'ByProjectKeyTaxCategoriesKeyByKeyDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/tax-categories/key={key}?expand=expand',
+            ],
+            'ByProjectKeyTaxCategoriesKeyByKeyDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->taxCategories()
+                        ->withKey("key")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/tax-categories/key={key}',
+            ]
         ];
     }
     

@@ -16,103 +16,103 @@ class ResourceByProjectKeyStatesTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyStatesGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/states?expand=expand',
-           ],
-           'ByProjectKeyStatesGet_withWhere' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->get()
-                       ->withWhere('where');
-               },
-               'get',
-               '/{projectKey}/states?where=where',
-           ],
-           'ByProjectKeyStatesGet_withSort' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->get()
-                       ->withSort('sort');
-               },
-               'get',
-               '/{projectKey}/states?sort=sort',
-           ],
-           'ByProjectKeyStatesGet_withLimit' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->get()
-                       ->withLimit('limit');
-               },
-               'get',
-               '/{projectKey}/states?limit=limit',
-           ],
-           'ByProjectKeyStatesGet_withOffset' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->get()
-                       ->withOffset('offset');
-               },
-               'get',
-               '/{projectKey}/states?offset=offset',
-           ],
-           'ByProjectKeyStatesGet_withWithTotal' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->get()
-                       ->withWithTotal('withTotal');
-               },
-               'get',
-               '/{projectKey}/states?withTotal=withTotal',
-           ],
-           'ByProjectKeyStatesGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/states',
-           ],
-           'ByProjectKeyStatesPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/states?expand=expand',
-           ],
-           'ByProjectKeyStatesPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->states()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/states',
-           ]
+            'ByProjectKeyStatesGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/states?expand=expand',
+            ],
+            'ByProjectKeyStatesGet_withWhere' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->get()
+                        ->withWhere('where');
+                },
+                'get',
+                '/{projectKey}/states?where=where',
+            ],
+            'ByProjectKeyStatesGet_withSort' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->get()
+                        ->withSort('sort');
+                },
+                'get',
+                '/{projectKey}/states?sort=sort',
+            ],
+            'ByProjectKeyStatesGet_withLimit' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->get()
+                        ->withLimit('limit');
+                },
+                'get',
+                '/{projectKey}/states?limit=limit',
+            ],
+            'ByProjectKeyStatesGet_withOffset' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->get()
+                        ->withOffset('offset');
+                },
+                'get',
+                '/{projectKey}/states?offset=offset',
+            ],
+            'ByProjectKeyStatesGet_withWithTotal' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->get()
+                        ->withWithTotal('withTotal');
+                },
+                'get',
+                '/{projectKey}/states?withTotal=withTotal',
+            ],
+            'ByProjectKeyStatesGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/states',
+            ],
+            'ByProjectKeyStatesPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/states?expand=expand',
+            ],
+            'ByProjectKeyStatesPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->states()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/states',
+            ]
         ];
     }
     

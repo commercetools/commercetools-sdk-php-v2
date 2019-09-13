@@ -16,17 +16,17 @@ class ResourceByProjectKeyCustomersEmailTokenTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeyCustomersEmailTokenPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->customers()
-                       ->emailToken()
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/customers/email-token',
-           ]
+            'ByProjectKeyCustomersEmailTokenPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->customers()
+                        ->emailToken()
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/customers/email-token',
+            ]
         ];
     }
     

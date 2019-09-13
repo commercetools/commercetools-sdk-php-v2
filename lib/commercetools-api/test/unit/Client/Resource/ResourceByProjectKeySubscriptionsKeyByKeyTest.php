@@ -16,87 +16,87 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
     public function getRequests()
     {
         return [
-           'ByProjectKeySubscriptionsKeyByKeyGet_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->withKey("key")
-                       ->get()
-                       ->withExpand('expand');
-               },
-               'get',
-               '/{projectKey}/subscriptions/key={key}?expand=expand',
-           ],
-           'ByProjectKeySubscriptionsKeyByKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->withKey("key")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/subscriptions/key={key}',
-           ],
-           'ByProjectKeySubscriptionsKeyByKeyPost_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->withKey("key")
-                       ->post(null)
-                       ->withExpand('expand');
-               },
-               'post',
-               '/{projectKey}/subscriptions/key={key}?expand=expand',
-           ],
-           'ByProjectKeySubscriptionsKeyByKeyPost' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->withKey("key")
-                       ->post(null);
-               },
-               'post',
-               '/{projectKey}/subscriptions/key={key}',
-           ],
-           'ByProjectKeySubscriptionsKeyByKeyDelete_withVersion' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->withKey("key")
-                       ->delete()
-                       ->withVersion('version');
-               },
-               'delete',
-               '/{projectKey}/subscriptions/key={key}?version=version',
-           ],
-           'ByProjectKeySubscriptionsKeyByKeyDelete_withExpand' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->withKey("key")
-                       ->delete()
-                       ->withExpand('expand');
-               },
-               'delete',
-               '/{projectKey}/subscriptions/key={key}?expand=expand',
-           ],
-           'ByProjectKeySubscriptionsKeyByKeyDelete' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKey("projectKey")
-                       ->subscriptions()
-                       ->withKey("key")
-                       ->delete();
-               },
-               'delete',
-               '/{projectKey}/subscriptions/key={key}',
-           ]
+            'ByProjectKeySubscriptionsKeyByKeyGet_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->get()
+                        ->withExpand('expand');
+                },
+                'get',
+                '/{projectKey}/subscriptions/key={key}?expand=expand',
+            ],
+            'ByProjectKeySubscriptionsKeyByKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/subscriptions/key={key}',
+            ],
+            'ByProjectKeySubscriptionsKeyByKeyPost_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->post(null)
+                        ->withExpand('expand');
+                },
+                'post',
+                '/{projectKey}/subscriptions/key={key}?expand=expand',
+            ],
+            'ByProjectKeySubscriptionsKeyByKeyPost' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                'post',
+                '/{projectKey}/subscriptions/key={key}',
+            ],
+            'ByProjectKeySubscriptionsKeyByKeyDelete_withVersion' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->delete()
+                        ->withVersion('version');
+                },
+                'delete',
+                '/{projectKey}/subscriptions/key={key}?version=version',
+            ],
+            'ByProjectKeySubscriptionsKeyByKeyDelete_withExpand' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->delete()
+                        ->withExpand('expand');
+                },
+                'delete',
+                '/{projectKey}/subscriptions/key={key}?expand=expand',
+            ],
+            'ByProjectKeySubscriptionsKeyByKeyDelete' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->subscriptions()
+                        ->withKey("key")
+                        ->delete();
+                },
+                'delete',
+                '/{projectKey}/subscriptions/key={key}',
+            ]
         ];
     }
     

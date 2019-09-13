@@ -16,19 +16,19 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyItemsByResourceKeyTest exten
     public function getRequests()
     {
         return [
-           'ByProjectKeyImportSinksByImportSinkKeyItemsByResourceKeyGet' => [
-               function(ApiRoot $builder): RequestInterface {
-                   return $builder
-                       ->withProjectKeyValue("projectKey")
-                       ->importSinks()
-                       ->withImportSinkKeyValue("importSinkKey")
-                       ->items()
-                       ->withResourceKeyValue("resourceKey")
-                       ->get();
-               },
-               'get',
-               '/{projectKey}/import-sinks/{importSinkKey}/items/{resourceKey}',
-           ]
+            'ByProjectKeyImportSinksByImportSinkKeyItemsByResourceKeyGet' => [
+                function(ApiRoot $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue("projectKey")
+                        ->importSinks()
+                        ->withImportSinkKeyValue("importSinkKey")
+                        ->items()
+                        ->withResourceKeyValue("resourceKey")
+                        ->get();
+                },
+                'get',
+                '/{projectKey}/import-sinks/{importSinkKey}/items/{resourceKey}',
+            ]
         ];
     }
     
