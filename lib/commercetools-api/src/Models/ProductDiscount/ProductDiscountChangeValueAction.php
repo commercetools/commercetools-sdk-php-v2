@@ -13,9 +13,9 @@ interface ProductDiscountChangeValueAction extends ProductDiscountUpdateAction
     const FIELD_VALUE = 'value';
 
     /**
-     * @return null|ProductDiscountValue
+     * @return null|ProductDiscountValueDraft
      */
     public function getValue();
 
-    public function setValue(?ProductDiscountValue $value): void;
+    public function setValue(?ProductDiscountValueDraft $value): void;
 }

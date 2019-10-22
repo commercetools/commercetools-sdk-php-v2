@@ -21,11 +21,11 @@ interface PriceTier extends JsonObject
     public function getMinimumQuantity();
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue();
 
     public function setMinimumQuantity(?int $minimumQuantity): void;
 
-    public function setValue(?Money $value): void;
+    public function setValue(?TypedMoney $value): void;
 }

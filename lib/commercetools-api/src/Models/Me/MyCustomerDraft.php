@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -29,6 +30,7 @@ interface MyCustomerDraft extends JsonObject
     const FIELD_DEFAULT_BILLING_ADDRESS = 'defaultBillingAddress';
     const FIELD_CUSTOM = 'custom';
     const FIELD_LOCALE = 'locale';
+    const FIELD_STORES = 'stores';
 
     /**
      * @return null|string
@@ -100,6 +102,11 @@ interface MyCustomerDraft extends JsonObject
      */
     public function getLocale();
 
+    /**
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores();
+
     public function setEmail(?string $email): void;
 
     public function setPassword(?string $password): void;
@@ -127,4 +134,6 @@ interface MyCustomerDraft extends JsonObject
     public function setCustom(?CustomFields $custom): void;
 
     public function setLocale(?string $locale): void;
+
+    public function setStores(?StoreKeyReferenceCollection $stores): void;
 }

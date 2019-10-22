@@ -26,7 +26,7 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/shipping-methods/key={key}?expand=expand',
+                '{projectKey}/shipping-methods/key={key}?expand=expand',
             ],
             'ByProjectKeyShippingMethodsKeyByKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/shipping-methods/key={key}',
+                '{projectKey}/shipping-methods/key={key}',
             ],
             'ByProjectKeyShippingMethodsKeyByKeyPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/shipping-methods/key={key}?expand=expand',
+                '{projectKey}/shipping-methods/key={key}?expand=expand',
             ],
             'ByProjectKeyShippingMethodsKeyByKeyPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/shipping-methods/key={key}',
+                '{projectKey}/shipping-methods/key={key}',
             ],
             'ByProjectKeyShippingMethodsKeyByKeyDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/shipping-methods/key={key}?version=version',
+                '{projectKey}/shipping-methods/key={key}?version=version',
             ],
             'ByProjectKeyShippingMethodsKeyByKeyDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/shipping-methods/key={key}?expand=expand',
+                '{projectKey}/shipping-methods/key={key}?expand=expand',
             ],
             'ByProjectKeyShippingMethodsKeyByKeyDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyShippingMethodsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/shipping-methods/key={key}',
+                '{projectKey}/shipping-methods/key={key}',
             ]
         ];
     }

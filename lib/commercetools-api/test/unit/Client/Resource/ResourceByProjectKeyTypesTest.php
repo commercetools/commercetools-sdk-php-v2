@@ -25,7 +25,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/types?expand=expand',
+                '{projectKey}/types?expand=expand',
             ],
             'ByProjectKeyTypesGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/types?where=where',
+                '{projectKey}/types?where=where',
             ],
             'ByProjectKeyTypesGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/types?sort=sort',
+                '{projectKey}/types?sort=sort',
             ],
             'ByProjectKeyTypesGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/types?limit=limit',
+                '{projectKey}/types?limit=limit',
             ],
             'ByProjectKeyTypesGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/types?offset=offset',
+                '{projectKey}/types?offset=offset',
             ],
             'ByProjectKeyTypesGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/types?withTotal=withTotal',
+                '{projectKey}/types?withTotal=withTotal',
             ],
             'ByProjectKeyTypesGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/types',
+                '{projectKey}/types',
             ],
             'ByProjectKeyTypesPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/types?expand=expand',
+                '{projectKey}/types?expand=expand',
             ],
             'ByProjectKeyTypesPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyTypesTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/types',
+                '{projectKey}/types',
             ]
         ];
     }

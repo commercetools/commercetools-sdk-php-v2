@@ -26,7 +26,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/inventory/{ID}?expand=expand',
+                '{projectKey}/inventory/{ID}?expand=expand',
             ],
             'ByProjectKeyInventoryByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/inventory/{ID}',
+                '{projectKey}/inventory/{ID}',
             ],
             'ByProjectKeyInventoryByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/inventory/{ID}?expand=expand',
+                '{projectKey}/inventory/{ID}?expand=expand',
             ],
             'ByProjectKeyInventoryByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/inventory/{ID}',
+                '{projectKey}/inventory/{ID}',
             ],
             'ByProjectKeyInventoryByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/inventory/{ID}?version=version',
+                '{projectKey}/inventory/{ID}?version=version',
             ],
             'ByProjectKeyInventoryByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/inventory/{ID}?expand=expand',
+                '{projectKey}/inventory/{ID}?expand=expand',
             ],
             'ByProjectKeyInventoryByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyInventoryByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/inventory/{ID}',
+                '{projectKey}/inventory/{ID}',
             ]
         ];
     }

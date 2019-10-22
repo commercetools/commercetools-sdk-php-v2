@@ -15,10 +15,11 @@ use Commercetools\Api\Models\Cart\LineItemCollection;
 use Commercetools\Api\Models\Cart\ShippingInfo;
 use Commercetools\Api\Models\Cart\ShippingRateInput;
 use Commercetools\Api\Models\Cart\TaxedPrice;
+use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\Store\StoreKeyReference;
@@ -61,6 +62,7 @@ interface Order extends LoggedResource
     const FIELD_TAX_CALCULATION_MODE = 'taxCalculationMode';
     const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    const FIELD_REFUSED_GIFTS = 'refusedGifts';
 
     /**
      * @return null|DateTimeImmutable
@@ -103,7 +105,7 @@ interface Order extends LoggedResource
     public function getCustomLineItems();
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalPrice();
 
@@ -232,6 +234,11 @@ interface Order extends LoggedResource
      */
     public function getItemShippingAddresses();
 
+    /**
+     * @return null|CartDiscountReferenceCollection
+     */
+    public function getRefusedGifts();
+
     public function setCompletedAt(?DateTimeImmutable $completedAt): void;
 
     public function setOrderNumber(?string $orderNumber): void;
@@ -248,7 +255,7 @@ interface Order extends LoggedResource
 
     public function setCustomLineItems(?CustomLineItemCollection $customLineItems): void;
 
-    public function setTotalPrice(?Money $totalPrice): void;
+    public function setTotalPrice(?TypedMoney $totalPrice): void;
 
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void;
 
@@ -299,4 +306,6 @@ interface Order extends LoggedResource
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void;
 
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+
+    public function setRefusedGifts(?CartDiscountReferenceCollection $refusedGifts): void;
 }

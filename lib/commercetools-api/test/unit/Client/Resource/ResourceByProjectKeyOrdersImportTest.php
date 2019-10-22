@@ -25,7 +25,7 @@ class ResourceByProjectKeyOrdersImportTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/orders/import',
+                '{projectKey}/orders/import',
             ]
         ];
     }

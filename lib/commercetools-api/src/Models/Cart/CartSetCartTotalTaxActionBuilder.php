@@ -23,7 +23,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     private $action;
 
     /**
-     * @var ?TaxPortionCollection
+     * @var ?TaxPortionDraftCollection
      */
     private $externalTaxPortions;
 
@@ -45,7 +45,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     }
 
     /**
-     * @return null|TaxPortionCollection
+     * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions()
     {
@@ -73,7 +73,7 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalTaxPortions(?TaxPortionCollection $externalTaxPortions)
+    public function withExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions)
     {
         $this->externalTaxPortions = $externalTaxPortions;
 

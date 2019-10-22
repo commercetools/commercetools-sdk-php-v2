@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
@@ -27,6 +29,11 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     protected $message;
 
     /**
+     * @var ?Reference
+     */
+    protected $conflictingResource;
+
+    /**
      * @var ?JsonObject
      */
     protected $duplicateValue;
@@ -39,11 +46,13 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     public function __construct(
         string $code = null,
         string $message = null,
+        Reference $conflictingResource = null,
         JsonObject $duplicateValue = null,
         string $field = null
     ) {
         $this->code = $code;
         $this->message = $message;
+        $this->conflictingResource = $conflictingResource;
         $this->duplicateValue = $duplicateValue;
         $this->field = $field;
     }
@@ -80,6 +89,24 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
         }
 
         return $this->message;
+    }
+
+    /**
+     * @return null|Reference
+     */
+    public function getConflictingResource()
+    {
+        if (is_null($this->conflictingResource)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DuplicateFieldError::FIELD_CONFLICTING_RESOURCE);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->conflictingResource = $className::of($data);
+        }
+
+        return $this->conflictingResource;
     }
 
     /**
@@ -124,6 +151,11 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     public function setMessage(?string $message): void
     {
         $this->message = $message;
+    }
+
+    public function setConflictingResource(?Reference $conflictingResource): void
+    {
+        $this->conflictingResource = $conflictingResource;
     }
 
     public function setDuplicateValue(?JsonObject $duplicateValue): void

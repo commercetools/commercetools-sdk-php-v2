@@ -18,6 +18,8 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
+use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\JsonObjectModel;
@@ -63,6 +65,11 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $taxedPrice;
 
     /**
+     * @var ?string
+     */
+    protected $origin;
+
+    /**
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -71,6 +78,11 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
      * @var ?ShippingInfoImportDraft
      */
     protected $shippingInfo;
+
+    /**
+     * @var ?StoreKeyReference
+     */
+    protected $store;
 
     /**
      * @var ?string
@@ -135,8 +147,10 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         Money $totalPrice = null,
         CustomerGroupResourceIdentifier $customerGroup = null,
         TaxedPrice $taxedPrice = null,
+        string $origin = null,
         CustomFieldsDraft $custom = null,
         ShippingInfoImportDraft $shippingInfo = null,
+        StoreKeyReference $store = null,
         string $inventoryMode = null,
         string $orderState = null,
         string $taxRoundingMode = null,
@@ -156,8 +170,10 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->totalPrice = $totalPrice;
         $this->customerGroup = $customerGroup;
         $this->taxedPrice = $taxedPrice;
+        $this->origin = $origin;
         $this->custom = $custom;
         $this->shippingInfo = $shippingInfo;
+        $this->store = $store;
         $this->inventoryMode = $inventoryMode;
         $this->orderState = $orderState;
         $this->taxRoundingMode = $taxRoundingMode;
@@ -216,7 +232,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -298,6 +314,23 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+     * @return null|string
+     */
+    public function getOrigin()
+    {
+        if (is_null($this->origin)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_ORIGIN);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->origin = (string) $data;
+        }
+
+        return $this->origin;
+    }
+
+    /**
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -331,6 +364,24 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         }
 
         return $this->shippingInfo;
+    }
+
+    /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderImportDraft::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreKeyReferenceModel::of($data);
+        }
+
+        return $this->store;
     }
 
     /**
@@ -557,6 +608,11 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->taxedPrice = $taxedPrice;
     }
 
+    public function setOrigin(?string $origin): void
+    {
+        $this->origin = $origin;
+    }
+
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
@@ -565,6 +621,11 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     public function setShippingInfo(?ShippingInfoImportDraft $shippingInfo): void
     {
         $this->shippingInfo = $shippingInfo;
+    }
+
+    public function setStore(?StoreKeyReference $store): void
+    {
+        $this->store = $store;
     }
 
     public function setInventoryMode(?string $inventoryMode): void

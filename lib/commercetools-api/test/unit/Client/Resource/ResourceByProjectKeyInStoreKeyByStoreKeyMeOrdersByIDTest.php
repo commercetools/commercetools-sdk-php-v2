@@ -28,7 +28,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/me/orders/{ID}?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/me/orders/{ID}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -41,7 +41,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeOrdersByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/me/orders/{ID}',
+                '{projectKey}/in-store/key={storeKey}/me/orders/{ID}',
             ]
         ];
     }

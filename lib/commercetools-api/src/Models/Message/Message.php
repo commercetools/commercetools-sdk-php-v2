@@ -8,11 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
-use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\Reference;
 
-interface Message extends BaseResource
+interface Message extends LoggedResource
 {
+    const DISCRIMINATOR_FIELD = 'type';
     const FIELD_SEQUENCE_NUMBER = 'sequenceNumber';
     const FIELD_RESOURCE = 'resource';
     const FIELD_RESOURCE_VERSION = 'resourceVersion';

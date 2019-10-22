@@ -26,7 +26,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/orders/edits?expand=expand',
+                '{projectKey}/orders/edits?expand=expand',
             ],
             'ByProjectKeyOrdersEditsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/orders/edits?where=where',
+                '{projectKey}/orders/edits?where=where',
             ],
             'ByProjectKeyOrdersEditsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -50,7 +50,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/orders/edits?sort=sort',
+                '{projectKey}/orders/edits?sort=sort',
             ],
             'ByProjectKeyOrdersEditsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -62,7 +62,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/orders/edits?limit=limit',
+                '{projectKey}/orders/edits?limit=limit',
             ],
             'ByProjectKeyOrdersEditsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -74,7 +74,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/orders/edits?offset=offset',
+                '{projectKey}/orders/edits?offset=offset',
             ],
             'ByProjectKeyOrdersEditsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -86,7 +86,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/orders/edits?withTotal=withTotal',
+                '{projectKey}/orders/edits?withTotal=withTotal',
             ],
             'ByProjectKeyOrdersEditsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -97,7 +97,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/orders/edits',
+                '{projectKey}/orders/edits',
             ],
             'ByProjectKeyOrdersEditsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -109,7 +109,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/orders/edits?expand=expand',
+                '{projectKey}/orders/edits?expand=expand',
             ],
             'ByProjectKeyOrdersEditsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -120,7 +120,7 @@ class ResourceByProjectKeyOrdersEditsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/orders/edits',
+                '{projectKey}/orders/edits',
             ]
         ];
     }

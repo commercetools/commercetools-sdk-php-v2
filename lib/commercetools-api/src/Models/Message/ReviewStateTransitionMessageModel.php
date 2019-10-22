@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\CreatedByModel;
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
@@ -41,6 +46,16 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
      * @var ?int
      */
     protected $version;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
 
     /**
      * @var ?int
@@ -102,6 +117,8 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
         DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
+        CreatedBy $createdBy = null,
+        LastModifiedBy $lastModifiedBy = null,
         int $sequenceNumber = null,
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
@@ -118,6 +135,8 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
         $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
+        $this->createdBy = $createdBy;
+        $this->lastModifiedBy = $lastModifiedBy;
         $this->sequenceNumber = $sequenceNumber;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
@@ -142,7 +161,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -163,7 +182,7 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -205,6 +224,42 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
         }
 
         return $this->version;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
+    }
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
+        }
+
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -417,6 +472,16 @@ final class ReviewStateTransitionMessageModel extends JsonObjectModel implements
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setSequenceNumber(?int $sequenceNumber): void

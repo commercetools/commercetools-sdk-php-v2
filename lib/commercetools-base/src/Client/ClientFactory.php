@@ -64,7 +64,7 @@ class ClientFactory
             $options['handler'] = $stack;
         }
 
-        $options = array_merge(
+        $options = array_replace(
             [
                 'allow_redirects' => false,
                 'verify' => true,

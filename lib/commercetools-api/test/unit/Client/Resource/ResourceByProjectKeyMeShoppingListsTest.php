@@ -26,7 +26,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/me/shopping-lists?expand=expand',
+                '{projectKey}/me/shopping-lists?expand=expand',
             ],
             'ByProjectKeyMeShoppingListsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/me/shopping-lists?where=where',
+                '{projectKey}/me/shopping-lists?where=where',
             ],
             'ByProjectKeyMeShoppingListsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -50,7 +50,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/me/shopping-lists?sort=sort',
+                '{projectKey}/me/shopping-lists?sort=sort',
             ],
             'ByProjectKeyMeShoppingListsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -62,7 +62,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/me/shopping-lists?limit=limit',
+                '{projectKey}/me/shopping-lists?limit=limit',
             ],
             'ByProjectKeyMeShoppingListsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -74,7 +74,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/me/shopping-lists?offset=offset',
+                '{projectKey}/me/shopping-lists?offset=offset',
             ],
             'ByProjectKeyMeShoppingListsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -86,7 +86,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/me/shopping-lists?withTotal=withTotal',
+                '{projectKey}/me/shopping-lists?withTotal=withTotal',
             ],
             'ByProjectKeyMeShoppingListsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -97,7 +97,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/me/shopping-lists',
+                '{projectKey}/me/shopping-lists',
             ],
             'ByProjectKeyMeShoppingListsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -109,7 +109,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/me/shopping-lists?expand=expand',
+                '{projectKey}/me/shopping-lists?expand=expand',
             ],
             'ByProjectKeyMeShoppingListsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -120,7 +120,7 @@ class ResourceByProjectKeyMeShoppingListsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/me/shopping-lists',
+                '{projectKey}/me/shopping-lists',
             ]
         ];
     }

@@ -13,6 +13,11 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerSigninModel extends JsonObjectModel implements CustomerSignin
 {
     /**
+     * @var ?bool
+     */
+    protected $updateProductData;
+
+    /**
      * @var ?string
      */
     protected $anonymousId;
@@ -38,17 +43,36 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     protected $email;
 
     public function __construct(
+        bool $updateProductData = null,
         string $anonymousId = null,
         string $password = null,
         string $anonymousCartSignInMode = null,
         string $anonymousCartId = null,
         string $email = null
     ) {
+        $this->updateProductData = $updateProductData;
         $this->anonymousId = $anonymousId;
         $this->password = $password;
         $this->anonymousCartSignInMode = $anonymousCartSignInMode;
         $this->anonymousCartId = $anonymousCartId;
         $this->email = $email;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getUpdateProductData()
+    {
+        if (is_null($this->updateProductData)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(CustomerSignin::FIELD_UPDATE_PRODUCT_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->updateProductData = (bool) $data;
+        }
+
+        return $this->updateProductData;
     }
 
     /**
@@ -134,6 +158,11 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
         }
 
         return $this->email;
+    }
+
+    public function setUpdateProductData(?bool $updateProductData): void
+    {
+        $this->updateProductData = $updateProductData;
     }
 
     public function setAnonymousId(?string $anonymousId): void

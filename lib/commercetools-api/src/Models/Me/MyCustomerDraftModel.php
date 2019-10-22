@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\JsonObjectModel;
@@ -32,6 +33,11 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
      * @var ?int
      */
     protected $defaultShippingAddress;
+
+    /**
+     * @var ?StoreKeyReferenceCollection
+     */
+    protected $stores;
 
     /**
      * @var ?CustomFields
@@ -92,6 +98,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         string $lastName = null,
         AddressCollection $addresses = null,
         int $defaultShippingAddress = null,
+        StoreKeyReferenceCollection $stores = null,
         CustomFields $custom = null,
         string $companyName = null,
         string $vatId = null,
@@ -107,6 +114,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         $this->lastName = $lastName;
         $this->addresses = $addresses;
         $this->defaultShippingAddress = $defaultShippingAddress;
+        $this->stores = $stores;
         $this->custom = $custom;
         $this->companyName = $companyName;
         $this->vatId = $vatId;
@@ -172,6 +180,23 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->stores;
+    }
+
+    /**
      * @return null|CustomFields
      */
     public function getCustom()
@@ -234,7 +259,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -376,6 +401,11 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     public function setDefaultShippingAddress(?int $defaultShippingAddress): void
     {
         $this->defaultShippingAddress = $defaultShippingAddress;
+    }
+
+    public function setStores(?StoreKeyReferenceCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
     public function setCustom(?CustomFields $custom): void

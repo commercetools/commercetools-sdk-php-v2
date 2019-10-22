@@ -26,7 +26,7 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/states/{ID}?expand=expand',
+                '{projectKey}/states/{ID}?expand=expand',
             ],
             'ByProjectKeyStatesByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/states/{ID}',
+                '{projectKey}/states/{ID}',
             ],
             'ByProjectKeyStatesByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/states/{ID}?expand=expand',
+                '{projectKey}/states/{ID}?expand=expand',
             ],
             'ByProjectKeyStatesByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/states/{ID}',
+                '{projectKey}/states/{ID}',
             ],
             'ByProjectKeyStatesByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/states/{ID}?version=version',
+                '{projectKey}/states/{ID}?version=version',
             ],
             'ByProjectKeyStatesByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/states/{ID}?expand=expand',
+                '{projectKey}/states/{ID}?expand=expand',
             ],
             'ByProjectKeyStatesByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyStatesByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/states/{ID}',
+                '{projectKey}/states/{ID}',
             ]
         ];
     }

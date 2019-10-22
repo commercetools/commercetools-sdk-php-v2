@@ -44,6 +44,8 @@ final class ResourceNotFoundErrorBuilder implements Builder
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()

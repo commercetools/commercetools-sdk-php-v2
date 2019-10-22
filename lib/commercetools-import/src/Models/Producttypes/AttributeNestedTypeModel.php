@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Producttypes;
 
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceModel;
+use Commercetools\Import\Models\Common\ProductTypeKeyReference;
+use Commercetools\Import\Models\Common\ProductTypeKeyReferenceModel;
 use stdClass;
 
 final class AttributeNestedTypeModel extends JsonObjectModel implements AttributeNestedType
@@ -23,13 +23,13 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     protected $name;
 
     /**
-     * @var ?ImportReference
+     * @var ?ProductTypeKeyReference
      */
     protected $typeReference;
 
     public function __construct(
         string $name = null,
-        ImportReference $typeReference = null
+        ProductTypeKeyReference $typeReference = null
     ) {
         $this->name = $name;
         $this->typeReference = $typeReference;
@@ -53,9 +53,9 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a product type by its key.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ProductTypeKeyReference
      */
     public function getTypeReference()
     {
@@ -66,7 +66,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
                 return null;
             }
 
-            $this->typeReference = ImportReferenceModel::of($data);
+            $this->typeReference = ProductTypeKeyReferenceModel::of($data);
         }
 
         return $this->typeReference;
@@ -77,7 +77,7 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
         $this->name = $name;
     }
 
-    public function setTypeReference(?ImportReference $typeReference): void
+    public function setTypeReference(?ProductTypeKeyReference $typeReference): void
     {
         $this->typeReference = $typeReference;
     }

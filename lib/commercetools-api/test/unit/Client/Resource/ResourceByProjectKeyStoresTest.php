@@ -25,7 +25,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/stores?expand=expand',
+                '{projectKey}/stores?expand=expand',
             ],
             'ByProjectKeyStoresGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/stores?where=where',
+                '{projectKey}/stores?where=where',
             ],
             'ByProjectKeyStoresGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/stores?sort=sort',
+                '{projectKey}/stores?sort=sort',
             ],
             'ByProjectKeyStoresGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/stores?limit=limit',
+                '{projectKey}/stores?limit=limit',
             ],
             'ByProjectKeyStoresGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/stores?offset=offset',
+                '{projectKey}/stores?offset=offset',
             ],
             'ByProjectKeyStoresGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/stores?withTotal=withTotal',
+                '{projectKey}/stores?withTotal=withTotal',
             ],
             'ByProjectKeyStoresGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/stores',
+                '{projectKey}/stores',
             ],
             'ByProjectKeyStoresPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/stores?expand=expand',
+                '{projectKey}/stores?expand=expand',
             ],
             'ByProjectKeyStoresPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyStoresTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/stores',
+                '{projectKey}/stores',
             ]
         ];
     }

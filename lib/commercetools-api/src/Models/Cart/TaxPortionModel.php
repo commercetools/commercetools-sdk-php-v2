@@ -8,15 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
 final class TaxPortionModel extends JsonObjectModel implements TaxPortion
 {
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $amount;
 
@@ -31,7 +31,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     protected $name;
 
     public function __construct(
-        Money $amount = null,
+        TypedMoney $amount = null,
         int $rate = null,
         string $name = null
     ) {
@@ -41,7 +41,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getAmount()
     {
@@ -51,8 +51,8 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
             if (is_null($data)) {
                 return null;
             }
-
-            $this->amount = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->amount = $className::of($data);
         }
 
         return $this->amount;
@@ -92,7 +92,7 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
         return $this->name;
     }
 
-    public function setAmount(?Money $amount): void
+    public function setAmount(?TypedMoney $amount): void
     {
         $this->amount = $amount;
     }

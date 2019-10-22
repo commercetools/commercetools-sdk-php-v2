@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Common\Reference;
+use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\JsonObject;
 
@@ -25,6 +27,11 @@ final class DuplicateFieldErrorBuilder implements Builder
      * @var ?string
      */
     private $message;
+
+    /**
+     * @var Reference|?ReferenceBuilder
+     */
+    private $conflictingResource;
 
     /**
      * @var ?JsonObject
@@ -54,6 +61,14 @@ final class DuplicateFieldErrorBuilder implements Builder
     public function getMessage()
     {
         return $this->message;
+    }
+
+    /**
+     * @return null|Reference
+     */
+    public function getConflictingResource()
+    {
+        return $this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource;
     }
 
     /**
@@ -95,6 +110,16 @@ final class DuplicateFieldErrorBuilder implements Builder
     /**
      * @return $this
      */
+    public function withConflictingResource(?Reference $conflictingResource)
+    {
+        $this->conflictingResource = $conflictingResource;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withDuplicateValue(?JsonObject $duplicateValue)
     {
         $this->duplicateValue = $duplicateValue;
@@ -112,11 +137,22 @@ final class DuplicateFieldErrorBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withConflictingResourceBuilder(?ReferenceBuilder $conflictingResource)
+    {
+        $this->conflictingResource = $conflictingResource;
+
+        return $this;
+    }
+
     public function build(): DuplicateFieldError
     {
         return new DuplicateFieldErrorModel(
             $this->code,
             $this->message,
+            ($this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource),
             $this->duplicateValue,
             $this->field
         );

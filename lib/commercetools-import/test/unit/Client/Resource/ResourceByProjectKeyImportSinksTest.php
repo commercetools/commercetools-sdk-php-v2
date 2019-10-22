@@ -24,7 +24,7 @@ class ResourceByProjectKeyImportSinksTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/import-sinks',
+                '{projectKey}/import-sinks',
             ]
         ];
     }

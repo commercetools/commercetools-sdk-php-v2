@@ -26,7 +26,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->withFuzzy('fuzzy');
                 },
                 'get',
-                '/{projectKey}/product-projections/suggest?fuzzy=fuzzy',
+                '{projectKey}/product-projections/suggest?fuzzy=fuzzy',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withStaged' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->withStaged('staged');
                 },
                 'get',
-                '/{projectKey}/product-projections/suggest?staged=staged',
+                '{projectKey}/product-projections/suggest?staged=staged',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withSearchKeywords' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -50,7 +50,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->withSearchKeywords('locale', 'searchKeywords.locale');
                 },
                 'get',
-                '/{projectKey}/product-projections/suggest?searchKeywords.locale=searchKeywords.locale',
+                '{projectKey}/product-projections/suggest?searchKeywords.locale=searchKeywords.locale',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -62,7 +62,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/product-projections/suggest?sort=sort',
+                '{projectKey}/product-projections/suggest?sort=sort',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -74,7 +74,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/product-projections/suggest?limit=limit',
+                '{projectKey}/product-projections/suggest?limit=limit',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -86,7 +86,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/product-projections/suggest?offset=offset',
+                '{projectKey}/product-projections/suggest?offset=offset',
             ],
             'ByProjectKeyProductProjectionsSuggestGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -98,7 +98,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/product-projections/suggest?withTotal=withTotal',
+                '{projectKey}/product-projections/suggest?withTotal=withTotal',
             ],
             'ByProjectKeyProductProjectionsSuggestGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -109,7 +109,7 @@ class ResourceByProjectKeyProductProjectionsSuggestTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/product-projections/suggest',
+                '{projectKey}/product-projections/suggest',
             ]
         ];
     }

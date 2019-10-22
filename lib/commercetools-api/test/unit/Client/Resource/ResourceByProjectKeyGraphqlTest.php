@@ -24,7 +24,7 @@ class ResourceByProjectKeyGraphqlTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/graphql',
+                '{projectKey}/graphql',
             ]
         ];
     }

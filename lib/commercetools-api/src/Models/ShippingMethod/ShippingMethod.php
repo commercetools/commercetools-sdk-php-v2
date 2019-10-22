@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
-use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 
-interface ShippingMethod extends BaseResource
+interface ShippingMethod extends LoggedResource
 {
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';

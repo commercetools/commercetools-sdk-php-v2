@@ -10,15 +10,15 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
 final class DiscountedLineItemPortionModel extends JsonObjectModel implements DiscountedLineItemPortion
 {
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $discountedAmount;
 
@@ -28,7 +28,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     protected $discount;
 
     public function __construct(
-        Money $discountedAmount = null,
+        TypedMoney $discountedAmount = null,
         CartDiscountReference $discount = null
     ) {
         $this->discountedAmount = $discountedAmount;
@@ -36,7 +36,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getDiscountedAmount()
     {
@@ -46,8 +46,8 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discountedAmount = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->discountedAmount = $className::of($data);
         }
 
         return $this->discountedAmount;
@@ -71,7 +71,7 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
         return $this->discount;
     }
 
-    public function setDiscountedAmount(?Money $discountedAmount): void
+    public function setDiscountedAmount(?TypedMoney $discountedAmount): void
     {
         $this->discountedAmount = $discountedAmount;
     }

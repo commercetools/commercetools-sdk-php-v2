@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Zone;
 
 use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\CreatedByModel;
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
@@ -37,6 +42,16 @@ final class ZoneModel extends JsonObjectModel implements Zone
     protected $version;
 
     /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
+    /**
      * @var ?string
      */
     protected $name;
@@ -61,6 +76,8 @@ final class ZoneModel extends JsonObjectModel implements Zone
         DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
+        CreatedBy $createdBy = null,
+        LastModifiedBy $lastModifiedBy = null,
         string $name = null,
         string $description = null,
         LocationCollection $locations = null,
@@ -70,6 +87,8 @@ final class ZoneModel extends JsonObjectModel implements Zone
         $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
+        $this->createdBy = $createdBy;
+        $this->lastModifiedBy = $lastModifiedBy;
         $this->name = $name;
         $this->description = $description;
         $this->locations = $locations;
@@ -87,7 +106,7 @@ final class ZoneModel extends JsonObjectModel implements Zone
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -108,7 +127,7 @@ final class ZoneModel extends JsonObjectModel implements Zone
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -150,6 +169,42 @@ final class ZoneModel extends JsonObjectModel implements Zone
         }
 
         return $this->version;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
+    }
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
+        }
+
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -238,6 +293,16 @@ final class ZoneModel extends JsonObjectModel implements Zone
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setName(?string $name): void

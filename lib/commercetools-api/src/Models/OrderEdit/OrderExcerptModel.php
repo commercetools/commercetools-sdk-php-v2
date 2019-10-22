@@ -10,15 +10,15 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Cart\TaxedPriceModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
 final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
 {
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $totalPrice;
 
@@ -33,7 +33,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     protected $version;
 
     public function __construct(
-        Money $totalPrice = null,
+        TypedMoney $totalPrice = null,
         TaxedPrice $taxedPrice = null,
         int $version = null
     ) {
@@ -43,7 +43,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalPrice()
     {
@@ -53,8 +53,8 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
             if (is_null($data)) {
                 return null;
             }
-
-            $this->totalPrice = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->totalPrice = $className::of($data);
         }
 
         return $this->totalPrice;
@@ -95,7 +95,7 @@ final class OrderExcerptModel extends JsonObjectModel implements OrderExcerpt
         return $this->version;
     }
 
-    public function setTotalPrice(?Money $totalPrice): void
+    public function setTotalPrice(?TypedMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }

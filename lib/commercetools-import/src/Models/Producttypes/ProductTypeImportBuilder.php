@@ -48,6 +48,8 @@ final class ProductTypeImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>ProductType.name</code>.</p>.
+     *
      * @return null|string
      */
     public function getName()
@@ -56,6 +58,8 @@ final class ProductTypeImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>ProductType.description</code>.</p>.
+     *
      * @return null|string
      */
     public function getDescription()
@@ -64,6 +68,8 @@ final class ProductTypeImportBuilder implements Builder
     }
 
     /**
+     * <p>The product type's attributes.</p>.
+     *
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes()

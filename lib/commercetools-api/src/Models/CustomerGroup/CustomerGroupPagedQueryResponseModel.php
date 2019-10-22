@@ -29,6 +29,11 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     protected $count;
 
     /**
+     * @var ?int
+     */
+    protected $limit;
+
+    /**
      * @var ?CustomerGroupCollection
      */
     protected $results;
@@ -37,11 +42,13 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
         int $total = null,
         int $offset = null,
         int $count = null,
+        int $limit = null,
         CustomerGroupCollection $results = null
     ) {
         $this->total = $total;
         $this->offset = $offset;
         $this->count = $count;
+        $this->limit = $limit;
         $this->results = $results;
     }
 
@@ -97,6 +104,23 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     }
 
     /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomerGroupPagedQueryResponse::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
+    }
+
+    /**
      * @return null|CustomerGroupCollection
      */
     public function getResults()
@@ -126,6 +150,11 @@ final class CustomerGroupPagedQueryResponseModel extends JsonObjectModel impleme
     public function setCount(?int $count): void
     {
         $this->count = $count;
+    }
+
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
     }
 
     public function setResults(?CustomerGroupCollection $results): void

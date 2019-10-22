@@ -9,8 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Store;
 
 use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\CreatedByModel;
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
@@ -39,6 +44,16 @@ final class StoreModel extends JsonObjectModel implements Store
     protected $version;
 
     /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
+
+    /**
      * @var ?LocalizedString
      */
     protected $name;
@@ -53,6 +68,8 @@ final class StoreModel extends JsonObjectModel implements Store
         DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
+        CreatedBy $createdBy = null,
+        LastModifiedBy $lastModifiedBy = null,
         LocalizedString $name = null,
         string $key = null
     ) {
@@ -60,6 +77,8 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
+        $this->createdBy = $createdBy;
+        $this->lastModifiedBy = $lastModifiedBy;
         $this->name = $name;
         $this->key = $key;
     }
@@ -75,7 +94,7 @@ final class StoreModel extends JsonObjectModel implements Store
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -96,7 +115,7 @@ final class StoreModel extends JsonObjectModel implements Store
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -138,6 +157,42 @@ final class StoreModel extends JsonObjectModel implements Store
         }
 
         return $this->version;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
+    }
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
+        }
+
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -193,6 +248,16 @@ final class StoreModel extends JsonObjectModel implements Store
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setName(?LocalizedString $name): void

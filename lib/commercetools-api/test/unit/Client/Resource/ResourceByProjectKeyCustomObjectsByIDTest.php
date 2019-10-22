@@ -26,7 +26,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/custom-objects/{ID}?expand=expand',
+                '{projectKey}/custom-objects/{ID}?expand=expand',
             ],
             'ByProjectKeyCustomObjectsByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/custom-objects/{ID}',
+                '{projectKey}/custom-objects/{ID}',
             ],
             'ByProjectKeyCustomObjectsByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/custom-objects/{ID}?version=version',
+                '{projectKey}/custom-objects/{ID}?version=version',
             ],
             'ByProjectKeyCustomObjectsByIDDelete_withDataErasure' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -61,7 +61,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '/{projectKey}/custom-objects/{ID}?dataErasure=dataErasure',
+                '{projectKey}/custom-objects/{ID}?dataErasure=dataErasure',
             ],
             'ByProjectKeyCustomObjectsByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -73,7 +73,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/custom-objects/{ID}?expand=expand',
+                '{projectKey}/custom-objects/{ID}?expand=expand',
             ],
             'ByProjectKeyCustomObjectsByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyCustomObjectsByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/custom-objects/{ID}',
+                '{projectKey}/custom-objects/{ID}',
             ]
         ];
     }

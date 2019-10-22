@@ -17,16 +17,22 @@ interface ProductTypeImport extends ImportResource
     const FIELD_ATTRIBUTES = 'attributes';
 
     /**
+     * <p>Maps to <code>ProductType.name</code>.</p>.
+     *
      * @return null|string
      */
     public function getName();
 
     /**
+     * <p>Maps to <code>ProductType.description</code>.</p>.
+     *
      * @return null|string
      */
     public function getDescription();
 
     /**
+     * <p>The product type's attributes.</p>.
+     *
      * @return null|AttributeDefinitionCollection
      */
     public function getAttributes();

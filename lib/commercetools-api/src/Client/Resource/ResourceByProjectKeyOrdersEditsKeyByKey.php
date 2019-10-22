@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Common\Update;
+use Commercetools\Api\Models\OrderEdit\OrderEditUpdate;
 use Commercetools\Client\ApiResource;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -28,10 +28,10 @@ class ResourceByProjectKeyOrdersEditsKeyByKey extends ApiResource
     }
 
     /**
-     * @psalm-param ?Update $body
+     * @psalm-param ?OrderEditUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?Update $body = null, array $headers = []): ByProjectKeyOrdersEditsKeyByKeyPost
+    public function post(?OrderEditUpdate $body = null, array $headers = []): ByProjectKeyOrdersEditsKeyByKeyPost
     {
         $args = $this->getArgs();
 

@@ -25,7 +25,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/reviews?expand=expand',
+                '{projectKey}/reviews?expand=expand',
             ],
             'ByProjectKeyReviewsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/reviews?where=where',
+                '{projectKey}/reviews?where=where',
             ],
             'ByProjectKeyReviewsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/reviews?sort=sort',
+                '{projectKey}/reviews?sort=sort',
             ],
             'ByProjectKeyReviewsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/reviews?limit=limit',
+                '{projectKey}/reviews?limit=limit',
             ],
             'ByProjectKeyReviewsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/reviews?offset=offset',
+                '{projectKey}/reviews?offset=offset',
             ],
             'ByProjectKeyReviewsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/reviews?withTotal=withTotal',
+                '{projectKey}/reviews?withTotal=withTotal',
             ],
             'ByProjectKeyReviewsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/reviews',
+                '{projectKey}/reviews',
             ],
             'ByProjectKeyReviewsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/reviews?expand=expand',
+                '{projectKey}/reviews?expand=expand',
             ],
             'ByProjectKeyReviewsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyReviewsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/reviews',
+                '{projectKey}/reviews',
             ]
         ];
     }

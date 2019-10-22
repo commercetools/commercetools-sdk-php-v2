@@ -26,7 +26,7 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                         ->withStaged('staged');
                 },
                 'get',
-                '/{projectKey}/product-projections/key={key}?staged=staged',
+                '{projectKey}/product-projections/key={key}?staged=staged',
             ],
             'ByProjectKeyProductProjectionsKeyByKeyGet_withPriceCurrency' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                         ->withPriceCurrency('priceCurrency');
                 },
                 'get',
-                '/{projectKey}/product-projections/key={key}?priceCurrency=priceCurrency',
+                '{projectKey}/product-projections/key={key}?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductProjectionsKeyByKeyGet_withPriceCountry' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -50,7 +50,7 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                         ->withPriceCountry('priceCountry');
                 },
                 'get',
-                '/{projectKey}/product-projections/key={key}?priceCountry=priceCountry',
+                '{projectKey}/product-projections/key={key}?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductProjectionsKeyByKeyGet_withPriceCustomerGroup' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -62,7 +62,7 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                         ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'get',
-                '/{projectKey}/product-projections/key={key}?priceCustomerGroup=priceCustomerGroup',
+                '{projectKey}/product-projections/key={key}?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductProjectionsKeyByKeyGet_withPriceChannel' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -74,7 +74,7 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                         ->withPriceChannel('priceChannel');
                 },
                 'get',
-                '/{projectKey}/product-projections/key={key}?priceChannel=priceChannel',
+                '{projectKey}/product-projections/key={key}?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductProjectionsKeyByKeyGet_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -86,7 +86,7 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/product-projections/key={key}?expand=expand',
+                '{projectKey}/product-projections/key={key}?expand=expand',
             ],
             'ByProjectKeyProductProjectionsKeyByKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -97,7 +97,7 @@ class ResourceByProjectKeyProductProjectionsKeyByKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/product-projections/key={key}',
+                '{projectKey}/product-projections/key={key}',
             ]
         ];
     }

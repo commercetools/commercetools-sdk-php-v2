@@ -27,7 +27,7 @@ class ResourceByProjectKeyOrdersEditsByIDApplyTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/orders/edits/{ID}/apply',
+                '{projectKey}/orders/edits/{ID}/apply',
             ]
         ];
     }

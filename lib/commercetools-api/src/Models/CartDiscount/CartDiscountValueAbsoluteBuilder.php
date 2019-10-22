@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\MoneyCollection;
+use Commercetools\Api\Models\Common\TypedMoneyCollection;
 use Commercetools\Base\Builder;
 
 /**
@@ -22,7 +22,7 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
     private $type;
 
     /**
-     * @var ?MoneyCollection
+     * @var ?TypedMoneyCollection
      */
     private $money;
 
@@ -39,7 +39,7 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
     }
 
     /**
-     * @return null|MoneyCollection
+     * @return null|TypedMoneyCollection
      */
     public function getMoney()
     {
@@ -59,7 +59,7 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMoney(?MoneyCollection $money)
+    public function withMoney(?TypedMoneyCollection $money)
     {
         $this->money = $money;
 

@@ -39,7 +39,7 @@ class ByProjectKeyCartDiscountsKeyByKeyGet extends ApiRequest
      */
     public function __construct($projectKey, $key, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '/{projectKey}/cart-discounts/key={key}');
+        $uri = str_replace(['{projectKey}', '{key}'], [$projectKey, $key], '{projectKey}/cart-discounts/key={key}');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

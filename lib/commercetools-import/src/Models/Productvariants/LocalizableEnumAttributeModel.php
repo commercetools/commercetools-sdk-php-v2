@@ -9,9 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Import\Models\Common\LocalizedEnumValue;
-use Commercetools\Import\Models\Common\LocalizedEnumValueModel;
-use stdClass;
 
 final class LocalizableEnumAttributeModel extends JsonObjectModel implements LocalizableEnumAttribute
 {
@@ -28,14 +25,14 @@ final class LocalizableEnumAttributeModel extends JsonObjectModel implements Loc
     protected $type;
 
     /**
-     * @var ?LocalizedEnumValue
+     * @var ?string
      */
     protected $value;
 
     public function __construct(
         string $name = null,
         string $type = null,
-        LocalizedEnumValue $value = null
+        string $value = null
     ) {
         $this->name = $name;
         $this->type = $type;
@@ -43,8 +40,9 @@ final class LocalizableEnumAttributeModel extends JsonObjectModel implements Loc
     }
 
     /**
-     * <p>For now we reuse this type in two different context. And that's why the name is required when used in the full import.
-     * And why the name isn't required when used in patch.</p>.
+     * <p>The name of this attribute must match a name of the product types attribute definitions.
+     * The name is required if this type is used in a product variant and must not be set when
+     * used in a product variant patch.</p>.
      *
      * @return null|string
      */
@@ -80,18 +78,17 @@ final class LocalizableEnumAttributeModel extends JsonObjectModel implements Loc
     }
 
     /**
-     * @return null|LocalizedEnumValue
+     * @return null|string
      */
     public function getValue()
     {
         if (is_null($this->value)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            /** @psalm-var ?string $data */
             $data = $this->raw(LocalizableEnumAttribute::FIELD_VALUE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = LocalizedEnumValueModel::of($data);
+            $this->value = (string) $data;
         }
 
         return $this->value;
@@ -107,7 +104,7 @@ final class LocalizableEnumAttributeModel extends JsonObjectModel implements Loc
         $this->type = $type;
     }
 
-    public function setValue(?LocalizedEnumValue $value): void
+    public function setValue(?string $value): void
     {
         $this->value = $value;
     }

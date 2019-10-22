@@ -26,7 +26,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/discount-codes/{ID}?expand=expand',
+                '{projectKey}/discount-codes/{ID}?expand=expand',
             ],
             'ByProjectKeyDiscountCodesByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/discount-codes/{ID}',
+                '{projectKey}/discount-codes/{ID}',
             ],
             'ByProjectKeyDiscountCodesByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/discount-codes/{ID}?expand=expand',
+                '{projectKey}/discount-codes/{ID}?expand=expand',
             ],
             'ByProjectKeyDiscountCodesByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/discount-codes/{ID}',
+                '{projectKey}/discount-codes/{ID}',
             ],
             'ByProjectKeyDiscountCodesByIDDelete_withDataErasure' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '/{projectKey}/discount-codes/{ID}?dataErasure=dataErasure',
+                '{projectKey}/discount-codes/{ID}?dataErasure=dataErasure',
             ],
             'ByProjectKeyDiscountCodesByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/discount-codes/{ID}?version=version',
+                '{projectKey}/discount-codes/{ID}?version=version',
             ],
             'ByProjectKeyDiscountCodesByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -96,7 +96,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/discount-codes/{ID}?expand=expand',
+                '{projectKey}/discount-codes/{ID}?expand=expand',
             ],
             'ByProjectKeyDiscountCodesByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -107,7 +107,7 @@ class ResourceByProjectKeyDiscountCodesByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/discount-codes/{ID}',
+                '{projectKey}/discount-codes/{ID}',
             ]
         ];
     }

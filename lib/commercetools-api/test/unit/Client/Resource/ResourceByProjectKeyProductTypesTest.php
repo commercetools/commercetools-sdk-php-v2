@@ -25,7 +25,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/product-types?expand=expand',
+                '{projectKey}/product-types?expand=expand',
             ],
             'ByProjectKeyProductTypesGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/product-types?where=where',
+                '{projectKey}/product-types?where=where',
             ],
             'ByProjectKeyProductTypesGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/product-types?sort=sort',
+                '{projectKey}/product-types?sort=sort',
             ],
             'ByProjectKeyProductTypesGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/product-types?limit=limit',
+                '{projectKey}/product-types?limit=limit',
             ],
             'ByProjectKeyProductTypesGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/product-types?offset=offset',
+                '{projectKey}/product-types?offset=offset',
             ],
             'ByProjectKeyProductTypesGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/product-types?withTotal=withTotal',
+                '{projectKey}/product-types?withTotal=withTotal',
             ],
             'ByProjectKeyProductTypesGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/product-types',
+                '{projectKey}/product-types',
             ],
             'ByProjectKeyProductTypesPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/product-types?expand=expand',
+                '{projectKey}/product-types?expand=expand',
             ],
             'ByProjectKeyProductTypesPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyProductTypesTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/product-types',
+                '{projectKey}/product-types',
             ]
         ];
     }

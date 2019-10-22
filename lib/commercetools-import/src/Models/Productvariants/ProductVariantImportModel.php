@@ -11,9 +11,9 @@ namespace Commercetools\Import\Models\Productvariants;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Import\Models\Common\AssetCollection;
 use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceModel;
 use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ProductKeyReference;
+use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
 use stdClass;
 
 final class ProductVariantImportModel extends JsonObjectModel implements ProductVariantImport
@@ -24,7 +24,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     protected $key;
 
     /**
-     * @var ?ImportReference
+     * @var ?ProductKeyReference
      */
     protected $product;
 
@@ -55,7 +55,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
 
     public function __construct(
         string $key = null,
-        ImportReference $product = null,
+        ProductKeyReference $product = null,
         ImageCollection $images = null,
         AssetCollection $assets = null,
         AttributeCollection $attributes = null,
@@ -89,9 +89,12 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The product in which this product variant is contained.</p>.
+     * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
+     * <p>The product referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ProductKeyReference
      */
     public function getProduct()
     {
@@ -102,13 +105,15 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
                 return null;
             }
 
-            $this->product = ImportReferenceModel::of($data);
+            $this->product = ProductKeyReferenceModel::of($data);
         }
 
         return $this->product;
     }
 
     /**
+     * <p>Maps to <code>ProductVariant.images</code>.</p>.
+     *
      * @return null|ImageCollection
      */
     public function getImages()
@@ -126,6 +131,8 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
+     * <p>Maps to <code>ProductVariant.assets</code>.</p>.
+     *
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -143,6 +150,11 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
+     * <p>Maps to <code>ProductVariant.attributes</code>.</p>
+     * <p>Each attribute referenced must be defined
+     * in an already existing product type in the commercetools project, or the import
+     * item state is set to <code>Unresolved</code>.</p>.
+     *
      * @return null|AttributeCollection
      */
     public function getAttributes()
@@ -160,6 +172,8 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
+     * <p>Maps to <code>ProductVariant.sku</code>.</p>.
+     *
      * @return null|string
      */
     public function getSku()
@@ -177,6 +191,8 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
+     * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>.
+     *
      * @return null|bool
      */
     public function getIsMasterVariant()
@@ -198,7 +214,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         $this->key = $key;
     }
 
-    public function setProduct(?ImportReference $product): void
+    public function setProduct(?ProductKeyReference $product): void
     {
         $this->product = $product;
     }

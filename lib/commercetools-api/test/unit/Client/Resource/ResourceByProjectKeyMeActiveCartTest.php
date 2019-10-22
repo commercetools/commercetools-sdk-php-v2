@@ -25,7 +25,7 @@ class ResourceByProjectKeyMeActiveCartTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/me/active-cart',
+                '{projectKey}/me/active-cart',
             ]
         ];
     }

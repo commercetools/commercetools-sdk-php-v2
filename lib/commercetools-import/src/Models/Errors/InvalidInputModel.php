@@ -50,6 +50,8 @@ final class InvalidInputModel extends JsonObjectModel implements InvalidInput
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()

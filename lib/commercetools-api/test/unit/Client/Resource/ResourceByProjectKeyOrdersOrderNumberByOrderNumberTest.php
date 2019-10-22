@@ -26,7 +26,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/orders/order-number={orderNumber}?expand=expand',
+                '{projectKey}/orders/order-number={orderNumber}?expand=expand',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/orders/order-number={orderNumber}',
+                '{projectKey}/orders/order-number={orderNumber}',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/orders/order-number={orderNumber}?expand=expand',
+                '{projectKey}/orders/order-number={orderNumber}?expand=expand',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/orders/order-number={orderNumber}',
+                '{projectKey}/orders/order-number={orderNumber}',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete_withDataErasure' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '/{projectKey}/orders/order-number={orderNumber}?dataErasure=dataErasure',
+                '{projectKey}/orders/order-number={orderNumber}?dataErasure=dataErasure',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/orders/order-number={orderNumber}?version=version',
+                '{projectKey}/orders/order-number={orderNumber}?version=version',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -96,7 +96,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/orders/order-number={orderNumber}?expand=expand',
+                '{projectKey}/orders/order-number={orderNumber}?expand=expand',
             ],
             'ByProjectKeyOrdersOrderNumberByOrderNumberDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -107,7 +107,7 @@ class ResourceByProjectKeyOrdersOrderNumberByOrderNumberTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/orders/order-number={orderNumber}',
+                '{projectKey}/orders/order-number={orderNumber}',
             ]
         ];
     }

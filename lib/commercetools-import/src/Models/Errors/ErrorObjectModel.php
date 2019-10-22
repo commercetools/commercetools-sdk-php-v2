@@ -30,6 +30,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
      */
     private static $discriminatorClasses = [
         'access_denied' => AccessDeniedErrorModel::class,
+        'invalid_scope' => InvalidScopeErrorModel::class,
         'DuplicateAttributeValue' => DuplicateAttributeValueErrorModel::class,
         'DuplicateAttributeValues' => DuplicateAttributeValuesErrorModel::class,
         'DuplicateField' => DuplicateFieldErrorModel::class,
@@ -38,6 +39,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
         'InvalidCredentials' => InvalidCredentialsErrorModel::class,
         'invalid_token' => InvalidTokenErrorModel::class,
         'InvalidField' => InvalidFieldErrorModel::class,
+        'InvalidJsonInput' => InvalidJsonInputModel::class,
         'InvalidInput' => InvalidInputModel::class,
         'ResourceNotFound' => ResourceNotFoundErrorModel::class,
         'ResourceCreation' => ResourceCreationErrorModel::class,
@@ -46,6 +48,8 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
         'RequiredField' => RequiredFieldErrorModel::class,
         'InvalidTransition' => InvalidStateTransitionErrorModel::class,
         'ConcurrentModification' => ConcurrentModificationErrorModel::class,
+        'Contention' => ContentionErrorModel::class,
+        'Generic' => GenericErrorModel::class,
     ];
 
     public function __construct(
@@ -75,6 +79,8 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()

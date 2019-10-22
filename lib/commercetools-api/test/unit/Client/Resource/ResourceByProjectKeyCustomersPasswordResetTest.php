@@ -26,7 +26,7 @@ class ResourceByProjectKeyCustomersPasswordResetTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/customers/password/reset',
+                '{projectKey}/customers/password/reset',
             ]
         ];
     }

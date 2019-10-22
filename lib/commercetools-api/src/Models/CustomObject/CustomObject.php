@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomObject;
 
-use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Base\JsonObject;
 
-interface CustomObject extends BaseResource
+interface CustomObject extends LoggedResource
 {
     const FIELD_CONTAINER = 'container';
     const FIELD_KEY = 'key';

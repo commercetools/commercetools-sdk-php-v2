@@ -8,16 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Import\Models\Common\LocalizedEnumValue;
-
 interface LocalizableEnumAttribute extends Attribute
 {
     const FIELD_VALUE = 'value';
 
     /**
-     * @return null|LocalizedEnumValue
+     * @return null|string
      */
     public function getValue();
 
-    public function setValue(?LocalizedEnumValue $value): void;
+    public function setValue(?string $value): void;
 }

@@ -10,8 +10,8 @@ namespace Commercetools\Import\Models\Categories;
 
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceModel;
+use Commercetools\Import\Models\Common\CategoryKeyReference;
+use Commercetools\Import\Models\Common\CategoryKeyReferenceModel;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
@@ -25,7 +25,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     protected $key;
 
     /**
-     * @var ?ImportReference
+     * @var ?CategoryKeyReference
      */
     protected $parent;
 
@@ -76,7 +76,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
 
     public function __construct(
         string $key = null,
-        ImportReference $parent = null,
+        CategoryKeyReference $parent = null,
         AssetCollection $assets = null,
         LocalizedString $metaKeywords = null,
         string $orderHint = null,
@@ -118,9 +118,12 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>Maps to <code>Category.parent</code>.
+     * The parent category referenced must already exist
+     * in the commercetools project, or the import item
+     * will have an <code>Unresolved</code> state.</p>.
      *
-     * @return null|ImportReference
+     * @return null|CategoryKeyReference
      */
     public function getParent()
     {
@@ -131,13 +134,15 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
                 return null;
             }
 
-            $this->parent = ImportReferenceModel::of($data);
+            $this->parent = CategoryKeyReferenceModel::of($data);
         }
 
         return $this->parent;
     }
 
     /**
+     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>.
+     *
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -155,6 +160,8 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
+     * <p>Maps to <code>Category.metaKeywords</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -173,6 +180,8 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
+     * <p>Maps to <code>Category.orderHint</code>.</p>.
+     *
      * @return null|string
      */
     public function getOrderHint()
@@ -190,6 +199,8 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
+     * <p>Maps to <code>Category.metaTitle</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -208,6 +219,8 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
+     * <p>Maps to <code>Category.name</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -226,6 +239,8 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
+     * <p>Maps to <code>Category.externalId</code>.</p>.
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -243,6 +258,8 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
+     * <p>Maps to <code>Category.description</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -261,6 +278,8 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
+     * <p>Maps to <code>Category.metaDescription</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -279,6 +298,9 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
+     * <p>Maps to <code>Category.slug</code>.
+     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -301,7 +323,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         $this->key = $key;
     }
 
-    public function setParent(?ImportReference $parent): void
+    public function setParent(?CategoryKeyReference $parent): void
     {
         $this->parent = $parent;
     }

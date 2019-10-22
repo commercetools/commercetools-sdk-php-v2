@@ -26,7 +26,7 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordTokenTest extends Test
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/customers/password-token={passwordToken}?expand=expand',
+                '{projectKey}/customers/password-token={passwordToken}?expand=expand',
             ],
             'ByProjectKeyCustomersPasswordTokenByPasswordTokenGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyCustomersPasswordTokenByPasswordTokenTest extends Test
                         ->get();
                 },
                 'get',
-                '/{projectKey}/customers/password-token={passwordToken}',
+                '{projectKey}/customers/password-token={passwordToken}',
             ]
         ];
     }

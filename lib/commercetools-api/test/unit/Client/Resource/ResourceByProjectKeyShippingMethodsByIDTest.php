@@ -26,7 +26,7 @@ class ResourceByProjectKeyShippingMethodsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/shipping-methods/{ID}?expand=expand',
+                '{projectKey}/shipping-methods/{ID}?expand=expand',
             ],
             'ByProjectKeyShippingMethodsByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyShippingMethodsByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/shipping-methods/{ID}',
+                '{projectKey}/shipping-methods/{ID}',
             ],
             'ByProjectKeyShippingMethodsByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyShippingMethodsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/shipping-methods/{ID}?expand=expand',
+                '{projectKey}/shipping-methods/{ID}?expand=expand',
             ],
             'ByProjectKeyShippingMethodsByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyShippingMethodsByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/shipping-methods/{ID}',
+                '{projectKey}/shipping-methods/{ID}',
             ],
             'ByProjectKeyShippingMethodsByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyShippingMethodsByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/shipping-methods/{ID}?version=version',
+                '{projectKey}/shipping-methods/{ID}?version=version',
             ],
             'ByProjectKeyShippingMethodsByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyShippingMethodsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/shipping-methods/{ID}?expand=expand',
+                '{projectKey}/shipping-methods/{ID}?expand=expand',
             ],
             'ByProjectKeyShippingMethodsByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyShippingMethodsByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/shipping-methods/{ID}',
+                '{projectKey}/shipping-methods/{ID}',
             ]
         ];
     }

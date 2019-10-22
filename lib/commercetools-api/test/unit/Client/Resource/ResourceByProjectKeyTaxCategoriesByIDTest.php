@@ -26,7 +26,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/tax-categories/{ID}?expand=expand',
+                '{projectKey}/tax-categories/{ID}?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/tax-categories/{ID}',
+                '{projectKey}/tax-categories/{ID}',
             ],
             'ByProjectKeyTaxCategoriesByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/tax-categories/{ID}?expand=expand',
+                '{projectKey}/tax-categories/{ID}?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/tax-categories/{ID}',
+                '{projectKey}/tax-categories/{ID}',
             ],
             'ByProjectKeyTaxCategoriesByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/tax-categories/{ID}?version=version',
+                '{projectKey}/tax-categories/{ID}?version=version',
             ],
             'ByProjectKeyTaxCategoriesByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/tax-categories/{ID}?expand=expand',
+                '{projectKey}/tax-categories/{ID}?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyTaxCategoriesByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/tax-categories/{ID}',
+                '{projectKey}/tax-categories/{ID}',
             ]
         ];
     }

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Cart\TaxPortionCollection;
+use Commercetools\Api\Models\Cart\TaxPortionDraftCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
@@ -25,7 +25,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     protected $action;
 
     /**
-     * @var ?TaxPortionCollection
+     * @var ?TaxPortionDraftCollection
      */
     protected $externalTaxPortions;
 
@@ -36,7 +36,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
 
     public function __construct(
         string $action = null,
-        TaxPortionCollection $externalTaxPortions = null,
+        TaxPortionDraftCollection $externalTaxPortions = null,
         Money $externalTotalGross = null
     ) {
         $this->action = $action;
@@ -62,7 +62,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     }
 
     /**
-     * @return null|TaxPortionCollection
+     * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions()
     {
@@ -72,7 +72,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
             if (is_null($data)) {
                 return null;
             }
-            $this->externalTaxPortions = TaxPortionCollection::fromArray($data);
+            $this->externalTaxPortions = TaxPortionDraftCollection::fromArray($data);
         }
 
         return $this->externalTaxPortions;
@@ -101,7 +101,7 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
         $this->action = $action;
     }
 
-    public function setExternalTaxPortions(?TaxPortionCollection $externalTaxPortions): void
+    public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void
     {
         $this->externalTaxPortions = $externalTaxPortions;
     }

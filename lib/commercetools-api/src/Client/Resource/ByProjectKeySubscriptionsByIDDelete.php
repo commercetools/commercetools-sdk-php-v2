@@ -39,7 +39,7 @@ class ByProjectKeySubscriptionsByIDDelete extends ApiRequest
      */
     public function __construct($projectKey, $ID, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/subscriptions/{ID}');
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/subscriptions/{ID}');
         parent::__construct($client, 'DELETE', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

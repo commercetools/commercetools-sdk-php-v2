@@ -9,11 +9,15 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Products;
 
 use Commercetools\Base\Builder;
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceBuilder;
-use Commercetools\Import\Models\Common\ImportReferenceCollection;
+use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringBuilder;
+use Commercetools\Import\Models\Common\ProductTypeKeyReference;
+use Commercetools\Import\Models\Common\ProductTypeKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\StateKeyReference;
+use Commercetools\Import\Models\Common\StateKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
+use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceBuilder;
 
 /**
  * @implements Builder<ProductImport>
@@ -29,11 +33,6 @@ final class ProductImportBuilder implements Builder
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $metaKeywords;
-
-    /**
-     * @var CategoryOrderHints|?CategoryOrderHintsBuilder
-     */
-    private $categoryOrderHints;
 
     /**
      * @var SearchKeywords|?SearchKeywordsBuilder
@@ -56,12 +55,12 @@ final class ProductImportBuilder implements Builder
     private $description;
 
     /**
-     * @var ImportReference|?ImportReferenceBuilder
+     * @var StateKeyReference|?StateKeyReferenceBuilder
      */
     private $state;
 
     /**
-     * @var ?ImportReferenceCollection
+     * @var ?CategoryKeyReferenceCollection
      */
     private $categories;
 
@@ -76,12 +75,12 @@ final class ProductImportBuilder implements Builder
     private $slug;
 
     /**
-     * @var ImportReference|?ImportReferenceBuilder
+     * @var ProductTypeKeyReference|?ProductTypeKeyReferenceBuilder
      */
     private $productType;
 
     /**
-     * @var ImportReference|?ImportReferenceBuilder
+     * @var TaxCategoryKeyReference|?TaxCategoryKeyReferenceBuilder
      */
     private $taxCategory;
 
@@ -106,14 +105,6 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
-     * @return null|CategoryOrderHints
-     */
-    public function getCategoryOrderHints()
-    {
-        return $this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints;
-    }
-
-    /**
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -130,7 +121,7 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
-     * <p>The human readable name of the product.</p>.
+     * <p>Maps to <code>Product.name</code>.</p>.
      *
      * @return null|LocalizedString
      */
@@ -140,6 +131,8 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Product.description</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -148,17 +141,25 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a state by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|StateKeyReference
      */
     public function getState()
     {
-        return $this->state instanceof ImportReferenceBuilder ? $this->state->build() : $this->state;
+        return $this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state;
     }
 
     /**
-     * @return null|ImportReferenceCollection
+     * <p>An array of references to a categories by their keys. Maps to <code>Product.categories</code>.</p>
+     * <p>The categories referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|CategoryKeyReferenceCollection
      */
     public function getCategories()
     {
@@ -185,23 +186,29 @@ final class ProductImportBuilder implements Builder
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
+     * <p>The product type referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ProductTypeKeyReference
      */
     public function getProductType()
     {
-        return $this->productType instanceof ImportReferenceBuilder ? $this->productType->build() : $this->productType;
+        return $this->productType instanceof ProductTypeKeyReferenceBuilder ? $this->productType->build() : $this->productType;
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a tax category by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory()
     {
-        return $this->taxCategory instanceof ImportReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory;
+        return $this->taxCategory instanceof TaxCategoryKeyReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory;
     }
 
     /**
@@ -220,16 +227,6 @@ final class ProductImportBuilder implements Builder
     public function withMetaKeywords(?LocalizedString $metaKeywords)
     {
         $this->metaKeywords = $metaKeywords;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCategoryOrderHints(?CategoryOrderHints $categoryOrderHints)
-    {
-        $this->categoryOrderHints = $categoryOrderHints;
 
         return $this;
     }
@@ -277,7 +274,7 @@ final class ProductImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withState(?ImportReference $state)
+    public function withState(?StateKeyReference $state)
     {
         $this->state = $state;
 
@@ -287,7 +284,7 @@ final class ProductImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCategories(?ImportReferenceCollection $categories)
+    public function withCategories(?CategoryKeyReferenceCollection $categories)
     {
         $this->categories = $categories;
 
@@ -317,7 +314,7 @@ final class ProductImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductType(?ImportReference $productType)
+    public function withProductType(?ProductTypeKeyReference $productType)
     {
         $this->productType = $productType;
 
@@ -327,7 +324,7 @@ final class ProductImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxCategory(?ImportReference $taxCategory)
+    public function withTaxCategory(?TaxCategoryKeyReference $taxCategory)
     {
         $this->taxCategory = $taxCategory;
 
@@ -340,16 +337,6 @@ final class ProductImportBuilder implements Builder
     public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
     {
         $this->metaKeywords = $metaKeywords;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCategoryOrderHintsBuilder(?CategoryOrderHintsBuilder $categoryOrderHints)
-    {
-        $this->categoryOrderHints = $categoryOrderHints;
 
         return $this;
     }
@@ -397,7 +384,7 @@ final class ProductImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStateBuilder(?ImportReferenceBuilder $state)
+    public function withStateBuilder(?StateKeyReferenceBuilder $state)
     {
         $this->state = $state;
 
@@ -427,7 +414,7 @@ final class ProductImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductTypeBuilder(?ImportReferenceBuilder $productType)
+    public function withProductTypeBuilder(?ProductTypeKeyReferenceBuilder $productType)
     {
         $this->productType = $productType;
 
@@ -437,7 +424,7 @@ final class ProductImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxCategoryBuilder(?ImportReferenceBuilder $taxCategory)
+    public function withTaxCategoryBuilder(?TaxCategoryKeyReferenceBuilder $taxCategory)
     {
         $this->taxCategory = $taxCategory;
 
@@ -449,17 +436,16 @@ final class ProductImportBuilder implements Builder
         return new ProductImportModel(
             $this->key,
             ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
-            ($this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints),
             ($this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords),
             ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->state instanceof ImportReferenceBuilder ? $this->state->build() : $this->state),
+            ($this->state instanceof StateKeyReferenceBuilder ? $this->state->build() : $this->state),
             $this->categories,
             ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
             ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
-            ($this->productType instanceof ImportReferenceBuilder ? $this->productType->build() : $this->productType),
-            ($this->taxCategory instanceof ImportReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory)
+            ($this->productType instanceof ProductTypeKeyReferenceBuilder ? $this->productType->build() : $this->productType),
+            ($this->taxCategory instanceof TaxCategoryKeyReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory)
         );
     }
 

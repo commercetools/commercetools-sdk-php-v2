@@ -27,7 +27,7 @@ class ResourceByProjectKeyMeOrdersByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/me/orders/{ID}?expand=expand',
+                '{projectKey}/me/orders/{ID}?expand=expand',
             ],
             'ByProjectKeyMeOrdersByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyMeOrdersByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/me/orders/{ID}',
+                '{projectKey}/me/orders/{ID}',
             ],
             'ByProjectKeyMeOrdersByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -52,7 +52,7 @@ class ResourceByProjectKeyMeOrdersByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/me/orders/{ID}?expand=expand',
+                '{projectKey}/me/orders/{ID}?expand=expand',
             ],
             'ByProjectKeyMeOrdersByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -64,7 +64,7 @@ class ResourceByProjectKeyMeOrdersByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/me/orders/{ID}',
+                '{projectKey}/me/orders/{ID}',
             ]
         ];
     }

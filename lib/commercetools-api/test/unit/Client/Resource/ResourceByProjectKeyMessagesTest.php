@@ -25,7 +25,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/messages?expand=expand',
+                '{projectKey}/messages?expand=expand',
             ],
             'ByProjectKeyMessagesGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/messages?where=where',
+                '{projectKey}/messages?where=where',
             ],
             'ByProjectKeyMessagesGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/messages?sort=sort',
+                '{projectKey}/messages?sort=sort',
             ],
             'ByProjectKeyMessagesGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/messages?limit=limit',
+                '{projectKey}/messages?limit=limit',
             ],
             'ByProjectKeyMessagesGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/messages?offset=offset',
+                '{projectKey}/messages?offset=offset',
             ],
             'ByProjectKeyMessagesGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/messages?withTotal=withTotal',
+                '{projectKey}/messages?withTotal=withTotal',
             ],
             'ByProjectKeyMessagesGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyMessagesTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/messages',
+                '{projectKey}/messages',
             ]
         ];
     }

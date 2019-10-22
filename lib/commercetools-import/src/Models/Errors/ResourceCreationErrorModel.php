@@ -59,6 +59,8 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()

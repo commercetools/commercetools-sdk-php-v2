@@ -25,7 +25,7 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/api-clients/{ID}',
+                '{projectKey}/api-clients/{ID}',
             ],
             'ByProjectKeyApiClientsByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyApiClientsByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/api-clients/{ID}',
+                '{projectKey}/api-clients/{ID}',
             ]
         ];
     }

@@ -13,9 +13,9 @@ interface CartDiscountChangeValueAction extends CartDiscountUpdateAction
     const FIELD_VALUE = 'value';
 
     /**
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue();
 
-    public function setValue(?CartDiscountValue $value): void;
+    public function setValue(?CartDiscountValueDraft $value): void;
 }

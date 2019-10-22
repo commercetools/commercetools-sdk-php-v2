@@ -25,7 +25,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withCustomerId('customerId');
                 },
                 'get',
-                '/{projectKey}/carts?customerId=customerId',
+                '{projectKey}/carts?customerId=customerId',
             ],
             'ByProjectKeyCartsGet_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/carts?expand=expand',
+                '{projectKey}/carts?expand=expand',
             ],
             'ByProjectKeyCartsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/carts?where=where',
+                '{projectKey}/carts?where=where',
             ],
             'ByProjectKeyCartsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/carts?sort=sort',
+                '{projectKey}/carts?sort=sort',
             ],
             'ByProjectKeyCartsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/carts?limit=limit',
+                '{projectKey}/carts?limit=limit',
             ],
             'ByProjectKeyCartsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/carts?offset=offset',
+                '{projectKey}/carts?offset=offset',
             ],
             'ByProjectKeyCartsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -91,7 +91,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/carts?withTotal=withTotal',
+                '{projectKey}/carts?withTotal=withTotal',
             ],
             'ByProjectKeyCartsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/carts',
+                '{projectKey}/carts',
             ],
             'ByProjectKeyCartsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -112,7 +112,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/carts?expand=expand',
+                '{projectKey}/carts?expand=expand',
             ],
             'ByProjectKeyCartsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -122,7 +122,7 @@ class ResourceByProjectKeyCartsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/carts',
+                '{projectKey}/carts',
             ]
         ];
     }

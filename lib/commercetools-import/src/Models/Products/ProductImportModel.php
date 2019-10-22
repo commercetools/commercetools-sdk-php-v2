@@ -9,12 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Products;
 
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceCollection;
-use Commercetools\Import\Models\Common\ImportReferenceModel;
+use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringModel;
+use Commercetools\Import\Models\Common\ProductTypeKeyReference;
+use Commercetools\Import\Models\Common\ProductTypeKeyReferenceModel;
+use Commercetools\Import\Models\Common\StateKeyReference;
+use Commercetools\Import\Models\Common\StateKeyReferenceModel;
+use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
+use Commercetools\Import\Models\Common\TaxCategoryKeyReferenceModel;
 use stdClass;
 
 final class ProductImportModel extends JsonObjectModel implements ProductImport
@@ -28,11 +32,6 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
      * @var ?LocalizedString
      */
     protected $metaKeywords;
-
-    /**
-     * @var ?CategoryOrderHints
-     */
-    protected $categoryOrderHints;
 
     /**
      * @var ?SearchKeywords
@@ -55,12 +54,12 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     protected $description;
 
     /**
-     * @var ?ImportReference
+     * @var ?StateKeyReference
      */
     protected $state;
 
     /**
-     * @var ?ImportReferenceCollection
+     * @var ?CategoryKeyReferenceCollection
      */
     protected $categories;
 
@@ -75,33 +74,31 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     protected $slug;
 
     /**
-     * @var ?ImportReference
+     * @var ?ProductTypeKeyReference
      */
     protected $productType;
 
     /**
-     * @var ?ImportReference
+     * @var ?TaxCategoryKeyReference
      */
     protected $taxCategory;
 
     public function __construct(
         string $key = null,
         LocalizedString $metaKeywords = null,
-        CategoryOrderHints $categoryOrderHints = null,
         SearchKeywords $searchKeywords = null,
         LocalizedString $metaTitle = null,
         LocalizedString $name = null,
         LocalizedString $description = null,
-        ImportReference $state = null,
-        ImportReferenceCollection $categories = null,
+        StateKeyReference $state = null,
+        CategoryKeyReferenceCollection $categories = null,
         LocalizedString $metaDescription = null,
         LocalizedString $slug = null,
-        ImportReference $productType = null,
-        ImportReference $taxCategory = null
+        ProductTypeKeyReference $productType = null,
+        TaxCategoryKeyReference $taxCategory = null
     ) {
         $this->key = $key;
         $this->metaKeywords = $metaKeywords;
-        $this->categoryOrderHints = $categoryOrderHints;
         $this->searchKeywords = $searchKeywords;
         $this->metaTitle = $metaTitle;
         $this->name = $name;
@@ -150,24 +147,6 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
     /**
-     * @return null|CategoryOrderHints
-     */
-    public function getCategoryOrderHints()
-    {
-        if (is_null($this->categoryOrderHints)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductImport::FIELD_CATEGORY_ORDER_HINTS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->categoryOrderHints = CategoryOrderHintsModel::of($data);
-        }
-
-        return $this->categoryOrderHints;
-    }
-
-    /**
      * @return null|SearchKeywords
      */
     public function getSearchKeywords()
@@ -204,7 +183,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
     /**
-     * <p>The human readable name of the product.</p>.
+     * <p>Maps to <code>Product.name</code>.</p>.
      *
      * @return null|LocalizedString
      */
@@ -224,6 +203,8 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
     /**
+     * <p>Maps to <code>Product.description</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -242,9 +223,12 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a state by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|StateKeyReference
      */
     public function getState()
     {
@@ -255,14 +239,19 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
                 return null;
             }
 
-            $this->state = ImportReferenceModel::of($data);
+            $this->state = StateKeyReferenceModel::of($data);
         }
 
         return $this->state;
     }
 
     /**
-     * @return null|ImportReferenceCollection
+     * <p>An array of references to a categories by their keys. Maps to <code>Product.categories</code>.</p>
+     * <p>The categories referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|CategoryKeyReferenceCollection
      */
     public function getCategories()
     {
@@ -272,7 +261,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
             if (is_null($data)) {
                 return null;
             }
-            $this->categories = ImportReferenceCollection::fromArray($data);
+            $this->categories = CategoryKeyReferenceCollection::fromArray($data);
         }
 
         return $this->categories;
@@ -318,9 +307,12 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
+     * <p>The product type referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ProductTypeKeyReference
      */
     public function getProductType()
     {
@@ -331,16 +323,19 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
                 return null;
             }
 
-            $this->productType = ImportReferenceModel::of($data);
+            $this->productType = ProductTypeKeyReferenceModel::of($data);
         }
 
         return $this->productType;
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a tax category by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory()
     {
@@ -351,7 +346,7 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
                 return null;
             }
 
-            $this->taxCategory = ImportReferenceModel::of($data);
+            $this->taxCategory = TaxCategoryKeyReferenceModel::of($data);
         }
 
         return $this->taxCategory;
@@ -365,11 +360,6 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
         $this->metaKeywords = $metaKeywords;
-    }
-
-    public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
-    {
-        $this->categoryOrderHints = $categoryOrderHints;
     }
 
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void
@@ -392,12 +382,12 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         $this->description = $description;
     }
 
-    public function setState(?ImportReference $state): void
+    public function setState(?StateKeyReference $state): void
     {
         $this->state = $state;
     }
 
-    public function setCategories(?ImportReferenceCollection $categories): void
+    public function setCategories(?CategoryKeyReferenceCollection $categories): void
     {
         $this->categories = $categories;
     }
@@ -412,12 +402,12 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         $this->slug = $slug;
     }
 
-    public function setProductType(?ImportReference $productType): void
+    public function setProductType(?ProductTypeKeyReference $productType): void
     {
         $this->productType = $productType;
     }
 
-    public function setTaxCategory(?ImportReference $taxCategory): void
+    public function setTaxCategory(?TaxCategoryKeyReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
     }

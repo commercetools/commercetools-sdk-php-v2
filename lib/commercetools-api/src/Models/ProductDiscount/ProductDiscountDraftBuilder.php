@@ -54,7 +54,7 @@ final class ProductDiscountDraftBuilder implements Builder
     private $isActive;
 
     /**
-     * @var ProductDiscountValue|?ProductDiscountValueBuilder
+     * @var ProductDiscountValueDraft|?ProductDiscountValueDraftBuilder
      */
     private $value;
 
@@ -124,11 +124,11 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
-     * @return null|ProductDiscountValue
+     * @return null|ProductDiscountValueDraft
      */
     public function getValue()
     {
-        return $this->value instanceof ProductDiscountValueBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof ProductDiscountValueDraftBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -212,7 +212,7 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?ProductDiscountValue $value)
+    public function withValue(?ProductDiscountValueDraft $value)
     {
         $this->value = $value;
 
@@ -252,7 +252,7 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?ProductDiscountValueBuilder $value)
+    public function withValueBuilder(?ProductDiscountValueDraftBuilder $value)
     {
         $this->value = $value;
 
@@ -269,7 +269,7 @@ final class ProductDiscountDraftBuilder implements Builder
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->validFrom,
             $this->isActive,
-            ($this->value instanceof ProductDiscountValueBuilder ? $this->value->build() : $this->value),
+            ($this->value instanceof ProductDiscountValueDraftBuilder ? $this->value->build() : $this->value),
             $this->key
         );
     }

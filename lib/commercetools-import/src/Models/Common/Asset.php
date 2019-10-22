@@ -12,16 +12,19 @@ use Commercetools\Base\JsonObject;
 
 interface Asset extends JsonObject
 {
-    const FIELD_ID = 'id';
+    const FIELD_KEY = 'key';
     const FIELD_SOURCES = 'sources';
     const FIELD_NAME = 'name';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_TAGS = 'tags';
 
     /**
+     * <p>User-defined identifier for the asset.
+     * Asset keys are unique inside their container (a product variant or a category).</p>.
+     *
      * @return null|string
      */
-    public function getId();
+    public function getKey();
 
     /**
      * @return null|AssetSourceCollection
@@ -43,7 +46,7 @@ interface Asset extends JsonObject
      */
     public function getTags();
 
-    public function setId(?string $id): void;
+    public function setKey(?string $key): void;
 
     public function setSources(?AssetSourceCollection $sources): void;
 

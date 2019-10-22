@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
-use Commercetools\Api\Models\Common\Update;
+use Commercetools\Api\Models\Me\MyShoppingListUpdate;
 use Commercetools\Client\ApiResource;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -28,10 +28,10 @@ class ResourceByProjectKeyMeShoppingListsByID extends ApiResource
     }
 
     /**
-     * @psalm-param ?Update $body
+     * @psalm-param ?MyShoppingListUpdate $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      */
-    public function post(?Update $body = null, array $headers = []): ByProjectKeyMeShoppingListsByIDPost
+    public function post(?MyShoppingListUpdate $body = null, array $headers = []): ByProjectKeyMeShoppingListsByIDPost
     {
         $args = $this->getArgs();
 

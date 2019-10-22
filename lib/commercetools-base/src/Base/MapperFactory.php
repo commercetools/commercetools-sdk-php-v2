@@ -12,6 +12,8 @@ use DateTimeImmutable;
 
 class MapperFactory
 {
+    const TIME_FORMAT = 'H:i:s.u';
+    const DATE_FORMAT = 'Y-m-d';
     const DATETIME_FORMAT = 'Y-m-d?H:i:s.uT';
 
     /**

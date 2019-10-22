@@ -27,7 +27,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->get();
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}',
+                '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -52,7 +52,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -64,7 +64,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}',
+                '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete_withDataErasure' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -77,7 +77,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?dataErasure=dataErasure',
+                '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?dataErasure=dataErasure',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?version=version',
+                '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?version=version',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -103,7 +103,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -115,7 +115,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberTest
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}',
+                '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}',
             ]
         ];
     }

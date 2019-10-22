@@ -10,8 +10,8 @@ namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Import\Models\Common\AssetCollection;
 use Commercetools\Import\Models\Common\ImageCollection;
-use Commercetools\Import\Models\Common\ImportReference;
 use Commercetools\Import\Models\Common\ImportResource;
+use Commercetools\Import\Models\Common\ProductKeyReference;
 
 interface ProductVariantImport extends ImportResource
 {
@@ -23,34 +23,50 @@ interface ProductVariantImport extends ImportResource
     const FIELD_PRODUCT = 'product';
 
     /**
+     * <p>Maps to <code>ProductVariant.sku</code>.</p>.
+     *
      * @return null|string
      */
     public function getSku();
 
     /**
+     * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>.
+     *
      * @return null|bool
      */
     public function getIsMasterVariant();
 
     /**
+     * <p>Maps to <code>ProductVariant.attributes</code>.</p>
+     * <p>Each attribute referenced must be defined
+     * in an already existing product type in the commercetools project, or the import
+     * item state is set to <code>Unresolved</code>.</p>.
+     *
      * @return null|AttributeCollection
      */
     public function getAttributes();
 
     /**
+     * <p>Maps to <code>ProductVariant.images</code>.</p>.
+     *
      * @return null|ImageCollection
      */
     public function getImages();
 
     /**
+     * <p>Maps to <code>ProductVariant.assets</code>.</p>.
+     *
      * @return null|AssetCollection
      */
     public function getAssets();
 
     /**
-     * <p>The product in which this product variant is contained.</p>.
+     * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
+     * <p>The product referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ProductKeyReference
      */
     public function getProduct();
 
@@ -64,5 +80,5 @@ interface ProductVariantImport extends ImportResource
 
     public function setAssets(?AssetCollection $assets): void;
 
-    public function setProduct(?ImportReference $product): void;
+    public function setProduct(?ProductKeyReference $product): void;
 }

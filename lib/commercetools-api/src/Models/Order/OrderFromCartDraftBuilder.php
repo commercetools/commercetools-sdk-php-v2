@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\State\StateResourceIdentifier;
+use Commercetools\Api\Models\State\StateResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
 
 /**
@@ -18,7 +20,17 @@ final class OrderFromCartDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $shipmentState;
+
+    /**
+     * @var ?string
+     */
     private $orderNumber;
+
+    /**
+     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     */
+    private $state;
 
     /**
      * @var ?string
@@ -35,8 +47,21 @@ final class OrderFromCartDraftBuilder implements Builder
      */
     private $version;
 
+    /**
+     * @var ?string
+     */
+    private $orderState;
+
     public function __construct()
     {
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getShipmentState()
+    {
+        return $this->shipmentState;
     }
 
     /**
@@ -45,6 +70,14 @@ final class OrderFromCartDraftBuilder implements Builder
     public function getOrderNumber()
     {
         return $this->orderNumber;
+    }
+
+    /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state;
     }
 
     /**
@@ -72,11 +105,39 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * @return null|string
+     */
+    public function getOrderState()
+    {
+        return $this->orderState;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShipmentState(?string $shipmentState)
+    {
+        $this->shipmentState = $shipmentState;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withOrderNumber(?string $orderNumber)
     {
         $this->orderNumber = $orderNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withState(?StateResourceIdentifier $state)
+    {
+        $this->state = $state;
 
         return $this;
     }
@@ -111,13 +172,36 @@ final class OrderFromCartDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withOrderState(?string $orderState)
+    {
+        $this->orderState = $orderState;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStateBuilder(?StateResourceIdentifierBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
     public function build(): OrderFromCartDraft
     {
         return new OrderFromCartDraftModel(
+            $this->shipmentState,
             $this->orderNumber,
+            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state),
             $this->id,
             $this->paymentState,
-            $this->version
+            $this->version,
+            $this->orderState
         );
     }
 

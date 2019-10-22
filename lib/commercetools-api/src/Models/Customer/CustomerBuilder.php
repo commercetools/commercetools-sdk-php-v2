@@ -15,6 +15,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -64,6 +65,11 @@ final class CustomerBuilder implements Builder
      * @var ?AddressCollection
      */
     private $addresses;
+
+    /**
+     * @var ?StoreKeyReferenceCollection
+     */
+    private $stores;
 
     /**
      * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
@@ -231,6 +237,14 @@ final class CustomerBuilder implements Builder
     public function getAddresses()
     {
         return $this->addresses;
+    }
+
+    /**
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
     }
 
     /**
@@ -469,6 +483,16 @@ final class CustomerBuilder implements Builder
     public function withAddresses(?AddressCollection $addresses)
     {
         $this->addresses = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStores(?StoreKeyReferenceCollection $stores)
+    {
+        $this->stores = $stores;
 
         return $this;
     }
@@ -724,6 +748,7 @@ final class CustomerBuilder implements Builder
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
             $this->lastName,
             $this->addresses,
+            $this->stores,
             ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             $this->companyName,

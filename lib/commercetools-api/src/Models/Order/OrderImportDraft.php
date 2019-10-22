@@ -14,6 +14,7 @@ use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -40,6 +41,8 @@ interface OrderImportDraft extends JsonObject
     const FIELD_INVENTORY_MODE = 'inventoryMode';
     const FIELD_TAX_ROUNDING_MODE = 'taxRoundingMode';
     const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+    const FIELD_STORE = 'store';
+    const FIELD_ORIGIN = 'origin';
 
     /**
      * @return null|string
@@ -141,6 +144,16 @@ interface OrderImportDraft extends JsonObject
      */
     public function getItemShippingAddresses();
 
+    /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore();
+
+    /**
+     * @return null|string
+     */
+    public function getOrigin();
+
     public function setOrderNumber(?string $orderNumber): void;
 
     public function setCustomerId(?string $customerId): void;
@@ -180,4 +193,8 @@ interface OrderImportDraft extends JsonObject
     public function setTaxRoundingMode(?string $taxRoundingMode): void;
 
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
+
+    public function setStore(?StoreKeyReference $store): void;
+
+    public function setOrigin(?string $origin): void;
 }

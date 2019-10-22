@@ -29,6 +29,11 @@ final class DiscountCodePagedQueryResponseModel extends JsonObjectModel implemen
     protected $count;
 
     /**
+     * @var ?int
+     */
+    protected $limit;
+
+    /**
      * @var ?DiscountCodeCollection
      */
     protected $results;
@@ -37,11 +42,13 @@ final class DiscountCodePagedQueryResponseModel extends JsonObjectModel implemen
         int $total = null,
         int $offset = null,
         int $count = null,
+        int $limit = null,
         DiscountCodeCollection $results = null
     ) {
         $this->total = $total;
         $this->offset = $offset;
         $this->count = $count;
+        $this->limit = $limit;
         $this->results = $results;
     }
 
@@ -97,6 +104,23 @@ final class DiscountCodePagedQueryResponseModel extends JsonObjectModel implemen
     }
 
     /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(DiscountCodePagedQueryResponse::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
+    }
+
+    /**
      * @return null|DiscountCodeCollection
      */
     public function getResults()
@@ -126,6 +150,11 @@ final class DiscountCodePagedQueryResponseModel extends JsonObjectModel implemen
     public function setCount(?int $count): void
     {
         $this->count = $count;
+    }
+
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
     }
 
     public function setResults(?DiscountCodeCollection $results): void

@@ -19,6 +19,7 @@ use Commercetools\Api\Models\Cart\ShippingRateInput;
 use Commercetools\Api\Models\Cart\ShippingRateInputBuilder;
 use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Cart\TaxedPriceBuilder;
+use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\AddressCollection;
@@ -26,8 +27,8 @@ use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceBuilder;
 use Commercetools\Api\Models\State\StateReference;
@@ -90,7 +91,7 @@ final class OrderBuilder implements Builder
     private $orderNumber;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var TypedMoney|?TypedMoneyBuilder
      */
     private $totalPrice;
 
@@ -113,6 +114,11 @@ final class OrderBuilder implements Builder
      * @var ShippingInfo|?ShippingInfoBuilder
      */
     private $shippingInfo;
+
+    /**
+     * @var ?CartDiscountReferenceCollection
+     */
+    private $refusedGifts;
 
     /**
      * @var ?string
@@ -321,11 +327,11 @@ final class OrderBuilder implements Builder
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalPrice()
     {
-        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+        return $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
 
     /**
@@ -358,6 +364,14 @@ final class OrderBuilder implements Builder
     public function getShippingInfo()
     {
         return $this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo;
+    }
+
+    /**
+     * @return null|CartDiscountReferenceCollection
+     */
+    public function getRefusedGifts()
+    {
+        return $this->refusedGifts;
     }
 
     /**
@@ -661,7 +675,7 @@ final class OrderBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalPrice(?Money $totalPrice)
+    public function withTotalPrice(?TypedMoney $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -704,6 +718,16 @@ final class OrderBuilder implements Builder
     public function withShippingInfo(?ShippingInfo $shippingInfo)
     {
         $this->shippingInfo = $shippingInfo;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withRefusedGifts(?CartDiscountReferenceCollection $refusedGifts)
+    {
+        $this->refusedGifts = $refusedGifts;
 
         return $this;
     }
@@ -991,7 +1015,7 @@ final class OrderBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -1120,11 +1144,12 @@ final class OrderBuilder implements Builder
             $this->shipmentState,
             $this->country,
             $this->orderNumber,
-            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
+            ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
             ($this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput),
             ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
             $this->origin,
             ($this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo),
+            $this->refusedGifts,
             $this->locale,
             ($this->cart instanceof CartReferenceBuilder ? $this->cart->build() : $this->cart),
             $this->inventoryMode,

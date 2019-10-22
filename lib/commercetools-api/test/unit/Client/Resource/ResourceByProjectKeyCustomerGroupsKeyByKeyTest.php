@@ -26,7 +26,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/customer-groups/key={key}?expand=expand',
+                '{projectKey}/customer-groups/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/customer-groups/key={key}',
+                '{projectKey}/customer-groups/key={key}',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/customer-groups/key={key}?expand=expand',
+                '{projectKey}/customer-groups/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/customer-groups/key={key}',
+                '{projectKey}/customer-groups/key={key}',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/customer-groups/key={key}?version=version',
+                '{projectKey}/customer-groups/key={key}?version=version',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/customer-groups/key={key}?expand=expand',
+                '{projectKey}/customer-groups/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomerGroupsKeyByKeyDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyCustomerGroupsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/customer-groups/key={key}',
+                '{projectKey}/customer-groups/key={key}',
             ]
         ];
     }

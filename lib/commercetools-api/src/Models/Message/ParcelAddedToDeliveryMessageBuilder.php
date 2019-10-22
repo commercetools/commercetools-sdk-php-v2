@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\CreatedByBuilder;
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
 use Commercetools\Api\Models\Order\Delivery;
@@ -41,6 +45,16 @@ final class ParcelAddedToDeliveryMessageBuilder implements Builder
      * @var ?int
      */
     private $version;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * @var LastModifiedBy|?LastModifiedByBuilder
+     */
+    private $lastModifiedBy;
 
     /**
      * @var ?int
@@ -111,6 +125,22 @@ final class ParcelAddedToDeliveryMessageBuilder implements Builder
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+    }
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
 
     /**
@@ -212,6 +242,26 @@ final class ParcelAddedToDeliveryMessageBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withSequenceNumber(?int $sequenceNumber)
     {
         $this->sequenceNumber = $sequenceNumber;
@@ -282,6 +332,26 @@ final class ParcelAddedToDeliveryMessageBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withResourceBuilder(?ReferenceBuilder $resource)
     {
         $this->resource = $resource;
@@ -326,6 +396,8 @@ final class ParcelAddedToDeliveryMessageBuilder implements Builder
             $this->lastModifiedAt,
             $this->id,
             $this->version,
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),

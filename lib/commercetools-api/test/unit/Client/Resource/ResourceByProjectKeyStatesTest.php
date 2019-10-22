@@ -25,7 +25,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/states?expand=expand',
+                '{projectKey}/states?expand=expand',
             ],
             'ByProjectKeyStatesGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/states?where=where',
+                '{projectKey}/states?where=where',
             ],
             'ByProjectKeyStatesGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/states?sort=sort',
+                '{projectKey}/states?sort=sort',
             ],
             'ByProjectKeyStatesGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/states?limit=limit',
+                '{projectKey}/states?limit=limit',
             ],
             'ByProjectKeyStatesGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/states?offset=offset',
+                '{projectKey}/states?offset=offset',
             ],
             'ByProjectKeyStatesGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/states?withTotal=withTotal',
+                '{projectKey}/states?withTotal=withTotal',
             ],
             'ByProjectKeyStatesGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/states',
+                '{projectKey}/states',
             ],
             'ByProjectKeyStatesPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/states?expand=expand',
+                '{projectKey}/states?expand=expand',
             ],
             'ByProjectKeyStatesPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyStatesTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/states',
+                '{projectKey}/states',
             ]
         ];
     }

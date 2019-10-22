@@ -27,7 +27,7 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/me/shopping-lists/{ID}?expand=expand',
+                '{projectKey}/me/shopping-lists/{ID}?expand=expand',
             ],
             'ByProjectKeyMeShoppingListsByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/me/shopping-lists/{ID}',
+                '{projectKey}/me/shopping-lists/{ID}',
             ],
             'ByProjectKeyMeShoppingListsByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -52,7 +52,7 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/me/shopping-lists/{ID}?expand=expand',
+                '{projectKey}/me/shopping-lists/{ID}?expand=expand',
             ],
             'ByProjectKeyMeShoppingListsByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -64,7 +64,7 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/me/shopping-lists/{ID}',
+                '{projectKey}/me/shopping-lists/{ID}',
             ],
             'ByProjectKeyMeShoppingListsByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -77,7 +77,7 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/me/shopping-lists/{ID}?version=version',
+                '{projectKey}/me/shopping-lists/{ID}?version=version',
             ],
             'ByProjectKeyMeShoppingListsByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/me/shopping-lists/{ID}?expand=expand',
+                '{projectKey}/me/shopping-lists/{ID}?expand=expand',
             ],
             'ByProjectKeyMeShoppingListsByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -102,7 +102,7 @@ class ResourceByProjectKeyMeShoppingListsByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/me/shopping-lists/{ID}',
+                '{projectKey}/me/shopping-lists/{ID}',
             ]
         ];
     }

@@ -26,7 +26,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/stores/key={key}?expand=expand',
+                '{projectKey}/stores/key={key}?expand=expand',
             ],
             'ByProjectKeyStoresKeyByKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/stores/key={key}',
+                '{projectKey}/stores/key={key}',
             ],
             'ByProjectKeyStoresKeyByKeyPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/stores/key={key}?expand=expand',
+                '{projectKey}/stores/key={key}?expand=expand',
             ],
             'ByProjectKeyStoresKeyByKeyPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/stores/key={key}',
+                '{projectKey}/stores/key={key}',
             ],
             'ByProjectKeyStoresKeyByKeyDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/stores/key={key}?version=version',
+                '{projectKey}/stores/key={key}?version=version',
             ],
             'ByProjectKeyStoresKeyByKeyDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/stores/key={key}?expand=expand',
+                '{projectKey}/stores/key={key}?expand=expand',
             ],
             'ByProjectKeyStoresKeyByKeyDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyStoresKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/stores/key={key}',
+                '{projectKey}/stores/key={key}',
             ]
         ];
     }

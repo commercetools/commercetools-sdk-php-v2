@@ -45,6 +45,8 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()
@@ -53,10 +55,7 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     }
 
     /**
-     * <p>This abstract type is the base for specific attribute types. The concrete type is derived
-     * from the type discriminator.
-     * An attribute matches an attribute definition of a CTP product type by name.
-     * The value can have different types, but must match the type of the matching attribute defintion.</p>.
+     * <p>The conflicting attribute.</p>.
      *
      * @return null|Attribute
      */

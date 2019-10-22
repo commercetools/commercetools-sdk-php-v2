@@ -25,7 +25,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->post();
                 },
                 'post',
-                '/{projectKey}/product-projections/search',
+                '{projectKey}/product-projections/search',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFuzzy' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withFuzzy('fuzzy');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?fuzzy=fuzzy',
+                '{projectKey}/product-projections/search?fuzzy=fuzzy',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFuzzyLevel' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withFuzzyLevel('fuzzyLevel');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?fuzzyLevel=fuzzyLevel',
+                '{projectKey}/product-projections/search?fuzzyLevel=fuzzyLevel',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withStaged' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -61,7 +61,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withStaged('staged');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?staged=staged',
+                '{projectKey}/product-projections/search?staged=staged',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilter' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -73,7 +73,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withFilter('filter');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?filter=filter',
+                '{projectKey}/product-projections/search?filter=filter',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilterFacets' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -85,7 +85,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withFilterFacets('filter.facets');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?filter.facets=filter.facets',
+                '{projectKey}/product-projections/search?filter.facets=filter.facets',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFilterQuery' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -97,7 +97,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withFilterQuery('filter.query');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?filter.query=filter.query',
+                '{projectKey}/product-projections/search?filter.query=filter.query',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withFacet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -109,7 +109,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withFacet('facet');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?facet=facet',
+                '{projectKey}/product-projections/search?facet=facet',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withText' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -121,7 +121,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withText('locale', 'text.locale');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?text.locale=text.locale',
+                '{projectKey}/product-projections/search?text.locale=text.locale',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -133,7 +133,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?sort=sort',
+                '{projectKey}/product-projections/search?sort=sort',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -145,7 +145,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?limit=limit',
+                '{projectKey}/product-projections/search?limit=limit',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -157,7 +157,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?offset=offset',
+                '{projectKey}/product-projections/search?offset=offset',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -169,7 +169,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?withTotal=withTotal',
+                '{projectKey}/product-projections/search?withTotal=withTotal',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCurrency' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -181,7 +181,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withPriceCurrency('priceCurrency');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?priceCurrency=priceCurrency',
+                '{projectKey}/product-projections/search?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCountry' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -193,7 +193,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withPriceCountry('priceCountry');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?priceCountry=priceCountry',
+                '{projectKey}/product-projections/search?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceCustomerGroup' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -205,7 +205,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?priceCustomerGroup=priceCustomerGroup',
+                '{projectKey}/product-projections/search?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withPriceChannel' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -217,7 +217,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withPriceChannel('priceChannel');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?priceChannel=priceChannel',
+                '{projectKey}/product-projections/search?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductProjectionsSearchGet_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -229,7 +229,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/product-projections/search?expand=expand',
+                '{projectKey}/product-projections/search?expand=expand',
             ],
             'ByProjectKeyProductProjectionsSearchGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -240,7 +240,7 @@ class ResourceByProjectKeyProductProjectionsSearchTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/product-projections/search',
+                '{projectKey}/product-projections/search',
             ]
         ];
     }

@@ -25,7 +25,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
                         ->put(null);
                 },
                 'put',
-                '/{projectKey}/import-sinks/{importSinkKey}',
+                '{projectKey}/import-sinks/{importSinkKey}',
             ],
             'ByProjectKeyImportSinksByImportSinkKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/import-sinks/{importSinkKey}',
+                '{projectKey}/import-sinks/{importSinkKey}',
             ],
             'ByProjectKeyImportSinksByImportSinkKeyDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyImportSinksByImportSinkKeyTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/import-sinks/{importSinkKey}',
+                '{projectKey}/import-sinks/{importSinkKey}',
             ]
         ];
     }

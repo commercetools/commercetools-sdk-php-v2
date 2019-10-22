@@ -50,6 +50,8 @@ final class InvalidTokenErrorModel extends JsonObjectModel implements InvalidTok
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()

@@ -16,19 +16,19 @@ interface ImportSink extends JsonObject
     const FIELD_KEY = 'key';
     const FIELD_RESOURCE_TYPE = 'resourceType';
     const FIELD_VERSION = 'version';
-    const FIELD_SKIP_PREDICATE = 'skipPredicate';
     const FIELD_CREATED_AT = 'createdAt';
     const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
 
     /**
-     * <p>The key of import sink.</p>.
+     * <p>The unique key of the import sink.</p>.
      *
      * @return null|string
      */
     public function getKey();
 
     /**
-     * <p>The type of the import resource sent to this import sink.</p>.
+     * <p>The type of import resource sent to this import sink.
+     * You can only send one resource type per import sink.</p>.
      *
      * @return null|string
      */
@@ -42,23 +42,14 @@ interface ImportSink extends JsonObject
     public function getVersion();
 
     /**
-     * <p>A predicate allows to check the current state of a CTP resource. And can be used to detect if an import should
-     * be performed or should be skipped. And this abstract type allows us to support different syntaxes for our predicates
-     * without any breaking changes to our api.</p>.
-     *
-     * @return null|Predicate
-     */
-    public function getSkipPredicate();
-
-    /**
-     * <p>The creation time of this import sink.</p>.
+     * <p>When the import sink was created.</p>.
      *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
-     * <p>The last modification time of this import sink.</p>.
+     * <p>When the import sink was modified.</p>.
      *
      * @return null|DateTimeImmutable
      */
@@ -69,8 +60,6 @@ interface ImportSink extends JsonObject
     public function setResourceType(?string $resourceType): void;
 
     public function setVersion(?int $version): void;
-
-    public function setSkipPredicate(?Predicate $skipPredicate): void;
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 

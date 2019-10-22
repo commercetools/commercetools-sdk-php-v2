@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
@@ -21,19 +21,19 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     protected $taxPortions;
 
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $totalGross;
 
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $totalNet;
 
     public function __construct(
         TaxPortionCollection $taxPortions = null,
-        Money $totalGross = null,
-        Money $totalNet = null
+        TypedMoney $totalGross = null,
+        TypedMoney $totalNet = null
     ) {
         $this->taxPortions = $taxPortions;
         $this->totalGross = $totalGross;
@@ -58,7 +58,7 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalGross()
     {
@@ -68,15 +68,15 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
             if (is_null($data)) {
                 return null;
             }
-
-            $this->totalGross = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->totalGross = $className::of($data);
         }
 
         return $this->totalGross;
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalNet()
     {
@@ -86,8 +86,8 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
             if (is_null($data)) {
                 return null;
             }
-
-            $this->totalNet = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->totalNet = $className::of($data);
         }
 
         return $this->totalNet;
@@ -98,12 +98,12 @@ final class TaxedPriceModel extends JsonObjectModel implements TaxedPrice
         $this->taxPortions = $taxPortions;
     }
 
-    public function setTotalGross(?Money $totalGross): void
+    public function setTotalGross(?TypedMoney $totalGross): void
     {
         $this->totalGross = $totalGross;
     }
 
-    public function setTotalNet(?Money $totalNet): void
+    public function setTotalNet(?TypedMoney $totalNet): void
     {
         $this->totalNet = $totalNet;
     }

@@ -17,6 +17,7 @@ use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\JsonObjectModel;
@@ -65,6 +66,11 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
      * @var ?AddressCollection
      */
     protected $addresses;
+
+    /**
+     * @var ?StoreKeyReferenceCollection
+     */
+    protected $stores;
 
     /**
      * @var ?CustomerGroupReference
@@ -175,6 +181,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
         LastModifiedBy $lastModifiedBy = null,
         string $lastName = null,
         AddressCollection $addresses = null,
+        StoreKeyReferenceCollection $stores = null,
         CustomerGroupReference $customerGroup = null,
         CustomFields $custom = null,
         string $companyName = null,
@@ -204,6 +211,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
         $this->lastModifiedBy = $lastModifiedBy;
         $this->lastName = $lastName;
         $this->addresses = $addresses;
+        $this->stores = $stores;
         $this->customerGroup = $customerGroup;
         $this->custom = $custom;
         $this->companyName = $companyName;
@@ -237,7 +245,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -258,7 +266,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -373,6 +381,23 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     }
 
     /**
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(MyCustomer::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->stores;
+    }
+
+    /**
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup()
@@ -470,7 +495,7 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -756,6 +781,11 @@ final class MyCustomerModel extends JsonObjectModel implements MyCustomer
     public function setAddresses(?AddressCollection $addresses): void
     {
         $this->addresses = $addresses;
+    }
+
+    public function setStores(?StoreKeyReferenceCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void

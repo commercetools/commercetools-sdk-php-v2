@@ -25,7 +25,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/product-discounts?expand=expand',
+                '{projectKey}/product-discounts?expand=expand',
             ],
             'ByProjectKeyProductDiscountsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/product-discounts?where=where',
+                '{projectKey}/product-discounts?where=where',
             ],
             'ByProjectKeyProductDiscountsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/product-discounts?sort=sort',
+                '{projectKey}/product-discounts?sort=sort',
             ],
             'ByProjectKeyProductDiscountsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/product-discounts?limit=limit',
+                '{projectKey}/product-discounts?limit=limit',
             ],
             'ByProjectKeyProductDiscountsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/product-discounts?offset=offset',
+                '{projectKey}/product-discounts?offset=offset',
             ],
             'ByProjectKeyProductDiscountsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/product-discounts?withTotal=withTotal',
+                '{projectKey}/product-discounts?withTotal=withTotal',
             ],
             'ByProjectKeyProductDiscountsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/product-discounts',
+                '{projectKey}/product-discounts',
             ],
             'ByProjectKeyProductDiscountsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/product-discounts?expand=expand',
+                '{projectKey}/product-discounts?expand=expand',
             ],
             'ByProjectKeyProductDiscountsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyProductDiscountsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/product-discounts',
+                '{projectKey}/product-discounts',
             ]
         ];
     }

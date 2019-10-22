@@ -27,7 +27,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/orders/edits/key={key}?expand=expand',
+                '{projectKey}/orders/edits/key={key}?expand=expand',
             ],
             'ByProjectKeyOrdersEditsKeyByKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/orders/edits/key={key}',
+                '{projectKey}/orders/edits/key={key}',
             ],
             'ByProjectKeyOrdersEditsKeyByKeyPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -52,7 +52,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/orders/edits/key={key}?expand=expand',
+                '{projectKey}/orders/edits/key={key}?expand=expand',
             ],
             'ByProjectKeyOrdersEditsKeyByKeyPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -64,7 +64,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/orders/edits/key={key}',
+                '{projectKey}/orders/edits/key={key}',
             ],
             'ByProjectKeyOrdersEditsKeyByKeyDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -77,7 +77,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/orders/edits/key={key}?version=version',
+                '{projectKey}/orders/edits/key={key}?version=version',
             ],
             'ByProjectKeyOrdersEditsKeyByKeyDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/orders/edits/key={key}?expand=expand',
+                '{projectKey}/orders/edits/key={key}?expand=expand',
             ],
             'ByProjectKeyOrdersEditsKeyByKeyDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -102,7 +102,7 @@ class ResourceByProjectKeyOrdersEditsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/orders/edits/key={key}',
+                '{projectKey}/orders/edits/key={key}',
             ]
         ];
     }

@@ -54,6 +54,8 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()
@@ -62,6 +64,8 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>A fixed set of allowed values for the field, if any.</p>.
+     *
      * @return null|array
      */
     public function getAllowedValues()
@@ -70,6 +74,8 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>The name of the field.</p>.
+     *
      * @return null|string
      */
     public function getField()
@@ -78,6 +84,8 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>The invalid value.</p>.
+     *
      * @return null|JsonObject
      */
     public function getInvalidValue()

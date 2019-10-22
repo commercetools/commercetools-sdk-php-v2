@@ -39,7 +39,7 @@ class ByProjectKeyInStoreKeyByStoreKeyOrdersGet extends ApiRequest
      */
     public function __construct($projectKey, $storeKey, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}'], [$projectKey, $storeKey], '/{projectKey}/in-store/key={storeKey}/orders');
+        $uri = str_replace(['{projectKey}', '{storeKey}'], [$projectKey, $storeKey], '{projectKey}/in-store/key={storeKey}/orders');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

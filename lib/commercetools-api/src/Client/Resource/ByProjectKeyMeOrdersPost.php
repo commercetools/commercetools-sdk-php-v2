@@ -10,8 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
-use Commercetools\Api\Models\Order\Order;
-use Commercetools\Api\Models\Order\OrderModel;
+use Commercetools\Api\Models\Me\MyOrder;
+use Commercetools\Api\Models\Me\MyOrderModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\ResultMapper;
@@ -37,14 +37,14 @@ class ByProjectKeyMeOrdersPost extends ApiRequest
      */
     public function __construct($projectKey, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/me/orders');
+        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/me/orders');
         parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ErrorResponse|JsonObject|Order|T|null
+     * @psalm-return ErrorResponse|JsonObject|MyOrder|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -55,7 +55,7 @@ class ByProjectKeyMeOrdersPost extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '201':
-                    $resultType = OrderModel::class;
+                    $resultType = MyOrderModel::class;
 
                     break;
                 case '400':
@@ -94,7 +94,7 @@ class ByProjectKeyMeOrdersPost extends ApiRequest
      *
      * @param array $options
      *
-     * @return null|ErrorResponse|JsonObject|Order
+     * @return null|ErrorResponse|JsonObject|MyOrder
      */
     public function execute(array $options = [], string $resultType = null)
     {

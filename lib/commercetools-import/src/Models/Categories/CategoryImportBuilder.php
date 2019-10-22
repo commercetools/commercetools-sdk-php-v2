@@ -10,8 +10,8 @@ namespace Commercetools\Import\Models\Categories;
 
 use Commercetools\Base\Builder;
 use Commercetools\Import\Models\Common\AssetCollection;
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceBuilder;
+use Commercetools\Import\Models\Common\CategoryKeyReference;
+use Commercetools\Import\Models\Common\CategoryKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\LocalizedString;
 use Commercetools\Import\Models\Common\LocalizedStringBuilder;
 
@@ -26,7 +26,7 @@ final class CategoryImportBuilder implements Builder
     private $key;
 
     /**
-     * @var ImportReference|?ImportReferenceBuilder
+     * @var CategoryKeyReference|?CategoryKeyReferenceBuilder
      */
     private $parent;
 
@@ -88,16 +88,21 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>Maps to <code>Category.parent</code>.
+     * The parent category referenced must already exist
+     * in the commercetools project, or the import item
+     * will have an <code>Unresolved</code> state.</p>.
      *
-     * @return null|ImportReference
+     * @return null|CategoryKeyReference
      */
     public function getParent()
     {
-        return $this->parent instanceof ImportReferenceBuilder ? $this->parent->build() : $this->parent;
+        return $this->parent instanceof CategoryKeyReferenceBuilder ? $this->parent->build() : $this->parent;
     }
 
     /**
+     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>.
+     *
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -106,6 +111,8 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Category.metaKeywords</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getMetaKeywords()
@@ -114,6 +121,8 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Category.orderHint</code>.</p>.
+     *
      * @return null|string
      */
     public function getOrderHint()
@@ -122,6 +131,8 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Category.metaTitle</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -130,6 +141,8 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Category.name</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -138,6 +151,8 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Category.externalId</code>.</p>.
+     *
      * @return null|string
      */
     public function getExternalId()
@@ -146,6 +161,8 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Category.description</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -154,6 +171,8 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Category.metaDescription</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -162,6 +181,9 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Category.slug</code>.
+     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -182,7 +204,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withParent(?ImportReference $parent)
+    public function withParent(?CategoryKeyReference $parent)
     {
         $this->parent = $parent;
 
@@ -282,7 +304,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withParentBuilder(?ImportReferenceBuilder $parent)
+    public function withParentBuilder(?CategoryKeyReferenceBuilder $parent)
     {
         $this->parent = $parent;
 
@@ -353,7 +375,7 @@ final class CategoryImportBuilder implements Builder
     {
         return new CategoryImportModel(
             $this->key,
-            ($this->parent instanceof ImportReferenceBuilder ? $this->parent->build() : $this->parent),
+            ($this->parent instanceof CategoryKeyReferenceBuilder ? $this->parent->build() : $this->parent),
             $this->assets,
             ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
             $this->orderHint,

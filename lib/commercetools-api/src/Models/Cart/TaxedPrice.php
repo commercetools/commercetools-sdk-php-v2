@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Base\JsonObject;
 
 interface TaxedPrice extends JsonObject
@@ -18,12 +18,12 @@ interface TaxedPrice extends JsonObject
     const FIELD_TAX_PORTIONS = 'taxPortions';
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalNet();
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalGross();
 
@@ -32,9 +32,9 @@ interface TaxedPrice extends JsonObject
      */
     public function getTaxPortions();
 
-    public function setTotalNet(?Money $totalNet): void;
+    public function setTotalNet(?TypedMoney $totalNet): void;
 
-    public function setTotalGross(?Money $totalGross): void;
+    public function setTotalGross(?TypedMoney $totalGross): void;
 
     public function setTaxPortions(?TaxPortionCollection $taxPortions): void;
 }

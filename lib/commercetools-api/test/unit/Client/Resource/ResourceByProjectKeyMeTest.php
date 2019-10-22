@@ -25,7 +25,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/me?where=where',
+                '{projectKey}/me?where=where',
             ],
             'ByProjectKeyMeGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/me?sort=sort',
+                '{projectKey}/me?sort=sort',
             ],
             'ByProjectKeyMeGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/me?limit=limit',
+                '{projectKey}/me?limit=limit',
             ],
             'ByProjectKeyMeGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/me?offset=offset',
+                '{projectKey}/me?offset=offset',
             ],
             'ByProjectKeyMeGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/me?withTotal=withTotal',
+                '{projectKey}/me?withTotal=withTotal',
             ],
             'ByProjectKeyMeGet_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/me?expand=expand',
+                '{projectKey}/me?expand=expand',
             ],
             'ByProjectKeyMeGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/me',
+                '{projectKey}/me',
             ],
             'ByProjectKeyMePost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -100,7 +100,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/me',
+                '{projectKey}/me',
             ],
             'ByProjectKeyMeDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/me?version=version',
+                '{projectKey}/me?version=version',
             ],
             'ByProjectKeyMeDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -121,7 +121,7 @@ class ResourceByProjectKeyMeTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/me',
+                '{projectKey}/me',
             ]
         ];
     }

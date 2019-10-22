@@ -19,6 +19,7 @@ use Commercetools\Api\Models\Cart\ShippingRateInput;
 use Commercetools\Api\Models\Cart\ShippingRateInputModel;
 use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Cart\TaxedPriceModel;
+use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
@@ -28,8 +29,8 @@ use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LoggedResource;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
@@ -91,7 +92,7 @@ final class OrderModel extends JsonObjectModel implements Order
     protected $orderNumber;
 
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $totalPrice;
 
@@ -114,6 +115,11 @@ final class OrderModel extends JsonObjectModel implements Order
      * @var ?ShippingInfo
      */
     protected $shippingInfo;
+
+    /**
+     * @var ?CartDiscountReferenceCollection
+     */
+    protected $refusedGifts;
 
     /**
      * @var ?string
@@ -255,11 +261,12 @@ final class OrderModel extends JsonObjectModel implements Order
         string $shipmentState = null,
         string $country = null,
         string $orderNumber = null,
-        Money $totalPrice = null,
+        TypedMoney $totalPrice = null,
         ShippingRateInput $shippingRateInput = null,
         TaxedPrice $taxedPrice = null,
         string $origin = null,
         ShippingInfo $shippingInfo = null,
+        CartDiscountReferenceCollection $refusedGifts = null,
         string $locale = null,
         CartReference $cart = null,
         string $inventoryMode = null,
@@ -301,6 +308,7 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->taxedPrice = $taxedPrice;
         $this->origin = $origin;
         $this->shippingInfo = $shippingInfo;
+        $this->refusedGifts = $refusedGifts;
         $this->locale = $locale;
         $this->cart = $cart;
         $this->inventoryMode = $inventoryMode;
@@ -340,7 +348,7 @@ final class OrderModel extends JsonObjectModel implements Order
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -361,7 +369,7 @@ final class OrderModel extends JsonObjectModel implements Order
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -493,7 +501,7 @@ final class OrderModel extends JsonObjectModel implements Order
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalPrice()
     {
@@ -503,8 +511,8 @@ final class OrderModel extends JsonObjectModel implements Order
             if (is_null($data)) {
                 return null;
             }
-
-            $this->totalPrice = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->totalPrice = $className::of($data);
         }
 
         return $this->totalPrice;
@@ -579,6 +587,23 @@ final class OrderModel extends JsonObjectModel implements Order
         }
 
         return $this->shippingInfo;
+    }
+
+    /**
+     * @return null|CartDiscountReferenceCollection
+     */
+    public function getRefusedGifts()
+    {
+        if (is_null($this->refusedGifts)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(Order::FIELD_REFUSED_GIFTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->refusedGifts = CartDiscountReferenceCollection::fromArray($data);
+        }
+
+        return $this->refusedGifts;
     }
 
     /**
@@ -832,7 +857,7 @@ final class OrderModel extends JsonObjectModel implements Order
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -1080,7 +1105,7 @@ final class OrderModel extends JsonObjectModel implements Order
         $this->orderNumber = $orderNumber;
     }
 
-    public function setTotalPrice(?Money $totalPrice): void
+    public function setTotalPrice(?TypedMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }
@@ -1103,6 +1128,11 @@ final class OrderModel extends JsonObjectModel implements Order
     public function setShippingInfo(?ShippingInfo $shippingInfo): void
     {
         $this->shippingInfo = $shippingInfo;
+    }
+
+    public function setRefusedGifts(?CartDiscountReferenceCollection $refusedGifts): void
+    {
+        $this->refusedGifts = $refusedGifts;
     }
 
     public function setLocale(?string $locale): void

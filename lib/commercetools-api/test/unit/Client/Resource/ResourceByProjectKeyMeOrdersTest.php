@@ -26,7 +26,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/me/orders?expand=expand',
+                '{projectKey}/me/orders?expand=expand',
             ],
             'ByProjectKeyMeOrdersGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/me/orders?where=where',
+                '{projectKey}/me/orders?where=where',
             ],
             'ByProjectKeyMeOrdersGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -50,7 +50,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/me/orders?sort=sort',
+                '{projectKey}/me/orders?sort=sort',
             ],
             'ByProjectKeyMeOrdersGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -62,7 +62,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/me/orders?limit=limit',
+                '{projectKey}/me/orders?limit=limit',
             ],
             'ByProjectKeyMeOrdersGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -74,7 +74,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/me/orders?offset=offset',
+                '{projectKey}/me/orders?offset=offset',
             ],
             'ByProjectKeyMeOrdersGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -86,7 +86,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/me/orders?withTotal=withTotal',
+                '{projectKey}/me/orders?withTotal=withTotal',
             ],
             'ByProjectKeyMeOrdersGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -97,7 +97,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/me/orders',
+                '{projectKey}/me/orders',
             ],
             'ByProjectKeyMeOrdersPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -109,7 +109,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/me/orders?expand=expand',
+                '{projectKey}/me/orders?expand=expand',
             ],
             'ByProjectKeyMeOrdersPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -120,7 +120,7 @@ class ResourceByProjectKeyMeOrdersTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/me/orders',
+                '{projectKey}/me/orders',
             ]
         ];
     }

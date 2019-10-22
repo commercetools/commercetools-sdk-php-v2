@@ -39,7 +39,7 @@ class ByProjectKeyImportSinksByImportSinkKeyPut extends ApiRequest
      */
     public function __construct($projectKey, $importSinkKey, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{importSinkKey}'], [$projectKey, $importSinkKey], '/{projectKey}/import-sinks/{importSinkKey}');
+        $uri = str_replace(['{projectKey}', '{importSinkKey}'], [$projectKey, $importSinkKey], '{projectKey}/import-sinks/{importSinkKey}');
         parent::__construct($client, 'PUT', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

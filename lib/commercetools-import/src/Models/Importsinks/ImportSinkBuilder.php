@@ -27,11 +27,6 @@ final class ImportSinkBuilder implements Builder
     private $lastModifiedAt;
 
     /**
-     * @var Predicate|?PredicateBuilder
-     */
-    private $skipPredicate;
-
-    /**
      * @var ?int
      */
     private $version;
@@ -51,7 +46,7 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
-     * <p>The creation time of this import sink.</p>.
+     * <p>When the import sink was created.</p>.
      *
      * @return null|DateTimeImmutable
      */
@@ -61,25 +56,13 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
-     * <p>The last modification time of this import sink.</p>.
+     * <p>When the import sink was modified.</p>.
      *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt()
     {
         return $this->lastModifiedAt;
-    }
-
-    /**
-     * <p>A predicate allows to check the current state of a CTP resource. And can be used to detect if an import should
-     * be performed or should be skipped. And this abstract type allows us to support different syntaxes for our predicates
-     * without any breaking changes to our api.</p>.
-     *
-     * @return null|Predicate
-     */
-    public function getSkipPredicate()
-    {
-        return $this->skipPredicate instanceof PredicateBuilder ? $this->skipPredicate->build() : $this->skipPredicate;
     }
 
     /**
@@ -93,7 +76,7 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
-     * <p>The key of import sink.</p>.
+     * <p>The unique key of the import sink.</p>.
      *
      * @return null|string
      */
@@ -103,7 +86,8 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
-     * <p>The type of the import resource sent to this import sink.</p>.
+     * <p>The type of import resource sent to this import sink.
+     * You can only send one resource type per import sink.</p>.
      *
      * @return null|string
      */
@@ -128,16 +112,6 @@ final class ImportSinkBuilder implements Builder
     public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
         $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSkipPredicate(?Predicate $skipPredicate)
-    {
-        $this->skipPredicate = $skipPredicate;
 
         return $this;
     }
@@ -172,22 +146,11 @@ final class ImportSinkBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withSkipPredicateBuilder(?PredicateBuilder $skipPredicate)
-    {
-        $this->skipPredicate = $skipPredicate;
-
-        return $this;
-    }
-
     public function build(): ImportSink
     {
         return new ImportSinkModel(
             $this->createdAt,
             $this->lastModifiedAt,
-            ($this->skipPredicate instanceof PredicateBuilder ? $this->skipPredicate->build() : $this->skipPredicate),
             $this->version,
             $this->key,
             $this->resourceType

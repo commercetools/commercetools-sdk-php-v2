@@ -15,11 +15,10 @@ interface ImportItemPagedResponse extends JsonObject
     const FIELD_LIMIT = 'limit';
     const FIELD_OFFSET = 'offset';
     const FIELD_COUNT = 'count';
-    const FIELD_TOTAL = 'total';
     const FIELD_RESULTS = 'results';
 
     /**
-     * <p>The maximun amount of impor items.</p>.
+     * <p>The maximum number of import items returned for a page.</p>.
      *
      * @return null|int
      */
@@ -33,21 +32,14 @@ interface ImportItemPagedResponse extends JsonObject
     public function getOffset();
 
     /**
-     * <p>The actual number of results returned in results.</p>.
+     * <p>The actual number of results returned by this response.</p>.
      *
      * @return null|int
      */
     public function getCount();
 
     /**
-     * <p>The total number of results matching the query.</p>.
-     *
-     * @return null|int
-     */
-    public function getTotal();
-
-    /**
-     * <p>An Array of results.</p>.
+     * <p>The results for this paged response.</p>.
      *
      * @return null|ImportItemCollection
      */
@@ -58,8 +50,6 @@ interface ImportItemPagedResponse extends JsonObject
     public function setOffset(?int $offset): void;
 
     public function setCount(?int $count): void;
-
-    public function setTotal(?int $total): void;
 
     public function setResults(?ImportItemCollection $results): void;
 }

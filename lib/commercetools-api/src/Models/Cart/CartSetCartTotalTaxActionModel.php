@@ -23,7 +23,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     protected $action;
 
     /**
-     * @var ?TaxPortionCollection
+     * @var ?TaxPortionDraftCollection
      */
     protected $externalTaxPortions;
 
@@ -34,7 +34,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
 
     public function __construct(
         string $action = null,
-        TaxPortionCollection $externalTaxPortions = null,
+        TaxPortionDraftCollection $externalTaxPortions = null,
         Money $externalTotalGross = null
     ) {
         $this->action = $action;
@@ -60,7 +60,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
     }
 
     /**
-     * @return null|TaxPortionCollection
+     * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions()
     {
@@ -70,7 +70,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
             if (is_null($data)) {
                 return null;
             }
-            $this->externalTaxPortions = TaxPortionCollection::fromArray($data);
+            $this->externalTaxPortions = TaxPortionDraftCollection::fromArray($data);
         }
 
         return $this->externalTaxPortions;
@@ -99,7 +99,7 @@ final class CartSetCartTotalTaxActionModel extends JsonObjectModel implements Ca
         $this->action = $action;
     }
 
-    public function setExternalTaxPortions(?TaxPortionCollection $externalTaxPortions): void
+    public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void
     {
         $this->externalTaxPortions = $externalTaxPortions;
     }

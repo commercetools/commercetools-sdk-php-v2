@@ -25,7 +25,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/custom-objects?expand=expand',
+                '{projectKey}/custom-objects?expand=expand',
             ],
             'ByProjectKeyCustomObjectsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/custom-objects?where=where',
+                '{projectKey}/custom-objects?where=where',
             ],
             'ByProjectKeyCustomObjectsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/custom-objects?sort=sort',
+                '{projectKey}/custom-objects?sort=sort',
             ],
             'ByProjectKeyCustomObjectsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/custom-objects?limit=limit',
+                '{projectKey}/custom-objects?limit=limit',
             ],
             'ByProjectKeyCustomObjectsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/custom-objects?offset=offset',
+                '{projectKey}/custom-objects?offset=offset',
             ],
             'ByProjectKeyCustomObjectsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/custom-objects?withTotal=withTotal',
+                '{projectKey}/custom-objects?withTotal=withTotal',
             ],
             'ByProjectKeyCustomObjectsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/custom-objects',
+                '{projectKey}/custom-objects',
             ],
             'ByProjectKeyCustomObjectsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/custom-objects?expand=expand',
+                '{projectKey}/custom-objects?expand=expand',
             ],
             'ByProjectKeyCustomObjectsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyCustomObjectsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/custom-objects',
+                '{projectKey}/custom-objects',
             ]
         ];
     }

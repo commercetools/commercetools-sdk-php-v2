@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
-use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Base\JsonObject;
 
 interface DiscountedLineItemPortion extends JsonObject
@@ -23,11 +23,11 @@ interface DiscountedLineItemPortion extends JsonObject
     public function getDiscount();
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getDiscountedAmount();
 
     public function setDiscount(?CartDiscountReference $discount): void;
 
-    public function setDiscountedAmount(?Money $discountedAmount): void;
+    public function setDiscountedAmount(?TypedMoney $discountedAmount): void;
 }

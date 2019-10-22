@@ -25,7 +25,7 @@ class ResourceByProjectKeyMePasswordTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/me/password',
+                '{projectKey}/me/password',
             ]
         ];
     }

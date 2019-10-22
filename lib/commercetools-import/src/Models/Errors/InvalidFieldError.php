@@ -17,16 +17,22 @@ interface InvalidFieldError extends ErrorObject
     const FIELD_ALLOWED_VALUES = 'allowedValues';
 
     /**
+     * <p>The name of the field.</p>.
+     *
      * @return null|string
      */
     public function getField();
 
     /**
+     * <p>The invalid value.</p>.
+     *
      * @return null|JsonObject
      */
     public function getInvalidValue();
 
     /**
+     * <p>A fixed set of allowed values for the field, if any.</p>.
+     *
      * @return null|array
      */
     public function getAllowedValues();

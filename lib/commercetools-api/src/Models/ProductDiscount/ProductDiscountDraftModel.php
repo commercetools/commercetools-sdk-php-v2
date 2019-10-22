@@ -53,7 +53,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     protected $isActive;
 
     /**
-     * @var ?ProductDiscountValue
+     * @var ?ProductDiscountValueDraft
      */
     protected $value;
 
@@ -70,7 +70,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
         LocalizedString $description = null,
         DateTimeImmutable $validFrom = null,
         bool $isActive = null,
-        ProductDiscountValue $value = null,
+        ProductDiscountValueDraft $value = null,
         string $key = null
     ) {
         $this->predicate = $predicate;
@@ -147,7 +147,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -186,7 +186,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -214,7 +214,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     }
 
     /**
-     * @return null|ProductDiscountValue
+     * @return null|ProductDiscountValueDraft
      */
     public function getValue()
     {
@@ -224,7 +224,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
             if (is_null($data)) {
                 return null;
             }
-            $className = ProductDiscountValueModel::resolveDiscriminatorClass($data);
+            $className = ProductDiscountValueDraftModel::resolveDiscriminatorClass($data);
             $this->value = $className::of($data);
         }
 
@@ -283,7 +283,7 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
         $this->isActive = $isActive;
     }
 
-    public function setValue(?ProductDiscountValue $value): void
+    public function setValue(?ProductDiscountValueDraft $value): void
     {
         $this->value = $value;
     }

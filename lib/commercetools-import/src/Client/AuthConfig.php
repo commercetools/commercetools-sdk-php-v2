@@ -62,7 +62,7 @@ abstract class AuthConfig implements BaseAuthConfig
 
     public function getOptions(): array
     {
-        return array_merge(
+        return array_replace(
             [self::OPT_BASE_URI => $this->authUri],
             $this->clientOptions
         );

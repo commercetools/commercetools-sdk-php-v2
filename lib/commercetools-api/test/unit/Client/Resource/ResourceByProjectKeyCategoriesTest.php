@@ -25,7 +25,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/categories?expand=expand',
+                '{projectKey}/categories?expand=expand',
             ],
             'ByProjectKeyCategoriesGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/categories?where=where',
+                '{projectKey}/categories?where=where',
             ],
             'ByProjectKeyCategoriesGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/categories?sort=sort',
+                '{projectKey}/categories?sort=sort',
             ],
             'ByProjectKeyCategoriesGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/categories?limit=limit',
+                '{projectKey}/categories?limit=limit',
             ],
             'ByProjectKeyCategoriesGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/categories?offset=offset',
+                '{projectKey}/categories?offset=offset',
             ],
             'ByProjectKeyCategoriesGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/categories?withTotal=withTotal',
+                '{projectKey}/categories?withTotal=withTotal',
             ],
             'ByProjectKeyCategoriesGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/categories',
+                '{projectKey}/categories',
             ],
             'ByProjectKeyCategoriesPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/categories?expand=expand',
+                '{projectKey}/categories?expand=expand',
             ],
             'ByProjectKeyCategoriesPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyCategoriesTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/categories',
+                '{projectKey}/categories',
             ]
         ];
     }

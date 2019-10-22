@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Me;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use DateTimeImmutable;
 
@@ -38,6 +39,7 @@ interface MyCustomer extends LoggedResource
     const FIELD_LOCALE = 'locale';
     const FIELD_SALUTATION = 'salutation';
     const FIELD_KEY = 'key';
+    const FIELD_STORES = 'stores';
 
     /**
      * @return null|string
@@ -149,6 +151,11 @@ interface MyCustomer extends LoggedResource
      */
     public function getKey();
 
+    /**
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores();
+
     public function setCustomerNumber(?string $customerNumber): void;
 
     public function setEmail(?string $email): void;
@@ -192,4 +199,6 @@ interface MyCustomer extends LoggedResource
     public function setSalutation(?string $salutation): void;
 
     public function setKey(?string $key): void;
+
+    public function setStores(?StoreKeyReferenceCollection $stores): void;
 }

@@ -26,7 +26,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/channels/{ID}?expand=expand',
+                '{projectKey}/channels/{ID}?expand=expand',
             ],
             'ByProjectKeyChannelsByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/channels/{ID}',
+                '{projectKey}/channels/{ID}',
             ],
             'ByProjectKeyChannelsByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/channels/{ID}?expand=expand',
+                '{projectKey}/channels/{ID}?expand=expand',
             ],
             'ByProjectKeyChannelsByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/channels/{ID}',
+                '{projectKey}/channels/{ID}',
             ],
             'ByProjectKeyChannelsByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/channels/{ID}?version=version',
+                '{projectKey}/channels/{ID}?version=version',
             ],
             'ByProjectKeyChannelsByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/channels/{ID}?expand=expand',
+                '{projectKey}/channels/{ID}?expand=expand',
             ],
             'ByProjectKeyChannelsByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyChannelsByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/channels/{ID}',
+                '{projectKey}/channels/{ID}',
             ]
         ];
     }

@@ -39,7 +39,7 @@ class ByProjectKeyOrdersOrderNumberByOrderNumberDelete extends ApiRequest
      */
     public function __construct($projectKey, $orderNumber, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{orderNumber}'], [$projectKey, $orderNumber], '/{projectKey}/orders/order-number={orderNumber}');
+        $uri = str_replace(['{projectKey}', '{orderNumber}'], [$projectKey, $orderNumber], '{projectKey}/orders/order-number={orderNumber}');
         parent::__construct($client, 'DELETE', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

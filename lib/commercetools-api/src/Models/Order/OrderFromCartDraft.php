@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\State\StateResourceIdentifier;
 use Commercetools\Base\JsonObject;
 
 interface OrderFromCartDraft extends JsonObject
@@ -16,6 +17,9 @@ interface OrderFromCartDraft extends JsonObject
     const FIELD_VERSION = 'version';
     const FIELD_ORDER_NUMBER = 'orderNumber';
     const FIELD_PAYMENT_STATE = 'paymentState';
+    const FIELD_SHIPMENT_STATE = 'shipmentState';
+    const FIELD_ORDER_STATE = 'orderState';
+    const FIELD_STATE = 'state';
 
     /**
      * @return null|string
@@ -37,6 +41,21 @@ interface OrderFromCartDraft extends JsonObject
      */
     public function getPaymentState();
 
+    /**
+     * @return null|string
+     */
+    public function getShipmentState();
+
+    /**
+     * @return null|string
+     */
+    public function getOrderState();
+
+    /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getState();
+
     public function setId(?string $id): void;
 
     public function setVersion(?int $version): void;
@@ -44,4 +63,10 @@ interface OrderFromCartDraft extends JsonObject
     public function setOrderNumber(?string $orderNumber): void;
 
     public function setPaymentState(?string $paymentState): void;
+
+    public function setShipmentState(?string $shipmentState): void;
+
+    public function setOrderState(?string $orderState): void;
+
+    public function setState(?StateResourceIdentifier $state): void;
 }

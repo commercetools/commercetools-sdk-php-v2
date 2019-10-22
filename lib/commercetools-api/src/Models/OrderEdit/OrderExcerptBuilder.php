@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\Cart\TaxedPriceBuilder;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Base\Builder;
 
 /**
@@ -20,7 +20,7 @@ use Commercetools\Base\Builder;
 final class OrderExcerptBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var TypedMoney|?TypedMoneyBuilder
      */
     private $totalPrice;
 
@@ -39,11 +39,11 @@ final class OrderExcerptBuilder implements Builder
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalPrice()
     {
-        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+        return $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
 
     /**
@@ -65,7 +65,7 @@ final class OrderExcerptBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalPrice(?Money $totalPrice)
+    public function withTotalPrice(?TypedMoney $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -95,7 +95,7 @@ final class OrderExcerptBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -115,7 +115,7 @@ final class OrderExcerptBuilder implements Builder
     public function build(): OrderExcerpt
     {
         return new OrderExcerptModel(
-            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
+            ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
             ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
             $this->version
         );

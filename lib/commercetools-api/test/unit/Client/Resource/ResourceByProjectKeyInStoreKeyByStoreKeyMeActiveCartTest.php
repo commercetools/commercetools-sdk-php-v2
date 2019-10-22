@@ -26,7 +26,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyMeActiveCartTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/me/active-cart',
+                '{projectKey}/in-store/key={storeKey}/me/active-cart',
             ]
         ];
     }

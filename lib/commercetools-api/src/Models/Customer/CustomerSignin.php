@@ -17,6 +17,7 @@ interface CustomerSignin extends JsonObject
     const FIELD_ANONYMOUS_CART_ID = 'anonymousCartId';
     const FIELD_ANONYMOUS_CART_SIGN_IN_MODE = 'anonymousCartSignInMode';
     const FIELD_ANONYMOUS_ID = 'anonymousId';
+    const FIELD_UPDATE_PRODUCT_DATA = 'updateProductData';
 
     /**
      * @return null|string
@@ -43,6 +44,11 @@ interface CustomerSignin extends JsonObject
      */
     public function getAnonymousId();
 
+    /**
+     * @return null|bool
+     */
+    public function getUpdateProductData();
+
     public function setEmail(?string $email): void;
 
     public function setPassword(?string $password): void;
@@ -52,4 +58,6 @@ interface CustomerSignin extends JsonObject
     public function setAnonymousCartSignInMode(?string $anonymousCartSignInMode): void;
 
     public function setAnonymousId(?string $anonymousId): void;
+
+    public function setUpdateProductData(?bool $updateProductData): void;
 }

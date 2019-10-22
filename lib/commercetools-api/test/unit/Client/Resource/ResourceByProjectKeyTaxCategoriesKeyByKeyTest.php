@@ -26,7 +26,7 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/tax-categories/key={key}?expand=expand',
+                '{projectKey}/tax-categories/key={key}?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/tax-categories/key={key}',
+                '{projectKey}/tax-categories/key={key}',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/tax-categories/key={key}?expand=expand',
+                '{projectKey}/tax-categories/key={key}?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/tax-categories/key={key}',
+                '{projectKey}/tax-categories/key={key}',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/tax-categories/key={key}?version=version',
+                '{projectKey}/tax-categories/key={key}?version=version',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/tax-categories/key={key}?expand=expand',
+                '{projectKey}/tax-categories/key={key}?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesKeyByKeyDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyTaxCategoriesKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/tax-categories/key={key}',
+                '{projectKey}/tax-categories/key={key}',
             ]
         ];
     }

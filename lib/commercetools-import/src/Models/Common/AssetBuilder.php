@@ -33,7 +33,7 @@ final class AssetBuilder implements Builder
     /**
      * @var ?string
      */
-    private $id;
+    private $key;
 
     /**
      * @var ?array
@@ -69,11 +69,14 @@ final class AssetBuilder implements Builder
     }
 
     /**
+     * <p>User-defined identifier for the asset.
+     * Asset keys are unique inside their container (a product variant or a category).</p>.
+     *
      * @return null|string
      */
-    public function getId()
+    public function getKey()
     {
-        return $this->id;
+        return $this->key;
     }
 
     /**
@@ -117,9 +120,9 @@ final class AssetBuilder implements Builder
     /**
      * @return $this
      */
-    public function withId(?string $id)
+    public function withKey(?string $key)
     {
-        $this->id = $id;
+        $this->key = $key;
 
         return $this;
     }
@@ -160,7 +163,7 @@ final class AssetBuilder implements Builder
             $this->sources,
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->id,
+            $this->key,
             $this->tags
         );
     }

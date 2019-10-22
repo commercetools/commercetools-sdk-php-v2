@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Base\JsonObject;
 
 interface TaxPortion extends JsonObject
@@ -28,7 +28,7 @@ interface TaxPortion extends JsonObject
     public function getRate();
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getAmount();
 
@@ -36,5 +36,5 @@ interface TaxPortion extends JsonObject
 
     public function setRate(?int $rate): void;
 
-    public function setAmount(?Money $amount): void;
+    public function setAmount(?TypedMoney $amount): void;
 }

@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Producttypes;
 
 use Commercetools\Base\Builder;
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceBuilder;
+use Commercetools\Import\Models\Common\ProductTypeKeyReference;
+use Commercetools\Import\Models\Common\ProductTypeKeyReferenceBuilder;
 
 /**
  * @implements Builder<AttributeNestedType>
@@ -23,7 +23,7 @@ final class AttributeNestedTypeBuilder implements Builder
     private $name;
 
     /**
-     * @var ImportReference|?ImportReferenceBuilder
+     * @var ProductTypeKeyReference|?ProductTypeKeyReferenceBuilder
      */
     private $typeReference;
 
@@ -40,13 +40,13 @@ final class AttributeNestedTypeBuilder implements Builder
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a product type by its key.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ProductTypeKeyReference
      */
     public function getTypeReference()
     {
-        return $this->typeReference instanceof ImportReferenceBuilder ? $this->typeReference->build() : $this->typeReference;
+        return $this->typeReference instanceof ProductTypeKeyReferenceBuilder ? $this->typeReference->build() : $this->typeReference;
     }
 
     /**
@@ -62,7 +62,7 @@ final class AttributeNestedTypeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTypeReference(?ImportReference $typeReference)
+    public function withTypeReference(?ProductTypeKeyReference $typeReference)
     {
         $this->typeReference = $typeReference;
 
@@ -72,7 +72,7 @@ final class AttributeNestedTypeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTypeReferenceBuilder(?ImportReferenceBuilder $typeReference)
+    public function withTypeReferenceBuilder(?ProductTypeKeyReferenceBuilder $typeReference)
     {
         $this->typeReference = $typeReference;
 
@@ -83,7 +83,7 @@ final class AttributeNestedTypeBuilder implements Builder
     {
         return new AttributeNestedTypeModel(
             $this->name,
-            ($this->typeReference instanceof ImportReferenceBuilder ? $this->typeReference->build() : $this->typeReference)
+            ($this->typeReference instanceof ProductTypeKeyReferenceBuilder ? $this->typeReference->build() : $this->typeReference)
         );
     }
 

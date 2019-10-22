@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Customer;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\JsonObjectModel;
@@ -39,6 +40,11 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
      * @var ?int
      */
     protected $defaultShippingAddress;
+
+    /**
+     * @var ?StoreKeyReferenceCollection
+     */
+    protected $stores;
 
     /**
      * @var ?CustomerGroupResourceIdentifier
@@ -145,6 +151,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         string $lastName = null,
         AddressCollection $addresses = null,
         int $defaultShippingAddress = null,
+        StoreKeyReferenceCollection $stores = null,
         CustomerGroupResourceIdentifier $customerGroup = null,
         CustomFieldsDraft $custom = null,
         string $companyName = null,
@@ -170,6 +177,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         $this->lastName = $lastName;
         $this->addresses = $addresses;
         $this->defaultShippingAddress = $defaultShippingAddress;
+        $this->stores = $stores;
         $this->customerGroup = $customerGroup;
         $this->custom = $custom;
         $this->companyName = $companyName;
@@ -258,6 +266,23 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         }
 
         return $this->defaultShippingAddress;
+    }
+
+    /**
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CustomerDraft::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->stores;
     }
 
     /**
@@ -375,7 +400,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -624,6 +649,11 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     public function setDefaultShippingAddress(?int $defaultShippingAddress): void
     {
         $this->defaultShippingAddress = $defaultShippingAddress;
+    }
+
+    public function setStores(?StoreKeyReferenceCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void

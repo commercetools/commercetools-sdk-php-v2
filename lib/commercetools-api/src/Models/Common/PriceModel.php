@@ -67,7 +67,7 @@ final class PriceModel extends JsonObjectModel implements Price
     protected $id;
 
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $value;
 
@@ -81,7 +81,7 @@ final class PriceModel extends JsonObjectModel implements Price
         DateTimeImmutable $validUntil = null,
         DateTimeImmutable $validFrom = null,
         string $id = null,
-        Money $value = null
+        TypedMoney $value = null
     ) {
         $this->discounted = $discounted;
         $this->country = $country;
@@ -214,7 +214,7 @@ final class PriceModel extends JsonObjectModel implements Price
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -235,7 +235,7 @@ final class PriceModel extends JsonObjectModel implements Price
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -263,7 +263,7 @@ final class PriceModel extends JsonObjectModel implements Price
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getValue()
     {
@@ -273,8 +273,8 @@ final class PriceModel extends JsonObjectModel implements Price
             if (is_null($data)) {
                 return null;
             }
-
-            $this->value = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->value = $className::of($data);
         }
 
         return $this->value;
@@ -325,7 +325,7 @@ final class PriceModel extends JsonObjectModel implements Price
         $this->id = $id;
     }
 
-    public function setValue(?Money $value): void
+    public function setValue(?TypedMoney $value): void
     {
         $this->value = $value;
     }

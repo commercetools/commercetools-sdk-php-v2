@@ -26,7 +26,7 @@ class ResourceByProjectKeyMessagesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/messages/{ID}?expand=expand',
+                '{projectKey}/messages/{ID}?expand=expand',
             ],
             'ByProjectKeyMessagesByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyMessagesByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/messages/{ID}',
+                '{projectKey}/messages/{ID}',
             ]
         ];
     }

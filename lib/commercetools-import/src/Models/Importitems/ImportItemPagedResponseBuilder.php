@@ -18,11 +18,6 @@ final class ImportItemPagedResponseBuilder implements Builder
     /**
      * @var ?int
      */
-    private $total;
-
-    /**
-     * @var ?int
-     */
     private $offset;
 
     /**
@@ -45,16 +40,6 @@ final class ImportItemPagedResponseBuilder implements Builder
     }
 
     /**
-     * <p>The total number of results matching the query.</p>.
-     *
-     * @return null|int
-     */
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>.
      *
      * @return null|int
@@ -65,7 +50,7 @@ final class ImportItemPagedResponseBuilder implements Builder
     }
 
     /**
-     * <p>The actual number of results returned in results.</p>.
+     * <p>The actual number of results returned by this response.</p>.
      *
      * @return null|int
      */
@@ -75,7 +60,7 @@ final class ImportItemPagedResponseBuilder implements Builder
     }
 
     /**
-     * <p>The maximun amount of impor items.</p>.
+     * <p>The maximum number of import items returned for a page.</p>.
      *
      * @return null|int
      */
@@ -85,23 +70,13 @@ final class ImportItemPagedResponseBuilder implements Builder
     }
 
     /**
-     * <p>An Array of results.</p>.
+     * <p>The results for this paged response.</p>.
      *
      * @return null|ImportItemCollection
      */
     public function getResults()
     {
         return $this->results;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTotal(?int $total)
-    {
-        $this->total = $total;
-
-        return $this;
     }
 
     /**
@@ -147,7 +122,6 @@ final class ImportItemPagedResponseBuilder implements Builder
     public function build(): ImportItemPagedResponse
     {
         return new ImportItemPagedResponseModel(
-            $this->total,
             $this->offset,
             $this->count,
             $this->limit,

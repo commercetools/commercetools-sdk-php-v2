@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -33,6 +34,11 @@ final class MyCustomerDraftBuilder implements Builder
      * @var ?int
      */
     private $defaultShippingAddress;
+
+    /**
+     * @var ?StoreKeyReferenceCollection
+     */
+    private $stores;
 
     /**
      * @var CustomFields|?CustomFieldsBuilder
@@ -115,6 +121,14 @@ final class MyCustomerDraftBuilder implements Builder
     public function getDefaultShippingAddress()
     {
         return $this->defaultShippingAddress;
+    }
+
+    /**
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        return $this->stores;
     }
 
     /**
@@ -231,6 +245,16 @@ final class MyCustomerDraftBuilder implements Builder
     public function withDefaultShippingAddress(?int $defaultShippingAddress)
     {
         $this->defaultShippingAddress = $defaultShippingAddress;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStores(?StoreKeyReferenceCollection $stores)
+    {
+        $this->stores = $stores;
 
         return $this;
     }
@@ -361,6 +385,7 @@ final class MyCustomerDraftBuilder implements Builder
             $this->lastName,
             $this->addresses,
             $this->defaultShippingAddress,
+            $this->stores,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             $this->companyName,
             $this->vatId,

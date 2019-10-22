@@ -16,11 +16,6 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
     /**
      * @var ?int
      */
-    protected $total;
-
-    /**
-     * @var ?int
-     */
     protected $offset;
 
     /**
@@ -39,36 +34,15 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
     protected $results;
 
     public function __construct(
-        int $total = null,
         int $offset = null,
         int $count = null,
         int $limit = null,
         ImportItemCollection $results = null
     ) {
-        $this->total = $total;
         $this->offset = $offset;
         $this->count = $count;
         $this->limit = $limit;
         $this->results = $results;
-    }
-
-    /**
-     * <p>The total number of results matching the query.</p>.
-     *
-     * @return null|int
-     */
-    public function getTotal()
-    {
-        if (is_null($this->total)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImportItemPagedResponse::FIELD_TOTAL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->total = (int) $data;
-        }
-
-        return $this->total;
     }
 
     /**
@@ -91,7 +65,7 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
     }
 
     /**
-     * <p>The actual number of results returned in results.</p>.
+     * <p>The actual number of results returned by this response.</p>.
      *
      * @return null|int
      */
@@ -110,7 +84,7 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
     }
 
     /**
-     * <p>The maximun amount of impor items.</p>.
+     * <p>The maximum number of import items returned for a page.</p>.
      *
      * @return null|int
      */
@@ -129,7 +103,7 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
     }
 
     /**
-     * <p>An Array of results.</p>.
+     * <p>The results for this paged response.</p>.
      *
      * @return null|ImportItemCollection
      */
@@ -145,11 +119,6 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
         }
 
         return $this->results;
-    }
-
-    public function setTotal(?int $total): void
-    {
-        $this->total = $total;
     }
 
     public function setOffset(?int $offset): void

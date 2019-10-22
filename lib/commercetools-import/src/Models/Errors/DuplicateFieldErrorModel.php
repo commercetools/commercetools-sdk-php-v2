@@ -66,6 +66,8 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()
@@ -83,6 +85,8 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
+     * <p>The offending duplicate value.</p>.
+     *
      * @return null|JsonObject
      */
     public function getDuplicateValue()
@@ -100,6 +104,8 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
+     * <p>The name of the field.</p>.
+     *
      * @return null|string
      */
     public function getField()

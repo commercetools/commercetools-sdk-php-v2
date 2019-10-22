@@ -25,7 +25,7 @@ class ResourceByProjectKeyProductDiscountsMatchingTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/product-discounts/matching',
+                '{projectKey}/product-discounts/matching',
             ]
         ];
     }

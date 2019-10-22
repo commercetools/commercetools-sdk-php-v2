@@ -10,7 +10,6 @@ namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
@@ -32,7 +31,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     protected $label;
 
     /**
-     * @var ?JsonObject
+     * @var ?FieldType
      */
     protected $type;
 
@@ -45,7 +44,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
         string $name = null,
         string $inputHint = null,
         LocalizedString $label = null,
-        JsonObject $type = null,
+        FieldType $type = null,
         bool $required = null
     ) {
         $this->name = $name;
@@ -108,7 +107,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|FieldType
      */
     public function getType()
     {
@@ -118,7 +117,8 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
             if (is_null($data)) {
                 return null;
             }
-            $this->type = JsonObjectModel::of($data);
+            $className = FieldTypeModel::resolveDiscriminatorClass($data);
+            $this->type = $className::of($data);
         }
 
         return $this->type;
@@ -156,7 +156,7 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
         $this->label = $label;
     }
 
-    public function setType(?JsonObject $type): void
+    public function setType(?FieldType $type): void
     {
         $this->type = $type;
     }

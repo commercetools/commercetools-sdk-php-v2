@@ -50,6 +50,8 @@ final class InsufficientScopeErrorModel extends JsonObjectModel implements Insuf
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()

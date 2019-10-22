@@ -26,7 +26,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/orders?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/orders?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/orders?where=where',
+                '{projectKey}/in-store/key={storeKey}/orders?where=where',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -50,7 +50,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/orders?sort=sort',
+                '{projectKey}/in-store/key={storeKey}/orders?sort=sort',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -62,7 +62,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/orders?limit=limit',
+                '{projectKey}/in-store/key={storeKey}/orders?limit=limit',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -74,7 +74,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/orders?offset=offset',
+                '{projectKey}/in-store/key={storeKey}/orders?offset=offset',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -86,7 +86,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/orders?withTotal=withTotal',
+                '{projectKey}/in-store/key={storeKey}/orders?withTotal=withTotal',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -97,7 +97,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/orders',
+                '{projectKey}/in-store/key={storeKey}/orders',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -109,7 +109,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/in-store/key={storeKey}/orders?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/orders?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyOrdersPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -120,7 +120,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyOrdersTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/in-store/key={storeKey}/orders',
+                '{projectKey}/in-store/key={storeKey}/orders',
             ]
         ];
     }

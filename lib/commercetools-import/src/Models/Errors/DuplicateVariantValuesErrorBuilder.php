@@ -43,6 +43,8 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()
@@ -51,6 +53,8 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     }
 
     /**
+     * <p>The offending variant values.</p>.
+     *
      * @return null|VariantValues
      */
     public function getVariantValues()

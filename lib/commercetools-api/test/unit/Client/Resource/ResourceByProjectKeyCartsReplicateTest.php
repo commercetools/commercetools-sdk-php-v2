@@ -25,7 +25,7 @@ class ResourceByProjectKeyCartsReplicateTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/carts/replicate',
+                '{projectKey}/carts/replicate',
             ]
         ];
     }

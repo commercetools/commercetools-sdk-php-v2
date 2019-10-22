@@ -25,7 +25,7 @@ class ResourceByProjectKeyCustomersEmailTokenTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/customers/email-token',
+                '{projectKey}/customers/email-token',
             ]
         ];
     }

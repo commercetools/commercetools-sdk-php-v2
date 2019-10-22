@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Importitems;
 
 use Commercetools\Base\JsonObject;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 
@@ -19,9 +20,11 @@ interface ImportItem extends JsonObject
     const FIELD_RESOURCE_KEY = 'resourceKey';
     const FIELD_STATE = 'state';
     const FIELD_RETRY_COUNT = 'retryCount';
+    const FIELD_UNRESOLVED_REFERENCES = 'unresolvedReferences';
     const FIELD_ERRORS = 'errors';
     const FIELD_CREATED_AT = 'createdAt';
     const FIELD_LAST_MODIFIED_AT = 'lastModifiedAt';
+    const FIELD_EXPIRES_AT = 'expiresAt';
 
     /**
      * <p>The import item version.</p>.
@@ -38,46 +41,62 @@ interface ImportItem extends JsonObject
     public function getImportSinkKey();
 
     /**
-     * <p>The key of the imported resource.</p>.
+     * <p>The key of the import resource.</p>.
      *
      * @return null|string
      */
     public function getResourceKey();
 
     /**
-     * <p>The status of a single import request.</p>.
+     * <p>The status of the import resource.</p>.
      *
      * @return null|string
      */
     public function getState();
 
     /**
-     * <p>The number of retries for this item.</p>.
+     * <p>The number of request retries for processing the import resource.</p>.
      *
      * @return null|int
      */
     public function getRetryCount();
 
     /**
-     * <p>Used to report errors when an import item is in the state VALIDATION_FAILED or REJECTED.</p>.
+     * <p>If an import resource has unresolved references, the state is set to <code>Unresolved</code>
+     * and this property contains the unresolved references.</p>.
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getUnresolvedReferences();
+
+    /**
+     * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
+     * and this property contains the errors.</p>.
      *
      * @return null|ErrorObjectCollection
      */
     public function getErrors();
 
     /**
-     * <p>The creation time of this import item.</p>.
+     * <p>When the import item was created.</p>.
      *
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
 
     /**
-     * <p>The last modification time of this import item.</p>.
+     * <p>When the import item was modified.</p>.
      *
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
+
+    /**
+     * <p>When the import item expires.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt();
 
     public function setVersion(?int $version): void;
 
@@ -89,9 +108,13 @@ interface ImportItem extends JsonObject
 
     public function setRetryCount(?int $retryCount): void;
 
+    public function setUnresolvedReferences(?KeyReferenceCollection $unresolvedReferences): void;
+
     public function setErrors(?ErrorObjectCollection $errors): void;
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    public function setExpiresAt(?DateTimeImmutable $expiresAt): void;
 }

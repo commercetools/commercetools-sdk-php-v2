@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\OrderEdit;
 
 use Commercetools\Api\Models\Cart\TaxedPrice;
-use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Base\JsonObject;
 
 interface OrderExcerpt extends JsonObject
@@ -19,7 +19,7 @@ interface OrderExcerpt extends JsonObject
     const FIELD_VERSION = 'version';
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalPrice();
 
@@ -33,7 +33,7 @@ interface OrderExcerpt extends JsonObject
      */
     public function getVersion();
 
-    public function setTotalPrice(?Money $totalPrice): void;
+    public function setTotalPrice(?TypedMoney $totalPrice): void;
 
     public function setTaxedPrice(?TaxedPrice $taxedPrice): void;
 

@@ -33,7 +33,7 @@ final class PriceDraftBuilder implements Builder
     private $country;
 
     /**
-     * @var ?PriceTierCollection
+     * @var ?PriceTierDraftCollection
      */
     private $tiers;
 
@@ -90,7 +90,7 @@ final class PriceDraftBuilder implements Builder
     }
 
     /**
-     * @return null|PriceTierCollection
+     * @return null|PriceTierDraftCollection
      */
     public function getTiers()
     {
@@ -168,7 +168,7 @@ final class PriceDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTiers(?PriceTierCollection $tiers)
+    public function withTiers(?PriceTierDraftCollection $tiers)
     {
         $this->tiers = $tiers;
 

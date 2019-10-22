@@ -26,7 +26,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/payments/{ID}?expand=expand',
+                '{projectKey}/payments/{ID}?expand=expand',
             ],
             'ByProjectKeyPaymentsByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/payments/{ID}',
+                '{projectKey}/payments/{ID}',
             ],
             'ByProjectKeyPaymentsByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/payments/{ID}?expand=expand',
+                '{projectKey}/payments/{ID}?expand=expand',
             ],
             'ByProjectKeyPaymentsByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/payments/{ID}',
+                '{projectKey}/payments/{ID}',
             ],
             'ByProjectKeyPaymentsByIDDelete_withDataErasure' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '/{projectKey}/payments/{ID}?dataErasure=dataErasure',
+                '{projectKey}/payments/{ID}?dataErasure=dataErasure',
             ],
             'ByProjectKeyPaymentsByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/payments/{ID}?version=version',
+                '{projectKey}/payments/{ID}?version=version',
             ],
             'ByProjectKeyPaymentsByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -96,7 +96,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/payments/{ID}?expand=expand',
+                '{projectKey}/payments/{ID}?expand=expand',
             ],
             'ByProjectKeyPaymentsByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -107,7 +107,7 @@ class ResourceByProjectKeyPaymentsByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/payments/{ID}',
+                '{projectKey}/payments/{ID}',
             ]
         ];
     }

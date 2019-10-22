@@ -9,14 +9,21 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\JsonObjectModel;
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceModel;
+use Commercetools\Import\Models\Common\ProductKeyReference;
+use Commercetools\Import\Models\Common\ProductKeyReferenceModel;
+use Commercetools\Import\Models\Common\ProductVariantKeyReference;
+use Commercetools\Import\Models\Common\ProductVariantKeyReferenceModel;
 use stdClass;
 
 final class ProductVariantPatchModel extends JsonObjectModel implements ProductVariantPatch
 {
     /**
-     * @var ?ImportReference
+     * @var ?ProductKeyReference
+     */
+    protected $product;
+
+    /**
+     * @var ?ProductVariantKeyReference
      */
     protected $productVariant;
 
@@ -26,17 +33,45 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
     protected $attributes;
 
     public function __construct(
-        ImportReference $productVariant = null,
+        ProductKeyReference $product = null,
+        ProductVariantKeyReference $productVariant = null,
         Attributes $attributes = null
     ) {
+        $this->product = $product;
         $this->productVariant = $productVariant;
         $this->attributes = $attributes;
     }
 
     /**
-     * <p>The product variant to which this patch is applied.</p>.
+     * <p>The product in which the patched product variant resides. Maps to <code>ProductVariant.product</code>.</p>
+     * <p>The product referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ProductKeyReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductVariantPatch::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductKeyReferenceModel::of($data);
+        }
+
+        return $this->product;
+    }
+
+    /**
+     * <p>The product variant to which this patch is applied.</p>
+     * <p>The product variant referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|ProductVariantKeyReference
      */
     public function getProductVariant()
     {
@@ -47,13 +82,18 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
                 return null;
             }
 
-            $this->productVariant = ImportReferenceModel::of($data);
+            $this->productVariant = ProductVariantKeyReferenceModel::of($data);
         }
 
         return $this->productVariant;
     }
 
     /**
+     * <p>Maps to <code>ProductVariant.attributes</code>.</p>
+     * <p>Each attribute referenced must be defined
+     * in an already existing product type in the commercetools project, or the import
+     * item state is set to <code>Unresolved</code>.</p>.
+     *
      * @return null|Attributes
      */
     public function getAttributes()
@@ -71,7 +111,12 @@ final class ProductVariantPatchModel extends JsonObjectModel implements ProductV
         return $this->attributes;
     }
 
-    public function setProductVariant(?ImportReference $productVariant): void
+    public function setProduct(?ProductKeyReference $product): void
+    {
+        $this->product = $product;
+    }
+
+    public function setProductVariant(?ProductVariantKeyReference $productVariant): void
     {
         $this->productVariant = $productVariant;
     }

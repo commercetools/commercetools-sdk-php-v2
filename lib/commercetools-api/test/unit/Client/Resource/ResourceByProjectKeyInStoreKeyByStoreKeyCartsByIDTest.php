@@ -27,7 +27,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts/{ID}?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -39,7 +39,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts/{ID}',
+                '{projectKey}/in-store/key={storeKey}/carts/{ID}',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -52,7 +52,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/in-store/key={storeKey}/carts/{ID}?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -64,7 +64,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/in-store/key={storeKey}/carts/{ID}',
+                '{projectKey}/in-store/key={storeKey}/carts/{ID}',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete_withDataErasure' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -77,7 +77,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '/{projectKey}/in-store/key={storeKey}/carts/{ID}?dataErasure=dataErasure',
+                '{projectKey}/in-store/key={storeKey}/carts/{ID}?dataErasure=dataErasure',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/in-store/key={storeKey}/carts/{ID}?version=version',
+                '{projectKey}/in-store/key={storeKey}/carts/{ID}?version=version',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -103,7 +103,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/in-store/key={storeKey}/carts/{ID}?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/carts/{ID}?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -115,7 +115,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/in-store/key={storeKey}/carts/{ID}',
+                '{projectKey}/in-store/key={storeKey}/carts/{ID}',
             ]
         ];
     }

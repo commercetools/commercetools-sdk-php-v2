@@ -26,7 +26,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->withCustomerId('customerId');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts?customerId=customerId',
+                '{projectKey}/in-store/key={storeKey}/carts?customerId=customerId',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsGet_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/carts?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -50,7 +50,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts?where=where',
+                '{projectKey}/in-store/key={storeKey}/carts?where=where',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -62,7 +62,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts?sort=sort',
+                '{projectKey}/in-store/key={storeKey}/carts?sort=sort',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -74,7 +74,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts?limit=limit',
+                '{projectKey}/in-store/key={storeKey}/carts?limit=limit',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -86,7 +86,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts?offset=offset',
+                '{projectKey}/in-store/key={storeKey}/carts?offset=offset',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -98,7 +98,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts?withTotal=withTotal',
+                '{projectKey}/in-store/key={storeKey}/carts?withTotal=withTotal',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -109,7 +109,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/in-store/key={storeKey}/carts',
+                '{projectKey}/in-store/key={storeKey}/carts',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -121,7 +121,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/in-store/key={storeKey}/carts?expand=expand',
+                '{projectKey}/in-store/key={storeKey}/carts?expand=expand',
             ],
             'ByProjectKeyInStoreKeyByStoreKeyCartsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -132,7 +132,7 @@ class ResourceByProjectKeyInStoreKeyByStoreKeyCartsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/in-store/key={storeKey}/carts',
+                '{projectKey}/in-store/key={storeKey}/carts',
             ]
         ];
     }

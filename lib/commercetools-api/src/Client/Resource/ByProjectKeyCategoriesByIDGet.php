@@ -39,7 +39,7 @@ class ByProjectKeyCategoriesByIDGet extends ApiRequest
      */
     public function __construct($projectKey, $ID, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '/{projectKey}/categories/{ID}');
+        $uri = str_replace(['{projectKey}', '{ID}'], [$projectKey, $ID], '{projectKey}/categories/{ID}');
         parent::__construct($client, 'GET', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

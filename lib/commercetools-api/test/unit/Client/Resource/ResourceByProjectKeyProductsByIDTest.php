@@ -26,7 +26,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceCurrency('priceCurrency');
                 },
                 'get',
-                '/{projectKey}/products/{ID}?priceCurrency=priceCurrency',
+                '{projectKey}/products/{ID}?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductsByIDGet_withPriceCountry' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceCountry('priceCountry');
                 },
                 'get',
-                '/{projectKey}/products/{ID}?priceCountry=priceCountry',
+                '{projectKey}/products/{ID}?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductsByIDGet_withPriceCustomerGroup' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -50,7 +50,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'get',
-                '/{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
+                '{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductsByIDGet_withPriceChannel' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -62,7 +62,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceChannel('priceChannel');
                 },
                 'get',
-                '/{projectKey}/products/{ID}?priceChannel=priceChannel',
+                '{projectKey}/products/{ID}?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductsByIDGet_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -74,7 +74,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/products/{ID}?expand=expand',
+                '{projectKey}/products/{ID}?expand=expand',
             ],
             'ByProjectKeyProductsByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -85,7 +85,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/products/{ID}',
+                '{projectKey}/products/{ID}',
             ],
             'ByProjectKeyProductsByIDPost_withPriceCurrency' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -97,7 +97,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceCurrency('priceCurrency');
                 },
                 'post',
-                '/{projectKey}/products/{ID}?priceCurrency=priceCurrency',
+                '{projectKey}/products/{ID}?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductsByIDPost_withPriceCountry' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -109,7 +109,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceCountry('priceCountry');
                 },
                 'post',
-                '/{projectKey}/products/{ID}?priceCountry=priceCountry',
+                '{projectKey}/products/{ID}?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductsByIDPost_withPriceCustomerGroup' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -121,7 +121,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'post',
-                '/{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
+                '{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductsByIDPost_withPriceChannel' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -133,7 +133,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceChannel('priceChannel');
                 },
                 'post',
-                '/{projectKey}/products/{ID}?priceChannel=priceChannel',
+                '{projectKey}/products/{ID}?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductsByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -145,7 +145,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/products/{ID}?expand=expand',
+                '{projectKey}/products/{ID}?expand=expand',
             ],
             'ByProjectKeyProductsByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -156,7 +156,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/products/{ID}',
+                '{projectKey}/products/{ID}',
             ],
             'ByProjectKeyProductsByIDDelete_withPriceCurrency' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -168,7 +168,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceCurrency('priceCurrency');
                 },
                 'delete',
-                '/{projectKey}/products/{ID}?priceCurrency=priceCurrency',
+                '{projectKey}/products/{ID}?priceCurrency=priceCurrency',
             ],
             'ByProjectKeyProductsByIDDelete_withPriceCountry' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -180,7 +180,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceCountry('priceCountry');
                 },
                 'delete',
-                '/{projectKey}/products/{ID}?priceCountry=priceCountry',
+                '{projectKey}/products/{ID}?priceCountry=priceCountry',
             ],
             'ByProjectKeyProductsByIDDelete_withPriceCustomerGroup' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -192,7 +192,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceCustomerGroup('priceCustomerGroup');
                 },
                 'delete',
-                '/{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
+                '{projectKey}/products/{ID}?priceCustomerGroup=priceCustomerGroup',
             ],
             'ByProjectKeyProductsByIDDelete_withPriceChannel' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -204,7 +204,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withPriceChannel('priceChannel');
                 },
                 'delete',
-                '/{projectKey}/products/{ID}?priceChannel=priceChannel',
+                '{projectKey}/products/{ID}?priceChannel=priceChannel',
             ],
             'ByProjectKeyProductsByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -216,7 +216,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/products/{ID}?version=version',
+                '{projectKey}/products/{ID}?version=version',
             ],
             'ByProjectKeyProductsByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -228,7 +228,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/products/{ID}?expand=expand',
+                '{projectKey}/products/{ID}?expand=expand',
             ],
             'ByProjectKeyProductsByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -239,7 +239,7 @@ class ResourceByProjectKeyProductsByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/products/{ID}',
+                '{projectKey}/products/{ID}',
             ]
         ];
     }

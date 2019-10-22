@@ -37,8 +37,9 @@ final class LocalizableTextAttributeBuilder implements Builder
     }
 
     /**
-     * <p>For now we reuse this type in two different context. And that's why the name is required when used in the full import.
-     * And why the name isn't required when used in patch.</p>.
+     * <p>The name of this attribute must match a name of the product types attribute definitions.
+     * The name is required if this type is used in a product variant and must not be set when
+     * used in a product variant patch.</p>.
      *
      * @return null|string
      */

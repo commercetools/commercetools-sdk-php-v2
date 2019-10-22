@@ -12,10 +12,10 @@ use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceModel;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantModel;
@@ -46,7 +46,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     protected $productId;
 
     /**
-     * @var ?Money
+     * @var ?TypedMoney
      */
     protected $totalPrice;
 
@@ -129,7 +129,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         int $quantity = null,
         string $priceMode = null,
         string $productId = null,
-        Money $totalPrice = null,
+        TypedMoney $totalPrice = null,
         TaxedItemPrice $taxedPrice = null,
         CustomFields $custom = null,
         DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
@@ -219,7 +219,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalPrice()
     {
@@ -229,8 +229,8 @@ final class LineItemModel extends JsonObjectModel implements LineItem
             if (is_null($data)) {
                 return null;
             }
-
-            $this->totalPrice = MoneyModel::of($data);
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->totalPrice = $className::of($data);
         }
 
         return $this->totalPrice;
@@ -517,7 +517,7 @@ final class LineItemModel extends JsonObjectModel implements LineItem
         $this->productId = $productId;
     }
 
-    public function setTotalPrice(?Money $totalPrice): void
+    public function setTotalPrice(?TypedMoney $totalPrice): void
     {
         $this->totalPrice = $totalPrice;
     }

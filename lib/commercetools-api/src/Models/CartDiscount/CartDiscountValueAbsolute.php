@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\MoneyCollection;
+use Commercetools\Api\Models\Common\TypedMoneyCollection;
 
 interface CartDiscountValueAbsolute extends CartDiscountValue
 {
     const FIELD_MONEY = 'money';
 
     /**
-     * @return null|MoneyCollection
+     * @return null|TypedMoneyCollection
      */
     public function getMoney();
 
-    public function setMoney(?MoneyCollection $money): void;
+    public function setMoney(?TypedMoneyCollection $money): void;
 }

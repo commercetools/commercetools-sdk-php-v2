@@ -54,6 +54,8 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()
@@ -62,6 +64,8 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * <p>The conflicted resource.</p>.
+     *
      * @return null|JsonObject
      */
     public function getConflictedResource()
@@ -70,6 +74,8 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * <p>The version specified in the failed request.</p>.
+     *
      * @return null|int
      */
     public function getSpecifiedVersion()
@@ -78,6 +84,8 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
+     * <p>The current version of the resource.</p>.
+     *
      * @return null|int
      */
     public function getCurrentVersion()

@@ -37,7 +37,7 @@ class ByProjectKeyZonesPost extends ApiRequest
      */
     public function __construct($projectKey, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [$projectKey], '/{projectKey}/zones');
+        $uri = str_replace(['{projectKey}'], [$projectKey], '{projectKey}/zones');
         parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

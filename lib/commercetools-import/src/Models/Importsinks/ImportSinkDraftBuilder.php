@@ -16,9 +16,9 @@ use Commercetools\Base\Builder;
 final class ImportSinkDraftBuilder implements Builder
 {
     /**
-     * @var Predicate|?PredicateBuilder
+     * @var ?int
      */
-    private $skipPredicate;
+    private $version;
 
     /**
      * @var ?string
@@ -35,19 +35,17 @@ final class ImportSinkDraftBuilder implements Builder
     }
 
     /**
-     * <p>A predicate allows to check the current state of a CTP resource. And can be used to detect if an import should
-     * be performed or should be skipped. And this abstract type allows us to support different syntaxes for our predicates
-     * without any breaking changes to our api.</p>.
+     * <p>The version of this resource.</p>.
      *
-     * @return null|Predicate
+     * @return null|int
      */
-    public function getSkipPredicate()
+    public function getVersion()
     {
-        return $this->skipPredicate instanceof PredicateBuilder ? $this->skipPredicate->build() : $this->skipPredicate;
+        return $this->version;
     }
 
     /**
-     * <p>The key of import sink.</p>.
+     * <p>The unique key of the import sink.</p>.
      *
      * @return null|string
      */
@@ -57,7 +55,7 @@ final class ImportSinkDraftBuilder implements Builder
     }
 
     /**
-     * <p>The type of the import resource sent to this import sink.</p>.
+     * <p>The type of import resource sent to this import sink.</p>.
      *
      * @return null|string
      */
@@ -69,9 +67,9 @@ final class ImportSinkDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSkipPredicate(?Predicate $skipPredicate)
+    public function withVersion(?int $version)
     {
-        $this->skipPredicate = $skipPredicate;
+        $this->version = $version;
 
         return $this;
     }
@@ -96,20 +94,10 @@ final class ImportSinkDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withSkipPredicateBuilder(?PredicateBuilder $skipPredicate)
-    {
-        $this->skipPredicate = $skipPredicate;
-
-        return $this;
-    }
-
     public function build(): ImportSinkDraft
     {
         return new ImportSinkDraftModel(
-            ($this->skipPredicate instanceof PredicateBuilder ? $this->skipPredicate->build() : $this->skipPredicate),
+            $this->version,
             $this->key,
             $this->resourceType
         );

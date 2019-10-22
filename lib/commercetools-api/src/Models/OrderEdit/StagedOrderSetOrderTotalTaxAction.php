@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Cart\TaxPortionCollection;
+use Commercetools\Api\Models\Cart\TaxPortionDraftCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Order\StagedOrderUpdateAction;
 
@@ -23,11 +23,11 @@ interface StagedOrderSetOrderTotalTaxAction extends StagedOrderUpdateAction
     public function getExternalTotalGross();
 
     /**
-     * @return null|TaxPortionCollection
+     * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions();
 
     public function setExternalTotalGross(?Money $externalTotalGross): void;
 
-    public function setExternalTaxPortions(?TaxPortionCollection $externalTaxPortions): void;
+    public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void;
 }

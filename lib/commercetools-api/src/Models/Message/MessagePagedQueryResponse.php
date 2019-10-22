@@ -12,10 +12,16 @@ use Commercetools\Base\JsonObject;
 
 interface MessagePagedQueryResponse extends JsonObject
 {
+    const FIELD_LIMIT = 'limit';
     const FIELD_COUNT = 'count';
     const FIELD_TOTAL = 'total';
     const FIELD_OFFSET = 'offset';
     const FIELD_RESULTS = 'results';
+
+    /**
+     * @return null|int
+     */
+    public function getLimit();
 
     /**
      * @return null|int
@@ -36,6 +42,8 @@ interface MessagePagedQueryResponse extends JsonObject
      * @return null|MessageCollection
      */
     public function getResults();
+
+    public function setLimit(?int $limit): void;
 
     public function setCount(?int $count): void;
 

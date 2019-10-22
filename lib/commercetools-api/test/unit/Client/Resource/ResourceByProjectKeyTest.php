@@ -23,7 +23,7 @@ class ResourceByProjectKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}',
+                '{projectKey}',
             ],
             'ByProjectKeyPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -32,7 +32,7 @@ class ResourceByProjectKeyTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}',
+                '{projectKey}',
             ]
         ];
     }

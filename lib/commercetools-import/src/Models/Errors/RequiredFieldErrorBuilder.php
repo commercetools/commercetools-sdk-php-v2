@@ -43,6 +43,8 @@ final class RequiredFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()
@@ -51,6 +53,8 @@ final class RequiredFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>The name of the field.</p>.
+     *
      * @return null|string
      */
     public function getField()

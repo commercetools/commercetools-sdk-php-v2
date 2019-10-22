@@ -26,7 +26,7 @@ class ResourceByProjectKeyMeEmailConfirmTest extends TestCase
                         ->post();
                 },
                 'post',
-                '/{projectKey}/me/email/confirm',
+                '{projectKey}/me/email/confirm',
             ]
         ];
     }

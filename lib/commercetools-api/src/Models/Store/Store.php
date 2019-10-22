@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
-use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Common\LoggedResource;
 
-interface Store extends BaseResource
+interface Store extends LoggedResource
 {
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';

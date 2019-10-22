@@ -49,6 +49,8 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()
@@ -57,6 +59,8 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>The offending duplicate value.</p>.
+     *
      * @return null|JsonObject
      */
     public function getDuplicateValue()
@@ -65,6 +69,8 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
+     * <p>The name of the field.</p>.
+     *
      * @return null|string
      */
     public function getField()

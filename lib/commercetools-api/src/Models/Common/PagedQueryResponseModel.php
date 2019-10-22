@@ -37,6 +37,11 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     protected $count;
 
     /**
+     * @var ?int
+     */
+    protected $limit;
+
+    /**
      * @var ?BaseResourceCollection
      */
     protected $results;
@@ -51,6 +56,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
         int $offset = null,
         JsonObject $meta = null,
         int $count = null,
+        int $limit = null,
         BaseResourceCollection $results = null,
         FacetResults $facets = null
     ) {
@@ -58,6 +64,7 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
         $this->offset = $offset;
         $this->meta = $meta;
         $this->count = $count;
+        $this->limit = $limit;
         $this->results = $results;
         $this->facets = $facets;
     }
@@ -131,6 +138,23 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     }
 
     /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(PagedQueryResponse::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
+    }
+
+    /**
      * @return null|BaseResourceCollection
      */
     public function getResults()
@@ -183,6 +207,11 @@ final class PagedQueryResponseModel extends JsonObjectModel implements PagedQuer
     public function setCount(?int $count): void
     {
         $this->count = $count;
+    }
+
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
     }
 
     public function setResults(?BaseResourceCollection $results): void

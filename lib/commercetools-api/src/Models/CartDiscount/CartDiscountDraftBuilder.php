@@ -71,7 +71,7 @@ final class CartDiscountDraftBuilder implements Builder
     private $isActive;
 
     /**
-     * @var CartDiscountValue|?CartDiscountValueBuilder
+     * @var CartDiscountValueDraft|?CartDiscountValueDraftBuilder
      */
     private $value;
 
@@ -173,11 +173,11 @@ final class CartDiscountDraftBuilder implements Builder
     }
 
     /**
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue()
     {
-        return $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -299,7 +299,7 @@ final class CartDiscountDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?CartDiscountValue $value)
+    public function withValue(?CartDiscountValueDraft $value)
     {
         $this->value = $value;
 
@@ -359,7 +359,7 @@ final class CartDiscountDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?CartDiscountValueBuilder $value)
+    public function withValueBuilder(?CartDiscountValueDraftBuilder $value)
     {
         $this->value = $value;
 
@@ -389,7 +389,7 @@ final class CartDiscountDraftBuilder implements Builder
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->validFrom,
             $this->isActive,
-            ($this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value),
+            ($this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value),
             $this->key,
             ($this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target)
         );

@@ -26,7 +26,7 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/categories/{ID}?expand=expand',
+                '{projectKey}/categories/{ID}?expand=expand',
             ],
             'ByProjectKeyCategoriesByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/categories/{ID}',
+                '{projectKey}/categories/{ID}',
             ],
             'ByProjectKeyCategoriesByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/categories/{ID}?expand=expand',
+                '{projectKey}/categories/{ID}?expand=expand',
             ],
             'ByProjectKeyCategoriesByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/categories/{ID}',
+                '{projectKey}/categories/{ID}',
             ],
             'ByProjectKeyCategoriesByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/categories/{ID}?version=version',
+                '{projectKey}/categories/{ID}?version=version',
             ],
             'ByProjectKeyCategoriesByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/categories/{ID}?expand=expand',
+                '{projectKey}/categories/{ID}?expand=expand',
             ],
             'ByProjectKeyCategoriesByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/categories/{ID}',
+                '{projectKey}/categories/{ID}',
             ]
         ];
     }

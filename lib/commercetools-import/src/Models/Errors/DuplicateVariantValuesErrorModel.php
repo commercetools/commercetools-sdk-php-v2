@@ -58,6 +58,8 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()
@@ -75,6 +77,8 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>The offending variant values.</p>.
+     *
      * @return null|VariantValues
      */
     public function getVariantValues()

@@ -70,7 +70,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     protected $isActive;
 
     /**
-     * @var ?CartDiscountValue
+     * @var ?CartDiscountValueDraft
      */
     protected $value;
 
@@ -95,7 +95,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         LocalizedString $description = null,
         DateTimeImmutable $validFrom = null,
         bool $isActive = null,
-        CartDiscountValue $value = null,
+        CartDiscountValueDraft $value = null,
         string $key = null,
         CartDiscountTarget $target = null
     ) {
@@ -232,7 +232,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -271,7 +271,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -299,7 +299,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue()
     {
@@ -309,7 +309,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
             if (is_null($data)) {
                 return null;
             }
-            $className = CartDiscountValueModel::resolveDiscriminatorClass($data);
+            $className = CartDiscountValueDraftModel::resolveDiscriminatorClass($data);
             $this->value = $className::of($data);
         }
 
@@ -401,7 +401,7 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         $this->isActive = $isActive;
     }
 
-    public function setValue(?CartDiscountValue $value): void
+    public function setValue(?CartDiscountValueDraft $value): void
     {
         $this->value = $value;
     }

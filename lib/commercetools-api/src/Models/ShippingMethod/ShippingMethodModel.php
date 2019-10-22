@@ -9,6 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\ShippingMethod;
 
 use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\CreatedByModel;
+use Commercetools\Api\Models\Common\LastModifiedBy;
+use Commercetools\Api\Models\Common\LastModifiedByModel;
+use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReferenceModel;
 use Commercetools\Base\JsonObjectModel;
@@ -37,6 +42,16 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
      * @var ?int
      */
     protected $version;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LastModifiedBy
+     */
+    protected $lastModifiedBy;
 
     /**
      * @var ?ZoneRateCollection
@@ -78,6 +93,8 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
+        CreatedBy $createdBy = null,
+        LastModifiedBy $lastModifiedBy = null,
         ZoneRateCollection $zoneRates = null,
         string $predicate = null,
         bool $isDefault = null,
@@ -90,6 +107,8 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
+        $this->createdBy = $createdBy;
+        $this->lastModifiedBy = $lastModifiedBy;
         $this->zoneRates = $zoneRates;
         $this->predicate = $predicate;
         $this->isDefault = $isDefault;
@@ -110,7 +129,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -131,7 +150,7 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -173,6 +192,42 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         }
 
         return $this->version;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
+    }
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
+        }
+
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -313,6 +368,16 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    {
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setZoneRates(?ZoneRateCollection $zoneRates): void

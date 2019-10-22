@@ -38,6 +38,8 @@ final class AttributeReferenceTypeBuilder implements Builder
     }
 
     /**
+     * <p>The type of the referenced resource.</p>.
+     *
      * @return null|string
      */
     public function getReferenceTypeId()

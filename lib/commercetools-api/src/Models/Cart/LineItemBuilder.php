@@ -12,10 +12,10 @@ use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Channel\ChannelReferenceBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\Common\Price;
 use Commercetools\Api\Models\Common\PriceBuilder;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\Product\ProductVariantBuilder;
@@ -48,7 +48,7 @@ final class LineItemBuilder implements Builder
     private $productId;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var TypedMoney|?TypedMoneyBuilder
      */
     private $totalPrice;
 
@@ -156,11 +156,11 @@ final class LineItemBuilder implements Builder
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalPrice()
     {
-        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+        return $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
 
     /**
@@ -316,7 +316,7 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalPrice(?Money $totalPrice)
+    public function withTotalPrice(?TypedMoney $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -476,7 +476,7 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -599,7 +599,7 @@ final class LineItemBuilder implements Builder
             $this->quantity,
             $this->priceMode,
             $this->productId,
-            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
+            ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
             ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             $this->discountedPricePerQuantity,

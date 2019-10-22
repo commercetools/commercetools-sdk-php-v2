@@ -16,6 +16,11 @@ use Commercetools\Base\Builder;
 final class CustomerSigninBuilder implements Builder
 {
     /**
+     * @var ?bool
+     */
+    private $updateProductData;
+
+    /**
      * @var ?string
      */
     private $anonymousId;
@@ -42,6 +47,14 @@ final class CustomerSigninBuilder implements Builder
 
     public function __construct()
     {
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getUpdateProductData()
+    {
+        return $this->updateProductData;
     }
 
     /**
@@ -82,6 +95,16 @@ final class CustomerSigninBuilder implements Builder
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withUpdateProductData(?bool $updateProductData)
+    {
+        $this->updateProductData = $updateProductData;
+
+        return $this;
     }
 
     /**
@@ -137,6 +160,7 @@ final class CustomerSigninBuilder implements Builder
     public function build(): CustomerSignin
     {
         return new CustomerSigninModel(
+            $this->updateProductData,
             $this->anonymousId,
             $this->password,
             $this->anonymousCartSignInMode,

@@ -29,17 +29,29 @@ final class AttributeModel extends JsonObjectModel implements Attribute
      * @psalm-var array<string, class-string<Attribute> >
      */
     private static $discriminatorClasses = [
-        'any' => AnyAttributeModel::class,
         'boolean' => BooleanAttributeModel::class,
+        'boolean-set' => BooleanSetAttributeModel::class,
         'date' => DateAttributeModel::class,
+        'date-set' => DateSetAttributeModel::class,
         'datetime' => DateTimeAttributeModel::class,
+        'datetime-set' => DateTimeSetAttributeModel::class,
         'enum' => EnumAttributeModel::class,
+        'enum-set' => EnumSetAttributeModel::class,
         'lenum' => LocalizableEnumAttributeModel::class,
+        'lenum-set' => LocalizableEnumSetAttributeModel::class,
         'ltext' => LocalizableTextAttributeModel::class,
+        'ltext-set' => LocalizableTextSetAttributeModel::class,
         'money' => MoneyAttributeModel::class,
+        'money-set' => MoneySetAttributeModel::class,
         'number' => NumberAttributeModel::class,
+        'number-set' => NumberSetAttributeModel::class,
+        'reference' => ReferenceAttributeModel::class,
+        'reference-set' => ReferenceSetAttributeModel::class,
         'text' => TextAttributeModel::class,
+        'text-set' => TextSetAttributeModel::class,
         'time' => TimeAttributeModel::class,
+        'time-set' => TimeSetAttributeModel::class,
+        'null' => AttributeModel::class,
     ];
 
     public function __construct(
@@ -52,8 +64,9 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     }
 
     /**
-     * <p>For now we reuse this type in two different context. And that's why the name is required when used in the full import.
-     * And why the name isn't required when used in patch.</p>.
+     * <p>The name of this attribute must match a name of the product types attribute definitions.
+     * The name is required if this type is used in a product variant and must not be set when
+     * used in a product variant patch.</p>.
      *
      * @return null|string
      */

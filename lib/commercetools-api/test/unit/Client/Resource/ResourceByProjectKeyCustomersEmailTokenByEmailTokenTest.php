@@ -26,7 +26,7 @@ class ResourceByProjectKeyCustomersEmailTokenByEmailTokenTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/customers/email-token={emailToken}?expand=expand',
+                '{projectKey}/customers/email-token={emailToken}?expand=expand',
             ],
             'ByProjectKeyCustomersEmailTokenByEmailTokenGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyCustomersEmailTokenByEmailTokenTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/customers/email-token={emailToken}',
+                '{projectKey}/customers/email-token={emailToken}',
             ]
         ];
     }

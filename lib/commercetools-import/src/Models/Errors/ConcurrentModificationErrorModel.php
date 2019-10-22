@@ -73,6 +73,8 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>The error's description.</p>.
+     *
      * @return null|string
      */
     public function getMessage()
@@ -90,6 +92,8 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>The conflicted resource.</p>.
+     *
      * @return null|JsonObject
      */
     public function getConflictedResource()
@@ -107,6 +111,8 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>The version specified in the failed request.</p>.
+     *
      * @return null|int
      */
     public function getSpecifiedVersion()
@@ -124,6 +130,8 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     }
 
     /**
+     * <p>The current version of the resource.</p>.
+     *
      * @return null|int
      */
     public function getCurrentVersion()

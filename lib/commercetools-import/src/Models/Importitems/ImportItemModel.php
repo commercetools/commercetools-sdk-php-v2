@@ -10,6 +10,7 @@ namespace Commercetools\Import\Models\Importitems;
 
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 use stdClass;
@@ -37,6 +38,11 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     protected $retryCount;
 
     /**
+     * @var ?KeyReferenceCollection
+     */
+    protected $unresolvedReferences;
+
+    /**
      * @var ?string
      */
     protected $state;
@@ -52,6 +58,11 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     protected $version;
 
     /**
+     * @var ?DateTimeImmutable
+     */
+    protected $expiresAt;
+
+    /**
      * @var ?ErrorObjectCollection
      */
     protected $errors;
@@ -61,23 +72,27 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
         DateTimeImmutable $lastModifiedAt = null,
         string $resourceKey = null,
         int $retryCount = null,
+        KeyReferenceCollection $unresolvedReferences = null,
         string $state = null,
         string $importSinkKey = null,
         int $version = null,
+        DateTimeImmutable $expiresAt = null,
         ErrorObjectCollection $errors = null
     ) {
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->resourceKey = $resourceKey;
         $this->retryCount = $retryCount;
+        $this->unresolvedReferences = $unresolvedReferences;
         $this->state = $state;
         $this->importSinkKey = $importSinkKey;
         $this->version = $version;
+        $this->expiresAt = $expiresAt;
         $this->errors = $errors;
     }
 
     /**
-     * <p>The creation time of this import item.</p>.
+     * <p>When the import item was created.</p>.
      *
      * @return null|DateTimeImmutable
      */
@@ -89,7 +104,7 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -100,7 +115,7 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     }
 
     /**
-     * <p>The last modification time of this import item.</p>.
+     * <p>When the import item was modified.</p>.
      *
      * @return null|DateTimeImmutable
      */
@@ -112,7 +127,7 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -123,7 +138,7 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     }
 
     /**
-     * <p>The key of the imported resource.</p>.
+     * <p>The key of the import resource.</p>.
      *
      * @return null|string
      */
@@ -142,7 +157,7 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     }
 
     /**
-     * <p>The number of retries for this item.</p>.
+     * <p>The number of request retries for processing the import resource.</p>.
      *
      * @return null|int
      */
@@ -161,7 +176,27 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     }
 
     /**
-     * <p>The status of a single import request.</p>.
+     * <p>If an import resource has unresolved references, the state is set to <code>Unresolved</code>
+     * and this property contains the unresolved references.</p>.
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getUnresolvedReferences()
+    {
+        if (is_null($this->unresolvedReferences)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ImportItem::FIELD_UNRESOLVED_REFERENCES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->unresolvedReferences = KeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->unresolvedReferences;
+    }
+
+    /**
+     * <p>The status of the import resource.</p>.
      *
      * @return null|string
      */
@@ -218,7 +253,31 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     }
 
     /**
-     * <p>Used to report errors when an import item is in the state VALIDATION_FAILED or REJECTED.</p>.
+     * <p>When the import item expires.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt()
+    {
+        if (is_null($this->expiresAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ImportItem::FIELD_EXPIRES_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->expiresAt = $data;
+        }
+
+        return $this->expiresAt;
+    }
+
+    /**
+     * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
+     * and this property contains the errors.</p>.
      *
      * @return null|ErrorObjectCollection
      */
@@ -256,6 +315,11 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
         $this->retryCount = $retryCount;
     }
 
+    public function setUnresolvedReferences(?KeyReferenceCollection $unresolvedReferences): void
+    {
+        $this->unresolvedReferences = $unresolvedReferences;
+    }
+
     public function setState(?string $state): void
     {
         $this->state = $state;
@@ -269,6 +333,11 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setExpiresAt(?DateTimeImmutable $expiresAt): void
+    {
+        $this->expiresAt = $expiresAt;
     }
 
     public function setErrors(?ErrorObjectCollection $errors): void
@@ -285,6 +354,10 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
 
         if (isset($data[ImportItem::FIELD_LAST_MODIFIED_AT]) && $data[ImportItem::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[ImportItem::FIELD_LAST_MODIFIED_AT] = $data[ImportItem::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[ImportItem::FIELD_EXPIRES_AT]) && $data[ImportItem::FIELD_EXPIRES_AT] instanceof \DateTimeImmutable) {
+            $data[ImportItem::FIELD_EXPIRES_AT] = $data[ImportItem::FIELD_EXPIRES_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

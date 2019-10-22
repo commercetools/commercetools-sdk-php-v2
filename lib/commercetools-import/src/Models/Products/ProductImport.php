@@ -8,10 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Products;
 
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceCollection;
+use Commercetools\Import\Models\Common\CategoryKeyReferenceCollection;
 use Commercetools\Import\Models\Common\ImportResource;
 use Commercetools\Import\Models\Common\LocalizedString;
+use Commercetools\Import\Models\Common\ProductTypeKeyReference;
+use Commercetools\Import\Models\Common\StateKeyReference;
+use Commercetools\Import\Models\Common\TaxCategoryKeyReference;
 
 interface ProductImport extends ImportResource
 {
@@ -20,7 +22,6 @@ interface ProductImport extends ImportResource
     const FIELD_SLUG = 'slug';
     const FIELD_DESCRIPTION = 'description';
     const FIELD_CATEGORIES = 'categories';
-    const FIELD_CATEGORY_ORDER_HINTS = 'categoryOrderHints';
     const FIELD_META_TITLE = 'metaTitle';
     const FIELD_META_DESCRIPTION = 'metaDescription';
     const FIELD_META_KEYWORDS = 'metaKeywords';
@@ -29,16 +30,19 @@ interface ProductImport extends ImportResource
     const FIELD_STATE = 'state';
 
     /**
-     * <p>The human readable name of the product.</p>.
+     * <p>Maps to <code>Product.name</code>.</p>.
      *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
+     * <p>The product type referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ProductTypeKeyReference
      */
     public function getProductType();
 
@@ -51,19 +55,21 @@ interface ProductImport extends ImportResource
     public function getSlug();
 
     /**
+     * <p>Maps to <code>Product.description</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getDescription();
 
     /**
-     * @return null|ImportReferenceCollection
+     * <p>An array of references to a categories by their keys. Maps to <code>Product.categories</code>.</p>
+     * <p>The categories referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|CategoryKeyReferenceCollection
      */
     public function getCategories();
-
-    /**
-     * @return null|CategoryOrderHints
-     */
-    public function getCategoryOrderHints();
 
     /**
      * @return null|LocalizedString
@@ -81,9 +87,12 @@ interface ProductImport extends ImportResource
     public function getMetaKeywords();
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a tax category by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|TaxCategoryKeyReference
      */
     public function getTaxCategory();
 
@@ -93,23 +102,24 @@ interface ProductImport extends ImportResource
     public function getSearchKeywords();
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a state by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|StateKeyReference
      */
     public function getState();
 
     public function setName(?LocalizedString $name): void;
 
-    public function setProductType(?ImportReference $productType): void;
+    public function setProductType(?ProductTypeKeyReference $productType): void;
 
     public function setSlug(?LocalizedString $slug): void;
 
     public function setDescription(?LocalizedString $description): void;
 
-    public function setCategories(?ImportReferenceCollection $categories): void;
-
-    public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void;
+    public function setCategories(?CategoryKeyReferenceCollection $categories): void;
 
     public function setMetaTitle(?LocalizedString $metaTitle): void;
 
@@ -117,9 +127,9 @@ interface ProductImport extends ImportResource
 
     public function setMetaKeywords(?LocalizedString $metaKeywords): void;
 
-    public function setTaxCategory(?ImportReference $taxCategory): void;
+    public function setTaxCategory(?TaxCategoryKeyReference $taxCategory): void;
 
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void;
 
-    public function setState(?ImportReference $state): void;
+    public function setState(?StateKeyReference $state): void;
 }

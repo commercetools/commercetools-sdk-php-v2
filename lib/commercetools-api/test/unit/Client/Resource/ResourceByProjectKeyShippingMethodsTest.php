@@ -25,7 +25,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withShippingMethodId('shipping-methodId');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?shipping-methodId=shipping-methodId',
+                '{projectKey}/shipping-methods?shipping-methodId=shipping-methodId',
             ],
             'ByProjectKeyShippingMethodsGet_withCountry' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withCountry('country');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?country=country',
+                '{projectKey}/shipping-methods?country=country',
             ],
             'ByProjectKeyShippingMethodsGet_withState' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withState('state');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?state=state',
+                '{projectKey}/shipping-methods?state=state',
             ],
             'ByProjectKeyShippingMethodsGet_withCurrency' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withCurrency('currency');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?currency=currency',
+                '{projectKey}/shipping-methods?currency=currency',
             ],
             'ByProjectKeyShippingMethodsGet_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?expand=expand',
+                '{projectKey}/shipping-methods?expand=expand',
             ],
             'ByProjectKeyShippingMethodsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?where=where',
+                '{projectKey}/shipping-methods?where=where',
             ],
             'ByProjectKeyShippingMethodsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -91,7 +91,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?sort=sort',
+                '{projectKey}/shipping-methods?sort=sort',
             ],
             'ByProjectKeyShippingMethodsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -102,7 +102,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?limit=limit',
+                '{projectKey}/shipping-methods?limit=limit',
             ],
             'ByProjectKeyShippingMethodsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -113,7 +113,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?offset=offset',
+                '{projectKey}/shipping-methods?offset=offset',
             ],
             'ByProjectKeyShippingMethodsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -124,7 +124,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/shipping-methods?withTotal=withTotal',
+                '{projectKey}/shipping-methods?withTotal=withTotal',
             ],
             'ByProjectKeyShippingMethodsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -134,7 +134,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/shipping-methods',
+                '{projectKey}/shipping-methods',
             ],
             'ByProjectKeyShippingMethodsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -145,7 +145,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/shipping-methods?expand=expand',
+                '{projectKey}/shipping-methods?expand=expand',
             ],
             'ByProjectKeyShippingMethodsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -155,7 +155,7 @@ class ResourceByProjectKeyShippingMethodsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/shipping-methods',
+                '{projectKey}/shipping-methods',
             ]
         ];
     }

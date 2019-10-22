@@ -31,6 +31,11 @@ final class CartDiscountPagedQueryResponseBuilder implements Builder
     private $count;
 
     /**
+     * @var ?int
+     */
+    private $limit;
+
+    /**
      * @var ?CartDiscountCollection
      */
     private $results;
@@ -61,6 +66,14 @@ final class CartDiscountPagedQueryResponseBuilder implements Builder
     public function getCount()
     {
         return $this->count;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
     }
 
     /**
@@ -104,6 +117,16 @@ final class CartDiscountPagedQueryResponseBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLimit(?int $limit)
+    {
+        $this->limit = $limit;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withResults(?CartDiscountCollection $results)
     {
         $this->results = $results;
@@ -117,6 +140,7 @@ final class CartDiscountPagedQueryResponseBuilder implements Builder
             $this->total,
             $this->offset,
             $this->count,
+            $this->limit,
             $this->results
         );
     }

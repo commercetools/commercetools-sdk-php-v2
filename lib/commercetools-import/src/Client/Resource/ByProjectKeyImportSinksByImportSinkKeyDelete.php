@@ -14,6 +14,8 @@ use Commercetools\Base\ResultMapper;
 use Commercetools\Client\ApiRequest;
 use Commercetools\Exception\ApiClientException;
 use Commercetools\Exception\ApiServerException;
+use Commercetools\Import\Models\Errors\ErrorResponse;
+use Commercetools\Import\Models\Errors\ErrorResponseModel;
 use Commercetools\Import\Models\Importsinks\ImportSink;
 use Commercetools\Import\Models\Importsinks\ImportSinkModel;
 use GuzzleHttp\Client;
@@ -37,14 +39,14 @@ class ByProjectKeyImportSinksByImportSinkKeyDelete extends ApiRequest
      */
     public function __construct($projectKey, $importSinkKey, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{importSinkKey}'], [$projectKey, $importSinkKey], '/{projectKey}/import-sinks/{importSinkKey}');
+        $uri = str_replace(['{projectKey}', '{importSinkKey}'], [$projectKey, $importSinkKey], '{projectKey}/import-sinks/{importSinkKey}');
         parent::__construct($client, 'DELETE', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ImportSink|JsonObject|T|null
+     * @psalm-return ErrorResponse|ImportSink|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -56,6 +58,10 @@ class ByProjectKeyImportSinksByImportSinkKeyDelete extends ApiRequest
             switch ($response->getStatusCode()) {
                 case '200':
                     $resultType = ImportSinkModel::class;
+
+                    break;
+                case '404':
+                    $resultType = ErrorResponseModel::class;
 
                     break;
                 default:
@@ -74,7 +80,7 @@ class ByProjectKeyImportSinksByImportSinkKeyDelete extends ApiRequest
      *
      * @param array $options
      *
-     * @return null|ImportSink|JsonObject
+     * @return null|ErrorResponse|ImportSink|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

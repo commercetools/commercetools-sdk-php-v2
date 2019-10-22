@@ -25,7 +25,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/tax-categories?expand=expand',
+                '{projectKey}/tax-categories?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/tax-categories?where=where',
+                '{projectKey}/tax-categories?where=where',
             ],
             'ByProjectKeyTaxCategoriesGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/tax-categories?sort=sort',
+                '{projectKey}/tax-categories?sort=sort',
             ],
             'ByProjectKeyTaxCategoriesGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/tax-categories?limit=limit',
+                '{projectKey}/tax-categories?limit=limit',
             ],
             'ByProjectKeyTaxCategoriesGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/tax-categories?offset=offset',
+                '{projectKey}/tax-categories?offset=offset',
             ],
             'ByProjectKeyTaxCategoriesGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/tax-categories?withTotal=withTotal',
+                '{projectKey}/tax-categories?withTotal=withTotal',
             ],
             'ByProjectKeyTaxCategoriesGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/tax-categories',
+                '{projectKey}/tax-categories',
             ],
             'ByProjectKeyTaxCategoriesPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/tax-categories?expand=expand',
+                '{projectKey}/tax-categories?expand=expand',
             ],
             'ByProjectKeyTaxCategoriesPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyTaxCategoriesTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/tax-categories',
+                '{projectKey}/tax-categories',
             ]
         ];
     }

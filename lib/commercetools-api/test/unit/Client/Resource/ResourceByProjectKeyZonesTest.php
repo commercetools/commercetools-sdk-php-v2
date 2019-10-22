@@ -25,7 +25,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/zones?expand=expand',
+                '{projectKey}/zones?expand=expand',
             ],
             'ByProjectKeyZonesGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/zones?where=where',
+                '{projectKey}/zones?where=where',
             ],
             'ByProjectKeyZonesGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/zones?sort=sort',
+                '{projectKey}/zones?sort=sort',
             ],
             'ByProjectKeyZonesGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/zones?limit=limit',
+                '{projectKey}/zones?limit=limit',
             ],
             'ByProjectKeyZonesGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/zones?offset=offset',
+                '{projectKey}/zones?offset=offset',
             ],
             'ByProjectKeyZonesGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/zones?withTotal=withTotal',
+                '{projectKey}/zones?withTotal=withTotal',
             ],
             'ByProjectKeyZonesGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/zones',
+                '{projectKey}/zones',
             ],
             'ByProjectKeyZonesPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/zones?expand=expand',
+                '{projectKey}/zones?expand=expand',
             ],
             'ByProjectKeyZonesPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyZonesTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/zones',
+                '{projectKey}/zones',
             ]
         ];
     }

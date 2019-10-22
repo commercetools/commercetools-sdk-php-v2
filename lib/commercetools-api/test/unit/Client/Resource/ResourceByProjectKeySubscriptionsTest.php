@@ -25,7 +25,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/subscriptions?expand=expand',
+                '{projectKey}/subscriptions?expand=expand',
             ],
             'ByProjectKeySubscriptionsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/subscriptions?where=where',
+                '{projectKey}/subscriptions?where=where',
             ],
             'ByProjectKeySubscriptionsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/subscriptions?sort=sort',
+                '{projectKey}/subscriptions?sort=sort',
             ],
             'ByProjectKeySubscriptionsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/subscriptions?limit=limit',
+                '{projectKey}/subscriptions?limit=limit',
             ],
             'ByProjectKeySubscriptionsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/subscriptions?offset=offset',
+                '{projectKey}/subscriptions?offset=offset',
             ],
             'ByProjectKeySubscriptionsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/subscriptions?withTotal=withTotal',
+                '{projectKey}/subscriptions?withTotal=withTotal',
             ],
             'ByProjectKeySubscriptionsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/subscriptions',
+                '{projectKey}/subscriptions',
             ],
             'ByProjectKeySubscriptionsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/subscriptions?expand=expand',
+                '{projectKey}/subscriptions?expand=expand',
             ],
             'ByProjectKeySubscriptionsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeySubscriptionsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/subscriptions',
+                '{projectKey}/subscriptions',
             ]
         ];
     }

@@ -21,13 +21,13 @@ final class CartDiscountChangeValueActionModel extends JsonObjectModel implement
     protected $action;
 
     /**
-     * @var ?CartDiscountValue
+     * @var ?CartDiscountValueDraft
      */
     protected $value;
 
     public function __construct(
         string $action = null,
-        CartDiscountValue $value = null
+        CartDiscountValueDraft $value = null
     ) {
         $this->action = $action;
         $this->value = $value;
@@ -51,7 +51,7 @@ final class CartDiscountChangeValueActionModel extends JsonObjectModel implement
     }
 
     /**
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue()
     {
@@ -61,7 +61,7 @@ final class CartDiscountChangeValueActionModel extends JsonObjectModel implement
             if (is_null($data)) {
                 return null;
             }
-            $className = CartDiscountValueModel::resolveDiscriminatorClass($data);
+            $className = CartDiscountValueDraftModel::resolveDiscriminatorClass($data);
             $this->value = $className::of($data);
         }
 
@@ -73,7 +73,7 @@ final class CartDiscountChangeValueActionModel extends JsonObjectModel implement
         $this->action = $action;
     }
 
-    public function setValue(?CartDiscountValue $value): void
+    public function setValue(?CartDiscountValueDraft $value): void
     {
         $this->value = $value;
     }

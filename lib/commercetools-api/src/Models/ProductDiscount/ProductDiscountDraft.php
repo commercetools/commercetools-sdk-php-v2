@@ -40,7 +40,7 @@ interface ProductDiscountDraft extends JsonObject
     public function getDescription();
 
     /**
-     * @return null|ProductDiscountValue
+     * @return null|ProductDiscountValueDraft
      */
     public function getValue();
 
@@ -75,7 +75,7 @@ interface ProductDiscountDraft extends JsonObject
 
     public function setDescription(?LocalizedString $description): void;
 
-    public function setValue(?ProductDiscountValue $value): void;
+    public function setValue(?ProductDiscountValueDraft $value): void;
 
     public function setPredicate(?string $predicate): void;
 

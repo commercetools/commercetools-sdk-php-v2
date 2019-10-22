@@ -9,10 +9,16 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Prices;
 
 use Commercetools\Base\Builder;
-use Commercetools\Import\Models\Common\ImportReference;
-use Commercetools\Import\Models\Common\ImportReferenceBuilder;
+use Commercetools\Import\Models\Common\ChannelKeyReference;
+use Commercetools\Import\Models\Common\ChannelKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\CustomerGroupKeyReference;
+use Commercetools\Import\Models\Common\CustomerGroupKeyReferenceBuilder;
 use Commercetools\Import\Models\Common\Money;
 use Commercetools\Import\Models\Common\MoneyBuilder;
+use Commercetools\Import\Models\Common\ProductKeyReference;
+use Commercetools\Import\Models\Common\ProductKeyReferenceBuilder;
+use Commercetools\Import\Models\Common\ProductVariantKeyReference;
+use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
 use DateTimeImmutable;
 
 /**
@@ -31,17 +37,22 @@ final class PriceImportBuilder implements Builder
     private $country;
 
     /**
-     * @var ImportReference|?ImportReferenceBuilder
+     * @var ProductKeyReference|?ProductKeyReferenceBuilder
+     */
+    private $product;
+
+    /**
+     * @var ProductVariantKeyReference|?ProductVariantKeyReferenceBuilder
      */
     private $productVariant;
 
     /**
-     * @var ImportReference|?ImportReferenceBuilder
+     * @var CustomerGroupKeyReference|?CustomerGroupKeyReferenceBuilder
      */
     private $customerGroup;
 
     /**
-     * @var ImportReference|?ImportReferenceBuilder
+     * @var ChannelKeyReference|?ChannelKeyReferenceBuilder
      */
     private $channel;
 
@@ -73,7 +84,7 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>Maps to <code>Price.county</code>.</p>.
      *
      * @return null|string
      */
@@ -83,36 +94,60 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>The product variant in which this price is contained.</p>.
+     * <p>The product in which this product variant containong the price is contained. Maps to <code>ProductVariant.product</code>.</p>
+     * <p>The product referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ProductKeyReference
+     */
+    public function getProduct()
+    {
+        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
+    }
+
+    /**
+     * <p>The product variant in which this price is contained.</p>
+     * <p>The product variant referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|ProductVariantKeyReference
      */
     public function getProductVariant()
     {
-        return $this->productVariant instanceof ImportReferenceBuilder ? $this->productVariant->build() : $this->productVariant;
+        return $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant;
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a customer group by its key.</p>
+     * <p>The customer group referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|CustomerGroupKeyReference
      */
     public function getCustomerGroup()
     {
-        return $this->customerGroup instanceof ImportReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
+        return $this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
     }
 
     /**
-     * <p>An import reference references a resource by its key.</p>.
+     * <p>References a channel by its key.</p>
+     * <p>The channel referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|ImportReference
+     * @return null|ChannelKeyReference
      */
     public function getChannel()
     {
-        return $this->channel instanceof ImportReferenceBuilder ? $this->channel->build() : $this->channel;
+        return $this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel;
     }
 
     /**
+     * <p>Maps to <code>Price.validUntil</code>.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -121,6 +156,8 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Price.validFrom</code>.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -129,6 +166,9 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>Price.value</code>.</p>
+     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>.
+     *
      * @return null|Money
      */
     public function getValue()
@@ -159,7 +199,17 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductVariant(?ImportReference $productVariant)
+    public function withProduct(?ProductKeyReference $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withProductVariant(?ProductVariantKeyReference $productVariant)
     {
         $this->productVariant = $productVariant;
 
@@ -169,7 +219,7 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomerGroup(?ImportReference $customerGroup)
+    public function withCustomerGroup(?CustomerGroupKeyReference $customerGroup)
     {
         $this->customerGroup = $customerGroup;
 
@@ -179,7 +229,7 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withChannel(?ImportReference $channel)
+    public function withChannel(?ChannelKeyReference $channel)
     {
         $this->channel = $channel;
 
@@ -219,7 +269,17 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductVariantBuilder(?ImportReferenceBuilder $productVariant)
+    public function withProductBuilder(?ProductKeyReferenceBuilder $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
     {
         $this->productVariant = $productVariant;
 
@@ -229,7 +289,7 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomerGroupBuilder(?ImportReferenceBuilder $customerGroup)
+    public function withCustomerGroupBuilder(?CustomerGroupKeyReferenceBuilder $customerGroup)
     {
         $this->customerGroup = $customerGroup;
 
@@ -239,7 +299,7 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withChannelBuilder(?ImportReferenceBuilder $channel)
+    public function withChannelBuilder(?ChannelKeyReferenceBuilder $channel)
     {
         $this->channel = $channel;
 
@@ -261,9 +321,10 @@ final class PriceImportBuilder implements Builder
         return new PriceImportModel(
             $this->key,
             $this->country,
-            ($this->productVariant instanceof ImportReferenceBuilder ? $this->productVariant->build() : $this->productVariant),
-            ($this->customerGroup instanceof ImportReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->channel instanceof ImportReferenceBuilder ? $this->channel->build() : $this->channel),
+            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product),
+            ($this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant),
+            ($this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
+            ($this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel),
             $this->validUntil,
             $this->validFrom,
             ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value)

@@ -45,7 +45,7 @@ interface CartDiscountDraft extends JsonObject
     public function getDescription();
 
     /**
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue();
 
@@ -103,7 +103,7 @@ interface CartDiscountDraft extends JsonObject
 
     public function setDescription(?LocalizedString $description): void;
 
-    public function setValue(?CartDiscountValue $value): void;
+    public function setValue(?CartDiscountValueDraft $value): void;
 
     public function setCartPredicate(?string $cartPredicate): void;
 

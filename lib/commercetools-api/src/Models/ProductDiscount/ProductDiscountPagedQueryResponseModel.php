@@ -29,6 +29,11 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
     protected $count;
 
     /**
+     * @var ?int
+     */
+    protected $limit;
+
+    /**
      * @var ?ProductDiscountCollection
      */
     protected $results;
@@ -37,11 +42,13 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
         int $total = null,
         int $offset = null,
         int $count = null,
+        int $limit = null,
         ProductDiscountCollection $results = null
     ) {
         $this->total = $total;
         $this->offset = $offset;
         $this->count = $count;
+        $this->limit = $limit;
         $this->results = $results;
     }
 
@@ -97,6 +104,23 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
     }
 
     /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductDiscountPagedQueryResponse::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
+    }
+
+    /**
      * @return null|ProductDiscountCollection
      */
     public function getResults()
@@ -126,6 +150,11 @@ final class ProductDiscountPagedQueryResponseModel extends JsonObjectModel imple
     public function setCount(?int $count): void
     {
         $this->count = $count;
+    }
+
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
     }
 
     public function setResults(?ProductDiscountCollection $results): void

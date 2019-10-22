@@ -8,16 +8,14 @@ declare(strict_types=1);
 
 namespace Commercetools\Import\Models\Productvariants;
 
-use Commercetools\Import\Models\Common\EnumValue;
-
 interface EnumAttribute extends Attribute
 {
     const FIELD_VALUE = 'value';
 
     /**
-     * @return null|EnumValue
+     * @return null|string
      */
     public function getValue();
 
-    public function setValue(?EnumValue $value): void;
+    public function setValue(?string $value): void;
 }

@@ -12,10 +12,16 @@ use Commercetools\Base\JsonObject;
 
 interface CategoryPagedQueryResponse extends JsonObject
 {
+    const FIELD_LIMIT = 'limit';
     const FIELD_COUNT = 'count';
     const FIELD_TOTAL = 'total';
     const FIELD_OFFSET = 'offset';
     const FIELD_RESULTS = 'results';
+
+    /**
+     * @return null|int
+     */
+    public function getLimit();
 
     /**
      * @return null|int
@@ -36,6 +42,8 @@ interface CategoryPagedQueryResponse extends JsonObject
      * @return null|CategoryCollection
      */
     public function getResults();
+
+    public function setLimit(?int $limit): void;
 
     public function setCount(?int $count): void;
 

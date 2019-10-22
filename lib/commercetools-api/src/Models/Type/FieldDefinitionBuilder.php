@@ -11,7 +11,6 @@ namespace Commercetools\Api\Models\Type;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
 
 /**
  * @implements Builder<FieldDefinition>
@@ -34,7 +33,7 @@ final class FieldDefinitionBuilder implements Builder
     private $label;
 
     /**
-     * @var ?JsonObject
+     * @var FieldType|?FieldTypeBuilder
      */
     private $type;
 
@@ -72,11 +71,11 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|FieldType
      */
     public function getType()
     {
-        return $this->type;
+        return $this->type instanceof FieldTypeBuilder ? $this->type->build() : $this->type;
     }
 
     /**
@@ -120,7 +119,7 @@ final class FieldDefinitionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?JsonObject $type)
+    public function withType(?FieldType $type)
     {
         $this->type = $type;
 
@@ -147,13 +146,23 @@ final class FieldDefinitionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTypeBuilder(?FieldTypeBuilder $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
     public function build(): FieldDefinition
     {
         return new FieldDefinitionModel(
             $this->name,
             $this->inputHint,
             ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
-            $this->type,
+            ($this->type instanceof FieldTypeBuilder ? $this->type->build() : $this->type),
             $this->required
         );
     }

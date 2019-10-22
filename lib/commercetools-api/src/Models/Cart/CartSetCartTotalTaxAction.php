@@ -21,11 +21,11 @@ interface CartSetCartTotalTaxAction extends CartUpdateAction
     public function getExternalTotalGross();
 
     /**
-     * @return null|TaxPortionCollection
+     * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions();
 
     public function setExternalTotalGross(?Money $externalTotalGross): void;
 
-    public function setExternalTaxPortions(?TaxPortionCollection $externalTaxPortions): void;
+    public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void;
 }

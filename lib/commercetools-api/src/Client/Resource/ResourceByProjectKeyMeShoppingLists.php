@@ -30,6 +30,21 @@ class ResourceByProjectKeyMeShoppingLists extends ApiResource
     }
 
     /**
+     * @psalm-param scalar $key
+     *
+     * @param null|mixed $key
+     */
+    public function keyWithKeyValue($key = null): ResourceByProjectKeyMeShoppingListsKeyByKey
+    {
+        $args = $this->getArgs();
+        if (!is_null($key)) {
+            $args['key'] = $key;
+        }
+
+        return new ResourceByProjectKeyMeShoppingListsKeyByKey($this->getUri().'/key={key}', $args, $this->getClient());
+    }
+
+    /**
      * @psalm-param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      *

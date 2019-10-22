@@ -26,7 +26,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/me/payments?expand=expand',
+                '{projectKey}/me/payments?expand=expand',
             ],
             'ByProjectKeyMePaymentsGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -38,7 +38,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/me/payments?where=where',
+                '{projectKey}/me/payments?where=where',
             ],
             'ByProjectKeyMePaymentsGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -50,7 +50,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/me/payments?sort=sort',
+                '{projectKey}/me/payments?sort=sort',
             ],
             'ByProjectKeyMePaymentsGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -62,7 +62,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/me/payments?limit=limit',
+                '{projectKey}/me/payments?limit=limit',
             ],
             'ByProjectKeyMePaymentsGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -74,7 +74,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/me/payments?offset=offset',
+                '{projectKey}/me/payments?offset=offset',
             ],
             'ByProjectKeyMePaymentsGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -86,7 +86,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/me/payments?withTotal=withTotal',
+                '{projectKey}/me/payments?withTotal=withTotal',
             ],
             'ByProjectKeyMePaymentsGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -97,7 +97,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/me/payments',
+                '{projectKey}/me/payments',
             ],
             'ByProjectKeyMePaymentsPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -109,7 +109,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/me/payments?expand=expand',
+                '{projectKey}/me/payments?expand=expand',
             ],
             'ByProjectKeyMePaymentsPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -120,7 +120,7 @@ class ResourceByProjectKeyMePaymentsTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/me/payments',
+                '{projectKey}/me/payments',
             ]
         ];
     }

@@ -9,8 +9,6 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Productvariants;
 
 use Commercetools\Base\Builder;
-use Commercetools\Import\Models\Common\LocalizedEnumValue;
-use Commercetools\Import\Models\Common\LocalizedEnumValueBuilder;
 
 /**
  * @implements Builder<LocalizableEnumAttribute>
@@ -28,7 +26,7 @@ final class LocalizableEnumAttributeBuilder implements Builder
     private $type;
 
     /**
-     * @var LocalizedEnumValue|?LocalizedEnumValueBuilder
+     * @var ?string
      */
     private $value;
 
@@ -37,8 +35,9 @@ final class LocalizableEnumAttributeBuilder implements Builder
     }
 
     /**
-     * <p>For now we reuse this type in two different context. And that's why the name is required when used in the full import.
-     * And why the name isn't required when used in patch.</p>.
+     * <p>The name of this attribute must match a name of the product types attribute definitions.
+     * The name is required if this type is used in a product variant and must not be set when
+     * used in a product variant patch.</p>.
      *
      * @return null|string
      */
@@ -56,11 +55,11 @@ final class LocalizableEnumAttributeBuilder implements Builder
     }
 
     /**
-     * @return null|LocalizedEnumValue
+     * @return null|string
      */
     public function getValue()
     {
-        return $this->value instanceof LocalizedEnumValueBuilder ? $this->value->build() : $this->value;
+        return $this->value;
     }
 
     /**
@@ -86,17 +85,7 @@ final class LocalizableEnumAttributeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?LocalizedEnumValue $value)
-    {
-        $this->value = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValueBuilder(?LocalizedEnumValueBuilder $value)
+    public function withValue(?string $value)
     {
         $this->value = $value;
 
@@ -108,7 +97,7 @@ final class LocalizableEnumAttributeBuilder implements Builder
         return new LocalizableEnumAttributeModel(
             $this->name,
             $this->type,
-            ($this->value instanceof LocalizedEnumValueBuilder ? $this->value->build() : $this->value)
+            $this->value
         );
     }
 

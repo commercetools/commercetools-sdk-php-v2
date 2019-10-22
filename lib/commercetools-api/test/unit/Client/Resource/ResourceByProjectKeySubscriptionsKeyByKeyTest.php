@@ -26,7 +26,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/subscriptions/key={key}?expand=expand',
+                '{projectKey}/subscriptions/key={key}?expand=expand',
             ],
             'ByProjectKeySubscriptionsKeyByKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/subscriptions/key={key}',
+                '{projectKey}/subscriptions/key={key}',
             ],
             'ByProjectKeySubscriptionsKeyByKeyPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/subscriptions/key={key}?expand=expand',
+                '{projectKey}/subscriptions/key={key}?expand=expand',
             ],
             'ByProjectKeySubscriptionsKeyByKeyPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/subscriptions/key={key}',
+                '{projectKey}/subscriptions/key={key}',
             ],
             'ByProjectKeySubscriptionsKeyByKeyDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/subscriptions/key={key}?version=version',
+                '{projectKey}/subscriptions/key={key}?version=version',
             ],
             'ByProjectKeySubscriptionsKeyByKeyDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/subscriptions/key={key}?expand=expand',
+                '{projectKey}/subscriptions/key={key}?expand=expand',
             ],
             'ByProjectKeySubscriptionsKeyByKeyDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeySubscriptionsKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/subscriptions/key={key}',
+                '{projectKey}/subscriptions/key={key}',
             ]
         ];
     }

@@ -21,7 +21,7 @@ final class CartDiscountChangeValueActionBuilder implements Builder
     private $action;
 
     /**
-     * @var CartDiscountValue|?CartDiscountValueBuilder
+     * @var CartDiscountValueDraft|?CartDiscountValueDraftBuilder
      */
     private $value;
 
@@ -38,11 +38,11 @@ final class CartDiscountChangeValueActionBuilder implements Builder
     }
 
     /**
-     * @return null|CartDiscountValue
+     * @return null|CartDiscountValueDraft
      */
     public function getValue()
     {
-        return $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value;
+        return $this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -58,7 +58,7 @@ final class CartDiscountChangeValueActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?CartDiscountValue $value)
+    public function withValue(?CartDiscountValueDraft $value)
     {
         $this->value = $value;
 
@@ -68,7 +68,7 @@ final class CartDiscountChangeValueActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?CartDiscountValueBuilder $value)
+    public function withValueBuilder(?CartDiscountValueDraftBuilder $value)
     {
         $this->value = $value;
 
@@ -79,7 +79,7 @@ final class CartDiscountChangeValueActionBuilder implements Builder
     {
         return new CartDiscountChangeValueActionModel(
             $this->action,
-            ($this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value)
+            ($this->value instanceof CartDiscountValueDraftBuilder ? $this->value->build() : $this->value)
         );
     }
 

@@ -31,7 +31,7 @@ final class AssetModel extends JsonObjectModel implements Asset
     /**
      * @var ?string
      */
-    protected $id;
+    protected $key;
 
     /**
      * @var ?array
@@ -42,13 +42,13 @@ final class AssetModel extends JsonObjectModel implements Asset
         AssetSourceCollection $sources = null,
         LocalizedString $name = null,
         LocalizedString $description = null,
-        string $id = null,
+        string $key = null,
         array $tags = null
     ) {
         $this->sources = $sources;
         $this->name = $name;
         $this->description = $description;
-        $this->id = $id;
+        $this->key = $key;
         $this->tags = $tags;
     }
 
@@ -106,20 +106,23 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
+     * <p>User-defined identifier for the asset.
+     * Asset keys are unique inside their container (a product variant or a category).</p>.
+     *
      * @return null|string
      */
-    public function getId()
+    public function getKey()
     {
-        if (is_null($this->id)) {
+        if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Asset::FIELD_ID);
+            $data = $this->raw(Asset::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+            $this->key = (string) $data;
         }
 
-        return $this->id;
+        return $this->key;
     }
 
     /**
@@ -154,9 +157,9 @@ final class AssetModel extends JsonObjectModel implements Asset
         $this->description = $description;
     }
 
-    public function setId(?string $id): void
+    public function setKey(?string $key): void
     {
-        $this->id = $id;
+        $this->key = $key;
     }
 
     public function setTags(?array $tags): void

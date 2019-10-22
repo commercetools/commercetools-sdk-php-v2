@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Base\Builder;
 
 /**
@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class TaxPortionBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var TypedMoney|?TypedMoneyBuilder
      */
     private $amount;
 
@@ -37,11 +37,11 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getAmount()
     {
-        return $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount;
+        return $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount;
     }
 
     /**
@@ -63,7 +63,7 @@ final class TaxPortionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmount(?Money $amount)
+    public function withAmount(?TypedMoney $amount)
     {
         $this->amount = $amount;
 
@@ -93,7 +93,7 @@ final class TaxPortionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmountBuilder(?MoneyBuilder $amount)
+    public function withAmountBuilder(?TypedMoneyBuilder $amount)
     {
         $this->amount = $amount;
 
@@ -103,7 +103,7 @@ final class TaxPortionBuilder implements Builder
     public function build(): TaxPortion
     {
         return new TaxPortionModel(
-            ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount),
+            ($this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount),
             $this->rate,
             $this->name
         );

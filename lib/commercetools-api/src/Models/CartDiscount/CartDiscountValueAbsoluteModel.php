@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CartDiscount;
 
-use Commercetools\Api\Models\Common\MoneyCollection;
+use Commercetools\Api\Models\Common\TypedMoneyCollection;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
@@ -22,13 +22,13 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     protected $type;
 
     /**
-     * @var ?MoneyCollection
+     * @var ?TypedMoneyCollection
      */
     protected $money;
 
     public function __construct(
         string $type = null,
-        MoneyCollection $money = null
+        TypedMoneyCollection $money = null
     ) {
         $this->type = $type;
         $this->money = $money;
@@ -52,7 +52,7 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     }
 
     /**
-     * @return null|MoneyCollection
+     * @return null|TypedMoneyCollection
      */
     public function getMoney()
     {
@@ -62,7 +62,7 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
             if (is_null($data)) {
                 return null;
             }
-            $this->money = MoneyCollection::fromArray($data);
+            $this->money = TypedMoneyCollection::fromArray($data);
         }
 
         return $this->money;
@@ -73,7 +73,7 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
         $this->type = $type;
     }
 
-    public function setMoney(?MoneyCollection $money): void
+    public function setMoney(?TypedMoneyCollection $money): void
     {
         $this->money = $money;
     }

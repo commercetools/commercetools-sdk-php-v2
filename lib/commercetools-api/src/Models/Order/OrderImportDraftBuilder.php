@@ -18,6 +18,8 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
+use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -64,6 +66,11 @@ final class OrderImportDraftBuilder implements Builder
     private $taxedPrice;
 
     /**
+     * @var ?string
+     */
+    private $origin;
+
+    /**
      * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
     private $custom;
@@ -72,6 +79,11 @@ final class OrderImportDraftBuilder implements Builder
      * @var ShippingInfoImportDraft|?ShippingInfoImportDraftBuilder
      */
     private $shippingInfo;
+
+    /**
+     * @var StoreKeyReference|?StoreKeyReferenceBuilder
+     */
+    private $store;
 
     /**
      * @var ?string
@@ -189,6 +201,14 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
+     * @return null|string
+     */
+    public function getOrigin()
+    {
+        return $this->origin;
+    }
+
+    /**
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -202,6 +222,14 @@ final class OrderImportDraftBuilder implements Builder
     public function getShippingInfo()
     {
         return $this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo;
+    }
+
+    /**
+     * @return null|StoreKeyReference
+     */
+    public function getStore()
+    {
+        return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
     }
 
     /**
@@ -365,6 +393,16 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withOrigin(?string $origin)
+    {
+        $this->origin = $origin;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
@@ -378,6 +416,16 @@ final class OrderImportDraftBuilder implements Builder
     public function withShippingInfo(?ShippingInfoImportDraft $shippingInfo)
     {
         $this->shippingInfo = $shippingInfo;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStore(?StoreKeyReference $store)
+    {
+        $this->store = $store;
 
         return $this;
     }
@@ -545,6 +593,16 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withShippingAddressBuilder(?AddressBuilder $shippingAddress)
     {
         $this->shippingAddress = $shippingAddress;
@@ -572,8 +630,10 @@ final class OrderImportDraftBuilder implements Builder
             ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
             ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup),
             ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
+            $this->origin,
             ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
             ($this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo),
+            ($this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store),
             $this->inventoryMode,
             $this->orderState,
             $this->taxRoundingMode,

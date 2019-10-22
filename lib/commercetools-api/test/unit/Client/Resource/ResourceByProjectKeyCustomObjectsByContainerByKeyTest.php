@@ -26,7 +26,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/custom-objects/{container}/{key}?expand=expand',
+                '{projectKey}/custom-objects/{container}/{key}?expand=expand',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/custom-objects/{container}/{key}',
+                '{projectKey}/custom-objects/{container}/{key}',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/custom-objects/{container}/{key}?version=version',
+                '{projectKey}/custom-objects/{container}/{key}?version=version',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete_withDataErasure' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -61,7 +61,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '/{projectKey}/custom-objects/{container}/{key}?dataErasure=dataErasure',
+                '{projectKey}/custom-objects/{container}/{key}?dataErasure=dataErasure',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -73,7 +73,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/custom-objects/{container}/{key}?expand=expand',
+                '{projectKey}/custom-objects/{container}/{key}?expand=expand',
             ],
             'ByProjectKeyCustomObjectsByContainerByKeyDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyCustomObjectsByContainerByKeyTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/custom-objects/{container}/{key}',
+                '{projectKey}/custom-objects/{container}/{key}',
             ]
         ];
     }

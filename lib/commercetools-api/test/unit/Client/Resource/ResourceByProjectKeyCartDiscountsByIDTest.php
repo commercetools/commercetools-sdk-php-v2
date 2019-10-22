@@ -26,7 +26,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/cart-discounts/{ID}?expand=expand',
+                '{projectKey}/cart-discounts/{ID}?expand=expand',
             ],
             'ByProjectKeyCartDiscountsByIDGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/cart-discounts/{ID}',
+                '{projectKey}/cart-discounts/{ID}',
             ],
             'ByProjectKeyCartDiscountsByIDPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/cart-discounts/{ID}?expand=expand',
+                '{projectKey}/cart-discounts/{ID}?expand=expand',
             ],
             'ByProjectKeyCartDiscountsByIDPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/cart-discounts/{ID}',
+                '{projectKey}/cart-discounts/{ID}',
             ],
             'ByProjectKeyCartDiscountsByIDDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/cart-discounts/{ID}?version=version',
+                '{projectKey}/cart-discounts/{ID}?version=version',
             ],
             'ByProjectKeyCartDiscountsByIDDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/cart-discounts/{ID}?expand=expand',
+                '{projectKey}/cart-discounts/{ID}?expand=expand',
             ],
             'ByProjectKeyCartDiscountsByIDDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -95,7 +95,7 @@ class ResourceByProjectKeyCartDiscountsByIDTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/cart-discounts/{ID}',
+                '{projectKey}/cart-discounts/{ID}',
             ]
         ];
     }

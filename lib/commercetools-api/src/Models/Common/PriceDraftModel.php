@@ -32,7 +32,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     protected $country;
 
     /**
-     * @var ?PriceTierCollection
+     * @var ?PriceTierDraftCollection
      */
     protected $tiers;
 
@@ -69,7 +69,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     public function __construct(
         DiscountedPrice $discounted = null,
         string $country = null,
-        PriceTierCollection $tiers = null,
+        PriceTierDraftCollection $tiers = null,
         CustomerGroupResourceIdentifier $customerGroup = null,
         CustomFieldsDraft $custom = null,
         ChannelResourceIdentifier $channel = null,
@@ -126,7 +126,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
     }
 
     /**
-     * @return null|PriceTierCollection
+     * @return null|PriceTierDraftCollection
      */
     public function getTiers()
     {
@@ -136,7 +136,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
             if (is_null($data)) {
                 return null;
             }
-            $this->tiers = PriceTierCollection::fromArray($data);
+            $this->tiers = PriceTierDraftCollection::fromArray($data);
         }
 
         return $this->tiers;
@@ -207,7 +207,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -228,7 +228,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -266,7 +266,7 @@ final class PriceDraftModel extends JsonObjectModel implements PriceDraft
         $this->country = $country;
     }
 
-    public function setTiers(?PriceTierCollection $tiers): void
+    public function setTiers(?PriceTierDraftCollection $tiers): void
     {
         $this->tiers = $tiers;
     }

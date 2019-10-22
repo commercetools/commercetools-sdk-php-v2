@@ -55,7 +55,7 @@ class Config implements BaseConfig
 
     public function getOptions(): array
     {
-        return array_merge(
+        return array_replace(
             [self::OPT_BASE_URI => $this->getApiUri()],
             $this->clientOptions
         );

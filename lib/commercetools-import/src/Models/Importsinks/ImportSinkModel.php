@@ -11,7 +11,6 @@ namespace Commercetools\Import\Models\Importsinks;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
-use stdClass;
 
 final class ImportSinkModel extends JsonObjectModel implements ImportSink
 {
@@ -24,11 +23,6 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
      * @var ?DateTimeImmutable
      */
     protected $lastModifiedAt;
-
-    /**
-     * @var ?Predicate
-     */
-    protected $skipPredicate;
 
     /**
      * @var ?int
@@ -48,21 +42,19 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     public function __construct(
         DateTimeImmutable $createdAt = null,
         DateTimeImmutable $lastModifiedAt = null,
-        Predicate $skipPredicate = null,
         int $version = null,
         string $key = null,
         string $resourceType = null
     ) {
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
-        $this->skipPredicate = $skipPredicate;
         $this->version = $version;
         $this->key = $key;
         $this->resourceType = $resourceType;
     }
 
     /**
-     * <p>The creation time of this import sink.</p>.
+     * <p>When the import sink was created.</p>.
      *
      * @return null|DateTimeImmutable
      */
@@ -74,7 +66,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -85,7 +77,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>The last modification time of this import sink.</p>.
+     * <p>When the import sink was modified.</p>.
      *
      * @return null|DateTimeImmutable
      */
@@ -97,7 +89,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
@@ -105,28 +97,6 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
         }
 
         return $this->lastModifiedAt;
-    }
-
-    /**
-     * <p>A predicate allows to check the current state of a CTP resource. And can be used to detect if an import should
-     * be performed or should be skipped. And this abstract type allows us to support different syntaxes for our predicates
-     * without any breaking changes to our api.</p>.
-     *
-     * @return null|Predicate
-     */
-    public function getSkipPredicate()
-    {
-        if (is_null($this->skipPredicate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ImportSink::FIELD_SKIP_PREDICATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = PredicateModel::resolveDiscriminatorClass($data);
-            $this->skipPredicate = $className::of($data);
-        }
-
-        return $this->skipPredicate;
     }
 
     /**
@@ -149,7 +119,7 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>The key of import sink.</p>.
+     * <p>The unique key of the import sink.</p>.
      *
      * @return null|string
      */
@@ -168,7 +138,8 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     }
 
     /**
-     * <p>The type of the import resource sent to this import sink.</p>.
+     * <p>The type of import resource sent to this import sink.
+     * You can only send one resource type per import sink.</p>.
      *
      * @return null|string
      */
@@ -194,11 +165,6 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
-    }
-
-    public function setSkipPredicate(?Predicate $skipPredicate): void
-    {
-        $this->skipPredicate = $skipPredicate;
     }
 
     public function setVersion(?int $version): void

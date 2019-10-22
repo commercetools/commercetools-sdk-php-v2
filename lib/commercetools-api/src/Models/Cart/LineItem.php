@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\Channel\ChannelReference;
 use Commercetools\Api\Models\Common\LocalizedString;
-use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\Price;
+use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Order\ItemStateCollection;
 use Commercetools\Api\Models\Product\ProductVariant;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
@@ -82,7 +82,7 @@ interface LineItem extends JsonObject
     public function getTaxedPrice();
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getTotalPrice();
 
@@ -152,7 +152,7 @@ interface LineItem extends JsonObject
 
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void;
 
-    public function setTotalPrice(?Money $totalPrice): void;
+    public function setTotalPrice(?TypedMoney $totalPrice): void;
 
     public function setQuantity(?int $quantity): void;
 

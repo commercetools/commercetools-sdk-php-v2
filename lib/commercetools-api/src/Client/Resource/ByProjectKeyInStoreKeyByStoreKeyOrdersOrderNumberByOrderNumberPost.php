@@ -41,7 +41,7 @@ class ByProjectKeyInStoreKeyByStoreKeyOrdersOrderNumberByOrderNumberPost extends
      */
     public function __construct($projectKey, $storeKey, $orderNumber, $body = null, array $headers = [], Client $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{orderNumber}'], [$projectKey, $storeKey, $orderNumber], '/{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{orderNumber}'], [$projectKey, $storeKey, $orderNumber], '{projectKey}/in-store/key={storeKey}/orders/order-number={orderNumber}');
         parent::__construct($client, 'POST', $uri, $headers, !is_null($body) ? json_encode($body) : null);
     }
 

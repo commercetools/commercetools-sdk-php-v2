@@ -39,6 +39,11 @@ final class PagedQueryResponseBuilder implements Builder
     private $count;
 
     /**
+     * @var ?int
+     */
+    private $limit;
+
+    /**
      * @var ?BaseResourceCollection
      */
     private $results;
@@ -82,6 +87,14 @@ final class PagedQueryResponseBuilder implements Builder
     public function getCount()
     {
         return $this->count;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
     }
 
     /**
@@ -143,6 +156,16 @@ final class PagedQueryResponseBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLimit(?int $limit)
+    {
+        $this->limit = $limit;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withResults(?BaseResourceCollection $results)
     {
         $this->results = $results;
@@ -177,6 +200,7 @@ final class PagedQueryResponseBuilder implements Builder
             $this->offset,
             $this->meta,
             $this->count,
+            $this->limit,
             $this->results,
             ($this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets)
         );

@@ -26,7 +26,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/customers/key={key}?expand=expand',
+                '{projectKey}/customers/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomersKeyByKeyGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -37,7 +37,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/customers/key={key}',
+                '{projectKey}/customers/key={key}',
             ],
             'ByProjectKeyCustomersKeyByKeyPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -49,7 +49,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/customers/key={key}?expand=expand',
+                '{projectKey}/customers/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomersKeyByKeyPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -60,7 +60,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/customers/key={key}',
+                '{projectKey}/customers/key={key}',
             ],
             'ByProjectKeyCustomersKeyByKeyDelete_withDataErasure' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -72,7 +72,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->withDataErasure('dataErasure');
                 },
                 'delete',
-                '/{projectKey}/customers/key={key}?dataErasure=dataErasure',
+                '{projectKey}/customers/key={key}?dataErasure=dataErasure',
             ],
             'ByProjectKeyCustomersKeyByKeyDelete_withVersion' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -84,7 +84,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->withVersion('version');
                 },
                 'delete',
-                '/{projectKey}/customers/key={key}?version=version',
+                '{projectKey}/customers/key={key}?version=version',
             ],
             'ByProjectKeyCustomersKeyByKeyDelete_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -96,7 +96,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->withExpand('expand');
                 },
                 'delete',
-                '/{projectKey}/customers/key={key}?expand=expand',
+                '{projectKey}/customers/key={key}?expand=expand',
             ],
             'ByProjectKeyCustomersKeyByKeyDelete' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -107,7 +107,7 @@ class ResourceByProjectKeyCustomersKeyByKeyTest extends TestCase
                         ->delete();
                 },
                 'delete',
-                '/{projectKey}/customers/key={key}',
+                '{projectKey}/customers/key={key}',
             ]
         ];
     }

@@ -27,7 +27,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->withFilename('filename');
                 },
                 'post',
-                '/{projectKey}/products/{ID}/images?filename=filename',
+                '{projectKey}/products/{ID}/images?filename=filename',
             ],
             'ByProjectKeyProductsByIDImagesPost_withVariant' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -40,7 +40,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->withVariant('variant');
                 },
                 'post',
-                '/{projectKey}/products/{ID}/images?variant=variant',
+                '{projectKey}/products/{ID}/images?variant=variant',
             ],
             'ByProjectKeyProductsByIDImagesPost_withSku' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -53,7 +53,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->withSku('sku');
                 },
                 'post',
-                '/{projectKey}/products/{ID}/images?sku=sku',
+                '{projectKey}/products/{ID}/images?sku=sku',
             ],
             'ByProjectKeyProductsByIDImagesPost_withStaged' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -66,7 +66,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->withStaged('staged');
                 },
                 'post',
-                '/{projectKey}/products/{ID}/images?staged=staged',
+                '{projectKey}/products/{ID}/images?staged=staged',
             ],
             'ByProjectKeyProductsByIDImagesPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -78,7 +78,7 @@ class ResourceByProjectKeyProductsByIDImagesTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/products/{ID}/images',
+                '{projectKey}/products/{ID}/images',
             ]
         ];
     }

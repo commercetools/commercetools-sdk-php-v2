@@ -29,6 +29,11 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     protected $count;
 
     /**
+     * @var ?int
+     */
+    protected $limit;
+
+    /**
      * @var ?MessageCollection
      */
     protected $results;
@@ -37,11 +42,13 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
         int $total = null,
         int $offset = null,
         int $count = null,
+        int $limit = null,
         MessageCollection $results = null
     ) {
         $this->total = $total;
         $this->offset = $offset;
         $this->count = $count;
+        $this->limit = $limit;
         $this->results = $results;
     }
 
@@ -97,6 +104,23 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     }
 
     /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MessagePagedQueryResponse::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
+    }
+
+    /**
      * @return null|MessageCollection
      */
     public function getResults()
@@ -126,6 +150,11 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     public function setCount(?int $count): void
     {
         $this->count = $count;
+    }
+
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
     }
 
     public function setResults(?MessageCollection $results): void

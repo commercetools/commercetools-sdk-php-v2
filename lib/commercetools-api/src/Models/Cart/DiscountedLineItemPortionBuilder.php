@@ -10,8 +10,8 @@ namespace Commercetools\Api\Models\Cart;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountReference;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceBuilder;
-use Commercetools\Api\Models\Common\Money;
-use Commercetools\Api\Models\Common\MoneyBuilder;
+use Commercetools\Api\Models\Common\TypedMoney;
+use Commercetools\Api\Models\Common\TypedMoneyBuilder;
 use Commercetools\Base\Builder;
 
 /**
@@ -20,7 +20,7 @@ use Commercetools\Base\Builder;
 final class DiscountedLineItemPortionBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
+     * @var TypedMoney|?TypedMoneyBuilder
      */
     private $discountedAmount;
 
@@ -34,11 +34,11 @@ final class DiscountedLineItemPortionBuilder implements Builder
     }
 
     /**
-     * @return null|Money
+     * @return null|TypedMoney
      */
     public function getDiscountedAmount()
     {
-        return $this->discountedAmount instanceof MoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount;
+        return $this->discountedAmount instanceof TypedMoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount;
     }
 
     /**
@@ -52,7 +52,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDiscountedAmount(?Money $discountedAmount)
+    public function withDiscountedAmount(?TypedMoney $discountedAmount)
     {
         $this->discountedAmount = $discountedAmount;
 
@@ -72,7 +72,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDiscountedAmountBuilder(?MoneyBuilder $discountedAmount)
+    public function withDiscountedAmountBuilder(?TypedMoneyBuilder $discountedAmount)
     {
         $this->discountedAmount = $discountedAmount;
 
@@ -92,7 +92,7 @@ final class DiscountedLineItemPortionBuilder implements Builder
     public function build(): DiscountedLineItemPortion
     {
         return new DiscountedLineItemPortionModel(
-            ($this->discountedAmount instanceof MoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount),
+            ($this->discountedAmount instanceof TypedMoneyBuilder ? $this->discountedAmount->build() : $this->discountedAmount),
             ($this->discount instanceof CartDiscountReferenceBuilder ? $this->discount->build() : $this->discount)
         );
     }

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Cart\TaxPortionCollection;
+use Commercetools\Api\Models\Cart\TaxPortionDraftCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Base\Builder;
@@ -24,7 +24,7 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     private $action;
 
     /**
-     * @var ?TaxPortionCollection
+     * @var ?TaxPortionDraftCollection
      */
     private $externalTaxPortions;
 
@@ -46,7 +46,7 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     }
 
     /**
-     * @return null|TaxPortionCollection
+     * @return null|TaxPortionDraftCollection
      */
     public function getExternalTaxPortions()
     {
@@ -74,7 +74,7 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalTaxPortions(?TaxPortionCollection $externalTaxPortions)
+    public function withExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions)
     {
         $this->externalTaxPortions = $externalTaxPortions;
 

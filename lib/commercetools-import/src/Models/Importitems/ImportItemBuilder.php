@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Importitems;
 
 use Commercetools\Base\Builder;
+use Commercetools\Import\Models\Common\KeyReferenceCollection;
 use Commercetools\Import\Models\Errors\ErrorObjectCollection;
 use DateTimeImmutable;
 
@@ -38,6 +39,11 @@ final class ImportItemBuilder implements Builder
     private $retryCount;
 
     /**
+     * @var ?KeyReferenceCollection
+     */
+    private $unresolvedReferences;
+
+    /**
      * @var ?string
      */
     private $state;
@@ -53,6 +59,11 @@ final class ImportItemBuilder implements Builder
     private $version;
 
     /**
+     * @var ?DateTimeImmutable
+     */
+    private $expiresAt;
+
+    /**
      * @var ?ErrorObjectCollection
      */
     private $errors;
@@ -62,7 +73,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The creation time of this import item.</p>.
+     * <p>When the import item was created.</p>.
      *
      * @return null|DateTimeImmutable
      */
@@ -72,7 +83,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The last modification time of this import item.</p>.
+     * <p>When the import item was modified.</p>.
      *
      * @return null|DateTimeImmutable
      */
@@ -82,7 +93,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The key of the imported resource.</p>.
+     * <p>The key of the import resource.</p>.
      *
      * @return null|string
      */
@@ -92,7 +103,7 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The number of retries for this item.</p>.
+     * <p>The number of request retries for processing the import resource.</p>.
      *
      * @return null|int
      */
@@ -102,7 +113,18 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The status of a single import request.</p>.
+     * <p>If an import resource has unresolved references, the state is set to <code>Unresolved</code>
+     * and this property contains the unresolved references.</p>.
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getUnresolvedReferences()
+    {
+        return $this->unresolvedReferences;
+    }
+
+    /**
+     * <p>The status of the import resource.</p>.
      *
      * @return null|string
      */
@@ -132,7 +154,18 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>Used to report errors when an import item is in the state VALIDATION_FAILED or REJECTED.</p>.
+     * <p>When the import item expires.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
+    }
+
+    /**
+     * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
+     * and this property contains the errors.</p>.
      *
      * @return null|ErrorObjectCollection
      */
@@ -184,6 +217,16 @@ final class ImportItemBuilder implements Builder
     /**
      * @return $this
      */
+    public function withUnresolvedReferences(?KeyReferenceCollection $unresolvedReferences)
+    {
+        $this->unresolvedReferences = $unresolvedReferences;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withState(?string $state)
     {
         $this->state = $state;
@@ -214,6 +257,16 @@ final class ImportItemBuilder implements Builder
     /**
      * @return $this
      */
+    public function withExpiresAt(?DateTimeImmutable $expiresAt)
+    {
+        $this->expiresAt = $expiresAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withErrors(?ErrorObjectCollection $errors)
     {
         $this->errors = $errors;
@@ -228,9 +281,11 @@ final class ImportItemBuilder implements Builder
             $this->lastModifiedAt,
             $this->resourceKey,
             $this->retryCount,
+            $this->unresolvedReferences,
             $this->state,
             $this->importSinkKey,
             $this->version,
+            $this->expiresAt,
             $this->errors
         );
     }

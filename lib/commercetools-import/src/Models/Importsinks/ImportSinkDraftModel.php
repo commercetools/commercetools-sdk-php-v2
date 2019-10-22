@@ -9,14 +9,13 @@ declare(strict_types=1);
 namespace Commercetools\Import\Models\Importsinks;
 
 use Commercetools\Base\JsonObjectModel;
-use stdClass;
 
 final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDraft
 {
     /**
-     * @var ?Predicate
+     * @var ?int
      */
-    protected $skipPredicate;
+    protected $version;
 
     /**
      * @var ?string
@@ -29,39 +28,36 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     protected $resourceType;
 
     public function __construct(
-        Predicate $skipPredicate = null,
+        int $version = null,
         string $key = null,
         string $resourceType = null
     ) {
-        $this->skipPredicate = $skipPredicate;
+        $this->version = $version;
         $this->key = $key;
         $this->resourceType = $resourceType;
     }
 
     /**
-     * <p>A predicate allows to check the current state of a CTP resource. And can be used to detect if an import should
-     * be performed or should be skipped. And this abstract type allows us to support different syntaxes for our predicates
-     * without any breaking changes to our api.</p>.
+     * <p>The version of this resource.</p>.
      *
-     * @return null|Predicate
+     * @return null|int
      */
-    public function getSkipPredicate()
+    public function getVersion()
     {
-        if (is_null($this->skipPredicate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ImportSinkDraft::FIELD_SKIP_PREDICATE);
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ImportSinkDraft::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
-            $className = PredicateModel::resolveDiscriminatorClass($data);
-            $this->skipPredicate = $className::of($data);
+            $this->version = (int) $data;
         }
 
-        return $this->skipPredicate;
+        return $this->version;
     }
 
     /**
-     * <p>The key of import sink.</p>.
+     * <p>The unique key of the import sink.</p>.
      *
      * @return null|string
      */
@@ -80,7 +76,7 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
     }
 
     /**
-     * <p>The type of the import resource sent to this import sink.</p>.
+     * <p>The type of import resource sent to this import sink.</p>.
      *
      * @return null|string
      */
@@ -98,9 +94,9 @@ final class ImportSinkDraftModel extends JsonObjectModel implements ImportSinkDr
         return $this->resourceType;
     }
 
-    public function setSkipPredicate(?Predicate $skipPredicate): void
+    public function setVersion(?int $version): void
     {
-        $this->skipPredicate = $skipPredicate;
+        $this->version = $version;
     }
 
     public function setKey(?string $key): void

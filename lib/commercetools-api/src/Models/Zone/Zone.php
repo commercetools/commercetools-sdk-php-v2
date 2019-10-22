@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Zone;
 
-use Commercetools\Api\Models\Common\BaseResource;
+use Commercetools\Api\Models\Common\LoggedResource;
 
-interface Zone extends BaseResource
+interface Zone extends LoggedResource
 {
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';

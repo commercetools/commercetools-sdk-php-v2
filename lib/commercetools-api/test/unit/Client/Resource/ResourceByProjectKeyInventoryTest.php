@@ -25,7 +25,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withExpand('expand');
                 },
                 'get',
-                '/{projectKey}/inventory?expand=expand',
+                '{projectKey}/inventory?expand=expand',
             ],
             'ByProjectKeyInventoryGet_withWhere' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -36,7 +36,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withWhere('where');
                 },
                 'get',
-                '/{projectKey}/inventory?where=where',
+                '{projectKey}/inventory?where=where',
             ],
             'ByProjectKeyInventoryGet_withSort' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -47,7 +47,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withSort('sort');
                 },
                 'get',
-                '/{projectKey}/inventory?sort=sort',
+                '{projectKey}/inventory?sort=sort',
             ],
             'ByProjectKeyInventoryGet_withLimit' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -58,7 +58,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withLimit('limit');
                 },
                 'get',
-                '/{projectKey}/inventory?limit=limit',
+                '{projectKey}/inventory?limit=limit',
             ],
             'ByProjectKeyInventoryGet_withOffset' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -69,7 +69,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withOffset('offset');
                 },
                 'get',
-                '/{projectKey}/inventory?offset=offset',
+                '{projectKey}/inventory?offset=offset',
             ],
             'ByProjectKeyInventoryGet_withWithTotal' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -80,7 +80,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withWithTotal('withTotal');
                 },
                 'get',
-                '/{projectKey}/inventory?withTotal=withTotal',
+                '{projectKey}/inventory?withTotal=withTotal',
             ],
             'ByProjectKeyInventoryGet' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -90,7 +90,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->get();
                 },
                 'get',
-                '/{projectKey}/inventory',
+                '{projectKey}/inventory',
             ],
             'ByProjectKeyInventoryPost_withExpand' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -101,7 +101,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->withExpand('expand');
                 },
                 'post',
-                '/{projectKey}/inventory?expand=expand',
+                '{projectKey}/inventory?expand=expand',
             ],
             'ByProjectKeyInventoryPost' => [
                 function(ApiRoot $builder): RequestInterface {
@@ -111,7 +111,7 @@ class ResourceByProjectKeyInventoryTest extends TestCase
                         ->post(null);
                 },
                 'post',
-                '/{projectKey}/inventory',
+                '{projectKey}/inventory',
             ]
         ];
     }
