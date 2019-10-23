@@ -65,7 +65,7 @@ final class ParcelModel extends JsonObjectModel implements Parcel
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::TIME_FORMAT, $data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
             if (false === $data) {
                 return null;
             }
