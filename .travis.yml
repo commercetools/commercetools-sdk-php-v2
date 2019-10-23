@@ -7,5 +7,5 @@ php:
 before_script:
   - composer install -o --prefer-dist
 script:
-  - vendor/bin/phpunit--testsuite=unit
-  - vendor/bin/phpunit--testsuite=integration
+  - vendor/bin/phpunit --testsuite=unit
+  - vendor/bin/phpunit --testsuite=integration
