@@ -3,9 +3,11 @@ php:
 - '7.2'
 - '7.3'
 - '7.4snapshot'
-
 before_script:
-  - composer install -o --prefer-dist
+- composer install -o --prefer-dist
 script:
-  - vendor/bin/phpunit --testsuite=unit
-  - vendor/bin/phpunit --testsuite=integration
+- vendor/bin/phpunit --testsuite=unit
+- vendor/bin/phpunit --testsuite=integration
+notifications:
+  slack:
+    secure: gmALGkiHCMmR4NoROvwGg7Jt7zT63uHpCQladULGy2TPqiLJZGlwJZudz/WcV3PHaFBzgS85rR5STwF/bMf0jwia+OCB4HH149WPs+hbyYjP8vyJLg59kgD2zStz/bS/vpS7VQm1Y+51OWowmfkCiWvz3Xc8fmBn8vDXP6fsKik/xe8gHgKh0Ah+606dgnW0oQHRdw0TWLENHwxpHkhJ0nDWLAla4tqUE+Si5usKU8fdquAh4jj6JLyXqKzAIYj7TnDPHc2DQZuayVVq3x4oDSAt54kHhN1KslJPcuUnKSZFNk42y73BcJUbLVxfiACdjdqug9JjO2lsiLhvIhBNguRa4QBtHmChuN1HyOw6AApV2MCbRix04HKsf53BqVIbKKq/1Jt9UlNA3gNulbtq39MwcxCoMmWH1P9Q1z4J99uSYpE5WfRTuiLv4i4aEzDlVIF5bo4Up2fhBM/wKVJr5CaFCGjRnvjHzwBZnyo88i5yCX8oJlQJYKQtr/JVDjy6crmuhjnwLSTF1wPZEEmPm6EJa6VLlZKYakOC2JpSyc+p+tIqX24kufqqO860Epqmfy65xsDrEzQ8VHMcN8/UJjKqKLTsq2Yv/VwZy0jbDU/Qxo7lt+n7nczFX59ZXmeU3E8FBksT0x2QzRQy69qMP+erZR+r2VrUjHTa0hjRT5w=
