@@ -12,9 +12,8 @@ use GuzzleHttp\Client;
 
 class ClientCredentialTokenProvider implements TokenProvider
 {
+    const GRANT_TYPE_CLIENT_CREDENTIALS = 'client_credentials';
     const GRANT_TYPE = 'grant_type';
-    const CLIENT_ID = 'clientId';
-    const CLIENT_SECRET = 'clientSecret';
     const SCOPE = 'scope';
     const ACCESS_TOKEN = 'access_token';
     const EXPIRES_IN = 'expires_in';
@@ -22,29 +21,33 @@ class ClientCredentialTokenProvider implements TokenProvider
     /** @var Client */
     private $client;
 
-    /** @var ClientCredentialsConfig */
-    private $authConfig;
+    /** @var string */
+    private $accessTokenUrl;
 
-    public function __construct(Client $client, ClientCredentialsConfig $authConfig)
+    /** @var ClientCredentials */
+    private $credentials;
+
+    public function __construct(Client $client, string $accessTokenUrl, ClientCredentials $credentials)
     {
-        $this->authConfig = $authConfig;
         $this->client = $client;
+        $this->accessTokenUrl = $accessTokenUrl;
+        $this->credentials = $credentials;
     }
 
     public function getToken(): Token
     {
         $data = [
-            self::GRANT_TYPE => $this->authConfig->getGrantType(),
+            self::GRANT_TYPE => self::GRANT_TYPE_CLIENT_CREDENTIALS,
         ];
-        if (!is_null($this->authConfig->getScope())) {
-            $data[self::SCOPE] = $this->authConfig->getScope();
+        if (!is_null($this->credentials->getScope())) {
+            $data[self::SCOPE] = $this->credentials->getScope();
         }
         $options = [
             'form_params' => $data,
-            'auth' => [$this->authConfig->getClientId(), $this->authConfig->getClientSecret()],
+            'auth' => [$this->credentials->getClientId(), $this->credentials->getClientSecret()],
         ];
 
-        $result = $this->client->post($this->authConfig->getAuthUri(), $options);
+        $result = $this->client->post($this->accessTokenUrl, $options);
 
         /** @var array $body */
         $body = json_decode((string) $result->getBody(), true);

@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\AddressCollection;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -103,7 +103,7 @@ interface MyCustomerDraft extends JsonObject
     public function getLocale();
 
     /**
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores();
 
@@ -135,5 +135,5 @@ interface MyCustomerDraft extends JsonObject
 
     public function setLocale(?string $locale): void;
 
-    public function setStores(?StoreKeyReferenceCollection $stores): void;
+    public function setStores(?StoreResourceIdentifierCollection $stores): void;
 }

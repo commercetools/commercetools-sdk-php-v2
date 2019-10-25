@@ -9,12 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
-use Commercetools\Api\Models\Cart\TaxedPrice;
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
-use Commercetools\Api\Models\Store\StoreKeyReference;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -75,7 +75,7 @@ interface OrderImportDraft extends JsonObject
     public function getTotalPrice();
 
     /**
-     * @return null|TaxedPrice
+     * @return null|TaxedPriceDraft
      */
     public function getTaxedPrice();
 
@@ -145,7 +145,7 @@ interface OrderImportDraft extends JsonObject
     public function getItemShippingAddresses();
 
     /**
-     * @return null|StoreKeyReference
+     * @return null|StoreResourceIdentifier
      */
     public function getStore();
 
@@ -166,7 +166,7 @@ interface OrderImportDraft extends JsonObject
 
     public function setTotalPrice(?Money $totalPrice): void;
 
-    public function setTaxedPrice(?TaxedPrice $taxedPrice): void;
+    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void;
 
     public function setShippingAddress(?Address $shippingAddress): void;
 
@@ -194,7 +194,7 @@ interface OrderImportDraft extends JsonObject
 
     public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void;
 
-    public function setStore(?StoreKeyReference $store): void;
+    public function setStore(?StoreResourceIdentifier $store): void;
 
     public function setOrigin(?string $origin): void;
 }

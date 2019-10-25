@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyBuilder;
+use Commercetools\Api\Models\Common\TypedMoneyDraft;
+use Commercetools\Api\Models\Common\TypedMoneyDraftBuilder;
 use Commercetools\Base\Builder;
 
 /**
@@ -18,7 +18,7 @@ use Commercetools\Base\Builder;
 final class TaxPortionDraftBuilder implements Builder
 {
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var TypedMoneyDraft|?TypedMoneyDraftBuilder
      */
     private $amount;
 
@@ -37,11 +37,11 @@ final class TaxPortionDraftBuilder implements Builder
     }
 
     /**
-     * @return null|TypedMoney
+     * @return null|TypedMoneyDraft
      */
     public function getAmount()
     {
-        return $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount;
+        return $this->amount instanceof TypedMoneyDraftBuilder ? $this->amount->build() : $this->amount;
     }
 
     /**
@@ -63,7 +63,7 @@ final class TaxPortionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmount(?TypedMoney $amount)
+    public function withAmount(?TypedMoneyDraft $amount)
     {
         $this->amount = $amount;
 
@@ -93,7 +93,7 @@ final class TaxPortionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmountBuilder(?TypedMoneyBuilder $amount)
+    public function withAmountBuilder(?TypedMoneyDraftBuilder $amount)
     {
         $this->amount = $amount;
 
@@ -103,7 +103,7 @@ final class TaxPortionDraftBuilder implements Builder
     public function build(): TaxPortionDraft
     {
         return new TaxPortionDraftModel(
-            ($this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount),
+            ($this->amount instanceof TypedMoneyDraftBuilder ? $this->amount->build() : $this->amount),
             $this->rate,
             $this->name
         );

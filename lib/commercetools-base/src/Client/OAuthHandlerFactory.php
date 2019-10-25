@@ -31,10 +31,11 @@ class OAuthHandlerFactory
                $provider = new CachedTokenProvider(
                    new ClientCredentialTokenProvider(
                        new Client($authConfig->getClientOptions()),
-                       $authConfig
+                       $authConfig->getAuthUri(),
+                       $authConfig->getCredentials()
                    ),
                    $cache,
-                   $authConfig->getCacheKey()
+                   $authConfig->getCredentials()->getCacheKey()
                );
 
                break;

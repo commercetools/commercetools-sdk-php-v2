@@ -15,11 +15,7 @@ interface Config
 
     public function getApiUri(): string;
 
-    public function setApiUri(string $apiUri): Config;
-
     public function getClientOptions(): array;
-
-    public function setClientOptions(array $options): Config;
 
     public function getOptions(): array;
 }

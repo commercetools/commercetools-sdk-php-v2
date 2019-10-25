@@ -20,13 +20,12 @@ class Config implements BaseConfig
     /** @var array */
     private $clientOptions;
 
-    public function __construct(array $config = [])
+    public function __construct(array $clientOptions = [], string $baseUri = null)
     {
         /** @var string $apiUri */
-        $apiUri = isset($config[self::OPT_BASE_URI]) ? $config[self::OPT_BASE_URI] : static::API_URI;
+        $apiUri = $baseUri ?? static::API_URI;
         $this->apiUri = $apiUri;
-        $this->clientOptions = isset($config[self::OPT_CLIENT_OPTIONS]) && is_array($config[self::OPT_CLIENT_OPTIONS]) ?
-            $config[self::OPT_CLIENT_OPTIONS] : [];
+        $this->clientOptions = $clientOptions;
     }
 
     public function getApiUri(): string
@@ -34,29 +33,15 @@ class Config implements BaseConfig
         return $this->apiUri;
     }
 
-    public function setApiUri(string $apiUri): BaseConfig
-    {
-        $this->apiUri = $apiUri;
-
-        return $this;
-    }
-
     public function getClientOptions(): array
     {
         return $this->clientOptions;
     }
 
-    public function setClientOptions(array $options): BaseConfig
-    {
-        $this->clientOptions = $options;
-
-        return $this;
-    }
-
     public function getOptions(): array
     {
         return array_replace(
-            [self::OPT_BASE_URI => $this->getApiUri()],
+            [self::OPT_BASE_URI => $this->apiUri],
             $this->clientOptions
         );
     }

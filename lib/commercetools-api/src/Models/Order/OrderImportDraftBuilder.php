@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
-use Commercetools\Api\Models\Cart\TaxedPrice;
-use Commercetools\Api\Models\Cart\TaxedPriceBuilder;
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
+use Commercetools\Api\Models\Cart\TaxedPriceDraftBuilder;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\AddressCollection;
@@ -18,8 +18,8 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
-use Commercetools\Api\Models\Store\StoreKeyReference;
-use Commercetools\Api\Models\Store\StoreKeyReferenceBuilder;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -61,7 +61,7 @@ final class OrderImportDraftBuilder implements Builder
     private $customerGroup;
 
     /**
-     * @var TaxedPrice|?TaxedPriceBuilder
+     * @var TaxedPriceDraft|?TaxedPriceDraftBuilder
      */
     private $taxedPrice;
 
@@ -81,7 +81,7 @@ final class OrderImportDraftBuilder implements Builder
     private $shippingInfo;
 
     /**
-     * @var StoreKeyReference|?StoreKeyReferenceBuilder
+     * @var StoreResourceIdentifier|?StoreResourceIdentifierBuilder
      */
     private $store;
 
@@ -193,11 +193,11 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * @return null|TaxedPrice
+     * @return null|TaxedPriceDraft
      */
     public function getTaxedPrice()
     {
-        return $this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
+        return $this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
 
     /**
@@ -225,11 +225,11 @@ final class OrderImportDraftBuilder implements Builder
     }
 
     /**
-     * @return null|StoreKeyReference
+     * @return null|StoreResourceIdentifier
      */
     public function getStore()
     {
-        return $this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store;
+        return $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store;
     }
 
     /**
@@ -383,7 +383,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxedPrice(?TaxedPrice $taxedPrice)
+    public function withTaxedPrice(?TaxedPriceDraft $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
 
@@ -423,7 +423,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStore(?StoreKeyReference $store)
+    public function withStore(?StoreResourceIdentifier $store)
     {
         $this->store = $store;
 
@@ -563,7 +563,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxedPriceBuilder(?TaxedPriceBuilder $taxedPrice)
+    public function withTaxedPriceBuilder(?TaxedPriceDraftBuilder $taxedPrice)
     {
         $this->taxedPrice = $taxedPrice;
 
@@ -593,7 +593,7 @@ final class OrderImportDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStoreBuilder(?StoreKeyReferenceBuilder $store)
+    public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)
     {
         $this->store = $store;
 
@@ -629,11 +629,11 @@ final class OrderImportDraftBuilder implements Builder
             $this->orderNumber,
             ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
             ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->taxedPrice instanceof TaxedPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
+            ($this->taxedPrice instanceof TaxedPriceDraftBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
             $this->origin,
             ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
             ($this->shippingInfo instanceof ShippingInfoImportDraftBuilder ? $this->shippingInfo->build() : $this->shippingInfo),
-            ($this->store instanceof StoreKeyReferenceBuilder ? $this->store->build() : $this->store),
+            ($this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store),
             $this->inventoryMode,
             $this->orderState,
             $this->taxRoundingMode,

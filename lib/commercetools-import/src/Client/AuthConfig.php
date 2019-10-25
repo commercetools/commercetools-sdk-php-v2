@@ -22,12 +22,11 @@ abstract class AuthConfig implements BaseAuthConfig
     /** @var array */
     private $clientOptions;
 
-    public function __construct(array $config = [])
+    public function __construct(array $clientOptions = [], string $authUri = self::AUTH_URI)
     {
         // @var string authUri
-        $this->authUri = isset($config[self::OPT_AUTH_URI]) ? $config[self::OPT_AUTH_URI] : static::AUTH_URI;
-        $this->clientOptions = isset($config[self::OPT_CLIENT_OPTIONS]) && is_array($config[self::OPT_CLIENT_OPTIONS]) ?
-            $config[self::OPT_CLIENT_OPTIONS] : [];
+        $this->authUri = $authUri;
+        $this->clientOptions = $clientOptions;
     }
 
     public function getGrantType(): string
@@ -41,23 +40,9 @@ abstract class AuthConfig implements BaseAuthConfig
         return $this->authUri;
     }
 
-    public function setAuthUri(string $authUri): BaseAuthConfig
-    {
-        $this->authUri = $authUri;
-
-        return $this;
-    }
-
     public function getClientOptions(): array
     {
         return $this->clientOptions;
-    }
-
-    public function setClientOptions(array $options): BaseAuthConfig
-    {
-        $this->clientOptions = $options;
-
-        return $this;
     }
 
     public function getOptions(): array
@@ -67,6 +52,4 @@ abstract class AuthConfig implements BaseAuthConfig
             $this->clientOptions
         );
     }
-
-    abstract public function getCacheKey(): string;
 }

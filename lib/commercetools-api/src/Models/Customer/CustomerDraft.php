@@ -10,7 +10,7 @@ namespace Commercetools\Api\Models\Customer;
 
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -164,7 +164,7 @@ interface CustomerDraft extends JsonObject
     public function getKey();
 
     /**
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores();
 
@@ -216,5 +216,5 @@ interface CustomerDraft extends JsonObject
 
     public function setKey(?string $key): void;
 
-    public function setStores(?StoreKeyReferenceCollection $stores): void;
+    public function setStores(?StoreResourceIdentifierCollection $stores): void;
 }

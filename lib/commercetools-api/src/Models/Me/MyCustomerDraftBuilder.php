@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\AddressCollection;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
@@ -36,7 +36,7 @@ final class MyCustomerDraftBuilder implements Builder
     private $defaultShippingAddress;
 
     /**
-     * @var ?StoreKeyReferenceCollection
+     * @var ?StoreResourceIdentifierCollection
      */
     private $stores;
 
@@ -124,7 +124,7 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
     {
@@ -252,7 +252,7 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStores(?StoreKeyReferenceCollection $stores)
+    public function withStores(?StoreResourceIdentifierCollection $stores)
     {
         $this->stores = $stores;
 

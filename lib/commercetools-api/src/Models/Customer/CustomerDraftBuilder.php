@@ -11,7 +11,7 @@ namespace Commercetools\Api\Models\Customer;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierBuilder;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
@@ -43,7 +43,7 @@ final class CustomerDraftBuilder implements Builder
     private $defaultShippingAddress;
 
     /**
-     * @var ?StoreKeyReferenceCollection
+     * @var ?StoreResourceIdentifierCollection
      */
     private $stores;
 
@@ -184,7 +184,7 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
     {
@@ -394,7 +394,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStores(?StoreKeyReferenceCollection $stores)
+    public function withStores(?StoreResourceIdentifierCollection $stores)
     {
         $this->stores = $stores;
 

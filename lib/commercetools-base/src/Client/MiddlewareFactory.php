@@ -97,7 +97,7 @@ class MiddlewareFactory
                      * @psalm-return PromiseInterface
                      * @psalm-param array{reauth: int} $options
                      */
-                    function (RequestInterface $request, array $options) use ($handler, $oauthHandler, $maxRetries) {
+                    function (RequestInterface $request, array $options) use ($handler, $oauthHandler, $maxRetries): PromiseInterface {
                         return $handler($request, $options)->then(
                             function (ResponseInterface $response) use (
                                 $request,
@@ -125,8 +125,6 @@ class MiddlewareFactory
                                 return $response;
                             }
                         );
-
-                        return $result;
                     };
             };
     }

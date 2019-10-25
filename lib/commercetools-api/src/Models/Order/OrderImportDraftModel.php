@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\CustomLineItemDraftCollection;
-use Commercetools\Api\Models\Cart\TaxedPrice;
-use Commercetools\Api\Models\Cart\TaxedPriceModel;
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
+use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
@@ -18,8 +18,8 @@ use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
-use Commercetools\Api\Models\Store\StoreKeyReference;
-use Commercetools\Api\Models\Store\StoreKeyReferenceModel;
+use Commercetools\Api\Models\Store\StoreResourceIdentifier;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\JsonObjectModel;
@@ -60,7 +60,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $customerGroup;
 
     /**
-     * @var ?TaxedPrice
+     * @var ?TaxedPriceDraft
      */
     protected $taxedPrice;
 
@@ -80,7 +80,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $shippingInfo;
 
     /**
-     * @var ?StoreKeyReference
+     * @var ?StoreResourceIdentifier
      */
     protected $store;
 
@@ -146,11 +146,11 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         string $orderNumber = null,
         Money $totalPrice = null,
         CustomerGroupResourceIdentifier $customerGroup = null,
-        TaxedPrice $taxedPrice = null,
+        TaxedPriceDraft $taxedPrice = null,
         string $origin = null,
         CustomFieldsDraft $custom = null,
         ShippingInfoImportDraft $shippingInfo = null,
-        StoreKeyReference $store = null,
+        StoreResourceIdentifier $store = null,
         string $inventoryMode = null,
         string $orderState = null,
         string $taxRoundingMode = null,
@@ -296,7 +296,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
-     * @return null|TaxedPrice
+     * @return null|TaxedPriceDraft
      */
     public function getTaxedPrice()
     {
@@ -307,7 +307,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
                 return null;
             }
 
-            $this->taxedPrice = TaxedPriceModel::of($data);
+            $this->taxedPrice = TaxedPriceDraftModel::of($data);
         }
 
         return $this->taxedPrice;
@@ -367,7 +367,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
-     * @return null|StoreKeyReference
+     * @return null|StoreResourceIdentifier
      */
     public function getStore()
     {
@@ -378,7 +378,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
                 return null;
             }
 
-            $this->store = StoreKeyReferenceModel::of($data);
+            $this->store = StoreResourceIdentifierModel::of($data);
         }
 
         return $this->store;
@@ -603,7 +603,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->customerGroup = $customerGroup;
     }
 
-    public function setTaxedPrice(?TaxedPrice $taxedPrice): void
+    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
     }
@@ -623,7 +623,7 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->shippingInfo = $shippingInfo;
     }
 
-    public function setStore(?StoreKeyReference $store): void
+    public function setStore(?StoreResourceIdentifier $store): void
     {
         $this->store = $store;
     }

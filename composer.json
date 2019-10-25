@@ -12,6 +12,7 @@
         "lib/commercetools-import/src/"
       ],
       "Commercetools\\": [
+        "src/",
         "lib/commercetools-base/src/"
       ]
     }

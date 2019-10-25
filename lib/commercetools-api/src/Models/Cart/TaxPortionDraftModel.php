@@ -8,15 +8,15 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoney;
-use Commercetools\Api\Models\Common\TypedMoneyModel;
+use Commercetools\Api\Models\Common\TypedMoneyDraft;
+use Commercetools\Api\Models\Common\TypedMoneyDraftModel;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
 final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDraft
 {
     /**
-     * @var ?TypedMoney
+     * @var ?TypedMoneyDraft
      */
     protected $amount;
 
@@ -31,7 +31,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     protected $name;
 
     public function __construct(
-        TypedMoney $amount = null,
+        TypedMoneyDraft $amount = null,
         int $rate = null,
         string $name = null
     ) {
@@ -41,7 +41,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     }
 
     /**
-     * @return null|TypedMoney
+     * @return null|TypedMoneyDraft
      */
     public function getAmount()
     {
@@ -51,7 +51,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $className = TypedMoneyDraftModel::resolveDiscriminatorClass($data);
             $this->amount = $className::of($data);
         }
 
@@ -92,7 +92,7 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
         return $this->name;
     }
 
-    public function setAmount(?TypedMoney $amount): void
+    public function setAmount(?TypedMoneyDraft $amount): void
     {
         $this->amount = $amount;
     }

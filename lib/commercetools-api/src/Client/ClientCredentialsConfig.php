@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client;
 
+use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientCredentialsConfig as BaseClientCredentialsConfig;
 
 class ClientCredentialsConfig extends AuthConfig implements BaseClientCredentialsConfig
@@ -16,64 +17,17 @@ class ClientCredentialsConfig extends AuthConfig implements BaseClientCredential
 
     const GRANT_TYPE = 'client_credentials';
 
-    /** @var string */
-    private $clientId;
+    /** @var ClientCredentials */
+    private $credentials;
 
-    /** @var string */
-    private $clientSecret;
-
-    /** @var ?string */
-    private $scope;
-
-    /**
-     * @psalm-param array<string, string> $authConfig
-     */
-    public function __construct(array $authConfig = [])
+    public function __construct(ClientCredentials $credentials, array $clientOptions = [], string $authUri = self::AUTH_URI)
     {
-        parent::__construct($authConfig);
-        $this->clientId = isset($authConfig[self::CLIENT_ID]) ? $authConfig[self::CLIENT_ID] : '';
-        $this->clientSecret = isset($authConfig[self::CLIENT_SECRET]) ? $authConfig[self::CLIENT_SECRET] : '';
-        $this->scope = isset($authConfig[self::SCOPE]) ? $authConfig[self::SCOPE] : null;
+        parent::__construct($clientOptions, $authUri);
+        $this->credentials = $credentials;
     }
 
-    public function getClientId(): string
+    public function getCredentials(): ClientCredentials
     {
-        return $this->clientId;
-    }
-
-    public function getScope(): ?string
-    {
-        return $this->scope;
-    }
-
-    public function setScope(string $scope = null): BaseClientCredentialsConfig
-    {
-        $this->scope = $scope;
-
-        return $this;
-    }
-
-    public function setClientId(string $clientId): BaseClientCredentialsConfig
-    {
-        $this->clientId = $clientId;
-
-        return $this;
-    }
-
-    public function getClientSecret(): string
-    {
-        return $this->clientSecret;
-    }
-
-    public function setClientSecret(string $clientSecret): BaseClientCredentialsConfig
-    {
-        $this->clientSecret = $clientSecret;
-
-        return $this;
-    }
-
-    public function getCacheKey(): string
-    {
-        return sha1($this->clientId.(string) $this->scope);
+        return $this->credentials;
     }
 }

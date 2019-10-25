@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Me;
 
 use Commercetools\Api\Models\Common\AddressCollection;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\JsonObjectModel;
@@ -35,7 +35,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     protected $defaultShippingAddress;
 
     /**
-     * @var ?StoreKeyReferenceCollection
+     * @var ?StoreResourceIdentifierCollection
      */
     protected $stores;
 
@@ -98,7 +98,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         string $lastName = null,
         AddressCollection $addresses = null,
         int $defaultShippingAddress = null,
-        StoreKeyReferenceCollection $stores = null,
+        StoreResourceIdentifierCollection $stores = null,
         CustomFields $custom = null,
         string $companyName = null,
         string $vatId = null,
@@ -180,7 +180,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
     {
@@ -190,7 +190,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
             if (is_null($data)) {
                 return null;
             }
-            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+            $this->stores = StoreResourceIdentifierCollection::fromArray($data);
         }
 
         return $this->stores;
@@ -403,7 +403,7 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         $this->defaultShippingAddress = $defaultShippingAddress;
     }
 
-    public function setStores(?StoreKeyReferenceCollection $stores): void
+    public function setStores(?StoreResourceIdentifierCollection $stores): void
     {
         $this->stores = $stores;
     }

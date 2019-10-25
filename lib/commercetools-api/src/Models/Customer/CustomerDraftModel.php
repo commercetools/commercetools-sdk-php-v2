@@ -11,7 +11,7 @@ namespace Commercetools\Api\Models\Customer;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifier;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupResourceIdentifierModel;
-use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\JsonObjectModel;
@@ -42,7 +42,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     protected $defaultShippingAddress;
 
     /**
-     * @var ?StoreKeyReferenceCollection
+     * @var ?StoreResourceIdentifierCollection
      */
     protected $stores;
 
@@ -151,7 +151,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         string $lastName = null,
         AddressCollection $addresses = null,
         int $defaultShippingAddress = null,
-        StoreKeyReferenceCollection $stores = null,
+        StoreResourceIdentifierCollection $stores = null,
         CustomerGroupResourceIdentifier $customerGroup = null,
         CustomFieldsDraft $custom = null,
         string $companyName = null,
@@ -269,7 +269,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
     }
 
     /**
-     * @return null|StoreKeyReferenceCollection
+     * @return null|StoreResourceIdentifierCollection
      */
     public function getStores()
     {
@@ -279,7 +279,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
             if (is_null($data)) {
                 return null;
             }
-            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+            $this->stores = StoreResourceIdentifierCollection::fromArray($data);
         }
 
         return $this->stores;
@@ -651,7 +651,7 @@ final class CustomerDraftModel extends JsonObjectModel implements CustomerDraft
         $this->defaultShippingAddress = $defaultShippingAddress;
     }
 
-    public function setStores(?StoreKeyReferenceCollection $stores): void
+    public function setStores(?StoreResourceIdentifierCollection $stores): void
     {
         $this->stores = $stores;
     }
