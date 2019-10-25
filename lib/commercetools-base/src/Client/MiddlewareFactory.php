@@ -23,16 +23,11 @@ class MiddlewareFactory
     /**
      * @psalm-return array<string, callable>
      * @psalm-param CacheItemPoolInterface|CacheInterface|null $cache
-     *
-     * @param null|mixed $cache
      */
     public static function createDefaultMiddlewares(
         LoggerInterface $logger,
-        AuthConfig $authConfig,
-        $cache = null
+        OAuth2Handler $handler
     ) {
-        $handler = OAuthHandlerFactory::ofAuthConfig($authConfig, $cache);
-
         return [
             'oauth' => self::createMiddlewareForOAuthHandler($handler),
             'reauth' => self::createReauthenticateMiddleware($handler),
@@ -45,29 +40,6 @@ class MiddlewareFactory
      */
     public static function createMiddlewareForOAuthHandler(OAuth2Handler $handler)
     {
-        return Middleware::mapRequest($handler);
-    }
-
-    /**
-     * @psalm-param CacheItemPoolInterface|CacheInterface|null $cache
-     * @psalm-return callable()
-     *
-     * @param null|mixed $cache
-     */
-    public static function createOAuthMiddleware(AuthConfig $authConfig, $cache = null)
-    {
-        $handler = OAuthHandlerFactory::ofAuthConfig($authConfig, $cache);
-
-        return Middleware::mapRequest($handler);
-    }
-
-    /**
-     * @psalm-return callable()
-     */
-    public static function createOAuthMiddlewareForProvider(TokenProvider $provider)
-    {
-        $handler = OAuthHandlerFactory::ofProvider($provider);
-
         return Middleware::mapRequest($handler);
     }
 

@@ -6,6 +6,7 @@ use Commercetools\Api\Client\ApiRoot;
 use Commercetools\Api\Client\ClientCredentialsConfig;
 use Commercetools\Api\Client\Config;
 use Commercetools\Api\Models\Me\MyCart;
+use Commercetools\Client\MeOAuthHandlerFactory;
 use Commercetools\Client\MeConfig;
 use Commercetools\Api\Models\Category\Category;
 use Commercetools\Api\Models\Category\CategoryPagedQueryResponseModel;
@@ -18,6 +19,7 @@ use Commercetools\Api\Models\Project\ProjectModel;
 use Commercetools\Client\ClientCredentials;
 use Commercetools\Client\ClientFactory;
 use Commercetools\Client\MiddlewareFactory;
+use Commercetools\Client\OAuthHandlerFactory;
 use Commercetools\Client\ProviderFactory;
 use Commercetools\Exception\ApiClientException;
 use GuzzleHttp\Client;
@@ -51,7 +53,7 @@ class MiscTest extends TestCase
 
         $client = ClientFactory::of()->createGuzzleClient(
             new Config(),
-            $authConfig,
+            OAuthHandlerFactory::ofAuthConfig($authConfig),
             $logger
         );
         $this->client = $client;
@@ -146,22 +148,12 @@ class MiscTest extends TestCase
         );
 
         $instanceTokenStorage = new InstanceTokenStorage();
-        $client = ClientFactory::of()->createGuzzleClientForMiddlewares(
+        $handler = MeOAuthHandlerFactory::ofAuthConfig($authConfig, $instanceTokenStorage);
+
+        $client = ClientFactory::of()->createGuzzleClient(
             new Config(),
-            array_replace(
-                MiddlewareFactory::createDefaultMiddlewares($logger, $authConfig),
-                [
-                    'oauth' => MiddlewareFactory::createOAuthMiddlewareForProvider(
-                        ProviderFactory::of()->createTokenStorageProvider(
-                            $authConfig->getAnonUri(),
-                            $authConfig->getRefreshUri(),
-                            $authConfig->getCredentials(),
-                            new Client($authConfig->getClientOptions()),
-                            $instanceTokenStorage
-                        )
-                    )
-                ]
-            )
+            $handler,
+            $logger
         );
 
         $root = new ApiRoot($client, ['projectKey' => $this->projectKey]);

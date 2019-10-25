@@ -11,24 +11,19 @@ namespace Commercetools\Client;
 use Commercetools\Exception\InvalidArgumentException;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\HandlerStack;
-use Psr\Cache\CacheItemPoolInterface;
 use Psr\Log\LoggerInterface;
-use Psr\SimpleCache\CacheInterface;
 
 class ClientFactory
 {
     /**
-     * @psalm-param CacheItemPoolInterface|CacheInterface|null $cache
      * @psalm-param array<string, callable> $middlewares
-     *
-     * @param null|mixed $cache
      *
      * @throws InvalidArgumentException
      */
-    public function createGuzzleClient(Config $config, ClientCredentialsConfig $authConfig, LoggerInterface $logger, $cache = null, array $middlewares = []): HttpClient
+    public function createGuzzleClient(Config $config, OAuth2Handler $handler, LoggerInterface $logger, array $middlewares = []): HttpClient
     {
         $middlewares = array_merge(
-            MiddlewareFactory::createDefaultMiddlewares($logger, $authConfig, $cache),
+            MiddlewareFactory::createDefaultMiddlewares($logger, $handler),
             $middlewares
         );
 
