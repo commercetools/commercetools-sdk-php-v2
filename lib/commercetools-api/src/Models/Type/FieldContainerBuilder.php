@@ -12,7 +12,8 @@ use Commercetools\Base\Builder;
 use Commercetools\Base\MapperMap;
 
 /**
- * @extends Builder<FieldContainer>
+ * @implements Builder<FieldContainer>
+ * @extends MapperMap<FieldContainer>
  */
 final class FieldContainerBuilder extends MapperMap implements Builder
 {

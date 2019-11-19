@@ -8,7 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Subscription;
 
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LoggedResource;
+use DateTimeImmutable;
 
 interface Subscription extends LoggedResource
 {
@@ -18,6 +21,36 @@ interface Subscription extends LoggedResource
     const FIELD_MESSAGES = 'messages';
     const FIELD_FORMAT = 'format';
     const FIELD_STATUS = 'status';
+
+    /**
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
 
     /**
      * @return null|ChangeSubscriptionCollection
@@ -48,6 +81,18 @@ interface Subscription extends LoggedResource
      * @return null|string
      */
     public function getStatus();
+
+    public function setId(?string $id): void;
+
+    public function setVersion(?int $version): void;
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
+
+    public function setCreatedBy(?CreatedBy $createdBy): void;
 
     public function setChanges(?ChangeSubscriptionCollection $changes): void;
 

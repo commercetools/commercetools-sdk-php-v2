@@ -8,8 +8,11 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShippingMethod;
 
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
+use DateTimeImmutable;
 
 interface ShippingMethod extends LoggedResource
 {
@@ -20,6 +23,36 @@ interface ShippingMethod extends LoggedResource
     const FIELD_ZONE_RATES = 'zoneRates';
     const FIELD_IS_DEFAULT = 'isDefault';
     const FIELD_PREDICATE = 'predicate';
+
+    /**
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
 
     /**
      * @return null|string
@@ -55,6 +88,18 @@ interface ShippingMethod extends LoggedResource
      * @return null|string
      */
     public function getPredicate();
+
+    public function setId(?string $id): void;
+
+    public function setVersion(?int $version): void;
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
+
+    public function setCreatedBy(?CreatedBy $createdBy): void;
 
     public function setKey(?string $key): void;
 

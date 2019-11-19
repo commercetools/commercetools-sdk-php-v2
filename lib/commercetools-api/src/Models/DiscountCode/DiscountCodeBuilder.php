@@ -82,16 +82,6 @@ final class DiscountCodeBuilder implements Builder
     private $custom;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $validUntil;
-
-    /**
      * @var ?array
      */
     private $groups;
@@ -107,11 +97,6 @@ final class DiscountCodeBuilder implements Builder
     private $validFrom;
 
     /**
-     * @var ?int
-     */
-    private $maxApplicationsPerCustomer;
-
-    /**
      * @var ?bool
      */
     private $isActive;
@@ -120,6 +105,21 @@ final class DiscountCodeBuilder implements Builder
      * @var ?int
      */
     private $maxApplications;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $validUntil;
+
+    /**
+     * @var ?int
+     */
+    private $maxApplicationsPerCustomer;
 
     public function __construct()
     {
@@ -214,22 +214,6 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidUntil()
-    {
-        return $this->validUntil;
-    }
-
-    /**
      * @return null|array
      */
     public function getGroups()
@@ -254,14 +238,6 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * @return null|int
-     */
-    public function getMaxApplicationsPerCustomer()
-    {
-        return $this->maxApplicationsPerCustomer;
-    }
-
-    /**
      * @return null|bool
      */
     public function getIsActive()
@@ -275,6 +251,30 @@ final class DiscountCodeBuilder implements Builder
     public function getMaxApplications()
     {
         return $this->maxApplications;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
+    {
+        return $this->validUntil;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getMaxApplicationsPerCustomer()
+    {
+        return $this->maxApplicationsPerCustomer;
     }
 
     /**
@@ -390,26 +390,6 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValidUntil(?DateTimeImmutable $validUntil)
-    {
-        $this->validUntil = $validUntil;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withGroups(?array $groups)
     {
         $this->groups = $groups;
@@ -440,16 +420,6 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
-    {
-        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withIsActive(?bool $isActive)
     {
         $this->isActive = $isActive;
@@ -463,6 +433,36 @@ final class DiscountCodeBuilder implements Builder
     public function withMaxApplications(?int $maxApplications)
     {
         $this->maxApplications = $maxApplications;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValidUntil(?DateTimeImmutable $validUntil)
+    {
+        $this->validUntil = $validUntil;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
+    {
+        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
 
         return $this;
     }
@@ -500,9 +500,9 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
-        $this->name = $name;
+        $this->description = $description;
 
         return $this;
     }
@@ -510,9 +510,9 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
-        $this->description = $description;
+        $this->name = $name;
 
         return $this;
     }
@@ -531,14 +531,14 @@ final class DiscountCodeBuilder implements Builder
             $this->references,
             $this->cartPredicate,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->validUntil,
             $this->groups,
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->validFrom,
-            $this->maxApplicationsPerCustomer,
             $this->isActive,
-            $this->maxApplications
+            $this->maxApplications,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->validUntil,
+            $this->maxApplicationsPerCustomer
         );
     }
 

@@ -8,14 +8,12 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
-use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\Type\CustomFields;
@@ -58,11 +56,6 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     protected $lastModifiedBy;
 
     /**
-     * @var ?ShoppingListLineItemCollection
-     */
-    protected $lineItems;
-
-    /**
      * @var ?string
      */
     protected $anonymousId;
@@ -85,12 +78,17 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * @var ?LocalizedString
      */
-    protected $name;
+    protected $description;
+
+    /**
+     * @var ?ShoppingListLineItemCollection
+     */
+    protected $lineItems;
 
     /**
      * @var ?LocalizedString
      */
-    protected $description;
+    protected $name;
 
     /**
      * @var ?LocalizedString
@@ -114,13 +112,13 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         int $version = null,
         CreatedBy $createdBy = null,
         LastModifiedBy $lastModifiedBy = null,
-        ShoppingListLineItemCollection $lineItems = null,
         string $anonymousId = null,
         TextLineItemCollection $textLineItems = null,
         int $deleteDaysAfterLastModification = null,
         CustomFields $custom = null,
-        LocalizedString $name = null,
         LocalizedString $description = null,
+        ShoppingListLineItemCollection $lineItems = null,
+        LocalizedString $name = null,
         LocalizedString $slug = null,
         string $key = null,
         CustomerReference $customer = null
@@ -131,13 +129,13 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         $this->version = $version;
         $this->createdBy = $createdBy;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->lineItems = $lineItems;
         $this->anonymousId = $anonymousId;
         $this->textLineItems = $textLineItems;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->custom = $custom;
-        $this->name = $name;
         $this->description = $description;
+        $this->lineItems = $lineItems;
+        $this->name = $name;
         $this->slug = $slug;
         $this->key = $key;
         $this->customer = $customer;
@@ -150,7 +148,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            $data = $this->raw(ShoppingList::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -171,7 +169,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(ShoppingList::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -192,7 +190,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
+            $data = $this->raw(ShoppingList::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -209,7 +207,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
+            $data = $this->raw(ShoppingList::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -226,7 +224,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            $data = $this->raw(ShoppingList::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -244,7 +242,7 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(ShoppingList::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -253,23 +251,6 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         }
 
         return $this->lastModifiedBy;
-    }
-
-    /**
-     * @return null|ShoppingListLineItemCollection
-     */
-    public function getLineItems()
-    {
-        if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShoppingList::FIELD_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItems = ShoppingListLineItemCollection::fromArray($data);
-        }
-
-        return $this->lineItems;
     }
 
     /**
@@ -344,24 +325,6 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     /**
      * @return null|LocalizedString
      */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingList::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
     public function getDescription()
     {
         if (is_null($this->description)) {
@@ -375,6 +338,41 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         }
 
         return $this->description;
+    }
+
+    /**
+     * @return null|ShoppingListLineItemCollection
+     */
+    public function getLineItems()
+    {
+        if (is_null($this->lineItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShoppingList::FIELD_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItems = ShoppingListLineItemCollection::fromArray($data);
+        }
+
+        return $this->lineItems;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShoppingList::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
 
     /**
@@ -460,11 +458,6 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
-    public function setLineItems(?ShoppingListLineItemCollection $lineItems): void
-    {
-        $this->lineItems = $lineItems;
-    }
-
     public function setAnonymousId(?string $anonymousId): void
     {
         $this->anonymousId = $anonymousId;
@@ -485,14 +478,19 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
         $this->custom = $custom;
     }
 
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
-    }
-
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
+    }
+
+    public function setLineItems(?ShoppingListLineItemCollection $lineItems): void
+    {
+        $this->lineItems = $lineItems;
+    }
+
+    public function setName(?LocalizedString $name): void
+    {
+        $this->name = $name;
     }
 
     public function setSlug(?LocalizedString $slug): void
@@ -513,12 +511,12 @@ final class ShoppingListModel extends JsonObjectModel implements ShoppingList
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[ShoppingList::FIELD_CREATED_AT]) && $data[ShoppingList::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[ShoppingList::FIELD_CREATED_AT] = $data[ShoppingList::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[ShoppingList::FIELD_LAST_MODIFIED_AT]) && $data[ShoppingList::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[ShoppingList::FIELD_LAST_MODIFIED_AT] = $data[ShoppingList::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

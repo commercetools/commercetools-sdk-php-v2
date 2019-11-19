@@ -17,12 +17,15 @@ use Commercetools\Api\Models\Cart\TaxedPrice;
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
 use Commercetools\Api\Models\Order\PaymentInfo;
 use Commercetools\Api\Models\Store\StoreKeyReference;
 use Commercetools\Api\Models\Type\CustomFields;
+use DateTimeImmutable;
 
 interface MyCart extends LoggedResource
 {
@@ -53,6 +56,36 @@ interface MyCart extends LoggedResource
     const FIELD_ORIGIN = 'origin';
     const FIELD_SHIPPING_RATE_INPUT = 'shippingRateInput';
     const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
+
+    /**
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
 
     /**
      * @return null|string
@@ -190,6 +223,18 @@ interface MyCart extends LoggedResource
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
+
+    public function setId(?string $id): void;
+
+    public function setVersion(?int $version): void;
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
+
+    public function setCreatedBy(?CreatedBy $createdBy): void;
 
     public function setCustomerId(?string $customerId): void;
 

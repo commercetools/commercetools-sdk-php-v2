@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\ReferenceCollection;
@@ -30,6 +32,36 @@ interface DiscountCode extends LoggedResource
     const FIELD_GROUPS = 'groups';
     const FIELD_VALID_FROM = 'validFrom';
     const FIELD_VALID_UNTIL = 'validUntil';
+
+    /**
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
 
     /**
      * @return null|LocalizedString
@@ -95,6 +127,18 @@ interface DiscountCode extends LoggedResource
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();
+
+    public function setId(?string $id): void;
+
+    public function setVersion(?int $version): void;
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
+
+    public function setCreatedBy(?CreatedBy $createdBy): void;
 
     public function setName(?LocalizedString $name): void;
 

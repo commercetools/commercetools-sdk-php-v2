@@ -10,11 +10,12 @@ namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
+use Commercetools\Api\Models\Common\GeoJson;
+use Commercetools\Api\Models\Common\GeoJsonModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
@@ -26,7 +27,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     protected $address;
 
     /**
-     * @var ?JsonObject
+     * @var ?GeoJson
      */
     protected $geoLocation;
 
@@ -57,7 +58,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
 
     public function __construct(
         Address $address = null,
-        JsonObject $geoLocation = null,
+        GeoJson $geoLocation = null,
         CustomFieldsDraft $custom = null,
         array $roles = null,
         LocalizedString $name = null,
@@ -92,17 +93,18 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|GeoJson
      */
     public function getGeoLocation()
     {
         if (is_null($this->geoLocation)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
             $data = $this->raw(ChannelDraft::FIELD_GEO_LOCATION);
             if (is_null($data)) {
                 return null;
             }
-            $this->geoLocation = JsonObjectModel::of($data);
+            $className = GeoJsonModel::resolveDiscriminatorClass($data);
+            $this->geoLocation = $className::of($data);
         }
 
         return $this->geoLocation;
@@ -201,7 +203,7 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
         $this->address = $address;
     }
 
-    public function setGeoLocation(?JsonObject $geoLocation): void
+    public function setGeoLocation(?GeoJson $geoLocation): void
     {
         $this->geoLocation = $geoLocation;
     }

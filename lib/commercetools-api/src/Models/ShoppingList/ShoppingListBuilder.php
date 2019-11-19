@@ -57,11 +57,6 @@ final class ShoppingListBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var ?ShoppingListLineItemCollection
-     */
-    private $lineItems;
-
-    /**
      * @var ?string
      */
     private $anonymousId;
@@ -84,12 +79,17 @@ final class ShoppingListBuilder implements Builder
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $name;
+    private $description;
+
+    /**
+     * @var ?ShoppingListLineItemCollection
+     */
+    private $lineItems;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $description;
+    private $name;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -159,14 +159,6 @@ final class ShoppingListBuilder implements Builder
     }
 
     /**
-     * @return null|ShoppingListLineItemCollection
-     */
-    public function getLineItems()
-    {
-        return $this->lineItems;
-    }
-
-    /**
      * @return null|string
      */
     public function getAnonymousId()
@@ -201,17 +193,25 @@ final class ShoppingListBuilder implements Builder
     /**
      * @return null|LocalizedString
      */
-    public function getName()
+    public function getDescription()
     {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+    }
+
+    /**
+     * @return null|ShoppingListLineItemCollection
+     */
+    public function getLineItems()
+    {
+        return $this->lineItems;
     }
 
     /**
      * @return null|LocalizedString
      */
-    public function getDescription()
+    public function getName()
     {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -301,16 +301,6 @@ final class ShoppingListBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLineItems(?ShoppingListLineItemCollection $lineItems)
-    {
-        $this->lineItems = $lineItems;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withAnonymousId(?string $anonymousId)
     {
         $this->anonymousId = $anonymousId;
@@ -351,9 +341,9 @@ final class ShoppingListBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withDescription(?LocalizedString $description)
     {
-        $this->name = $name;
+        $this->description = $description;
 
         return $this;
     }
@@ -361,9 +351,19 @@ final class ShoppingListBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescription(?LocalizedString $description)
+    public function withLineItems(?ShoppingListLineItemCollection $lineItems)
     {
-        $this->description = $description;
+        $this->lineItems = $lineItems;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -431,9 +431,9 @@ final class ShoppingListBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
-        $this->name = $name;
+        $this->description = $description;
 
         return $this;
     }
@@ -441,9 +441,9 @@ final class ShoppingListBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
-        $this->description = $description;
+        $this->name = $name;
 
         return $this;
     }
@@ -477,13 +477,13 @@ final class ShoppingListBuilder implements Builder
             $this->version,
             ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            $this->lineItems,
             $this->anonymousId,
             $this->textLineItems,
             $this->deleteDaysAfterLastModification,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->lineItems,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
             $this->key,
             ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)

@@ -50,6 +50,11 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     protected $variantId;
 
     /**
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -61,6 +66,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
         CustomFieldsDraft $custom = null,
         ChannelResourceIdentifier $supplyChannel = null,
         int $variantId = null,
+        string $sku = null,
         ChannelResourceIdentifier $distributionChannel = null
     ) {
         $this->quantity = $quantity;
@@ -69,6 +75,7 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
         $this->custom = $custom;
         $this->supplyChannel = $supplyChannel;
         $this->variantId = $variantId;
+        $this->sku = $sku;
         $this->distributionChannel = $distributionChannel;
     }
 
@@ -178,6 +185,23 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     }
 
     /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyLineItemDraft::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -223,6 +247,11 @@ final class MyLineItemDraftModel extends JsonObjectModel implements MyLineItemDr
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
+    }
+
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
     }
 
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void

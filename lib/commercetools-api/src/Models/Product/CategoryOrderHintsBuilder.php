@@ -12,7 +12,8 @@ use Commercetools\Base\Builder;
 use Commercetools\Base\MapperMap;
 
 /**
- * @extends Builder<CategoryOrderHints>
+ * @implements Builder<CategoryOrderHints>
+ * @extends MapperMap<CategoryOrderHints>
  */
 final class CategoryOrderHintsBuilder extends MapperMap implements Builder
 {

@@ -40,4 +40,11 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
 
         return new ResourceByProjectKeyInStoreKeyByStoreKeyCustomers($this->getUri().'/customers', $args, $this->getClient());
     }
+
+    public function login(): ResourceByProjectKeyInStoreKeyByStoreKeyLogin
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyLogin($this->getUri().'/login', $args, $this->getClient());
+    }
 }

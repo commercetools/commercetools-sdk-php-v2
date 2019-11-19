@@ -10,19 +10,18 @@ namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressModel;
-use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
+use Commercetools\Api\Models\Common\GeoJson;
+use Commercetools\Api\Models\Common\GeoJsonModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\Review\ReviewRatingStatisticsModel;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
-use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\MapperFactory;
 use DateTimeImmutable;
@@ -66,11 +65,6 @@ final class ChannelModel extends JsonObjectModel implements Channel
     protected $address;
 
     /**
-     * @var ?JsonObject
-     */
-    protected $geoLocation;
-
-    /**
      * @var ?CustomFields
      */
     protected $custom;
@@ -83,12 +77,17 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * @var ?LocalizedString
      */
-    protected $name;
+    protected $description;
+
+    /**
+     * @var ?GeoJson
+     */
+    protected $geoLocation;
 
     /**
      * @var ?LocalizedString
      */
-    protected $description;
+    protected $name;
 
     /**
      * @var ?ReviewRatingStatistics
@@ -108,11 +107,11 @@ final class ChannelModel extends JsonObjectModel implements Channel
         CreatedBy $createdBy = null,
         LastModifiedBy $lastModifiedBy = null,
         Address $address = null,
-        JsonObject $geoLocation = null,
         CustomFields $custom = null,
         array $roles = null,
-        LocalizedString $name = null,
         LocalizedString $description = null,
+        GeoJson $geoLocation = null,
+        LocalizedString $name = null,
         ReviewRatingStatistics $reviewRatingStatistics = null,
         string $key = null
     ) {
@@ -123,11 +122,11 @@ final class ChannelModel extends JsonObjectModel implements Channel
         $this->createdBy = $createdBy;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->address = $address;
-        $this->geoLocation = $geoLocation;
         $this->custom = $custom;
         $this->roles = $roles;
-        $this->name = $name;
         $this->description = $description;
+        $this->geoLocation = $geoLocation;
+        $this->name = $name;
         $this->reviewRatingStatistics = $reviewRatingStatistics;
         $this->key = $key;
     }
@@ -139,7 +138,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            $data = $this->raw(Channel::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -160,7 +159,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(Channel::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -181,7 +180,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
+            $data = $this->raw(Channel::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -198,7 +197,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
+            $data = $this->raw(Channel::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -215,7 +214,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            $data = $this->raw(Channel::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -233,7 +232,7 @@ final class ChannelModel extends JsonObjectModel implements Channel
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(Channel::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -260,23 +259,6 @@ final class ChannelModel extends JsonObjectModel implements Channel
         }
 
         return $this->address;
-    }
-
-    /**
-     * @return null|JsonObject
-     */
-    public function getGeoLocation()
-    {
-        if (is_null($this->geoLocation)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(Channel::FIELD_GEO_LOCATION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->geoLocation = JsonObjectModel::of($data);
-        }
-
-        return $this->geoLocation;
     }
 
     /**
@@ -317,24 +299,6 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * @return null|LocalizedString
      */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
     public function getDescription()
     {
         if (is_null($this->description)) {
@@ -348,6 +312,42 @@ final class ChannelModel extends JsonObjectModel implements Channel
         }
 
         return $this->description;
+    }
+
+    /**
+     * @return null|GeoJson
+     */
+    public function getGeoLocation()
+    {
+        if (is_null($this->geoLocation)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Channel::FIELD_GEO_LOCATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = GeoJsonModel::resolveDiscriminatorClass($data);
+            $this->geoLocation = $className::of($data);
+        }
+
+        return $this->geoLocation;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Channel::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
 
     /**
@@ -420,11 +420,6 @@ final class ChannelModel extends JsonObjectModel implements Channel
         $this->address = $address;
     }
 
-    public function setGeoLocation(?JsonObject $geoLocation): void
-    {
-        $this->geoLocation = $geoLocation;
-    }
-
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
@@ -435,14 +430,19 @@ final class ChannelModel extends JsonObjectModel implements Channel
         $this->roles = $roles;
     }
 
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
-    }
-
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
+    }
+
+    public function setGeoLocation(?GeoJson $geoLocation): void
+    {
+        $this->geoLocation = $geoLocation;
+    }
+
+    public function setName(?LocalizedString $name): void
+    {
+        $this->name = $name;
     }
 
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void
@@ -458,12 +458,12 @@ final class ChannelModel extends JsonObjectModel implements Channel
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[Channel::FIELD_CREATED_AT]) && $data[Channel::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[Channel::FIELD_CREATED_AT] = $data[Channel::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[Channel::FIELD_LAST_MODIFIED_AT]) && $data[Channel::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[Channel::FIELD_LAST_MODIFIED_AT] = $data[Channel::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

@@ -8,16 +8,16 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\JsonObject;
+use Commercetools\Api\Models\Common\GeoJson;
 
 interface ChannelSetGeoLocationAction extends ChannelUpdateAction
 {
     const FIELD_GEO_LOCATION = 'geoLocation';
 
     /**
-     * @return null|JsonObject
+     * @return null|GeoJson
      */
     public function getGeoLocation();
 
-    public function setGeoLocation(?JsonObject $geoLocation): void;
+    public function setGeoLocation(?GeoJson $geoLocation): void;
 }

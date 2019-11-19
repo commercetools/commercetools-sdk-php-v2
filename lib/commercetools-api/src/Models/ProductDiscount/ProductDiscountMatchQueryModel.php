@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Api\Models\Common\Price;
-use Commercetools\Api\Models\Common\PriceModel;
+use Commercetools\Api\Models\Common\QueryPrice;
+use Commercetools\Api\Models\Common\QueryPriceModel;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
@@ -21,7 +21,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     protected $productId;
 
     /**
-     * @var ?Price
+     * @var ?QueryPrice
      */
     protected $price;
 
@@ -37,7 +37,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
 
     public function __construct(
         string $productId = null,
-        Price $price = null,
+        QueryPrice $price = null,
         bool $staged = null,
         int $variantId = null
     ) {
@@ -65,7 +65,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * @return null|Price
+     * @return null|QueryPrice
      */
     public function getPrice()
     {
@@ -76,7 +76,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
                 return null;
             }
 
-            $this->price = PriceModel::of($data);
+            $this->price = QueryPriceModel::of($data);
         }
 
         return $this->price;
@@ -121,7 +121,7 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
         $this->productId = $productId;
     }
 
-    public function setPrice(?Price $price): void
+    public function setPrice(?QueryPrice $price): void
     {
         $this->price = $price;
     }

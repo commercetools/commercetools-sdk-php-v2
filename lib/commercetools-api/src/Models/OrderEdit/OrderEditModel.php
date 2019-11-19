@@ -8,12 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
-use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\OrderReferenceModel;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
@@ -163,7 +161,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
+            $data = $this->raw(OrderEdit::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -180,7 +178,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
+            $data = $this->raw(OrderEdit::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -197,7 +195,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            $data = $this->raw(OrderEdit::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -215,7 +213,7 @@ final class OrderEditModel extends JsonObjectModel implements OrderEdit
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(OrderEdit::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }

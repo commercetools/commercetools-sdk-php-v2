@@ -58,19 +58,9 @@ final class ReviewBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var ?bool
-     */
-    private $includedInStatistics;
-
-    /**
      * @var ?string
      */
     private $uniquenessValue;
-
-    /**
-     * @var ?string
-     */
-    private $authorName;
 
     /**
      * @var CustomFields|?CustomFieldsBuilder
@@ -81,6 +71,31 @@ final class ReviewBuilder implements Builder
      * @var ?int
      */
     private $rating;
+
+    /**
+     * @var ?string
+     */
+    private $title;
+
+    /**
+     * @var ?string
+     */
+    private $locale;
+
+    /**
+     * @var ?JsonObject
+     */
+    private $target;
+
+    /**
+     * @var ?bool
+     */
+    private $includedInStatistics;
+
+    /**
+     * @var ?string
+     */
+    private $authorName;
 
     /**
      * @var StateReference|?StateReferenceBuilder
@@ -95,27 +110,12 @@ final class ReviewBuilder implements Builder
     /**
      * @var ?string
      */
-    private $title;
-
-    /**
-     * @var ?string
-     */
-    private $locale;
-
-    /**
-     * @var ?string
-     */
     private $key;
 
     /**
      * @var CustomerReference|?CustomerReferenceBuilder
      */
     private $customer;
-
-    /**
-     * @var ?JsonObject
-     */
-    private $target;
 
     public function __construct()
     {
@@ -170,27 +170,11 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * @return null|bool
-     */
-    public function getIncludedInStatistics()
-    {
-        return $this->includedInStatistics;
-    }
-
-    /**
      * @return null|string
      */
     public function getUniquenessValue()
     {
         return $this->uniquenessValue;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAuthorName()
-    {
-        return $this->authorName;
     }
 
     /**
@@ -207,6 +191,46 @@ final class ReviewBuilder implements Builder
     public function getRating()
     {
         return $this->rating;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * @return null|JsonObject
+     */
+    public function getTarget()
+    {
+        return $this->target;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getIncludedInStatistics()
+    {
+        return $this->includedInStatistics;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAuthorName()
+    {
+        return $this->authorName;
     }
 
     /**
@@ -228,22 +252,6 @@ final class ReviewBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLocale()
-    {
-        return $this->locale;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getKey()
     {
         return $this->key;
@@ -255,14 +263,6 @@ final class ReviewBuilder implements Builder
     public function getCustomer()
     {
         return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
-    }
-
-    /**
-     * @return null|JsonObject
-     */
-    public function getTarget()
-    {
-        return $this->target;
     }
 
     /**
@@ -328,29 +328,9 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withIncludedInStatistics(?bool $includedInStatistics)
-    {
-        $this->includedInStatistics = $includedInStatistics;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withUniquenessValue(?string $uniquenessValue)
     {
         $this->uniquenessValue = $uniquenessValue;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAuthorName(?string $authorName)
-    {
-        $this->authorName = $authorName;
 
         return $this;
     }
@@ -378,26 +358,6 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withState(?StateReference $state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withText(?string $text)
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withTitle(?string $title)
     {
         $this->title = $title;
@@ -418,6 +378,56 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
+    public function withTarget(?JsonObject $target)
+    {
+        $this->target = $target;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withIncludedInStatistics(?bool $includedInStatistics)
+    {
+        $this->includedInStatistics = $includedInStatistics;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAuthorName(?string $authorName)
+    {
+        $this->authorName = $authorName;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withText(?string $text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withKey(?string $key)
     {
         $this->key = $key;
@@ -431,16 +441,6 @@ final class ReviewBuilder implements Builder
     public function withCustomer(?CustomerReference $customer)
     {
         $this->customer = $customer;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTarget(?JsonObject $target)
-    {
-        $this->target = $target;
 
         return $this;
     }
@@ -504,18 +504,18 @@ final class ReviewBuilder implements Builder
             $this->version,
             ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            $this->includedInStatistics,
             $this->uniquenessValue,
-            $this->authorName,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             $this->rating,
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
-            $this->text,
             $this->title,
             $this->locale,
+            $this->target,
+            $this->includedInStatistics,
+            $this->authorName,
+            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
+            $this->text,
             $this->key,
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
-            $this->target
+            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)
         );
     }
 

@@ -8,13 +8,46 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Store;
 
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LoggedResource;
+use DateTimeImmutable;
 
 interface Store extends LoggedResource
 {
     const FIELD_KEY = 'key';
     const FIELD_NAME = 'name';
+
+    /**
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
 
     /**
      * @return null|string
@@ -25,6 +58,18 @@ interface Store extends LoggedResource
      * @return null|LocalizedString
      */
     public function getName();
+
+    public function setId(?string $id): void;
+
+    public function setVersion(?int $version): void;
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
+
+    public function setCreatedBy(?CreatedBy $createdBy): void;
 
     public function setKey(?string $key): void;
 

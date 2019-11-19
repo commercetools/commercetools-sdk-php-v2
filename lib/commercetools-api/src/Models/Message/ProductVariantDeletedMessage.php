@@ -12,20 +12,20 @@ use Commercetools\Api\Models\Product\ProductVariant;
 
 interface ProductVariantDeletedMessage extends Message
 {
-    const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
     const FIELD_VARIANT = 'variant';
-
-    /**
-     * @return null|array
-     */
-    public function getRemovedImageUrls();
+    const FIELD_REMOVED_IMAGE_URLS = 'removedImageUrls';
 
     /**
      * @return null|ProductVariant
      */
     public function getVariant();
 
-    public function setRemovedImageUrls(?array $removedImageUrls): void;
+    /**
+     * @return null|array
+     */
+    public function getRemovedImageUrls();
 
     public function setVariant(?ProductVariant $variant): void;
+
+    public function setRemovedImageUrls(?array $removedImageUrls): void;
 }

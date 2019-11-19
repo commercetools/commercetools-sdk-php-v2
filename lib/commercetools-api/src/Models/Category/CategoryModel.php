@@ -9,14 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\AssetCollection;
-use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\JsonObjectModel;
@@ -62,6 +60,26 @@ final class CategoryModel extends JsonObjectModel implements Category
     protected $parent;
 
     /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     * @var ?string
+     */
+    protected $externalId;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $metaDescription;
+
+    /**
      * @var ?AssetCollection
      */
     protected $assets;
@@ -77,11 +95,6 @@ final class CategoryModel extends JsonObjectModel implements Category
     protected $orderHint;
 
     /**
-     * @var ?CustomFields
-     */
-    protected $custom;
-
-    /**
      * @var ?LocalizedString
      */
     protected $metaTitle;
@@ -92,24 +105,9 @@ final class CategoryModel extends JsonObjectModel implements Category
     protected $name;
 
     /**
-     * @var ?string
-     */
-    protected $externalId;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-
-    /**
      * @var ?CategoryReferenceCollection
      */
     protected $ancestors;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaDescription;
 
     /**
      * @var ?string
@@ -129,16 +127,16 @@ final class CategoryModel extends JsonObjectModel implements Category
         CreatedBy $createdBy = null,
         LastModifiedBy $lastModifiedBy = null,
         CategoryReference $parent = null,
+        CustomFields $custom = null,
+        string $externalId = null,
+        LocalizedString $description = null,
+        LocalizedString $metaDescription = null,
         AssetCollection $assets = null,
         LocalizedString $metaKeywords = null,
         string $orderHint = null,
-        CustomFields $custom = null,
         LocalizedString $metaTitle = null,
         LocalizedString $name = null,
-        string $externalId = null,
-        LocalizedString $description = null,
         CategoryReferenceCollection $ancestors = null,
-        LocalizedString $metaDescription = null,
         string $key = null,
         LocalizedString $slug = null
     ) {
@@ -149,16 +147,16 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->createdBy = $createdBy;
         $this->lastModifiedBy = $lastModifiedBy;
         $this->parent = $parent;
+        $this->custom = $custom;
+        $this->externalId = $externalId;
+        $this->description = $description;
+        $this->metaDescription = $metaDescription;
         $this->assets = $assets;
         $this->metaKeywords = $metaKeywords;
         $this->orderHint = $orderHint;
-        $this->custom = $custom;
         $this->metaTitle = $metaTitle;
         $this->name = $name;
-        $this->externalId = $externalId;
-        $this->description = $description;
         $this->ancestors = $ancestors;
-        $this->metaDescription = $metaDescription;
         $this->key = $key;
         $this->slug = $slug;
     }
@@ -170,7 +168,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            $data = $this->raw(Category::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -191,7 +189,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(Category::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -212,7 +210,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
+            $data = $this->raw(Category::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -229,7 +227,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
+            $data = $this->raw(Category::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -246,7 +244,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            $data = $this->raw(Category::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -264,7 +262,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(Category::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -291,6 +289,77 @@ final class CategoryModel extends JsonObjectModel implements Category
         }
 
         return $this->parent;
+    }
+
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Category::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getMetaDescription()
+    {
+        if (is_null($this->metaDescription)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_META_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaDescription = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaDescription;
     }
 
     /**
@@ -346,24 +415,6 @@ final class CategoryModel extends JsonObjectModel implements Category
     }
 
     /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -400,41 +451,6 @@ final class CategoryModel extends JsonObjectModel implements Category
     }
 
     /**
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        if (is_null($this->externalId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Category::FIELD_EXTERNAL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->externalId = (string) $data;
-        }
-
-        return $this->externalId;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        if (is_null($this->description)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->description = LocalizedStringModel::of($data);
-        }
-
-        return $this->description;
-    }
-
-    /**
      * @return null|CategoryReferenceCollection
      */
     public function getAncestors()
@@ -449,24 +465,6 @@ final class CategoryModel extends JsonObjectModel implements Category
         }
 
         return $this->ancestors;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaDescription()
-    {
-        if (is_null($this->metaDescription)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_META_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->metaDescription = LocalizedStringModel::of($data);
-        }
-
-        return $this->metaDescription;
     }
 
     /**
@@ -539,6 +537,26 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->parent = $parent;
     }
 
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setExternalId(?string $externalId): void
+    {
+        $this->externalId = $externalId;
+    }
+
+    public function setDescription(?LocalizedString $description): void
+    {
+        $this->description = $description;
+    }
+
+    public function setMetaDescription(?LocalizedString $metaDescription): void
+    {
+        $this->metaDescription = $metaDescription;
+    }
+
     public function setAssets(?AssetCollection $assets): void
     {
         $this->assets = $assets;
@@ -554,11 +572,6 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->orderHint = $orderHint;
     }
 
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
-    }
-
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
@@ -569,24 +582,9 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->name = $name;
     }
 
-    public function setExternalId(?string $externalId): void
-    {
-        $this->externalId = $externalId;
-    }
-
-    public function setDescription(?LocalizedString $description): void
-    {
-        $this->description = $description;
-    }
-
     public function setAncestors(?CategoryReferenceCollection $ancestors): void
     {
         $this->ancestors = $ancestors;
-    }
-
-    public function setMetaDescription(?LocalizedString $metaDescription): void
-    {
-        $this->metaDescription = $metaDescription;
     }
 
     public function setKey(?string $key): void
@@ -602,12 +600,12 @@ final class CategoryModel extends JsonObjectModel implements Category
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[Category::FIELD_CREATED_AT]) && $data[Category::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[Category::FIELD_CREATED_AT] = $data[Category::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[Category::FIELD_LAST_MODIFIED_AT]) && $data[Category::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[Category::FIELD_LAST_MODIFIED_AT] = $data[Category::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

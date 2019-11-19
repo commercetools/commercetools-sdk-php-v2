@@ -8,12 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Review;
 
-use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Customer\CustomerReferenceModel;
 use Commercetools\Api\Models\State\StateReference;
@@ -59,19 +57,9 @@ final class ReviewModel extends JsonObjectModel implements Review
     protected $lastModifiedBy;
 
     /**
-     * @var ?bool
-     */
-    protected $includedInStatistics;
-
-    /**
      * @var ?string
      */
     protected $uniquenessValue;
-
-    /**
-     * @var ?string
-     */
-    protected $authorName;
 
     /**
      * @var ?CustomFields
@@ -82,6 +70,31 @@ final class ReviewModel extends JsonObjectModel implements Review
      * @var ?int
      */
     protected $rating;
+
+    /**
+     * @var ?string
+     */
+    protected $title;
+
+    /**
+     * @var ?string
+     */
+    protected $locale;
+
+    /**
+     * @var ?JsonObject
+     */
+    protected $target;
+
+    /**
+     * @var ?bool
+     */
+    protected $includedInStatistics;
+
+    /**
+     * @var ?string
+     */
+    protected $authorName;
 
     /**
      * @var ?StateReference
@@ -96,27 +109,12 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * @var ?string
      */
-    protected $title;
-
-    /**
-     * @var ?string
-     */
-    protected $locale;
-
-    /**
-     * @var ?string
-     */
     protected $key;
 
     /**
      * @var ?CustomerReference
      */
     protected $customer;
-
-    /**
-     * @var ?JsonObject
-     */
-    protected $target;
 
     public function __construct(
         DateTimeImmutable $createdAt = null,
@@ -125,18 +123,18 @@ final class ReviewModel extends JsonObjectModel implements Review
         int $version = null,
         CreatedBy $createdBy = null,
         LastModifiedBy $lastModifiedBy = null,
-        bool $includedInStatistics = null,
         string $uniquenessValue = null,
-        string $authorName = null,
         CustomFields $custom = null,
         int $rating = null,
-        StateReference $state = null,
-        string $text = null,
         string $title = null,
         string $locale = null,
+        JsonObject $target = null,
+        bool $includedInStatistics = null,
+        string $authorName = null,
+        StateReference $state = null,
+        string $text = null,
         string $key = null,
-        CustomerReference $customer = null,
-        JsonObject $target = null
+        CustomerReference $customer = null
     ) {
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
@@ -144,18 +142,18 @@ final class ReviewModel extends JsonObjectModel implements Review
         $this->version = $version;
         $this->createdBy = $createdBy;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->includedInStatistics = $includedInStatistics;
         $this->uniquenessValue = $uniquenessValue;
-        $this->authorName = $authorName;
         $this->custom = $custom;
         $this->rating = $rating;
-        $this->state = $state;
-        $this->text = $text;
         $this->title = $title;
         $this->locale = $locale;
+        $this->target = $target;
+        $this->includedInStatistics = $includedInStatistics;
+        $this->authorName = $authorName;
+        $this->state = $state;
+        $this->text = $text;
         $this->key = $key;
         $this->customer = $customer;
-        $this->target = $target;
     }
 
     /**
@@ -165,7 +163,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            $data = $this->raw(Review::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -186,7 +184,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(Review::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -207,7 +205,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
+            $data = $this->raw(Review::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -224,7 +222,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
+            $data = $this->raw(Review::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -241,7 +239,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            $data = $this->raw(Review::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -259,7 +257,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(Review::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -268,23 +266,6 @@ final class ReviewModel extends JsonObjectModel implements Review
         }
 
         return $this->lastModifiedBy;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIncludedInStatistics()
-    {
-        if (is_null($this->includedInStatistics)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(Review::FIELD_INCLUDED_IN_STATISTICS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->includedInStatistics = (bool) $data;
-        }
-
-        return $this->includedInStatistics;
     }
 
     /**
@@ -302,23 +283,6 @@ final class ReviewModel extends JsonObjectModel implements Review
         }
 
         return $this->uniquenessValue;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAuthorName()
-    {
-        if (is_null($this->authorName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_AUTHOR_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->authorName = (string) $data;
-        }
-
-        return $this->authorName;
     }
 
     /**
@@ -354,6 +318,91 @@ final class ReviewModel extends JsonObjectModel implements Review
         }
 
         return $this->rating;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        if (is_null($this->title)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Review::FIELD_TITLE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->title = (string) $data;
+        }
+
+        return $this->title;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getLocale()
+    {
+        if (is_null($this->locale)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Review::FIELD_LOCALE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->locale = (string) $data;
+        }
+
+        return $this->locale;
+    }
+
+    /**
+     * @return null|JsonObject
+     */
+    public function getTarget()
+    {
+        if (is_null($this->target)) {
+            /** @psalm-var ?stdClass $data */
+            $data = $this->raw(Review::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->target = JsonObjectModel::of($data);
+        }
+
+        return $this->target;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getIncludedInStatistics()
+    {
+        if (is_null($this->includedInStatistics)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(Review::FIELD_INCLUDED_IN_STATISTICS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->includedInStatistics = (bool) $data;
+        }
+
+        return $this->includedInStatistics;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAuthorName()
+    {
+        if (is_null($this->authorName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Review::FIELD_AUTHOR_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authorName = (string) $data;
+        }
+
+        return $this->authorName;
     }
 
     /**
@@ -394,40 +443,6 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * @return null|string
      */
-    public function getTitle()
-    {
-        if (is_null($this->title)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_TITLE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->title = (string) $data;
-        }
-
-        return $this->title;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLocale()
-    {
-        if (is_null($this->locale)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_LOCALE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->locale = (string) $data;
-        }
-
-        return $this->locale;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getKey()
     {
         if (is_null($this->key)) {
@@ -460,23 +475,6 @@ final class ReviewModel extends JsonObjectModel implements Review
         return $this->customer;
     }
 
-    /**
-     * @return null|JsonObject
-     */
-    public function getTarget()
-    {
-        if (is_null($this->target)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(Review::FIELD_TARGET);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->target = JsonObjectModel::of($data);
-        }
-
-        return $this->target;
-    }
-
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
@@ -507,19 +505,9 @@ final class ReviewModel extends JsonObjectModel implements Review
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
-    public function setIncludedInStatistics(?bool $includedInStatistics): void
-    {
-        $this->includedInStatistics = $includedInStatistics;
-    }
-
     public function setUniquenessValue(?string $uniquenessValue): void
     {
         $this->uniquenessValue = $uniquenessValue;
-    }
-
-    public function setAuthorName(?string $authorName): void
-    {
-        $this->authorName = $authorName;
     }
 
     public function setCustom(?CustomFields $custom): void
@@ -532,16 +520,6 @@ final class ReviewModel extends JsonObjectModel implements Review
         $this->rating = $rating;
     }
 
-    public function setState(?StateReference $state): void
-    {
-        $this->state = $state;
-    }
-
-    public function setText(?string $text): void
-    {
-        $this->text = $text;
-    }
-
     public function setTitle(?string $title): void
     {
         $this->title = $title;
@@ -550,6 +528,31 @@ final class ReviewModel extends JsonObjectModel implements Review
     public function setLocale(?string $locale): void
     {
         $this->locale = $locale;
+    }
+
+    public function setTarget(?JsonObject $target): void
+    {
+        $this->target = $target;
+    }
+
+    public function setIncludedInStatistics(?bool $includedInStatistics): void
+    {
+        $this->includedInStatistics = $includedInStatistics;
+    }
+
+    public function setAuthorName(?string $authorName): void
+    {
+        $this->authorName = $authorName;
+    }
+
+    public function setState(?StateReference $state): void
+    {
+        $this->state = $state;
+    }
+
+    public function setText(?string $text): void
+    {
+        $this->text = $text;
     }
 
     public function setKey(?string $key): void
@@ -562,20 +565,15 @@ final class ReviewModel extends JsonObjectModel implements Review
         $this->customer = $customer;
     }
 
-    public function setTarget(?JsonObject $target): void
-    {
-        $this->target = $target;
-    }
-
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[Review::FIELD_CREATED_AT]) && $data[Review::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[Review::FIELD_CREATED_AT] = $data[Review::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[Review::FIELD_LAST_MODIFIED_AT]) && $data[Review::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[Review::FIELD_LAST_MODIFIED_AT] = $data[Review::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

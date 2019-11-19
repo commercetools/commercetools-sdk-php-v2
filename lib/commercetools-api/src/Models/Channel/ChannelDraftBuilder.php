@@ -10,12 +10,13 @@ namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
+use Commercetools\Api\Models\Common\GeoJson;
+use Commercetools\Api\Models\Common\GeoJsonBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftBuilder;
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
 
 /**
  * @implements Builder<ChannelDraft>
@@ -28,7 +29,7 @@ final class ChannelDraftBuilder implements Builder
     private $address;
 
     /**
-     * @var ?JsonObject
+     * @var GeoJson|?GeoJsonBuilder
      */
     private $geoLocation;
 
@@ -70,11 +71,11 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|GeoJson
      */
     public function getGeoLocation()
     {
-        return $this->geoLocation;
+        return $this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation;
     }
 
     /**
@@ -130,7 +131,7 @@ final class ChannelDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withGeoLocation(?JsonObject $geoLocation)
+    public function withGeoLocation(?GeoJson $geoLocation)
     {
         $this->geoLocation = $geoLocation;
 
@@ -200,6 +201,16 @@ final class ChannelDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withGeoLocationBuilder(?GeoJsonBuilder $geoLocation)
+    {
+        $this->geoLocation = $geoLocation;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
     {
         $this->custom = $custom;
@@ -231,7 +242,7 @@ final class ChannelDraftBuilder implements Builder
     {
         return new ChannelDraftModel(
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            $this->geoLocation,
+            ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation),
             ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
             $this->roles,
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),

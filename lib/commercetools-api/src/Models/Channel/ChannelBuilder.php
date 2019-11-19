@@ -12,6 +12,8 @@ use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressBuilder;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByBuilder;
+use Commercetools\Api\Models\Common\GeoJson;
+use Commercetools\Api\Models\Common\GeoJsonBuilder;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -21,7 +23,6 @@ use Commercetools\Api\Models\Review\ReviewRatingStatisticsBuilder;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
 use Commercetools\Base\Builder;
-use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
 
 /**
@@ -65,11 +66,6 @@ final class ChannelBuilder implements Builder
     private $address;
 
     /**
-     * @var ?JsonObject
-     */
-    private $geoLocation;
-
-    /**
      * @var CustomFields|?CustomFieldsBuilder
      */
     private $custom;
@@ -82,12 +78,17 @@ final class ChannelBuilder implements Builder
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $name;
+    private $description;
+
+    /**
+     * @var GeoJson|?GeoJsonBuilder
+     */
+    private $geoLocation;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $description;
+    private $name;
 
     /**
      * @var ReviewRatingStatistics|?ReviewRatingStatisticsBuilder
@@ -160,14 +161,6 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
-     */
-    public function getGeoLocation()
-    {
-        return $this->geoLocation;
-    }
-
-    /**
      * @return null|CustomFields
      */
     public function getCustom()
@@ -186,17 +179,25 @@ final class ChannelBuilder implements Builder
     /**
      * @return null|LocalizedString
      */
-    public function getName()
+    public function getDescription()
     {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+    }
+
+    /**
+     * @return null|GeoJson
+     */
+    public function getGeoLocation()
+    {
+        return $this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation;
     }
 
     /**
      * @return null|LocalizedString
      */
-    public function getDescription()
+    public function getName()
     {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -288,16 +289,6 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withGeoLocation(?JsonObject $geoLocation)
-    {
-        $this->geoLocation = $geoLocation;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
@@ -318,9 +309,9 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withDescription(?LocalizedString $description)
     {
-        $this->name = $name;
+        $this->description = $description;
 
         return $this;
     }
@@ -328,9 +319,19 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescription(?LocalizedString $description)
+    public function withGeoLocation(?GeoJson $geoLocation)
     {
-        $this->description = $description;
+        $this->geoLocation = $geoLocation;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -398,9 +399,9 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
-        $this->name = $name;
+        $this->description = $description;
 
         return $this;
     }
@@ -408,9 +409,19 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withGeoLocationBuilder(?GeoJsonBuilder $geoLocation)
     {
-        $this->description = $description;
+        $this->geoLocation = $geoLocation;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withNameBuilder(?LocalizedStringBuilder $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -435,11 +446,11 @@ final class ChannelBuilder implements Builder
             ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            $this->geoLocation,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             $this->roles,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation),
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics),
             $this->key
         );

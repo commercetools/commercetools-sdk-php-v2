@@ -8,7 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Channel;
 
-use Commercetools\Base\JsonObject;
+use Commercetools\Api\Models\Common\GeoJson;
+use Commercetools\Api\Models\Common\GeoJsonModel;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
@@ -22,13 +23,13 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
     protected $action;
 
     /**
-     * @var ?JsonObject
+     * @var ?GeoJson
      */
     protected $geoLocation;
 
     public function __construct(
         string $action = null,
-        JsonObject $geoLocation = null
+        GeoJson $geoLocation = null
     ) {
         $this->action = $action;
         $this->geoLocation = $geoLocation;
@@ -52,17 +53,18 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|GeoJson
      */
     public function getGeoLocation()
     {
         if (is_null($this->geoLocation)) {
-            /** @psalm-var ?stdClass $data */
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
             $data = $this->raw(ChannelSetGeoLocationAction::FIELD_GEO_LOCATION);
             if (is_null($data)) {
                 return null;
             }
-            $this->geoLocation = JsonObjectModel::of($data);
+            $className = GeoJsonModel::resolveDiscriminatorClass($data);
+            $this->geoLocation = $className::of($data);
         }
 
         return $this->geoLocation;
@@ -73,7 +75,7 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
         $this->action = $action;
     }
 
-    public function setGeoLocation(?JsonObject $geoLocation): void
+    public function setGeoLocation(?GeoJson $geoLocation): void
     {
         $this->geoLocation = $geoLocation;
     }

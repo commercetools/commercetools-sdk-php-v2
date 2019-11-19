@@ -61,6 +61,26 @@ final class CategoryBuilder implements Builder
     private $parent;
 
     /**
+     * @var CustomFields|?CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+     * @var ?string
+     */
+    private $externalId;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $description;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $metaDescription;
+
+    /**
      * @var ?AssetCollection
      */
     private $assets;
@@ -76,11 +96,6 @@ final class CategoryBuilder implements Builder
     private $orderHint;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
-     */
-    private $custom;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $metaTitle;
@@ -91,24 +106,9 @@ final class CategoryBuilder implements Builder
     private $name;
 
     /**
-     * @var ?string
-     */
-    private $externalId;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $description;
-
-    /**
      * @var ?CategoryReferenceCollection
      */
     private $ancestors;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $metaDescription;
 
     /**
      * @var ?string
@@ -181,6 +181,38 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription;
+    }
+
+    /**
      * @return null|AssetCollection
      */
     public function getAssets()
@@ -205,14 +237,6 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
      * @return null|LocalizedString
      */
     public function getMetaTitle()
@@ -229,35 +253,11 @@ final class CategoryBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
-
-    /**
      * @return null|CategoryReferenceCollection
      */
     public function getAncestors()
     {
         return $this->ancestors;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaDescription()
-    {
-        return $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription;
     }
 
     /**
@@ -349,6 +349,46 @@ final class CategoryBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalId(?string $externalId)
+    {
+        $this->externalId = $externalId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMetaDescription(?LocalizedString $metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAssets(?AssetCollection $assets)
     {
         $this->assets = $assets;
@@ -379,16 +419,6 @@ final class CategoryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withMetaTitle(?LocalizedString $metaTitle)
     {
         $this->metaTitle = $metaTitle;
@@ -409,39 +439,9 @@ final class CategoryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalId(?string $externalId)
-    {
-        $this->externalId = $externalId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDescription(?LocalizedString $description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withAncestors(?CategoryReferenceCollection $ancestors)
     {
         $this->ancestors = $ancestors;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaDescription(?LocalizedString $metaDescription)
-    {
-        $this->metaDescription = $metaDescription;
 
         return $this;
     }
@@ -499,39 +499,9 @@ final class CategoryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
-    {
-        $this->metaKeywords = $metaKeywords;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
-    {
-        $this->metaTitle = $metaTitle;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
-    {
-        $this->name = $name;
 
         return $this;
     }
@@ -559,6 +529,36 @@ final class CategoryBuilder implements Builder
     /**
      * @return $this
      */
+    public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withNameBuilder(?LocalizedStringBuilder $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withSlugBuilder(?LocalizedStringBuilder $slug)
     {
         $this->slug = $slug;
@@ -576,16 +576,16 @@ final class CategoryBuilder implements Builder
             ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
             ($this->parent instanceof CategoryReferenceBuilder ? $this->parent->build() : $this->parent),
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->externalId,
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
             $this->assets,
             ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
             $this->orderHint,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->externalId,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->ancestors,
-            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
             $this->key,
             ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
         );

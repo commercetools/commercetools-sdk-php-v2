@@ -12,7 +12,8 @@ use Commercetools\Base\Builder;
 use Commercetools\Base\MapperMap;
 
 /**
- * @extends Builder<LocalizedString>
+ * @implements Builder<LocalizedString>
+ * @extends MapperMap<LocalizedString>
  */
 final class LocalizedStringBuilder extends MapperMap implements Builder
 {

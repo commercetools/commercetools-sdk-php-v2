@@ -67,6 +67,51 @@ final class CustomerBuilder implements Builder
     private $addresses;
 
     /**
+     * @var ?string
+     */
+    private $companyName;
+
+    /**
+     * @var ?string
+     */
+    private $vatId;
+
+    /**
+     * @var ?string
+     */
+    private $locale;
+
+    /**
+     * @var ?string
+     */
+    private $title;
+
+    /**
+     * @var ?bool
+     */
+    private $isEmailVerified;
+
+    /**
+     * @var ?array
+     */
+    private $shippingAddressIds;
+
+    /**
+     * @var ?string
+     */
+    private $password;
+
+    /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
+     * @var ?string
+     */
+    private $email;
+
+    /**
      * @var ?StoreKeyReferenceCollection
      */
     private $stores;
@@ -84,27 +129,12 @@ final class CustomerBuilder implements Builder
     /**
      * @var ?string
      */
-    private $companyName;
-
-    /**
-     * @var ?string
-     */
-    private $vatId;
-
-    /**
-     * @var ?string
-     */
     private $externalId;
 
     /**
      * @var ?DateTimeImmutable
      */
     private $dateOfBirth;
-
-    /**
-     * @var ?string
-     */
-    private $locale;
 
     /**
      * @var ?array
@@ -119,17 +149,7 @@ final class CustomerBuilder implements Builder
     /**
      * @var ?string
      */
-    private $title;
-
-    /**
-     * @var ?string
-     */
     private $customerNumber;
-
-    /**
-     * @var ?bool
-     */
-    private $isEmailVerified;
 
     /**
      * @var ?string
@@ -137,19 +157,9 @@ final class CustomerBuilder implements Builder
     private $defaultBillingAddressId;
 
     /**
-     * @var ?array
-     */
-    private $shippingAddressIds;
-
-    /**
      * @var ?string
      */
     private $firstName;
-
-    /**
-     * @var ?string
-     */
-    private $password;
 
     /**
      * @var ?string
@@ -160,16 +170,6 @@ final class CustomerBuilder implements Builder
      * @var ?string
      */
     private $salutation;
-
-    /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
-     * @var ?string
-     */
-    private $email;
 
     public function __construct()
     {
@@ -240,6 +240,78 @@ final class CustomerBuilder implements Builder
     }
 
     /**
+     * @return null|string
+     */
+    public function getCompanyName()
+    {
+        return $this->companyName;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getVatId()
+    {
+        return $this->vatId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getIsEmailVerified()
+    {
+        return $this->isEmailVerified;
+    }
+
+    /**
+     * @return null|array
+     */
+    public function getShippingAddressIds()
+    {
+        return $this->shippingAddressIds;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores()
@@ -266,22 +338,6 @@ final class CustomerBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getCompanyName()
-    {
-        return $this->companyName;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getVatId()
-    {
-        return $this->vatId;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getExternalId()
     {
         return $this->externalId;
@@ -293,14 +349,6 @@ final class CustomerBuilder implements Builder
     public function getDateOfBirth()
     {
         return $this->dateOfBirth;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLocale()
-    {
-        return $this->locale;
     }
 
     /**
@@ -322,25 +370,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getCustomerNumber()
     {
         return $this->customerNumber;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsEmailVerified()
-    {
-        return $this->isEmailVerified;
     }
 
     /**
@@ -352,27 +384,11 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * @return null|array
-     */
-    public function getShippingAddressIds()
-    {
-        return $this->shippingAddressIds;
-    }
-
-    /**
      * @return null|string
      */
     public function getFirstName()
     {
         return $this->firstName;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPassword()
-    {
-        return $this->password;
     }
 
     /**
@@ -389,22 +405,6 @@ final class CustomerBuilder implements Builder
     public function getSalutation()
     {
         return $this->salutation;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 
     /**
@@ -490,6 +490,96 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCompanyName(?string $companyName)
+    {
+        $this->companyName = $companyName;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withVatId(?string $vatId)
+    {
+        $this->vatId = $vatId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLocale(?string $locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTitle(?string $title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withIsEmailVerified(?bool $isEmailVerified)
+    {
+        $this->isEmailVerified = $isEmailVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingAddressIds(?array $shippingAddressIds)
+    {
+        $this->shippingAddressIds = $shippingAddressIds;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPassword(?string $password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withEmail(?string $email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withStores(?StoreKeyReferenceCollection $stores)
     {
         $this->stores = $stores;
@@ -520,26 +610,6 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCompanyName(?string $companyName)
-    {
-        $this->companyName = $companyName;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withVatId(?string $vatId)
-    {
-        $this->vatId = $vatId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withExternalId(?string $externalId)
     {
         $this->externalId = $externalId;
@@ -553,16 +623,6 @@ final class CustomerBuilder implements Builder
     public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
     {
         $this->dateOfBirth = $dateOfBirth;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLocale(?string $locale)
-    {
-        $this->locale = $locale;
 
         return $this;
     }
@@ -590,29 +650,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTitle(?string $title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCustomerNumber(?string $customerNumber)
     {
         $this->customerNumber = $customerNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withIsEmailVerified(?bool $isEmailVerified)
-    {
-        $this->isEmailVerified = $isEmailVerified;
 
         return $this;
     }
@@ -630,29 +670,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingAddressIds(?array $shippingAddressIds)
-    {
-        $this->shippingAddressIds = $shippingAddressIds;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withFirstName(?string $firstName)
     {
         $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPassword(?string $password)
-    {
-        $this->password = $password;
 
         return $this;
     }
@@ -673,26 +693,6 @@ final class CustomerBuilder implements Builder
     public function withSalutation(?string $salutation)
     {
         $this->salutation = $salutation;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withEmail(?string $email)
-    {
-        $this->email = $email;
 
         return $this;
     }
@@ -748,27 +748,27 @@ final class CustomerBuilder implements Builder
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
             $this->lastName,
             $this->addresses,
+            $this->companyName,
+            $this->vatId,
+            $this->locale,
+            $this->title,
+            $this->isEmailVerified,
+            $this->shippingAddressIds,
+            $this->password,
+            $this->key,
+            $this->email,
             $this->stores,
             ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            $this->companyName,
-            $this->vatId,
             $this->externalId,
             $this->dateOfBirth,
-            $this->locale,
             $this->billingAddressIds,
             $this->defaultShippingAddressId,
-            $this->title,
             $this->customerNumber,
-            $this->isEmailVerified,
             $this->defaultBillingAddressId,
-            $this->shippingAddressIds,
             $this->firstName,
-            $this->password,
             $this->middleName,
-            $this->salutation,
-            $this->key,
-            $this->email
+            $this->salutation
         );
     }
 

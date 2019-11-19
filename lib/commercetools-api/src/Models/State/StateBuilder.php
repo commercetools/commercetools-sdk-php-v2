@@ -70,11 +70,6 @@ final class StateBuilder implements Builder
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $name;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
     private $description;
 
     /**
@@ -86,6 +81,11 @@ final class StateBuilder implements Builder
      * @var ?string
      */
     private $type;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
 
     /**
      * @var ?string
@@ -171,14 +171,6 @@ final class StateBuilder implements Builder
     /**
      * @return null|LocalizedString
      */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
     public function getDescription()
     {
         return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
@@ -198,6 +190,14 @@ final class StateBuilder implements Builder
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -301,16 +301,6 @@ final class StateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
@@ -334,6 +324,16 @@ final class StateBuilder implements Builder
     public function withType(?string $type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -371,9 +371,9 @@ final class StateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
-        $this->name = $name;
+        $this->description = $description;
 
         return $this;
     }
@@ -381,9 +381,9 @@ final class StateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
-        $this->description = $description;
+        $this->name = $name;
 
         return $this;
     }
@@ -400,10 +400,10 @@ final class StateBuilder implements Builder
             $this->initial,
             $this->roles,
             $this->builtIn,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->transitions,
             $this->type,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             $this->key
         );
     }

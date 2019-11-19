@@ -52,6 +52,11 @@ final class MyLineItemDraftBuilder implements Builder
     private $variantId;
 
     /**
+     * @var ?string
+     */
+    private $sku;
+
+    /**
      * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
@@ -106,6 +111,14 @@ final class MyLineItemDraftBuilder implements Builder
     public function getVariantId()
     {
         return $this->variantId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
     }
 
     /**
@@ -179,6 +192,16 @@ final class MyLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withDistributionChannel(?ChannelResourceIdentifier $distributionChannel)
     {
         $this->distributionChannel = $distributionChannel;
@@ -235,6 +258,7 @@ final class MyLineItemDraftBuilder implements Builder
             ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
             ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
             $this->variantId,
+            $this->sku,
             ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel)
         );
     }

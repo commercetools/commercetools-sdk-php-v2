@@ -22,6 +22,7 @@ interface MyLineItemDraft extends JsonObject
     const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     const FIELD_CUSTOM = 'custom';
     const FIELD_SHIPPING_DETAILS = 'shippingDetails';
+    const FIELD_SKU = 'sku';
 
     /**
      * @return null|string
@@ -58,6 +59,11 @@ interface MyLineItemDraft extends JsonObject
      */
     public function getShippingDetails();
 
+    /**
+     * @return null|string
+     */
+    public function getSku();
+
     public function setProductId(?string $productId): void;
 
     public function setVariantId(?int $variantId): void;
@@ -71,4 +77,6 @@ interface MyLineItemDraft extends JsonObject
     public function setCustom(?CustomFieldsDraft $custom): void;
 
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void;
+
+    public function setSku(?string $sku): void;
 }

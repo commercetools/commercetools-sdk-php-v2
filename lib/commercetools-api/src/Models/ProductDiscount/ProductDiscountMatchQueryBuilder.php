@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Api\Models\Common\Price;
-use Commercetools\Api\Models\Common\PriceBuilder;
+use Commercetools\Api\Models\Common\QueryPrice;
+use Commercetools\Api\Models\Common\QueryPriceBuilder;
 use Commercetools\Base\Builder;
 
 /**
@@ -23,7 +23,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     private $productId;
 
     /**
-     * @var Price|?PriceBuilder
+     * @var QueryPrice|?QueryPriceBuilder
      */
     private $price;
 
@@ -50,11 +50,11 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     }
 
     /**
-     * @return null|Price
+     * @return null|QueryPrice
      */
     public function getPrice()
     {
-        return $this->price instanceof PriceBuilder ? $this->price->build() : $this->price;
+        return $this->price instanceof QueryPriceBuilder ? $this->price->build() : $this->price;
     }
 
     /**
@@ -86,7 +86,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPrice(?Price $price)
+    public function withPrice(?QueryPrice $price)
     {
         $this->price = $price;
 
@@ -116,7 +116,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPriceBuilder(?PriceBuilder $price)
+    public function withPriceBuilder(?QueryPriceBuilder $price)
     {
         $this->price = $price;
 
@@ -127,7 +127,7 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     {
         return new ProductDiscountMatchQueryModel(
             $this->productId,
-            ($this->price instanceof PriceBuilder ? $this->price->build() : $this->price),
+            ($this->price instanceof QueryPriceBuilder ? $this->price->build() : $this->price),
             $this->staged,
             $this->variantId
         );

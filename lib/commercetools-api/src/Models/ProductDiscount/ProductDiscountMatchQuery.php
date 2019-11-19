@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ProductDiscount;
 
-use Commercetools\Api\Models\Common\Price;
+use Commercetools\Api\Models\Common\QueryPrice;
 use Commercetools\Base\JsonObject;
 
 interface ProductDiscountMatchQuery extends JsonObject
@@ -34,7 +34,7 @@ interface ProductDiscountMatchQuery extends JsonObject
     public function getStaged();
 
     /**
-     * @return null|Price
+     * @return null|QueryPrice
      */
     public function getPrice();
 
@@ -44,5 +44,5 @@ interface ProductDiscountMatchQuery extends JsonObject
 
     public function setStaged(?bool $staged): void;
 
-    public function setPrice(?Price $price): void;
+    public function setPrice(?QueryPrice $price): void;
 }

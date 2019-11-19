@@ -9,14 +9,12 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\DiscountCode;
 
 use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
-use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\ReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
@@ -83,16 +81,6 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     protected $custom;
 
     /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validUntil;
-
-    /**
      * @var ?array
      */
     protected $groups;
@@ -108,11 +96,6 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     protected $validFrom;
 
     /**
-     * @var ?int
-     */
-    protected $maxApplicationsPerCustomer;
-
-    /**
      * @var ?bool
      */
     protected $isActive;
@@ -121,6 +104,21 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
      * @var ?int
      */
     protected $maxApplications;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $validUntil;
+
+    /**
+     * @var ?int
+     */
+    protected $maxApplicationsPerCustomer;
 
     public function __construct(
         DateTimeImmutable $createdAt = null,
@@ -134,14 +132,14 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         ReferenceCollection $references = null,
         string $cartPredicate = null,
         CustomFields $custom = null,
-        LocalizedString $name = null,
-        DateTimeImmutable $validUntil = null,
         array $groups = null,
         LocalizedString $description = null,
         DateTimeImmutable $validFrom = null,
-        int $maxApplicationsPerCustomer = null,
         bool $isActive = null,
-        int $maxApplications = null
+        int $maxApplications = null,
+        LocalizedString $name = null,
+        DateTimeImmutable $validUntil = null,
+        int $maxApplicationsPerCustomer = null
     ) {
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
@@ -154,14 +152,14 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->references = $references;
         $this->cartPredicate = $cartPredicate;
         $this->custom = $custom;
-        $this->name = $name;
-        $this->validUntil = $validUntil;
         $this->groups = $groups;
         $this->description = $description;
         $this->validFrom = $validFrom;
-        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
         $this->isActive = $isActive;
         $this->maxApplications = $maxApplications;
+        $this->name = $name;
+        $this->validUntil = $validUntil;
+        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
     }
 
     /**
@@ -171,7 +169,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            $data = $this->raw(DiscountCode::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -192,7 +190,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(DiscountCode::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -213,7 +211,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
+            $data = $this->raw(DiscountCode::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -230,7 +228,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
+            $data = $this->raw(DiscountCode::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -247,7 +245,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            $data = $this->raw(DiscountCode::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -265,7 +263,7 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(DiscountCode::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -363,45 +361,6 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     }
 
     /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountCode::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidUntil()
-    {
-        if (is_null($this->validUntil)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCode::FIELD_VALID_UNTIL);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->validUntil = $data;
-        }
-
-        return $this->validUntil;
-    }
-
-    /**
      * @return null|array
      */
     public function getGroups()
@@ -458,23 +417,6 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     }
 
     /**
-     * @return null|int
-     */
-    public function getMaxApplicationsPerCustomer()
-    {
-        if (is_null($this->maxApplicationsPerCustomer)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(DiscountCode::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->maxApplicationsPerCustomer = (int) $data;
-        }
-
-        return $this->maxApplicationsPerCustomer;
-    }
-
-    /**
      * @return null|bool
      */
     public function getIsActive()
@@ -506,6 +448,62 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         }
 
         return $this->maxApplications;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountCode::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
+    {
+        if (is_null($this->validUntil)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCode::FIELD_VALID_UNTIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validUntil = $data;
+        }
+
+        return $this->validUntil;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getMaxApplicationsPerCustomer()
+    {
+        if (is_null($this->maxApplicationsPerCustomer)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(DiscountCode::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->maxApplicationsPerCustomer = (int) $data;
+        }
+
+        return $this->maxApplicationsPerCustomer;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -563,16 +561,6 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->custom = $custom;
     }
 
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function setValidUntil(?DateTimeImmutable $validUntil): void
-    {
-        $this->validUntil = $validUntil;
-    }
-
     public function setGroups(?array $groups): void
     {
         $this->groups = $groups;
@@ -588,11 +576,6 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->validFrom = $validFrom;
     }
 
-    public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
-    {
-        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
-    }
-
     public function setIsActive(?bool $isActive): void
     {
         $this->isActive = $isActive;
@@ -603,23 +586,38 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->maxApplications = $maxApplications;
     }
 
+    public function setName(?LocalizedString $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    {
+        $this->validUntil = $validUntil;
+    }
+
+    public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
+    {
+        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
+    }
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[DiscountCode::FIELD_CREATED_AT]) && $data[DiscountCode::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[DiscountCode::FIELD_CREATED_AT] = $data[DiscountCode::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
-        }
-
-        if (isset($data[DiscountCode::FIELD_VALID_UNTIL]) && $data[DiscountCode::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
-            $data[DiscountCode::FIELD_VALID_UNTIL] = $data[DiscountCode::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[DiscountCode::FIELD_LAST_MODIFIED_AT]) && $data[DiscountCode::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[DiscountCode::FIELD_LAST_MODIFIED_AT] = $data[DiscountCode::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         if (isset($data[DiscountCode::FIELD_VALID_FROM]) && $data[DiscountCode::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
             $data[DiscountCode::FIELD_VALID_FROM] = $data[DiscountCode::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[DiscountCode::FIELD_VALID_UNTIL]) && $data[DiscountCode::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
+            $data[DiscountCode::FIELD_VALID_UNTIL] = $data[DiscountCode::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

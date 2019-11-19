@@ -15,6 +15,7 @@ use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
+use DateTimeImmutable;
 
 interface ProductProjection extends BaseResource
 {
@@ -36,6 +37,26 @@ interface ProductProjection extends BaseResource
     const FIELD_TAX_CATEGORY = 'taxCategory';
     const FIELD_STATE = 'state';
     const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
+
+    /**
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
 
     /**
      * @return null|string
@@ -126,6 +147,14 @@ interface ProductProjection extends BaseResource
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics();
+
+    public function setId(?string $id): void;
+
+    public function setVersion(?int $version): void;
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
     public function setKey(?string $key): void;
 

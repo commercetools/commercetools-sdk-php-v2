@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\OrderEdit;
 
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Order\OrderReference;
 use Commercetools\Api\Models\Order\StagedOrderUpdateActionCollection;
@@ -24,6 +26,16 @@ interface OrderEdit extends LoggedResource
     const FIELD_COMMENT = 'comment';
 
     /**
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt();
@@ -32,6 +44,16 @@ interface OrderEdit extends LoggedResource
      * @return null|DateTimeImmutable
      */
     public function getLastModifiedAt();
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
 
     /**
      * @return null|string
@@ -63,9 +85,17 @@ interface OrderEdit extends LoggedResource
      */
     public function getComment();
 
+    public function setId(?string $id): void;
+
+    public function setVersion(?int $version): void;
+
     public function setCreatedAt(?DateTimeImmutable $createdAt): void;
 
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
+
+    public function setCreatedBy(?CreatedBy $createdBy): void;
 
     public function setKey(?string $key): void;
 

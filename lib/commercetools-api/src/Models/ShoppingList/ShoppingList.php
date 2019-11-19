@@ -8,10 +8,13 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\ShoppingList;
 
+use Commercetools\Api\Models\Common\CreatedBy;
+use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Customer\CustomerReference;
 use Commercetools\Api\Models\Type\CustomFields;
+use DateTimeImmutable;
 
 interface ShoppingList extends LoggedResource
 {
@@ -25,6 +28,36 @@ interface ShoppingList extends LoggedResource
     const FIELD_SLUG = 'slug';
     const FIELD_TEXT_LINE_ITEMS = 'textLineItems';
     const FIELD_ANONYMOUS_ID = 'anonymousId';
+
+    /**
+     * @return null|string
+     */
+    public function getId();
+
+    /**
+     * @return null|int
+     */
+    public function getVersion();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt();
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt();
+
+    /**
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy();
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy();
 
     /**
      * @return null|CustomFields
@@ -75,6 +108,18 @@ interface ShoppingList extends LoggedResource
      * @return null|string
      */
     public function getAnonymousId();
+
+    public function setId(?string $id): void;
+
+    public function setVersion(?int $version): void;
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
+
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void;
+
+    public function setCreatedBy(?CreatedBy $createdBy): void;
 
     public function setCustom(?CustomFields $custom): void;
 

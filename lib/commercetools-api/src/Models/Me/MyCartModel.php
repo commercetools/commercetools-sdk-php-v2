@@ -21,12 +21,10 @@ use Commercetools\Api\Models\CartDiscount\CartDiscountReferenceCollection;
 use Commercetools\Api\Models\Common\Address;
 use Commercetools\Api\Models\Common\AddressCollection;
 use Commercetools\Api\Models\Common\AddressModel;
-use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Common\TypedMoney;
 use Commercetools\Api\Models\Common\TypedMoneyModel;
 use Commercetools\Api\Models\CustomerGroup\CustomerGroupReference;
@@ -286,7 +284,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            $data = $this->raw(MyCart::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -307,7 +305,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(MyCart::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -328,7 +326,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
+            $data = $this->raw(MyCart::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -345,7 +343,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
+            $data = $this->raw(MyCart::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -362,7 +360,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            $data = $this->raw(MyCart::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -380,7 +378,7 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(MyCart::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -1030,12 +1028,12 @@ final class MyCartModel extends JsonObjectModel implements MyCart
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[MyCart::FIELD_CREATED_AT]) && $data[MyCart::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[MyCart::FIELD_CREATED_AT] = $data[MyCart::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[MyCart::FIELD_LAST_MODIFIED_AT]) && $data[MyCart::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[MyCart::FIELD_LAST_MODIFIED_AT] = $data[MyCart::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

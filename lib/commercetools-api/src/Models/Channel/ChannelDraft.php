@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Channel;
 
 use Commercetools\Api\Models\Common\Address;
+use Commercetools\Api\Models\Common\GeoJson;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\JsonObject;
@@ -54,7 +55,7 @@ interface ChannelDraft extends JsonObject
     public function getCustom();
 
     /**
-     * @return null|JsonObject
+     * @return null|GeoJson
      */
     public function getGeoLocation();
 
@@ -70,5 +71,5 @@ interface ChannelDraft extends JsonObject
 
     public function setCustom(?CustomFieldsDraft $custom): void;
 
-    public function setGeoLocation(?JsonObject $geoLocation): void;
+    public function setGeoLocation(?GeoJson $geoLocation): void;
 }

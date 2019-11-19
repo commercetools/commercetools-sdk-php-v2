@@ -8,12 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\CustomerGroup;
 
-use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\CreatedBy;
 use Commercetools\Api\Models\Common\CreatedByModel;
 use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
-use Commercetools\Api\Models\Common\LoggedResource;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\JsonObjectModel;
@@ -97,7 +95,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
+            $data = $this->raw(CustomerGroup::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -118,7 +116,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(CustomerGroup::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -139,7 +137,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     {
         if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
+            $data = $this->raw(CustomerGroup::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
@@ -156,7 +154,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     {
         if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
+            $data = $this->raw(CustomerGroup::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
@@ -173,7 +171,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     {
         if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_CREATED_BY);
+            $data = $this->raw(CustomerGroup::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -191,7 +189,7 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     {
         if (is_null($this->lastModifiedBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LoggedResource::FIELD_LAST_MODIFIED_BY);
+            $data = $this->raw(CustomerGroup::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
@@ -302,12 +300,12 @@ final class CustomerGroupModel extends JsonObjectModel implements CustomerGroup
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[CustomerGroup::FIELD_CREATED_AT]) && $data[CustomerGroup::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[CustomerGroup::FIELD_CREATED_AT] = $data[CustomerGroup::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[CustomerGroup::FIELD_LAST_MODIFIED_AT]) && $data[CustomerGroup::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[CustomerGroup::FIELD_LAST_MODIFIED_AT] = $data[CustomerGroup::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;
