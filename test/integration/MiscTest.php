@@ -51,7 +51,7 @@ class MiscTest extends TestCase
         );
         $logger = new Logger('client', [new StreamHandler('./logs/requests.log')]);
 
-        $client = ClientFactory::of()->createGuzzleClient(
+        $client = ClientFactory::of()->createGuzzleClientForHandler(
             new Config(),
             OAuthHandlerFactory::ofAuthConfig($authConfig),
             $logger
@@ -150,7 +150,7 @@ class MiscTest extends TestCase
         $instanceTokenStorage = new InstanceTokenStorage();
         $handler = MeOAuthHandlerFactory::ofAuthConfig($authConfig, $instanceTokenStorage);
 
-        $client = ClientFactory::of()->createGuzzleClient(
+        $client = ClientFactory::of()->createGuzzleClientForHandler(
             new Config(),
             $handler,
             $logger
