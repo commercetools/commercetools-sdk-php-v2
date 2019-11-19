@@ -11,28 +11,30 @@ namespace Commercetools\Client;
 use GuzzleHttp\MessageFormatter;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Promise\PromiseInterface;
-use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LogLevel;
-use Psr\SimpleCache\CacheInterface;
 
 class MiddlewareFactory
 {
     /**
      * @psalm-return array<string, callable>
-     * @psalm-param CacheItemPoolInterface|CacheInterface|null $cache
      */
     public static function createDefaultMiddlewares(
-        LoggerInterface $logger,
-        OAuth2Handler $handler
+        ?OAuth2Handler $handler = null,
+        ?LoggerInterface $logger = null
     ) {
-        return [
-            'oauth' => self::createMiddlewareForOAuthHandler($handler),
-            'reauth' => self::createReauthenticateMiddleware($handler),
-            'logger' => self::createLoggerMiddleware($logger),
-        ];
+        $middlewares = [];
+        if (!is_null($handler)) {
+            $middlewares['oauth'] = self::createMiddlewareForOAuthHandler($handler);
+            $middlewares['reauth'] = self::createReauthenticateMiddleware($handler);
+        }
+        if (!is_null($logger)) {
+            $middlewares['logger'] = self::createLoggerMiddleware($logger);
+        }
+
+        return $middlewares;
     }
 
     /**

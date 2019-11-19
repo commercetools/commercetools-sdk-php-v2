@@ -1,4 +1,0 @@
-[2019-10-22 14:53:43] auth.INFO: Jenss-MacBook-Pro-2.local GuzzleHttp/6.3.3 curl/7.65.3 PHP/7.3.7 - [22/Oct/2019:14:53:43 +0000] "POST /oauth/token HTTP/1.1" 401 345 [] []
-[2019-10-22 14:53:43] auth.INFO: Jenss-MacBook-Pro-2.local GuzzleHttp/6.3.3 curl/7.65.3 PHP/7.3.7 - [22/Oct/2019:14:53:43 +0000] "POST /oauth/token HTTP/1.1" 401 345 [] []
-[2019-10-22 14:53:43] auth.INFO: Jenss-MacBook-Pro-2.local GuzzleHttp/6.3.3 curl/7.65.3 PHP/7.3.7 - [22/Oct/2019:14:53:43 +0000] "POST /oauth/token HTTP/1.1" 401 345 [] []
-[2019-10-22 14:53:43] auth.INFO: Jenss-MacBook-Pro-2.local GuzzleHttp/6.3.3 curl/7.65.3 PHP/7.3.7 - [22/Oct/2019:14:53:43 +0000] "POST /oauth/token HTTP/1.1" 401 345 [] []

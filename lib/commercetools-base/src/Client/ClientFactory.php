@@ -20,10 +20,10 @@ class ClientFactory
      *
      * @throws InvalidArgumentException
      */
-    public function createGuzzleClient(Config $config, OAuth2Handler $handler, LoggerInterface $logger, array $middlewares = []): HttpClient
+    public function createGuzzleClient(Config $config, ?OAuth2Handler $handler = null, ?LoggerInterface $logger = null, array $middlewares = []): HttpClient
     {
         $middlewares = array_merge(
-            MiddlewareFactory::createDefaultMiddlewares($logger, $handler),
+            MiddlewareFactory::createDefaultMiddlewares($handler, $logger),
             $middlewares
         );
 
