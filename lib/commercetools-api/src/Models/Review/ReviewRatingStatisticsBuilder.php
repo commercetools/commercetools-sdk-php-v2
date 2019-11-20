@@ -41,10 +41,6 @@ final class ReviewRatingStatisticsBuilder implements Builder
      */
     private $lowestRating;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

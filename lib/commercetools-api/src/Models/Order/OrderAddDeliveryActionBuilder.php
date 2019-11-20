@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class OrderAddDeliveryActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var Address|?AddressBuilder
      */
     private $address;
@@ -36,18 +31,6 @@ final class OrderAddDeliveryActionBuilder implements Builder
      * @var ?ParcelDraftCollection
      */
     private $parcels;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|Address
@@ -71,16 +54,6 @@ final class OrderAddDeliveryActionBuilder implements Builder
     public function getParcels()
     {
         return $this->parcels;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -126,7 +99,6 @@ final class OrderAddDeliveryActionBuilder implements Builder
     public function build(): OrderAddDeliveryAction
     {
         return new OrderAddDeliveryActionModel(
-            $this->action,
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
             $this->items,
             $this->parcels

@@ -25,11 +25,10 @@ final class MyCartChangeTaxModeActionModel extends JsonObjectModel implements My
     protected $taxMode;
 
     public function __construct(
-        string $action = null,
         string $taxMode = null
     ) {
-        $this->action = $action;
         $this->taxMode = $taxMode;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class MyCartChangeTaxModeActionModel extends JsonObjectModel implements My
         }
 
         return $this->taxMode;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTaxMode(?string $taxMode): void

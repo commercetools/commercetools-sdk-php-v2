@@ -106,7 +106,6 @@ final class ParcelMeasurementsUpdatedMessageModel extends JsonObjectModel implem
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         string $deliveryId = null,
         ParcelMeasurements $measurements = null,
         string $parcelId = null
@@ -121,10 +120,10 @@ final class ParcelMeasurementsUpdatedMessageModel extends JsonObjectModel implem
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->deliveryId = $deliveryId;
         $this->measurements = $measurements;
         $this->parcelId = $parcelId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -426,11 +425,6 @@ final class ParcelMeasurementsUpdatedMessageModel extends JsonObjectModel implem
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDeliveryId(?string $deliveryId): void

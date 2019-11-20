@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class CartScoreTierBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?int
      */
     private $score;
@@ -41,18 +36,6 @@ final class CartScoreTierBuilder implements Builder
      * @var PriceFunction|?PriceFunctionBuilder
      */
     private $priceFunction;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|int
@@ -84,16 +67,6 @@ final class CartScoreTierBuilder implements Builder
     public function getPriceFunction()
     {
         return $this->priceFunction instanceof PriceFunctionBuilder ? $this->priceFunction->build() : $this->priceFunction;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -159,7 +132,6 @@ final class CartScoreTierBuilder implements Builder
     public function build(): CartScoreTier
     {
         return new CartScoreTierModel(
-            $this->type,
             $this->score,
             ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
             $this->isMatching,

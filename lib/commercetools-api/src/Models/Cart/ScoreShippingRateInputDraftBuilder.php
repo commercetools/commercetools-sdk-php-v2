@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ScoreShippingRateInputDraftBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?int
      */
     private $score;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|int
@@ -43,16 +26,6 @@ final class ScoreShippingRateInputDraftBuilder implements Builder
     public function getScore()
     {
         return $this->score;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ScoreShippingRateInputDraftBuilder implements Builder
     public function build(): ScoreShippingRateInputDraft
     {
         return new ScoreShippingRateInputDraftModel(
-            $this->type,
             $this->score
         );
     }

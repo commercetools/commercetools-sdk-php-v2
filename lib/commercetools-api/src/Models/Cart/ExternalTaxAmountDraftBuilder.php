@@ -27,10 +27,6 @@ final class ExternalTaxAmountDraftBuilder implements Builder
      */
     private $totalGross;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ExternalTaxRateDraft
      */

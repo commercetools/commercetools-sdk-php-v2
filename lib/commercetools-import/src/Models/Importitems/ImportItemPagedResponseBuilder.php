@@ -35,10 +35,6 @@ final class ImportItemPagedResponseBuilder implements Builder
      */
     private $results;
 
-    public function __construct()
-    {
-    }
-
     /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>.
      *

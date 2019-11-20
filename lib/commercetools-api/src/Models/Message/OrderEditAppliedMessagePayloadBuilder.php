@@ -20,11 +20,6 @@ use Commercetools\Base\Builder;
 final class OrderEditAppliedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var OrderEditApplied|?OrderEditAppliedBuilder
      */
     private $result;
@@ -33,18 +28,6 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
      * @var OrderEditReference|?OrderEditReferenceBuilder
      */
     private $edit;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|OrderEditApplied
@@ -60,16 +43,6 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     public function getEdit()
     {
         return $this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -115,7 +88,6 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     public function build(): OrderEditAppliedMessagePayload
     {
         return new OrderEditAppliedMessagePayloadModel(
-            $this->type,
             ($this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result),
             ($this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit)
         );

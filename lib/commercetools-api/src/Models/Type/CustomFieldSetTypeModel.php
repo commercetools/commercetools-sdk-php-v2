@@ -26,11 +26,10 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
     protected $elementType;
 
     public function __construct(
-        string $name = null,
         FieldType $elementType = null
     ) {
-        $this->name = $name;
         $this->elementType = $elementType;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class CustomFieldSetTypeModel extends JsonObjectModel implements CustomFie
         }
 
         return $this->elementType;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function setElementType(?FieldType $elementType): void

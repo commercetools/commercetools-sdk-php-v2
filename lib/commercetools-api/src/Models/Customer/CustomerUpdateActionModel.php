@@ -52,9 +52,7 @@ final class CustomerUpdateActionModel extends JsonObjectModel implements Custome
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -73,11 +71,6 @@ final class CustomerUpdateActionModel extends JsonObjectModel implements Custome
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

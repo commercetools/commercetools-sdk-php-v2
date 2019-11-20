@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class DeliveryAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Delivery|?DeliveryBuilder
      */
     private $delivery;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Delivery
@@ -45,16 +28,6 @@ final class DeliveryAddedMessagePayloadBuilder implements Builder
     public function getDelivery()
     {
         return $this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class DeliveryAddedMessagePayloadBuilder implements Builder
     public function build(): DeliveryAddedMessagePayload
     {
         return new DeliveryAddedMessagePayloadModel(
-            $this->type,
             ($this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery)
         );
     }

@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class OrderSetLineItemShippingDetailsActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
@@ -31,18 +26,6 @@ final class OrderSetLineItemShippingDetailsActionBuilder implements Builder
      * @var ?string
      */
     private $lineItemId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ItemShippingDetailsDraft
@@ -58,16 +41,6 @@ final class OrderSetLineItemShippingDetailsActionBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class OrderSetLineItemShippingDetailsActionBuilder implements Builder
     public function build(): OrderSetLineItemShippingDetailsAction
     {
         return new OrderSetLineItemShippingDetailsActionModel(
-            $this->action,
             ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails),
             $this->lineItemId
         );

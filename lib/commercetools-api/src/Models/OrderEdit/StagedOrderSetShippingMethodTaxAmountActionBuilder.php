@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetShippingMethodTaxAmountActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ExternalTaxAmountDraft|?ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ExternalTaxAmountDraft
@@ -45,16 +28,6 @@ final class StagedOrderSetShippingMethodTaxAmountActionBuilder implements Builde
     public function getExternalTaxAmount()
     {
         return $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class StagedOrderSetShippingMethodTaxAmountActionBuilder implements Builde
     public function build(): StagedOrderSetShippingMethodTaxAmountAction
     {
         return new StagedOrderSetShippingMethodTaxAmountActionModel(
-            $this->action,
             ($this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount)
         );
     }

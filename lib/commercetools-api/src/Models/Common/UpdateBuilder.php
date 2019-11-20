@@ -25,10 +25,6 @@ final class UpdateBuilder implements Builder
      */
     private $version;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|UpdateActionCollection
      */

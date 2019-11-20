@@ -33,13 +33,12 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
     protected $state;
 
     public function __construct(
-        string $type = null,
         bool $force = null,
         StateReference $state = null
     ) {
-        $this->type = $type;
         $this->force = $force;
         $this->state = $state;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductStateTransitionMessagePayloadModel extends JsonObjectModel im
         }
 
         return $this->state;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setForce(?bool $force): void

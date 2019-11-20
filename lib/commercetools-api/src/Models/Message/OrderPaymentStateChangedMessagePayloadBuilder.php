@@ -18,29 +18,12 @@ final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $oldPaymentState;
 
     /**
      * @var ?string
      */
     private $paymentState;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
     public function getPaymentState()
     {
         return $this->paymentState;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
     public function build(): OrderPaymentStateChangedMessagePayload
     {
         return new OrderPaymentStateChangedMessagePayloadModel(
-            $this->type,
             $this->oldPaymentState,
             $this->paymentState
         );

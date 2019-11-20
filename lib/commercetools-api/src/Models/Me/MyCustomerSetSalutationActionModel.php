@@ -25,11 +25,10 @@ final class MyCustomerSetSalutationActionModel extends JsonObjectModel implement
     protected $salutation;
 
     public function __construct(
-        string $action = null,
         string $salutation = null
     ) {
-        $this->action = $action;
         $this->salutation = $salutation;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class MyCustomerSetSalutationActionModel extends JsonObjectModel implement
         }
 
         return $this->salutation;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setSalutation(?string $salutation): void

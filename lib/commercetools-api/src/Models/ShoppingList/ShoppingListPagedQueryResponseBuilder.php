@@ -40,10 +40,6 @@ final class ShoppingListPagedQueryResponseBuilder implements Builder
      */
     private $results;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

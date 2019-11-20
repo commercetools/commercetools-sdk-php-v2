@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ChannelReference|?ChannelReferenceBuilder
      */
     private $supplyChannel;
@@ -31,18 +26,6 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
      * @var ?string
      */
     private $sku;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|ChannelReference
@@ -58,16 +41,6 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     public function build(): InventoryEntryDeletedMessagePayload
     {
         return new InventoryEntryDeletedMessagePayloadModel(
-            $this->type,
             ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
             $this->sku
         );

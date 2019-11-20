@@ -75,18 +75,9 @@ final class DeliveryAddedMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Delivery|?DeliveryBuilder
      */
     private $delivery;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -166,14 +157,6 @@ final class DeliveryAddedMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -287,16 +270,6 @@ final class DeliveryAddedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withDelivery(?Delivery $delivery)
     {
         $this->delivery = $delivery;
@@ -367,7 +340,6 @@ final class DeliveryAddedMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery)
         );
     }

@@ -26,11 +26,10 @@ final class StagedOrderAddDiscountCodeActionModel extends JsonObjectModel implem
     protected $code;
 
     public function __construct(
-        string $action = null,
         string $code = null
     ) {
-        $this->action = $action;
         $this->code = $code;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class StagedOrderAddDiscountCodeActionModel extends JsonObjectModel implem
         }
 
         return $this->code;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCode(?string $code): void

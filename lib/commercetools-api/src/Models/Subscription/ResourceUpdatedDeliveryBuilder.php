@@ -36,11 +36,6 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?string
-     */
-    private $notificationType;
-
-    /**
      * @var ?DateTimeImmutable
      */
     private $modifiedAt;
@@ -54,10 +49,6 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
      * @var ?int
      */
     private $version;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|string
@@ -81,14 +72,6 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     public function getResourceUserProvidedIdentifiers()
     {
         return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getNotificationType()
-    {
-        return $this->notificationType;
     }
 
     /**
@@ -141,16 +124,6 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withNotificationType(?string $notificationType)
-    {
-        $this->notificationType = $notificationType;
 
         return $this;
     }
@@ -211,7 +184,6 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
             $this->projectKey,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            $this->notificationType,
             $this->modifiedAt,
             $this->oldVersion,
             $this->version

@@ -106,7 +106,6 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         DiscountCodeReference $discountCode = null,
         string $oldState = null,
         string $state = null
@@ -121,10 +120,10 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->discountCode = $discountCode;
         $this->oldState = $oldState;
         $this->state = $state;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -426,11 +425,6 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDiscountCode(?DiscountCodeReference $discountCode): void

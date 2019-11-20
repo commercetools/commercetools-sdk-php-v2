@@ -30,13 +30,12 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     protected $orderState;
 
     public function __construct(
-        string $type = null,
         string $oldOrderState = null,
         string $orderState = null
     ) {
-        $this->type = $type;
         $this->oldOrderState = $oldOrderState;
         $this->orderState = $orderState;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
         }
 
         return $this->orderState;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldOrderState(?string $oldOrderState): void

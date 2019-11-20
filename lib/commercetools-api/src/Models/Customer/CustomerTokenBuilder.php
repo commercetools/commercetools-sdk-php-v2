@@ -46,10 +46,6 @@ final class CustomerTokenBuilder implements Builder
      */
     private $expiresAt;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

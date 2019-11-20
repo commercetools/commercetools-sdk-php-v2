@@ -33,13 +33,12 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     protected $sku;
 
     public function __construct(
-        string $type = null,
         ChannelReference $supplyChannel = null,
         string $sku = null
     ) {
-        $this->type = $type;
         $this->supplyChannel = $supplyChannel;
         $this->sku = $sku;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
         }
 
         return $this->sku;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setSupplyChannel(?ChannelReference $supplyChannel): void

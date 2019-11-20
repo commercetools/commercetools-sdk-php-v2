@@ -33,13 +33,12 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
     protected $zone;
 
     public function __construct(
-        string $action = null,
         ShippingRateDraft $shippingRate = null,
         ZoneResourceIdentifier $zone = null
     ) {
-        $this->action = $action;
         $this->shippingRate = $shippingRate;
         $this->zone = $zone;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class ShippingMethodRemoveShippingRateActionModel extends JsonObjectModel 
         }
 
         return $this->zone;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShippingRate(?ShippingRateDraft $shippingRate): void

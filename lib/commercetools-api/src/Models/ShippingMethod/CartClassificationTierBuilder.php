@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class CartClassificationTierBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Money|?MoneyBuilder
      */
     private $price;
@@ -36,18 +31,6 @@ final class CartClassificationTierBuilder implements Builder
      * @var ?string
      */
     private $value;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Money
@@ -71,16 +54,6 @@ final class CartClassificationTierBuilder implements Builder
     public function getValue()
     {
         return $this->value;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -126,7 +99,6 @@ final class CartClassificationTierBuilder implements Builder
     public function build(): CartClassificationTier
     {
         return new CartClassificationTierModel(
-            $this->type,
             ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
             $this->isMatching,
             $this->value

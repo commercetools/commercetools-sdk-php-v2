@@ -30,13 +30,12 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     protected $uri;
 
     public function __construct(
-        string $type = null,
         string $accessKey = null,
         string $uri = null
     ) {
-        $this->type = $type;
         $this->accessKey = $accessKey;
         $this->uri = $uri;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
         }
 
         return $this->uri;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setAccessKey(?string $accessKey): void

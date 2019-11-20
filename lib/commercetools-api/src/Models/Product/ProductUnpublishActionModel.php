@@ -20,9 +20,8 @@ final class ProductUnpublishActionModel extends JsonObjectModel implements Produ
     protected $action;
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -40,10 +39,5 @@ final class ProductUnpublishActionModel extends JsonObjectModel implements Produ
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 }

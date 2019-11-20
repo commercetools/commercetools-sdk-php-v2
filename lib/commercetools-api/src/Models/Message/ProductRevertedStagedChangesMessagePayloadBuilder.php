@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ProductRevertedStagedChangesMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?array
      */
     private $removedImageUrls;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|array
@@ -43,16 +26,6 @@ final class ProductRevertedStagedChangesMessagePayloadBuilder implements Builder
     public function getRemovedImageUrls()
     {
         return $this->removedImageUrls;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ProductRevertedStagedChangesMessagePayloadBuilder implements Builder
     public function build(): ProductRevertedStagedChangesMessagePayload
     {
         return new ProductRevertedStagedChangesMessagePayloadModel(
-            $this->type,
             $this->removedImageUrls
         );
     }

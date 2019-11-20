@@ -30,13 +30,12 @@ final class PaymentChangeTransactionStateActionModel extends JsonObjectModel imp
     protected $transactionId;
 
     public function __construct(
-        string $action = null,
         string $state = null,
         string $transactionId = null
     ) {
-        $this->action = $action;
         $this->state = $state;
         $this->transactionId = $transactionId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class PaymentChangeTransactionStateActionModel extends JsonObjectModel imp
         }
 
         return $this->transactionId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setState(?string $state): void

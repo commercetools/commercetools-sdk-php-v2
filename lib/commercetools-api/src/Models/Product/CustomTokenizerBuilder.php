@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class CustomTokenizerBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?array
      */
     private $inputs;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|array
@@ -43,16 +26,6 @@ final class CustomTokenizerBuilder implements Builder
     public function getInputs()
     {
         return $this->inputs;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CustomTokenizerBuilder implements Builder
     public function build(): CustomTokenizer
     {
         return new CustomTokenizerModel(
-            $this->type,
             $this->inputs
         );
     }

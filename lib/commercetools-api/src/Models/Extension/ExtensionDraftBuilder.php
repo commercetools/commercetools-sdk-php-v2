@@ -35,10 +35,6 @@ final class ExtensionDraftBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

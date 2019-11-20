@@ -20,11 +20,6 @@ use Commercetools\Base\Builder;
 final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $staged;
@@ -43,18 +38,6 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
      * @var ?string
      */
     private $priceId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -86,16 +69,6 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     public function getPriceId()
     {
         return $this->priceId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -161,7 +134,6 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     public function build(): ProductSetProductPriceCustomTypeAction
     {
         return new ProductSetProductPriceCustomTypeActionModel(
-            $this->action,
             $this->staged,
             ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields),
             ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),

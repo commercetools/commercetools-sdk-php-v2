@@ -19,6 +19,4 @@ interface ProductTypeUpdateAction extends JsonObject
      * @return null|string
      */
     public function getAction();
-
-    public function setAction(?string $action): void;
 }

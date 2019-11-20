@@ -18,11 +18,6 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
@@ -34,18 +29,6 @@ final class InvalidStateTransitionErrorBuilder implements Builder
      * @var ?string
      */
     private $newState;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * <p>The error's description.</p>.
@@ -75,16 +58,6 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     public function getNewState()
     {
         return $this->newState;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -120,7 +93,6 @@ final class InvalidStateTransitionErrorBuilder implements Builder
     public function build(): InvalidStateTransitionError
     {
         return new InvalidStateTransitionErrorModel(
-            $this->code,
             $this->message,
             $this->currentState,
             $this->newState

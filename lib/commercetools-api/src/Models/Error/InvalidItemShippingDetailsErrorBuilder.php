@@ -18,11 +18,6 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
@@ -34,18 +29,6 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
      * @var ?string
      */
     private $subject;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -69,16 +52,6 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     public function getSubject()
     {
         return $this->subject;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -114,7 +87,6 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     public function build(): InvalidItemShippingDetailsError
     {
         return new InvalidItemShippingDetailsErrorModel(
-            $this->code,
             $this->message,
             $this->itemId,
             $this->subject

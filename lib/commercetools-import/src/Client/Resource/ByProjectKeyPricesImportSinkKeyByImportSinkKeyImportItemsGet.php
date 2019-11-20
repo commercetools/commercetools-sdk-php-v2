@@ -31,7 +31,6 @@ class ByProjectKeyPricesImportSinkKeyByImportSinkKeyImportItemsGet extends ApiRe
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      *
-     * @param array $headers
      * @param mixed $projectKey
      * @param mixed $importSinkKey
      */
@@ -71,8 +70,6 @@ class ByProjectKeyPricesImportSinkKeyByImportSinkKeyImportItemsGet extends ApiRe
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     *
-     * @param array $options
      *
      * @return null|ImportItemPagedResponse|JsonObject
      */

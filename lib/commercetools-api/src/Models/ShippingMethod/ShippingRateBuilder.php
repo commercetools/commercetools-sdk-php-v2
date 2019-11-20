@@ -37,10 +37,6 @@ final class ShippingRateBuilder implements Builder
      */
     private $isMatching;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ShippingRatePriceTierCollection
      */

@@ -25,10 +25,6 @@ final class ShippingMethodUpdateBuilder implements Builder
      */
     private $version;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ShippingMethodUpdateActionCollection
      */

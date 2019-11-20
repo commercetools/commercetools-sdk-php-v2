@@ -28,11 +28,10 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
     protected $metaDescription;
 
     public function __construct(
-        string $action = null,
         LocalizedString $metaDescription = null
     ) {
-        $this->action = $action;
         $this->metaDescription = $metaDescription;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class CategorySetMetaDescriptionActionModel extends JsonObjectModel implem
         }
 
         return $this->metaDescription;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMetaDescription(?LocalizedString $metaDescription): void

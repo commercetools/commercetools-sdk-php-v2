@@ -27,11 +27,10 @@ final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel im
     protected $dateOfBirth;
 
     public function __construct(
-        string $type = null,
         DateTimeImmutable $dateOfBirth = null
     ) {
-        $this->type = $type;
         $this->dateOfBirth = $dateOfBirth;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -70,11 +69,6 @@ final class CustomerDateOfBirthSetMessagePayloadModel extends JsonObjectModel im
         }
 
         return $this->dateOfBirth;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void

@@ -17,8 +17,6 @@ class OAuth2Handler
 
     /**
      * OAuth2Handler constructor.
-     *
-     * @param TokenProvider $provider
      */
     public function __construct(TokenProvider $provider)
     {

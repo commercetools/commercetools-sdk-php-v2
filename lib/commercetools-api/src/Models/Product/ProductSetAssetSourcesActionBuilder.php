@@ -17,11 +17,6 @@ use Commercetools\Base\Builder;
 final class ProductSetAssetSourcesActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?AssetSourceCollection
      */
     private $sources;
@@ -50,18 +45,6 @@ final class ProductSetAssetSourcesActionBuilder implements Builder
      * @var ?string
      */
     private $assetKey;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|AssetSourceCollection
@@ -109,16 +92,6 @@ final class ProductSetAssetSourcesActionBuilder implements Builder
     public function getAssetKey()
     {
         return $this->assetKey;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -184,7 +157,6 @@ final class ProductSetAssetSourcesActionBuilder implements Builder
     public function build(): ProductSetAssetSourcesAction
     {
         return new ProductSetAssetSourcesActionModel(
-            $this->action,
             $this->sources,
             $this->assetId,
             $this->staged,

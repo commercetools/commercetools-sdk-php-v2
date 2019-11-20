@@ -46,12 +46,10 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     public function __construct(
         int $centAmount = null,
         int $fractionDigits = null,
-        string $type = null,
         string $currencyCode = null
     ) {
         $this->centAmount = $centAmount;
         $this->fractionDigits = $fractionDigits;
-        $this->type = $type;
         $this->currencyCode = $currencyCode;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
@@ -134,11 +132,6 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     public function setFractionDigits(?int $fractionDigits): void
     {
         $this->fractionDigits = $fractionDigits;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setCurrencyCode(?string $currencyCode): void

@@ -55,7 +55,6 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     protected $target;
 
     public function __construct(
-        string $type = null,
         bool $newIncludedInStatistics = null,
         StateReference $oldState = null,
         bool $force = null,
@@ -63,13 +62,13 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
         StateReference $newState = null,
         Reference $target = null
     ) {
-        $this->type = $type;
         $this->newIncludedInStatistics = $newIncludedInStatistics;
         $this->oldState = $oldState;
         $this->force = $force;
         $this->oldIncludedInStatistics = $oldIncludedInStatistics;
         $this->newState = $newState;
         $this->target = $target;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -192,11 +191,6 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
         }
 
         return $this->target;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setNewIncludedInStatistics(?bool $newIncludedInStatistics): void

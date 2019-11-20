@@ -35,10 +35,6 @@ final class ProductTypeDraftBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

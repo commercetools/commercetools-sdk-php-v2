@@ -32,9 +32,7 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
     ];
 
     public function __construct(
-        string $type = null
     ) {
-        $this->type = $type;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -53,11 +51,6 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
         }
 
         return $this->type;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     /**

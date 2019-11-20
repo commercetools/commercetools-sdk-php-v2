@@ -42,9 +42,7 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -63,11 +61,6 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

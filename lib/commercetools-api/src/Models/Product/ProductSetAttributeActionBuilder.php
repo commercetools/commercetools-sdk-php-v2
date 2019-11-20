@@ -19,11 +19,6 @@ final class ProductSetAttributeActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $name;
 
     /**
@@ -45,18 +40,6 @@ final class ProductSetAttributeActionBuilder implements Builder
      * @var ?JsonObject
      */
     private $value;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -96,16 +79,6 @@ final class ProductSetAttributeActionBuilder implements Builder
     public function getValue()
     {
         return $this->value;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -161,7 +134,6 @@ final class ProductSetAttributeActionBuilder implements Builder
     public function build(): ProductSetAttributeAction
     {
         return new ProductSetAttributeActionModel(
-            $this->action,
             $this->name,
             $this->staged,
             $this->variantId,

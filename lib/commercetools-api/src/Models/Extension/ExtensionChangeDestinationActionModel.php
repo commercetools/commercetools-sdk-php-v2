@@ -26,11 +26,10 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
     protected $destination;
 
     public function __construct(
-        string $action = null,
         ExtensionDestination $destination = null
     ) {
-        $this->action = $action;
         $this->destination = $destination;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class ExtensionChangeDestinationActionModel extends JsonObjectModel implem
         }
 
         return $this->destination;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDestination(?ExtensionDestination $destination): void

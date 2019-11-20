@@ -40,15 +40,14 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
     protected $distributionChannel;
 
     public function __construct(
-        string $action = null,
         ShoppingListResourceIdentifier $shoppingList = null,
         ChannelResourceIdentifier $supplyChannel = null,
         ChannelResourceIdentifier $distributionChannel = null
     ) {
-        $this->action = $action;
         $this->shoppingList = $shoppingList;
         $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -120,11 +119,6 @@ final class CartAddShoppingListActionModel extends JsonObjectModel implements Ca
         }
 
         return $this->distributionChannel;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShoppingList(?ShoppingListResourceIdentifier $shoppingList): void

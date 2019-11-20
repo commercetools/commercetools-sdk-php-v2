@@ -46,10 +46,6 @@ final class ExternalTaxRateDraftBuilder implements Builder
      */
     private $subRates;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

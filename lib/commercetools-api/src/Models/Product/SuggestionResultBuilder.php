@@ -15,10 +15,6 @@ use Commercetools\Base\Builder;
  */
 final class SuggestionResultBuilder implements Builder
 {
-    public function __construct()
-    {
-    }
-
     public function build(): SuggestionResult
     {
         return new SuggestionResultModel(

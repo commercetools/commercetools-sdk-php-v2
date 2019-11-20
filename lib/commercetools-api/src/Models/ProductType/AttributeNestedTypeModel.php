@@ -26,11 +26,10 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
     protected $typeReference;
 
     public function __construct(
-        string $name = null,
         ProductTypeReference $typeReference = null
     ) {
-        $this->name = $name;
         $this->typeReference = $typeReference;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class AttributeNestedTypeModel extends JsonObjectModel implements Attribut
         }
 
         return $this->typeReference;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function setTypeReference(?ProductTypeReference $typeReference): void

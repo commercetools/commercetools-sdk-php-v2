@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class TermFacetResultBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?int
      */
     private $other;
@@ -44,18 +39,6 @@ final class TermFacetResultBuilder implements Builder
      * @var ?int
      */
     private $missing;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|int
@@ -95,16 +78,6 @@ final class TermFacetResultBuilder implements Builder
     public function getMissing()
     {
         return $this->missing;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -160,7 +133,6 @@ final class TermFacetResultBuilder implements Builder
     public function build(): TermFacetResult
     {
         return new TermFacetResultModel(
-            $this->type,
             $this->other,
             $this->total,
             $this->terms,

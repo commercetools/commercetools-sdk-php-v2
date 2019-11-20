@@ -18,29 +18,12 @@ final class ConcurrentModificationErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
      * @var ?int
      */
     private $currentVersion;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class ConcurrentModificationErrorBuilder implements Builder
     public function getCurrentVersion()
     {
         return $this->currentVersion;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class ConcurrentModificationErrorBuilder implements Builder
     public function build(): ConcurrentModificationError
     {
         return new ConcurrentModificationErrorModel(
-            $this->code,
             $this->message,
             $this->currentVersion
         );

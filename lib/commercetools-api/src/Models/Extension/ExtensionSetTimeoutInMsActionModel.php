@@ -25,11 +25,10 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
     protected $timeoutInMs;
 
     public function __construct(
-        string $action = null,
         int $timeoutInMs = null
     ) {
-        $this->action = $action;
         $this->timeoutInMs = $timeoutInMs;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ExtensionSetTimeoutInMsActionModel extends JsonObjectModel implement
         }
 
         return $this->timeoutInMs;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTimeoutInMs(?int $timeoutInMs): void

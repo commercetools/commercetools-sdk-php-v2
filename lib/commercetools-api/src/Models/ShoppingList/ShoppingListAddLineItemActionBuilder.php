@@ -19,11 +19,6 @@ use DateTimeImmutable;
 final class ShoppingListAddLineItemActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?DateTimeImmutable
      */
     private $addedAt;
@@ -52,18 +47,6 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
      * @var ?string
      */
     private $sku;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -111,16 +94,6 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -196,7 +169,6 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     public function build(): ShoppingListAddLineItemAction
     {
         return new ShoppingListAddLineItemActionModel(
-            $this->action,
             $this->addedAt,
             $this->quantity,
             $this->productId,

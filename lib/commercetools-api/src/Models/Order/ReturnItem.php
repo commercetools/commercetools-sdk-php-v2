@@ -67,8 +67,6 @@ interface ReturnItem extends JsonObject
 
     public function setQuantity(?int $quantity): void;
 
-    public function setType(?string $type): void;
-
     public function setComment(?string $comment): void;
 
     public function setShipmentState(?string $shipmentState): void;

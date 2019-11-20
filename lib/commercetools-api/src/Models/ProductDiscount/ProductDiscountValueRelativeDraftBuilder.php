@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ProductDiscountValueRelativeDraftBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?int
      */
     private $permyriad;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|int
@@ -43,16 +26,6 @@ final class ProductDiscountValueRelativeDraftBuilder implements Builder
     public function getPermyriad()
     {
         return $this->permyriad;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ProductDiscountValueRelativeDraftBuilder implements Builder
     public function build(): ProductDiscountValueRelativeDraft
     {
         return new ProductDiscountValueRelativeDraftModel(
-            $this->type,
             $this->permyriad
         );
     }

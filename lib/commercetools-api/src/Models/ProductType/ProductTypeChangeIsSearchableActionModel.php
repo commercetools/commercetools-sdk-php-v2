@@ -30,13 +30,12 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
     protected $isSearchable;
 
     public function __construct(
-        string $action = null,
         string $attributeName = null,
         bool $isSearchable = null
     ) {
-        $this->action = $action;
         $this->attributeName = $attributeName;
         $this->isSearchable = $isSearchable;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class ProductTypeChangeIsSearchableActionModel extends JsonObjectModel imp
         }
 
         return $this->isSearchable;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAttributeName(?string $attributeName): void

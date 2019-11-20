@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductChangeSlugActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $staged;
@@ -31,18 +26,6 @@ final class ProductChangeSlugActionBuilder implements Builder
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $slug;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -58,16 +41,6 @@ final class ProductChangeSlugActionBuilder implements Builder
     public function getSlug()
     {
         return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ProductChangeSlugActionBuilder implements Builder
     public function build(): ProductChangeSlugAction
     {
         return new ProductChangeSlugActionModel(
-            $this->action,
             $this->staged,
             ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
         );

@@ -18,29 +18,12 @@ final class CartSetCustomLineItemTaxRateActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $customLineItemId;
 
     /**
      * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class CartSetCustomLineItemTaxRateActionBuilder implements Builder
     public function getExternalTaxRate()
     {
         return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class CartSetCustomLineItemTaxRateActionBuilder implements Builder
     public function build(): CartSetCustomLineItemTaxRateAction
     {
         return new CartSetCustomLineItemTaxRateActionModel(
-            $this->action,
             $this->customLineItemId,
             ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate)
         );

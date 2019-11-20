@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ExtensionChangeDestinationActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ExtensionDestination|?ExtensionDestinationBuilder
      */
     private $destination;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ExtensionDestination
@@ -43,16 +26,6 @@ final class ExtensionChangeDestinationActionBuilder implements Builder
     public function getDestination()
     {
         return $this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class ExtensionChangeDestinationActionBuilder implements Builder
     public function build(): ExtensionChangeDestinationAction
     {
         return new ExtensionChangeDestinationActionModel(
-            $this->action,
             ($this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination)
         );
     }

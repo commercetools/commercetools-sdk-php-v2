@@ -25,11 +25,10 @@ final class CartAddDiscountCodeActionModel extends JsonObjectModel implements Ca
     protected $code;
 
     public function __construct(
-        string $action = null,
         string $code = null
     ) {
-        $this->action = $action;
         $this->code = $code;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CartAddDiscountCodeActionModel extends JsonObjectModel implements Ca
         }
 
         return $this->code;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCode(?string $code): void

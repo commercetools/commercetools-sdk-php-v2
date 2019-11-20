@@ -28,16 +28,7 @@ final class TypedMoneyBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $currencyCode;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|int
@@ -53,14 +44,6 @@ final class TypedMoneyBuilder implements Builder
     public function getFractionDigits()
     {
         return $this->fractionDigits;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -96,16 +79,6 @@ final class TypedMoneyBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCurrencyCode(?string $currencyCode)
     {
         $this->currencyCode = $currencyCode;
@@ -118,7 +91,6 @@ final class TypedMoneyBuilder implements Builder
         return new TypedMoneyModel(
             $this->centAmount,
             $this->fractionDigits,
-            $this->type,
             $this->currencyCode
         );
     }

@@ -26,11 +26,10 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
     protected $transitions;
 
     public function __construct(
-        string $action = null,
         StateResourceIdentifierCollection $transitions = null
     ) {
-        $this->action = $action;
         $this->transitions = $transitions;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class StateSetTransitionsActionModel extends JsonObjectModel implements St
         }
 
         return $this->transitions;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTransitions(?StateResourceIdentifierCollection $transitions): void

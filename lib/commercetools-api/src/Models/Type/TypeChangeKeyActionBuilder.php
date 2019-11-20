@@ -18,24 +18,7 @@ final class TypeChangeKeyActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $key;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class TypeChangeKeyActionBuilder implements Builder
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class TypeChangeKeyActionBuilder implements Builder
     public function build(): TypeChangeKeyAction
     {
         return new TypeChangeKeyActionModel(
-            $this->action,
             $this->key
         );
     }

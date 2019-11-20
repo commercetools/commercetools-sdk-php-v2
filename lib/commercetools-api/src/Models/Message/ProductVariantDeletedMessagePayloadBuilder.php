@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductVariantDeletedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?array
      */
     private $removedImageUrls;
@@ -31,18 +26,6 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
      * @var ProductVariant|?ProductVariantBuilder
      */
     private $variant;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|array
@@ -58,16 +41,6 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     public function getVariant()
     {
         return $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ProductVariantDeletedMessagePayloadBuilder implements Builder
     public function build(): ProductVariantDeletedMessagePayload
     {
         return new ProductVariantDeletedMessagePayloadModel(
-            $this->type,
             $this->removedImageUrls,
             ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant)
         );

@@ -25,10 +25,6 @@ final class ExtensionTriggerBuilder implements Builder
      */
     private $actions;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

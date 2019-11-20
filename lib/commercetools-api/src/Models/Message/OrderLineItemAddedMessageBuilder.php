@@ -75,11 +75,6 @@ final class OrderLineItemAddedMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var LineItem|?LineItemBuilder
      */
     private $lineItem;
@@ -88,10 +83,6 @@ final class OrderLineItemAddedMessageBuilder implements Builder
      * @var ?int
      */
     private $addedQuantity;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -171,14 +162,6 @@ final class OrderLineItemAddedMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -300,16 +283,6 @@ final class OrderLineItemAddedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withLineItem(?LineItem $lineItem)
     {
         $this->lineItem = $lineItem;
@@ -390,7 +363,6 @@ final class OrderLineItemAddedMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->lineItem instanceof LineItemBuilder ? $this->lineItem->build() : $this->lineItem),
             $this->addedQuantity
         );

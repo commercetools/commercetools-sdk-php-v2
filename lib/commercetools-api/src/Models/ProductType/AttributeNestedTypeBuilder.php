@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class AttributeNestedTypeBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $name;
-
-    /**
      * @var ProductTypeReference|?ProductTypeReferenceBuilder
      */
     private $typeReference;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * @return null|ProductTypeReference
@@ -43,16 +26,6 @@ final class AttributeNestedTypeBuilder implements Builder
     public function getTypeReference()
     {
         return $this->typeReference instanceof ProductTypeReferenceBuilder ? $this->typeReference->build() : $this->typeReference;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class AttributeNestedTypeBuilder implements Builder
     public function build(): AttributeNestedType
     {
         return new AttributeNestedTypeModel(
-            $this->name,
             ($this->typeReference instanceof ProductTypeReferenceBuilder ? $this->typeReference->build() : $this->typeReference)
         );
     }

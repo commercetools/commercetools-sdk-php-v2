@@ -52,13 +52,11 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
     public function __construct(
         string $projectKey = null,
         Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        string $notificationType = null
+        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->notificationType = $notificationType;
         $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
@@ -145,11 +143,6 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
-    public function setNotificationType(?string $notificationType): void
-    {
-        $this->notificationType = $notificationType;
     }
 
     /**

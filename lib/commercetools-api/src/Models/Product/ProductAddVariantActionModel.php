@@ -59,7 +59,6 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     protected $key;
 
     public function __construct(
-        string $action = null,
         ImageCollection $images = null,
         AssetCollection $assets = null,
         AttributeCollection $attributes = null,
@@ -68,7 +67,6 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
         string $sku = null,
         string $key = null
     ) {
-        $this->action = $action;
         $this->images = $images;
         $this->assets = $assets;
         $this->attributes = $attributes;
@@ -76,6 +74,7 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
         $this->prices = $prices;
         $this->sku = $sku;
         $this->key = $key;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -212,11 +211,6 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
         }
 
         return $this->key;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setImages(?ImageCollection $images): void

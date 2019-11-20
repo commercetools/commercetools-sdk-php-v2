@@ -26,11 +26,10 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
     protected $externalOAuth;
 
     public function __construct(
-        string $action = null,
         ExternalOAuth $externalOAuth = null
     ) {
-        $this->action = $action;
         $this->externalOAuth = $externalOAuth;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class ProjectSetExternalOAuthActionModel extends JsonObjectModel implement
         }
 
         return $this->externalOAuth;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setExternalOAuth(?ExternalOAuth $externalOAuth): void

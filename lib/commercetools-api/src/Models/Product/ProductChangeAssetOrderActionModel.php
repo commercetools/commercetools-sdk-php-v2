@@ -40,17 +40,16 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     protected $sku;
 
     public function __construct(
-        string $action = null,
         array $assetOrder = null,
         bool $staged = null,
         int $variantId = null,
         string $sku = null
     ) {
-        $this->action = $action;
         $this->assetOrder = $assetOrder;
         $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -136,11 +135,6 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
         }
 
         return $this->sku;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAssetOrder(?array $assetOrder): void

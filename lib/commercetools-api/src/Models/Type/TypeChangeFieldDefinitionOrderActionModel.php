@@ -25,11 +25,10 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
     protected $fieldNames;
 
     public function __construct(
-        string $action = null,
         array $fieldNames = null
     ) {
-        $this->action = $action;
         $this->fieldNames = $fieldNames;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class TypeChangeFieldDefinitionOrderActionModel extends JsonObjectModel im
         }
 
         return $this->fieldNames;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFieldNames(?array $fieldNames): void

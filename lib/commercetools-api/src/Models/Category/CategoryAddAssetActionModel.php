@@ -33,13 +33,12 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     protected $asset;
 
     public function __construct(
-        string $action = null,
         int $position = null,
         AssetDraft $asset = null
     ) {
-        $this->action = $action;
         $this->position = $position;
         $this->asset = $asset;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
         }
 
         return $this->asset;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setPosition(?int $position): void

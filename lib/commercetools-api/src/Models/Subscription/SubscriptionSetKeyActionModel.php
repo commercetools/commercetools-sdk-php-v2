@@ -25,11 +25,10 @@ final class SubscriptionSetKeyActionModel extends JsonObjectModel implements Sub
     protected $key;
 
     public function __construct(
-        string $action = null,
         string $key = null
     ) {
-        $this->action = $action;
         $this->key = $key;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class SubscriptionSetKeyActionModel extends JsonObjectModel implements Sub
         }
 
         return $this->key;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setKey(?string $key): void

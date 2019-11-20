@@ -28,11 +28,10 @@ final class ShippingMethodAddZoneActionModel extends JsonObjectModel implements 
     protected $zone;
 
     public function __construct(
-        string $action = null,
         ZoneResourceIdentifier $zone = null
     ) {
-        $this->action = $action;
         $this->zone = $zone;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class ShippingMethodAddZoneActionModel extends JsonObjectModel implements 
         }
 
         return $this->zone;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setZone(?ZoneResourceIdentifier $zone): void

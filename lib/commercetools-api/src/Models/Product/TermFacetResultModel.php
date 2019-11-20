@@ -46,19 +46,18 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     protected $missing;
 
     public function __construct(
-        string $type = null,
         int $other = null,
         int $total = null,
         FacetResultTermCollection $terms = null,
         string $dataType = null,
         int $missing = null
     ) {
-        $this->type = $type;
         $this->other = $other;
         $this->total = $total;
         $this->terms = $terms;
         $this->dataType = $dataType;
         $this->missing = $missing;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -161,11 +160,6 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
         }
 
         return $this->missing;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOther(?int $other): void

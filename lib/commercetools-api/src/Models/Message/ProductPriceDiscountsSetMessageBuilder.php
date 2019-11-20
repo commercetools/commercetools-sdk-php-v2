@@ -73,18 +73,9 @@ final class ProductPriceDiscountsSetMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?ProductPriceDiscountsSetUpdatedPriceCollection
      */
     private $updatedPrices;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -164,14 +155,6 @@ final class ProductPriceDiscountsSetMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -285,16 +268,6 @@ final class ProductPriceDiscountsSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withUpdatedPrices(?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices)
     {
         $this->updatedPrices = $updatedPrices;
@@ -355,7 +328,6 @@ final class ProductPriceDiscountsSetMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             $this->updatedPrices
         );
     }

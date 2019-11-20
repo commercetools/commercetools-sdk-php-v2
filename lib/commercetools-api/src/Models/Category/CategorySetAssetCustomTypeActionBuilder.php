@@ -21,11 +21,6 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $assetId;
 
     /**
@@ -42,18 +37,6 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
      * @var ?string
      */
     private $assetKey;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -85,16 +68,6 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     public function getAssetKey()
     {
         return $this->assetKey;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -150,7 +123,6 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     public function build(): CategorySetAssetCustomTypeAction
     {
         return new CategorySetAssetCustomTypeActionModel(
-            $this->action,
             $this->assetId,
             $this->fields,
             ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),

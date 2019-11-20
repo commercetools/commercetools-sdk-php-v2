@@ -25,10 +25,6 @@ final class OrderEditApplyBuilder implements Builder
      */
     private $editVersion;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

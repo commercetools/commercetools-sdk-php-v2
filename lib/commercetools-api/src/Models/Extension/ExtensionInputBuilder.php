@@ -27,10 +27,6 @@ final class ExtensionInputBuilder implements Builder
      */
     private $action;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|Reference
      */

@@ -54,16 +54,7 @@ final class CustomLineItemReturnItemBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $customLineItemId;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|string
@@ -119,14 +110,6 @@ final class CustomLineItemReturnItemBuilder implements Builder
     public function getPaymentState()
     {
         return $this->paymentState;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -210,16 +193,6 @@ final class CustomLineItemReturnItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
@@ -237,7 +210,6 @@ final class CustomLineItemReturnItemBuilder implements Builder
             $this->comment,
             $this->id,
             $this->paymentState,
-            $this->type,
             $this->customLineItemId
         );
     }

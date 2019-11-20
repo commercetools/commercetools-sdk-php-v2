@@ -45,17 +45,16 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
     protected $distributionChannel;
 
     public function __construct(
-        string $type = null,
         ProductReference $product = null,
         ChannelReference $supplyChannel = null,
         int $variantId = null,
         ChannelReference $distributionChannel = null
     ) {
-        $this->type = $type;
         $this->product = $product;
         $this->supplyChannel = $supplyChannel;
         $this->variantId = $variantId;
         $this->distributionChannel = $distributionChannel;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -144,11 +143,6 @@ final class CartDiscountValueGiftLineItemModel extends JsonObjectModel implement
         }
 
         return $this->distributionChannel;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setProduct(?ProductReference $product): void

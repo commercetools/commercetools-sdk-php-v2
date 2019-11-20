@@ -42,10 +42,6 @@ final class FieldDefinitionBuilder implements Builder
      */
     private $required;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

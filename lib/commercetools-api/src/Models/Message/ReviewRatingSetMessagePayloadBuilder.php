@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ReviewRatingSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?int
      */
     private $oldRating;
@@ -41,18 +36,6 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
      * @var Reference|?ReferenceBuilder
      */
     private $target;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|int
@@ -84,16 +67,6 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     public function getTarget()
     {
         return $this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -149,7 +122,6 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     public function build(): ReviewRatingSetMessagePayload
     {
         return new ReviewRatingSetMessagePayloadModel(
-            $this->type,
             $this->oldRating,
             $this->includedInStatistics,
             $this->newRating,

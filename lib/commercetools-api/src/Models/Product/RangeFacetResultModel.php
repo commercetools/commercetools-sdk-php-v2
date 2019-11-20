@@ -26,11 +26,10 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
     protected $ranges;
 
     public function __construct(
-        string $type = null,
         FacetResultRangeCollection $ranges = null
     ) {
-        $this->type = $type;
         $this->ranges = $ranges;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class RangeFacetResultModel extends JsonObjectModel implements RangeFacetR
         }
 
         return $this->ranges;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setRanges(?FacetResultRangeCollection $ranges): void

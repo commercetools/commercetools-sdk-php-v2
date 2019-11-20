@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ClassificationShippingRateInputBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $label;
@@ -31,18 +26,6 @@ final class ClassificationShippingRateInputBuilder implements Builder
      * @var ?string
      */
     private $key;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|LocalizedString
@@ -58,16 +41,6 @@ final class ClassificationShippingRateInputBuilder implements Builder
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ClassificationShippingRateInputBuilder implements Builder
     public function build(): ClassificationShippingRateInput
     {
         return new ClassificationShippingRateInputModel(
-            $this->type,
             ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
             $this->key
         );

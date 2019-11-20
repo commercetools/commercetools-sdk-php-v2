@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductPublishedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?array
      */
     private $removedImageUrls;
@@ -36,18 +31,6 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
      * @var ?string
      */
     private $scope;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|array
@@ -71,16 +54,6 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     public function getScope()
     {
         return $this->scope;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -126,7 +99,6 @@ final class ProductPublishedMessagePayloadBuilder implements Builder
     public function build(): ProductPublishedMessagePayload
     {
         return new ProductPublishedMessagePayloadModel(
-            $this->type,
             $this->removedImageUrls,
             ($this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection),
             $this->scope

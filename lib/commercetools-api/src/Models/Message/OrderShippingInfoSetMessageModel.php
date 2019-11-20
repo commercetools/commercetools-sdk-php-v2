@@ -101,7 +101,6 @@ final class OrderShippingInfoSetMessageModel extends JsonObjectModel implements 
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         ShippingInfo $shippingInfo = null,
         ShippingInfo $oldShippingInfo = null
     ) {
@@ -115,9 +114,9 @@ final class OrderShippingInfoSetMessageModel extends JsonObjectModel implements 
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->shippingInfo = $shippingInfo;
         $this->oldShippingInfo = $oldShippingInfo;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -403,11 +402,6 @@ final class OrderShippingInfoSetMessageModel extends JsonObjectModel implements 
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setShippingInfo(?ShippingInfo $shippingInfo): void

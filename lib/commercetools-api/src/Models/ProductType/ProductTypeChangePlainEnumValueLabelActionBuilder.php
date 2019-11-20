@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var AttributePlainEnumValue|?AttributePlainEnumValueBuilder
      */
     private $newValue;
@@ -29,18 +24,6 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
      * @var ?string
      */
     private $attributeName;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|AttributePlainEnumValue
@@ -56,16 +39,6 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     public function getAttributeName()
     {
         return $this->attributeName;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     public function build(): ProductTypeChangePlainEnumValueLabelAction
     {
         return new ProductTypeChangePlainEnumValueLabelActionModel(
-            $this->action,
             ($this->newValue instanceof AttributePlainEnumValueBuilder ? $this->newValue->build() : $this->newValue),
             $this->attributeName
         );

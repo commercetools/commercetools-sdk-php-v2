@@ -25,10 +25,6 @@ final class TaxCategoryUpdateBuilder implements Builder
      */
     private $version;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|TaxCategoryUpdateActionCollection
      */

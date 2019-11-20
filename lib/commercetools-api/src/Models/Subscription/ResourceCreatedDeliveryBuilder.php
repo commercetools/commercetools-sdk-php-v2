@@ -36,11 +36,6 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?string
-     */
-    private $notificationType;
-
-    /**
      * @var ?DateTimeImmutable
      */
     private $modifiedAt;
@@ -49,10 +44,6 @@ final class ResourceCreatedDeliveryBuilder implements Builder
      * @var ?int
      */
     private $version;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|string
@@ -76,14 +67,6 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     public function getResourceUserProvidedIdentifiers()
     {
         return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getNotificationType()
-    {
-        return $this->notificationType;
     }
 
     /**
@@ -135,16 +118,6 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNotificationType(?string $notificationType)
-    {
-        $this->notificationType = $notificationType;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withModifiedAt(?DateTimeImmutable $modifiedAt)
     {
         $this->modifiedAt = $modifiedAt;
@@ -188,7 +161,6 @@ final class ResourceCreatedDeliveryBuilder implements Builder
             $this->projectKey,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            $this->notificationType,
             $this->modifiedAt,
             $this->version
         );

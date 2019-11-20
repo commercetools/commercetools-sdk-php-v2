@@ -57,10 +57,6 @@ final class AttributeDefinitionDraftBuilder implements Builder
      */
     private $inputTip;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|bool
      */

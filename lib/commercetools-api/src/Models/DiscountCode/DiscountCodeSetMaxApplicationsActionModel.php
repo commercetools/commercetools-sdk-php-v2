@@ -25,11 +25,10 @@ final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel im
     protected $maxApplications;
 
     public function __construct(
-        string $action = null,
         int $maxApplications = null
     ) {
-        $this->action = $action;
         $this->maxApplications = $maxApplications;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel im
         }
 
         return $this->maxApplications;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMaxApplications(?int $maxApplications): void

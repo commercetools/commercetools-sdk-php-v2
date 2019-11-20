@@ -25,11 +25,10 @@ final class OrderSetCustomerIdActionModel extends JsonObjectModel implements Ord
     protected $customerId;
 
     public function __construct(
-        string $action = null,
         string $customerId = null
     ) {
-        $this->action = $action;
         $this->customerId = $customerId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class OrderSetCustomerIdActionModel extends JsonObjectModel implements Ord
         }
 
         return $this->customerId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomerId(?string $customerId): void

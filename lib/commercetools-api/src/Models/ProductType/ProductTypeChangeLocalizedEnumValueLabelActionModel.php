@@ -31,13 +31,12 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
     protected $attributeName;
 
     public function __construct(
-        string $action = null,
         AttributeLocalizedEnumValue $newValue = null,
         string $attributeName = null
     ) {
-        $this->action = $action;
         $this->newValue = $newValue;
         $this->attributeName = $attributeName;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
         }
 
         return $this->attributeName;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setNewValue(?AttributeLocalizedEnumValue $newValue): void

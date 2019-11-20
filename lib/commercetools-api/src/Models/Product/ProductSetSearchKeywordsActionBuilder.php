@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductSetSearchKeywordsActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var SearchKeywords|?SearchKeywordsBuilder
      */
     private $searchKeywords;
@@ -29,18 +24,6 @@ final class ProductSetSearchKeywordsActionBuilder implements Builder
      * @var ?bool
      */
     private $staged;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|SearchKeywords
@@ -56,16 +39,6 @@ final class ProductSetSearchKeywordsActionBuilder implements Builder
     public function getStaged()
     {
         return $this->staged;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class ProductSetSearchKeywordsActionBuilder implements Builder
     public function build(): ProductSetSearchKeywordsAction
     {
         return new ProductSetSearchKeywordsActionModel(
-            $this->action,
             ($this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords),
             $this->staged
         );

@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class MyCartSetShippingAddressActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var Address|?AddressBuilder
      */
     private $address;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|Address
@@ -45,16 +28,6 @@ final class MyCartSetShippingAddressActionBuilder implements Builder
     public function getAddress()
     {
         return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class MyCartSetShippingAddressActionBuilder implements Builder
     public function build(): MyCartSetShippingAddressAction
     {
         return new MyCartSetShippingAddressActionModel(
-            $this->action,
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
         );
     }

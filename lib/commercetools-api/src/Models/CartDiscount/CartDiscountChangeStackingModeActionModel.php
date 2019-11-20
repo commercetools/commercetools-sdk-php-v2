@@ -25,11 +25,10 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
     protected $stackingMode;
 
     public function __construct(
-        string $action = null,
         string $stackingMode = null
     ) {
-        $this->action = $action;
         $this->stackingMode = $stackingMode;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CartDiscountChangeStackingModeActionModel extends JsonObjectModel im
         }
 
         return $this->stackingMode;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setStackingMode(?string $stackingMode): void

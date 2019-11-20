@@ -18,24 +18,7 @@ final class ExtensionAuthorizationHeaderAuthenticationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $headerValue;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class ExtensionAuthorizationHeaderAuthenticationBuilder implements Builder
     public function getHeaderValue()
     {
         return $this->headerValue;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ExtensionAuthorizationHeaderAuthenticationBuilder implements Builder
     public function build(): ExtensionAuthorizationHeaderAuthentication
     {
         return new ExtensionAuthorizationHeaderAuthenticationModel(
-            $this->type,
             $this->headerValue
         );
     }

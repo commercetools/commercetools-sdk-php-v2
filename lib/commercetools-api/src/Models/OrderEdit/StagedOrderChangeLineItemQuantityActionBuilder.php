@@ -20,11 +20,6 @@ use Commercetools\Base\Builder;
 final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $quantity;
@@ -43,18 +38,6 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
      * @var Money|?MoneyBuilder
      */
     private $externalPrice;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -86,16 +69,6 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
     public function getExternalPrice()
     {
         return $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -161,7 +134,6 @@ final class StagedOrderChangeLineItemQuantityActionBuilder implements Builder
     public function build(): StagedOrderChangeLineItemQuantityAction
     {
         return new StagedOrderChangeLineItemQuantityActionModel(
-            $this->action,
             $this->quantity,
             ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice),
             $this->lineItemId,

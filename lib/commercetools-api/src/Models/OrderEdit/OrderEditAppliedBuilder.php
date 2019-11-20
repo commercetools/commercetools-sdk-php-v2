@@ -17,11 +17,6 @@ use DateTimeImmutable;
 final class OrderEditAppliedBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var OrderExcerpt|?OrderExcerptBuilder
      */
     private $excerptAfterEdit;
@@ -35,18 +30,6 @@ final class OrderEditAppliedBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $appliedAt;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|OrderExcerpt
@@ -70,16 +53,6 @@ final class OrderEditAppliedBuilder implements Builder
     public function getAppliedAt()
     {
         return $this->appliedAt;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -135,7 +108,6 @@ final class OrderEditAppliedBuilder implements Builder
     public function build(): OrderEditApplied
     {
         return new OrderEditAppliedModel(
-            $this->type,
             ($this->excerptAfterEdit instanceof OrderExcerptBuilder ? $this->excerptAfterEdit->build() : $this->excerptAfterEdit),
             ($this->excerptBeforeEdit instanceof OrderExcerptBuilder ? $this->excerptBeforeEdit->build() : $this->excerptBeforeEdit),
             $this->appliedAt

@@ -26,15 +26,6 @@ final class CentPrecisionMoneyDraftBuilder implements Builder
     private $currencyCode;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    public function __construct()
-    {
-    }
-
-    /**
      * @return null|int
      */
     public function getCentAmount()
@@ -50,14 +41,6 @@ final class CentPrecisionMoneyDraftBuilder implements Builder
     public function getCurrencyCode()
     {
         return $this->currencyCode;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -80,22 +63,11 @@ final class CentPrecisionMoneyDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     public function build(): CentPrecisionMoneyDraft
     {
         return new CentPrecisionMoneyDraftModel(
             $this->centAmount,
-            $this->currencyCode,
-            $this->type
+            $this->currencyCode
         );
     }
 

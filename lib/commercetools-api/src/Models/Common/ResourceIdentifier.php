@@ -32,8 +32,6 @@ interface ResourceIdentifier extends JsonObject
      */
     public function getKey();
 
-    public function setTypeId(?string $typeId): void;
-
     public function setId(?string $id): void;
 
     public function setKey(?string $key): void;

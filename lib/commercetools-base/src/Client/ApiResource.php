@@ -28,7 +28,6 @@ class ApiResource
     private $client;
 
     /**
-     * @param string $uri
      * @psalm-param array<string, scalar> $args
      */
     public function __construct(string $uri = '', array $args = [], Client $client = null)
@@ -43,9 +42,6 @@ class ApiResource
         return $this->client;
     }
 
-    /**
-     * @return string
-     */
     final protected function getUri(): string
     {
         return $this->uri;

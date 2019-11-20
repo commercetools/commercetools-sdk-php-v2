@@ -18,29 +18,12 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $topic;
 
     /**
      * @var ?string
      */
     private $projectId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     public function getProjectId()
     {
         return $this->projectId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     public function build(): GoogleCloudPubSubDestination
     {
         return new GoogleCloudPubSubDestinationModel(
-            $this->type,
             $this->topic,
             $this->projectId
         );

@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class TypeChangeFieldDefinitionOrderActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?array
      */
     private $fieldNames;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|array
@@ -43,16 +26,6 @@ final class TypeChangeFieldDefinitionOrderActionBuilder implements Builder
     public function getFieldNames()
     {
         return $this->fieldNames;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class TypeChangeFieldDefinitionOrderActionBuilder implements Builder
     public function build(): TypeChangeFieldDefinitionOrderAction
     {
         return new TypeChangeFieldDefinitionOrderActionModel(
-            $this->action,
             $this->fieldNames
         );
     }

@@ -25,11 +25,10 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
     protected $connectionString;
 
     public function __construct(
-        string $type = null,
         string $connectionString = null
     ) {
-        $this->type = $type;
         $this->connectionString = $connectionString;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class AzureServiceBusDestinationModel extends JsonObjectModel implements A
         }
 
         return $this->connectionString;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setConnectionString(?string $connectionString): void

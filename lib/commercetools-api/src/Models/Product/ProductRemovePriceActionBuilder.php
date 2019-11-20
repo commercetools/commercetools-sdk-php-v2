@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductRemovePriceActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $staged;
@@ -29,18 +24,6 @@ final class ProductRemovePriceActionBuilder implements Builder
      * @var ?string
      */
     private $priceId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -56,16 +39,6 @@ final class ProductRemovePriceActionBuilder implements Builder
     public function getPriceId()
     {
         return $this->priceId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class ProductRemovePriceActionBuilder implements Builder
     public function build(): ProductRemovePriceAction
     {
         return new ProductRemovePriceActionModel(
-            $this->action,
             $this->staged,
             $this->priceId
         );

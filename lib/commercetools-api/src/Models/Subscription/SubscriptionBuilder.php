@@ -80,10 +80,6 @@ final class SubscriptionBuilder implements Builder
      */
     private $status;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

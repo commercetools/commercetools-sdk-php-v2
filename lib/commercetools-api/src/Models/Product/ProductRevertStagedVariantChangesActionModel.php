@@ -25,11 +25,10 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
     protected $variantId;
 
     public function __construct(
-        string $action = null,
         int $variantId = null
     ) {
-        $this->action = $action;
         $this->variantId = $variantId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProductRevertStagedVariantChangesActionModel extends JsonObjectModel
         }
 
         return $this->variantId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setVariantId(?int $variantId): void

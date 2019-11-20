@@ -26,11 +26,10 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
     protected $parent;
 
     public function __construct(
-        string $action = null,
         CategoryResourceIdentifier $parent = null
     ) {
-        $this->action = $action;
         $this->parent = $parent;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class CategoryChangeParentActionModel extends JsonObjectModel implements C
         }
 
         return $this->parent;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setParent(?CategoryResourceIdentifier $parent): void

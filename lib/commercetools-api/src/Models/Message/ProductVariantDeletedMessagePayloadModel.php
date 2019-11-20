@@ -33,13 +33,12 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
     protected $variant;
 
     public function __construct(
-        string $type = null,
         array $removedImageUrls = null,
         ProductVariant $variant = null
     ) {
-        $this->type = $type;
         $this->removedImageUrls = $removedImageUrls;
         $this->variant = $variant;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductVariantDeletedMessagePayloadModel extends JsonObjectModel imp
         }
 
         return $this->variant;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setRemovedImageUrls(?array $removedImageUrls): void

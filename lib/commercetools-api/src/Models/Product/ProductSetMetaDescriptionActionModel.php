@@ -33,13 +33,12 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     protected $metaDescription;
 
     public function __construct(
-        string $action = null,
         bool $staged = null,
         LocalizedString $metaDescription = null
     ) {
-        $this->action = $action;
         $this->staged = $staged;
         $this->metaDescription = $metaDescription;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
         }
 
         return $this->metaDescription;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setStaged(?bool $staged): void

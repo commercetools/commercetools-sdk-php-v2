@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class CartDiscountChangeRequiresDiscountCodeActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $requiresDiscountCode;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -43,16 +26,6 @@ final class CartDiscountChangeRequiresDiscountCodeActionBuilder implements Build
     public function getRequiresDiscountCode()
     {
         return $this->requiresDiscountCode;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CartDiscountChangeRequiresDiscountCodeActionBuilder implements Build
     public function build(): CartDiscountChangeRequiresDiscountCodeAction
     {
         return new CartDiscountChangeRequiresDiscountCodeActionModel(
-            $this->action,
             $this->requiresDiscountCode
         );
     }

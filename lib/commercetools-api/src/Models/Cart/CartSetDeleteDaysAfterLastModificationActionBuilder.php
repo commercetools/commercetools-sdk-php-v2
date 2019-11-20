@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class CartSetDeleteDaysAfterLastModificationActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $deleteDaysAfterLastModification;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -43,16 +26,6 @@ final class CartSetDeleteDaysAfterLastModificationActionBuilder implements Build
     public function getDeleteDaysAfterLastModification()
     {
         return $this->deleteDaysAfterLastModification;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CartSetDeleteDaysAfterLastModificationActionBuilder implements Build
     public function build(): CartSetDeleteDaysAfterLastModificationAction
     {
         return new CartSetDeleteDaysAfterLastModificationActionModel(
-            $this->action,
             $this->deleteDaysAfterLastModification
         );
     }

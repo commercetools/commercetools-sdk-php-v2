@@ -43,17 +43,16 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     protected $priceFunction;
 
     public function __construct(
-        string $type = null,
         int $score = null,
         Money $price = null,
         bool $isMatching = null,
         PriceFunction $priceFunction = null
     ) {
-        $this->type = $type;
         $this->score = $score;
         $this->price = $price;
         $this->isMatching = $isMatching;
         $this->priceFunction = $priceFunction;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -141,11 +140,6 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
         }
 
         return $this->priceFunction;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setScore(?int $score): void

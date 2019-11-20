@@ -140,10 +140,6 @@ final class OrderImportDraftBuilder implements Builder
      */
     private $paymentState;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

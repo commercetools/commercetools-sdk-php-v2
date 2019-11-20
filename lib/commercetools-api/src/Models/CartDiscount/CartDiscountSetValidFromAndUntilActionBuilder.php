@@ -17,11 +17,6 @@ use DateTimeImmutable;
 final class CartDiscountSetValidFromAndUntilActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?DateTimeImmutable
      */
     private $validUntil;
@@ -30,18 +25,6 @@ final class CartDiscountSetValidFromAndUntilActionBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $validFrom;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -57,16 +40,6 @@ final class CartDiscountSetValidFromAndUntilActionBuilder implements Builder
     public function getValidFrom()
     {
         return $this->validFrom;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -92,7 +65,6 @@ final class CartDiscountSetValidFromAndUntilActionBuilder implements Builder
     public function build(): CartDiscountSetValidFromAndUntilAction
     {
         return new CartDiscountSetValidFromAndUntilActionModel(
-            $this->action,
             $this->validUntil,
             $this->validFrom
         );

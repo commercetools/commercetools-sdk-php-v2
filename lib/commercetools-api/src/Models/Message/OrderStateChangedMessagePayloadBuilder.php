@@ -18,29 +18,12 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $oldOrderState;
 
     /**
      * @var ?string
      */
     private $orderState;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     public function getOrderState()
     {
         return $this->orderState;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     public function build(): OrderStateChangedMessagePayload
     {
         return new OrderStateChangedMessagePayloadModel(
-            $this->type,
             $this->oldOrderState,
             $this->orderState
         );

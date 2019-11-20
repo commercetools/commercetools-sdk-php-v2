@@ -35,10 +35,6 @@ final class ProductTypeImportBuilder implements Builder
      */
     private $attributes;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

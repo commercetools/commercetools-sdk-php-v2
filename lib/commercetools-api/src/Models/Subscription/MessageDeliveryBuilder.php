@@ -36,11 +36,6 @@ final class MessageDeliveryBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?string
-     */
-    private $notificationType;
-
-    /**
      * @var ?int
      */
     private $sequenceNumber;
@@ -75,10 +70,6 @@ final class MessageDeliveryBuilder implements Builder
      */
     private $version;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */
@@ -101,14 +92,6 @@ final class MessageDeliveryBuilder implements Builder
     public function getResourceUserProvidedIdentifiers()
     {
         return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getNotificationType()
-    {
-        return $this->notificationType;
     }
 
     /**
@@ -193,16 +176,6 @@ final class MessageDeliveryBuilder implements Builder
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withNotificationType(?string $notificationType)
-    {
-        $this->notificationType = $notificationType;
 
         return $this;
     }
@@ -313,7 +286,6 @@ final class MessageDeliveryBuilder implements Builder
             $this->projectKey,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            $this->notificationType,
             $this->sequenceNumber,
             $this->createdAt,
             $this->lastModifiedAt,

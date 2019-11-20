@@ -26,11 +26,10 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
     protected $values;
 
     public function __construct(
-        string $name = null,
         AttributePlainEnumValueCollection $values = null
     ) {
-        $this->name = $name;
         $this->values = $values;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class AttributeEnumTypeModel extends JsonObjectModel implements AttributeE
         }
 
         return $this->values;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function setValues(?AttributePlainEnumValueCollection $values): void

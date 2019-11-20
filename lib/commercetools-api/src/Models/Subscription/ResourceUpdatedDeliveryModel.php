@@ -60,7 +60,6 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
         string $projectKey = null,
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        string $notificationType = null,
         DateTimeImmutable $modifiedAt = null,
         int $oldVersion = null,
         int $version = null
@@ -68,10 +67,10 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->notificationType = $notificationType;
         $this->modifiedAt = $modifiedAt;
         $this->oldVersion = $oldVersion;
         $this->version = $version;
+        $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -212,11 +211,6 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
-    public function setNotificationType(?string $notificationType): void
-    {
-        $this->notificationType = $notificationType;
     }
 
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void

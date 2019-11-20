@@ -18,24 +18,7 @@ final class CustomerCompanyNameSetMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $companyName;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class CustomerCompanyNameSetMessagePayloadBuilder implements Builder
     public function getCompanyName()
     {
         return $this->companyName;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CustomerCompanyNameSetMessagePayloadBuilder implements Builder
     public function build(): CustomerCompanyNameSetMessagePayload
     {
         return new CustomerCompanyNameSetMessagePayloadModel(
-            $this->type,
             $this->companyName
         );
     }

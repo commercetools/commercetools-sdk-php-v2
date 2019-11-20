@@ -20,9 +20,8 @@ final class AttributeDateTimeTypeModel extends JsonObjectModel implements Attrib
     protected $name;
 
     public function __construct(
-        string $name = null
     ) {
-        $this->name = $name;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -40,10 +39,5 @@ final class AttributeDateTimeTypeModel extends JsonObjectModel implements Attrib
         }
 
         return $this->name;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 }

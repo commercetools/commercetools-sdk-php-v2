@@ -26,11 +26,10 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     protected $shippingRateInputType;
 
     public function __construct(
-        string $action = null,
         ShippingRateInputType $shippingRateInputType = null
     ) {
-        $this->action = $action;
         $this->shippingRateInputType = $shippingRateInputType;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
         }
 
         return $this->shippingRateInputType;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShippingRateInputType(?ShippingRateInputType $shippingRateInputType): void

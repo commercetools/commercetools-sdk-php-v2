@@ -28,11 +28,10 @@ final class ProductSlugChangedMessagePayloadModel extends JsonObjectModel implem
     protected $slug;
 
     public function __construct(
-        string $type = null,
         LocalizedString $slug = null
     ) {
-        $this->type = $type;
         $this->slug = $slug;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class ProductSlugChangedMessagePayloadModel extends JsonObjectModel implem
         }
 
         return $this->slug;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setSlug(?LocalizedString $slug): void

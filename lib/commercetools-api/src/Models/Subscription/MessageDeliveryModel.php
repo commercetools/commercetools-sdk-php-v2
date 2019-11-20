@@ -80,7 +80,6 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
         string $projectKey = null,
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        string $notificationType = null,
         int $sequenceNumber = null,
         DateTimeImmutable $createdAt = null,
         DateTimeImmutable $lastModifiedAt = null,
@@ -92,7 +91,6 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->notificationType = $notificationType;
         $this->sequenceNumber = $sequenceNumber;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
@@ -100,6 +98,7 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
         $this->payloadNotIncluded = $payloadNotIncluded;
         $this->id = $id;
         $this->version = $version;
+        $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -313,11 +312,6 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
-    public function setNotificationType(?string $notificationType): void
-    {
-        $this->notificationType = $notificationType;
     }
 
     public function setSequenceNumber(?int $sequenceNumber): void

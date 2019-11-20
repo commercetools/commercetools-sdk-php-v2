@@ -27,11 +27,10 @@ final class MyCustomerSetDateOfBirthActionModel extends JsonObjectModel implemen
     protected $dateOfBirth;
 
     public function __construct(
-        string $action = null,
         DateTimeImmutable $dateOfBirth = null
     ) {
-        $this->action = $action;
         $this->dateOfBirth = $dateOfBirth;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -70,11 +69,6 @@ final class MyCustomerSetDateOfBirthActionModel extends JsonObjectModel implemen
         }
 
         return $this->dateOfBirth;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void

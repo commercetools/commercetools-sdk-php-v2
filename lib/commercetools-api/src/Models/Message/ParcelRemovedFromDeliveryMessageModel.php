@@ -101,7 +101,6 @@ final class ParcelRemovedFromDeliveryMessageModel extends JsonObjectModel implem
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Parcel $parcel = null,
         string $deliveryId = null
     ) {
@@ -115,9 +114,9 @@ final class ParcelRemovedFromDeliveryMessageModel extends JsonObjectModel implem
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->parcel = $parcel;
         $this->deliveryId = $deliveryId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -402,11 +401,6 @@ final class ParcelRemovedFromDeliveryMessageModel extends JsonObjectModel implem
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setParcel(?Parcel $parcel): void

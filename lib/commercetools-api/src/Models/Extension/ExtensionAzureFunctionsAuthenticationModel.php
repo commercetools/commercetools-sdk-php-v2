@@ -25,11 +25,10 @@ final class ExtensionAzureFunctionsAuthenticationModel extends JsonObjectModel i
     protected $key;
 
     public function __construct(
-        string $type = null,
         string $key = null
     ) {
-        $this->type = $type;
         $this->key = $key;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ExtensionAzureFunctionsAuthenticationModel extends JsonObjectModel i
         }
 
         return $this->key;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setKey(?string $key): void

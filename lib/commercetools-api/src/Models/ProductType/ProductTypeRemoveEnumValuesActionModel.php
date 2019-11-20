@@ -30,13 +30,12 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
     protected $attributeName;
 
     public function __construct(
-        string $action = null,
         array $keys = null,
         string $attributeName = null
     ) {
-        $this->action = $action;
         $this->keys = $keys;
         $this->attributeName = $attributeName;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
         }
 
         return $this->attributeName;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setKeys(?array $keys): void

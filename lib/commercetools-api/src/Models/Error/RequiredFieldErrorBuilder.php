@@ -18,29 +18,12 @@ final class RequiredFieldErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
      * @var ?string
      */
     private $field;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class RequiredFieldErrorBuilder implements Builder
     public function getField()
     {
         return $this->field;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class RequiredFieldErrorBuilder implements Builder
     public function build(): RequiredFieldError
     {
         return new RequiredFieldErrorModel(
-            $this->code,
             $this->message,
             $this->field
         );

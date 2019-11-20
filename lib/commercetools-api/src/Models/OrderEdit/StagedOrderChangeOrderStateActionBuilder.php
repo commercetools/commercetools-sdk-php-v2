@@ -18,24 +18,7 @@ final class StagedOrderChangeOrderStateActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $orderState;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class StagedOrderChangeOrderStateActionBuilder implements Builder
     public function getOrderState()
     {
         return $this->orderState;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StagedOrderChangeOrderStateActionBuilder implements Builder
     public function build(): StagedOrderChangeOrderStateAction
     {
         return new StagedOrderChangeOrderStateActionModel(
-            $this->action,
             $this->orderState
         );
     }

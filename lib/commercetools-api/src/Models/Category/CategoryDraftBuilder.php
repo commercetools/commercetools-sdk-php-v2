@@ -80,10 +80,6 @@ final class CategoryDraftBuilder implements Builder
      */
     private $slug;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|CategoryResourceIdentifier
      */

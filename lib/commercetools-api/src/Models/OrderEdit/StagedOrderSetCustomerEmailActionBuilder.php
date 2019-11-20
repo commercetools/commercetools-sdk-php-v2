@@ -18,24 +18,7 @@ final class StagedOrderSetCustomerEmailActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $email;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class StagedOrderSetCustomerEmailActionBuilder implements Builder
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StagedOrderSetCustomerEmailActionBuilder implements Builder
     public function build(): StagedOrderSetCustomerEmailAction
     {
         return new StagedOrderSetCustomerEmailActionModel(
-            $this->action,
             $this->email
         );
     }

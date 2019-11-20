@@ -103,7 +103,6 @@ final class ParcelAddedToDeliveryMessageModel extends JsonObjectModel implements
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Delivery $delivery = null,
         Parcel $parcel = null
     ) {
@@ -117,9 +116,9 @@ final class ParcelAddedToDeliveryMessageModel extends JsonObjectModel implements
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->delivery = $delivery;
         $this->parcel = $parcel;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -405,11 +404,6 @@ final class ParcelAddedToDeliveryMessageModel extends JsonObjectModel implements
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDelivery(?Delivery $delivery): void

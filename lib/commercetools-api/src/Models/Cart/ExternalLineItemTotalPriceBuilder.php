@@ -27,10 +27,6 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
      */
     private $price;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|Money
      */

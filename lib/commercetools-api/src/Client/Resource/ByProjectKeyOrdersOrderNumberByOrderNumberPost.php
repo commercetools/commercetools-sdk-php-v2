@@ -33,7 +33,6 @@ class ByProjectKeyOrdersOrderNumberByOrderNumberPost extends ApiRequest
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      *
-     * @param array $headers
      * @param mixed $projectKey
      * @param mixed $orderNumber
      */
@@ -97,8 +96,6 @@ class ByProjectKeyOrdersOrderNumberByOrderNumberPost extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     *
-     * @param array $options
      *
      * @return null|ErrorResponse|JsonObject|Order
      */

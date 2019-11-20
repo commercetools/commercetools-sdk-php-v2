@@ -106,7 +106,6 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Address $oldAddress = null,
         string $deliveryId = null,
         Address $address = null
@@ -121,10 +120,10 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->oldAddress = $oldAddress;
         $this->deliveryId = $deliveryId;
         $this->address = $address;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -427,11 +426,6 @@ final class DeliveryAddressSetMessageModel extends JsonObjectModel implements De
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldAddress(?Address $oldAddress): void

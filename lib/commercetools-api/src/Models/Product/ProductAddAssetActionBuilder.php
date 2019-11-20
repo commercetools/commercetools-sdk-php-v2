@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductAddAssetActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $position;
@@ -46,18 +41,6 @@ final class ProductAddAssetActionBuilder implements Builder
      * @var ?string
      */
     private $sku;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -97,16 +80,6 @@ final class ProductAddAssetActionBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -172,7 +145,6 @@ final class ProductAddAssetActionBuilder implements Builder
     public function build(): ProductAddAssetAction
     {
         return new ProductAddAssetActionModel(
-            $this->action,
             $this->position,
             $this->staged,
             $this->variantId,

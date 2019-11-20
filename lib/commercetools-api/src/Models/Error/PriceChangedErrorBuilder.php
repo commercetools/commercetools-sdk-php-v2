@@ -18,11 +18,6 @@ final class PriceChangedErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
@@ -34,18 +29,6 @@ final class PriceChangedErrorBuilder implements Builder
      * @var ?bool
      */
     private $shipping;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -69,16 +52,6 @@ final class PriceChangedErrorBuilder implements Builder
     public function getShipping()
     {
         return $this->shipping;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -114,7 +87,6 @@ final class PriceChangedErrorBuilder implements Builder
     public function build(): PriceChangedError
     {
         return new PriceChangedErrorModel(
-            $this->code,
             $this->message,
             $this->lineItems,
             $this->shipping

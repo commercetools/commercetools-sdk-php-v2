@@ -32,13 +32,12 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
     protected $resource;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         JsonObject $resource = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->resource = $resource;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ResourceCreationErrorModel extends JsonObjectModel implements Resour
         }
 
         return $this->resource;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

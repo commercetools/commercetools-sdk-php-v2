@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class CategoryAddAssetActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $position;
@@ -31,18 +26,6 @@ final class CategoryAddAssetActionBuilder implements Builder
      * @var AssetDraft|?AssetDraftBuilder
      */
     private $asset;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -58,16 +41,6 @@ final class CategoryAddAssetActionBuilder implements Builder
     public function getAsset()
     {
         return $this->asset instanceof AssetDraftBuilder ? $this->asset->build() : $this->asset;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class CategoryAddAssetActionBuilder implements Builder
     public function build(): CategoryAddAssetAction
     {
         return new CategoryAddAssetActionModel(
-            $this->action,
             $this->position,
             ($this->asset instanceof AssetDraftBuilder ? $this->asset->build() : $this->asset)
         );

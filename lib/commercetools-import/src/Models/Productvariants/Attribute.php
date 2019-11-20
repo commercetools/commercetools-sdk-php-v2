@@ -31,6 +31,4 @@ interface Attribute extends JsonObject
     public function getType();
 
     public function setName(?string $name): void;
-
-    public function setType(?string $type): void;
 }

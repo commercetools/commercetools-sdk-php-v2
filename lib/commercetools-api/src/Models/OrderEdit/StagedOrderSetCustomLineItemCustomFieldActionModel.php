@@ -38,15 +38,14 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
     protected $value;
 
     public function __construct(
-        string $action = null,
         string $customLineItemId = null,
         string $name = null,
         JsonObject $value = null
     ) {
-        $this->action = $action;
         $this->customLineItemId = $customLineItemId;
         $this->name = $name;
         $this->value = $value;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -115,11 +114,6 @@ final class StagedOrderSetCustomLineItemCustomFieldActionModel extends JsonObjec
         }
 
         return $this->value;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void

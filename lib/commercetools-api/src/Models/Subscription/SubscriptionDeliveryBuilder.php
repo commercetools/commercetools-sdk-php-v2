@@ -35,15 +35,6 @@ final class SubscriptionDeliveryBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?string
-     */
-    private $notificationType;
-
-    public function __construct()
-    {
-    }
-
-    /**
      * @return null|string
      */
     public function getProjectKey()
@@ -65,14 +56,6 @@ final class SubscriptionDeliveryBuilder implements Builder
     public function getResourceUserProvidedIdentifiers()
     {
         return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getNotificationType()
-    {
-        return $this->notificationType;
     }
 
     /**
@@ -108,16 +91,6 @@ final class SubscriptionDeliveryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNotificationType(?string $notificationType)
-    {
-        $this->notificationType = $notificationType;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResourceBuilder(?ReferenceBuilder $resource)
     {
         $this->resource = $resource;
@@ -140,8 +113,7 @@ final class SubscriptionDeliveryBuilder implements Builder
         return new SubscriptionDeliveryModel(
             $this->projectKey,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            $this->notificationType
+            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers)
         );
     }
 

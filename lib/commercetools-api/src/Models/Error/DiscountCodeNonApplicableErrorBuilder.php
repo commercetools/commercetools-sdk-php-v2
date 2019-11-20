@@ -19,11 +19,6 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
@@ -55,18 +50,6 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
      * @var ?string
      */
     private $dicountCodeId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -122,16 +105,6 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     public function getDicountCodeId()
     {
         return $this->dicountCodeId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -207,7 +180,6 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     public function build(): DiscountCodeNonApplicableError
     {
         return new DiscountCodeNonApplicableErrorModel(
-            $this->code,
             $this->message,
             $this->reason,
             $this->validityCheckTime,

@@ -32,10 +32,6 @@ final class PaymentStatusBuilder implements Builder
      */
     private $interfaceCode;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

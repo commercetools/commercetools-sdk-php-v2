@@ -109,7 +109,6 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         int $oldRating = null,
         bool $includedInStatistics = null,
         int $newRating = null,
@@ -125,11 +124,11 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->oldRating = $oldRating;
         $this->includedInStatistics = $includedInStatistics;
         $this->newRating = $newRating;
         $this->target = $target;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -448,11 +447,6 @@ final class ReviewRatingSetMessageModel extends JsonObjectModel implements Revie
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldRating(?int $oldRating): void

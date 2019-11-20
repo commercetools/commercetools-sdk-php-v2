@@ -18,24 +18,7 @@ final class ClassificationShippingRateInputDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $key;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class ClassificationShippingRateInputDraftBuilder implements Builder
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ClassificationShippingRateInputDraftBuilder implements Builder
     public function build(): ClassificationShippingRateInputDraft
     {
         return new ClassificationShippingRateInputDraftModel(
-            $this->type,
             $this->key
         );
     }

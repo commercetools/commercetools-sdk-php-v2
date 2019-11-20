@@ -30,13 +30,12 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
     protected $returnShipmentState;
 
     public function __construct(
-        string $type = null,
         string $returnItemId = null,
         string $returnShipmentState = null
     ) {
-        $this->type = $type;
         $this->returnItemId = $returnItemId;
         $this->returnShipmentState = $returnShipmentState;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class OrderReturnShipmentStateChangedMessagePayloadModel extends JsonObjec
         }
 
         return $this->returnShipmentState;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setReturnItemId(?string $returnItemId): void

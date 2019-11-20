@@ -18,24 +18,7 @@ final class AzureServiceBusDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $connectionString;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class AzureServiceBusDestinationBuilder implements Builder
     public function getConnectionString()
     {
         return $this->connectionString;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class AzureServiceBusDestinationBuilder implements Builder
     public function build(): AzureServiceBusDestination
     {
         return new AzureServiceBusDestinationModel(
-            $this->type,
             $this->connectionString
         );
     }

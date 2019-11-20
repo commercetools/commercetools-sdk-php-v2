@@ -18,24 +18,7 @@ final class PaymentSetExternalIdActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $externalId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class PaymentSetExternalIdActionBuilder implements Builder
     public function getExternalId()
     {
         return $this->externalId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class PaymentSetExternalIdActionBuilder implements Builder
     public function build(): PaymentSetExternalIdAction
     {
         return new PaymentSetExternalIdActionModel(
-            $this->action,
             $this->externalId
         );
     }

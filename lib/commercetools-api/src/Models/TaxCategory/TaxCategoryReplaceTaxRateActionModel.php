@@ -31,13 +31,12 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     protected $taxRateId;
 
     public function __construct(
-        string $action = null,
         TaxRateDraft $taxRate = null,
         string $taxRateId = null
     ) {
-        $this->action = $action;
         $this->taxRate = $taxRate;
         $this->taxRateId = $taxRateId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
         }
 
         return $this->taxRateId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTaxRate(?TaxRateDraft $taxRate): void

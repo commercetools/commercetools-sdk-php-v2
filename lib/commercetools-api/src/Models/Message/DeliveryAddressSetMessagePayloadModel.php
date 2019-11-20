@@ -38,15 +38,14 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     protected $address;
 
     public function __construct(
-        string $type = null,
         Address $oldAddress = null,
         string $deliveryId = null,
         Address $address = null
     ) {
-        $this->type = $type;
         $this->oldAddress = $oldAddress;
         $this->deliveryId = $deliveryId;
         $this->address = $address;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -117,11 +116,6 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
         }
 
         return $this->address;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldAddress(?Address $oldAddress): void

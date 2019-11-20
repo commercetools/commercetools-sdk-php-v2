@@ -32,13 +32,12 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
     protected $obj;
 
     public function __construct(
-        string $typeId = null,
         string $id = null,
         ShippingMethod $obj = null
     ) {
-        $this->typeId = $typeId;
         $this->id = $id;
         $this->obj = $obj;
+        $this->typeId = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -91,11 +90,6 @@ final class ShippingMethodReferenceModel extends JsonObjectModel implements Ship
         }
 
         return $this->obj;
-    }
-
-    public function setTypeId(?string $typeId): void
-    {
-        $this->typeId = $typeId;
     }
 
     public function setId(?string $id): void

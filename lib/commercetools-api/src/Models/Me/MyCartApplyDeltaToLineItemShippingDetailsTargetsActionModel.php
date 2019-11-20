@@ -32,13 +32,12 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
     protected $targetsDelta;
 
     public function __construct(
-        string $action = null,
         string $lineItemId = null,
         ItemShippingTargetCollection $targetsDelta = null
     ) {
-        $this->action = $action;
         $this->lineItemId = $lineItemId;
         $this->targetsDelta = $targetsDelta;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class MyCartApplyDeltaToLineItemShippingDetailsTargetsActionModel extends 
         }
 
         return $this->targetsDelta;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLineItemId(?string $lineItemId): void

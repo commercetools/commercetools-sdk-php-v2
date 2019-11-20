@@ -21,10 +21,6 @@ final class PaymentInfoBuilder implements Builder
      */
     private $payments;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|PaymentReferenceCollection
      */

@@ -25,11 +25,10 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
     protected $paymentState;
 
     public function __construct(
-        string $action = null,
         string $paymentState = null
     ) {
-        $this->action = $action;
         $this->paymentState = $paymentState;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class OrderChangePaymentStateActionModel extends JsonObjectModel implement
         }
 
         return $this->paymentState;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setPaymentState(?string $paymentState): void

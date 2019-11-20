@@ -40,17 +40,16 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     protected $sku;
 
     public function __construct(
-        string $action = null,
         string $imageUrl = null,
         bool $staged = null,
         int $variantId = null,
         string $sku = null
     ) {
-        $this->action = $action;
         $this->imageUrl = $imageUrl;
         $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -136,11 +135,6 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
         }
 
         return $this->sku;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setImageUrl(?string $imageUrl): void

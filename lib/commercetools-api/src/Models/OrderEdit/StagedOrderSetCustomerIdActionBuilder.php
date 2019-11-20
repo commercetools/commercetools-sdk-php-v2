@@ -18,24 +18,7 @@ final class StagedOrderSetCustomerIdActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $customerId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class StagedOrderSetCustomerIdActionBuilder implements Builder
     public function getCustomerId()
     {
         return $this->customerId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StagedOrderSetCustomerIdActionBuilder implements Builder
     public function build(): StagedOrderSetCustomerIdAction
     {
         return new StagedOrderSetCustomerIdActionModel(
-            $this->action,
             $this->customerId
         );
     }

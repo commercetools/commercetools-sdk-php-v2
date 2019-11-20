@@ -44,17 +44,16 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     protected $assetKey;
 
     public function __construct(
-        string $action = null,
         string $assetId = null,
         JsonObject $fields = null,
         TypeResourceIdentifier $type = null,
         string $assetKey = null
     ) {
-        $this->action = $action;
         $this->assetId = $assetId;
         $this->fields = $fields;
         $this->type = $type;
         $this->assetKey = $assetKey;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -141,11 +140,6 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
         }
 
         return $this->assetKey;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAssetId(?string $assetId): void

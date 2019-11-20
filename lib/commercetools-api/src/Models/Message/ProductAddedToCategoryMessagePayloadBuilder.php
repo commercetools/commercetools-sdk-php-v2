@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?bool
      */
     private $staged;
@@ -31,18 +26,6 @@ final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
      * @var CategoryReference|?CategoryReferenceBuilder
      */
     private $category;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|bool
@@ -58,16 +41,6 @@ final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
     public function getCategory()
     {
         return $this->category instanceof CategoryReferenceBuilder ? $this->category->build() : $this->category;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ProductAddedToCategoryMessagePayloadBuilder implements Builder
     public function build(): ProductAddedToCategoryMessagePayload
     {
         return new ProductAddedToCategoryMessagePayloadModel(
-            $this->type,
             $this->staged,
             ($this->category instanceof CategoryReferenceBuilder ? $this->category->build() : $this->category)
         );

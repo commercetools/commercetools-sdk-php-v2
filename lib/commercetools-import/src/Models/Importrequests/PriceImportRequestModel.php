@@ -27,11 +27,10 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
     protected $resources;
 
     public function __construct(
-        string $type = null,
         PriceImportCollection $resources = null
     ) {
-        $this->type = $type;
         $this->resources = $resources;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -70,11 +69,6 @@ final class PriceImportRequestModel extends JsonObjectModel implements PriceImpo
         }
 
         return $this->resources;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setResources(?PriceImportCollection $resources): void

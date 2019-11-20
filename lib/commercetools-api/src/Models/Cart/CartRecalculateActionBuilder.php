@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class CartRecalculateActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $updateProductData;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -43,16 +26,6 @@ final class CartRecalculateActionBuilder implements Builder
     public function getUpdateProductData()
     {
         return $this->updateProductData;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CartRecalculateActionBuilder implements Builder
     public function build(): CartRecalculateAction
     {
         return new CartRecalculateActionModel(
-            $this->action,
             $this->updateProductData
         );
     }

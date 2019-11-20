@@ -31,13 +31,12 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
     protected $state;
 
     public function __construct(
-        string $action = null,
         string $lineItemId = null,
         ItemStateCollection $state = null
     ) {
-        $this->action = $action;
         $this->lineItemId = $lineItemId;
         $this->state = $state;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -89,11 +88,6 @@ final class OrderImportLineItemStateActionModel extends JsonObjectModel implemen
         }
 
         return $this->state;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLineItemId(?string $lineItemId): void

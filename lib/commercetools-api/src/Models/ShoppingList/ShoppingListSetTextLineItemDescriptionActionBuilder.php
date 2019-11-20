@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ShoppingListSetTextLineItemDescriptionActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $description;
@@ -31,18 +26,6 @@ final class ShoppingListSetTextLineItemDescriptionActionBuilder implements Build
      * @var ?string
      */
     private $textLineItemId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|LocalizedString
@@ -58,16 +41,6 @@ final class ShoppingListSetTextLineItemDescriptionActionBuilder implements Build
     public function getTextLineItemId()
     {
         return $this->textLineItemId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ShoppingListSetTextLineItemDescriptionActionBuilder implements Build
     public function build(): ShoppingListSetTextLineItemDescriptionAction
     {
         return new ShoppingListSetTextLineItemDescriptionActionModel(
-            $this->action,
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->textLineItemId
         );

@@ -19,29 +19,12 @@ final class ResourceCreationErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
      * @var ?JsonObject
      */
     private $resource;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * <p>The error's description.</p>.
@@ -59,16 +42,6 @@ final class ResourceCreationErrorBuilder implements Builder
     public function getResource()
     {
         return $this->resource;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -94,7 +67,6 @@ final class ResourceCreationErrorBuilder implements Builder
     public function build(): ResourceCreationError
     {
         return new ResourceCreationErrorModel(
-            $this->code,
             $this->message,
             $this->resource
         );

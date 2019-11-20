@@ -18,29 +18,12 @@ final class ExtensionHttpDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $url;
 
     /**
      * @var ExtensionHttpDestinationAuthentication|?ExtensionHttpDestinationAuthenticationBuilder
      */
     private $authentication;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class ExtensionHttpDestinationBuilder implements Builder
     public function getAuthentication()
     {
         return $this->authentication instanceof ExtensionHttpDestinationAuthenticationBuilder ? $this->authentication->build() : $this->authentication;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class ExtensionHttpDestinationBuilder implements Builder
     public function build(): ExtensionHttpDestination
     {
         return new ExtensionHttpDestinationModel(
-            $this->type,
             $this->url,
             ($this->authentication instanceof ExtensionHttpDestinationAuthenticationBuilder ? $this->authentication->build() : $this->authentication)
         );

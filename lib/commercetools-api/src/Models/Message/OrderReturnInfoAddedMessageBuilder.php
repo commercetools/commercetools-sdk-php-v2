@@ -75,18 +75,9 @@ final class OrderReturnInfoAddedMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ReturnInfo|?ReturnInfoBuilder
      */
     private $returnInfo;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -166,14 +157,6 @@ final class OrderReturnInfoAddedMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -287,16 +270,6 @@ final class OrderReturnInfoAddedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withReturnInfo(?ReturnInfo $returnInfo)
     {
         $this->returnInfo = $returnInfo;
@@ -367,7 +340,6 @@ final class OrderReturnInfoAddedMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->returnInfo instanceof ReturnInfoBuilder ? $this->returnInfo->build() : $this->returnInfo)
         );
     }

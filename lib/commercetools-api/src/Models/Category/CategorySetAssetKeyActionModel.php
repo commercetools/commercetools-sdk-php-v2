@@ -30,13 +30,12 @@ final class CategorySetAssetKeyActionModel extends JsonObjectModel implements Ca
     protected $assetKey;
 
     public function __construct(
-        string $action = null,
         string $assetId = null,
         string $assetKey = null
     ) {
-        $this->action = $action;
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class CategorySetAssetKeyActionModel extends JsonObjectModel implements Ca
         }
 
         return $this->assetKey;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAssetId(?string $assetId): void

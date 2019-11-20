@@ -25,11 +25,10 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
     protected $customerNumber;
 
     public function __construct(
-        string $action = null,
         string $customerNumber = null
     ) {
-        $this->action = $action;
         $this->customerNumber = $customerNumber;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
         }
 
         return $this->customerNumber;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomerNumber(?string $customerNumber): void

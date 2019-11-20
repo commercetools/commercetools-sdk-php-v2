@@ -88,10 +88,6 @@ final class ProductBuilder implements Builder
      */
     private $taxCategory;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

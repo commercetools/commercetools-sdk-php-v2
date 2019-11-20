@@ -20,29 +20,12 @@ final class OrderSetDeliveryAddressActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $deliveryId;
 
     /**
      * @var Address|?AddressBuilder
      */
     private $address;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -58,16 +41,6 @@ final class OrderSetDeliveryAddressActionBuilder implements Builder
     public function getAddress()
     {
         return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class OrderSetDeliveryAddressActionBuilder implements Builder
     public function build(): OrderSetDeliveryAddressAction
     {
         return new OrderSetDeliveryAddressActionModel(
-            $this->action,
             $this->deliveryId,
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
         );

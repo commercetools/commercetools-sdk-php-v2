@@ -15,37 +15,9 @@ use Commercetools\Base\Builder;
  */
 final class AttributeTimeTypeBuilder implements Builder
 {
-    /**
-     * @var ?string
-     */
-    private $name;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
     public function build(): AttributeTimeType
     {
         return new AttributeTimeTypeModel(
-            $this->name
         );
     }
 

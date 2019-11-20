@@ -32,13 +32,12 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
     protected $conflictingPrices;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         PriceCollection $conflictingPrices = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->conflictingPrices = $conflictingPrices;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class DuplicatePriceScopeErrorModel extends JsonObjectModel implements Dup
         }
 
         return $this->conflictingPrices;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

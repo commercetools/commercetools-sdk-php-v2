@@ -28,11 +28,10 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
     protected $interaction;
 
     public function __construct(
-        string $type = null,
         CustomFields $interaction = null
     ) {
-        $this->type = $type;
         $this->interaction = $interaction;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class PaymentInteractionAddedMessagePayloadModel extends JsonObjectModel i
         }
 
         return $this->interaction;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setInteraction(?CustomFields $interaction): void

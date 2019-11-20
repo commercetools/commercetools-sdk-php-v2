@@ -30,13 +30,12 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
     protected $productCount;
 
     public function __construct(
-        string $type = null,
         int $count = null,
         int $productCount = null
     ) {
-        $this->type = $type;
         $this->count = $count;
         $this->productCount = $productCount;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class FilteredFacetResultModel extends JsonObjectModel implements Filtered
         }
 
         return $this->productCount;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setCount(?int $count): void

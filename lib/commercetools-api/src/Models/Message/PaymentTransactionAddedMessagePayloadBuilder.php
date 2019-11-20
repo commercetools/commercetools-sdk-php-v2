@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class PaymentTransactionAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Transaction|?TransactionBuilder
      */
     private $transaction;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Transaction
@@ -45,16 +28,6 @@ final class PaymentTransactionAddedMessagePayloadBuilder implements Builder
     public function getTransaction()
     {
         return $this->transaction instanceof TransactionBuilder ? $this->transaction->build() : $this->transaction;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class PaymentTransactionAddedMessagePayloadBuilder implements Builder
     public function build(): PaymentTransactionAddedMessagePayload
     {
         return new PaymentTransactionAddedMessagePayloadModel(
-            $this->type,
             ($this->transaction instanceof TransactionBuilder ? $this->transaction->build() : $this->transaction)
         );
     }

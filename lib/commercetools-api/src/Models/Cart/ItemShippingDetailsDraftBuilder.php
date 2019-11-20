@@ -20,10 +20,6 @@ final class ItemShippingDetailsDraftBuilder implements Builder
      */
     private $targets;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ItemShippingTargetCollection
      */

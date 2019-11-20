@@ -18,24 +18,7 @@ final class TaxCategorySetDescriptionActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $description;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class TaxCategorySetDescriptionActionBuilder implements Builder
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class TaxCategorySetDescriptionActionBuilder implements Builder
     public function build(): TaxCategorySetDescriptionAction
     {
         return new TaxCategorySetDescriptionActionModel(
-            $this->action,
             $this->description
         );
     }

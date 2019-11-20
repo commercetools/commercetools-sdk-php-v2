@@ -33,13 +33,12 @@ final class TypeChangeLabelActionModel extends JsonObjectModel implements TypeCh
     protected $label;
 
     public function __construct(
-        string $action = null,
         string $fieldName = null,
         LocalizedString $label = null
     ) {
-        $this->action = $action;
         $this->fieldName = $fieldName;
         $this->label = $label;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class TypeChangeLabelActionModel extends JsonObjectModel implements TypeCh
         }
 
         return $this->label;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFieldName(?string $fieldName): void

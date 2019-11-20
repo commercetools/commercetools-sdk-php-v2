@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class DiscountCodeChangeGroupsActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?array
      */
     private $groups;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|array
@@ -43,16 +26,6 @@ final class DiscountCodeChangeGroupsActionBuilder implements Builder
     public function getGroups()
     {
         return $this->groups;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class DiscountCodeChangeGroupsActionBuilder implements Builder
     public function build(): DiscountCodeChangeGroupsAction
     {
         return new DiscountCodeChangeGroupsActionModel(
-            $this->action,
             $this->groups
         );
     }

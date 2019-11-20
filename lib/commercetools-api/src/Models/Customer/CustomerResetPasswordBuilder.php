@@ -30,10 +30,6 @@ final class CustomerResetPasswordBuilder implements Builder
      */
     private $tokenValue;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

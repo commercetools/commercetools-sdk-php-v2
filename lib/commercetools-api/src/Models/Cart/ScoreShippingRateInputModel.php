@@ -25,11 +25,10 @@ final class ScoreShippingRateInputModel extends JsonObjectModel implements Score
     protected $score;
 
     public function __construct(
-        string $type = null,
         int $score = null
     ) {
-        $this->type = $type;
         $this->score = $score;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ScoreShippingRateInputModel extends JsonObjectModel implements Score
         }
 
         return $this->score;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setScore(?int $score): void

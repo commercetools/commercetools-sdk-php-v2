@@ -32,10 +32,6 @@ final class TaxPortionDraftBuilder implements Builder
      */
     private $name;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|TypedMoneyDraft
      */

@@ -18,24 +18,7 @@ final class OrderSetOrderNumberActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $orderNumber;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class OrderSetOrderNumberActionBuilder implements Builder
     public function getOrderNumber()
     {
         return $this->orderNumber;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class OrderSetOrderNumberActionBuilder implements Builder
     public function build(): OrderSetOrderNumberAction
     {
         return new OrderSetOrderNumberActionModel(
-            $this->action,
             $this->orderNumber
         );
     }

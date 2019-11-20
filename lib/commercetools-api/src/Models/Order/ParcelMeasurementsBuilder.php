@@ -35,10 +35,6 @@ final class ParcelMeasurementsBuilder implements Builder
      */
     private $widthInMillimeter;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

@@ -28,11 +28,10 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
     protected $messagesConfiguration;
 
     public function __construct(
-        string $action = null,
         MessageConfigurationDraft $messagesConfiguration = null
     ) {
-        $this->action = $action;
         $this->messagesConfiguration = $messagesConfiguration;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class ProjectChangeMessagesConfigurationActionModel extends JsonObjectMode
         }
 
         return $this->messagesConfiguration;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMessagesConfiguration(?MessageConfigurationDraft $messagesConfiguration): void

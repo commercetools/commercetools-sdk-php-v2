@@ -72,8 +72,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         int $quantity = null,
         string $comment = null,
         string $id = null,
-        string $paymentState = null,
-        string $type = null
+        string $paymentState = null
     ) {
         $this->shipmentState = $shipmentState;
         $this->createdAt = $createdAt;
@@ -82,7 +81,6 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         $this->comment = $comment;
         $this->id = $id;
         $this->paymentState = $paymentState;
-        $this->type = $type;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -263,11 +261,6 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function jsonSerialize()

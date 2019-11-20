@@ -42,8 +42,6 @@ interface SubscriptionDelivery extends JsonObject
 
     public function setProjectKey(?string $projectKey): void;
 
-    public function setNotificationType(?string $notificationType): void;
-
     public function setResource(?Reference $resource): void;
 
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void;

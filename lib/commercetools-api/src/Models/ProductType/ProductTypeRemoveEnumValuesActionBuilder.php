@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductTypeRemoveEnumValuesActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?array
      */
     private $keys;
@@ -29,18 +24,6 @@ final class ProductTypeRemoveEnumValuesActionBuilder implements Builder
      * @var ?string
      */
     private $attributeName;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|array
@@ -56,16 +39,6 @@ final class ProductTypeRemoveEnumValuesActionBuilder implements Builder
     public function getAttributeName()
     {
         return $this->attributeName;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class ProductTypeRemoveEnumValuesActionBuilder implements Builder
     public function build(): ProductTypeRemoveEnumValuesAction
     {
         return new ProductTypeRemoveEnumValuesActionModel(
-            $this->action,
             $this->keys,
             $this->attributeName
         );

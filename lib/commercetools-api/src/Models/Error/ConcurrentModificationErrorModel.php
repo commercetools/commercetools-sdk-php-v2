@@ -30,13 +30,12 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
     protected $currentVersion;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         int $currentVersion = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->currentVersion = $currentVersion;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class ConcurrentModificationErrorModel extends JsonObjectModel implements 
         }
 
         return $this->currentVersion;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

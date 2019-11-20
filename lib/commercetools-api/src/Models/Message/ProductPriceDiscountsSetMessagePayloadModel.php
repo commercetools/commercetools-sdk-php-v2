@@ -26,11 +26,10 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
     protected $updatedPrices;
 
     public function __construct(
-        string $type = null,
         ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices = null
     ) {
-        $this->type = $type;
         $this->updatedPrices = $updatedPrices;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class ProductPriceDiscountsSetMessagePayloadModel extends JsonObjectModel 
         }
 
         return $this->updatedPrices;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setUpdatedPrices(?ProductPriceDiscountsSetUpdatedPriceCollection $updatedPrices): void

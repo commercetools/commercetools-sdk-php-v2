@@ -20,11 +20,6 @@ use Commercetools\Base\Builder;
 final class CartAddShoppingListActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ShoppingListResourceIdentifier|?ShoppingListResourceIdentifierBuilder
      */
     private $shoppingList;
@@ -38,18 +33,6 @@ final class CartAddShoppingListActionBuilder implements Builder
      * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
      */
     private $distributionChannel;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ShoppingListResourceIdentifier
@@ -73,16 +56,6 @@ final class CartAddShoppingListActionBuilder implements Builder
     public function getDistributionChannel()
     {
         return $this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -148,7 +121,6 @@ final class CartAddShoppingListActionBuilder implements Builder
     public function build(): CartAddShoppingListAction
     {
         return new CartAddShoppingListActionModel(
-            $this->action,
             ($this->shoppingList instanceof ShoppingListResourceIdentifierBuilder ? $this->shoppingList->build() : $this->shoppingList),
             ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
             ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel)

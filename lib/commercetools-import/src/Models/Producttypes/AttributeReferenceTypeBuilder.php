@@ -18,24 +18,7 @@ final class AttributeReferenceTypeBuilder implements Builder
     /**
      * @var ?string
      */
-    private $name;
-
-    /**
-     * @var ?string
-     */
     private $referenceTypeId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * <p>The type of the referenced resource.</p>.
@@ -45,16 +28,6 @@ final class AttributeReferenceTypeBuilder implements Builder
     public function getReferenceTypeId()
     {
         return $this->referenceTypeId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -70,7 +43,6 @@ final class AttributeReferenceTypeBuilder implements Builder
     public function build(): AttributeReferenceType
     {
         return new AttributeReferenceTypeModel(
-            $this->name,
             $this->referenceTypeId
         );
     }

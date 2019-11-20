@@ -87,10 +87,6 @@ final class MyCartDraftBuilder implements Builder
      */
     private $inventoryMode;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|MyLineItemDraftCollection
      */

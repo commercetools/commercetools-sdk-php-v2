@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductDeletedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?array
      */
     private $removedImageUrls;
@@ -31,18 +26,6 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
      * @var ProductProjection|?ProductProjectionBuilder
      */
     private $currentProjection;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|array
@@ -58,16 +41,6 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     public function getCurrentProjection()
     {
         return $this->currentProjection instanceof ProductProjectionBuilder ? $this->currentProjection->build() : $this->currentProjection;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ProductDeletedMessagePayloadBuilder implements Builder
     public function build(): ProductDeletedMessagePayload
     {
         return new ProductDeletedMessagePayloadModel(
-            $this->type,
             $this->removedImageUrls,
             ($this->currentProjection instanceof ProductProjectionBuilder ? $this->currentProjection->build() : $this->currentProjection)
         );

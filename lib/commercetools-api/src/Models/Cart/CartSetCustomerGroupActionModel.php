@@ -28,11 +28,10 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
     protected $customerGroup;
 
     public function __construct(
-        string $action = null,
         CustomerGroupResourceIdentifier $customerGroup = null
     ) {
-        $this->action = $action;
         $this->customerGroup = $customerGroup;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class CartSetCustomerGroupActionModel extends JsonObjectModel implements C
         }
 
         return $this->customerGroup;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void

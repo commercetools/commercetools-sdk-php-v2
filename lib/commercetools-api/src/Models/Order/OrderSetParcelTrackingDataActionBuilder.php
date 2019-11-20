@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class OrderSetParcelTrackingDataActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var TrackingData|?TrackingDataBuilder
      */
     private $trackingData;
@@ -29,18 +24,6 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
      * @var ?string
      */
     private $parcelId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|TrackingData
@@ -56,16 +39,6 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     public function getParcelId()
     {
         return $this->parcelId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     public function build(): OrderSetParcelTrackingDataAction
     {
         return new OrderSetParcelTrackingDataActionModel(
-            $this->action,
             ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData),
             $this->parcelId
         );

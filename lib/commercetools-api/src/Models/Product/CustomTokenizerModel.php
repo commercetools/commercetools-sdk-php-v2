@@ -25,11 +25,10 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
     protected $inputs;
 
     public function __construct(
-        string $type = null,
         array $inputs = null
     ) {
-        $this->type = $type;
         $this->inputs = $inputs;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CustomTokenizerModel extends JsonObjectModel implements CustomTokeni
         }
 
         return $this->inputs;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setInputs(?array $inputs): void

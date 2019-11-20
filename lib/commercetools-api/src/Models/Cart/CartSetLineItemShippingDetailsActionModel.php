@@ -31,13 +31,12 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
     protected $lineItemId;
 
     public function __construct(
-        string $action = null,
         ItemShippingDetailsDraft $shippingDetails = null,
         string $lineItemId = null
     ) {
-        $this->action = $action;
         $this->shippingDetails = $shippingDetails;
         $this->lineItemId = $lineItemId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
         }
 
         return $this->lineItemId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void

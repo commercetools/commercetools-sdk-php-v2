@@ -25,11 +25,10 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
     protected $countries;
 
     public function __construct(
-        string $action = null,
         array $countries = null
     ) {
-        $this->action = $action;
         $this->countries = $countries;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProjectChangeCountriesActionModel extends JsonObjectModel implements
         }
 
         return $this->countries;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCountries(?array $countries): void

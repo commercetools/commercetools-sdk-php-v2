@@ -25,11 +25,10 @@ final class CartSetLocaleActionModel extends JsonObjectModel implements CartSetL
     protected $locale;
 
     public function __construct(
-        string $action = null,
         string $locale = null
     ) {
-        $this->action = $action;
         $this->locale = $locale;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CartSetLocaleActionModel extends JsonObjectModel implements CartSetL
         }
 
         return $this->locale;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLocale(?string $locale): void

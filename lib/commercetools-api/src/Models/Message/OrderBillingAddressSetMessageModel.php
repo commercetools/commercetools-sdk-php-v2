@@ -101,7 +101,6 @@ final class OrderBillingAddressSetMessageModel extends JsonObjectModel implement
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Address $oldAddress = null,
         Address $address = null
     ) {
@@ -115,9 +114,9 @@ final class OrderBillingAddressSetMessageModel extends JsonObjectModel implement
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->oldAddress = $oldAddress;
         $this->address = $address;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -403,11 +402,6 @@ final class OrderBillingAddressSetMessageModel extends JsonObjectModel implement
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldAddress(?Address $oldAddress): void

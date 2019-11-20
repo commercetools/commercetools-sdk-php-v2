@@ -31,13 +31,12 @@ final class StagedOrderSetReturnShipmentStateActionModel extends JsonObjectModel
     protected $returnItemId;
 
     public function __construct(
-        string $action = null,
         string $shipmentState = null,
         string $returnItemId = null
     ) {
-        $this->action = $action;
         $this->shipmentState = $shipmentState;
         $this->returnItemId = $returnItemId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -89,11 +88,6 @@ final class StagedOrderSetReturnShipmentStateActionModel extends JsonObjectModel
         }
 
         return $this->returnItemId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShipmentState(?string $shipmentState): void

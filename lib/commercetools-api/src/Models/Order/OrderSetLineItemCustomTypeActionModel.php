@@ -40,15 +40,14 @@ final class OrderSetLineItemCustomTypeActionModel extends JsonObjectModel implem
     protected $type;
 
     public function __construct(
-        string $action = null,
         string $lineItemId = null,
         FieldContainer $fields = null,
         TypeResourceIdentifier $type = null
     ) {
-        $this->action = $action;
         $this->lineItemId = $lineItemId;
         $this->fields = $fields;
         $this->type = $type;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -119,11 +118,6 @@ final class OrderSetLineItemCustomTypeActionModel extends JsonObjectModel implem
         }
 
         return $this->type;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLineItemId(?string $lineItemId): void

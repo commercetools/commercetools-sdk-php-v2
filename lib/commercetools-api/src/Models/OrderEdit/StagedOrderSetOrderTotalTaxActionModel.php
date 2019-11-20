@@ -35,13 +35,12 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     protected $externalTotalGross;
 
     public function __construct(
-        string $action = null,
         TaxPortionDraftCollection $externalTaxPortions = null,
         Money $externalTotalGross = null
     ) {
-        $this->action = $action;
         $this->externalTaxPortions = $externalTaxPortions;
         $this->externalTotalGross = $externalTotalGross;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -94,11 +93,6 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
         }
 
         return $this->externalTotalGross;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void

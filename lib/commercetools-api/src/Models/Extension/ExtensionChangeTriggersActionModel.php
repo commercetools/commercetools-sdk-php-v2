@@ -26,11 +26,10 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
     protected $triggers;
 
     public function __construct(
-        string $action = null,
         ExtensionTriggerCollection $triggers = null
     ) {
-        $this->action = $action;
         $this->triggers = $triggers;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class ExtensionChangeTriggersActionModel extends JsonObjectModel implement
         }
 
         return $this->triggers;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTriggers(?ExtensionTriggerCollection $triggers): void

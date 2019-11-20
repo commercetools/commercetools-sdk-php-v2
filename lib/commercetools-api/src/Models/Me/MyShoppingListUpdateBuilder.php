@@ -25,10 +25,6 @@ final class MyShoppingListUpdateBuilder implements Builder
      */
     private $version;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|MyShoppingListUpdateActionCollection
      */

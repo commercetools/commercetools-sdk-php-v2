@@ -28,11 +28,10 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
     protected $geoLocation;
 
     public function __construct(
-        string $action = null,
         GeoJson $geoLocation = null
     ) {
-        $this->action = $action;
         $this->geoLocation = $geoLocation;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class ChannelSetGeoLocationActionModel extends JsonObjectModel implements 
         }
 
         return $this->geoLocation;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setGeoLocation(?GeoJson $geoLocation): void

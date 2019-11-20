@@ -27,11 +27,10 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
     protected $resources;
 
     public function __construct(
-        string $type = null,
         CategoryImportCollection $resources = null
     ) {
-        $this->type = $type;
         $this->resources = $resources;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -70,11 +69,6 @@ final class CategoryImportRequestModel extends JsonObjectModel implements Catego
         }
 
         return $this->resources;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setResources(?CategoryImportCollection $resources): void

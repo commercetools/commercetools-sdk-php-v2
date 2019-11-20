@@ -31,10 +31,6 @@ final class FacetResultTermBuilder implements Builder
      */
     private $productCount;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

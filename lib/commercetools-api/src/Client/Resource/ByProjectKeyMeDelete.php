@@ -32,7 +32,6 @@ class ByProjectKeyMeDelete extends ApiRequest
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      *
-     * @param array $headers
      * @param mixed $projectKey
      */
     public function __construct($projectKey, $body = null, array $headers = [], Client $client = null)
@@ -95,8 +94,6 @@ class ByProjectKeyMeDelete extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     *
-     * @param array $options
      *
      * @return null|ErrorResponse|JsonObject|MyCustomer
      */

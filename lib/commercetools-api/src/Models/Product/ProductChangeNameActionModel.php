@@ -33,13 +33,12 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
     protected $staged;
 
     public function __construct(
-        string $action = null,
         LocalizedString $name = null,
         bool $staged = null
     ) {
-        $this->action = $action;
         $this->name = $name;
         $this->staged = $staged;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductChangeNameActionModel extends JsonObjectModel implements Prod
         }
 
         return $this->staged;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setName(?LocalizedString $name): void

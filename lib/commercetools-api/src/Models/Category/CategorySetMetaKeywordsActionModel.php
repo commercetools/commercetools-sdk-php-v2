@@ -28,11 +28,10 @@ final class CategorySetMetaKeywordsActionModel extends JsonObjectModel implement
     protected $metaKeywords;
 
     public function __construct(
-        string $action = null,
         LocalizedString $metaKeywords = null
     ) {
-        $this->action = $action;
         $this->metaKeywords = $metaKeywords;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class CategorySetMetaKeywordsActionModel extends JsonObjectModel implement
         }
 
         return $this->metaKeywords;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMetaKeywords(?LocalizedString $metaKeywords): void

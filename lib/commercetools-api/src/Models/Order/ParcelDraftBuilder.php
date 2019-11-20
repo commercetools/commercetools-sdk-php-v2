@@ -30,10 +30,6 @@ final class ParcelDraftBuilder implements Builder
      */
     private $measurements;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DeliveryItemCollection
      */

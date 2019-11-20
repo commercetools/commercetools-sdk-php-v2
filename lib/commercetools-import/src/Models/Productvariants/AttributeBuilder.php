@@ -21,15 +21,6 @@ final class AttributeBuilder implements Builder
     private $name;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    public function __construct()
-    {
-    }
-
-    /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.
      * The name is required if this type is used in a product variant and must not be set when
      * used in a product variant patch.</p>.
@@ -42,14 +33,6 @@ final class AttributeBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
      * @return $this
      */
     public function withName(?string $name)
@@ -59,21 +42,10 @@ final class AttributeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     public function build(): Attribute
     {
         return new AttributeModel(
-            $this->name,
-            $this->type
+            $this->name
         );
     }
 

@@ -127,10 +127,6 @@ final class LineItemBuilder implements Builder
      */
     private $productType;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class SubscriptionSetChangesActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?ChangeSubscriptionCollection
      */
     private $changes;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ChangeSubscriptionCollection
@@ -43,16 +26,6 @@ final class SubscriptionSetChangesActionBuilder implements Builder
     public function getChanges()
     {
         return $this->changes;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class SubscriptionSetChangesActionBuilder implements Builder
     public function build(): SubscriptionSetChangesAction
     {
         return new SubscriptionSetChangesActionModel(
-            $this->action,
             $this->changes
         );
     }

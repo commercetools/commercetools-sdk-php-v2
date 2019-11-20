@@ -18,24 +18,7 @@ final class IronMqDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $uri;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class IronMqDestinationBuilder implements Builder
     public function getUri()
     {
         return $this->uri;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class IronMqDestinationBuilder implements Builder
     public function build(): IronMqDestination
     {
         return new IronMqDestinationModel(
-            $this->type,
             $this->uri
         );
     }

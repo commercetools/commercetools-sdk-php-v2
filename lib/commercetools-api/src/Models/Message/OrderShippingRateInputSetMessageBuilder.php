@@ -75,11 +75,6 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ShippingRateInput|?ShippingRateInputBuilder
      */
     private $shippingRateInput;
@@ -88,10 +83,6 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
      * @var ShippingRateInput|?ShippingRateInputBuilder
      */
     private $oldShippingRateInput;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -171,14 +162,6 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -300,16 +283,6 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withShippingRateInput(?ShippingRateInput $shippingRateInput)
     {
         $this->shippingRateInput = $shippingRateInput;
@@ -400,7 +373,6 @@ final class OrderShippingRateInputSetMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput),
             ($this->oldShippingRateInput instanceof ShippingRateInputBuilder ? $this->oldShippingRateInput->build() : $this->oldShippingRateInput)
         );

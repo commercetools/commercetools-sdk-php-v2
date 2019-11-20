@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class InventoryEntrySetRestockableInDaysActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $restockableInDays;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -43,16 +26,6 @@ final class InventoryEntrySetRestockableInDaysActionBuilder implements Builder
     public function getRestockableInDays()
     {
         return $this->restockableInDays;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class InventoryEntrySetRestockableInDaysActionBuilder implements Builder
     public function build(): InventoryEntrySetRestockableInDaysAction
     {
         return new InventoryEntrySetRestockableInDaysActionModel(
-            $this->action,
             $this->restockableInDays
         );
     }

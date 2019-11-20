@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
      */
     private $externalTotalPrice;
@@ -31,18 +26,6 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
      * @var ?string
      */
     private $lineItemId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ExternalLineItemTotalPrice
@@ -58,16 +41,6 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
     public function build(): StagedOrderSetLineItemTotalPriceAction
     {
         return new StagedOrderSetLineItemTotalPriceActionModel(
-            $this->action,
             ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice),
             $this->lineItemId
         );

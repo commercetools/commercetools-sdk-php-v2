@@ -33,7 +33,6 @@ class ByProjectKeyImportSinksByImportSinkKeyPut extends ApiRequest
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      *
-     * @param array $headers
      * @param mixed $projectKey
      * @param mixed $importSinkKey
      */
@@ -77,8 +76,6 @@ class ByProjectKeyImportSinksByImportSinkKeyPut extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     *
-     * @param array $options
      *
      * @return null|ErrorResponse|ImportSink|JsonObject
      */

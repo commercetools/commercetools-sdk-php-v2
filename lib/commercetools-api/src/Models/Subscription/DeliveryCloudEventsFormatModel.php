@@ -25,11 +25,10 @@ final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements De
     protected $cloudEventsVersion;
 
     public function __construct(
-        string $type = null,
         string $cloudEventsVersion = null
     ) {
-        $this->type = $type;
         $this->cloudEventsVersion = $cloudEventsVersion;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class DeliveryCloudEventsFormatModel extends JsonObjectModel implements De
         }
 
         return $this->cloudEventsVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setCloudEventsVersion(?string $cloudEventsVersion): void

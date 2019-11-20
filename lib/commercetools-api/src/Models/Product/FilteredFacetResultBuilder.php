@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class FilteredFacetResultBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?int
      */
     private $count;
@@ -29,18 +24,6 @@ final class FilteredFacetResultBuilder implements Builder
      * @var ?int
      */
     private $productCount;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|int
@@ -56,16 +39,6 @@ final class FilteredFacetResultBuilder implements Builder
     public function getProductCount()
     {
         return $this->productCount;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class FilteredFacetResultBuilder implements Builder
     public function build(): FilteredFacetResult
     {
         return new FilteredFacetResultModel(
-            $this->type,
             $this->count,
             $this->productCount
         );

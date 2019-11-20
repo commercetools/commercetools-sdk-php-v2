@@ -42,17 +42,16 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     protected $assetKey;
 
     public function __construct(
-        string $action = null,
         string $assetId = null,
         string $name = null,
         JsonObject $value = null,
         string $assetKey = null
     ) {
-        $this->action = $action;
         $this->assetId = $assetId;
         $this->name = $name;
         $this->value = $value;
         $this->assetKey = $assetKey;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -138,11 +137,6 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
         }
 
         return $this->assetKey;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAssetId(?string $assetId): void

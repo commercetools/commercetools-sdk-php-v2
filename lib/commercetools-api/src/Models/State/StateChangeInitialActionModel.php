@@ -25,11 +25,10 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
     protected $initial;
 
     public function __construct(
-        string $action = null,
         bool $initial = null
     ) {
-        $this->action = $action;
         $this->initial = $initial;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class StateChangeInitialActionModel extends JsonObjectModel implements Sta
         }
 
         return $this->initial;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setInitial(?bool $initial): void

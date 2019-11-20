@@ -19,11 +19,6 @@ use DateTimeImmutable;
 final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
      */
     private $toState;
@@ -47,18 +42,6 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $actualTransitionDate;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|StateResourceIdentifier
@@ -98,16 +81,6 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     public function getActualTransitionDate()
     {
         return $this->actualTransitionDate;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -183,7 +156,6 @@ final class StagedOrderTransitionLineItemStateActionBuilder implements Builder
     public function build(): StagedOrderTransitionLineItemStateAction
     {
         return new StagedOrderTransitionLineItemStateActionModel(
-            $this->action,
             ($this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState),
             ($this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState),
             $this->quantity,

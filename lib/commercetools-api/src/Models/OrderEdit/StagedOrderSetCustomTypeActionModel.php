@@ -36,13 +36,12 @@ final class StagedOrderSetCustomTypeActionModel extends JsonObjectModel implemen
     protected $type;
 
     public function __construct(
-        string $action = null,
         FieldContainer $fields = null,
         TypeResourceIdentifier $type = null
     ) {
-        $this->action = $action;
         $this->fields = $fields;
         $this->type = $type;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -96,11 +95,6 @@ final class StagedOrderSetCustomTypeActionModel extends JsonObjectModel implemen
         }
 
         return $this->type;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFields(?FieldContainer $fields): void

@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $quantity;
@@ -29,18 +24,6 @@ final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Bui
      * @var ?string
      */
     private $textLineItemId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -56,16 +39,6 @@ final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Bui
     public function getTextLineItemId()
     {
         return $this->textLineItemId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class MyShoppingListChangeTextLineItemQuantityActionBuilder implements Bui
     public function build(): MyShoppingListChangeTextLineItemQuantityAction
     {
         return new MyShoppingListChangeTextLineItemQuantityActionModel(
-            $this->action,
             $this->quantity,
             $this->textLineItemId
         );

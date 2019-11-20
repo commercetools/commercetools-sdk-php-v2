@@ -55,16 +55,15 @@ final class ResourceCreatedDeliveryModel extends JsonObjectModel implements Reso
         string $projectKey = null,
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        string $notificationType = null,
         DateTimeImmutable $modifiedAt = null,
         int $version = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->notificationType = $notificationType;
         $this->modifiedAt = $modifiedAt;
         $this->version = $version;
+        $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -188,11 +187,6 @@ final class ResourceCreatedDeliveryModel extends JsonObjectModel implements Reso
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
-    public function setNotificationType(?string $notificationType): void
-    {
-        $this->notificationType = $notificationType;
     }
 
     public function setModifiedAt(?DateTimeImmutable $modifiedAt): void

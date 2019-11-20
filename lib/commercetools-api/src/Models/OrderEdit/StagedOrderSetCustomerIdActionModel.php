@@ -26,11 +26,10 @@ final class StagedOrderSetCustomerIdActionModel extends JsonObjectModel implemen
     protected $customerId;
 
     public function __construct(
-        string $action = null,
         string $customerId = null
     ) {
-        $this->action = $action;
         $this->customerId = $customerId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class StagedOrderSetCustomerIdActionModel extends JsonObjectModel implemen
         }
 
         return $this->customerId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomerId(?string $customerId): void

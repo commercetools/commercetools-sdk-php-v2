@@ -25,11 +25,10 @@ final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements 
     protected $predicate;
 
     public function __construct(
-        string $type = null,
         string $predicate = null
     ) {
-        $this->type = $type;
         $this->predicate = $predicate;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CartDiscountLineItemsTargetModel extends JsonObjectModel implements 
         }
 
         return $this->predicate;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPredicate(?string $predicate): void

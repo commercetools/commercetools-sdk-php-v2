@@ -30,13 +30,12 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
     protected $inputHint;
 
     public function __construct(
-        string $action = null,
         string $fieldName = null,
         string $inputHint = null
     ) {
-        $this->action = $action;
         $this->fieldName = $fieldName;
         $this->inputHint = $inputHint;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class TypeChangeInputHintActionModel extends JsonObjectModel implements Ty
         }
 
         return $this->inputHint;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFieldName(?string $fieldName): void

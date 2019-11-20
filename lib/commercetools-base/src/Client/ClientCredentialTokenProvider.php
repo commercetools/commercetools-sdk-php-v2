@@ -55,9 +55,6 @@ class ClientCredentialTokenProvider implements TokenProvider
         return new TokenModel((string) $body[self::ACCESS_TOKEN], (int) $body[self::EXPIRES_IN]);
     }
 
-    /**
-     * @return Token
-     */
     public function refreshToken(): Token
     {
         return $this->getToken();

@@ -18,24 +18,7 @@ final class ProductPublishActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $scope;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class ProductPublishActionBuilder implements Builder
     public function getScope()
     {
         return $this->scope;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ProductPublishActionBuilder implements Builder
     public function build(): ProductPublishAction
     {
         return new ProductPublishActionModel(
-            $this->action,
             $this->scope
         );
     }

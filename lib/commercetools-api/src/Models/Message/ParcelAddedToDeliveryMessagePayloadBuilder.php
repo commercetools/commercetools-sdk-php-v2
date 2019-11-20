@@ -20,11 +20,6 @@ use Commercetools\Base\Builder;
 final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Delivery|?DeliveryBuilder
      */
     private $delivery;
@@ -33,18 +28,6 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
      * @var Parcel|?ParcelBuilder
      */
     private $parcel;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Delivery
@@ -60,16 +43,6 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     public function getParcel()
     {
         return $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -115,7 +88,6 @@ final class ParcelAddedToDeliveryMessagePayloadBuilder implements Builder
     public function build(): ParcelAddedToDeliveryMessagePayload
     {
         return new ParcelAddedToDeliveryMessagePayloadModel(
-            $this->type,
             ($this->delivery instanceof DeliveryBuilder ? $this->delivery->build() : $this->delivery),
             ($this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel)
         );

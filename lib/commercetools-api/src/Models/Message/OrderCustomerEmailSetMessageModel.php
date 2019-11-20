@@ -99,7 +99,6 @@ final class OrderCustomerEmailSetMessageModel extends JsonObjectModel implements
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         string $oldEmail = null,
         string $email = null
     ) {
@@ -113,9 +112,9 @@ final class OrderCustomerEmailSetMessageModel extends JsonObjectModel implements
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->oldEmail = $oldEmail;
         $this->email = $email;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -399,11 +398,6 @@ final class OrderCustomerEmailSetMessageModel extends JsonObjectModel implements
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldEmail(?string $oldEmail): void

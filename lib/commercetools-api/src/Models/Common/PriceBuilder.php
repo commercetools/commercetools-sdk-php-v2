@@ -72,10 +72,6 @@ final class PriceBuilder implements Builder
      */
     private $value;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DiscountedPrice
      */

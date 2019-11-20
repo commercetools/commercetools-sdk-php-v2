@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ProductRevertStagedVariantChangesActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $variantId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -43,16 +26,6 @@ final class ProductRevertStagedVariantChangesActionBuilder implements Builder
     public function getVariantId()
     {
         return $this->variantId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ProductRevertStagedVariantChangesActionBuilder implements Builder
     public function build(): ProductRevertStagedVariantChangesAction
     {
         return new ProductRevertStagedVariantChangesActionModel(
-            $this->action,
             $this->variantId
         );
     }

@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ShippingRateInputType|?ShippingRateInputTypeBuilder
      */
     private $shippingRateInputType;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ShippingRateInputType
@@ -43,16 +26,6 @@ final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
     public function getShippingRateInputType()
     {
         return $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
     public function build(): ProjectSetShippingRateInputTypeAction
     {
         return new ProjectSetShippingRateInputTypeActionModel(
-            $this->action,
             ($this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType)
         );
     }

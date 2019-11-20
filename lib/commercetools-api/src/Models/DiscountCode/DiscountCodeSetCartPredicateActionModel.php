@@ -25,11 +25,10 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
     protected $cartPredicate;
 
     public function __construct(
-        string $action = null,
         string $cartPredicate = null
     ) {
-        $this->action = $action;
         $this->cartPredicate = $cartPredicate;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
         }
 
         return $this->cartPredicate;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCartPredicate(?string $cartPredicate): void

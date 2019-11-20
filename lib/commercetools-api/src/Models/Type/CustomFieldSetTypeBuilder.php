@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class CustomFieldSetTypeBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $name;
-
-    /**
      * @var FieldType|?FieldTypeBuilder
      */
     private $elementType;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * @return null|FieldType
@@ -43,16 +26,6 @@ final class CustomFieldSetTypeBuilder implements Builder
     public function getElementType()
     {
         return $this->elementType instanceof FieldTypeBuilder ? $this->elementType->build() : $this->elementType;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class CustomFieldSetTypeBuilder implements Builder
     public function build(): CustomFieldSetType
     {
         return new CustomFieldSetTypeModel(
-            $this->name,
             ($this->elementType instanceof FieldTypeBuilder ? $this->elementType->build() : $this->elementType)
         );
     }

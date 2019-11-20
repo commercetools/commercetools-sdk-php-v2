@@ -19,11 +19,6 @@ use DateTimeImmutable;
 final class OrderUpdateSyncInfoActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
      */
     private $channel;
@@ -37,18 +32,6 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $syncedAt;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ChannelResourceIdentifier
@@ -72,16 +55,6 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     public function getSyncedAt()
     {
         return $this->syncedAt;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -127,7 +100,6 @@ final class OrderUpdateSyncInfoActionBuilder implements Builder
     public function build(): OrderUpdateSyncInfoAction
     {
         return new OrderUpdateSyncInfoActionModel(
-            $this->action,
             ($this->channel instanceof ChannelResourceIdentifierBuilder ? $this->channel->build() : $this->channel),
             $this->externalId,
             $this->syncedAt

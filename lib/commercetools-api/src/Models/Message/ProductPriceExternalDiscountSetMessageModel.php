@@ -121,7 +121,6 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         DiscountedPrice $discounted = null,
         bool $staged = null,
         int $variantId = null,
@@ -139,13 +138,13 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->discounted = $discounted;
         $this->staged = $staged;
         $this->variantId = $variantId;
         $this->priceId = $priceId;
         $this->sku = $sku;
         $this->variantKey = $variantKey;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -498,11 +497,6 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDiscounted(?DiscountedPrice $discounted): void

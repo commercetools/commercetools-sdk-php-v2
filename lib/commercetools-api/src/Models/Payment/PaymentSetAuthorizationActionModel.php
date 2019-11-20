@@ -35,13 +35,12 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
     protected $until;
 
     public function __construct(
-        string $action = null,
         Money $amount = null,
         DateTimeImmutable $until = null
     ) {
-        $this->action = $action;
         $this->amount = $amount;
         $this->until = $until;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -98,11 +97,6 @@ final class PaymentSetAuthorizationActionModel extends JsonObjectModel implement
         }
 
         return $this->until;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAmount(?Money $amount): void

@@ -117,10 +117,6 @@ final class ReviewBuilder implements Builder
      */
     private $customer;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

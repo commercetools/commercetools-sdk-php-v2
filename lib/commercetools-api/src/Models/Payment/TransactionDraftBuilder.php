@@ -43,10 +43,6 @@ final class TransactionDraftBuilder implements Builder
      */
     private $timestamp;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

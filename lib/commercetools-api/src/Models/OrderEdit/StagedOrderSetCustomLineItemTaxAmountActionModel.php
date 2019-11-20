@@ -34,13 +34,12 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
     protected $externalTaxAmount;
 
     public function __construct(
-        string $action = null,
         string $customLineItemId = null,
         ExternalTaxAmountDraft $externalTaxAmount = null
     ) {
-        $this->action = $action;
         $this->customLineItemId = $customLineItemId;
         $this->externalTaxAmount = $externalTaxAmount;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class StagedOrderSetCustomLineItemTaxAmountActionModel extends JsonObjectM
         }
 
         return $this->externalTaxAmount;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void

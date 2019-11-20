@@ -22,18 +22,9 @@ final class TimeSetAttributeBuilder implements Builder
     private $name;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?DateTimeImmutableCollection
      */
     private $value;
-
-    public function __construct()
-    {
-    }
 
     /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.
@@ -45,14 +36,6 @@ final class TimeSetAttributeBuilder implements Builder
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -76,16 +59,6 @@ final class TimeSetAttributeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withValue(?DateTimeImmutableCollection $value)
     {
         $this->value = $value;
@@ -97,7 +70,6 @@ final class TimeSetAttributeBuilder implements Builder
     {
         return new TimeSetAttributeModel(
             $this->name,
-            $this->type,
             $this->value
         );
     }

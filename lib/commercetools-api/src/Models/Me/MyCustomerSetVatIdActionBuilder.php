@@ -18,24 +18,7 @@ final class MyCustomerSetVatIdActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $vatId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class MyCustomerSetVatIdActionBuilder implements Builder
     public function getVatId()
     {
         return $this->vatId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class MyCustomerSetVatIdActionBuilder implements Builder
     public function build(): MyCustomerSetVatIdAction
     {
         return new MyCustomerSetVatIdActionModel(
-            $this->action,
             $this->vatId
         );
     }

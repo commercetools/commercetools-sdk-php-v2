@@ -19,11 +19,6 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $deliveryId;
 
     /**
@@ -35,18 +30,6 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
      * @var ?DeliveryItemCollection
      */
     private $items;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -70,16 +53,6 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     public function getItems()
     {
         return $this->items;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -115,7 +88,6 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     public function build(): DeliveryItemsUpdatedMessagePayload
     {
         return new DeliveryItemsUpdatedMessagePayloadModel(
-            $this->type,
             $this->deliveryId,
             $this->oldItems,
             $this->items

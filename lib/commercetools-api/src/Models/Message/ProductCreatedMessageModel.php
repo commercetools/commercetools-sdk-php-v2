@@ -96,7 +96,6 @@ final class ProductCreatedMessageModel extends JsonObjectModel implements Produc
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         ProductProjection $productProjection = null
     ) {
         $this->createdAt = $createdAt;
@@ -109,8 +108,8 @@ final class ProductCreatedMessageModel extends JsonObjectModel implements Produc
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->productProjection = $productProjection;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -378,11 +377,6 @@ final class ProductCreatedMessageModel extends JsonObjectModel implements Produc
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setProductProjection(?ProductProjection $productProjection): void

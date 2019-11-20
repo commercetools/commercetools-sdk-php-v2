@@ -96,7 +96,6 @@ final class OrderDiscountCodeRemovedMessageModel extends JsonObjectModel impleme
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         DiscountCodeReference $discountCode = null
     ) {
         $this->createdAt = $createdAt;
@@ -109,8 +108,8 @@ final class OrderDiscountCodeRemovedMessageModel extends JsonObjectModel impleme
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->discountCode = $discountCode;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -378,11 +377,6 @@ final class OrderDiscountCodeRemovedMessageModel extends JsonObjectModel impleme
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDiscountCode(?DiscountCodeReference $discountCode): void

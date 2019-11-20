@@ -35,10 +35,6 @@ final class ProductCatalogDataBuilder implements Builder
      */
     private $hasStagedChanges;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ProductData
      */

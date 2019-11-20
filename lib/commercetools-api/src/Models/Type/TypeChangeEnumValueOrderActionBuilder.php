@@ -18,29 +18,12 @@ final class TypeChangeEnumValueOrderActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $fieldName;
 
     /**
      * @var ?array
      */
     private $keys;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class TypeChangeEnumValueOrderActionBuilder implements Builder
     public function getKeys()
     {
         return $this->keys;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class TypeChangeEnumValueOrderActionBuilder implements Builder
     public function build(): TypeChangeEnumValueOrderAction
     {
         return new TypeChangeEnumValueOrderActionModel(
-            $this->action,
             $this->fieldName,
             $this->keys
         );

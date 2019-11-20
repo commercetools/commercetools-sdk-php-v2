@@ -34,13 +34,12 @@ final class StagedOrderChangeCustomLineItemMoneyActionModel extends JsonObjectMo
     protected $money;
 
     public function __construct(
-        string $action = null,
         string $customLineItemId = null,
         Money $money = null
     ) {
-        $this->action = $action;
         $this->customLineItemId = $customLineItemId;
         $this->money = $money;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class StagedOrderChangeCustomLineItemMoneyActionModel extends JsonObjectMo
         }
 
         return $this->money;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void

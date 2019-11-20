@@ -76,10 +76,6 @@ final class ShippingInfoBuilder implements Builder
      */
     private $taxCategory;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|TaxRate
      */

@@ -19,11 +19,6 @@ final class DuplicateFieldErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
@@ -35,18 +30,6 @@ final class DuplicateFieldErrorBuilder implements Builder
      * @var ?string
      */
     private $field;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * <p>The error's description.</p>.
@@ -76,16 +59,6 @@ final class DuplicateFieldErrorBuilder implements Builder
     public function getField()
     {
         return $this->field;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -121,7 +94,6 @@ final class DuplicateFieldErrorBuilder implements Builder
     public function build(): DuplicateFieldError
     {
         return new DuplicateFieldErrorModel(
-            $this->code,
             $this->message,
             $this->duplicateValue,
             $this->field

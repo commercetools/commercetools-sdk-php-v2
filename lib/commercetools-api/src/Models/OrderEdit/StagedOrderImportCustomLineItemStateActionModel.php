@@ -33,13 +33,12 @@ final class StagedOrderImportCustomLineItemStateActionModel extends JsonObjectMo
     protected $state;
 
     public function __construct(
-        string $action = null,
         string $customLineItemId = null,
         ItemStateCollection $state = null
     ) {
-        $this->action = $action;
         $this->customLineItemId = $customLineItemId;
         $this->state = $state;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -91,11 +90,6 @@ final class StagedOrderImportCustomLineItemStateActionModel extends JsonObjectMo
         }
 
         return $this->state;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void

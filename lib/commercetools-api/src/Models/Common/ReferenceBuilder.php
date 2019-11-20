@@ -18,24 +18,7 @@ final class ReferenceBuilder implements Builder
     /**
      * @var ?string
      */
-    private $typeId;
-
-    /**
-     * @var ?string
-     */
     private $id;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class ReferenceBuilder implements Builder
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ReferenceBuilder implements Builder
     public function build(): Reference
     {
         return new ReferenceModel(
-            $this->typeId,
             $this->id
         );
     }

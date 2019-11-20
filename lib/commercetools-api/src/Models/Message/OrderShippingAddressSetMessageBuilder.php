@@ -75,11 +75,6 @@ final class OrderShippingAddressSetMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Address|?AddressBuilder
      */
     private $oldAddress;
@@ -88,10 +83,6 @@ final class OrderShippingAddressSetMessageBuilder implements Builder
      * @var Address|?AddressBuilder
      */
     private $address;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -171,14 +162,6 @@ final class OrderShippingAddressSetMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -300,16 +283,6 @@ final class OrderShippingAddressSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withOldAddress(?Address $oldAddress)
     {
         $this->oldAddress = $oldAddress;
@@ -400,7 +373,6 @@ final class OrderShippingAddressSetMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress),
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
         );

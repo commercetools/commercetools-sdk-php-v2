@@ -96,7 +96,6 @@ final class PaymentTransactionAddedMessageModel extends JsonObjectModel implemen
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Transaction $transaction = null
     ) {
         $this->createdAt = $createdAt;
@@ -109,8 +108,8 @@ final class PaymentTransactionAddedMessageModel extends JsonObjectModel implemen
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->transaction = $transaction;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -378,11 +377,6 @@ final class PaymentTransactionAddedMessageModel extends JsonObjectModel implemen
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setTransaction(?Transaction $transaction): void

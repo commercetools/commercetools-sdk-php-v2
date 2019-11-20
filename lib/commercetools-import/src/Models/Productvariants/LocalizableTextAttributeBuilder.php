@@ -23,18 +23,9 @@ final class LocalizableTextAttributeBuilder implements Builder
     private $name;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $value;
-
-    public function __construct()
-    {
-    }
 
     /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.
@@ -46,14 +37,6 @@ final class LocalizableTextAttributeBuilder implements Builder
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -70,16 +53,6 @@ final class LocalizableTextAttributeBuilder implements Builder
     public function withName(?string $name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
 
         return $this;
     }
@@ -108,7 +81,6 @@ final class LocalizableTextAttributeBuilder implements Builder
     {
         return new LocalizableTextAttributeModel(
             $this->name,
-            $this->type,
             ($this->value instanceof LocalizedStringBuilder ? $this->value->build() : $this->value)
         );
     }

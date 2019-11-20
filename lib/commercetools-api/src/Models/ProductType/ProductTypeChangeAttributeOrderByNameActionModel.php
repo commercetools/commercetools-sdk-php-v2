@@ -25,11 +25,10 @@ final class ProductTypeChangeAttributeOrderByNameActionModel extends JsonObjectM
     protected $attributeNames;
 
     public function __construct(
-        string $action = null,
         array $attributeNames = null
     ) {
-        $this->action = $action;
         $this->attributeNames = $attributeNames;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProductTypeChangeAttributeOrderByNameActionModel extends JsonObjectM
         }
 
         return $this->attributeNames;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAttributeNames(?array $attributeNames): void

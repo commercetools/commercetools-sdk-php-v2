@@ -33,13 +33,12 @@ final class MyShoppingListSetTextLineItemDescriptionActionModel extends JsonObje
     protected $textLineItemId;
 
     public function __construct(
-        string $action = null,
         LocalizedString $description = null,
         string $textLineItemId = null
     ) {
-        $this->action = $action;
         $this->description = $description;
         $this->textLineItemId = $textLineItemId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class MyShoppingListSetTextLineItemDescriptionActionModel extends JsonObje
         }
 
         return $this->textLineItemId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDescription(?LocalizedString $description): void

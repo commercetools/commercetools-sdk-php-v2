@@ -25,10 +25,6 @@ final class AttributePlainEnumValueBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

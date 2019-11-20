@@ -28,11 +28,10 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
     protected $customer;
 
     public function __construct(
-        string $type = null,
         Customer $customer = null
     ) {
-        $this->type = $type;
         $this->customer = $customer;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class CustomerCreatedMessagePayloadModel extends JsonObjectModel implement
         }
 
         return $this->customer;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setCustomer(?Customer $customer): void

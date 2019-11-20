@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $name;
@@ -31,18 +26,6 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
      * @var ?string
      */
     private $textLineItemId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|LocalizedString
@@ -58,16 +41,6 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
     public function getTextLineItemId()
     {
         return $this->textLineItemId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
     public function build(): MyShoppingListChangeTextLineItemNameAction
     {
         return new MyShoppingListChangeTextLineItemNameActionModel(
-            $this->action,
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             $this->textLineItemId
         );

@@ -33,13 +33,12 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
     protected $inputTip;
 
     public function __construct(
-        string $action = null,
         string $attributeName = null,
         LocalizedString $inputTip = null
     ) {
-        $this->action = $action;
         $this->attributeName = $attributeName;
         $this->inputTip = $inputTip;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductTypeSetInputTipActionModel extends JsonObjectModel implements
         }
 
         return $this->inputTip;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAttributeName(?string $attributeName): void

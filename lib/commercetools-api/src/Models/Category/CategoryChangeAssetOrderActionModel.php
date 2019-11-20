@@ -25,11 +25,10 @@ final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implemen
     protected $assetOrder;
 
     public function __construct(
-        string $action = null,
         array $assetOrder = null
     ) {
-        $this->action = $action;
         $this->assetOrder = $assetOrder;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CategoryChangeAssetOrderActionModel extends JsonObjectModel implemen
         }
 
         return $this->assetOrder;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAssetOrder(?array $assetOrder): void

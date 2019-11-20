@@ -96,7 +96,6 @@ final class CustomerGroupSetMessageModel extends JsonObjectModel implements Cust
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         CustomerGroupReference $customerGroup = null
     ) {
         $this->createdAt = $createdAt;
@@ -109,8 +108,8 @@ final class CustomerGroupSetMessageModel extends JsonObjectModel implements Cust
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->customerGroup = $customerGroup;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -378,11 +377,6 @@ final class CustomerGroupSetMessageModel extends JsonObjectModel implements Cust
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void

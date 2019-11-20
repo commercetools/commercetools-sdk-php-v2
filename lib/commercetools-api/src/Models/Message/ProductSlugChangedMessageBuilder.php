@@ -75,18 +75,9 @@ final class ProductSlugChangedMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $slug;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -166,14 +157,6 @@ final class ProductSlugChangedMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -287,16 +270,6 @@ final class ProductSlugChangedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withSlug(?LocalizedString $slug)
     {
         $this->slug = $slug;
@@ -367,7 +340,6 @@ final class ProductSlugChangedMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
         );
     }

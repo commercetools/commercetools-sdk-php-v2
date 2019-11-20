@@ -67,9 +67,7 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -88,11 +86,6 @@ final class OrderUpdateActionModel extends JsonObjectModel implements OrderUpdat
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

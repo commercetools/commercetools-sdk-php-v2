@@ -39,9 +39,7 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
     ];
 
     public function __construct(
-        string $name = null
     ) {
-        $this->name = $name;
         $this->name = static::DISCRIMINATOR_VALUE;
     }
 
@@ -60,11 +58,6 @@ final class FieldTypeModel extends JsonObjectModel implements FieldType
         }
 
         return $this->name;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     /**

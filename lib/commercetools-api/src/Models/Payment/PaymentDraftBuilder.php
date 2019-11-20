@@ -97,10 +97,6 @@ final class PaymentDraftBuilder implements Builder
      */
     private $customer;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|Money
      */

@@ -20,9 +20,8 @@ final class CustomFieldLocalizedStringTypeModel extends JsonObjectModel implemen
     protected $name;
 
     public function __construct(
-        string $name = null
     ) {
-        $this->name = $name;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -40,10 +39,5 @@ final class CustomFieldLocalizedStringTypeModel extends JsonObjectModel implemen
         }
 
         return $this->name;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 }

@@ -34,10 +34,6 @@ final class OrderExcerptBuilder implements Builder
      */
     private $version;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|TypedMoney
      */

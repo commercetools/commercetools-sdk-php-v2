@@ -85,10 +85,6 @@ final class CartDiscountDraftBuilder implements Builder
      */
     private $target;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|bool
      */

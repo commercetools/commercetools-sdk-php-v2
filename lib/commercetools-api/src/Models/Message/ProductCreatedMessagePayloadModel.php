@@ -28,11 +28,10 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
     protected $productProjection;
 
     public function __construct(
-        string $type = null,
         ProductProjection $productProjection = null
     ) {
-        $this->type = $type;
         $this->productProjection = $productProjection;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class ProductCreatedMessagePayloadModel extends JsonObjectModel implements
         }
 
         return $this->productProjection;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setProductProjection(?ProductProjection $productProjection): void

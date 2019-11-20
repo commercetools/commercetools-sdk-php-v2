@@ -33,10 +33,6 @@ final class SyncInfoBuilder implements Builder
      */
     private $syncedAt;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ChannelReference
      */

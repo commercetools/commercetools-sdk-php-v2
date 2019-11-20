@@ -25,11 +25,10 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
     protected $type;
 
     public function __construct(
-        string $action = null,
         string $type = null
     ) {
-        $this->action = $action;
         $this->type = $type;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class StateChangeTypeActionModel extends JsonObjectModel implements StateC
         }
 
         return $this->type;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setType(?string $type): void

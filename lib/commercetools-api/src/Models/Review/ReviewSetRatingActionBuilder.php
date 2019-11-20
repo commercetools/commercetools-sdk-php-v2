@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ReviewSetRatingActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $rating;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -43,16 +26,6 @@ final class ReviewSetRatingActionBuilder implements Builder
     public function getRating()
     {
         return $this->rating;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ReviewSetRatingActionBuilder implements Builder
     public function build(): ReviewSetRatingAction
     {
         return new ReviewSetRatingActionModel(
-            $this->action,
             $this->rating
         );
     }

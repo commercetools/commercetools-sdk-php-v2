@@ -33,13 +33,12 @@ final class OrderSetDeliveryAddressActionModel extends JsonObjectModel implement
     protected $address;
 
     public function __construct(
-        string $action = null,
         string $deliveryId = null,
         Address $address = null
     ) {
-        $this->action = $action;
         $this->deliveryId = $deliveryId;
         $this->address = $address;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class OrderSetDeliveryAddressActionModel extends JsonObjectModel implement
         }
 
         return $this->address;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDeliveryId(?string $deliveryId): void

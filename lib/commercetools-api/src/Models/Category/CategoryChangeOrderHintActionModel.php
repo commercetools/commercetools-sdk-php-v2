@@ -25,11 +25,10 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
     protected $orderHint;
 
     public function __construct(
-        string $action = null,
         string $orderHint = null
     ) {
-        $this->action = $action;
         $this->orderHint = $orderHint;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CategoryChangeOrderHintActionModel extends JsonObjectModel implement
         }
 
         return $this->orderHint;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setOrderHint(?string $orderHint): void

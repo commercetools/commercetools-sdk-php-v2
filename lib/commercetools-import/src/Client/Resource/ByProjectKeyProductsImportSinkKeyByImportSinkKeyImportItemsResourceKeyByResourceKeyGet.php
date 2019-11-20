@@ -32,7 +32,6 @@ class ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsResourceKeyByRe
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      *
-     * @param array $headers
      * @param mixed $projectKey
      * @param mixed $importSinkKey
      * @param mixed $resourceKey
@@ -73,8 +72,6 @@ class ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsResourceKeyByRe
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     *
-     * @param array $options
      *
      * @return null|ImportItem|JsonObject
      */

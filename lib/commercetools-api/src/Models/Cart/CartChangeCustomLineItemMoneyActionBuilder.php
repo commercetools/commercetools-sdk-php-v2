@@ -20,29 +20,12 @@ final class CartChangeCustomLineItemMoneyActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $customLineItemId;
 
     /**
      * @var Money|?MoneyBuilder
      */
     private $money;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -58,16 +41,6 @@ final class CartChangeCustomLineItemMoneyActionBuilder implements Builder
     public function getMoney()
     {
         return $this->money instanceof MoneyBuilder ? $this->money->build() : $this->money;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class CartChangeCustomLineItemMoneyActionBuilder implements Builder
     public function build(): CartChangeCustomLineItemMoneyAction
     {
         return new CartChangeCustomLineItemMoneyActionModel(
-            $this->action,
             $this->customLineItemId,
             ($this->money instanceof MoneyBuilder ? $this->money->build() : $this->money)
         );

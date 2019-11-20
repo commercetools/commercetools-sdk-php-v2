@@ -37,13 +37,12 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     public function __construct(
         int $centAmount = null,
         string $currencyCode = null,
-        string $type = null,
         int $preciseAmount = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
-        $this->type = $type;
         $this->preciseAmount = $preciseAmount;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -124,11 +123,6 @@ final class HighPrecisionMoneyDraftModel extends JsonObjectModel implements High
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPreciseAmount(?int $preciseAmount): void

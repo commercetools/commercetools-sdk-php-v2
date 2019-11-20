@@ -25,11 +25,10 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
     protected $removedImageUrls;
 
     public function __construct(
-        string $type = null,
         array $removedImageUrls = null
     ) {
-        $this->type = $type;
         $this->removedImageUrls = $removedImageUrls;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProductRevertedStagedChangesMessagePayloadModel extends JsonObjectMo
         }
 
         return $this->removedImageUrls;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setRemovedImageUrls(?array $removedImageUrls): void

@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class SubscriptionChangeDestinationActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var Destination|?DestinationBuilder
      */
     private $destination;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|Destination
@@ -43,16 +26,6 @@ final class SubscriptionChangeDestinationActionBuilder implements Builder
     public function getDestination()
     {
         return $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class SubscriptionChangeDestinationActionBuilder implements Builder
     public function build(): SubscriptionChangeDestinationAction
     {
         return new SubscriptionChangeDestinationActionModel(
-            $this->action,
             ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination)
         );
     }

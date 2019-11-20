@@ -40,10 +40,6 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
      */
     private $facets;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

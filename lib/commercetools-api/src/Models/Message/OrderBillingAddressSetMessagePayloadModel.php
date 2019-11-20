@@ -33,13 +33,12 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     protected $address;
 
     public function __construct(
-        string $type = null,
         Address $oldAddress = null,
         Address $address = null
     ) {
-        $this->type = $type;
         $this->oldAddress = $oldAddress;
         $this->address = $address;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
         }
 
         return $this->address;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldAddress(?Address $oldAddress): void

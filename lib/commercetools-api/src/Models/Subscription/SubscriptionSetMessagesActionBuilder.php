@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class SubscriptionSetMessagesActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?MessageSubscriptionCollection
      */
     private $messages;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|MessageSubscriptionCollection
@@ -43,16 +26,6 @@ final class SubscriptionSetMessagesActionBuilder implements Builder
     public function getMessages()
     {
         return $this->messages;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class SubscriptionSetMessagesActionBuilder implements Builder
     public function build(): SubscriptionSetMessagesAction
     {
         return new SubscriptionSetMessagesActionModel(
-            $this->action,
             $this->messages
         );
     }

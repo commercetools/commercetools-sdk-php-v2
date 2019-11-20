@@ -20,9 +20,8 @@ final class AttributeMoneyTypeModel extends JsonObjectModel implements Attribute
     protected $name;
 
     public function __construct(
-        string $name = null
     ) {
-        $this->name = $name;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -40,10 +39,5 @@ final class AttributeMoneyTypeModel extends JsonObjectModel implements Attribute
         }
 
         return $this->name;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 }

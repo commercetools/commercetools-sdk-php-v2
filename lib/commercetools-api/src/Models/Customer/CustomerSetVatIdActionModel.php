@@ -25,11 +25,10 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
     protected $vatId;
 
     public function __construct(
-        string $action = null,
         string $vatId = null
     ) {
-        $this->action = $action;
         $this->vatId = $vatId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
         }
 
         return $this->vatId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setVatId(?string $vatId): void

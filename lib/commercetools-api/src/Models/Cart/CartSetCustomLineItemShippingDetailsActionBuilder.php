@@ -18,29 +18,12 @@ final class CartSetCustomLineItemShippingDetailsActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $customLineItemId;
 
     /**
      * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
      */
     private $shippingDetails;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class CartSetCustomLineItemShippingDetailsActionBuilder implements Builder
     public function getShippingDetails()
     {
         return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class CartSetCustomLineItemShippingDetailsActionBuilder implements Builder
     public function build(): CartSetCustomLineItemShippingDetailsAction
     {
         return new CartSetCustomLineItemShippingDetailsActionModel(
-            $this->action,
             $this->customLineItemId,
             ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
         );

@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class ProductCreatedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ProductProjection|?ProductProjectionBuilder
      */
     private $productProjection;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|ProductProjection
@@ -45,16 +28,6 @@ final class ProductCreatedMessagePayloadBuilder implements Builder
     public function getProductProjection()
     {
         return $this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class ProductCreatedMessagePayloadBuilder implements Builder
     public function build(): ProductCreatedMessagePayload
     {
         return new ProductCreatedMessagePayloadModel(
-            $this->type,
             ($this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection)
         );
     }

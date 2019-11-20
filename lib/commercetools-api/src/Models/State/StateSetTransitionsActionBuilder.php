@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class StateSetTransitionsActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?StateResourceIdentifierCollection
      */
     private $transitions;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|StateResourceIdentifierCollection
@@ -43,16 +26,6 @@ final class StateSetTransitionsActionBuilder implements Builder
     public function getTransitions()
     {
         return $this->transitions;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StateSetTransitionsActionBuilder implements Builder
     public function build(): StateSetTransitionsAction
     {
         return new StateSetTransitionsActionModel(
-            $this->action,
             $this->transitions
         );
     }

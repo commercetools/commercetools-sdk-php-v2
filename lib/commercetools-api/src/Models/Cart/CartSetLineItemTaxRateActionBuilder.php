@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class CartSetLineItemTaxRateActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
@@ -29,18 +24,6 @@ final class CartSetLineItemTaxRateActionBuilder implements Builder
      * @var ?string
      */
     private $lineItemId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ExternalTaxRateDraft
@@ -56,16 +39,6 @@ final class CartSetLineItemTaxRateActionBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class CartSetLineItemTaxRateActionBuilder implements Builder
     public function build(): CartSetLineItemTaxRateAction
     {
         return new CartSetLineItemTaxRateActionModel(
-            $this->action,
             ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
             $this->lineItemId
         );

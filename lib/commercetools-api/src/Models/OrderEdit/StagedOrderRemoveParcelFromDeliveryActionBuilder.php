@@ -18,24 +18,7 @@ final class StagedOrderRemoveParcelFromDeliveryActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $parcelId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class StagedOrderRemoveParcelFromDeliveryActionBuilder implements Builder
     public function getParcelId()
     {
         return $this->parcelId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StagedOrderRemoveParcelFromDeliveryActionBuilder implements Builder
     public function build(): StagedOrderRemoveParcelFromDeliveryAction
     {
         return new StagedOrderRemoveParcelFromDeliveryActionModel(
-            $this->action,
             $this->parcelId
         );
     }

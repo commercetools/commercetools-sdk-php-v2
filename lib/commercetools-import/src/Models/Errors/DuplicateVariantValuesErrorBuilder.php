@@ -18,29 +18,12 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
      * @var VariantValues|?VariantValuesBuilder
      */
     private $variantValues;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * <p>The error's description.</p>.
@@ -60,16 +43,6 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     public function getVariantValues()
     {
         return $this->variantValues instanceof VariantValuesBuilder ? $this->variantValues->build() : $this->variantValues;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -105,7 +78,6 @@ final class DuplicateVariantValuesErrorBuilder implements Builder
     public function build(): DuplicateVariantValuesError
     {
         return new DuplicateVariantValuesErrorModel(
-            $this->code,
             $this->message,
             ($this->variantValues instanceof VariantValuesBuilder ? $this->variantValues->build() : $this->variantValues)
         );

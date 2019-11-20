@@ -45,17 +45,16 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     protected $customer;
 
     public function __construct(
-        string $type = null,
         CustomerGroupReference $oldCustomerGroup = null,
         CustomerGroupReference $customerGroup = null,
         CustomerReference $oldCustomer = null,
         CustomerReference $customer = null
     ) {
-        $this->type = $type;
         $this->oldCustomerGroup = $oldCustomerGroup;
         $this->customerGroup = $customerGroup;
         $this->oldCustomer = $oldCustomer;
         $this->customer = $customer;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -145,11 +144,6 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
         }
 
         return $this->customer;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup): void

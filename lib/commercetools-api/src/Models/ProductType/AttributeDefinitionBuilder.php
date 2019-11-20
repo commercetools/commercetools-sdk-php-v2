@@ -57,10 +57,6 @@ final class AttributeDefinitionBuilder implements Builder
      */
     private $inputTip;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|bool
      */

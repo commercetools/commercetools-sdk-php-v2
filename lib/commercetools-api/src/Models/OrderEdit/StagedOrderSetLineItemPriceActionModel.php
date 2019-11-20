@@ -34,13 +34,12 @@ final class StagedOrderSetLineItemPriceActionModel extends JsonObjectModel imple
     protected $externalPrice;
 
     public function __construct(
-        string $action = null,
         string $lineItemId = null,
         Money $externalPrice = null
     ) {
-        $this->action = $action;
         $this->lineItemId = $lineItemId;
         $this->externalPrice = $externalPrice;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class StagedOrderSetLineItemPriceActionModel extends JsonObjectModel imple
         }
 
         return $this->externalPrice;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLineItemId(?string $lineItemId): void

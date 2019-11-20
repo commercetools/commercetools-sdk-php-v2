@@ -100,10 +100,6 @@ final class ChannelBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

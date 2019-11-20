@@ -28,11 +28,10 @@ final class DiscountCodeSetDescriptionActionModel extends JsonObjectModel implem
     protected $description;
 
     public function __construct(
-        string $action = null,
         LocalizedString $description = null
     ) {
-        $this->action = $action;
         $this->description = $description;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class DiscountCodeSetDescriptionActionModel extends JsonObjectModel implem
         }
 
         return $this->description;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDescription(?LocalizedString $description): void

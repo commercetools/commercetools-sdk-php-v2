@@ -25,11 +25,10 @@ final class MyCustomerChangeEmailActionModel extends JsonObjectModel implements 
     protected $email;
 
     public function __construct(
-        string $action = null,
         string $email = null
     ) {
-        $this->action = $action;
         $this->email = $email;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class MyCustomerChangeEmailActionModel extends JsonObjectModel implements 
         }
 
         return $this->email;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setEmail(?string $email): void

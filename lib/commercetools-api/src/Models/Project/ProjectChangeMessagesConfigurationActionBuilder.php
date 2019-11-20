@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var MessageConfigurationDraft|?MessageConfigurationDraftBuilder
      */
     private $messagesConfiguration;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|MessageConfigurationDraft
@@ -45,16 +28,6 @@ final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
     public function getMessagesConfiguration()
     {
         return $this->messagesConfiguration instanceof MessageConfigurationDraftBuilder ? $this->messagesConfiguration->build() : $this->messagesConfiguration;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class ProjectChangeMessagesConfigurationActionBuilder implements Builder
     public function build(): ProjectChangeMessagesConfigurationAction
     {
         return new ProjectChangeMessagesConfigurationActionModel(
-            $this->action,
             ($this->messagesConfiguration instanceof MessageConfigurationDraftBuilder ? $this->messagesConfiguration->build() : $this->messagesConfiguration)
         );
     }

@@ -75,9 +75,6 @@ abstract class BaseJsonObject implements JsonObject
         return null;
     }
 
-    /**
-     * @return array
-     */
     final protected function getRawDataArray(): array
     {
         if (is_null($this->rawData)) {
@@ -87,8 +84,5 @@ abstract class BaseJsonObject implements JsonObject
         return get_object_vars($this->rawData);
     }
 
-    /**
-     * @return array
-     */
     abstract protected function toArray(): array;
 }

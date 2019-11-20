@@ -15,10 +15,6 @@ use Commercetools\Base\Builder;
  */
 final class SearchKeywordsBuilder implements Builder
 {
-    public function __construct()
-    {
-    }
-
     public function build(): SearchKeywords
     {
         return new SearchKeywordsModel(

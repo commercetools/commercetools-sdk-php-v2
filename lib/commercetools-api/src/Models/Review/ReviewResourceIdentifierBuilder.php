@@ -18,29 +18,12 @@ final class ReviewResourceIdentifierBuilder implements Builder
     /**
      * @var ?string
      */
-    private $typeId;
-
-    /**
-     * @var ?string
-     */
     private $id;
 
     /**
      * @var ?string
      */
     private $key;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class ReviewResourceIdentifierBuilder implements Builder
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class ReviewResourceIdentifierBuilder implements Builder
     public function build(): ReviewResourceIdentifier
     {
         return new ReviewResourceIdentifierModel(
-            $this->typeId,
             $this->id,
             $this->key
         );

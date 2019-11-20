@@ -75,11 +75,6 @@ final class ProductPublishedMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?array
      */
     private $removedImageUrls;
@@ -93,10 +88,6 @@ final class ProductPublishedMessageBuilder implements Builder
      * @var ?string
      */
     private $scope;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -176,14 +167,6 @@ final class ProductPublishedMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -313,16 +296,6 @@ final class ProductPublishedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withRemovedImageUrls(?array $removedImageUrls)
     {
         $this->removedImageUrls = $removedImageUrls;
@@ -413,7 +386,6 @@ final class ProductPublishedMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             $this->removedImageUrls,
             ($this->productProjection instanceof ProductProjectionBuilder ? $this->productProjection->build() : $this->productProjection),
             $this->scope

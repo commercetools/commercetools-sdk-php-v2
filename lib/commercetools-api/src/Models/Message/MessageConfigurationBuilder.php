@@ -25,10 +25,6 @@ final class MessageConfigurationBuilder implements Builder
      */
     private $enabled;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

@@ -77,10 +77,6 @@ final class ReviewDraftBuilder implements Builder
      */
     private $target;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

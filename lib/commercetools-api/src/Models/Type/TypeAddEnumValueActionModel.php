@@ -31,13 +31,12 @@ final class TypeAddEnumValueActionModel extends JsonObjectModel implements TypeA
     protected $value;
 
     public function __construct(
-        string $action = null,
         string $fieldName = null,
         CustomFieldEnumValue $value = null
     ) {
-        $this->action = $action;
         $this->fieldName = $fieldName;
         $this->value = $value;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class TypeAddEnumValueActionModel extends JsonObjectModel implements TypeA
         }
 
         return $this->value;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFieldName(?string $fieldName): void

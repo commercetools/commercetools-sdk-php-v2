@@ -28,11 +28,10 @@ final class MyCartAddItemShippingAddressActionModel extends JsonObjectModel impl
     protected $address;
 
     public function __construct(
-        string $action = null,
         Address $address = null
     ) {
-        $this->action = $action;
         $this->address = $address;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class MyCartAddItemShippingAddressActionModel extends JsonObjectModel impl
         }
 
         return $this->address;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAddress(?Address $address): void

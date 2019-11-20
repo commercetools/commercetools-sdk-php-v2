@@ -81,10 +81,6 @@ final class DiscountCodeDraftBuilder implements Builder
      */
     private $maxApplications;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|CartDiscountResourceIdentifierCollection
      */

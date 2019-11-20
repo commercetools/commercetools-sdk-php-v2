@@ -27,10 +27,6 @@ final class ZoneRateDraftBuilder implements Builder
      */
     private $shippingRates;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ZoneResourceIdentifier
      */

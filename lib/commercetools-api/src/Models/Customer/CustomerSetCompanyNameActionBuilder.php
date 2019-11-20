@@ -18,24 +18,7 @@ final class CustomerSetCompanyNameActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $companyName;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class CustomerSetCompanyNameActionBuilder implements Builder
     public function getCompanyName()
     {
         return $this->companyName;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CustomerSetCompanyNameActionBuilder implements Builder
     public function build(): CustomerSetCompanyNameAction
     {
         return new CustomerSetCompanyNameActionModel(
-            $this->action,
             $this->companyName
         );
     }

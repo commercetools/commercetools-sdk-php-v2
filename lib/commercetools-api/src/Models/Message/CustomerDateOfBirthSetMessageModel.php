@@ -94,7 +94,6 @@ final class CustomerDateOfBirthSetMessageModel extends JsonObjectModel implement
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         DateTimeImmutable $dateOfBirth = null
     ) {
         $this->createdAt = $createdAt;
@@ -107,8 +106,8 @@ final class CustomerDateOfBirthSetMessageModel extends JsonObjectModel implement
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->dateOfBirth = $dateOfBirth;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -379,11 +378,6 @@ final class CustomerDateOfBirthSetMessageModel extends JsonObjectModel implement
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void

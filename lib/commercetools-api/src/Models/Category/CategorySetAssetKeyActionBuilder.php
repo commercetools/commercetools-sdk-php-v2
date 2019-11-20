@@ -18,29 +18,12 @@ final class CategorySetAssetKeyActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $assetId;
 
     /**
      * @var ?string
      */
     private $assetKey;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class CategorySetAssetKeyActionBuilder implements Builder
     public function getAssetKey()
     {
         return $this->assetKey;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class CategorySetAssetKeyActionBuilder implements Builder
     public function build(): CategorySetAssetKeyAction
     {
         return new CategorySetAssetKeyActionModel(
-            $this->action,
             $this->assetId,
             $this->assetKey
         );

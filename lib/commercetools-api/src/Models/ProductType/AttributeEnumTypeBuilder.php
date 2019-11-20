@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class AttributeEnumTypeBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $name;
-
-    /**
      * @var ?AttributePlainEnumValueCollection
      */
     private $values;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * @return null|AttributePlainEnumValueCollection
@@ -43,16 +26,6 @@ final class AttributeEnumTypeBuilder implements Builder
     public function getValues()
     {
         return $this->values;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class AttributeEnumTypeBuilder implements Builder
     public function build(): AttributeEnumType
     {
         return new AttributeEnumTypeModel(
-            $this->name,
             $this->values
         );
     }

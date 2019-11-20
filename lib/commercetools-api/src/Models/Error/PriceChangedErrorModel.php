@@ -35,15 +35,14 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
     protected $shipping;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         array $lineItems = null,
         bool $shipping = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->lineItems = $lineItems;
         $this->shipping = $shipping;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -112,11 +111,6 @@ final class PriceChangedErrorModel extends JsonObjectModel implements PriceChang
         }
 
         return $this->shipping;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

@@ -38,15 +38,14 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     protected $value;
 
     public function __construct(
-        string $type = null,
         Money $price = null,
         bool $isMatching = null,
         string $value = null
     ) {
-        $this->type = $type;
         $this->price = $price;
         $this->isMatching = $isMatching;
         $this->value = $value;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
         }
 
         return $this->value;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPrice(?Money $price): void

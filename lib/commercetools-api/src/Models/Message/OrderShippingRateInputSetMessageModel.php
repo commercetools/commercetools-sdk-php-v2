@@ -101,7 +101,6 @@ final class OrderShippingRateInputSetMessageModel extends JsonObjectModel implem
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         ShippingRateInput $shippingRateInput = null,
         ShippingRateInput $oldShippingRateInput = null
     ) {
@@ -115,9 +114,9 @@ final class OrderShippingRateInputSetMessageModel extends JsonObjectModel implem
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->shippingRateInput = $shippingRateInput;
         $this->oldShippingRateInput = $oldShippingRateInput;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -403,11 +402,6 @@ final class OrderShippingRateInputSetMessageModel extends JsonObjectModel implem
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void

@@ -75,11 +75,6 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var StateReference|?StateReferenceBuilder
      */
     private $toState;
@@ -103,10 +98,6 @@ final class LineItemStateTransitionMessageBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $transitionDate;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -186,14 +177,6 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -339,16 +322,6 @@ final class LineItemStateTransitionMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withToState(?StateReference $toState)
     {
         $this->toState = $toState;
@@ -469,7 +442,6 @@ final class LineItemStateTransitionMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState),
             ($this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState),
             $this->quantity,

@@ -54,10 +54,6 @@ final class ProductVariantImportBuilder implements Builder
      */
     private $isMasterVariant;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

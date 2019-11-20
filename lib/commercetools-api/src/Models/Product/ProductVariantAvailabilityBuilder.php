@@ -35,10 +35,6 @@ final class ProductVariantAvailabilityBuilder implements Builder
      */
     private $isOnStock;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

@@ -30,10 +30,6 @@ final class CustomerCreateEmailTokenBuilder implements Builder
      */
     private $version;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

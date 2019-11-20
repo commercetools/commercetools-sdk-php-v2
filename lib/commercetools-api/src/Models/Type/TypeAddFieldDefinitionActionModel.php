@@ -26,11 +26,10 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
     protected $fieldDefinition;
 
     public function __construct(
-        string $action = null,
         FieldDefinition $fieldDefinition = null
     ) {
-        $this->action = $action;
         $this->fieldDefinition = $fieldDefinition;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class TypeAddFieldDefinitionActionModel extends JsonObjectModel implements
         }
 
         return $this->fieldDefinition;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFieldDefinition(?FieldDefinition $fieldDefinition): void

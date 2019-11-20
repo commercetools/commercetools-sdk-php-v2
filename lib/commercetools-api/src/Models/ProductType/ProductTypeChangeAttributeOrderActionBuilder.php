@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ProductTypeChangeAttributeOrderActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?AttributeDefinitionCollection
      */
     private $attributes;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|AttributeDefinitionCollection
@@ -43,16 +26,6 @@ final class ProductTypeChangeAttributeOrderActionBuilder implements Builder
     public function getAttributes()
     {
         return $this->attributes;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ProductTypeChangeAttributeOrderActionBuilder implements Builder
     public function build(): ProductTypeChangeAttributeOrderAction
     {
         return new ProductTypeChangeAttributeOrderActionModel(
-            $this->action,
             $this->attributes
         );
     }

@@ -65,10 +65,6 @@ final class FacetResultRangeBuilder implements Builder
      */
     private $productCount;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

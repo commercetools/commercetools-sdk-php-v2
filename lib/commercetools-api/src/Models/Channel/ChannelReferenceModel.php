@@ -32,13 +32,12 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
     protected $obj;
 
     public function __construct(
-        string $typeId = null,
         string $id = null,
         Channel $obj = null
     ) {
-        $this->typeId = $typeId;
         $this->id = $id;
         $this->obj = $obj;
+        $this->typeId = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -91,11 +90,6 @@ final class ChannelReferenceModel extends JsonObjectModel implements ChannelRefe
         }
 
         return $this->obj;
-    }
-
-    public function setTypeId(?string $typeId): void
-    {
-        $this->typeId = $typeId;
     }
 
     public function setId(?string $id): void

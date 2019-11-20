@@ -42,17 +42,16 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     protected $parcelId;
 
     public function __construct(
-        string $type = null,
         string $deliveryId = null,
         DeliveryItemCollection $oldItems = null,
         DeliveryItemCollection $items = null,
         string $parcelId = null
     ) {
-        $this->type = $type;
         $this->deliveryId = $deliveryId;
         $this->oldItems = $oldItems;
         $this->items = $items;
         $this->parcelId = $parcelId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -138,11 +137,6 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
         }
 
         return $this->parcelId;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDeliveryId(?string $deliveryId): void

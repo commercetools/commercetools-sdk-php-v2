@@ -25,11 +25,10 @@ final class InvalidJsonInputModel extends JsonObjectModel implements InvalidJson
     protected $message;
 
     public function __construct(
-        string $code = null,
         string $message = null
     ) {
-        $this->code = $code;
         $this->message = $message;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class InvalidJsonInputModel extends JsonObjectModel implements InvalidJson
         }
 
         return $this->message;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

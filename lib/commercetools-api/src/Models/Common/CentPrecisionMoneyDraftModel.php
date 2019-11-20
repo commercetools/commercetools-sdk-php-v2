@@ -31,12 +31,11 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
 
     public function __construct(
         int $centAmount = null,
-        string $currencyCode = null,
-        string $type = null
+        string $currencyCode = null
     ) {
         $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
-        $this->type = $type;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -100,10 +99,5 @@ final class CentPrecisionMoneyDraftModel extends JsonObjectModel implements Cent
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 }

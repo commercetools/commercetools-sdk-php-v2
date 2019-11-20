@@ -32,13 +32,12 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
     protected $validFrom;
 
     public function __construct(
-        string $action = null,
         DateTimeImmutable $validUntil = null,
         DateTimeImmutable $validFrom = null
     ) {
-        $this->action = $action;
         $this->validUntil = $validUntil;
         $this->validFrom = $validFrom;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -98,11 +97,6 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
         }
 
         return $this->validFrom;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setValidUntil(?DateTimeImmutable $validUntil): void

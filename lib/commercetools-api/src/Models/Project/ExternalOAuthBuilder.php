@@ -25,10 +25,6 @@ final class ExternalOAuthBuilder implements Builder
      */
     private $url;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

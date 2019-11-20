@@ -51,19 +51,18 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
     protected $actualTransitionDate;
 
     public function __construct(
-        string $action = null,
         StateResourceIdentifier $toState = null,
         StateResourceIdentifier $fromState = null,
         int $quantity = null,
         string $lineItemId = null,
         DateTimeImmutable $actualTransitionDate = null
     ) {
-        $this->action = $action;
         $this->toState = $toState;
         $this->fromState = $fromState;
         $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
         $this->actualTransitionDate = $actualTransitionDate;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -172,11 +171,6 @@ final class StagedOrderTransitionLineItemStateActionModel extends JsonObjectMode
         }
 
         return $this->actualTransitionDate;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setToState(?StateResourceIdentifier $toState): void

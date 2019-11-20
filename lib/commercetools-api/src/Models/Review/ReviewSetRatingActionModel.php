@@ -25,11 +25,10 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
     protected $rating;
 
     public function __construct(
-        string $action = null,
         int $rating = null
     ) {
-        $this->action = $action;
         $this->rating = $rating;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ReviewSetRatingActionModel extends JsonObjectModel implements Review
         }
 
         return $this->rating;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setRating(?int $rating): void

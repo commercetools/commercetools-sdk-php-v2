@@ -18,24 +18,7 @@ final class CustomerEmailChangedMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $email;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class CustomerEmailChangedMessagePayloadBuilder implements Builder
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CustomerEmailChangedMessagePayloadBuilder implements Builder
     public function build(): CustomerEmailChangedMessagePayload
     {
         return new CustomerEmailChangedMessagePayloadModel(
-            $this->type,
             $this->email
         );
     }

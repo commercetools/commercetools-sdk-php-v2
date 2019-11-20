@@ -41,10 +41,6 @@ final class ImportSinkBuilder implements Builder
      */
     private $resourceType;
 
-    public function __construct()
-    {
-    }
-
     /**
      * <p>When the import sink was created.</p>.
      *

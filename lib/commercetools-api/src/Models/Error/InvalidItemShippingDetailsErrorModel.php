@@ -35,15 +35,14 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     protected $subject;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         string $itemId = null,
         string $subject = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->itemId = $itemId;
         $this->subject = $subject;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -112,11 +111,6 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
         }
 
         return $this->subject;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

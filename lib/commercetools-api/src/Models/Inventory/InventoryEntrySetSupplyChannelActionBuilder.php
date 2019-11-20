@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class InventoryEntrySetSupplyChannelActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
      */
     private $supplyChannel;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ChannelResourceIdentifier
@@ -45,16 +28,6 @@ final class InventoryEntrySetSupplyChannelActionBuilder implements Builder
     public function getSupplyChannel()
     {
         return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class InventoryEntrySetSupplyChannelActionBuilder implements Builder
     public function build(): InventoryEntrySetSupplyChannelAction
     {
         return new InventoryEntrySetSupplyChannelActionModel(
-            $this->action,
             ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel)
         );
     }

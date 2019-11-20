@@ -25,11 +25,10 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
     protected $interfaceId;
 
     public function __construct(
-        string $action = null,
         string $interfaceId = null
     ) {
-        $this->action = $action;
         $this->interfaceId = $interfaceId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class PaymentSetInterfaceIdActionModel extends JsonObjectModel implements 
         }
 
         return $this->interfaceId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setInterfaceId(?string $interfaceId): void

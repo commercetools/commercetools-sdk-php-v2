@@ -25,11 +25,10 @@ final class PaymentSetStatusInterfaceTextActionModel extends JsonObjectModel imp
     protected $interfaceText;
 
     public function __construct(
-        string $action = null,
         string $interfaceText = null
     ) {
-        $this->action = $action;
         $this->interfaceText = $interfaceText;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class PaymentSetStatusInterfaceTextActionModel extends JsonObjectModel imp
         }
 
         return $this->interfaceText;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setInterfaceText(?string $interfaceText): void

@@ -28,11 +28,10 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
     protected $payment;
 
     public function __construct(
-        string $type = null,
         Payment $payment = null
     ) {
-        $this->type = $type;
         $this->payment = $payment;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class PaymentCreatedMessagePayloadModel extends JsonObjectModel implements
         }
 
         return $this->payment;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPayment(?Payment $payment): void

@@ -25,11 +25,10 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
     protected $authorName;
 
     public function __construct(
-        string $action = null,
         string $authorName = null
     ) {
-        $this->action = $action;
         $this->authorName = $authorName;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ReviewSetAuthorNameActionModel extends JsonObjectModel implements Re
         }
 
         return $this->authorName;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAuthorName(?string $authorName): void

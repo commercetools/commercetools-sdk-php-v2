@@ -96,7 +96,6 @@ final class OrderReturnInfoAddedMessageModel extends JsonObjectModel implements 
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         ReturnInfo $returnInfo = null
     ) {
         $this->createdAt = $createdAt;
@@ -109,8 +108,8 @@ final class OrderReturnInfoAddedMessageModel extends JsonObjectModel implements 
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->returnInfo = $returnInfo;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -378,11 +377,6 @@ final class OrderReturnInfoAddedMessageModel extends JsonObjectModel implements 
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setReturnInfo(?ReturnInfo $returnInfo): void

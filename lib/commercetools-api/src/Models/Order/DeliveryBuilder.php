@@ -43,10 +43,6 @@ final class DeliveryBuilder implements Builder
      */
     private $parcels;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

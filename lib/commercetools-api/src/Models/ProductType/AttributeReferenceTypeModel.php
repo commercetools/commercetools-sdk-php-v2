@@ -25,11 +25,10 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
     protected $referenceTypeId;
 
     public function __construct(
-        string $name = null,
         string $referenceTypeId = null
     ) {
-        $this->name = $name;
         $this->referenceTypeId = $referenceTypeId;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class AttributeReferenceTypeModel extends JsonObjectModel implements Attri
         }
 
         return $this->referenceTypeId;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function setReferenceTypeId(?string $referenceTypeId): void

@@ -33,13 +33,12 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
     protected $parcelId;
 
     public function __construct(
-        string $action = null,
         DeliveryItemCollection $items = null,
         string $parcelId = null
     ) {
-        $this->action = $action;
         $this->items = $items;
         $this->parcelId = $parcelId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -91,11 +90,6 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
         }
 
         return $this->parcelId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setItems(?DeliveryItemCollection $items): void

@@ -68,10 +68,6 @@ final class ImportItemBuilder implements Builder
      */
     private $errors;
 
-    public function __construct()
-    {
-    }
-
     /**
      * <p>When the import item was created.</p>.
      *

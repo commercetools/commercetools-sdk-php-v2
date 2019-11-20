@@ -50,19 +50,18 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
     protected $transitionDate;
 
     public function __construct(
-        string $type = null,
         StateReference $toState = null,
         StateReference $fromState = null,
         string $customLineItemId = null,
         int $quantity = null,
         DateTimeImmutable $transitionDate = null
     ) {
-        $this->type = $type;
         $this->toState = $toState;
         $this->fromState = $fromState;
         $this->customLineItemId = $customLineItemId;
         $this->quantity = $quantity;
         $this->transitionDate = $transitionDate;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -171,11 +170,6 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
         }
 
         return $this->transitionDate;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setToState(?StateReference $toState): void

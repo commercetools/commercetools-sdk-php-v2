@@ -25,11 +25,10 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
     protected $description;
 
     public function __construct(
-        string $action = null,
         string $description = null
     ) {
-        $this->action = $action;
         $this->description = $description;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class TaxCategorySetDescriptionActionModel extends JsonObjectModel impleme
         }
 
         return $this->description;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDescription(?string $description): void

@@ -25,10 +25,6 @@ final class MoneyBuilder implements Builder
      */
     private $currencyCode;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

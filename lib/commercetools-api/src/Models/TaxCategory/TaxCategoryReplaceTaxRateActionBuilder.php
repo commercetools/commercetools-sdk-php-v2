@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var TaxRateDraft|?TaxRateDraftBuilder
      */
     private $taxRate;
@@ -29,18 +24,6 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
      * @var ?string
      */
     private $taxRateId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|TaxRateDraft
@@ -56,16 +39,6 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     public function getTaxRateId()
     {
         return $this->taxRateId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     public function build(): TaxCategoryReplaceTaxRateAction
     {
         return new TaxCategoryReplaceTaxRateActionModel(
-            $this->action,
             ($this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate),
             $this->taxRateId
         );

@@ -48,19 +48,18 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     protected $sku;
 
     public function __construct(
-        string $action = null,
         int $position = null,
         bool $staged = null,
         int $variantId = null,
         AssetDraft $asset = null,
         string $sku = null
     ) {
-        $this->action = $action;
         $this->position = $position;
         $this->staged = $staged;
         $this->variantId = $variantId;
         $this->asset = $asset;
         $this->sku = $sku;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -164,11 +163,6 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
         }
 
         return $this->sku;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setPosition(?int $position): void

@@ -25,11 +25,10 @@ final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implem
     protected $method;
 
     public function __construct(
-        string $action = null,
         string $method = null
     ) {
-        $this->action = $action;
         $this->method = $method;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class PaymentSetMethodInfoMethodActionModel extends JsonObjectModel implem
         }
 
         return $this->method;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMethod(?string $method): void

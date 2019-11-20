@@ -37,15 +37,14 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     protected $field;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         JsonObject $duplicateValue = null,
         string $field = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->duplicateValue = $duplicateValue;
         $this->field = $field;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -120,11 +119,6 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
         }
 
         return $this->field;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

@@ -37,15 +37,14 @@ final class MyShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMo
     protected $value;
 
     public function __construct(
-        string $action = null,
         string $lineItemId = null,
         string $name = null,
         JsonObject $value = null
     ) {
-        $this->action = $action;
         $this->lineItemId = $lineItemId;
         $this->name = $name;
         $this->value = $value;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -114,11 +113,6 @@ final class MyShoppingListSetLineItemCustomFieldActionModel extends JsonObjectMo
         }
 
         return $this->value;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLineItemId(?string $lineItemId): void

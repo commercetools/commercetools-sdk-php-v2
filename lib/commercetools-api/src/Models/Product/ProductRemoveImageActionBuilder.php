@@ -18,11 +18,6 @@ final class ProductRemoveImageActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $imageUrl;
 
     /**
@@ -39,18 +34,6 @@ final class ProductRemoveImageActionBuilder implements Builder
      * @var ?string
      */
     private $sku;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -82,16 +65,6 @@ final class ProductRemoveImageActionBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -137,7 +110,6 @@ final class ProductRemoveImageActionBuilder implements Builder
     public function build(): ProductRemoveImageAction
     {
         return new ProductRemoveImageActionModel(
-            $this->action,
             $this->imageUrl,
             $this->staged,
             $this->variantId,

@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class DiscountCodeSetMaxApplicationsPerCustomerActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $maxApplicationsPerCustomer;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -43,16 +26,6 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionBuilder implements Bu
     public function getMaxApplicationsPerCustomer()
     {
         return $this->maxApplicationsPerCustomer;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionBuilder implements Bu
     public function build(): DiscountCodeSetMaxApplicationsPerCustomerAction
     {
         return new DiscountCodeSetMaxApplicationsPerCustomerActionModel(
-            $this->action,
             $this->maxApplicationsPerCustomer
         );
     }

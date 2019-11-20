@@ -18,29 +18,12 @@ final class ProductTypeChangeIsSearchableActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $attributeName;
 
     /**
      * @var ?bool
      */
     private $isSearchable;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class ProductTypeChangeIsSearchableActionBuilder implements Builder
     public function getIsSearchable()
     {
         return $this->isSearchable;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class ProductTypeChangeIsSearchableActionBuilder implements Builder
     public function build(): ProductTypeChangeIsSearchableAction
     {
         return new ProductTypeChangeIsSearchableActionModel(
-            $this->action,
             $this->attributeName,
             $this->isSearchable
         );

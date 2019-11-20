@@ -25,11 +25,10 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
     protected $roles;
 
     public function __construct(
-        string $action = null,
         array $roles = null
     ) {
-        $this->action = $action;
         $this->roles = $roles;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class StateSetRolesActionModel extends JsonObjectModel implements StateSet
         }
 
         return $this->roles;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setRoles(?array $roles): void

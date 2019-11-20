@@ -64,10 +64,6 @@ final class MyPaymentBuilder implements Builder
      */
     private $customer;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

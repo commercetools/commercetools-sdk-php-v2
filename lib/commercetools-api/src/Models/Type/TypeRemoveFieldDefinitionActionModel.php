@@ -25,11 +25,10 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
     protected $fieldName;
 
     public function __construct(
-        string $action = null,
         string $fieldName = null
     ) {
-        $this->action = $action;
         $this->fieldName = $fieldName;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class TypeRemoveFieldDefinitionActionModel extends JsonObjectModel impleme
         }
 
         return $this->fieldName;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFieldName(?string $fieldName): void

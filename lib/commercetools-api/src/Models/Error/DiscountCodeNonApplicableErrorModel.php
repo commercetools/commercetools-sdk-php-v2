@@ -57,7 +57,6 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     protected $dicountCodeId;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         string $reason = null,
         DateTimeImmutable $validityCheckTime = null,
@@ -66,7 +65,6 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         DateTimeImmutable $validFrom = null,
         string $dicountCodeId = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->reason = $reason;
         $this->validityCheckTime = $validityCheckTime;
@@ -74,6 +72,7 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         $this->validUntil = $validUntil;
         $this->validFrom = $validFrom;
         $this->dicountCodeId = $dicountCodeId;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -222,11 +221,6 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         }
 
         return $this->dicountCodeId;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

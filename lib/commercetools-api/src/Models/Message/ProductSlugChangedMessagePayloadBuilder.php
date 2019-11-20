@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class ProductSlugChangedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $slug;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|LocalizedString
@@ -45,16 +28,6 @@ final class ProductSlugChangedMessagePayloadBuilder implements Builder
     public function getSlug()
     {
         return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class ProductSlugChangedMessagePayloadBuilder implements Builder
     public function build(): ProductSlugChangedMessagePayload
     {
         return new ProductSlugChangedMessagePayloadModel(
-            $this->type,
             ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
         );
     }

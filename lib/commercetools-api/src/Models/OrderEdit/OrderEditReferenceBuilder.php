@@ -18,29 +18,12 @@ final class OrderEditReferenceBuilder implements Builder
     /**
      * @var ?string
      */
-    private $typeId;
-
-    /**
-     * @var ?string
-     */
     private $id;
 
     /**
      * @var OrderEdit|?OrderEditBuilder
      */
     private $obj;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class OrderEditReferenceBuilder implements Builder
     public function getObj()
     {
         return $this->obj instanceof OrderEditBuilder ? $this->obj->build() : $this->obj;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class OrderEditReferenceBuilder implements Builder
     public function build(): OrderEditReference
     {
         return new OrderEditReferenceModel(
-            $this->typeId,
             $this->id,
             ($this->obj instanceof OrderEditBuilder ? $this->obj->build() : $this->obj)
         );

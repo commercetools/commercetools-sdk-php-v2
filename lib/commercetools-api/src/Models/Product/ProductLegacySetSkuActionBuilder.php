@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductLegacySetSkuActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -29,18 +24,6 @@ final class ProductLegacySetSkuActionBuilder implements Builder
      * @var ?string
      */
     private $sku;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -56,16 +39,6 @@ final class ProductLegacySetSkuActionBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class ProductLegacySetSkuActionBuilder implements Builder
     public function build(): ProductLegacySetSkuAction
     {
         return new ProductLegacySetSkuActionModel(
-            $this->action,
             $this->variantId,
             $this->sku
         );

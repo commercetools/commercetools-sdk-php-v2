@@ -24,8 +24,6 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
 
     /**
      * @psalm-param ?array<string, T|stdClass> $data
-     *
-     * @param null|array $data
      */
     public function __construct(array $data = null)
     {
@@ -234,7 +232,6 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     /**
      * @psalm-param T|stdClass $value
      *
-     * @param string $key
      * @param $value
      *
      * @return $this

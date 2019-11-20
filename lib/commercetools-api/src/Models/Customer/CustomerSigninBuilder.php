@@ -45,10 +45,6 @@ final class CustomerSigninBuilder implements Builder
      */
     private $email;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|bool
      */

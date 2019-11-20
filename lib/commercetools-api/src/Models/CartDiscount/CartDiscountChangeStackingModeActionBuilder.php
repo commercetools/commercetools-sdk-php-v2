@@ -18,24 +18,7 @@ final class CartDiscountChangeStackingModeActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $stackingMode;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class CartDiscountChangeStackingModeActionBuilder implements Builder
     public function getStackingMode()
     {
         return $this->stackingMode;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CartDiscountChangeStackingModeActionBuilder implements Builder
     public function build(): CartDiscountChangeStackingModeAction
     {
         return new CartDiscountChangeStackingModeActionModel(
-            $this->action,
             $this->stackingMode
         );
     }

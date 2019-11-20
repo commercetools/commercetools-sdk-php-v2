@@ -33,13 +33,12 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
     protected $oldShippingRateInput;
 
     public function __construct(
-        string $type = null,
         ShippingRateInput $shippingRateInput = null,
         ShippingRateInput $oldShippingRateInput = null
     ) {
-        $this->type = $type;
         $this->shippingRateInput = $shippingRateInput;
         $this->oldShippingRateInput = $oldShippingRateInput;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class OrderShippingRateInputSetMessagePayloadModel extends JsonObjectModel
         }
 
         return $this->oldShippingRateInput;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setShippingRateInput(?ShippingRateInput $shippingRateInput): void

@@ -26,11 +26,6 @@ use Commercetools\Base\Builder;
 final class StagedOrderAddCustomLineItemActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
@@ -64,18 +59,6 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
      * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ExternalTaxRateDraft
@@ -131,16 +114,6 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     public function getTaxCategory()
     {
         return $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -266,7 +239,6 @@ final class StagedOrderAddCustomLineItemActionBuilder implements Builder
     public function build(): StagedOrderAddCustomLineItemAction
     {
         return new StagedOrderAddCustomLineItemActionModel(
-            $this->action,
             ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
             $this->quantity,
             ($this->money instanceof MoneyBuilder ? $this->money->build() : $this->money),

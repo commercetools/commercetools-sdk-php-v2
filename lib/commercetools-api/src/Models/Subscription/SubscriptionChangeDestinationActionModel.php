@@ -26,11 +26,10 @@ final class SubscriptionChangeDestinationActionModel extends JsonObjectModel imp
     protected $destination;
 
     public function __construct(
-        string $action = null,
         Destination $destination = null
     ) {
-        $this->action = $action;
         $this->destination = $destination;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class SubscriptionChangeDestinationActionModel extends JsonObjectModel imp
         }
 
         return $this->destination;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDestination(?Destination $destination): void

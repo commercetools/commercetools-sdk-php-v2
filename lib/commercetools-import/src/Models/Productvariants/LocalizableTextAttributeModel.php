@@ -34,12 +34,11 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
 
     public function __construct(
         string $name = null,
-        string $type = null,
         LocalizedString $value = null
     ) {
         $this->name = $name;
-        $this->type = $type;
         $this->value = $value;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -101,11 +100,6 @@ final class LocalizableTextAttributeModel extends JsonObjectModel implements Loc
     public function setName(?string $name): void
     {
         $this->name = $name;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setValue(?LocalizedString $value): void

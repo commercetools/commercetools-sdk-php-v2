@@ -17,26 +17,9 @@ use DateTimeImmutable;
 final class ProductDiscountSetValidFromActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?DateTimeImmutable
      */
     private $validFrom;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -44,16 +27,6 @@ final class ProductDiscountSetValidFromActionBuilder implements Builder
     public function getValidFrom()
     {
         return $this->validFrom;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -69,7 +42,6 @@ final class ProductDiscountSetValidFromActionBuilder implements Builder
     public function build(): ProductDiscountSetValidFromAction
     {
         return new ProductDiscountSetValidFromActionModel(
-            $this->action,
             $this->validFrom
         );
     }

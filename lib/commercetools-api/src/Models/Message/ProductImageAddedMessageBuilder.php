@@ -75,11 +75,6 @@ final class ProductImageAddedMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Image|?ImageBuilder
      */
     private $image;
@@ -93,10 +88,6 @@ final class ProductImageAddedMessageBuilder implements Builder
      * @var ?int
      */
     private $variantId;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -176,14 +167,6 @@ final class ProductImageAddedMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -313,16 +296,6 @@ final class ProductImageAddedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withImage(?Image $image)
     {
         $this->image = $image;
@@ -413,7 +386,6 @@ final class ProductImageAddedMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->image instanceof ImageBuilder ? $this->image->build() : $this->image),
             $this->staged,
             $this->variantId

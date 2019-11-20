@@ -27,11 +27,10 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
     protected $expectedDelivery;
 
     public function __construct(
-        string $action = null,
         DateTimeImmutable $expectedDelivery = null
     ) {
-        $this->action = $action;
         $this->expectedDelivery = $expectedDelivery;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -70,11 +69,6 @@ final class InventoryEntrySetExpectedDeliveryActionModel extends JsonObjectModel
         }
 
         return $this->expectedDelivery;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void

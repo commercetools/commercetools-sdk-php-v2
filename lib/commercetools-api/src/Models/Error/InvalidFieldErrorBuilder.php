@@ -19,11 +19,6 @@ final class InvalidFieldErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
@@ -40,18 +35,6 @@ final class InvalidFieldErrorBuilder implements Builder
      * @var ?JsonObject
      */
     private $invalidValue;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -83,16 +66,6 @@ final class InvalidFieldErrorBuilder implements Builder
     public function getInvalidValue()
     {
         return $this->invalidValue;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -138,7 +111,6 @@ final class InvalidFieldErrorBuilder implements Builder
     public function build(): InvalidFieldError
     {
         return new InvalidFieldErrorModel(
-            $this->code,
             $this->message,
             $this->allowedValues,
             $this->field,

@@ -76,10 +76,6 @@ final class LineItemDraftBuilder implements Builder
      */
     private $externalPrice;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ExternalTaxRateDraft
      */

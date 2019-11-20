@@ -15,10 +15,6 @@ use Commercetools\Base\Builder;
  */
 final class ProductVariantChannelAvailabilityMapBuilder implements Builder
 {
-    public function __construct()
-    {
-    }
-
     public function build(): ProductVariantChannelAvailabilityMap
     {
         return new ProductVariantChannelAvailabilityMapModel(

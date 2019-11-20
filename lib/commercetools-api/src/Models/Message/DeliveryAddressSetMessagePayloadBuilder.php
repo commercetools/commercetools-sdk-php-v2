@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class DeliveryAddressSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Address|?AddressBuilder
      */
     private $oldAddress;
@@ -36,18 +31,6 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
      * @var Address|?AddressBuilder
      */
     private $address;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Address
@@ -71,16 +54,6 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     public function getAddress()
     {
         return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -136,7 +109,6 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     public function build(): DeliveryAddressSetMessagePayload
     {
         return new DeliveryAddressSetMessagePayloadModel(
-            $this->type,
             ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress),
             $this->deliveryId,
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)

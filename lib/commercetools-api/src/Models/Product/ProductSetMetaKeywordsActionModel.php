@@ -33,13 +33,12 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
     protected $staged;
 
     public function __construct(
-        string $action = null,
         LocalizedString $metaKeywords = null,
         bool $staged = null
     ) {
-        $this->action = $action;
         $this->metaKeywords = $metaKeywords;
         $this->staged = $staged;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductSetMetaKeywordsActionModel extends JsonObjectModel implements
         }
 
         return $this->staged;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMetaKeywords(?LocalizedString $metaKeywords): void

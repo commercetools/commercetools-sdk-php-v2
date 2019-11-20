@@ -25,10 +25,6 @@ final class CustomFieldsBuilder implements Builder
      */
     private $type;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|FieldContainer
      */

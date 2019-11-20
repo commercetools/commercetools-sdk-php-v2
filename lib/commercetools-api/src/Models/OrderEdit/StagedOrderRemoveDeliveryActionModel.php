@@ -26,11 +26,10 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
     protected $deliveryId;
 
     public function __construct(
-        string $action = null,
         string $deliveryId = null
     ) {
-        $this->action = $action;
         $this->deliveryId = $deliveryId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class StagedOrderRemoveDeliveryActionModel extends JsonObjectModel impleme
         }
 
         return $this->deliveryId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDeliveryId(?string $deliveryId): void

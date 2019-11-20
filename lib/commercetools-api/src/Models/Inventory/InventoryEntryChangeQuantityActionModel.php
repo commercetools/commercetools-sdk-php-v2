@@ -25,11 +25,10 @@ final class InventoryEntryChangeQuantityActionModel extends JsonObjectModel impl
     protected $quantity;
 
     public function __construct(
-        string $action = null,
         int $quantity = null
     ) {
-        $this->action = $action;
         $this->quantity = $quantity;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class InventoryEntryChangeQuantityActionModel extends JsonObjectModel impl
         }
 
         return $this->quantity;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setQuantity(?int $quantity): void

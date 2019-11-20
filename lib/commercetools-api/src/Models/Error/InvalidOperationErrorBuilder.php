@@ -18,24 +18,7 @@ final class InvalidOperationErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class InvalidOperationErrorBuilder implements Builder
     public function getMessage()
     {
         return $this->message;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class InvalidOperationErrorBuilder implements Builder
     public function build(): InvalidOperationError
     {
         return new InvalidOperationErrorModel(
-            $this->code,
             $this->message
         );
     }

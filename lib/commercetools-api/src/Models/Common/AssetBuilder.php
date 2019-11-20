@@ -52,10 +52,6 @@ final class AssetBuilder implements Builder
      */
     private $tags;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|AssetSourceCollection
      */

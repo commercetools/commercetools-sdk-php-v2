@@ -43,17 +43,16 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     protected $sku;
 
     public function __construct(
-        string $action = null,
         PriceDraft $price = null,
         bool $staged = null,
         int $variantId = null,
         string $sku = null
     ) {
-        $this->action = $action;
         $this->price = $price;
         $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -140,11 +139,6 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
         }
 
         return $this->sku;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setPrice(?PriceDraft $price): void

@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ProjectChangeCountriesActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?array
      */
     private $countries;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|array
@@ -43,16 +26,6 @@ final class ProjectChangeCountriesActionBuilder implements Builder
     public function getCountries()
     {
         return $this->countries;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ProjectChangeCountriesActionBuilder implements Builder
     public function build(): ProjectChangeCountriesAction
     {
         return new ProjectChangeCountriesActionModel(
-            $this->action,
             $this->countries
         );
     }

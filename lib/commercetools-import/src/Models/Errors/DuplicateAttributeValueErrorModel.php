@@ -33,13 +33,12 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
     protected $attribute;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         Attribute $attribute = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->attribute = $attribute;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -96,11 +95,6 @@ final class DuplicateAttributeValueErrorModel extends JsonObjectModel implements
         }
 
         return $this->attribute;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

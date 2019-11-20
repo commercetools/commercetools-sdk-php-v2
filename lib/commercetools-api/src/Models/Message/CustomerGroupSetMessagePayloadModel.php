@@ -28,11 +28,10 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
     protected $customerGroup;
 
     public function __construct(
-        string $type = null,
         CustomerGroupReference $customerGroup = null
     ) {
-        $this->type = $type;
         $this->customerGroup = $customerGroup;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class CustomerGroupSetMessagePayloadModel extends JsonObjectModel implemen
         }
 
         return $this->customerGroup;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void

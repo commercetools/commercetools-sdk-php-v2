@@ -77,11 +77,6 @@ final class OrderCustomerSetMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
     private $oldCustomerGroup;
@@ -100,10 +95,6 @@ final class OrderCustomerSetMessageBuilder implements Builder
      * @var CustomerReference|?CustomerReferenceBuilder
      */
     private $customer;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -183,14 +174,6 @@ final class OrderCustomerSetMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -328,16 +311,6 @@ final class OrderCustomerSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup)
     {
         $this->oldCustomerGroup = $oldCustomerGroup;
@@ -468,7 +441,6 @@ final class OrderCustomerSetMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup),
             ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
             ($this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer),

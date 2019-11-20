@@ -18,29 +18,12 @@ final class PaymentTransactionStateChangedMessagePayloadBuilder implements Build
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $state;
 
     /**
      * @var ?string
      */
     private $transactionId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class PaymentTransactionStateChangedMessagePayloadBuilder implements Build
     public function getTransactionId()
     {
         return $this->transactionId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class PaymentTransactionStateChangedMessagePayloadBuilder implements Build
     public function build(): PaymentTransactionStateChangedMessagePayload
     {
         return new PaymentTransactionStateChangedMessagePayloadModel(
-            $this->type,
             $this->state,
             $this->transactionId
         );

@@ -18,29 +18,12 @@ final class CartSetLineItemTaxAmountActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $lineItemId;
 
     /**
      * @var ExternalTaxAmountDraft|?ExternalTaxAmountDraftBuilder
      */
     private $externalTaxAmount;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class CartSetLineItemTaxAmountActionBuilder implements Builder
     public function getExternalTaxAmount()
     {
         return $this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class CartSetLineItemTaxAmountActionBuilder implements Builder
     public function build(): CartSetLineItemTaxAmountAction
     {
         return new CartSetLineItemTaxAmountActionModel(
-            $this->action,
             $this->lineItemId,
             ($this->externalTaxAmount instanceof ExternalTaxAmountDraftBuilder ? $this->externalTaxAmount->build() : $this->externalTaxAmount)
         );

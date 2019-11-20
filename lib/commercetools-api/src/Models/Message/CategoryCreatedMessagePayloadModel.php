@@ -28,11 +28,10 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
     protected $category;
 
     public function __construct(
-        string $type = null,
         Category $category = null
     ) {
-        $this->type = $type;
         $this->category = $category;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class CategoryCreatedMessagePayloadModel extends JsonObjectModel implement
         }
 
         return $this->category;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setCategory(?Category $category): void

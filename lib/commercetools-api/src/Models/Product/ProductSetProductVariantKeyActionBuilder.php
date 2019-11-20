@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductSetProductVariantKeyActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $staged;
@@ -39,18 +34,6 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
      * @var ?string
      */
     private $key;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -82,16 +65,6 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -137,7 +110,6 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     public function build(): ProductSetProductVariantKeyAction
     {
         return new ProductSetProductVariantKeyActionModel(
-            $this->action,
             $this->staged,
             $this->variantId,
             $this->sku,

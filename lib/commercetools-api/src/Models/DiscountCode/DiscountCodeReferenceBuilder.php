@@ -18,29 +18,12 @@ final class DiscountCodeReferenceBuilder implements Builder
     /**
      * @var ?string
      */
-    private $typeId;
-
-    /**
-     * @var ?string
-     */
     private $id;
 
     /**
      * @var DiscountCode|?DiscountCodeBuilder
      */
     private $obj;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class DiscountCodeReferenceBuilder implements Builder
     public function getObj()
     {
         return $this->obj instanceof DiscountCodeBuilder ? $this->obj->build() : $this->obj;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class DiscountCodeReferenceBuilder implements Builder
     public function build(): DiscountCodeReference
     {
         return new DiscountCodeReferenceModel(
-            $this->typeId,
             $this->id,
             ($this->obj instanceof DiscountCodeBuilder ? $this->obj->build() : $this->obj)
         );

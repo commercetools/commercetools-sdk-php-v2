@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class CustomFieldLocalizedEnumTypeBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $name;
-
-    /**
      * @var ?CustomFieldLocalizedEnumValueCollection
      */
     private $values;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * @return null|CustomFieldLocalizedEnumValueCollection
@@ -43,16 +26,6 @@ final class CustomFieldLocalizedEnumTypeBuilder implements Builder
     public function getValues()
     {
         return $this->values;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CustomFieldLocalizedEnumTypeBuilder implements Builder
     public function build(): CustomFieldLocalizedEnumType
     {
         return new CustomFieldLocalizedEnumTypeModel(
-            $this->name,
             $this->values
         );
     }

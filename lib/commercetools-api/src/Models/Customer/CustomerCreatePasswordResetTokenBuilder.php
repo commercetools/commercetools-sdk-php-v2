@@ -25,10 +25,6 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
      */
     private $email;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

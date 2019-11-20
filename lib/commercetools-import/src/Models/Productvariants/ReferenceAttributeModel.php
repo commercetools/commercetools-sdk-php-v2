@@ -34,12 +34,11 @@ final class ReferenceAttributeModel extends JsonObjectModel implements Reference
 
     public function __construct(
         string $name = null,
-        string $type = null,
         KeyReference $value = null
     ) {
         $this->name = $name;
-        $this->type = $type;
         $this->value = $value;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -103,11 +102,6 @@ final class ReferenceAttributeModel extends JsonObjectModel implements Reference
     public function setName(?string $name): void
     {
         $this->name = $name;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setValue(?KeyReference $value): void

@@ -40,10 +40,6 @@ final class ErrorResponseBuilder implements Builder
      */
     private $statusCode;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

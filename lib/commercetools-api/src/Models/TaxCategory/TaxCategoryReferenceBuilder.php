@@ -18,29 +18,12 @@ final class TaxCategoryReferenceBuilder implements Builder
     /**
      * @var ?string
      */
-    private $typeId;
-
-    /**
-     * @var ?string
-     */
     private $id;
 
     /**
      * @var TaxCategory|?TaxCategoryBuilder
      */
     private $obj;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class TaxCategoryReferenceBuilder implements Builder
     public function getObj()
     {
         return $this->obj instanceof TaxCategoryBuilder ? $this->obj->build() : $this->obj;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class TaxCategoryReferenceBuilder implements Builder
     public function build(): TaxCategoryReference
     {
         return new TaxCategoryReferenceModel(
-            $this->typeId,
             $this->id,
             ($this->obj instanceof TaxCategoryBuilder ? $this->obj->build() : $this->obj)
         );

@@ -33,13 +33,12 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
     protected $oldShippingInfo;
 
     public function __construct(
-        string $type = null,
         ShippingInfo $shippingInfo = null,
         ShippingInfo $oldShippingInfo = null
     ) {
-        $this->type = $type;
         $this->shippingInfo = $shippingInfo;
         $this->oldShippingInfo = $oldShippingInfo;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class OrderShippingInfoSetMessagePayloadModel extends JsonObjectModel impl
         }
 
         return $this->oldShippingInfo;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setShippingInfo(?ShippingInfo $shippingInfo): void

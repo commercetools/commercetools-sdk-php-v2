@@ -27,11 +27,10 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
     protected $errors;
 
     public function __construct(
-        string $type = null,
         ErrorObjectCollection $errors = null
     ) {
-        $this->type = $type;
         $this->errors = $errors;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class OrderEditPreviewFailureModel extends JsonObjectModel implements Orde
         }
 
         return $this->errors;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setErrors(?ErrorObjectCollection $errors): void

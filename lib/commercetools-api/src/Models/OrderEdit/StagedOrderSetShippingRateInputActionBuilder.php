@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetShippingRateInputActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ShippingRateInputDraft|?ShippingRateInputDraftBuilder
      */
     private $shippingRateInput;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ShippingRateInputDraft
@@ -45,16 +28,6 @@ final class StagedOrderSetShippingRateInputActionBuilder implements Builder
     public function getShippingRateInput()
     {
         return $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class StagedOrderSetShippingRateInputActionBuilder implements Builder
     public function build(): StagedOrderSetShippingRateInputAction
     {
         return new StagedOrderSetShippingRateInputActionModel(
-            $this->action,
             ($this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput)
         );
     }

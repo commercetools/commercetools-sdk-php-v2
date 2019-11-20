@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ProductTypeAddAttributeDefinitionActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var AttributeDefinitionDraft|?AttributeDefinitionDraftBuilder
      */
     private $attribute;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|AttributeDefinitionDraft
@@ -43,16 +26,6 @@ final class ProductTypeAddAttributeDefinitionActionBuilder implements Builder
     public function getAttribute()
     {
         return $this->attribute instanceof AttributeDefinitionDraftBuilder ? $this->attribute->build() : $this->attribute;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class ProductTypeAddAttributeDefinitionActionBuilder implements Builder
     public function build(): ProductTypeAddAttributeDefinitionAction
     {
         return new ProductTypeAddAttributeDefinitionActionModel(
-            $this->action,
             ($this->attribute instanceof AttributeDefinitionDraftBuilder ? $this->attribute->build() : $this->attribute)
         );
     }

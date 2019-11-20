@@ -30,13 +30,12 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     protected $email;
 
     public function __construct(
-        string $type = null,
         string $oldEmail = null,
         string $email = null
     ) {
-        $this->type = $type;
         $this->oldEmail = $oldEmail;
         $this->email = $email;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
         }
 
         return $this->email;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldEmail(?string $oldEmail): void

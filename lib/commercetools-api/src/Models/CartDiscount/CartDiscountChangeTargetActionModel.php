@@ -26,11 +26,10 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
     protected $target;
 
     public function __construct(
-        string $action = null,
         CartDiscountTarget $target = null
     ) {
-        $this->action = $action;
         $this->target = $target;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class CartDiscountChangeTargetActionModel extends JsonObjectModel implemen
         }
 
         return $this->target;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTarget(?CartDiscountTarget $target): void

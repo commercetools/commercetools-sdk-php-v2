@@ -99,7 +99,6 @@ final class OrderShipmentStateChangedMessageModel extends JsonObjectModel implem
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         string $shipmentState = null,
         string $oldShipmentState = null
     ) {
@@ -113,9 +112,9 @@ final class OrderShipmentStateChangedMessageModel extends JsonObjectModel implem
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->shipmentState = $shipmentState;
         $this->oldShipmentState = $oldShipmentState;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -399,11 +398,6 @@ final class OrderShipmentStateChangedMessageModel extends JsonObjectModel implem
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setShipmentState(?string $shipmentState): void

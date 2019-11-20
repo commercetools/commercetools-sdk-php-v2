@@ -25,11 +25,10 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
     protected $orderNumber;
 
     public function __construct(
-        string $action = null,
         string $orderNumber = null
     ) {
-        $this->action = $action;
         $this->orderNumber = $orderNumber;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class OrderSetOrderNumberActionModel extends JsonObjectModel implements Or
         }
 
         return $this->orderNumber;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setOrderNumber(?string $orderNumber): void

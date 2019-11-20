@@ -101,7 +101,6 @@ final class ProductStateTransitionMessageModel extends JsonObjectModel implement
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         bool $force = null,
         StateReference $state = null
     ) {
@@ -115,9 +114,9 @@ final class ProductStateTransitionMessageModel extends JsonObjectModel implement
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->force = $force;
         $this->state = $state;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -402,11 +401,6 @@ final class ProductStateTransitionMessageModel extends JsonObjectModel implement
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setForce(?bool $force): void

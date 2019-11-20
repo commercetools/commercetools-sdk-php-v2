@@ -50,10 +50,6 @@ final class OrderEditDraftBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|bool
      */

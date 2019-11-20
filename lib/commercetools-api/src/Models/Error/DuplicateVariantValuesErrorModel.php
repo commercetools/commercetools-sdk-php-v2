@@ -31,13 +31,12 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
     protected $variantValues;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         VariantValues $variantValues = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->variantValues = $variantValues;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class DuplicateVariantValuesErrorModel extends JsonObjectModel implements 
         }
 
         return $this->variantValues;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

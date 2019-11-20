@@ -28,11 +28,10 @@ final class CategorySetMetaTitleActionModel extends JsonObjectModel implements C
     protected $metaTitle;
 
     public function __construct(
-        string $action = null,
         LocalizedString $metaTitle = null
     ) {
-        $this->action = $action;
         $this->metaTitle = $metaTitle;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class CategorySetMetaTitleActionModel extends JsonObjectModel implements C
         }
 
         return $this->metaTitle;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMetaTitle(?LocalizedString $metaTitle): void

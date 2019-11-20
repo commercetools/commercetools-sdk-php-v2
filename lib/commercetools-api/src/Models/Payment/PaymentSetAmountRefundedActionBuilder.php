@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class PaymentSetAmountRefundedActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var Money|?MoneyBuilder
      */
     private $amount;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|Money
@@ -45,16 +28,6 @@ final class PaymentSetAmountRefundedActionBuilder implements Builder
     public function getAmount()
     {
         return $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class PaymentSetAmountRefundedActionBuilder implements Builder
     public function build(): PaymentSetAmountRefundedAction
     {
         return new PaymentSetAmountRefundedActionModel(
-            $this->action,
             ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount)
         );
     }

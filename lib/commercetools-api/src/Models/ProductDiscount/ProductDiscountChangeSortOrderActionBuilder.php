@@ -18,24 +18,7 @@ final class ProductDiscountChangeSortOrderActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $sortOrder;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class ProductDiscountChangeSortOrderActionBuilder implements Builder
     public function getSortOrder()
     {
         return $this->sortOrder;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ProductDiscountChangeSortOrderActionBuilder implements Builder
     public function build(): ProductDiscountChangeSortOrderAction
     {
         return new ProductDiscountChangeSortOrderActionModel(
-            $this->action,
             $this->sortOrder
         );
     }

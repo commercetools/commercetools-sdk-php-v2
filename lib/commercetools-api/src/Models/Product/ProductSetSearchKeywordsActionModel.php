@@ -31,13 +31,12 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
     protected $staged;
 
     public function __construct(
-        string $action = null,
         SearchKeywords $searchKeywords = null,
         bool $staged = null
     ) {
-        $this->action = $action;
         $this->searchKeywords = $searchKeywords;
         $this->staged = $staged;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class ProductSetSearchKeywordsActionModel extends JsonObjectModel implemen
         }
 
         return $this->staged;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setSearchKeywords(?SearchKeywords $searchKeywords): void

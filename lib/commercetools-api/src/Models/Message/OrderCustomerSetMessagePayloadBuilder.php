@@ -20,11 +20,6 @@ use Commercetools\Base\Builder;
 final class OrderCustomerSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
     private $oldCustomerGroup;
@@ -43,18 +38,6 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
      * @var CustomerReference|?CustomerReferenceBuilder
      */
     private $customer;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|CustomerGroupReference
@@ -86,16 +69,6 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     public function getCustomer()
     {
         return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -181,7 +154,6 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     public function build(): OrderCustomerSetMessagePayload
     {
         return new OrderCustomerSetMessagePayloadModel(
-            $this->type,
             ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup),
             ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
             ($this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer),

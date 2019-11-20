@@ -20,9 +20,8 @@ final class ProductDiscountValueExternalDraftModel extends JsonObjectModel imple
     protected $type;
 
     public function __construct(
-        string $type = null
     ) {
-        $this->type = $type;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -40,10 +39,5 @@ final class ProductDiscountValueExternalDraftModel extends JsonObjectModel imple
         }
 
         return $this->type;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 }

@@ -25,11 +25,10 @@ final class MyShoppingListChangeLineItemsOrderActionModel extends JsonObjectMode
     protected $lineItemOrder;
 
     public function __construct(
-        string $action = null,
         array $lineItemOrder = null
     ) {
-        $this->action = $action;
         $this->lineItemOrder = $lineItemOrder;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class MyShoppingListChangeLineItemsOrderActionModel extends JsonObjectMode
         }
 
         return $this->lineItemOrder;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLineItemOrder(?array $lineItemOrder): void

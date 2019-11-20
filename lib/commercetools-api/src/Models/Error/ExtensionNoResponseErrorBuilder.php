@@ -21,11 +21,6 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
@@ -42,18 +37,6 @@ final class ExtensionNoResponseErrorBuilder implements Builder
      * @var ErrorByExtension|?ErrorByExtensionBuilder
      */
     private $errorByExtension;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -85,16 +68,6 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     public function getErrorByExtension()
     {
         return $this->errorByExtension instanceof ErrorByExtensionBuilder ? $this->errorByExtension->build() : $this->errorByExtension;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -160,7 +133,6 @@ final class ExtensionNoResponseErrorBuilder implements Builder
     public function build(): ExtensionNoResponseError
     {
         return new ExtensionNoResponseErrorModel(
-            $this->code,
             $this->message,
             ($this->localizedMessage instanceof LocalizedStringBuilder ? $this->localizedMessage->build() : $this->localizedMessage),
             $this->extensionExtraInfo,

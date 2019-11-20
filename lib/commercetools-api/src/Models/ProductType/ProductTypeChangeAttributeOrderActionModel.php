@@ -26,11 +26,10 @@ final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel i
     protected $attributes;
 
     public function __construct(
-        string $action = null,
         AttributeDefinitionCollection $attributes = null
     ) {
-        $this->action = $action;
         $this->attributes = $attributes;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class ProductTypeChangeAttributeOrderActionModel extends JsonObjectModel i
         }
 
         return $this->attributes;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAttributes(?AttributeDefinitionCollection $attributes): void

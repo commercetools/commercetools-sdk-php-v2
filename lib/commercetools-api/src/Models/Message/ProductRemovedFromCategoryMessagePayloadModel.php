@@ -33,13 +33,12 @@ final class ProductRemovedFromCategoryMessagePayloadModel extends JsonObjectMode
     protected $category;
 
     public function __construct(
-        string $type = null,
         bool $staged = null,
         CategoryReference $category = null
     ) {
-        $this->type = $type;
         $this->staged = $staged;
         $this->category = $category;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductRemovedFromCategoryMessagePayloadModel extends JsonObjectMode
         }
 
         return $this->category;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setStaged(?bool $staged): void

@@ -19,11 +19,6 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?TaxPortionDraftCollection
      */
     private $externalTaxPortions;
@@ -32,18 +27,6 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
      * @var Money|?MoneyBuilder
      */
     private $externalTotalGross;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|TaxPortionDraftCollection
@@ -59,16 +42,6 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     public function getExternalTotalGross()
     {
         return $this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -104,7 +77,6 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     public function build(): StagedOrderSetOrderTotalTaxAction
     {
         return new StagedOrderSetOrderTotalTaxActionModel(
-            $this->action,
             $this->externalTaxPortions,
             ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross)
         );

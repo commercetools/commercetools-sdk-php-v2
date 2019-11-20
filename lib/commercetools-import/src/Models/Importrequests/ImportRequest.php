@@ -21,6 +21,4 @@ interface ImportRequest extends JsonObject
      * @return null|string
      */
     public function getType();
-
-    public function setType(?string $type): void;
 }

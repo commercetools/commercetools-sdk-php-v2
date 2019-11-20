@@ -15,10 +15,6 @@ use Commercetools\Base\Builder;
  */
 final class AttributesBuilder implements Builder
 {
-    public function __construct()
-    {
-    }
-
     public function build(): Attributes
     {
         return new AttributesModel(

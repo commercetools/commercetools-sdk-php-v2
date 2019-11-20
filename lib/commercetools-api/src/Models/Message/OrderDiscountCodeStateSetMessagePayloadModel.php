@@ -38,15 +38,14 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     protected $state;
 
     public function __construct(
-        string $type = null,
         DiscountCodeReference $discountCode = null,
         string $oldState = null,
         string $state = null
     ) {
-        $this->type = $type;
         $this->discountCode = $discountCode;
         $this->oldState = $oldState;
         $this->state = $state;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
         }
 
         return $this->state;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDiscountCode(?DiscountCodeReference $discountCode): void

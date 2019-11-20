@@ -25,11 +25,10 @@ final class ProductDiscountValueRelativeModel extends JsonObjectModel implements
     protected $permyriad;
 
     public function __construct(
-        string $type = null,
         int $permyriad = null
     ) {
-        $this->type = $type;
         $this->permyriad = $permyriad;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProductDiscountValueRelativeModel extends JsonObjectModel implements
         }
 
         return $this->permyriad;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPermyriad(?int $permyriad): void

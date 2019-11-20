@@ -25,10 +25,6 @@ final class ImageDimensionsBuilder implements Builder
      */
     private $h;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

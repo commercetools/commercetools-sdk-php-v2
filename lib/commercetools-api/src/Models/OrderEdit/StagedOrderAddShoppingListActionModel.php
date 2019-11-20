@@ -41,15 +41,14 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
     protected $distributionChannel;
 
     public function __construct(
-        string $action = null,
         ShoppingListResourceIdentifier $shoppingList = null,
         ChannelResourceIdentifier $supplyChannel = null,
         ChannelResourceIdentifier $distributionChannel = null
     ) {
-        $this->action = $action;
         $this->shoppingList = $shoppingList;
         $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -121,11 +120,6 @@ final class StagedOrderAddShoppingListActionModel extends JsonObjectModel implem
         }
 
         return $this->distributionChannel;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShoppingList(?ShoppingListResourceIdentifier $shoppingList): void

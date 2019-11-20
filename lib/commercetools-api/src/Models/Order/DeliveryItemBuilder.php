@@ -25,10 +25,6 @@ final class DeliveryItemBuilder implements Builder
      */
     private $id;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

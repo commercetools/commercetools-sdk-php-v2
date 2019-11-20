@@ -59,7 +59,6 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
     protected $assetKey;
 
     public function __construct(
-        string $action = null,
         string $assetId = null,
         bool $staged = null,
         int $variantId = null,
@@ -68,7 +67,6 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
         string $sku = null,
         string $assetKey = null
     ) {
-        $this->action = $action;
         $this->assetId = $assetId;
         $this->staged = $staged;
         $this->variantId = $variantId;
@@ -76,6 +74,7 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
         $this->type = $type;
         $this->sku = $sku;
         $this->assetKey = $assetKey;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -213,11 +212,6 @@ final class ProductSetAssetCustomTypeActionModel extends JsonObjectModel impleme
         }
 
         return $this->assetKey;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAssetId(?string $assetId): void

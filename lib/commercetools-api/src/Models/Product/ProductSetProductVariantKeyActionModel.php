@@ -40,17 +40,16 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     protected $key;
 
     public function __construct(
-        string $action = null,
         bool $staged = null,
         int $variantId = null,
         string $sku = null,
         string $key = null
     ) {
-        $this->action = $action;
         $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->key = $key;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -136,11 +135,6 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
         }
 
         return $this->key;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setStaged(?bool $staged): void

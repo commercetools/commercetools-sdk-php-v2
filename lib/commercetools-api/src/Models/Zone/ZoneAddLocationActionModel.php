@@ -26,11 +26,10 @@ final class ZoneAddLocationActionModel extends JsonObjectModel implements ZoneAd
     protected $location;
 
     public function __construct(
-        string $action = null,
         Location $location = null
     ) {
-        $this->action = $action;
         $this->location = $location;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class ZoneAddLocationActionModel extends JsonObjectModel implements ZoneAd
         }
 
         return $this->location;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLocation(?Location $location): void

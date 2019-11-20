@@ -96,7 +96,6 @@ final class PaymentCreatedMessageModel extends JsonObjectModel implements Paymen
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Payment $payment = null
     ) {
         $this->createdAt = $createdAt;
@@ -109,8 +108,8 @@ final class PaymentCreatedMessageModel extends JsonObjectModel implements Paymen
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->payment = $payment;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -378,11 +377,6 @@ final class PaymentCreatedMessageModel extends JsonObjectModel implements Paymen
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPayment(?Payment $payment): void

@@ -58,10 +58,6 @@ final class ChannelDraftBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|Address
      */

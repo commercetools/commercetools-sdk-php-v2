@@ -18,24 +18,7 @@ final class PaymentSetMethodInfoInterfaceActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $interface;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class PaymentSetMethodInfoInterfaceActionBuilder implements Builder
     public function getInterface()
     {
         return $this->interface;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class PaymentSetMethodInfoInterfaceActionBuilder implements Builder
     public function build(): PaymentSetMethodInfoInterfaceAction
     {
         return new PaymentSetMethodInfoInterfaceActionModel(
-            $this->action,
             $this->interface
         );
     }

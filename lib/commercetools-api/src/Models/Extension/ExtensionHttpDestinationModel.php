@@ -31,13 +31,12 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
     protected $authentication;
 
     public function __construct(
-        string $type = null,
         string $url = null,
         ExtensionHttpDestinationAuthentication $authentication = null
     ) {
-        $this->type = $type;
         $this->url = $url;
         $this->authentication = $authentication;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class ExtensionHttpDestinationModel extends JsonObjectModel implements Ext
         }
 
         return $this->authentication;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setUrl(?string $url): void

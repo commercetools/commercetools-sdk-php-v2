@@ -33,13 +33,12 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
     protected $currentProjection;
 
     public function __construct(
-        string $type = null,
         array $removedImageUrls = null,
         ProductProjection $currentProjection = null
     ) {
-        $this->type = $type;
         $this->removedImageUrls = $removedImageUrls;
         $this->currentProjection = $currentProjection;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductDeletedMessagePayloadModel extends JsonObjectModel implements
         }
 
         return $this->currentProjection;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setRemovedImageUrls(?array $removedImageUrls): void

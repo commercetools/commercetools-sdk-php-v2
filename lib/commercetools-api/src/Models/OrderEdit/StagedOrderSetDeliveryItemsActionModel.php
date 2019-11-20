@@ -33,13 +33,12 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
     protected $items;
 
     public function __construct(
-        string $action = null,
         string $deliveryId = null,
         DeliveryItemCollection $items = null
     ) {
-        $this->action = $action;
         $this->deliveryId = $deliveryId;
         $this->items = $items;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -91,11 +90,6 @@ final class StagedOrderSetDeliveryItemsActionModel extends JsonObjectModel imple
         }
 
         return $this->items;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDeliveryId(?string $deliveryId): void

@@ -25,10 +25,6 @@ final class PriceFunctionBuilder implements Builder
      */
     private $currencyCode;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

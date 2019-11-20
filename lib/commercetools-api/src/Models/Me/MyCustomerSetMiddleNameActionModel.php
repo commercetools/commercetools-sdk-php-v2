@@ -25,11 +25,10 @@ final class MyCustomerSetMiddleNameActionModel extends JsonObjectModel implement
     protected $middleName;
 
     public function __construct(
-        string $action = null,
         string $middleName = null
     ) {
-        $this->action = $action;
         $this->middleName = $middleName;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class MyCustomerSetMiddleNameActionModel extends JsonObjectModel implement
         }
 
         return $this->middleName;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMiddleName(?string $middleName): void

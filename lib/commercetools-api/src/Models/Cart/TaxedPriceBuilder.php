@@ -32,10 +32,6 @@ final class TaxedPriceBuilder implements Builder
      */
     private $totalNet;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|TaxPortionCollection
      */

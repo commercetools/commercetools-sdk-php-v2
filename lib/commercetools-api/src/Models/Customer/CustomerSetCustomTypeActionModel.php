@@ -35,13 +35,12 @@ final class CustomerSetCustomTypeActionModel extends JsonObjectModel implements 
     protected $type;
 
     public function __construct(
-        string $action = null,
         FieldContainer $fields = null,
         TypeResourceIdentifier $type = null
     ) {
-        $this->action = $action;
         $this->fields = $fields;
         $this->type = $type;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -95,11 +94,6 @@ final class CustomerSetCustomTypeActionModel extends JsonObjectModel implements 
         }
 
         return $this->type;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFields(?FieldContainer $fields): void

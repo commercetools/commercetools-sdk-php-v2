@@ -28,11 +28,10 @@ final class PaymentSetCustomerActionModel extends JsonObjectModel implements Pay
     protected $customer;
 
     public function __construct(
-        string $action = null,
         CustomerResourceIdentifier $customer = null
     ) {
-        $this->action = $action;
         $this->customer = $customer;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class PaymentSetCustomerActionModel extends JsonObjectModel implements Pay
         }
 
         return $this->customer;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomer(?CustomerResourceIdentifier $customer): void

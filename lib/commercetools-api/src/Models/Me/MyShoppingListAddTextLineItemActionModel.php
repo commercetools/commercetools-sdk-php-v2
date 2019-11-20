@@ -52,19 +52,18 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
     protected $description;
 
     public function __construct(
-        string $action = null,
         DateTimeImmutable $addedAt = null,
         int $quantity = null,
         CustomFieldsDraft $custom = null,
         LocalizedString $name = null,
         LocalizedString $description = null
     ) {
-        $this->action = $action;
         $this->addedAt = $addedAt;
         $this->quantity = $quantity;
         $this->custom = $custom;
         $this->name = $name;
         $this->description = $description;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -174,11 +173,6 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
         }
 
         return $this->description;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAddedAt(?DateTimeImmutable $addedAt): void

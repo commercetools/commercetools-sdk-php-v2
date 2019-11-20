@@ -18,29 +18,12 @@ final class ProductTypeChangeInputHintActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $newValue;
 
     /**
      * @var ?string
      */
     private $attributeName;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class ProductTypeChangeInputHintActionBuilder implements Builder
     public function getAttributeName()
     {
         return $this->attributeName;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class ProductTypeChangeInputHintActionBuilder implements Builder
     public function build(): ProductTypeChangeInputHintAction
     {
         return new ProductTypeChangeInputHintActionModel(
-            $this->action,
             $this->newValue,
             $this->attributeName
         );

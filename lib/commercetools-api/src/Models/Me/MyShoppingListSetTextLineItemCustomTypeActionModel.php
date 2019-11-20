@@ -40,15 +40,14 @@ final class MyShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjec
     protected $textLineItemId;
 
     public function __construct(
-        string $action = null,
         FieldContainer $fields = null,
         TypeResourceIdentifier $type = null,
         string $textLineItemId = null
     ) {
-        $this->action = $action;
         $this->fields = $fields;
         $this->type = $type;
         $this->textLineItemId = $textLineItemId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -119,11 +118,6 @@ final class MyShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjec
         }
 
         return $this->textLineItemId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFields(?FieldContainer $fields): void

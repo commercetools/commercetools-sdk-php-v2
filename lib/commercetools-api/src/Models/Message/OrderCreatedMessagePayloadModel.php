@@ -28,11 +28,10 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
     protected $order;
 
     public function __construct(
-        string $type = null,
         Order $order = null
     ) {
-        $this->type = $type;
         $this->order = $order;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class OrderCreatedMessagePayloadModel extends JsonObjectModel implements O
         }
 
         return $this->order;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOrder(?Order $order): void

@@ -25,11 +25,10 @@ final class MyCartSetCountryActionModel extends JsonObjectModel implements MyCar
     protected $country;
 
     public function __construct(
-        string $action = null,
         string $country = null
     ) {
-        $this->action = $action;
         $this->country = $country;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class MyCartSetCountryActionModel extends JsonObjectModel implements MyCar
         }
 
         return $this->country;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCountry(?string $country): void

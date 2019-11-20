@@ -30,10 +30,6 @@ final class ImageBuilder implements Builder
      */
     private $dimensions;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

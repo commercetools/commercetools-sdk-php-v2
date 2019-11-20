@@ -45,17 +45,16 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
     protected $externalPrice;
 
     public function __construct(
-        string $action = null,
         int $quantity = null,
         ExternalLineItemTotalPrice $externalTotalPrice = null,
         string $lineItemId = null,
         Money $externalPrice = null
     ) {
-        $this->action = $action;
         $this->quantity = $quantity;
         $this->externalTotalPrice = $externalTotalPrice;
         $this->lineItemId = $lineItemId;
         $this->externalPrice = $externalPrice;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -143,11 +142,6 @@ final class MyCartChangeLineItemQuantityActionModel extends JsonObjectModel impl
         }
 
         return $this->externalPrice;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setQuantity(?int $quantity): void

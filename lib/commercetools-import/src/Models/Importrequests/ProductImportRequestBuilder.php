@@ -17,28 +17,9 @@ use Commercetools\Import\Models\Products\ProductImportCollection;
 final class ProductImportRequestBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?ProductImportCollection
      */
     private $resources;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * <p>The type of the import resource.</p>.
-     *
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * <p>The product import resources of this request.</p>.
@@ -48,16 +29,6 @@ final class ProductImportRequestBuilder implements Builder
     public function getResources()
     {
         return $this->resources;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -73,7 +44,6 @@ final class ProductImportRequestBuilder implements Builder
     public function build(): ProductImportRequest
     {
         return new ProductImportRequestModel(
-            $this->type,
             $this->resources
         );
     }

@@ -208,10 +208,6 @@ final class MyCartBuilder implements Builder
      */
     private $paymentInfo;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

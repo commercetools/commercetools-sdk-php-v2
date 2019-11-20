@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductAddPriceActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var PriceDraft|?PriceDraftBuilder
      */
     private $price;
@@ -41,18 +36,6 @@ final class ProductAddPriceActionBuilder implements Builder
      * @var ?string
      */
     private $sku;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|PriceDraft
@@ -84,16 +67,6 @@ final class ProductAddPriceActionBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -149,7 +122,6 @@ final class ProductAddPriceActionBuilder implements Builder
     public function build(): ProductAddPriceAction
     {
         return new ProductAddPriceActionModel(
-            $this->action,
             ($this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price),
             $this->staged,
             $this->variantId,

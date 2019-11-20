@@ -18,24 +18,7 @@ final class StagedOrderRemoveCustomLineItemActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $customLineItemId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class StagedOrderRemoveCustomLineItemActionBuilder implements Builder
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StagedOrderRemoveCustomLineItemActionBuilder implements Builder
     public function build(): StagedOrderRemoveCustomLineItemAction
     {
         return new StagedOrderRemoveCustomLineItemActionModel(
-            $this->action,
             $this->customLineItemId
         );
     }

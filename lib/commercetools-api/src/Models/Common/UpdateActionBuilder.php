@@ -20,10 +20,6 @@ final class UpdateActionBuilder implements Builder
      */
     private $action;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

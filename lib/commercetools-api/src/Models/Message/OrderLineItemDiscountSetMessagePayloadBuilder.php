@@ -21,11 +21,6 @@ use Commercetools\Base\Builder;
 final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Money|?MoneyBuilder
      */
     private $totalPrice;
@@ -44,18 +39,6 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Money
@@ -87,16 +70,6 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     public function getDiscountedPricePerQuantity()
     {
         return $this->discountedPricePerQuantity;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -162,7 +135,6 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     public function build(): OrderLineItemDiscountSetMessagePayload
     {
         return new OrderLineItemDiscountSetMessagePayloadModel(
-            $this->type,
             ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
             $this->lineItemId,
             ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),

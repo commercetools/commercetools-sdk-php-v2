@@ -78,10 +78,8 @@ final class ReferenceModel extends JsonObjectModel implements Reference
     ];
 
     public function __construct(
-        string $typeId = null,
         string $id = null
     ) {
-        $this->typeId = $typeId;
         $this->id = $id;
         $this->typeId = static::DISCRIMINATOR_VALUE;
     }
@@ -118,11 +116,6 @@ final class ReferenceModel extends JsonObjectModel implements Reference
         }
 
         return $this->id;
-    }
-
-    public function setTypeId(?string $typeId): void
-    {
-        $this->typeId = $typeId;
     }
 
     public function setId(?string $id): void

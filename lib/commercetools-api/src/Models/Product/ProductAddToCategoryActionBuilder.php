@@ -20,11 +20,6 @@ final class ProductAddToCategoryActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $orderHint;
 
     /**
@@ -36,18 +31,6 @@ final class ProductAddToCategoryActionBuilder implements Builder
      * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
      */
     private $category;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -71,16 +54,6 @@ final class ProductAddToCategoryActionBuilder implements Builder
     public function getCategory()
     {
         return $this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -126,7 +99,6 @@ final class ProductAddToCategoryActionBuilder implements Builder
     public function build(): ProductAddToCategoryAction
     {
         return new ProductAddToCategoryActionModel(
-            $this->action,
             $this->orderHint,
             $this->staged,
             ($this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category)

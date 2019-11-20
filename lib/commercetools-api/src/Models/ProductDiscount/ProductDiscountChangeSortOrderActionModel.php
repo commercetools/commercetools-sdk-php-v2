@@ -25,11 +25,10 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
     protected $sortOrder;
 
     public function __construct(
-        string $action = null,
         string $sortOrder = null
     ) {
-        $this->action = $action;
         $this->sortOrder = $sortOrder;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProductDiscountChangeSortOrderActionModel extends JsonObjectModel im
         }
 
         return $this->sortOrder;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setSortOrder(?string $sortOrder): void

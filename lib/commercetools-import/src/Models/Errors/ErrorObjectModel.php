@@ -53,10 +53,8 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
     ];
 
     public function __construct(
-        string $code = null,
         string $message = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
@@ -95,11 +93,6 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
         }
 
         return $this->message;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

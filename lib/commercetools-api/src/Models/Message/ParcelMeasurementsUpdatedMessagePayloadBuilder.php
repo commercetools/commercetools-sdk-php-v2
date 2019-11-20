@@ -20,11 +20,6 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $deliveryId;
 
     /**
@@ -36,18 +31,6 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
      * @var ?string
      */
     private $parcelId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -71,16 +54,6 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     public function getParcelId()
     {
         return $this->parcelId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -126,7 +99,6 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     public function build(): ParcelMeasurementsUpdatedMessagePayload
     {
         return new ParcelMeasurementsUpdatedMessagePayloadModel(
-            $this->type,
             $this->deliveryId,
             ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements),
             $this->parcelId

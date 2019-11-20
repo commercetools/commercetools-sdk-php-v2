@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class CategorySetMetaTitleActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $metaTitle;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|LocalizedString
@@ -45,16 +28,6 @@ final class CategorySetMetaTitleActionBuilder implements Builder
     public function getMetaTitle()
     {
         return $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class CategorySetMetaTitleActionBuilder implements Builder
     public function build(): CategorySetMetaTitleAction
     {
         return new CategorySetMetaTitleActionModel(
-            $this->action,
             ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle)
         );
     }

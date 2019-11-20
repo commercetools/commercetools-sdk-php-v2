@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ShippingMethodAddShippingRateActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ShippingRateDraft|?ShippingRateDraftBuilder
      */
     private $shippingRate;
@@ -31,18 +26,6 @@ final class ShippingMethodAddShippingRateActionBuilder implements Builder
      * @var ZoneResourceIdentifier|?ZoneResourceIdentifierBuilder
      */
     private $zone;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ShippingRateDraft
@@ -58,16 +41,6 @@ final class ShippingMethodAddShippingRateActionBuilder implements Builder
     public function getZone()
     {
         return $this->zone instanceof ZoneResourceIdentifierBuilder ? $this->zone->build() : $this->zone;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -113,7 +86,6 @@ final class ShippingMethodAddShippingRateActionBuilder implements Builder
     public function build(): ShippingMethodAddShippingRateAction
     {
         return new ShippingMethodAddShippingRateActionModel(
-            $this->action,
             ($this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate),
             ($this->zone instanceof ZoneResourceIdentifierBuilder ? $this->zone->build() : $this->zone)
         );

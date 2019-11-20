@@ -20,9 +20,8 @@ final class WhitespaceTokenizerModel extends JsonObjectModel implements Whitespa
     protected $type;
 
     public function __construct(
-        string $type = null
     ) {
-        $this->type = $type;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -40,10 +39,5 @@ final class WhitespaceTokenizerModel extends JsonObjectModel implements Whitespa
         }
 
         return $this->type;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 }

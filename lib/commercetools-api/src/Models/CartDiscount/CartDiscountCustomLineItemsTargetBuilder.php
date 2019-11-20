@@ -18,24 +18,7 @@ final class CartDiscountCustomLineItemsTargetBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $predicate;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class CartDiscountCustomLineItemsTargetBuilder implements Builder
     public function getPredicate()
     {
         return $this->predicate;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CartDiscountCustomLineItemsTargetBuilder implements Builder
     public function build(): CartDiscountCustomLineItemsTarget
     {
         return new CartDiscountCustomLineItemsTargetModel(
-            $this->type,
             $this->predicate
         );
     }

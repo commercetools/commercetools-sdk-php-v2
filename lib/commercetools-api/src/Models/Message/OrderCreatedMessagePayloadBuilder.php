@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class OrderCreatedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Order|?OrderBuilder
      */
     private $order;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Order
@@ -45,16 +28,6 @@ final class OrderCreatedMessagePayloadBuilder implements Builder
     public function getOrder()
     {
         return $this->order instanceof OrderBuilder ? $this->order->build() : $this->order;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class OrderCreatedMessagePayloadBuilder implements Builder
     public function build(): OrderCreatedMessagePayload
     {
         return new OrderCreatedMessagePayloadModel(
-            $this->type,
             ($this->order instanceof OrderBuilder ? $this->order->build() : $this->order)
         );
     }

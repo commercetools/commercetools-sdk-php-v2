@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class ReviewCreatedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Review|?ReviewBuilder
      */
     private $review;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Review
@@ -45,16 +28,6 @@ final class ReviewCreatedMessagePayloadBuilder implements Builder
     public function getReview()
     {
         return $this->review instanceof ReviewBuilder ? $this->review->build() : $this->review;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class ReviewCreatedMessagePayloadBuilder implements Builder
     public function build(): ReviewCreatedMessagePayload
     {
         return new ReviewCreatedMessagePayloadModel(
-            $this->type,
             ($this->review instanceof ReviewBuilder ? $this->review->build() : $this->review)
         );
     }

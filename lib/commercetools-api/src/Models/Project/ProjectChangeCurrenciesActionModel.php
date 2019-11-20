@@ -25,11 +25,10 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
     protected $currencies;
 
     public function __construct(
-        string $action = null,
         array $currencies = null
     ) {
-        $this->action = $action;
         $this->currencies = $currencies;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
         }
 
         return $this->currencies;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCurrencies(?array $currencies): void

@@ -28,11 +28,10 @@ final class MyCartRemoveDiscountCodeActionModel extends JsonObjectModel implemen
     protected $discountCode;
 
     public function __construct(
-        string $action = null,
         DiscountCodeReference $discountCode = null
     ) {
-        $this->action = $action;
         $this->discountCode = $discountCode;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class MyCartRemoveDiscountCodeActionModel extends JsonObjectModel implemen
         }
 
         return $this->discountCode;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDiscountCode(?DiscountCodeReference $discountCode): void

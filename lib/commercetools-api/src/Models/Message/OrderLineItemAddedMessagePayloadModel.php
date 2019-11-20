@@ -33,13 +33,12 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
     protected $addedQuantity;
 
     public function __construct(
-        string $type = null,
         LineItem $lineItem = null,
         int $addedQuantity = null
     ) {
-        $this->type = $type;
         $this->lineItem = $lineItem;
         $this->addedQuantity = $addedQuantity;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class OrderLineItemAddedMessagePayloadModel extends JsonObjectModel implem
         }
 
         return $this->addedQuantity;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setLineItem(?LineItem $lineItem): void

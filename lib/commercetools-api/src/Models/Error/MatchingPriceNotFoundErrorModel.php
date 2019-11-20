@@ -60,7 +60,6 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     protected $variantId;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         string $country = null,
         string $productId = null,
@@ -69,7 +68,6 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
         string $currency = null,
         int $variantId = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->country = $country;
         $this->productId = $productId;
@@ -77,6 +75,7 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
         $this->channel = $channel;
         $this->currency = $currency;
         $this->variantId = $variantId;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -215,11 +214,6 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
         }
 
         return $this->variantId;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

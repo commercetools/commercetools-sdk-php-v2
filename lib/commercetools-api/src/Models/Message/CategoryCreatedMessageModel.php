@@ -96,7 +96,6 @@ final class CategoryCreatedMessageModel extends JsonObjectModel implements Categ
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Category $category = null
     ) {
         $this->createdAt = $createdAt;
@@ -109,8 +108,8 @@ final class CategoryCreatedMessageModel extends JsonObjectModel implements Categ
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->category = $category;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -378,11 +377,6 @@ final class CategoryCreatedMessageModel extends JsonObjectModel implements Categ
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setCategory(?Category $category): void

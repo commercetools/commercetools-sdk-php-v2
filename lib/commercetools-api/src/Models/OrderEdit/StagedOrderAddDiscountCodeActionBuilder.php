@@ -18,24 +18,7 @@ final class StagedOrderAddDiscountCodeActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $code;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class StagedOrderAddDiscountCodeActionBuilder implements Builder
     public function getCode()
     {
         return $this->code;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StagedOrderAddDiscountCodeActionBuilder implements Builder
     public function build(): StagedOrderAddDiscountCodeAction
     {
         return new StagedOrderAddDiscountCodeActionModel(
-            $this->action,
             $this->code
         );
     }

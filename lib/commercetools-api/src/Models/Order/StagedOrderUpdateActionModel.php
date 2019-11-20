@@ -166,9 +166,7 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -187,11 +185,6 @@ final class StagedOrderUpdateActionModel extends JsonObjectModel implements Stag
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

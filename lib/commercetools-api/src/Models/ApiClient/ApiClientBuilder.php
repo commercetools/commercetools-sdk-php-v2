@@ -51,10 +51,6 @@ final class ApiClientBuilder implements Builder
      */
     private $id;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

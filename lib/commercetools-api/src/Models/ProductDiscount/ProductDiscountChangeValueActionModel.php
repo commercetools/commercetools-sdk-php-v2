@@ -26,11 +26,10 @@ final class ProductDiscountChangeValueActionModel extends JsonObjectModel implem
     protected $value;
 
     public function __construct(
-        string $action = null,
         ProductDiscountValueDraft $value = null
     ) {
-        $this->action = $action;
         $this->value = $value;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class ProductDiscountChangeValueActionModel extends JsonObjectModel implem
         }
 
         return $this->value;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setValue(?ProductDiscountValueDraft $value): void

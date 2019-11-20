@@ -25,11 +25,10 @@ final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectMo
     protected $headerValue;
 
     public function __construct(
-        string $type = null,
         string $headerValue = null
     ) {
-        $this->type = $type;
         $this->headerValue = $headerValue;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ExtensionAuthorizationHeaderAuthenticationModel extends JsonObjectMo
         }
 
         return $this->headerValue;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setHeaderValue(?string $headerValue): void

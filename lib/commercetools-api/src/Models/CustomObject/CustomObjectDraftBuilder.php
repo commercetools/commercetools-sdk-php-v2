@@ -36,10 +36,6 @@ final class CustomObjectDraftBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

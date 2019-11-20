@@ -25,11 +25,10 @@ final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implem
     protected $predicate;
 
     public function __construct(
-        string $action = null,
         string $predicate = null
     ) {
-        $this->action = $action;
         $this->predicate = $predicate;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ShippingMethodSetPredicateActionModel extends JsonObjectModel implem
         }
 
         return $this->predicate;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setPredicate(?string $predicate): void

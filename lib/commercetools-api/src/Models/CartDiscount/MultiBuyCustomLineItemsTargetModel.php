@@ -45,19 +45,18 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
     protected $selectionMode;
 
     public function __construct(
-        string $type = null,
         string $predicate = null,
         int $triggerQuantity = null,
         int $discountedQuantity = null,
         int $maxOccurrence = null,
         string $selectionMode = null
     ) {
-        $this->type = $type;
         $this->predicate = $predicate;
         $this->triggerQuantity = $triggerQuantity;
         $this->discountedQuantity = $discountedQuantity;
         $this->maxOccurrence = $maxOccurrence;
         $this->selectionMode = $selectionMode;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -169,11 +168,6 @@ final class MultiBuyCustomLineItemsTargetModel extends JsonObjectModel implement
         }
 
         return $this->selectionMode;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPredicate(?string $predicate): void

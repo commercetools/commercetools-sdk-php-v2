@@ -21,11 +21,6 @@ use DateTimeImmutable;
 final class MyShoppingListAddTextLineItemActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?DateTimeImmutable
      */
     private $addedAt;
@@ -49,18 +44,6 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $description;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -100,16 +83,6 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     public function getDescription()
     {
         return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -195,7 +168,6 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     public function build(): MyShoppingListAddTextLineItemAction
     {
         return new MyShoppingListAddTextLineItemActionModel(
-            $this->action,
             $this->addedAt,
             $this->quantity,
             ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),

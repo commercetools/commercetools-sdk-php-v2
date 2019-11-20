@@ -28,11 +28,10 @@ final class ProductSetTaxCategoryActionModel extends JsonObjectModel implements 
     protected $taxCategory;
 
     public function __construct(
-        string $action = null,
         TaxCategoryResourceIdentifier $taxCategory = null
     ) {
-        $this->action = $action;
         $this->taxCategory = $taxCategory;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class ProductSetTaxCategoryActionModel extends JsonObjectModel implements 
         }
 
         return $this->taxCategory;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void

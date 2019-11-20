@@ -27,11 +27,10 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
     protected $patches;
 
     public function __construct(
-        string $type = null,
         ProductVariantPatchCollection $patches = null
     ) {
-        $this->type = $type;
         $this->patches = $patches;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -70,11 +69,6 @@ final class ProductVariantPatchRequestModel extends JsonObjectModel implements P
         }
 
         return $this->patches;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPatches(?ProductVariantPatchCollection $patches): void

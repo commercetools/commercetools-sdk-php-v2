@@ -45,10 +45,6 @@ final class TextLineItemDraftBuilder implements Builder
      */
     private $description;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

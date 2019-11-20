@@ -77,11 +77,6 @@ final class ParcelTrackingDataUpdatedMessageBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $deliveryId;
 
     /**
@@ -93,10 +88,6 @@ final class ParcelTrackingDataUpdatedMessageBuilder implements Builder
      * @var ?string
      */
     private $parcelId;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -176,14 +167,6 @@ final class ParcelTrackingDataUpdatedMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -313,16 +296,6 @@ final class ParcelTrackingDataUpdatedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
@@ -413,7 +386,6 @@ final class ParcelTrackingDataUpdatedMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             $this->deliveryId,
             ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData),
             $this->parcelId

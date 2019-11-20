@@ -38,15 +38,14 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     protected $priceId;
 
     public function __construct(
-        string $action = null,
         DiscountedPrice $discounted = null,
         bool $staged = null,
         string $priceId = null
     ) {
-        $this->action = $action;
         $this->discounted = $discounted;
         $this->staged = $staged;
         $this->priceId = $priceId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
         }
 
         return $this->priceId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDiscounted(?DiscountedPrice $discounted): void

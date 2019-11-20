@@ -33,12 +33,11 @@ final class DateAttributeModel extends JsonObjectModel implements DateAttribute
 
     public function __construct(
         string $name = null,
-        string $type = null,
         DateTimeImmutable $value = null
     ) {
         $this->name = $name;
-        $this->type = $type;
         $this->value = $value;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -103,11 +102,6 @@ final class DateAttributeModel extends JsonObjectModel implements DateAttribute
     public function setName(?string $name): void
     {
         $this->name = $name;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setValue(?DateTimeImmutable $value): void

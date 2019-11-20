@@ -41,15 +41,14 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     protected $parcels;
 
     public function __construct(
-        string $action = null,
         Address $address = null,
         DeliveryItemCollection $items = null,
         ParcelDraftCollection $parcels = null
     ) {
-        $this->action = $action;
         $this->address = $address;
         $this->items = $items;
         $this->parcels = $parcels;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -119,11 +118,6 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
         }
 
         return $this->parcels;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAddress(?Address $address): void

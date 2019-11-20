@@ -46,17 +46,16 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     protected $discountedPricePerQuantity;
 
     public function __construct(
-        string $type = null,
         Money $totalPrice = null,
         string $lineItemId = null,
         TaxedItemPrice $taxedPrice = null,
         DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null
     ) {
-        $this->type = $type;
         $this->totalPrice = $totalPrice;
         $this->lineItemId = $lineItemId;
         $this->taxedPrice = $taxedPrice;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -144,11 +143,6 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
         }
 
         return $this->discountedPricePerQuantity;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setTotalPrice(?Money $totalPrice): void

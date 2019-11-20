@@ -48,9 +48,7 @@ final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCus
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -69,11 +67,6 @@ final class MyCustomerUpdateActionModel extends JsonObjectModel implements MyCus
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

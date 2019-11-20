@@ -33,13 +33,12 @@ final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements
     protected $label;
 
     public function __construct(
-        string $action = null,
         string $attributeName = null,
         LocalizedString $label = null
     ) {
-        $this->action = $action;
         $this->attributeName = $attributeName;
         $this->label = $label;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductTypeChangeLabelActionModel extends JsonObjectModel implements
         }
 
         return $this->label;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAttributeName(?string $attributeName): void

@@ -15,10 +15,6 @@ use Commercetools\Base\Builder;
  */
 final class FacetResultsBuilder implements Builder
 {
-    public function __construct()
-    {
-    }
-
     public function build(): FacetResults
     {
         return new FacetResultsModel(

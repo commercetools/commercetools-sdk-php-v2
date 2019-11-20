@@ -96,7 +96,6 @@ final class OrderImportedMessageModel extends JsonObjectModel implements OrderIm
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Order $order = null
     ) {
         $this->createdAt = $createdAt;
@@ -109,8 +108,8 @@ final class OrderImportedMessageModel extends JsonObjectModel implements OrderIm
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->order = $order;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -378,11 +377,6 @@ final class OrderImportedMessageModel extends JsonObjectModel implements OrderIm
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOrder(?Order $order): void

@@ -27,11 +27,10 @@ final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel impleme
     protected $validUntil;
 
     public function __construct(
-        string $action = null,
         DateTimeImmutable $validUntil = null
     ) {
-        $this->action = $action;
         $this->validUntil = $validUntil;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -70,11 +69,6 @@ final class DiscountCodeSetValidUntilActionModel extends JsonObjectModel impleme
         }
 
         return $this->validUntil;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setValidUntil(?DateTimeImmutable $validUntil): void

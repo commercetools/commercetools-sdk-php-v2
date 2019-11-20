@@ -29,9 +29,7 @@ final class ShippingRateInputModel extends JsonObjectModel implements ShippingRa
     ];
 
     public function __construct(
-        string $type = null
     ) {
-        $this->type = $type;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -50,11 +48,6 @@ final class ShippingRateInputModel extends JsonObjectModel implements ShippingRa
         }
 
         return $this->type;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     /**

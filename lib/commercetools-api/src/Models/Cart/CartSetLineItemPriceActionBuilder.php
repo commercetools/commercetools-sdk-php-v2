@@ -20,29 +20,12 @@ final class CartSetLineItemPriceActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $lineItemId;
 
     /**
      * @var Money|?MoneyBuilder
      */
     private $externalPrice;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -58,16 +41,6 @@ final class CartSetLineItemPriceActionBuilder implements Builder
     public function getExternalPrice()
     {
         return $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class CartSetLineItemPriceActionBuilder implements Builder
     public function build(): CartSetLineItemPriceAction
     {
         return new CartSetLineItemPriceActionModel(
-            $this->action,
             $this->lineItemId,
             ($this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice)
         );

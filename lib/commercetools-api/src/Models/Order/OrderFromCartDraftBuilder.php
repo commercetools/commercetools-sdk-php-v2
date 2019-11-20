@@ -52,10 +52,6 @@ final class OrderFromCartDraftBuilder implements Builder
      */
     private $orderState;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

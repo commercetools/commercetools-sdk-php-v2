@@ -26,11 +26,10 @@ final class StagedOrderChangeTaxModeActionModel extends JsonObjectModel implemen
     protected $taxMode;
 
     public function __construct(
-        string $action = null,
         string $taxMode = null
     ) {
-        $this->action = $action;
         $this->taxMode = $taxMode;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class StagedOrderChangeTaxModeActionModel extends JsonObjectModel implemen
         }
 
         return $this->taxMode;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTaxMode(?string $taxMode): void

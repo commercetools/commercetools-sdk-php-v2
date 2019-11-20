@@ -40,10 +40,6 @@ final class TrackingDataBuilder implements Builder
      */
     private $trackingId;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|bool
      */

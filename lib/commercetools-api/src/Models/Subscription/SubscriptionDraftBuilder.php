@@ -40,10 +40,6 @@ final class SubscriptionDraftBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DeliveryFormat
      */

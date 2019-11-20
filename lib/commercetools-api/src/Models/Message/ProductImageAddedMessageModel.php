@@ -106,7 +106,6 @@ final class ProductImageAddedMessageModel extends JsonObjectModel implements Pro
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Image $image = null,
         bool $staged = null,
         int $variantId = null
@@ -121,10 +120,10 @@ final class ProductImageAddedMessageModel extends JsonObjectModel implements Pro
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->image = $image;
         $this->staged = $staged;
         $this->variantId = $variantId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -426,11 +425,6 @@ final class ProductImageAddedMessageModel extends JsonObjectModel implements Pro
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setImage(?Image $image): void

@@ -26,11 +26,10 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
     protected $elementType;
 
     public function __construct(
-        string $name = null,
         AttributeType $elementType = null
     ) {
-        $this->name = $name;
         $this->elementType = $elementType;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class AttributeSetTypeModel extends JsonObjectModel implements AttributeSe
         }
 
         return $this->elementType;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function setElementType(?AttributeType $elementType): void

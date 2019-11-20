@@ -21,11 +21,6 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
@@ -42,18 +37,6 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
      * @var ?string
      */
     private $field;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -85,16 +68,6 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     public function getField()
     {
         return $this->field;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -150,7 +123,6 @@ final class DuplicateFieldWithConflictingResourceErrorBuilder implements Builder
     public function build(): DuplicateFieldWithConflictingResourceError
     {
         return new DuplicateFieldWithConflictingResourceErrorModel(
-            $this->code,
             $this->message,
             ($this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource),
             $this->duplicateValue,

@@ -42,10 +42,6 @@ final class TypeDraftBuilder implements Builder
      */
     private $resourceTypeIds;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|LocalizedString
      */

@@ -30,13 +30,12 @@ final class TypeChangeLocalizedEnumValueOrderActionModel extends JsonObjectModel
     protected $keys;
 
     public function __construct(
-        string $action = null,
         string $fieldName = null,
         array $keys = null
     ) {
-        $this->action = $action;
         $this->fieldName = $fieldName;
         $this->keys = $keys;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class TypeChangeLocalizedEnumValueOrderActionModel extends JsonObjectModel
         }
 
         return $this->keys;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFieldName(?string $fieldName): void

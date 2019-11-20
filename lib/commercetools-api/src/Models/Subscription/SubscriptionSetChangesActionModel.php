@@ -26,11 +26,10 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
     protected $changes;
 
     public function __construct(
-        string $action = null,
         ChangeSubscriptionCollection $changes = null
     ) {
-        $this->action = $action;
         $this->changes = $changes;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class SubscriptionSetChangesActionModel extends JsonObjectModel implements
         }
 
         return $this->changes;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setChanges(?ChangeSubscriptionCollection $changes): void

@@ -106,7 +106,6 @@ final class ProductPublishedMessageModel extends JsonObjectModel implements Prod
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         array $removedImageUrls = null,
         ProductProjection $productProjection = null,
         string $scope = null
@@ -121,10 +120,10 @@ final class ProductPublishedMessageModel extends JsonObjectModel implements Prod
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->removedImageUrls = $removedImageUrls;
         $this->productProjection = $productProjection;
         $this->scope = $scope;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -426,11 +425,6 @@ final class ProductPublishedMessageModel extends JsonObjectModel implements Prod
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setRemovedImageUrls(?array $removedImageUrls): void

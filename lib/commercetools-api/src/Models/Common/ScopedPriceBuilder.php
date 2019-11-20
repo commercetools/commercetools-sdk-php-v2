@@ -72,10 +72,6 @@ final class ScopedPriceBuilder implements Builder
      */
     private $currentValue;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DiscountedPrice
      */

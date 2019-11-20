@@ -27,10 +27,6 @@ final class TaxedItemPriceBuilder implements Builder
      */
     private $totalNet;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|TypedMoney
      */

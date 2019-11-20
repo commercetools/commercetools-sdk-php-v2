@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class AttributeLocalizedEnumTypeBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $name;
-
-    /**
      * @var ?AttributeLocalizedEnumValueCollection
      */
     private $values;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * @return null|AttributeLocalizedEnumValueCollection
@@ -43,16 +26,6 @@ final class AttributeLocalizedEnumTypeBuilder implements Builder
     public function getValues()
     {
         return $this->values;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class AttributeLocalizedEnumTypeBuilder implements Builder
     public function build(): AttributeLocalizedEnumType
     {
         return new AttributeLocalizedEnumTypeModel(
-            $this->name,
             $this->values
         );
     }

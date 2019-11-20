@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ExtensionSetTimeoutInMsActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $timeoutInMs;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -43,16 +26,6 @@ final class ExtensionSetTimeoutInMsActionBuilder implements Builder
     public function getTimeoutInMs()
     {
         return $this->timeoutInMs;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ExtensionSetTimeoutInMsActionBuilder implements Builder
     public function build(): ExtensionSetTimeoutInMsAction
     {
         return new ExtensionSetTimeoutInMsActionModel(
-            $this->action,
             $this->timeoutInMs
         );
     }

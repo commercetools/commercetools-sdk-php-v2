@@ -33,13 +33,12 @@ final class CustomerChangeAddressActionModel extends JsonObjectModel implements 
     protected $addressId;
 
     public function __construct(
-        string $action = null,
         Address $address = null,
         string $addressId = null
     ) {
-        $this->action = $action;
         $this->address = $address;
         $this->addressId = $addressId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class CustomerChangeAddressActionModel extends JsonObjectModel implements 
         }
 
         return $this->addressId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAddress(?Address $address): void

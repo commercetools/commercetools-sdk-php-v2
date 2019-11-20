@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class CartSetShippingMethodActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
     private $externalTaxRate;
@@ -31,18 +26,6 @@ final class CartSetShippingMethodActionBuilder implements Builder
      * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
      */
     private $shippingMethod;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ExternalTaxRateDraft
@@ -58,16 +41,6 @@ final class CartSetShippingMethodActionBuilder implements Builder
     public function getShippingMethod()
     {
         return $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -113,7 +86,6 @@ final class CartSetShippingMethodActionBuilder implements Builder
     public function build(): CartSetShippingMethodAction
     {
         return new CartSetShippingMethodActionModel(
-            $this->action,
             ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
             ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod)
         );

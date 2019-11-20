@@ -22,8 +22,6 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
 
     /**
      * @psalm-param ?array<int, T|scalar> $data
-     *
-     * @param null|array $data
      */
     public function __construct(array $data = null)
     {

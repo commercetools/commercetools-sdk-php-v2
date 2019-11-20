@@ -28,11 +28,10 @@ final class PaymentSetAmountRefundedActionModel extends JsonObjectModel implemen
     protected $amount;
 
     public function __construct(
-        string $action = null,
         Money $amount = null
     ) {
-        $this->action = $action;
         $this->amount = $amount;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class PaymentSetAmountRefundedActionModel extends JsonObjectModel implemen
         }
 
         return $this->amount;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAmount(?Money $amount): void

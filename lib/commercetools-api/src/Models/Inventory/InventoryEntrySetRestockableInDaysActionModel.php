@@ -25,11 +25,10 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
     protected $restockableInDays;
 
     public function __construct(
-        string $action = null,
         int $restockableInDays = null
     ) {
-        $this->action = $action;
         $this->restockableInDays = $restockableInDays;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class InventoryEntrySetRestockableInDaysActionModel extends JsonObjectMode
         }
 
         return $this->restockableInDays;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setRestockableInDays(?int $restockableInDays): void

@@ -84,10 +84,6 @@ final class ProductImportBuilder implements Builder
      */
     private $taxCategory;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

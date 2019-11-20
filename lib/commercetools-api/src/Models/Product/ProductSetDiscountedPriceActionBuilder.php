@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductSetDiscountedPriceActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var DiscountedPrice|?DiscountedPriceBuilder
      */
     private $discounted;
@@ -36,18 +31,6 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
      * @var ?string
      */
     private $priceId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|DiscountedPrice
@@ -71,16 +54,6 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     public function getPriceId()
     {
         return $this->priceId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -126,7 +99,6 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     public function build(): ProductSetDiscountedPriceAction
     {
         return new ProductSetDiscountedPriceActionModel(
-            $this->action,
             ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
             $this->staged,
             $this->priceId

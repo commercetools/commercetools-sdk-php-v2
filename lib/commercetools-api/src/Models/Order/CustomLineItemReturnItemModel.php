@@ -69,7 +69,6 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
         string $comment = null,
         string $id = null,
         string $paymentState = null,
-        string $type = null,
         string $customLineItemId = null
     ) {
         $this->shipmentState = $shipmentState;
@@ -79,8 +78,8 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
         $this->comment = $comment;
         $this->id = $id;
         $this->paymentState = $paymentState;
-        $this->type = $type;
         $this->customLineItemId = $customLineItemId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -277,11 +276,6 @@ final class CustomLineItemReturnItemModel extends JsonObjectModel implements Cus
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void

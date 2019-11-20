@@ -25,11 +25,10 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
     protected $scope;
 
     public function __construct(
-        string $action = null,
         string $scope = null
     ) {
-        $this->action = $action;
         $this->scope = $scope;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProductPublishActionModel extends JsonObjectModel implements Product
         }
 
         return $this->scope;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setScope(?string $scope): void

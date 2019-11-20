@@ -21,11 +21,6 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $customLineItemId;
 
     /**
@@ -37,18 +32,6 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -72,16 +55,6 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     public function getDiscountedPricePerQuantity()
     {
         return $this->discountedPricePerQuantity;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -127,7 +100,6 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     public function build(): OrderCustomLineItemDiscountSetMessagePayload
     {
         return new OrderCustomLineItemDiscountSetMessagePayloadModel(
-            $this->type,
             $this->customLineItemId,
             ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
             $this->discountedPricePerQuantity

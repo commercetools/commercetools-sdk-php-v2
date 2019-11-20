@@ -25,11 +25,10 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
     protected $groups;
 
     public function __construct(
-        string $action = null,
         array $groups = null
     ) {
-        $this->action = $action;
         $this->groups = $groups;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class DiscountCodeChangeGroupsActionModel extends JsonObjectModel implemen
         }
 
         return $this->groups;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setGroups(?array $groups): void

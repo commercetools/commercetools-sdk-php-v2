@@ -38,15 +38,14 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     protected $parcelId;
 
     public function __construct(
-        string $type = null,
         string $deliveryId = null,
         TrackingData $trackingData = null,
         string $parcelId = null
     ) {
-        $this->type = $type;
         $this->deliveryId = $deliveryId;
         $this->trackingData = $trackingData;
         $this->parcelId = $parcelId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
         }
 
         return $this->parcelId;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDeliveryId(?string $deliveryId): void

@@ -37,9 +37,7 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,11 +56,6 @@ final class ChannelUpdateActionModel extends JsonObjectModel implements ChannelU
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

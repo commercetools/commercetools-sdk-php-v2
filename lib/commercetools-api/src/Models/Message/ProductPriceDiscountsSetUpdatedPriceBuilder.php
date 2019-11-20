@@ -47,10 +47,6 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
      */
     private $variantKey;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DiscountedPrice
      */

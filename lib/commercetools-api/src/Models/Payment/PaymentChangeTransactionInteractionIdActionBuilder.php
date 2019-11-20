@@ -18,29 +18,12 @@ final class PaymentChangeTransactionInteractionIdActionBuilder implements Builde
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $interactionId;
 
     /**
      * @var ?string
      */
     private $transactionId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class PaymentChangeTransactionInteractionIdActionBuilder implements Builde
     public function getTransactionId()
     {
         return $this->transactionId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class PaymentChangeTransactionInteractionIdActionBuilder implements Builde
     public function build(): PaymentChangeTransactionInteractionIdAction
     {
         return new PaymentChangeTransactionInteractionIdActionModel(
-            $this->action,
             $this->interactionId,
             $this->transactionId
         );

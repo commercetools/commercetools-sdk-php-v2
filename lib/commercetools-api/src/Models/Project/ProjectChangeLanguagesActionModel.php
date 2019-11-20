@@ -25,11 +25,10 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
     protected $languages;
 
     public function __construct(
-        string $action = null,
         array $languages = null
     ) {
-        $this->action = $action;
         $this->languages = $languages;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProjectChangeLanguagesActionModel extends JsonObjectModel implements
         }
 
         return $this->languages;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLanguages(?array $languages): void

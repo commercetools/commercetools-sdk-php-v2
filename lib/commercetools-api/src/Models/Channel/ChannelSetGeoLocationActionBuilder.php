@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class ChannelSetGeoLocationActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var GeoJson|?GeoJsonBuilder
      */
     private $geoLocation;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|GeoJson
@@ -45,16 +28,6 @@ final class ChannelSetGeoLocationActionBuilder implements Builder
     public function getGeoLocation()
     {
         return $this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class ChannelSetGeoLocationActionBuilder implements Builder
     public function build(): ChannelSetGeoLocationAction
     {
         return new ChannelSetGeoLocationActionModel(
-            $this->action,
             ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation)
         );
     }

@@ -25,11 +25,10 @@ final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel impl
     protected $messagesEnabled;
 
     public function __construct(
-        string $action = null,
         bool $messagesEnabled = null
     ) {
-        $this->action = $action;
         $this->messagesEnabled = $messagesEnabled;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ProjectChangeMessagesEnabledActionModel extends JsonObjectModel impl
         }
 
         return $this->messagesEnabled;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMessagesEnabled(?bool $messagesEnabled): void

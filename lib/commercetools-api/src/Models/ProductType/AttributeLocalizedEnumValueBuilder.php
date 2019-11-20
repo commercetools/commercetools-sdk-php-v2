@@ -27,10 +27,6 @@ final class AttributeLocalizedEnumValueBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|LocalizedString
      */

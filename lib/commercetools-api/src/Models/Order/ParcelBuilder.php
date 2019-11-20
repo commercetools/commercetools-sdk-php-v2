@@ -41,10 +41,6 @@ final class ParcelBuilder implements Builder
      */
     private $measurements;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

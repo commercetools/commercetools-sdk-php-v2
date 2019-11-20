@@ -75,10 +75,6 @@ final class CategoryImportBuilder implements Builder
      */
     private $slug;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

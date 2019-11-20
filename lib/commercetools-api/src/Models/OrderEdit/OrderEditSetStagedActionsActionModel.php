@@ -27,11 +27,10 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     protected $stagedActions;
 
     public function __construct(
-        string $action = null,
         StagedOrderUpdateActionCollection $stagedActions = null
     ) {
-        $this->action = $action;
         $this->stagedActions = $stagedActions;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
         }
 
         return $this->stagedActions;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void

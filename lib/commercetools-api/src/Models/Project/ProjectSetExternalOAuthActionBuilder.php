@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ProjectSetExternalOAuthActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ExternalOAuth|?ExternalOAuthBuilder
      */
     private $externalOAuth;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ExternalOAuth
@@ -43,16 +26,6 @@ final class ProjectSetExternalOAuthActionBuilder implements Builder
     public function getExternalOAuth()
     {
         return $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class ProjectSetExternalOAuthActionBuilder implements Builder
     public function build(): ProjectSetExternalOAuthAction
     {
         return new ProjectSetExternalOAuthActionModel(
-            $this->action,
             ($this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth)
         );
     }

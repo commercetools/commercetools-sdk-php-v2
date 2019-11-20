@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductImageAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Image|?ImageBuilder
      */
     private $image;
@@ -36,18 +31,6 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
      * @var ?int
      */
     private $variantId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Image
@@ -71,16 +54,6 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     public function getVariantId()
     {
         return $this->variantId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -126,7 +99,6 @@ final class ProductImageAddedMessagePayloadBuilder implements Builder
     public function build(): ProductImageAddedMessagePayload
     {
         return new ProductImageAddedMessagePayloadModel(
-            $this->type,
             ($this->image instanceof ImageBuilder ? $this->image->build() : $this->image),
             $this->staged,
             $this->variantId

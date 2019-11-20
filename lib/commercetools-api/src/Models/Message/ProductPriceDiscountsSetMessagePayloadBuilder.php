@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ProductPriceDiscountsSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?ProductPriceDiscountsSetUpdatedPriceCollection
      */
     private $updatedPrices;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|ProductPriceDiscountsSetUpdatedPriceCollection
@@ -43,16 +26,6 @@ final class ProductPriceDiscountsSetMessagePayloadBuilder implements Builder
     public function getUpdatedPrices()
     {
         return $this->updatedPrices;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ProductPriceDiscountsSetMessagePayloadBuilder implements Builder
     public function build(): ProductPriceDiscountsSetMessagePayload
     {
         return new ProductPriceDiscountsSetMessagePayloadModel(
-            $this->type,
             $this->updatedPrices
         );
     }

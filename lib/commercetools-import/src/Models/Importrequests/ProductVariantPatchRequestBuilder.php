@@ -17,28 +17,9 @@ use Commercetools\Import\Models\Productvariants\ProductVariantPatchCollection;
 final class ProductVariantPatchRequestBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?ProductVariantPatchCollection
      */
     private $patches;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * <p>The type of the import resource.</p>.
-     *
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * <p>The product variant patches of this request.</p>.
@@ -48,16 +29,6 @@ final class ProductVariantPatchRequestBuilder implements Builder
     public function getPatches()
     {
         return $this->patches;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -73,7 +44,6 @@ final class ProductVariantPatchRequestBuilder implements Builder
     public function build(): ProductVariantPatchRequest
     {
         return new ProductVariantPatchRequestModel(
-            $this->type,
             $this->patches
         );
     }

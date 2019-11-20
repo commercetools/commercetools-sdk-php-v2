@@ -28,21 +28,12 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $currencyCode;
 
     /**
      * @var ?int
      */
     private $preciseAmount;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|int
@@ -58,14 +49,6 @@ final class HighPrecisionMoneyBuilder implements Builder
     public function getFractionDigits()
     {
         return $this->fractionDigits;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -109,16 +92,6 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCurrencyCode(?string $currencyCode)
     {
         $this->currencyCode = $currencyCode;
@@ -141,7 +114,6 @@ final class HighPrecisionMoneyBuilder implements Builder
         return new HighPrecisionMoneyModel(
             $this->centAmount,
             $this->fractionDigits,
-            $this->type,
             $this->currencyCode,
             $this->preciseAmount
         );

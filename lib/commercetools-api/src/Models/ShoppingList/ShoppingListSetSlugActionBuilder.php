@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class ShoppingListSetSlugActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $slug;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|LocalizedString
@@ -45,16 +28,6 @@ final class ShoppingListSetSlugActionBuilder implements Builder
     public function getSlug()
     {
         return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class ShoppingListSetSlugActionBuilder implements Builder
     public function build(): ShoppingListSetSlugAction
     {
         return new ShoppingListSetSlugActionModel(
-            $this->action,
             ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
         );
     }

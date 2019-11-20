@@ -95,10 +95,6 @@ final class MyCustomerDraftBuilder implements Builder
      */
     private $email;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

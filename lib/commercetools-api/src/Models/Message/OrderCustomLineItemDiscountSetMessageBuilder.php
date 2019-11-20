@@ -78,11 +78,6 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $customLineItemId;
 
     /**
@@ -94,10 +89,6 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -177,14 +168,6 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -314,16 +297,6 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
@@ -414,7 +387,6 @@ final class OrderCustomLineItemDiscountSetMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             $this->customLineItemId,
             ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
             $this->discountedPricePerQuantity

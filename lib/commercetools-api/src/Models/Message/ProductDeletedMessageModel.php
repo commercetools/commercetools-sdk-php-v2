@@ -101,7 +101,6 @@ final class ProductDeletedMessageModel extends JsonObjectModel implements Produc
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         array $removedImageUrls = null,
         ProductProjection $currentProjection = null
     ) {
@@ -115,9 +114,9 @@ final class ProductDeletedMessageModel extends JsonObjectModel implements Produc
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->removedImageUrls = $removedImageUrls;
         $this->currentProjection = $currentProjection;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -402,11 +401,6 @@ final class ProductDeletedMessageModel extends JsonObjectModel implements Produc
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setRemovedImageUrls(?array $removedImageUrls): void

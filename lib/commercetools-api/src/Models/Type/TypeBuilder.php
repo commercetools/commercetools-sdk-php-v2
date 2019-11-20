@@ -77,10 +77,6 @@ final class TypeBuilder implements Builder
      */
     private $resourceTypeIds;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

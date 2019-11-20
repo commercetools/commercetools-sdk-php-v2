@@ -25,11 +25,10 @@ final class ZoneChangeNameActionModel extends JsonObjectModel implements ZoneCha
     protected $name;
 
     public function __construct(
-        string $action = null,
         string $name = null
     ) {
-        $this->action = $action;
         $this->name = $name;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ZoneChangeNameActionModel extends JsonObjectModel implements ZoneCha
         }
 
         return $this->name;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setName(?string $name): void

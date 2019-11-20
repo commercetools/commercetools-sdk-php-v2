@@ -82,7 +82,6 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     protected $externalPrice;
 
     public function __construct(
-        string $action = null,
         int $quantity = null,
         ExternalTaxRateDraft $externalTaxRate = null,
         ItemShippingDetailsDraft $shippingDetails = null,
@@ -95,7 +94,6 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         ChannelResourceIdentifier $distributionChannel = null,
         Money $externalPrice = null
     ) {
-        $this->action = $action;
         $this->quantity = $quantity;
         $this->externalTaxRate = $externalTaxRate;
         $this->shippingDetails = $shippingDetails;
@@ -107,6 +105,7 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         $this->sku = $sku;
         $this->distributionChannel = $distributionChannel;
         $this->externalPrice = $externalPrice;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -318,11 +317,6 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         }
 
         return $this->externalPrice;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setQuantity(?int $quantity): void

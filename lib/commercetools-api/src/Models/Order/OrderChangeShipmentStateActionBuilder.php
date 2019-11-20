@@ -18,24 +18,7 @@ final class OrderChangeShipmentStateActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $shipmentState;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class OrderChangeShipmentStateActionBuilder implements Builder
     public function getShipmentState()
     {
         return $this->shipmentState;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class OrderChangeShipmentStateActionBuilder implements Builder
     public function build(): OrderChangeShipmentStateAction
     {
         return new OrderChangeShipmentStateActionModel(
-            $this->action,
             $this->shipmentState
         );
     }

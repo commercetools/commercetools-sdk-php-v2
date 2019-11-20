@@ -104,10 +104,6 @@ final class ProductDraftBuilder implements Builder
      */
     private $productType;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|SearchKeywords
      */

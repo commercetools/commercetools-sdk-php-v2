@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class DiscountCodeSetNameActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $name;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|LocalizedString
@@ -45,16 +28,6 @@ final class DiscountCodeSetNameActionBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class DiscountCodeSetNameActionBuilder implements Builder
     public function build(): DiscountCodeSetNameAction
     {
         return new DiscountCodeSetNameActionModel(
-            $this->action,
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
         );
     }

@@ -27,11 +27,10 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
     protected $money;
 
     public function __construct(
-        string $type = null,
         TypedMoneyCollection $money = null
     ) {
-        $this->type = $type;
         $this->money = $money;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class CartDiscountValueAbsoluteModel extends JsonObjectModel implements Ca
         }
 
         return $this->money;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setMoney(?TypedMoneyCollection $money): void

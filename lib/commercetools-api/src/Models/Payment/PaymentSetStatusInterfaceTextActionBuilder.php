@@ -18,24 +18,7 @@ final class PaymentSetStatusInterfaceTextActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $interfaceText;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class PaymentSetStatusInterfaceTextActionBuilder implements Builder
     public function getInterfaceText()
     {
         return $this->interfaceText;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class PaymentSetStatusInterfaceTextActionBuilder implements Builder
     public function build(): PaymentSetStatusInterfaceTextAction
     {
         return new PaymentSetStatusInterfaceTextActionModel(
-            $this->action,
             $this->interfaceText
         );
     }

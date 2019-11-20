@@ -28,11 +28,10 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
     protected $returnInfo;
 
     public function __construct(
-        string $type = null,
         ReturnInfo $returnInfo = null
     ) {
-        $this->type = $type;
         $this->returnInfo = $returnInfo;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class OrderReturnInfoAddedMessagePayloadModel extends JsonObjectModel impl
         }
 
         return $this->returnInfo;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setReturnInfo(?ReturnInfo $returnInfo): void

@@ -99,7 +99,6 @@ final class PaymentTransactionStateChangedMessageModel extends JsonObjectModel i
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         string $state = null,
         string $transactionId = null
     ) {
@@ -113,9 +112,9 @@ final class PaymentTransactionStateChangedMessageModel extends JsonObjectModel i
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->state = $state;
         $this->transactionId = $transactionId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -399,11 +398,6 @@ final class PaymentTransactionStateChangedMessageModel extends JsonObjectModel i
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setState(?string $state): void

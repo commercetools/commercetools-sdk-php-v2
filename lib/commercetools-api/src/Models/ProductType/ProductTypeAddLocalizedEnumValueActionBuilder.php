@@ -18,29 +18,12 @@ final class ProductTypeAddLocalizedEnumValueActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $attributeName;
 
     /**
      * @var AttributeLocalizedEnumValue|?AttributeLocalizedEnumValueBuilder
      */
     private $value;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class ProductTypeAddLocalizedEnumValueActionBuilder implements Builder
     public function getValue()
     {
         return $this->value instanceof AttributeLocalizedEnumValueBuilder ? $this->value->build() : $this->value;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class ProductTypeAddLocalizedEnumValueActionBuilder implements Builder
     public function build(): ProductTypeAddLocalizedEnumValueAction
     {
         return new ProductTypeAddLocalizedEnumValueActionModel(
-            $this->action,
             $this->attributeName,
             ($this->value instanceof AttributeLocalizedEnumValueBuilder ? $this->value->build() : $this->value)
         );

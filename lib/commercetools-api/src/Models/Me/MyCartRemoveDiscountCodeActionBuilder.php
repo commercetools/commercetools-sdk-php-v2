@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class MyCartRemoveDiscountCodeActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var DiscountCodeReference|?DiscountCodeReferenceBuilder
      */
     private $discountCode;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|DiscountCodeReference
@@ -45,16 +28,6 @@ final class MyCartRemoveDiscountCodeActionBuilder implements Builder
     public function getDiscountCode()
     {
         return $this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class MyCartRemoveDiscountCodeActionBuilder implements Builder
     public function build(): MyCartRemoveDiscountCodeAction
     {
         return new MyCartRemoveDiscountCodeActionModel(
-            $this->action,
             ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode)
         );
     }

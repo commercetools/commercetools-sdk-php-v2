@@ -18,29 +18,12 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $customLineItemId;
 
     /**
      * @var ?int
      */
     private $quantity;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
     public function getQuantity()
     {
         return $this->quantity;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class CartChangeCustomLineItemQuantityActionBuilder implements Builder
     public function build(): CartChangeCustomLineItemQuantityAction
     {
         return new CartChangeCustomLineItemQuantityActionModel(
-            $this->action,
             $this->customLineItemId,
             $this->quantity
         );

@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class PaymentTransitionStateActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $force;
@@ -31,18 +26,6 @@ final class PaymentTransitionStateActionBuilder implements Builder
      * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
      */
     private $state;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -58,16 +41,6 @@ final class PaymentTransitionStateActionBuilder implements Builder
     public function getState()
     {
         return $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class PaymentTransitionStateActionBuilder implements Builder
     public function build(): PaymentTransitionStateAction
     {
         return new PaymentTransitionStateActionModel(
-            $this->action,
             $this->force,
             ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state)
         );

@@ -25,10 +25,6 @@ final class SubscriptionUpdateBuilder implements Builder
      */
     private $version;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|SubscriptionUpdateActionCollection
      */

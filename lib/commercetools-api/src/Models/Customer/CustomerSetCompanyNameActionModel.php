@@ -25,11 +25,10 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
     protected $companyName;
 
     public function __construct(
-        string $action = null,
         string $companyName = null
     ) {
-        $this->action = $action;
         $this->companyName = $companyName;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CustomerSetCompanyNameActionModel extends JsonObjectModel implements
         }
 
         return $this->companyName;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCompanyName(?string $companyName): void

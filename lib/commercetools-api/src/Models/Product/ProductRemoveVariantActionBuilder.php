@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductRemoveVariantActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $staged;
@@ -34,18 +29,6 @@ final class ProductRemoveVariantActionBuilder implements Builder
      * @var ?string
      */
     private $sku;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -69,16 +52,6 @@ final class ProductRemoveVariantActionBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -114,7 +87,6 @@ final class ProductRemoveVariantActionBuilder implements Builder
     public function build(): ProductRemoveVariantAction
     {
         return new ProductRemoveVariantActionModel(
-            $this->action,
             $this->staged,
             $this->id,
             $this->sku

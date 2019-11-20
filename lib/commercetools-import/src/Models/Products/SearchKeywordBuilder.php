@@ -25,10 +25,6 @@ final class SearchKeywordBuilder implements Builder
      */
     private $text;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|SuggestTokenizer
      */

@@ -30,13 +30,12 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
     protected $oldShipmentState;
 
     public function __construct(
-        string $type = null,
         string $shipmentState = null,
         string $oldShipmentState = null
     ) {
-        $this->type = $type;
         $this->shipmentState = $shipmentState;
         $this->oldShipmentState = $oldShipmentState;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class OrderShipmentStateChangedMessagePayloadModel extends JsonObjectModel
         }
 
         return $this->oldShipmentState;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setShipmentState(?string $shipmentState): void

@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ZoneAddLocationActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var Location|?LocationBuilder
      */
     private $location;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|Location
@@ -43,16 +26,6 @@ final class ZoneAddLocationActionBuilder implements Builder
     public function getLocation()
     {
         return $this->location instanceof LocationBuilder ? $this->location->build() : $this->location;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class ZoneAddLocationActionBuilder implements Builder
     public function build(): ZoneAddLocationAction
     {
         return new ZoneAddLocationActionModel(
-            $this->action,
             ($this->location instanceof LocationBuilder ? $this->location->build() : $this->location)
         );
     }

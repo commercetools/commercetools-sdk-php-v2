@@ -26,11 +26,10 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
     protected $attribute;
 
     public function __construct(
-        string $action = null,
         AttributeDefinitionDraft $attribute = null
     ) {
-        $this->action = $action;
         $this->attribute = $attribute;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class ProductTypeAddAttributeDefinitionActionModel extends JsonObjectModel
         }
 
         return $this->attribute;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAttribute(?AttributeDefinitionDraft $attribute): void

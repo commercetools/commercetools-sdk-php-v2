@@ -35,15 +35,14 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     protected $accessSecret;
 
     public function __construct(
-        string $type = null,
         string $accessKey = null,
         string $topicArn = null,
         string $accessSecret = null
     ) {
-        $this->type = $type;
         $this->accessKey = $accessKey;
         $this->topicArn = $topicArn;
         $this->accessSecret = $accessSecret;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -112,11 +111,6 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
         }
 
         return $this->accessSecret;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setAccessKey(?string $accessKey): void

@@ -18,29 +18,12 @@ final class OrderReturnShipmentStateChangedMessagePayloadBuilder implements Buil
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $returnItemId;
 
     /**
      * @var ?string
      */
     private $returnShipmentState;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class OrderReturnShipmentStateChangedMessagePayloadBuilder implements Buil
     public function getReturnShipmentState()
     {
         return $this->returnShipmentState;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class OrderReturnShipmentStateChangedMessagePayloadBuilder implements Buil
     public function build(): OrderReturnShipmentStateChangedMessagePayload
     {
         return new OrderReturnShipmentStateChangedMessagePayloadModel(
-            $this->type,
             $this->returnItemId,
             $this->returnShipmentState
         );

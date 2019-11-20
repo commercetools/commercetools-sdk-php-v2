@@ -22,11 +22,6 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $lineItemId;
 
     /**
@@ -38,18 +33,6 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
      * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
      */
     private $type;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -73,16 +56,6 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     public function getType()
     {
         return $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -138,7 +111,6 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     public function build(): ShoppingListSetLineItemCustomTypeAction
     {
         return new ShoppingListSetLineItemCustomTypeActionModel(
-            $this->action,
             $this->lineItemId,
             ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields),
             ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type)

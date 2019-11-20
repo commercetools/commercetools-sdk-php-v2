@@ -18,24 +18,7 @@ final class ReviewSetAuthorNameActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $authorName;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class ReviewSetAuthorNameActionBuilder implements Builder
     public function getAuthorName()
     {
         return $this->authorName;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ReviewSetAuthorNameActionBuilder implements Builder
     public function build(): ReviewSetAuthorNameAction
     {
         return new ReviewSetAuthorNameActionModel(
-            $this->action,
             $this->authorName
         );
     }

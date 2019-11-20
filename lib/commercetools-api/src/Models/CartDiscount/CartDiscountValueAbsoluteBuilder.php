@@ -17,26 +17,9 @@ use Commercetools\Base\Builder;
 final class CartDiscountValueAbsoluteBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?TypedMoneyCollection
      */
     private $money;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|TypedMoneyCollection
@@ -44,16 +27,6 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
     public function getMoney()
     {
         return $this->money;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -69,7 +42,6 @@ final class CartDiscountValueAbsoluteBuilder implements Builder
     public function build(): CartDiscountValueAbsolute
     {
         return new CartDiscountValueAbsoluteModel(
-            $this->type,
             $this->money
         );
     }

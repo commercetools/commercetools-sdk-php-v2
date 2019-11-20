@@ -37,15 +37,14 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     protected $items;
 
     public function __construct(
-        string $type = null,
         string $deliveryId = null,
         DeliveryItemCollection $oldItems = null,
         DeliveryItemCollection $items = null
     ) {
-        $this->type = $type;
         $this->deliveryId = $deliveryId;
         $this->oldItems = $oldItems;
         $this->items = $items;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -114,11 +113,6 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
         }
 
         return $this->items;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDeliveryId(?string $deliveryId): void

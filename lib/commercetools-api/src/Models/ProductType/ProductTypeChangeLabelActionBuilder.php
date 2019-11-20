@@ -20,29 +20,12 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $attributeName;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $label;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -58,16 +41,6 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     public function getLabel()
     {
         return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ProductTypeChangeLabelActionBuilder implements Builder
     public function build(): ProductTypeChangeLabelAction
     {
         return new ProductTypeChangeLabelActionModel(
-            $this->action,
             $this->attributeName,
             ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label)
         );

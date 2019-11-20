@@ -48,10 +48,6 @@ final class TransactionBuilder implements Builder
      */
     private $timestamp;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

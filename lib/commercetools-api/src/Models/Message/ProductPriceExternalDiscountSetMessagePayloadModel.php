@@ -53,7 +53,6 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
     protected $variantKey;
 
     public function __construct(
-        string $type = null,
         DiscountedPrice $discounted = null,
         bool $staged = null,
         int $variantId = null,
@@ -61,13 +60,13 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
         string $sku = null,
         string $variantKey = null
     ) {
-        $this->type = $type;
         $this->discounted = $discounted;
         $this->staged = $staged;
         $this->variantId = $variantId;
         $this->priceId = $priceId;
         $this->sku = $sku;
         $this->variantKey = $variantKey;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -188,11 +187,6 @@ final class ProductPriceExternalDiscountSetMessagePayloadModel extends JsonObjec
         }
 
         return $this->variantKey;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDiscounted(?DiscountedPrice $discounted): void

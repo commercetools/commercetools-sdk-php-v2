@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class AttributeSetTypeBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $name;
-
-    /**
      * @var AttributeType|?AttributeTypeBuilder
      */
     private $elementType;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * @return null|AttributeType
@@ -43,16 +26,6 @@ final class AttributeSetTypeBuilder implements Builder
     public function getElementType()
     {
         return $this->elementType instanceof AttributeTypeBuilder ? $this->elementType->build() : $this->elementType;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class AttributeSetTypeBuilder implements Builder
     public function build(): AttributeSetType
     {
         return new AttributeSetTypeModel(
-            $this->name,
             ($this->elementType instanceof AttributeTypeBuilder ? $this->elementType->build() : $this->elementType)
         );
     }

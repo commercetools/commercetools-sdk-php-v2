@@ -25,11 +25,10 @@ final class CustomerSetTitleActionModel extends JsonObjectModel implements Custo
     protected $title;
 
     public function __construct(
-        string $action = null,
         string $title = null
     ) {
-        $this->action = $action;
         $this->title = $title;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CustomerSetTitleActionModel extends JsonObjectModel implements Custo
         }
 
         return $this->title;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTitle(?string $title): void

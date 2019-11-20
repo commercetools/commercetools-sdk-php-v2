@@ -21,10 +21,6 @@ final class ImportResponseBuilder implements Builder
      */
     private $items;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ImportItemCollection
      */

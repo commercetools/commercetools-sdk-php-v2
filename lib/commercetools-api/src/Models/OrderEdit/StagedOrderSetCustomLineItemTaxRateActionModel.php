@@ -34,13 +34,12 @@ final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectMod
     protected $externalTaxRate;
 
     public function __construct(
-        string $action = null,
         string $customLineItemId = null,
         ExternalTaxRateDraft $externalTaxRate = null
     ) {
-        $this->action = $action;
         $this->customLineItemId = $customLineItemId;
         $this->externalTaxRate = $externalTaxRate;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class StagedOrderSetCustomLineItemTaxRateActionModel extends JsonObjectMod
         }
 
         return $this->externalTaxRate;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void

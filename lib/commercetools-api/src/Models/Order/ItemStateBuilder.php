@@ -27,10 +27,6 @@ final class ItemStateBuilder implements Builder
      */
     private $state;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

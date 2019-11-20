@@ -26,11 +26,10 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
     protected $shippingRateInput;
 
     public function __construct(
-        string $action = null,
         ShippingRateInputDraft $shippingRateInput = null
     ) {
-        $this->action = $action;
         $this->shippingRateInput = $shippingRateInput;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
         }
 
         return $this->shippingRateInput;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShippingRateInput(?ShippingRateInputDraft $shippingRateInput): void

@@ -34,13 +34,12 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
     protected $shippingDetails;
 
     public function __construct(
-        string $action = null,
         string $customLineItemId = null,
         ItemShippingDetailsDraft $shippingDetails = null
     ) {
-        $this->action = $action;
         $this->customLineItemId = $customLineItemId;
         $this->shippingDetails = $shippingDetails;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class StagedOrderSetCustomLineItemShippingDetailsActionModel extends JsonO
         }
 
         return $this->shippingDetails;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void

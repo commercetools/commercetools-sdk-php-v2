@@ -31,10 +31,6 @@ final class ReturnInfoBuilder implements Builder
      */
     private $items;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

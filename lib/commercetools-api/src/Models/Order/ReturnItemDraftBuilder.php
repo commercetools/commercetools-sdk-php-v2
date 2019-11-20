@@ -40,10 +40,6 @@ final class ReturnItemDraftBuilder implements Builder
      */
     private $comment;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

@@ -49,9 +49,7 @@ final class PaymentUpdateActionModel extends JsonObjectModel implements PaymentU
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -70,11 +68,6 @@ final class PaymentUpdateActionModel extends JsonObjectModel implements PaymentU
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

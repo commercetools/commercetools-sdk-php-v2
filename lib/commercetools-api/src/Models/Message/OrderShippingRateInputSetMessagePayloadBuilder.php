@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ShippingRateInput|?ShippingRateInputBuilder
      */
     private $shippingRateInput;
@@ -31,18 +26,6 @@ final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
      * @var ShippingRateInput|?ShippingRateInputBuilder
      */
     private $oldShippingRateInput;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|ShippingRateInput
@@ -58,16 +41,6 @@ final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
     public function getOldShippingRateInput()
     {
         return $this->oldShippingRateInput instanceof ShippingRateInputBuilder ? $this->oldShippingRateInput->build() : $this->oldShippingRateInput;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -113,7 +86,6 @@ final class OrderShippingRateInputSetMessagePayloadBuilder implements Builder
     public function build(): OrderShippingRateInputSetMessagePayload
     {
         return new OrderShippingRateInputSetMessagePayloadModel(
-            $this->type,
             ($this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput),
             ($this->oldShippingRateInput instanceof ShippingRateInputBuilder ? $this->oldShippingRateInput->build() : $this->oldShippingRateInput)
         );

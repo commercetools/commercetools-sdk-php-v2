@@ -20,29 +20,12 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
      * @var Attribute|?AttributeBuilder
      */
     private $attribute;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -58,16 +41,6 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     public function getAttribute()
     {
         return $this->attribute instanceof AttributeBuilder ? $this->attribute->build() : $this->attribute;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class DuplicateAttributeValueErrorBuilder implements Builder
     public function build(): DuplicateAttributeValueError
     {
         return new DuplicateAttributeValueErrorModel(
-            $this->code,
             $this->message,
             ($this->attribute instanceof AttributeBuilder ? $this->attribute->build() : $this->attribute)
         );

@@ -18,29 +18,12 @@ final class ReferenceExistsErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
      * @var ?string
      */
     private $referencedBy;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class ReferenceExistsErrorBuilder implements Builder
     public function getReferencedBy()
     {
         return $this->referencedBy;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class ReferenceExistsErrorBuilder implements Builder
     public function build(): ReferenceExistsError
     {
         return new ReferenceExistsErrorModel(
-            $this->code,
             $this->message,
             $this->referencedBy
         );

@@ -32,13 +32,12 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
     protected $obj;
 
     public function __construct(
-        string $typeId = null,
         string $id = null,
         Zone $obj = null
     ) {
-        $this->typeId = $typeId;
         $this->id = $id;
         $this->obj = $obj;
+        $this->typeId = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -91,11 +90,6 @@ final class ZoneReferenceModel extends JsonObjectModel implements ZoneReference
         }
 
         return $this->obj;
-    }
-
-    public function setTypeId(?string $typeId): void
-    {
-        $this->typeId = $typeId;
     }
 
     public function setId(?string $id): void

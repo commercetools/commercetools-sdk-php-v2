@@ -25,10 +25,6 @@ final class DiscountCodeUpdateBuilder implements Builder
      */
     private $version;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DiscountCodeUpdateActionCollection
      */

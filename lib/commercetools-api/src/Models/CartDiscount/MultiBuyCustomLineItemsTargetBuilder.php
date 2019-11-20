@@ -18,11 +18,6 @@ final class MultiBuyCustomLineItemsTargetBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $predicate;
 
     /**
@@ -44,18 +39,6 @@ final class MultiBuyCustomLineItemsTargetBuilder implements Builder
      * @var ?string
      */
     private $selectionMode;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * <p>A valid custom line item target predicate. The discount will be applied to custom line items that are
@@ -104,16 +87,6 @@ final class MultiBuyCustomLineItemsTargetBuilder implements Builder
     public function getSelectionMode()
     {
         return $this->selectionMode;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -169,7 +142,6 @@ final class MultiBuyCustomLineItemsTargetBuilder implements Builder
     public function build(): MultiBuyCustomLineItemsTarget
     {
         return new MultiBuyCustomLineItemsTargetModel(
-            $this->type,
             $this->predicate,
             $this->triggerQuantity,
             $this->discountedQuantity,

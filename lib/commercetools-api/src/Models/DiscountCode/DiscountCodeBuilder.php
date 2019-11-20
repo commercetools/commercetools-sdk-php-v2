@@ -121,10 +121,6 @@ final class DiscountCodeBuilder implements Builder
      */
     private $maxApplicationsPerCustomer;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

@@ -22,11 +22,6 @@ use Commercetools\Base\Builder;
 final class CartAddLineItemActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?int
      */
     private $quantity;
@@ -80,18 +75,6 @@ final class CartAddLineItemActionBuilder implements Builder
      * @var Money|?MoneyBuilder
      */
     private $externalPrice;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|int
@@ -179,16 +162,6 @@ final class CartAddLineItemActionBuilder implements Builder
     public function getExternalPrice()
     {
         return $this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -374,7 +347,6 @@ final class CartAddLineItemActionBuilder implements Builder
     public function build(): CartAddLineItemAction
     {
         return new CartAddLineItemActionModel(
-            $this->action,
             $this->quantity,
             ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
             ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails),

@@ -44,17 +44,16 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
     protected $errorByExtension;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         LocalizedString $localizedMessage = null,
         JsonObject $extensionExtraInfo = null,
         ErrorByExtension $errorByExtension = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->localizedMessage = $localizedMessage;
         $this->extensionExtraInfo = $extensionExtraInfo;
         $this->errorByExtension = $errorByExtension;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -142,11 +141,6 @@ final class ExtensionBadResponseErrorModel extends JsonObjectModel implements Ex
         }
 
         return $this->errorByExtension;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

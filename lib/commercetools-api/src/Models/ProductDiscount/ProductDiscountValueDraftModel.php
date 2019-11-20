@@ -30,9 +30,7 @@ final class ProductDiscountValueDraftModel extends JsonObjectModel implements Pr
     ];
 
     public function __construct(
-        string $type = null
     ) {
-        $this->type = $type;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -51,11 +49,6 @@ final class ProductDiscountValueDraftModel extends JsonObjectModel implements Pr
         }
 
         return $this->type;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     /**

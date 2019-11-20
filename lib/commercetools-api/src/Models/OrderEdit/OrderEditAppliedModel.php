@@ -38,15 +38,14 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     protected $appliedAt;
 
     public function __construct(
-        string $type = null,
         OrderExcerpt $excerptAfterEdit = null,
         OrderExcerpt $excerptBeforeEdit = null,
         DateTimeImmutable $appliedAt = null
     ) {
-        $this->type = $type;
         $this->excerptAfterEdit = $excerptAfterEdit;
         $this->excerptBeforeEdit = $excerptBeforeEdit;
         $this->appliedAt = $appliedAt;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -121,11 +120,6 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
         }
 
         return $this->appliedAt;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setExcerptAfterEdit(?OrderExcerpt $excerptAfterEdit): void

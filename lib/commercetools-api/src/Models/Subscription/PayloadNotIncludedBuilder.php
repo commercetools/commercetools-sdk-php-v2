@@ -25,10 +25,6 @@ final class PayloadNotIncludedBuilder implements Builder
      */
     private $payloadType;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

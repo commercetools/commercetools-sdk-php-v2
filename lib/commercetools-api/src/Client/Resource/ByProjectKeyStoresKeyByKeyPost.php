@@ -33,7 +33,6 @@ class ByProjectKeyStoresKeyByKeyPost extends ApiRequest
      * @param ?object $body
      * @psalm-param array<string, scalar|scalar[]> $headers
      *
-     * @param array $headers
      * @param mixed $projectKey
      * @param mixed $key
      */
@@ -97,8 +96,6 @@ class ByProjectKeyStoresKeyByKeyPost extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     *
-     * @param array $options
      *
      * @return null|ErrorResponse|JsonObject|Store
      */

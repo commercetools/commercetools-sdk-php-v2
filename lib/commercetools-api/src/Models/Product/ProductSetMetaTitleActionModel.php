@@ -33,13 +33,12 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
     protected $staged;
 
     public function __construct(
-        string $action = null,
         LocalizedString $metaTitle = null,
         bool $staged = null
     ) {
-        $this->action = $action;
         $this->metaTitle = $metaTitle;
         $this->staged = $staged;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductSetMetaTitleActionModel extends JsonObjectModel implements Pr
         }
 
         return $this->staged;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setMetaTitle(?LocalizedString $metaTitle): void

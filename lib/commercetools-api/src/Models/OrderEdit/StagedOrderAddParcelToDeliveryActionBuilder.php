@@ -23,11 +23,6 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $deliveryId;
 
     /**
@@ -44,18 +39,6 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
      * @var ParcelMeasurements|?ParcelMeasurementsBuilder
      */
     private $measurements;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -87,16 +70,6 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     public function getMeasurements()
     {
         return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -162,7 +135,6 @@ final class StagedOrderAddParcelToDeliveryActionBuilder implements Builder
     public function build(): StagedOrderAddParcelToDeliveryAction
     {
         return new StagedOrderAddParcelToDeliveryActionModel(
-            $this->action,
             $this->deliveryId,
             $this->items,
             ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData),

@@ -47,17 +47,16 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
     protected $measurements;
 
     public function __construct(
-        string $action = null,
         string $deliveryId = null,
         DeliveryItemCollection $items = null,
         TrackingData $trackingData = null,
         ParcelMeasurements $measurements = null
     ) {
-        $this->action = $action;
         $this->deliveryId = $deliveryId;
         $this->items = $items;
         $this->trackingData = $trackingData;
         $this->measurements = $measurements;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -145,11 +144,6 @@ final class StagedOrderAddParcelToDeliveryActionModel extends JsonObjectModel im
         }
 
         return $this->measurements;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDeliveryId(?string $deliveryId): void

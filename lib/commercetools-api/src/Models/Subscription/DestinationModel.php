@@ -33,9 +33,7 @@ final class DestinationModel extends JsonObjectModel implements Destination
     ];
 
     public function __construct(
-        string $type = null
     ) {
-        $this->type = $type;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -54,11 +52,6 @@ final class DestinationModel extends JsonObjectModel implements Destination
         }
 
         return $this->type;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     /**

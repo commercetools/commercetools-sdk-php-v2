@@ -34,10 +34,6 @@ final class ProductVariantPatchBuilder implements Builder
      */
     private $attributes;
 
-    public function __construct()
-    {
-    }
-
     /**
      * <p>The product in which the patched product variant resides. Maps to <code>ProductVariant.product</code>.</p>
      * <p>The product referenced

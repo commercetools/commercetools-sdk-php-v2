@@ -38,15 +38,14 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
     protected $parcelId;
 
     public function __construct(
-        string $type = null,
         string $deliveryId = null,
         ParcelMeasurements $measurements = null,
         string $parcelId = null
     ) {
-        $this->type = $type;
         $this->deliveryId = $deliveryId;
         $this->measurements = $measurements;
         $this->parcelId = $parcelId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class ParcelMeasurementsUpdatedMessagePayloadModel extends JsonObjectModel
         }
 
         return $this->parcelId;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDeliveryId(?string $deliveryId): void

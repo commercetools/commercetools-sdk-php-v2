@@ -47,10 +47,6 @@ final class AssetDraftBuilder implements Builder
      */
     private $tags;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|AssetSourceCollection
      */

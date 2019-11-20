@@ -73,9 +73,7 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -94,11 +92,6 @@ final class ProductUpdateActionModel extends JsonObjectModel implements ProductU
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

@@ -28,7 +28,5 @@ interface ErrorObject extends JsonObject
      */
     public function getMessage();
 
-    public function setCode(?string $code): void;
-
     public function setMessage(?string $message): void;
 }

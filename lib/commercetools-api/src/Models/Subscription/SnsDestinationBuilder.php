@@ -18,11 +18,6 @@ final class SnsDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $accessKey;
 
     /**
@@ -34,18 +29,6 @@ final class SnsDestinationBuilder implements Builder
      * @var ?string
      */
     private $accessSecret;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -69,16 +52,6 @@ final class SnsDestinationBuilder implements Builder
     public function getAccessSecret()
     {
         return $this->accessSecret;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -114,7 +87,6 @@ final class SnsDestinationBuilder implements Builder
     public function build(): SnsDestination
     {
         return new SnsDestinationModel(
-            $this->type,
             $this->accessKey,
             $this->topicArn,
             $this->accessSecret

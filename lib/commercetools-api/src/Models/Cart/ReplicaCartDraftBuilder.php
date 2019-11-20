@@ -21,10 +21,6 @@ final class ReplicaCartDraftBuilder implements Builder
      */
     private $reference;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|JsonObject
      */

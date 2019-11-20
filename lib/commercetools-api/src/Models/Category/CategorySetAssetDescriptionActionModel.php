@@ -38,15 +38,14 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     protected $assetKey;
 
     public function __construct(
-        string $action = null,
         string $assetId = null,
         LocalizedString $description = null,
         string $assetKey = null
     ) {
-        $this->action = $action;
         $this->assetId = $assetId;
         $this->description = $description;
         $this->assetKey = $assetKey;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
         }
 
         return $this->assetKey;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAssetId(?string $assetId): void

@@ -20,10 +20,6 @@ final class SuggestionBuilder implements Builder
      */
     private $text;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

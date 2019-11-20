@@ -24,8 +24,6 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
 
     /**
      * @psalm-param ?array<int, T|stdClass> $data
-     *
-     * @param null|array $data
      */
     public function __construct(array $data = null)
     {

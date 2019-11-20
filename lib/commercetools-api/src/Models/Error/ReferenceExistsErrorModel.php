@@ -30,13 +30,12 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
     protected $referencedBy;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         string $referencedBy = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->referencedBy = $referencedBy;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class ReferenceExistsErrorModel extends JsonObjectModel implements Referen
         }
 
         return $this->referencedBy;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

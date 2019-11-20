@@ -26,18 +26,9 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
     private $currencyCode;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?int
      */
     private $preciseAmount;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|int
@@ -55,14 +46,6 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
     public function getCurrencyCode()
     {
         return $this->currencyCode;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -96,16 +79,6 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withPreciseAmount(?int $preciseAmount)
     {
         $this->preciseAmount = $preciseAmount;
@@ -118,7 +91,6 @@ final class HighPrecisionMoneyDraftBuilder implements Builder
         return new HighPrecisionMoneyDraftModel(
             $this->centAmount,
             $this->currencyCode,
-            $this->type,
             $this->preciseAmount
         );
     }

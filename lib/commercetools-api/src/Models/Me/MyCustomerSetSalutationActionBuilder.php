@@ -18,24 +18,7 @@ final class MyCustomerSetSalutationActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $salutation;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class MyCustomerSetSalutationActionBuilder implements Builder
     public function getSalutation()
     {
         return $this->salutation;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class MyCustomerSetSalutationActionBuilder implements Builder
     public function build(): MyCustomerSetSalutationAction
     {
         return new MyCustomerSetSalutationActionModel(
-            $this->action,
             $this->salutation
         );
     }

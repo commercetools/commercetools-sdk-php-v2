@@ -25,11 +25,10 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
     protected $key;
 
     public function __construct(
-        string $action = null,
         string $key = null
     ) {
-        $this->action = $action;
         $this->key = $key;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
         }
 
         return $this->key;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setKey(?string $key): void

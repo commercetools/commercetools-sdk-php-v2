@@ -26,11 +26,10 @@ final class PaymentAddTransactionActionModel extends JsonObjectModel implements 
     protected $transaction;
 
     public function __construct(
-        string $action = null,
         TransactionDraft $transaction = null
     ) {
-        $this->action = $action;
         $this->transaction = $transaction;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class PaymentAddTransactionActionModel extends JsonObjectModel implements 
         }
 
         return $this->transaction;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTransaction(?TransactionDraft $transaction): void

@@ -71,10 +71,6 @@ final class ShoppingListDraftBuilder implements Builder
      */
     private $customer;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ShoppingListLineItemDraftCollection
      */

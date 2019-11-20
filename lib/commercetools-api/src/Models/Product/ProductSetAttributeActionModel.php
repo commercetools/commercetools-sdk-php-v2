@@ -47,19 +47,18 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     protected $value;
 
     public function __construct(
-        string $action = null,
         string $name = null,
         bool $staged = null,
         int $variantId = null,
         string $sku = null,
         JsonObject $value = null
     ) {
-        $this->action = $action;
         $this->name = $name;
         $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->value = $value;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -162,11 +161,6 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
         }
 
         return $this->value;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setName(?string $name): void

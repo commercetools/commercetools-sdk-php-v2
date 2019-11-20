@@ -31,13 +31,12 @@ final class TypeChangeEnumValueLabelActionModel extends JsonObjectModel implemen
     protected $value;
 
     public function __construct(
-        string $action = null,
         string $fieldName = null,
         CustomFieldEnumValue $value = null
     ) {
-        $this->action = $action;
         $this->fieldName = $fieldName;
         $this->value = $value;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class TypeChangeEnumValueLabelActionModel extends JsonObjectModel implemen
         }
 
         return $this->value;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFieldName(?string $fieldName): void

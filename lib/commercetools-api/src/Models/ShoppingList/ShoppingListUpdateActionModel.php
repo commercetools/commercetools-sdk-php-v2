@@ -50,9 +50,7 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -71,11 +69,6 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

@@ -96,7 +96,6 @@ final class DeliveryRemovedMessageModel extends JsonObjectModel implements Deliv
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Delivery $delivery = null
     ) {
         $this->createdAt = $createdAt;
@@ -109,8 +108,8 @@ final class DeliveryRemovedMessageModel extends JsonObjectModel implements Deliv
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->delivery = $delivery;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -378,11 +377,6 @@ final class DeliveryRemovedMessageModel extends JsonObjectModel implements Deliv
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDelivery(?Delivery $delivery): void

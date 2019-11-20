@@ -32,12 +32,11 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
 
     public function __construct(
         string $name = null,
-        string $type = null,
         DateTimeImmutableCollection $value = null
     ) {
         $this->name = $name;
-        $this->type = $type;
         $this->value = $value;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -98,11 +97,6 @@ final class TimeSetAttributeModel extends JsonObjectModel implements TimeSetAttr
     public function setName(?string $name): void
     {
         $this->name = $name;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setValue(?DateTimeImmutableCollection $value): void

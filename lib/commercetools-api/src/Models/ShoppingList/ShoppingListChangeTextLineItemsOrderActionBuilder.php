@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class ShoppingListChangeTextLineItemsOrderActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?array
      */
     private $textLineItemOrder;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|array
@@ -43,16 +26,6 @@ final class ShoppingListChangeTextLineItemsOrderActionBuilder implements Builder
     public function getTextLineItemOrder()
     {
         return $this->textLineItemOrder;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ShoppingListChangeTextLineItemsOrderActionBuilder implements Builder
     public function build(): ShoppingListChangeTextLineItemsOrderAction
     {
         return new ShoppingListChangeTextLineItemsOrderActionModel(
-            $this->action,
             $this->textLineItemOrder
         );
     }

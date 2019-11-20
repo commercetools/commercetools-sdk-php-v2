@@ -41,15 +41,14 @@ final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel impleme
     protected $syncedAt;
 
     public function __construct(
-        string $action = null,
         ChannelResourceIdentifier $channel = null,
         string $externalId = null,
         DateTimeImmutable $syncedAt = null
     ) {
-        $this->action = $action;
         $this->channel = $channel;
         $this->externalId = $externalId;
         $this->syncedAt = $syncedAt;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -123,11 +122,6 @@ final class StagedOrderUpdateSyncInfoActionModel extends JsonObjectModel impleme
         }
 
         return $this->syncedAt;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setChannel(?ChannelResourceIdentifier $channel): void

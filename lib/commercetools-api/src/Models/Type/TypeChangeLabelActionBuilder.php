@@ -20,29 +20,12 @@ final class TypeChangeLabelActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $fieldName;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $label;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -58,16 +41,6 @@ final class TypeChangeLabelActionBuilder implements Builder
     public function getLabel()
     {
         return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class TypeChangeLabelActionBuilder implements Builder
     public function build(): TypeChangeLabelAction
     {
         return new TypeChangeLabelActionModel(
-            $this->action,
             $this->fieldName,
             ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label)
         );

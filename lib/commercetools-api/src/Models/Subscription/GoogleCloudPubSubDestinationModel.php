@@ -30,13 +30,12 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     protected $projectId;
 
     public function __construct(
-        string $type = null,
         string $topic = null,
         string $projectId = null
     ) {
-        $this->type = $type;
         $this->topic = $topic;
         $this->projectId = $projectId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
         }
 
         return $this->projectId;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setTopic(?string $topic): void

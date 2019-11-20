@@ -18,24 +18,7 @@ final class StagedOrderChangeTaxCalculationModeActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $taxCalculationMode;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class StagedOrderChangeTaxCalculationModeActionBuilder implements Builder
     public function getTaxCalculationMode()
     {
         return $this->taxCalculationMode;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StagedOrderChangeTaxCalculationModeActionBuilder implements Builder
     public function build(): StagedOrderChangeTaxCalculationModeAction
     {
         return new StagedOrderChangeTaxCalculationModeActionModel(
-            $this->action,
             $this->taxCalculationMode
         );
     }

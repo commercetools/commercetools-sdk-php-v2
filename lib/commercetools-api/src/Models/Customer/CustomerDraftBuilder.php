@@ -147,10 +147,6 @@ final class CustomerDraftBuilder implements Builder
      */
     private $shippingAddresses;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

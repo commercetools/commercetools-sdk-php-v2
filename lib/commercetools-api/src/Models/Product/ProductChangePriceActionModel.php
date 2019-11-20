@@ -38,15 +38,14 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     protected $priceId;
 
     public function __construct(
-        string $action = null,
         PriceDraft $price = null,
         bool $staged = null,
         string $priceId = null
     ) {
-        $this->action = $action;
         $this->price = $price;
         $this->staged = $staged;
         $this->priceId = $priceId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
         }
 
         return $this->priceId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setPrice(?PriceDraft $price): void

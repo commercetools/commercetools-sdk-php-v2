@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class RangeFacetResultBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?FacetResultRangeCollection
      */
     private $ranges;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|FacetResultRangeCollection
@@ -43,16 +26,6 @@ final class RangeFacetResultBuilder implements Builder
     public function getRanges()
     {
         return $this->ranges;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class RangeFacetResultBuilder implements Builder
     public function build(): RangeFacetResult
     {
         return new RangeFacetResultModel(
-            $this->type,
             $this->ranges
         );
     }

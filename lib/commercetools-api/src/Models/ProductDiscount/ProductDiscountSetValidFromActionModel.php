@@ -27,11 +27,10 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
     protected $validFrom;
 
     public function __construct(
-        string $action = null,
         DateTimeImmutable $validFrom = null
     ) {
-        $this->action = $action;
         $this->validFrom = $validFrom;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -70,11 +69,6 @@ final class ProductDiscountSetValidFromActionModel extends JsonObjectModel imple
         }
 
         return $this->validFrom;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setValidFrom(?DateTimeImmutable $validFrom): void

@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class MyPaymentAddTransactionActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var TransactionDraft|?TransactionDraftBuilder
      */
     private $transaction;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|TransactionDraft
@@ -45,16 +28,6 @@ final class MyPaymentAddTransactionActionBuilder implements Builder
     public function getTransaction()
     {
         return $this->transaction instanceof TransactionDraftBuilder ? $this->transaction->build() : $this->transaction;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class MyPaymentAddTransactionActionBuilder implements Builder
     public function build(): MyPaymentAddTransactionAction
     {
         return new MyPaymentAddTransactionActionModel(
-            $this->action,
             ($this->transaction instanceof TransactionDraftBuilder ? $this->transaction->build() : $this->transaction)
         );
     }

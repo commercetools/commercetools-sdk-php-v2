@@ -25,10 +25,6 @@ final class MessageConfigurationDraftBuilder implements Builder
      */
     private $enabled;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

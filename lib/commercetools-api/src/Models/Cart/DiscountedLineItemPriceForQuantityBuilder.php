@@ -25,10 +25,6 @@ final class DiscountedLineItemPriceForQuantityBuilder implements Builder
      */
     private $discountedPrice;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

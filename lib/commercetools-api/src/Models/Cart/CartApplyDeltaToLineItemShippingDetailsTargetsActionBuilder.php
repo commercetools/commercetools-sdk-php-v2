@@ -18,29 +18,12 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implemen
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $lineItemId;
 
     /**
      * @var ?ItemShippingTargetCollection
      */
     private $targetsDelta;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implemen
     public function getTargetsDelta()
     {
         return $this->targetsDelta;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class CartApplyDeltaToLineItemShippingDetailsTargetsActionBuilder implemen
     public function build(): CartApplyDeltaToLineItemShippingDetailsTargetsAction
     {
         return new CartApplyDeltaToLineItemShippingDetailsTargetsActionModel(
-            $this->action,
             $this->lineItemId,
             $this->targetsDelta
         );

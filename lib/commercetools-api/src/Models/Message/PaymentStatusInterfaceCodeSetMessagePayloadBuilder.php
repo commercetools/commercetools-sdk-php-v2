@@ -18,29 +18,12 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $paymentId;
 
     /**
      * @var ?string
      */
     private $interfaceCode;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     public function getInterfaceCode()
     {
         return $this->interfaceCode;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadBuilder implements Builde
     public function build(): PaymentStatusInterfaceCodeSetMessagePayload
     {
         return new PaymentStatusInterfaceCodeSetMessagePayloadModel(
-            $this->type,
             $this->paymentId,
             $this->interfaceCode
         );

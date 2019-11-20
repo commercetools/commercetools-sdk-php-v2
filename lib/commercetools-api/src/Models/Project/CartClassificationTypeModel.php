@@ -27,11 +27,10 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
     protected $values;
 
     public function __construct(
-        string $type = null,
         CustomFieldLocalizedEnumValueCollection $values = null
     ) {
-        $this->type = $type;
         $this->values = $values;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class CartClassificationTypeModel extends JsonObjectModel implements CartC
         }
 
         return $this->values;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setValues(?CustomFieldLocalizedEnumValueCollection $values): void

@@ -18,29 +18,12 @@ final class OrderImportCustomLineItemStateActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $customLineItemId;
 
     /**
      * @var ?ItemStateCollection
      */
     private $state;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class OrderImportCustomLineItemStateActionBuilder implements Builder
     public function getState()
     {
         return $this->state;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class OrderImportCustomLineItemStateActionBuilder implements Builder
     public function build(): OrderImportCustomLineItemStateAction
     {
         return new OrderImportCustomLineItemStateActionModel(
-            $this->action,
             $this->customLineItemId,
             $this->state
         );

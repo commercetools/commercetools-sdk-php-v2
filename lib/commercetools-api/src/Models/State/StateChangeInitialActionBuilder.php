@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class StateChangeInitialActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $initial;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -43,16 +26,6 @@ final class StateChangeInitialActionBuilder implements Builder
     public function getInitial()
     {
         return $this->initial;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StateChangeInitialActionBuilder implements Builder
     public function build(): StateChangeInitialAction
     {
         return new StateChangeInitialActionModel(
-            $this->action,
             $this->initial
         );
     }

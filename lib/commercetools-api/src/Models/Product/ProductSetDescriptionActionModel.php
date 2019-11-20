@@ -33,13 +33,12 @@ final class ProductSetDescriptionActionModel extends JsonObjectModel implements 
     protected $staged;
 
     public function __construct(
-        string $action = null,
         LocalizedString $description = null,
         bool $staged = null
     ) {
-        $this->action = $action;
         $this->description = $description;
         $this->staged = $staged;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductSetDescriptionActionModel extends JsonObjectModel implements 
         }
 
         return $this->staged;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDescription(?LocalizedString $description): void

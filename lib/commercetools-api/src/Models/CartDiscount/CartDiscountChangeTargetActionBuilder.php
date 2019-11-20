@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class CartDiscountChangeTargetActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var CartDiscountTarget|?CartDiscountTargetBuilder
      */
     private $target;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|CartDiscountTarget
@@ -43,16 +26,6 @@ final class CartDiscountChangeTargetActionBuilder implements Builder
     public function getTarget()
     {
         return $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class CartDiscountChangeTargetActionBuilder implements Builder
     public function build(): CartDiscountChangeTargetAction
     {
         return new CartDiscountChangeTargetActionModel(
-            $this->action,
             ($this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target)
         );
     }

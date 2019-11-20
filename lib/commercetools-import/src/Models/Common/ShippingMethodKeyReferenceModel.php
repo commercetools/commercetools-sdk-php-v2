@@ -25,11 +25,10 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
     protected $key;
 
     public function __construct(
-        string $typeId = null,
         string $key = null
     ) {
-        $this->typeId = $typeId;
         $this->key = $key;
+        $this->typeId = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class ShippingMethodKeyReferenceModel extends JsonObjectModel implements S
         }
 
         return $this->key;
-    }
-
-    public function setTypeId(?string $typeId): void
-    {
-        $this->typeId = $typeId;
     }
 
     public function setKey(?string $key): void

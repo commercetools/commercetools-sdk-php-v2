@@ -30,13 +30,12 @@ final class ShoppingListRemoveLineItemActionModel extends JsonObjectModel implem
     protected $lineItemId;
 
     public function __construct(
-        string $action = null,
         int $quantity = null,
         string $lineItemId = null
     ) {
-        $this->action = $action;
         $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class ShoppingListRemoveLineItemActionModel extends JsonObjectModel implem
         }
 
         return $this->lineItemId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setQuantity(?int $quantity): void

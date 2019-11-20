@@ -69,7 +69,6 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
         string $comment = null,
         string $id = null,
         string $paymentState = null,
-        string $type = null,
         string $lineItemId = null
     ) {
         $this->shipmentState = $shipmentState;
@@ -79,8 +78,8 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
         $this->comment = $comment;
         $this->id = $id;
         $this->paymentState = $paymentState;
-        $this->type = $type;
         $this->lineItemId = $lineItemId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -277,11 +276,6 @@ final class LineItemReturnItemModel extends JsonObjectModel implements LineItemR
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setLineItemId(?string $lineItemId): void

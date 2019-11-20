@@ -27,11 +27,10 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
     protected $target;
 
     public function __construct(
-        string $action = null,
         JsonObject $target = null
     ) {
-        $this->action = $action;
         $this->target = $target;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class ReviewSetTargetActionModel extends JsonObjectModel implements Review
         }
 
         return $this->target;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTarget(?JsonObject $target): void

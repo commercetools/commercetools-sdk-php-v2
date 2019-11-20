@@ -32,13 +32,12 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
     protected $timestamp;
 
     public function __construct(
-        string $action = null,
         string $transactionId = null,
         DateTimeImmutable $timestamp = null
     ) {
-        $this->action = $action;
         $this->transactionId = $transactionId;
         $this->timestamp = $timestamp;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -94,11 +93,6 @@ final class PaymentChangeTransactionTimestampActionModel extends JsonObjectModel
         }
 
         return $this->timestamp;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setTransactionId(?string $transactionId): void

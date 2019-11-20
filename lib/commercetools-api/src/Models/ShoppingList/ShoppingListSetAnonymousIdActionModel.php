@@ -25,11 +25,10 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
     protected $anonymousId;
 
     public function __construct(
-        string $action = null,
         string $anonymousId = null
     ) {
-        $this->action = $action;
         $this->anonymousId = $anonymousId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
         }
 
         return $this->anonymousId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setAnonymousId(?string $anonymousId): void

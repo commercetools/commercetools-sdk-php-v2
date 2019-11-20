@@ -18,24 +18,7 @@ final class CartChangeTaxRoundingModeActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $taxRoundingMode;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class CartChangeTaxRoundingModeActionBuilder implements Builder
     public function getTaxRoundingMode()
     {
         return $this->taxRoundingMode;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CartChangeTaxRoundingModeActionBuilder implements Builder
     public function build(): CartChangeTaxRoundingModeAction
     {
         return new CartChangeTaxRoundingModeActionModel(
-            $this->action,
             $this->taxRoundingMode
         );
     }

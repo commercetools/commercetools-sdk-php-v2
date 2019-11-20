@@ -18,29 +18,12 @@ final class AzureEventGridDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $accessKey;
 
     /**
      * @var ?string
      */
     private $uri;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class AzureEventGridDestinationBuilder implements Builder
     public function getUri()
     {
         return $this->uri;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class AzureEventGridDestinationBuilder implements Builder
     public function build(): AzureEventGridDestination
     {
         return new AzureEventGridDestinationModel(
-            $this->type,
             $this->accessKey,
             $this->uri
         );

@@ -25,11 +25,10 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
     protected $isDefault;
 
     public function __construct(
-        string $action = null,
         bool $isDefault = null
     ) {
-        $this->action = $action;
         $this->isDefault = $isDefault;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
         }
 
         return $this->isDefault;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setIsDefault(?bool $isDefault): void

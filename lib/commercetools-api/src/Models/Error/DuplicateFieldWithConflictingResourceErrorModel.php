@@ -44,17 +44,16 @@ final class DuplicateFieldWithConflictingResourceErrorModel extends JsonObjectMo
     protected $field;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         Reference $conflictingResource = null,
         JsonObject $duplicateValue = null,
         string $field = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->conflictingResource = $conflictingResource;
         $this->duplicateValue = $duplicateValue;
         $this->field = $field;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -141,11 +140,6 @@ final class DuplicateFieldWithConflictingResourceErrorModel extends JsonObjectMo
         }
 
         return $this->field;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

@@ -73,10 +73,6 @@ final class ProjectBuilder implements Builder
      */
     private $currencies;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ExternalOAuth
      */

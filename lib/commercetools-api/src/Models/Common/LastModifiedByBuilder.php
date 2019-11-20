@@ -37,10 +37,6 @@ final class LastModifiedByBuilder implements Builder
      */
     private $customer;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

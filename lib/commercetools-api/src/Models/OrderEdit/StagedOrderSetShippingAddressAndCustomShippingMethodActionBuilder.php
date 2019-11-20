@@ -24,11 +24,6 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ShippingRateDraft|?ShippingRateDraftBuilder
      */
     private $shippingRate;
@@ -52,18 +47,6 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
      * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|ShippingRateDraft
@@ -103,16 +86,6 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     public function getTaxCategory()
     {
         return $this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -208,7 +181,6 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     public function build(): StagedOrderSetShippingAddressAndCustomShippingMethodAction
     {
         return new StagedOrderSetShippingAddressAndCustomShippingMethodActionModel(
-            $this->action,
             ($this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate),
             ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),

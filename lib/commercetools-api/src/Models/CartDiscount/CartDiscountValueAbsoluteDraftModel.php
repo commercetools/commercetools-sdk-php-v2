@@ -27,11 +27,10 @@ final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implemen
     protected $money;
 
     public function __construct(
-        string $type = null,
         MoneyCollection $money = null
     ) {
-        $this->type = $type;
         $this->money = $money;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class CartDiscountValueAbsoluteDraftModel extends JsonObjectModel implemen
         }
 
         return $this->money;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setMoney(?MoneyCollection $money): void

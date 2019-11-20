@@ -15,37 +15,9 @@ use Commercetools\Base\Builder;
  */
 final class InventoryEntryUpdateActionBuilder implements Builder
 {
-    /**
-     * @var ?string
-     */
-    private $action;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
-    }
-
     public function build(): InventoryEntryUpdateAction
     {
         return new InventoryEntryUpdateActionModel(
-            $this->action
         );
     }
 

@@ -27,11 +27,10 @@ final class ProductTypeImportRequestModel extends JsonObjectModel implements Pro
     protected $resources;
 
     public function __construct(
-        string $type = null,
         ProductTypeImportCollection $resources = null
     ) {
-        $this->type = $type;
         $this->resources = $resources;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -70,11 +69,6 @@ final class ProductTypeImportRequestModel extends JsonObjectModel implements Pro
         }
 
         return $this->resources;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setResources(?ProductTypeImportCollection $resources): void

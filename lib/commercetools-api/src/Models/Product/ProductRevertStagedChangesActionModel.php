@@ -20,9 +20,8 @@ final class ProductRevertStagedChangesActionModel extends JsonObjectModel implem
     protected $action;
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -40,10 +39,5 @@ final class ProductRevertStagedChangesActionModel extends JsonObjectModel implem
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 }

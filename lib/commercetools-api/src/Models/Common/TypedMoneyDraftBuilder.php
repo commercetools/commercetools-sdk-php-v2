@@ -26,15 +26,6 @@ final class TypedMoneyDraftBuilder implements Builder
     private $currencyCode;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    public function __construct()
-    {
-    }
-
-    /**
      * @return null|int
      */
     public function getCentAmount()
@@ -50,14 +41,6 @@ final class TypedMoneyDraftBuilder implements Builder
     public function getCurrencyCode()
     {
         return $this->currencyCode;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -80,22 +63,11 @@ final class TypedMoneyDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     public function build(): TypedMoneyDraft
     {
         return new TypedMoneyDraftModel(
             $this->centAmount,
-            $this->currencyCode,
-            $this->type
+            $this->currencyCode
         );
     }
 

@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class TypeSetDescriptionActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $description;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|LocalizedString
@@ -45,16 +28,6 @@ final class TypeSetDescriptionActionBuilder implements Builder
     public function getDescription()
     {
         return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class TypeSetDescriptionActionBuilder implements Builder
     public function build(): TypeSetDescriptionAction
     {
         return new TypeSetDescriptionActionModel(
-            $this->action,
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
         );
     }

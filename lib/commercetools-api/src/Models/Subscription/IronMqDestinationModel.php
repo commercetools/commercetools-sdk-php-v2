@@ -25,11 +25,10 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
     protected $uri;
 
     public function __construct(
-        string $type = null,
         string $uri = null
     ) {
-        $this->type = $type;
         $this->uri = $uri;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class IronMqDestinationModel extends JsonObjectModel implements IronMqDest
         }
 
         return $this->uri;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setUri(?string $uri): void

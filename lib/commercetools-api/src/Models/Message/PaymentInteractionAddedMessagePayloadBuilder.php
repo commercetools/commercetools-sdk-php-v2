@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class PaymentInteractionAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var CustomFields|?CustomFieldsBuilder
      */
     private $interaction;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|CustomFields
@@ -45,16 +28,6 @@ final class PaymentInteractionAddedMessagePayloadBuilder implements Builder
     public function getInteraction()
     {
         return $this->interaction instanceof CustomFieldsBuilder ? $this->interaction->build() : $this->interaction;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class PaymentInteractionAddedMessagePayloadBuilder implements Builder
     public function build(): PaymentInteractionAddedMessagePayload
     {
         return new PaymentInteractionAddedMessagePayloadModel(
-            $this->type,
             ($this->interaction instanceof CustomFieldsBuilder ? $this->interaction->build() : $this->interaction)
         );
     }

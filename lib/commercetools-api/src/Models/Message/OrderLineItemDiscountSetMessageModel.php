@@ -114,7 +114,6 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         Money $totalPrice = null,
         string $lineItemId = null,
         TaxedItemPrice $taxedPrice = null,
@@ -130,11 +129,11 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->totalPrice = $totalPrice;
         $this->lineItemId = $lineItemId;
         $this->taxedPrice = $taxedPrice;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -454,11 +453,6 @@ final class OrderLineItemDiscountSetMessageModel extends JsonObjectModel impleme
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setTotalPrice(?Money $totalPrice): void

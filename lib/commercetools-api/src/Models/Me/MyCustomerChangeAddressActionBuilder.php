@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class MyCustomerChangeAddressActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var Address|?AddressBuilder
      */
     private $address;
@@ -31,18 +26,6 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
      * @var ?string
      */
     private $addressId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|Address
@@ -58,16 +41,6 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     public function getAddressId()
     {
         return $this->addressId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class MyCustomerChangeAddressActionBuilder implements Builder
     public function build(): MyCustomerChangeAddressAction
     {
         return new MyCustomerChangeAddressActionModel(
-            $this->action,
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
             $this->addressId
         );

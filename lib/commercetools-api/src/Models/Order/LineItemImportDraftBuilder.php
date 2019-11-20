@@ -82,10 +82,6 @@ final class LineItemImportDraftBuilder implements Builder
      */
     private $distributionChannel;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|TaxRate
      */

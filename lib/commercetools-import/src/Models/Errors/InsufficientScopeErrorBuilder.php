@@ -18,24 +18,7 @@ final class InsufficientScopeErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * <p>The error's description.</p>.
@@ -45,16 +28,6 @@ final class InsufficientScopeErrorBuilder implements Builder
     public function getMessage()
     {
         return $this->message;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -70,7 +43,6 @@ final class InsufficientScopeErrorBuilder implements Builder
     public function build(): InsufficientScopeError
     {
         return new InsufficientScopeErrorModel(
-            $this->code,
             $this->message
         );
     }

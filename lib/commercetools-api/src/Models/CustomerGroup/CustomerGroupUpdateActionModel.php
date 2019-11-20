@@ -31,9 +31,7 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -52,11 +50,6 @@ final class CustomerGroupUpdateActionModel extends JsonObjectModel implements Cu
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

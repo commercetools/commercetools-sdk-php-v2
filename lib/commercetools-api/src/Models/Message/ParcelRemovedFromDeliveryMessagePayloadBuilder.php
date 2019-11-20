@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Parcel|?ParcelBuilder
      */
     private $parcel;
@@ -31,18 +26,6 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
      * @var ?string
      */
     private $deliveryId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Parcel
@@ -58,16 +41,6 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     public function getDeliveryId()
     {
         return $this->deliveryId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     public function build(): ParcelRemovedFromDeliveryMessagePayload
     {
         return new ParcelRemovedFromDeliveryMessagePayloadModel(
-            $this->type,
             ($this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel),
             $this->deliveryId
         );

@@ -35,13 +35,12 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     protected $edit;
 
     public function __construct(
-        string $type = null,
         OrderEditApplied $result = null,
         OrderEditReference $edit = null
     ) {
-        $this->type = $type;
         $this->result = $result;
         $this->edit = $edit;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -95,11 +94,6 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
         }
 
         return $this->edit;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setResult(?OrderEditApplied $result): void

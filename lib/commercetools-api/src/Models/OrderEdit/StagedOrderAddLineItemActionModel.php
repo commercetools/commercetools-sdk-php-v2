@@ -89,7 +89,6 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
     protected $externalPrice;
 
     public function __construct(
-        string $action = null,
         int $quantity = null,
         ExternalTaxRateDraft $externalTaxRate = null,
         ItemShippingDetailsDraft $shippingDetails = null,
@@ -102,7 +101,6 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         ChannelResourceIdentifier $distributionChannel = null,
         Money $externalPrice = null
     ) {
-        $this->action = $action;
         $this->quantity = $quantity;
         $this->externalTaxRate = $externalTaxRate;
         $this->shippingDetails = $shippingDetails;
@@ -114,6 +112,7 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         $this->sku = $sku;
         $this->distributionChannel = $distributionChannel;
         $this->externalPrice = $externalPrice;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -325,11 +324,6 @@ final class StagedOrderAddLineItemActionModel extends JsonObjectModel implements
         }
 
         return $this->externalPrice;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setQuantity(?int $quantity): void

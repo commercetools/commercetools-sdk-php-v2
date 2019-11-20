@@ -40,15 +40,14 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
     protected $syncedAt;
 
     public function __construct(
-        string $action = null,
         ChannelResourceIdentifier $channel = null,
         string $externalId = null,
         DateTimeImmutable $syncedAt = null
     ) {
-        $this->action = $action;
         $this->channel = $channel;
         $this->externalId = $externalId;
         $this->syncedAt = $syncedAt;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -122,11 +121,6 @@ final class OrderUpdateSyncInfoActionModel extends JsonObjectModel implements Or
         }
 
         return $this->syncedAt;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setChannel(?ChannelResourceIdentifier $channel): void

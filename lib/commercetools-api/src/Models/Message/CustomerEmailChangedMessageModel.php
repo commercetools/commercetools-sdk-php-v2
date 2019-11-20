@@ -94,7 +94,6 @@ final class CustomerEmailChangedMessageModel extends JsonObjectModel implements 
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         string $email = null
     ) {
         $this->createdAt = $createdAt;
@@ -107,8 +106,8 @@ final class CustomerEmailChangedMessageModel extends JsonObjectModel implements 
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->email = $email;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -375,11 +374,6 @@ final class CustomerEmailChangedMessageModel extends JsonObjectModel implements 
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setEmail(?string $email): void

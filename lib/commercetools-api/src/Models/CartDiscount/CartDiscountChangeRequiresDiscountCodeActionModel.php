@@ -25,11 +25,10 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
     protected $requiresDiscountCode;
 
     public function __construct(
-        string $action = null,
         bool $requiresDiscountCode = null
     ) {
-        $this->action = $action;
         $this->requiresDiscountCode = $requiresDiscountCode;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CartDiscountChangeRequiresDiscountCodeActionModel extends JsonObject
         }
 
         return $this->requiresDiscountCode;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setRequiresDiscountCode(?bool $requiresDiscountCode): void

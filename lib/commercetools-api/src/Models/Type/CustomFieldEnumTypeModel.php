@@ -26,11 +26,10 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
     protected $values;
 
     public function __construct(
-        string $name = null,
         CustomFieldEnumValueCollection $values = null
     ) {
-        $this->name = $name;
         $this->values = $values;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class CustomFieldEnumTypeModel extends JsonObjectModel implements CustomFi
         }
 
         return $this->values;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function setValues(?CustomFieldEnumValueCollection $values): void

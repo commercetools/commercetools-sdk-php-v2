@@ -33,13 +33,12 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
     protected $slug;
 
     public function __construct(
-        string $action = null,
         bool $staged = null,
         LocalizedString $slug = null
     ) {
-        $this->action = $action;
         $this->staged = $staged;
         $this->slug = $slug;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
         }
 
         return $this->slug;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setStaged(?bool $staged): void

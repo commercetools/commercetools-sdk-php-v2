@@ -25,10 +25,6 @@ final class PriceTierDraftBuilder implements Builder
      */
     private $minimumQuantity;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|Money
      */

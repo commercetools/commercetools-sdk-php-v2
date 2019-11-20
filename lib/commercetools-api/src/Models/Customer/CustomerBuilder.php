@@ -171,10 +171,6 @@ final class CustomerBuilder implements Builder
      */
     private $salutation;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

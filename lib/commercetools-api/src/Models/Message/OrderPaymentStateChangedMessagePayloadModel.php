@@ -30,13 +30,12 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     protected $paymentState;
 
     public function __construct(
-        string $type = null,
         string $oldPaymentState = null,
         string $paymentState = null
     ) {
-        $this->type = $type;
         $this->oldPaymentState = $oldPaymentState;
         $this->paymentState = $paymentState;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
         }
 
         return $this->paymentState;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldPaymentState(?string $oldPaymentState): void

@@ -20,11 +20,6 @@ use Commercetools\Base\Builder;
 final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var FieldContainer|?FieldContainerBuilder
      */
     private $fields;
@@ -38,18 +33,6 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
      * @var ?string
      */
     private $textLineItemId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|FieldContainer
@@ -73,16 +56,6 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     public function getTextLineItemId()
     {
         return $this->textLineItemId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -138,7 +111,6 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     public function build(): ShoppingListSetTextLineItemCustomTypeAction
     {
         return new ShoppingListSetTextLineItemCustomTypeActionModel(
-            $this->action,
             ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields),
             ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
             $this->textLineItemId

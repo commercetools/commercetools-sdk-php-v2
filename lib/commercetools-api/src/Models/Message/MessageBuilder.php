@@ -73,15 +73,6 @@ final class MessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    public function __construct()
-    {
-    }
-
-    /**
      * @return null|DateTimeImmutable
      */
     public function getCreatedAt()
@@ -159,14 +150,6 @@ final class MessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -272,16 +255,6 @@ final class MessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
         $this->createdBy = $createdBy;
@@ -331,8 +304,7 @@ final class MessageBuilder implements Builder
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            $this->resourceVersion,
-            $this->type
+            $this->resourceVersion
         );
     }
 

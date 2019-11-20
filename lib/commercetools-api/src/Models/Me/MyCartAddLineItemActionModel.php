@@ -88,7 +88,6 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
     protected $externalPrice;
 
     public function __construct(
-        string $action = null,
         int $quantity = null,
         ExternalTaxRateDraft $externalTaxRate = null,
         ItemShippingDetailsDraft $shippingDetails = null,
@@ -101,7 +100,6 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         ChannelResourceIdentifier $distributionChannel = null,
         Money $externalPrice = null
     ) {
-        $this->action = $action;
         $this->quantity = $quantity;
         $this->externalTaxRate = $externalTaxRate;
         $this->shippingDetails = $shippingDetails;
@@ -113,6 +111,7 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         $this->sku = $sku;
         $this->distributionChannel = $distributionChannel;
         $this->externalPrice = $externalPrice;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -324,11 +323,6 @@ final class MyCartAddLineItemActionModel extends JsonObjectModel implements MyCa
         }
 
         return $this->externalPrice;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setQuantity(?int $quantity): void

@@ -34,13 +34,12 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
     protected $type;
 
     public function __construct(
-        string $action = null,
         JsonObject $fields = null,
         TypeResourceIdentifier $type = null
     ) {
-        $this->action = $action;
         $this->fields = $fields;
         $this->type = $type;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -93,11 +92,6 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
         }
 
         return $this->type;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFields(?JsonObject $fields): void

@@ -18,26 +18,7 @@ final class ProductTypeKeyReferenceBuilder implements Builder
     /**
      * @var ?string
      */
-    private $typeId;
-
-    /**
-     * @var ?string
-     */
     private $key;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * <p>The type of the referenced resource.</p>.
-     *
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
 
     /**
      * @return null|string
@@ -45,16 +26,6 @@ final class ProductTypeKeyReferenceBuilder implements Builder
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
     }
 
     /**
@@ -70,7 +41,6 @@ final class ProductTypeKeyReferenceBuilder implements Builder
     public function build(): ProductTypeKeyReference
     {
         return new ProductTypeKeyReferenceModel(
-            $this->typeId,
             $this->key
         );
     }

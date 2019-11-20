@@ -33,13 +33,12 @@ final class StagedOrderSetCustomFieldActionModel extends JsonObjectModel impleme
     protected $value;
 
     public function __construct(
-        string $action = null,
         string $name = null,
         JsonObject $value = null
     ) {
-        $this->action = $action;
         $this->name = $name;
         $this->value = $value;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -91,11 +90,6 @@ final class StagedOrderSetCustomFieldActionModel extends JsonObjectModel impleme
         }
 
         return $this->value;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setName(?string $name): void

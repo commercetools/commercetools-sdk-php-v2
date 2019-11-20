@@ -28,11 +28,10 @@ final class PaymentSetMethodInfoNameActionModel extends JsonObjectModel implemen
     protected $name;
 
     public function __construct(
-        string $action = null,
         LocalizedString $name = null
     ) {
-        $this->action = $action;
         $this->name = $name;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class PaymentSetMethodInfoNameActionModel extends JsonObjectModel implemen
         }
 
         return $this->name;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setName(?LocalizedString $name): void

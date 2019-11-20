@@ -29,6 +29,4 @@ interface KeyReference extends JsonObject
     public function getTypeId();
 
     public function setKey(?string $key): void;
-
-    public function setTypeId(?string $typeId): void;
 }

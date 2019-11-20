@@ -25,10 +25,6 @@ final class MessageSubscriptionBuilder implements Builder
      */
     private $resourceTypeId;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|array
      */

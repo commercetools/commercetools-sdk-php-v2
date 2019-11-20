@@ -18,24 +18,7 @@ final class ProductDiscountChangePredicateActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $predicate;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class ProductDiscountChangePredicateActionBuilder implements Builder
     public function getPredicate()
     {
         return $this->predicate;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ProductDiscountChangePredicateActionBuilder implements Builder
     public function build(): ProductDiscountChangePredicateAction
     {
         return new ProductDiscountChangePredicateActionModel(
-            $this->action,
             $this->predicate
         );
     }

@@ -32,10 +32,6 @@ final class TaxedPriceDraftBuilder implements Builder
      */
     private $totalNet;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|TaxPortionDraftCollection
      */

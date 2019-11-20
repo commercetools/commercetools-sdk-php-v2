@@ -99,7 +99,6 @@ final class OrderReturnShipmentStateChangedMessageModel extends JsonObjectModel 
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         string $returnItemId = null,
         string $returnShipmentState = null
     ) {
@@ -113,9 +112,9 @@ final class OrderReturnShipmentStateChangedMessageModel extends JsonObjectModel 
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->returnItemId = $returnItemId;
         $this->returnShipmentState = $returnShipmentState;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -399,11 +398,6 @@ final class OrderReturnShipmentStateChangedMessageModel extends JsonObjectModel 
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setReturnItemId(?string $returnItemId): void

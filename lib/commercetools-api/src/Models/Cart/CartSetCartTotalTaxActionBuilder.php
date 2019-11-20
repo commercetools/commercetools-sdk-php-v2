@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class CartSetCartTotalTaxActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?TaxPortionDraftCollection
      */
     private $externalTaxPortions;
@@ -31,18 +26,6 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
      * @var Money|?MoneyBuilder
      */
     private $externalTotalGross;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|TaxPortionDraftCollection
@@ -58,16 +41,6 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     public function getExternalTotalGross()
     {
         return $this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     public function build(): CartSetCartTotalTaxAction
     {
         return new CartSetCartTotalTaxActionModel(
-            $this->action,
             $this->externalTaxPortions,
             ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross)
         );

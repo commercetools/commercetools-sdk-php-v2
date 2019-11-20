@@ -18,29 +18,12 @@ final class ProductReferenceBuilder implements Builder
     /**
      * @var ?string
      */
-    private $typeId;
-
-    /**
-     * @var ?string
-     */
     private $id;
 
     /**
      * @var Product|?ProductBuilder
      */
     private $obj;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class ProductReferenceBuilder implements Builder
     public function getObj()
     {
         return $this->obj instanceof ProductBuilder ? $this->obj->build() : $this->obj;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class ProductReferenceBuilder implements Builder
     public function build(): ProductReference
     {
         return new ProductReferenceModel(
-            $this->typeId,
             $this->id,
             ($this->obj instanceof ProductBuilder ? $this->obj->build() : $this->obj)
         );

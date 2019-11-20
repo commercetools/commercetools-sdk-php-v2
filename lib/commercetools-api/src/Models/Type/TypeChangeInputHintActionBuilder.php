@@ -18,29 +18,12 @@ final class TypeChangeInputHintActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $fieldName;
 
     /**
      * @var ?string
      */
     private $inputHint;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class TypeChangeInputHintActionBuilder implements Builder
     public function getInputHint()
     {
         return $this->inputHint;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class TypeChangeInputHintActionBuilder implements Builder
     public function build(): TypeChangeInputHintAction
     {
         return new TypeChangeInputHintActionModel(
-            $this->action,
             $this->fieldName,
             $this->inputHint
         );

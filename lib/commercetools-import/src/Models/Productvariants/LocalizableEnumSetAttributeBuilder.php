@@ -21,18 +21,9 @@ final class LocalizableEnumSetAttributeBuilder implements Builder
     private $name;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?array
      */
     private $value;
-
-    public function __construct()
-    {
-    }
 
     /**
      * <p>The name of this attribute must match a name of the product types attribute definitions.
@@ -44,14 +35,6 @@ final class LocalizableEnumSetAttributeBuilder implements Builder
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -75,16 +58,6 @@ final class LocalizableEnumSetAttributeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withValue(?array $value)
     {
         $this->value = $value;
@@ -96,7 +69,6 @@ final class LocalizableEnumSetAttributeBuilder implements Builder
     {
         return new LocalizableEnumSetAttributeModel(
             $this->name,
-            $this->type,
             $this->value
         );
     }

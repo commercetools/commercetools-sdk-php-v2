@@ -18,24 +18,7 @@ final class DeliveryCloudEventsFormatBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $cloudEventsVersion;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class DeliveryCloudEventsFormatBuilder implements Builder
     public function getCloudEventsVersion()
     {
         return $this->cloudEventsVersion;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class DeliveryCloudEventsFormatBuilder implements Builder
     public function build(): DeliveryCloudEventsFormat
     {
         return new DeliveryCloudEventsFormatModel(
-            $this->type,
             $this->cloudEventsVersion
         );
     }

@@ -20,29 +20,12 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $attributeName;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $inputTip;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -58,16 +41,6 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     public function getInputTip()
     {
         return $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ProductTypeSetInputTipActionBuilder implements Builder
     public function build(): ProductTypeSetInputTipAction
     {
         return new ProductTypeSetInputTipActionModel(
-            $this->action,
             $this->attributeName,
             ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip)
         );

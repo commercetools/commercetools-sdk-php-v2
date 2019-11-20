@@ -25,11 +25,10 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
     protected $key;
 
     public function __construct(
-        string $typeId = null,
         string $key = null
     ) {
-        $this->typeId = $typeId;
         $this->key = $key;
+        $this->typeId = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class StateKeyReferenceModel extends JsonObjectModel implements StateKeyRe
         }
 
         return $this->key;
-    }
-
-    public function setTypeId(?string $typeId): void
-    {
-        $this->typeId = $typeId;
     }
 
     public function setKey(?string $key): void

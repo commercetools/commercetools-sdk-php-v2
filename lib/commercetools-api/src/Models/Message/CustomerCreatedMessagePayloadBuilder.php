@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class CustomerCreatedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var Customer|?CustomerBuilder
      */
     private $customer;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|Customer
@@ -45,16 +28,6 @@ final class CustomerCreatedMessagePayloadBuilder implements Builder
     public function getCustomer()
     {
         return $this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class CustomerCreatedMessagePayloadBuilder implements Builder
     public function build(): CustomerCreatedMessagePayload
     {
         return new CustomerCreatedMessagePayloadModel(
-            $this->type,
             ($this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer)
         );
     }

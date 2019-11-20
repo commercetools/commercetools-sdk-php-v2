@@ -21,11 +21,6 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $assetId;
 
     /**
@@ -57,18 +52,6 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
      * @var ?string
      */
     private $assetKey;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -124,16 +107,6 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     public function getAssetKey()
     {
         return $this->assetKey;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -219,7 +192,6 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     public function build(): ProductSetAssetCustomTypeAction
     {
         return new ProductSetAssetCustomTypeActionModel(
-            $this->action,
             $this->assetId,
             $this->staged,
             $this->variantId,

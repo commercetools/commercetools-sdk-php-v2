@@ -15,10 +15,6 @@ use Commercetools\Base\Builder;
  */
 final class LocalizedStringBuilder implements Builder
 {
-    public function __construct()
-    {
-    }
-
     public function build(): LocalizedString
     {
         return new LocalizedStringModel(

@@ -33,13 +33,12 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
     protected $key;
 
     public function __construct(
-        string $type = null,
         LocalizedString $label = null,
         string $key = null
     ) {
-        $this->type = $type;
         $this->label = $label;
         $this->key = $key;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
         }
 
         return $this->key;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setLabel(?LocalizedString $label): void

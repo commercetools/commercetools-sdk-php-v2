@@ -52,7 +52,6 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     protected $assetKey;
 
     public function __construct(
-        string $action = null,
         AssetSourceCollection $sources = null,
         string $assetId = null,
         bool $staged = null,
@@ -60,13 +59,13 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
         string $sku = null,
         string $assetKey = null
     ) {
-        $this->action = $action;
         $this->sources = $sources;
         $this->assetId = $assetId;
         $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->assetKey = $assetKey;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -186,11 +185,6 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
         }
 
         return $this->assetKey;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setSources(?AssetSourceCollection $sources): void

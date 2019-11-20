@@ -17,26 +17,9 @@ use Commercetools\Base\JsonObject;
 final class ReviewSetTargetActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?JsonObject
      */
     private $target;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|JsonObject
@@ -44,16 +27,6 @@ final class ReviewSetTargetActionBuilder implements Builder
     public function getTarget()
     {
         return $this->target;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -69,7 +42,6 @@ final class ReviewSetTargetActionBuilder implements Builder
     public function build(): ReviewSetTargetAction
     {
         return new ReviewSetTargetActionModel(
-            $this->action,
             $this->target
         );
     }

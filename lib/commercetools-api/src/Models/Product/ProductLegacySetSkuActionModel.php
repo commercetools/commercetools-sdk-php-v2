@@ -30,13 +30,12 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     protected $sku;
 
     public function __construct(
-        string $action = null,
         int $variantId = null,
         string $sku = null
     ) {
-        $this->action = $action;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
         }
 
         return $this->sku;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setVariantId(?int $variantId): void

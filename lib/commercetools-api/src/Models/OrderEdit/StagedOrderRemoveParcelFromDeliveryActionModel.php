@@ -26,11 +26,10 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
     protected $parcelId;
 
     public function __construct(
-        string $action = null,
         string $parcelId = null
     ) {
-        $this->action = $action;
         $this->parcelId = $parcelId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class StagedOrderRemoveParcelFromDeliveryActionModel extends JsonObjectMod
         }
 
         return $this->parcelId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setParcelId(?string $parcelId): void

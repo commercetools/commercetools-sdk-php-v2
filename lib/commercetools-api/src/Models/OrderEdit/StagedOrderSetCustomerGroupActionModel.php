@@ -29,11 +29,10 @@ final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel imple
     protected $customerGroup;
 
     public function __construct(
-        string $action = null,
         CustomerGroupResourceIdentifier $customerGroup = null
     ) {
-        $this->action = $action;
         $this->customerGroup = $customerGroup;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -69,11 +68,6 @@ final class StagedOrderSetCustomerGroupActionModel extends JsonObjectModel imple
         }
 
         return $this->customerGroup;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void

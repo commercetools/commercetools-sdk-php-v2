@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class ReviewSetCustomerActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
      */
     private $customer;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|CustomerResourceIdentifier
@@ -45,16 +28,6 @@ final class ReviewSetCustomerActionBuilder implements Builder
     public function getCustomer()
     {
         return $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class ReviewSetCustomerActionBuilder implements Builder
     public function build(): ReviewSetCustomerAction
     {
         return new ReviewSetCustomerActionModel(
-            $this->action,
             ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer)
         );
     }

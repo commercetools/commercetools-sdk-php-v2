@@ -26,11 +26,10 @@ final class StagedOrderSetCustomerEmailActionModel extends JsonObjectModel imple
     protected $email;
 
     public function __construct(
-        string $action = null,
         string $email = null
     ) {
-        $this->action = $action;
         $this->email = $email;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class StagedOrderSetCustomerEmailActionModel extends JsonObjectModel imple
         }
 
         return $this->email;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setEmail(?string $email): void

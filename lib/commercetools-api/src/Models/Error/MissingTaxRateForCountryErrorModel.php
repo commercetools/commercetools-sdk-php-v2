@@ -40,17 +40,16 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     protected $taxCategoryId;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         string $country = null,
         string $state = null,
         string $taxCategoryId = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->country = $country;
         $this->state = $state;
         $this->taxCategoryId = $taxCategoryId;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -136,11 +135,6 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
         }
 
         return $this->taxCategoryId;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

@@ -42,17 +42,16 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     protected $invalidValue;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         array $allowedValues = null,
         string $field = null,
         JsonObject $invalidValue = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->allowedValues = $allowedValues;
         $this->field = $field;
         $this->invalidValue = $invalidValue;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -146,11 +145,6 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
         }
 
         return $this->invalidValue;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

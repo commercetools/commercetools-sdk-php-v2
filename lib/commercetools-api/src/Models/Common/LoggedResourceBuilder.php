@@ -46,10 +46,6 @@ final class LoggedResourceBuilder implements Builder
      */
     private $lastModifiedBy;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

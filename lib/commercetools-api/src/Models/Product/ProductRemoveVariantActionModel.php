@@ -35,15 +35,14 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
     protected $sku;
 
     public function __construct(
-        string $action = null,
         bool $staged = null,
         int $id = null,
         string $sku = null
     ) {
-        $this->action = $action;
         $this->staged = $staged;
         $this->id = $id;
         $this->sku = $sku;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -112,11 +111,6 @@ final class ProductRemoveVariantActionModel extends JsonObjectModel implements P
         }
 
         return $this->sku;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setStaged(?bool $staged): void

@@ -141,10 +141,6 @@ final class CartDraftBuilder implements Builder
      */
     private $billingAddress;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

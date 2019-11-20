@@ -17,11 +17,6 @@ use DateTimeImmutable;
 final class OrderAddReturnInfoActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?DateTimeImmutable
      */
     private $returnDate;
@@ -35,18 +30,6 @@ final class OrderAddReturnInfoActionBuilder implements Builder
      * @var ?ReturnItemDraftCollection
      */
     private $items;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -70,16 +53,6 @@ final class OrderAddReturnInfoActionBuilder implements Builder
     public function getItems()
     {
         return $this->items;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -115,7 +88,6 @@ final class OrderAddReturnInfoActionBuilder implements Builder
     public function build(): OrderAddReturnInfoAction
     {
         return new OrderAddReturnInfoActionModel(
-            $this->action,
             $this->returnDate,
             $this->returnTrackingId,
             $this->items

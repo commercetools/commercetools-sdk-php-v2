@@ -25,11 +25,10 @@ final class OrderSetLocaleActionModel extends JsonObjectModel implements OrderSe
     protected $locale;
 
     public function __construct(
-        string $action = null,
         string $locale = null
     ) {
-        $this->action = $action;
         $this->locale = $locale;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class OrderSetLocaleActionModel extends JsonObjectModel implements OrderSe
         }
 
         return $this->locale;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLocale(?string $locale): void

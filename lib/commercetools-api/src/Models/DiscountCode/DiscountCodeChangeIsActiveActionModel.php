@@ -25,11 +25,10 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
     protected $isActive;
 
     public function __construct(
-        string $action = null,
         bool $isActive = null
     ) {
-        $this->action = $action;
         $this->isActive = $isActive;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class DiscountCodeChangeIsActiveActionModel extends JsonObjectModel implem
         }
 
         return $this->isActive;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setIsActive(?bool $isActive): void

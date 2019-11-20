@@ -101,7 +101,6 @@ final class InventoryEntryDeletedMessageModel extends JsonObjectModel implements
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         ChannelReference $supplyChannel = null,
         string $sku = null
     ) {
@@ -115,9 +114,9 @@ final class InventoryEntryDeletedMessageModel extends JsonObjectModel implements
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->supplyChannel = $supplyChannel;
         $this->sku = $sku;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -402,11 +401,6 @@ final class InventoryEntryDeletedMessageModel extends JsonObjectModel implements
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setSupplyChannel(?ChannelReference $supplyChannel): void

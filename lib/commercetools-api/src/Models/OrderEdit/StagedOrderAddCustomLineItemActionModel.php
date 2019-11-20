@@ -67,7 +67,6 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
     protected $taxCategory;
 
     public function __construct(
-        string $action = null,
         ExternalTaxRateDraft $externalTaxRate = null,
         int $quantity = null,
         Money $money = null,
@@ -76,7 +75,6 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         string $slug = null,
         TaxCategoryResourceIdentifier $taxCategory = null
     ) {
-        $this->action = $action;
         $this->externalTaxRate = $externalTaxRate;
         $this->quantity = $quantity;
         $this->money = $money;
@@ -84,6 +82,7 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         $this->name = $name;
         $this->slug = $slug;
         $this->taxCategory = $taxCategory;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -225,11 +224,6 @@ final class StagedOrderAddCustomLineItemActionModel extends JsonObjectModel impl
         }
 
         return $this->taxCategory;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void

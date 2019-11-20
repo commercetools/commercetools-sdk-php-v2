@@ -43,17 +43,16 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     protected $target;
 
     public function __construct(
-        string $type = null,
         int $oldRating = null,
         bool $includedInStatistics = null,
         int $newRating = null,
         Reference $target = null
     ) {
-        $this->type = $type;
         $this->oldRating = $oldRating;
         $this->includedInStatistics = $includedInStatistics;
         $this->newRating = $newRating;
         $this->target = $target;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -140,11 +139,6 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
         }
 
         return $this->target;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldRating(?int $oldRating): void

@@ -75,11 +75,6 @@ final class OrderDiscountCodeStateSetMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var DiscountCodeReference|?DiscountCodeReferenceBuilder
      */
     private $discountCode;
@@ -93,10 +88,6 @@ final class OrderDiscountCodeStateSetMessageBuilder implements Builder
      * @var ?string
      */
     private $state;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -176,14 +167,6 @@ final class OrderDiscountCodeStateSetMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -313,16 +296,6 @@ final class OrderDiscountCodeStateSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withDiscountCode(?DiscountCodeReference $discountCode)
     {
         $this->discountCode = $discountCode;
@@ -413,7 +386,6 @@ final class OrderDiscountCodeStateSetMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode),
             $this->oldState,
             $this->state

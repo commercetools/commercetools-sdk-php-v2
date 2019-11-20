@@ -40,15 +40,14 @@ final class StagedOrderAddReturnInfoActionModel extends JsonObjectModel implemen
     protected $items;
 
     public function __construct(
-        string $action = null,
         DateTimeImmutable $returnDate = null,
         string $returnTrackingId = null,
         ReturnItemDraftCollection $items = null
     ) {
-        $this->action = $action;
         $this->returnDate = $returnDate;
         $this->returnTrackingId = $returnTrackingId;
         $this->items = $items;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -121,11 +120,6 @@ final class StagedOrderAddReturnInfoActionModel extends JsonObjectModel implemen
         }
 
         return $this->items;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setReturnDate(?DateTimeImmutable $returnDate): void

@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class GeoJsonPointBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?array
      */
     private $coordinates;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|array
@@ -43,16 +26,6 @@ final class GeoJsonPointBuilder implements Builder
     public function getCoordinates()
     {
         return $this->coordinates;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class GeoJsonPointBuilder implements Builder
     public function build(): GeoJsonPoint
     {
         return new GeoJsonPointModel(
-            $this->type,
             $this->coordinates
         );
     }

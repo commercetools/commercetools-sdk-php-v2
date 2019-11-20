@@ -42,17 +42,16 @@ final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel
     protected $value;
 
     public function __construct(
-        string $action = null,
         string $name = null,
         bool $staged = null,
         string $priceId = null,
         JsonObject $value = null
     ) {
-        $this->action = $action;
         $this->name = $name;
         $this->staged = $staged;
         $this->priceId = $priceId;
         $this->value = $value;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -138,11 +137,6 @@ final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel
         }
 
         return $this->value;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setName(?string $name): void

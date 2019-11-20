@@ -17,26 +17,9 @@ use Commercetools\Base\Builder;
 final class OrderEditPreviewFailureBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?ErrorObjectCollection
      */
     private $errors;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|ErrorObjectCollection
@@ -44,16 +27,6 @@ final class OrderEditPreviewFailureBuilder implements Builder
     public function getErrors()
     {
         return $this->errors;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -69,7 +42,6 @@ final class OrderEditPreviewFailureBuilder implements Builder
     public function build(): OrderEditPreviewFailure
     {
         return new OrderEditPreviewFailureModel(
-            $this->type,
             $this->errors
         );
     }

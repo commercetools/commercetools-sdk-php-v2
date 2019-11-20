@@ -18,29 +18,12 @@ final class ProductTypeAddPlainEnumValueActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $attributeName;
 
     /**
      * @var AttributePlainEnumValue|?AttributePlainEnumValueBuilder
      */
     private $value;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class ProductTypeAddPlainEnumValueActionBuilder implements Builder
     public function getValue()
     {
         return $this->value instanceof AttributePlainEnumValueBuilder ? $this->value->build() : $this->value;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class ProductTypeAddPlainEnumValueActionBuilder implements Builder
     public function build(): ProductTypeAddPlainEnumValueAction
     {
         return new ProductTypeAddPlainEnumValueActionModel(
-            $this->action,
             $this->attributeName,
             ($this->value instanceof AttributePlainEnumValueBuilder ? $this->value->build() : $this->value)
         );

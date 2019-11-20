@@ -31,12 +31,11 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
 
     public function __construct(
         string $name = null,
-        string $type = null,
         bool $value = null
     ) {
         $this->name = $name;
-        $this->type = $type;
         $this->value = $value;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -97,11 +96,6 @@ final class BooleanAttributeModel extends JsonObjectModel implements BooleanAttr
     public function setName(?string $name): void
     {
         $this->name = $name;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setValue(?bool $value): void

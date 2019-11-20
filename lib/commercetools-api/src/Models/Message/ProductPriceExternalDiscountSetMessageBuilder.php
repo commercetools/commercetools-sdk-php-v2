@@ -75,11 +75,6 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var DiscountedPrice|?DiscountedPriceBuilder
      */
     private $discounted;
@@ -108,10 +103,6 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
      * @var ?string
      */
     private $variantKey;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -191,14 +182,6 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -352,16 +335,6 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withDiscounted(?DiscountedPrice $discounted)
     {
         $this->discounted = $discounted;
@@ -482,7 +455,6 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
             $this->staged,
             $this->variantId,

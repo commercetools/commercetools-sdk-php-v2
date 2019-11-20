@@ -33,9 +33,7 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
     ];
 
     public function __construct(
-        string $type = null
     ) {
-        $this->type = $type;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -56,11 +54,6 @@ final class ImportRequestModel extends JsonObjectModel implements ImportRequest
         }
 
         return $this->type;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     /**

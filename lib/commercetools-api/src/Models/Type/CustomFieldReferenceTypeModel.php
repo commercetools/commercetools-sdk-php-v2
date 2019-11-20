@@ -25,11 +25,10 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
     protected $referenceTypeId;
 
     public function __construct(
-        string $name = null,
         string $referenceTypeId = null
     ) {
-        $this->name = $name;
         $this->referenceTypeId = $referenceTypeId;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CustomFieldReferenceTypeModel extends JsonObjectModel implements Cus
         }
 
         return $this->referenceTypeId;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function setReferenceTypeId(?string $referenceTypeId): void

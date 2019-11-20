@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class OrderDiscountCodeAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var DiscountCodeReference|?DiscountCodeReferenceBuilder
      */
     private $discountCode;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|DiscountCodeReference
@@ -45,16 +28,6 @@ final class OrderDiscountCodeAddedMessagePayloadBuilder implements Builder
     public function getDiscountCode()
     {
         return $this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class OrderDiscountCodeAddedMessagePayloadBuilder implements Builder
     public function build(): OrderDiscountCodeAddedMessagePayload
     {
         return new OrderDiscountCodeAddedMessagePayloadModel(
-            $this->type,
             ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode)
         );
     }

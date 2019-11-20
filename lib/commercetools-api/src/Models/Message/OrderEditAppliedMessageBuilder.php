@@ -77,11 +77,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
     private $resourceVersion;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var OrderEditApplied|?OrderEditAppliedBuilder
      */
     private $result;
@@ -90,10 +85,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
      * @var OrderEditReference|?OrderEditReferenceBuilder
      */
     private $edit;
-
-    public function __construct()
-    {
-    }
 
     /**
      * @return null|DateTimeImmutable
@@ -173,14 +164,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
     public function getResourceVersion()
     {
         return $this->resourceVersion;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -302,16 +285,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResult(?OrderEditApplied $result)
     {
         $this->result = $result;
@@ -402,7 +375,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            $this->type,
             ($this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result),
             ($this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit)
         );

@@ -20,11 +20,6 @@ use Commercetools\Base\Builder;
 final class CartDiscountValueGiftLineItemBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ProductReference|?ProductReferenceBuilder
      */
     private $product;
@@ -43,18 +38,6 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
      * @var ChannelReference|?ChannelReferenceBuilder
      */
     private $distributionChannel;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|ProductReference
@@ -86,16 +69,6 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     public function getDistributionChannel()
     {
         return $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -171,7 +144,6 @@ final class CartDiscountValueGiftLineItemBuilder implements Builder
     public function build(): CartDiscountValueGiftLineItem
     {
         return new CartDiscountValueGiftLineItemModel(
-            $this->type,
             ($this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product),
             ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
             $this->variantId,

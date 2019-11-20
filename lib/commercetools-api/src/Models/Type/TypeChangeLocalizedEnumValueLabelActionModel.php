@@ -31,13 +31,12 @@ final class TypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel
     protected $value;
 
     public function __construct(
-        string $action = null,
         string $fieldName = null,
         CustomFieldLocalizedEnumValue $value = null
     ) {
-        $this->action = $action;
         $this->fieldName = $fieldName;
         $this->value = $value;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class TypeChangeLocalizedEnumValueLabelActionModel extends JsonObjectModel
         }
 
         return $this->value;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setFieldName(?string $fieldName): void

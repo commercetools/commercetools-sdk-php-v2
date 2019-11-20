@@ -17,11 +17,6 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetParcelItemsActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?DeliveryItemCollection
      */
     private $items;
@@ -30,18 +25,6 @@ final class StagedOrderSetParcelItemsActionBuilder implements Builder
      * @var ?string
      */
     private $parcelId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|DeliveryItemCollection
@@ -57,16 +40,6 @@ final class StagedOrderSetParcelItemsActionBuilder implements Builder
     public function getParcelId()
     {
         return $this->parcelId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -92,7 +65,6 @@ final class StagedOrderSetParcelItemsActionBuilder implements Builder
     public function build(): StagedOrderSetParcelItemsAction
     {
         return new StagedOrderSetParcelItemsActionModel(
-            $this->action,
             $this->items,
             $this->parcelId
         );

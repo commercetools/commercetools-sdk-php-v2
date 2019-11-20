@@ -25,11 +25,10 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
     protected $shipmentState;
 
     public function __construct(
-        string $action = null,
         string $shipmentState = null
     ) {
-        $this->action = $action;
         $this->shipmentState = $shipmentState;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class OrderChangeShipmentStateActionModel extends JsonObjectModel implemen
         }
 
         return $this->shipmentState;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShipmentState(?string $shipmentState): void

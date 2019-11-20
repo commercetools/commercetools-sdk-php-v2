@@ -38,15 +38,14 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     protected $category;
 
     public function __construct(
-        string $action = null,
         string $orderHint = null,
         bool $staged = null,
         CategoryResourceIdentifier $category = null
     ) {
-        $this->action = $action;
         $this->orderHint = $orderHint;
         $this->staged = $staged;
         $this->category = $category;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
         }
 
         return $this->category;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setOrderHint(?string $orderHint): void

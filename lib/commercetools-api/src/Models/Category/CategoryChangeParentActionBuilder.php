@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class CategoryChangeParentActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
      */
     private $parent;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|CategoryResourceIdentifier
@@ -43,16 +26,6 @@ final class CategoryChangeParentActionBuilder implements Builder
     public function getParent()
     {
         return $this->parent instanceof CategoryResourceIdentifierBuilder ? $this->parent->build() : $this->parent;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -78,7 +51,6 @@ final class CategoryChangeParentActionBuilder implements Builder
     public function build(): CategoryChangeParentAction
     {
         return new CategoryChangeParentActionModel(
-            $this->action,
             ($this->parent instanceof CategoryResourceIdentifierBuilder ? $this->parent->build() : $this->parent)
         );
     }

@@ -35,15 +35,14 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
     protected $skus;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         array $lineItems = null,
         array $skus = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->lineItems = $lineItems;
         $this->skus = $skus;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -112,11 +111,6 @@ final class OutOfStockErrorModel extends JsonObjectModel implements OutOfStockEr
         }
 
         return $this->skus;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

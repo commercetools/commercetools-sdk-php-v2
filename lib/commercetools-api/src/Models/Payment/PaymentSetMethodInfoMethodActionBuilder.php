@@ -18,24 +18,7 @@ final class PaymentSetMethodInfoMethodActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $method;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class PaymentSetMethodInfoMethodActionBuilder implements Builder
     public function getMethod()
     {
         return $this->method;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class PaymentSetMethodInfoMethodActionBuilder implements Builder
     public function build(): PaymentSetMethodInfoMethodAction
     {
         return new PaymentSetMethodInfoMethodActionModel(
-            $this->action,
             $this->method
         );
     }

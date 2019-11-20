@@ -35,15 +35,14 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     protected $categoryId;
 
     public function __construct(
-        string $action = null,
         string $orderHint = null,
         bool $staged = null,
         string $categoryId = null
     ) {
-        $this->action = $action;
         $this->orderHint = $orderHint;
         $this->staged = $staged;
         $this->categoryId = $categoryId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -112,11 +111,6 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
         }
 
         return $this->categoryId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setOrderHint(?string $orderHint): void

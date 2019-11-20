@@ -18,29 +18,12 @@ final class StagedOrderSetReturnPaymentStateActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $returnItemId;
 
     /**
      * @var ?string
      */
     private $paymentState;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class StagedOrderSetReturnPaymentStateActionBuilder implements Builder
     public function getPaymentState()
     {
         return $this->paymentState;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class StagedOrderSetReturnPaymentStateActionBuilder implements Builder
     public function build(): StagedOrderSetReturnPaymentStateAction
     {
         return new StagedOrderSetReturnPaymentStateActionModel(
-            $this->action,
             $this->returnItemId,
             $this->paymentState
         );

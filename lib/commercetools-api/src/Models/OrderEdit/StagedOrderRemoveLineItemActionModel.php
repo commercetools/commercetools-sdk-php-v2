@@ -53,19 +53,18 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     protected $externalPrice;
 
     public function __construct(
-        string $action = null,
         int $quantity = null,
         ExternalLineItemTotalPrice $externalTotalPrice = null,
         string $lineItemId = null,
         ItemShippingDetailsDraft $shippingDetailsToRemove = null,
         Money $externalPrice = null
     ) {
-        $this->action = $action;
         $this->quantity = $quantity;
         $this->externalTotalPrice = $externalTotalPrice;
         $this->lineItemId = $lineItemId;
         $this->shippingDetailsToRemove = $shippingDetailsToRemove;
         $this->externalPrice = $externalPrice;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -171,11 +170,6 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
         }
 
         return $this->externalPrice;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setQuantity(?int $quantity): void

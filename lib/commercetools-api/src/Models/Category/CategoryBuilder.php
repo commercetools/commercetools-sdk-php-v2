@@ -120,10 +120,6 @@ final class CategoryBuilder implements Builder
      */
     private $slug;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DateTimeImmutable
      */

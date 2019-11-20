@@ -26,11 +26,10 @@ final class StagedOrderChangeOrderStateActionModel extends JsonObjectModel imple
     protected $orderState;
 
     public function __construct(
-        string $action = null,
         string $orderState = null
     ) {
-        $this->action = $action;
         $this->orderState = $orderState;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class StagedOrderChangeOrderStateActionModel extends JsonObjectModel imple
         }
 
         return $this->orderState;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setOrderState(?string $orderState): void

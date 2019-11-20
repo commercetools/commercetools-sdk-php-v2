@@ -32,10 +32,6 @@ final class PaymentMethodInfoBuilder implements Builder
      */
     private $paymentInterface;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

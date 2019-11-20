@@ -35,13 +35,12 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
     protected $parcel;
 
     public function __construct(
-        string $type = null,
         Delivery $delivery = null,
         Parcel $parcel = null
     ) {
-        $this->type = $type;
         $this->delivery = $delivery;
         $this->parcel = $parcel;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -95,11 +94,6 @@ final class ParcelAddedToDeliveryMessagePayloadModel extends JsonObjectModel imp
         }
 
         return $this->parcel;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDelivery(?Delivery $delivery): void

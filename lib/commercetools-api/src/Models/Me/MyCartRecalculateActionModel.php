@@ -25,11 +25,10 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
     protected $updateProductData;
 
     public function __construct(
-        string $action = null,
         bool $updateProductData = null
     ) {
-        $this->action = $action;
         $this->updateProductData = $updateProductData;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class MyCartRecalculateActionModel extends JsonObjectModel implements MyCa
         }
 
         return $this->updateProductData;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setUpdateProductData(?bool $updateProductData): void

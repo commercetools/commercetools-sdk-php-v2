@@ -18,24 +18,7 @@ final class ShoppingListSetAnonymousIdActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $anonymousId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class ShoppingListSetAnonymousIdActionBuilder implements Builder
     public function getAnonymousId()
     {
         return $this->anonymousId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class ShoppingListSetAnonymousIdActionBuilder implements Builder
     public function build(): ShoppingListSetAnonymousIdAction
     {
         return new ShoppingListSetAnonymousIdActionModel(
-            $this->action,
             $this->anonymousId
         );
     }

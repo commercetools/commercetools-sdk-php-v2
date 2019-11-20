@@ -25,11 +25,10 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
     protected $deleteDaysAfterLastModification;
 
     public function __construct(
-        string $action = null,
         int $deleteDaysAfterLastModification = null
     ) {
-        $this->action = $action;
         $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class MyCartSetDeleteDaysAfterLastModificationActionModel extends JsonObje
         }
 
         return $this->deleteDaysAfterLastModification;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void

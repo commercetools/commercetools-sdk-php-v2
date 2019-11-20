@@ -25,11 +25,10 @@ final class CategorySetExternalIdActionModel extends JsonObjectModel implements 
     protected $externalId;
 
     public function __construct(
-        string $action = null,
         string $externalId = null
     ) {
-        $this->action = $action;
         $this->externalId = $externalId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CategorySetExternalIdActionModel extends JsonObjectModel implements 
         }
 
         return $this->externalId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setExternalId(?string $externalId): void

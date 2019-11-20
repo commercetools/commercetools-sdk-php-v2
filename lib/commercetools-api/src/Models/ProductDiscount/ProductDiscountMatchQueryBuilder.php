@@ -37,10 +37,6 @@ final class ProductDiscountMatchQueryBuilder implements Builder
      */
     private $variantId;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

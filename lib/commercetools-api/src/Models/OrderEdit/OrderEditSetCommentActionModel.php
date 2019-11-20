@@ -25,11 +25,10 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
     protected $comment;
 
     public function __construct(
-        string $action = null,
         string $comment = null
     ) {
-        $this->action = $action;
         $this->comment = $comment;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class OrderEditSetCommentActionModel extends JsonObjectModel implements Or
         }
 
         return $this->comment;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setComment(?string $comment): void

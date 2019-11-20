@@ -19,11 +19,6 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $name;
 
     /**
@@ -40,18 +35,6 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
      * @var ?JsonObject
      */
     private $value;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -83,16 +66,6 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     public function getValue()
     {
         return $this->value;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -138,7 +111,6 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     public function build(): ProductSetProductPriceCustomFieldAction
     {
         return new ProductSetProductPriceCustomFieldActionModel(
-            $this->action,
             $this->name,
             $this->staged,
             $this->priceId,

@@ -18,11 +18,6 @@ final class SqsDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $accessKey;
 
     /**
@@ -39,18 +34,6 @@ final class SqsDestinationBuilder implements Builder
      * @var ?string
      */
     private $accessSecret;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -82,16 +65,6 @@ final class SqsDestinationBuilder implements Builder
     public function getAccessSecret()
     {
         return $this->accessSecret;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -137,7 +110,6 @@ final class SqsDestinationBuilder implements Builder
     public function build(): SqsDestination
     {
         return new SqsDestinationModel(
-            $this->type,
             $this->accessKey,
             $this->queueUrl,
             $this->region,

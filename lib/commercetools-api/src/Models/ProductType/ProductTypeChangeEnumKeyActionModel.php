@@ -35,15 +35,14 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     protected $key;
 
     public function __construct(
-        string $action = null,
         string $newKey = null,
         string $attributeName = null,
         string $key = null
     ) {
-        $this->action = $action;
         $this->newKey = $newKey;
         $this->attributeName = $attributeName;
         $this->key = $key;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -112,11 +111,6 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
         }
 
         return $this->key;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setNewKey(?string $newKey): void

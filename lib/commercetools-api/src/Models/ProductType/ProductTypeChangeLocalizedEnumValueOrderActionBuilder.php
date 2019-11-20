@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductTypeChangeLocalizedEnumValueOrderActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?AttributeLocalizedEnumValueCollection
      */
     private $values;
@@ -29,18 +24,6 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionBuilder implements Bui
      * @var ?string
      */
     private $attributeName;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|AttributeLocalizedEnumValueCollection
@@ -56,16 +39,6 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionBuilder implements Bui
     public function getAttributeName()
     {
         return $this->attributeName;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionBuilder implements Bui
     public function build(): ProductTypeChangeLocalizedEnumValueOrderAction
     {
         return new ProductTypeChangeLocalizedEnumValueOrderActionModel(
-            $this->action,
             $this->values,
             $this->attributeName
         );

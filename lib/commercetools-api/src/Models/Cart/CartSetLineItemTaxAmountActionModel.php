@@ -31,13 +31,12 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
     protected $externalTaxAmount;
 
     public function __construct(
-        string $action = null,
         string $lineItemId = null,
         ExternalTaxAmountDraft $externalTaxAmount = null
     ) {
-        $this->action = $action;
         $this->lineItemId = $lineItemId;
         $this->externalTaxAmount = $externalTaxAmount;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -90,11 +89,6 @@ final class CartSetLineItemTaxAmountActionModel extends JsonObjectModel implemen
         }
 
         return $this->externalTaxAmount;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setLineItemId(?string $lineItemId): void

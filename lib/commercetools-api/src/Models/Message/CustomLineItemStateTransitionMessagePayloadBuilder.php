@@ -19,11 +19,6 @@ use DateTimeImmutable;
 final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var StateReference|?StateReferenceBuilder
      */
     private $toState;
@@ -47,18 +42,6 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
      * @var ?DateTimeImmutable
      */
     private $transitionDate;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|StateReference
@@ -98,16 +81,6 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     public function getTransitionDate()
     {
         return $this->transitionDate;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -183,7 +156,6 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     public function build(): CustomLineItemStateTransitionMessagePayload
     {
         return new CustomLineItemStateTransitionMessagePayloadModel(
-            $this->type,
             ($this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState),
             ($this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState),
             $this->customLineItemId,

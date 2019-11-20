@@ -26,11 +26,10 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
     protected $values;
 
     public function __construct(
-        string $name = null,
         AttributeLocalizedEnumValueCollection $values = null
     ) {
-        $this->name = $name;
         $this->values = $values;
+        $this->name = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class AttributeLocalizedEnumTypeModel extends JsonObjectModel implements A
         }
 
         return $this->values;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
     }
 
     public function setValues(?AttributeLocalizedEnumValueCollection $values): void

@@ -40,17 +40,16 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     protected $accessSecret;
 
     public function __construct(
-        string $type = null,
         string $accessKey = null,
         string $queueUrl = null,
         string $region = null,
         string $accessSecret = null
     ) {
-        $this->type = $type;
         $this->accessKey = $accessKey;
         $this->queueUrl = $queueUrl;
         $this->region = $region;
         $this->accessSecret = $accessSecret;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -136,11 +135,6 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
         }
 
         return $this->accessSecret;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setAccessKey(?string $accessKey): void

@@ -17,11 +17,6 @@ use Commercetools\Base\Builder;
 final class OrderEditPreviewSuccessBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var StagedOrder|?StagedOrderBuilder
      */
     private $preview;
@@ -30,18 +25,6 @@ final class OrderEditPreviewSuccessBuilder implements Builder
      * @var ?MessagePayloadCollection
      */
     private $messagePayloads;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|StagedOrder
@@ -57,16 +40,6 @@ final class OrderEditPreviewSuccessBuilder implements Builder
     public function getMessagePayloads()
     {
         return $this->messagePayloads;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -102,7 +75,6 @@ final class OrderEditPreviewSuccessBuilder implements Builder
     public function build(): OrderEditPreviewSuccess
     {
         return new OrderEditPreviewSuccessModel(
-            $this->type,
             ($this->preview instanceof StagedOrderBuilder ? $this->preview->build() : $this->preview),
             $this->messagePayloads
         );

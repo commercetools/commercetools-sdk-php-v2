@@ -28,11 +28,10 @@ final class DeliveryRemovedMessagePayloadModel extends JsonObjectModel implement
     protected $delivery;
 
     public function __construct(
-        string $type = null,
         Delivery $delivery = null
     ) {
-        $this->type = $type;
         $this->delivery = $delivery;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class DeliveryRemovedMessagePayloadModel extends JsonObjectModel implement
         }
 
         return $this->delivery;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDelivery(?Delivery $delivery): void

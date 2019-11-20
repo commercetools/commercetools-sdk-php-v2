@@ -18,24 +18,7 @@ final class CustomerSetTitleActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $title;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -43,16 +26,6 @@ final class CustomerSetTitleActionBuilder implements Builder
     public function getTitle()
     {
         return $this->title;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class CustomerSetTitleActionBuilder implements Builder
     public function build(): CustomerSetTitleAction
     {
         return new CustomerSetTitleActionModel(
-            $this->action,
             $this->title
         );
     }

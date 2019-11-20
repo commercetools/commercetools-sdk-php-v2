@@ -29,10 +29,6 @@ final class DiscountedLineItemPortionBuilder implements Builder
      */
     private $discount;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|TypedMoney
      */

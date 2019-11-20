@@ -40,10 +40,6 @@ final class ErrorResponseBuilder implements Builder
      */
     private $statusCode;
 
-    public function __construct()
-    {
-    }
-
     /**
      * <p>This property is only used for OAuth2 errors.
      * Additional information to assist the client developer in

@@ -35,10 +35,6 @@ final class AssetSourceBuilder implements Builder
      */
     private $dimensions;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

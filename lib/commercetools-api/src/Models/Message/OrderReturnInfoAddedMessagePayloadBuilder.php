@@ -18,26 +18,9 @@ use Commercetools\Base\Builder;
 final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ReturnInfo|?ReturnInfoBuilder
      */
     private $returnInfo;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|ReturnInfo
@@ -45,16 +28,6 @@ final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
     public function getReturnInfo()
     {
         return $this->returnInfo instanceof ReturnInfoBuilder ? $this->returnInfo->build() : $this->returnInfo;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -80,7 +53,6 @@ final class OrderReturnInfoAddedMessagePayloadBuilder implements Builder
     public function build(): OrderReturnInfoAddedMessagePayload
     {
         return new OrderReturnInfoAddedMessagePayloadModel(
-            $this->type,
             ($this->returnInfo instanceof ReturnInfoBuilder ? $this->returnInfo->build() : $this->returnInfo)
         );
     }

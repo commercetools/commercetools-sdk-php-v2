@@ -33,13 +33,12 @@ final class ReviewTransitionStateActionModel extends JsonObjectModel implements 
     protected $state;
 
     public function __construct(
-        string $action = null,
         bool $force = null,
         StateResourceIdentifier $state = null
     ) {
-        $this->action = $action;
         $this->force = $force;
         $this->state = $state;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ReviewTransitionStateActionModel extends JsonObjectModel implements 
         }
 
         return $this->state;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setForce(?bool $force): void

@@ -27,10 +27,6 @@ final class DiscountCodeInfoBuilder implements Builder
      */
     private $state;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DiscountCodeReference
      */

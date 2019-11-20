@@ -40,8 +40,6 @@ interface TypedMoney extends JsonObject
      */
     public function getCurrencyCode();
 
-    public function setType(?string $type): void;
-
     public function setFractionDigits(?int $fractionDigits): void;
 
     public function setCentAmount(?int $centAmount): void;

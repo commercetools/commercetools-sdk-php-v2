@@ -33,9 +33,7 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -54,11 +52,6 @@ final class OrderEditUpdateActionModel extends JsonObjectModel implements OrderE
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

@@ -25,11 +25,10 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
     protected $customLineItemId;
 
     public function __construct(
-        string $action = null,
         string $customLineItemId = null
     ) {
-        $this->action = $action;
         $this->customLineItemId = $customLineItemId;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class CartRemoveCustomLineItemActionModel extends JsonObjectModel implemen
         }
 
         return $this->customLineItemId;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void

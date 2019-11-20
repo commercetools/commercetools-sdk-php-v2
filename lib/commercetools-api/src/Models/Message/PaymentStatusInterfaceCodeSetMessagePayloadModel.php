@@ -30,13 +30,12 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
     protected $interfaceCode;
 
     public function __construct(
-        string $type = null,
         string $paymentId = null,
         string $interfaceCode = null
     ) {
-        $this->type = $type;
         $this->paymentId = $paymentId;
         $this->interfaceCode = $interfaceCode;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -88,11 +87,6 @@ final class PaymentStatusInterfaceCodeSetMessagePayloadModel extends JsonObjectM
         }
 
         return $this->interfaceCode;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPaymentId(?string $paymentId): void

@@ -29,11 +29,10 @@ final class StagedOrderSetShippingMethodTaxAmountActionModel extends JsonObjectM
     protected $externalTaxAmount;
 
     public function __construct(
-        string $action = null,
         ExternalTaxAmountDraft $externalTaxAmount = null
     ) {
-        $this->action = $action;
         $this->externalTaxAmount = $externalTaxAmount;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -69,11 +68,6 @@ final class StagedOrderSetShippingMethodTaxAmountActionModel extends JsonObjectM
         }
 
         return $this->externalTaxAmount;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setExternalTaxAmount(?ExternalTaxAmountDraft $externalTaxAmount): void

@@ -61,10 +61,6 @@ final class MyLineItemDraftBuilder implements Builder
      */
     private $distributionChannel;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

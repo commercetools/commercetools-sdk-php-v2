@@ -99,7 +99,6 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         string $oldOrderState = null,
         string $orderState = null
     ) {
@@ -113,9 +112,9 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->oldOrderState = $oldOrderState;
         $this->orderState = $orderState;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -399,11 +398,6 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setOldOrderState(?string $oldOrderState): void

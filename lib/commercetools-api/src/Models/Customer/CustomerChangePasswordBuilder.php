@@ -35,10 +35,6 @@ final class CustomerChangePasswordBuilder implements Builder
      */
     private $currentPassword;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|string
      */

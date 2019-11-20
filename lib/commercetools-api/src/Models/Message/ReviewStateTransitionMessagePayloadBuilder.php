@@ -20,11 +20,6 @@ use Commercetools\Base\Builder;
 final class ReviewStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ?bool
      */
     private $newIncludedInStatistics;
@@ -53,18 +48,6 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
      * @var Reference|?ReferenceBuilder
      */
     private $target;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|bool
@@ -112,16 +95,6 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     public function getTarget()
     {
         return $this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -217,7 +190,6 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     public function build(): ReviewStateTransitionMessagePayload
     {
         return new ReviewStateTransitionMessagePayloadModel(
-            $this->type,
             $this->newIncludedInStatistics,
             ($this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState),
             $this->force,

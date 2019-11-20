@@ -32,10 +32,6 @@ final class VariantValuesBuilder implements Builder
      */
     private $sku;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|AttributeCollection
      */

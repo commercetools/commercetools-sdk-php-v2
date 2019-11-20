@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductSetMetaDescriptionActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $staged;
@@ -31,18 +26,6 @@ final class ProductSetMetaDescriptionActionBuilder implements Builder
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $metaDescription;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -58,16 +41,6 @@ final class ProductSetMetaDescriptionActionBuilder implements Builder
     public function getMetaDescription()
     {
         return $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class ProductSetMetaDescriptionActionBuilder implements Builder
     public function build(): ProductSetMetaDescriptionAction
     {
         return new ProductSetMetaDescriptionActionModel(
-            $this->action,
             $this->staged,
             ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription)
         );

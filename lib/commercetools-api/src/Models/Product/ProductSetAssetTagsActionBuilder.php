@@ -18,11 +18,6 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $assetId;
 
     /**
@@ -49,18 +44,6 @@ final class ProductSetAssetTagsActionBuilder implements Builder
      * @var ?array
      */
     private $tags;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -108,16 +91,6 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     public function getTags()
     {
         return $this->tags;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -183,7 +156,6 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     public function build(): ProductSetAssetTagsAction
     {
         return new ProductSetAssetTagsActionModel(
-            $this->action,
             $this->assetId,
             $this->staged,
             $this->variantId,

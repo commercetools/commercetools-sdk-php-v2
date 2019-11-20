@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class OrderLineItemAddedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var LineItem|?LineItemBuilder
      */
     private $lineItem;
@@ -31,18 +26,6 @@ final class OrderLineItemAddedMessagePayloadBuilder implements Builder
      * @var ?int
      */
     private $addedQuantity;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|LineItem
@@ -58,16 +41,6 @@ final class OrderLineItemAddedMessagePayloadBuilder implements Builder
     public function getAddedQuantity()
     {
         return $this->addedQuantity;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -103,7 +76,6 @@ final class OrderLineItemAddedMessagePayloadBuilder implements Builder
     public function build(): OrderLineItemAddedMessagePayload
     {
         return new OrderLineItemAddedMessagePayloadModel(
-            $this->type,
             ($this->lineItem instanceof LineItemBuilder ? $this->lineItem->build() : $this->lineItem),
             $this->addedQuantity
         );

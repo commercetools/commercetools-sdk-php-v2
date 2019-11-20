@@ -25,10 +25,6 @@ final class ItemShippingDetailsBuilder implements Builder
      */
     private $targets;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|bool
      */

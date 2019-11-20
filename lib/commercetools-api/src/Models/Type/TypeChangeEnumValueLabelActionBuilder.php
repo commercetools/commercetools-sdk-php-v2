@@ -18,29 +18,12 @@ final class TypeChangeEnumValueLabelActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $fieldName;
 
     /**
      * @var CustomFieldEnumValue|?CustomFieldEnumValueBuilder
      */
     private $value;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class TypeChangeEnumValueLabelActionBuilder implements Builder
     public function getValue()
     {
         return $this->value instanceof CustomFieldEnumValueBuilder ? $this->value->build() : $this->value;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class TypeChangeEnumValueLabelActionBuilder implements Builder
     public function build(): TypeChangeEnumValueLabelAction
     {
         return new TypeChangeEnumValueLabelActionModel(
-            $this->action,
             $this->fieldName,
             ($this->value instanceof CustomFieldEnumValueBuilder ? $this->value->build() : $this->value)
         );

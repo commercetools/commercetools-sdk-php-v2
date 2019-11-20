@@ -25,11 +25,10 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
     protected $text;
 
     public function __construct(
-        string $action = null,
         string $text = null
     ) {
-        $this->action = $action;
         $this->text = $text;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
         }
 
         return $this->text;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setText(?string $text): void

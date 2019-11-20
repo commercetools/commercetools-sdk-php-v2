@@ -38,15 +38,14 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
     protected $scope;
 
     public function __construct(
-        string $type = null,
         array $removedImageUrls = null,
         ProductProjection $productProjection = null,
         string $scope = null
     ) {
-        $this->type = $type;
         $this->removedImageUrls = $removedImageUrls;
         $this->productProjection = $productProjection;
         $this->scope = $scope;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class ProductPublishedMessagePayloadModel extends JsonObjectModel implemen
         }
 
         return $this->scope;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setRemovedImageUrls(?array $removedImageUrls): void

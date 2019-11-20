@@ -116,7 +116,6 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         StateReference $toState = null,
         StateReference $fromState = null,
         string $customLineItemId = null,
@@ -133,12 +132,12 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->toState = $toState;
         $this->fromState = $fromState;
         $this->customLineItemId = $customLineItemId;
         $this->quantity = $quantity;
         $this->transitionDate = $transitionDate;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -479,11 +478,6 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setToState(?StateReference $toState): void

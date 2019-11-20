@@ -19,29 +19,12 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
      * @var ?PriceCollection
      */
     private $conflictingPrices;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -57,16 +40,6 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     public function getConflictingPrices()
     {
         return $this->conflictingPrices;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -92,7 +65,6 @@ final class DuplicatePriceScopeErrorBuilder implements Builder
     public function build(): DuplicatePriceScopeError
     {
         return new DuplicatePriceScopeErrorModel(
-            $this->code,
             $this->message,
             $this->conflictingPrices
         );

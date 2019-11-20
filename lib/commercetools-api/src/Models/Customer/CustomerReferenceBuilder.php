@@ -18,29 +18,12 @@ final class CustomerReferenceBuilder implements Builder
     /**
      * @var ?string
      */
-    private $typeId;
-
-    /**
-     * @var ?string
-     */
     private $id;
 
     /**
      * @var Customer|?CustomerBuilder
      */
     private $obj;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class CustomerReferenceBuilder implements Builder
     public function getObj()
     {
         return $this->obj instanceof CustomerBuilder ? $this->obj->build() : $this->obj;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTypeId(?string $typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
     }
 
     /**
@@ -101,7 +74,6 @@ final class CustomerReferenceBuilder implements Builder
     public function build(): CustomerReference
     {
         return new CustomerReferenceModel(
-            $this->typeId,
             $this->id,
             ($this->obj instanceof CustomerBuilder ? $this->obj->build() : $this->obj)
         );

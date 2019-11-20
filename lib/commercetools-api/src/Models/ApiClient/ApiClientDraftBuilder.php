@@ -30,10 +30,6 @@ final class ApiClientDraftBuilder implements Builder
      */
     private $name;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

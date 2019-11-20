@@ -25,11 +25,10 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
     protected $roles;
 
     public function __construct(
-        string $action = null,
         array $roles = null
     ) {
-        $this->action = $action;
         $this->roles = $roles;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -64,11 +63,6 @@ final class ChannelRemoveRolesActionModel extends JsonObjectModel implements Cha
         }
 
         return $this->roles;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setRoles(?array $roles): void

@@ -28,11 +28,10 @@ final class ShoppingListSetSlugActionModel extends JsonObjectModel implements Sh
     protected $slug;
 
     public function __construct(
-        string $action = null,
         LocalizedString $slug = null
     ) {
-        $this->action = $action;
         $this->slug = $slug;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class ShoppingListSetSlugActionModel extends JsonObjectModel implements Sh
         }
 
         return $this->slug;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setSlug(?LocalizedString $slug): void

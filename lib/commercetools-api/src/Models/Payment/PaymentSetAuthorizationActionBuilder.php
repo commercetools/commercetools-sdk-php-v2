@@ -19,11 +19,6 @@ use DateTimeImmutable;
 final class PaymentSetAuthorizationActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var Money|?MoneyBuilder
      */
     private $amount;
@@ -32,18 +27,6 @@ final class PaymentSetAuthorizationActionBuilder implements Builder
      * @var ?DateTimeImmutable
      */
     private $until;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|Money
@@ -59,16 +42,6 @@ final class PaymentSetAuthorizationActionBuilder implements Builder
     public function getUntil()
     {
         return $this->until;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -104,7 +77,6 @@ final class PaymentSetAuthorizationActionBuilder implements Builder
     public function build(): PaymentSetAuthorizationAction
     {
         return new PaymentSetAuthorizationActionModel(
-            $this->action,
             ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount),
             $this->until
         );

@@ -32,13 +32,12 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
     protected $messagePayloads;
 
     public function __construct(
-        string $type = null,
         StagedOrder $preview = null,
         MessagePayloadCollection $messagePayloads = null
     ) {
-        $this->type = $type;
         $this->preview = $preview;
         $this->messagePayloads = $messagePayloads;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -91,11 +90,6 @@ final class OrderEditPreviewSuccessModel extends JsonObjectModel implements Orde
         }
 
         return $this->messagePayloads;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setPreview(?StagedOrder $preview): void

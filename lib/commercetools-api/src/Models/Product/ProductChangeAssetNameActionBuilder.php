@@ -20,11 +20,6 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $assetId;
 
     /**
@@ -51,18 +46,6 @@ final class ProductChangeAssetNameActionBuilder implements Builder
      * @var ?string
      */
     private $assetKey;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -110,16 +93,6 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     public function getAssetKey()
     {
         return $this->assetKey;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -195,7 +168,6 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     public function build(): ProductChangeAssetNameAction
     {
         return new ProductChangeAssetNameActionModel(
-            $this->action,
             $this->assetId,
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             $this->staged,

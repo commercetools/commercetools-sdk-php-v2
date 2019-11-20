@@ -25,10 +25,6 @@ final class ItemShippingTargetBuilder implements Builder
      */
     private $addressKey;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

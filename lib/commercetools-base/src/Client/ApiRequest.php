@@ -39,7 +39,6 @@ class ApiRequest extends Request
     }
 
     /**
-     * @param string $parameterName
      * @psalm-param scalar $value
      *
      * @param mixed $value
@@ -75,8 +74,6 @@ class ApiRequest extends Request
     }
 
     /**
-     * @param array $options
-     *
      * @throws InvalidArgumentException
      * @throws GuzzleException
      *
@@ -102,11 +99,7 @@ class ApiRequest extends Request
      * @psalm-param string|string[] $defaultValue
      * @psalm-return array<string, scalar|scalar[]>
      *
-     * @param array        $headers
-     * @param string       $header
      * @param array|scalar $defaultValue
-     *
-     * @return array
      */
     protected function ensureHeader(array $headers, string $header, $defaultValue): array
     {

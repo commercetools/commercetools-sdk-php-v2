@@ -30,10 +30,6 @@ final class ImportSinkDraftBuilder implements Builder
      */
     private $resourceType;
 
-    public function __construct()
-    {
-    }
-
     /**
      * <p>The version of this resource.</p>.
      *

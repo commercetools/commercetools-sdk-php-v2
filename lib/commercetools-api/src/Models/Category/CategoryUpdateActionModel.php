@@ -49,9 +49,7 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
     ];
 
     public function __construct(
-        string $action = null
     ) {
-        $this->action = $action;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -70,11 +68,6 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
         }
 
         return $this->action;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     /**

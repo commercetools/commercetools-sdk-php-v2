@@ -18,29 +18,12 @@ final class OrderSetDeliveryItemsActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $deliveryId;
 
     /**
      * @var ?DeliveryItemCollection
      */
     private $items;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class OrderSetDeliveryItemsActionBuilder implements Builder
     public function getItems()
     {
         return $this->items;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class OrderSetDeliveryItemsActionBuilder implements Builder
     public function build(): OrderSetDeliveryItemsAction
     {
         return new OrderSetDeliveryItemsActionModel(
-            $this->action,
             $this->deliveryId,
             $this->items
         );

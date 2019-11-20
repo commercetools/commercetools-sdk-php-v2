@@ -28,11 +28,10 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
     protected $review;
 
     public function __construct(
-        string $type = null,
         Review $review = null
     ) {
-        $this->type = $type;
         $this->review = $review;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class ReviewCreatedMessagePayloadModel extends JsonObjectModel implements 
         }
 
         return $this->review;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setReview(?Review $review): void

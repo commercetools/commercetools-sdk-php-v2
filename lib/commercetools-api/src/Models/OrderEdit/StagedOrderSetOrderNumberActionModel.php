@@ -26,11 +26,10 @@ final class StagedOrderSetOrderNumberActionModel extends JsonObjectModel impleme
     protected $orderNumber;
 
     public function __construct(
-        string $action = null,
         string $orderNumber = null
     ) {
-        $this->action = $action;
         $this->orderNumber = $orderNumber;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -65,11 +64,6 @@ final class StagedOrderSetOrderNumberActionModel extends JsonObjectModel impleme
         }
 
         return $this->orderNumber;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setOrderNumber(?string $orderNumber): void

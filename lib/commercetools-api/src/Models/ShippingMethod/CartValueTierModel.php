@@ -38,15 +38,14 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
     protected $isMatching;
 
     public function __construct(
-        string $type = null,
         int $minimumCentAmount = null,
         Money $price = null,
         bool $isMatching = null
     ) {
-        $this->type = $type;
         $this->minimumCentAmount = $minimumCentAmount;
         $this->price = $price;
         $this->isMatching = $isMatching;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class CartValueTierModel extends JsonObjectModel implements CartValueTier
         }
 
         return $this->isMatching;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setMinimumCentAmount(?int $minimumCentAmount): void

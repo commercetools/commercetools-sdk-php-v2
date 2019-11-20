@@ -55,19 +55,18 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
     protected $taxCategory;
 
     public function __construct(
-        string $action = null,
         ShippingRateDraft $shippingRate = null,
         ExternalTaxRateDraft $externalTaxRate = null,
         Address $address = null,
         string $shippingMethodName = null,
         TaxCategoryResourceIdentifier $taxCategory = null
     ) {
-        $this->action = $action;
         $this->shippingRate = $shippingRate;
         $this->externalTaxRate = $externalTaxRate;
         $this->address = $address;
         $this->shippingMethodName = $shippingMethodName;
         $this->taxCategory = $taxCategory;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -174,11 +173,6 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionModel exte
         }
 
         return $this->taxCategory;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShippingRate(?ShippingRateDraft $shippingRate): void

@@ -110,7 +110,6 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $type = null,
         string $deliveryId = null,
         DeliveryItemCollection $oldItems = null,
         DeliveryItemCollection $items = null,
@@ -126,11 +125,11 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->type = $type;
         $this->deliveryId = $deliveryId;
         $this->oldItems = $oldItems;
         $this->items = $items;
         $this->parcelId = $parcelId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -448,11 +447,6 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setDeliveryId(?string $deliveryId): void

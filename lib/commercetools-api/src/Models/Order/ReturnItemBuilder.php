@@ -52,15 +52,6 @@ final class ReturnItemBuilder implements Builder
     private $paymentState;
 
     /**
-     * @var ?string
-     */
-    private $type;
-
-    public function __construct()
-    {
-    }
-
-    /**
      * @return null|string
      */
     public function getShipmentState()
@@ -114,14 +105,6 @@ final class ReturnItemBuilder implements Builder
     public function getPaymentState()
     {
         return $this->paymentState;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 
     /**
@@ -194,16 +177,6 @@ final class ReturnItemBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
     public function build(): ReturnItem
     {
         return new ReturnItemModel(
@@ -213,8 +186,7 @@ final class ReturnItemBuilder implements Builder
             $this->quantity,
             $this->comment,
             $this->id,
-            $this->paymentState,
-            $this->type
+            $this->paymentState
         );
     }
 

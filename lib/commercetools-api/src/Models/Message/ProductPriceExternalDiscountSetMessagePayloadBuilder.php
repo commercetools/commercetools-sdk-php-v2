@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var DiscountedPrice|?DiscountedPriceBuilder
      */
     private $discounted;
@@ -51,18 +46,6 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
      * @var ?string
      */
     private $variantKey;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|DiscountedPrice
@@ -110,16 +93,6 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     public function getVariantKey()
     {
         return $this->variantKey;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -195,7 +168,6 @@ final class ProductPriceExternalDiscountSetMessagePayloadBuilder implements Buil
     public function build(): ProductPriceExternalDiscountSetMessagePayload
     {
         return new ProductPriceExternalDiscountSetMessagePayloadModel(
-            $this->type,
             ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
             $this->staged,
             $this->variantId,

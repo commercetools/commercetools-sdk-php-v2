@@ -35,15 +35,14 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
     protected $newState;
 
     public function __construct(
-        string $code = null,
         string $message = null,
         string $currentState = null,
         string $newState = null
     ) {
-        $this->code = $code;
         $this->message = $message;
         $this->currentState = $currentState;
         $this->newState = $newState;
+        $this->code = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -118,11 +117,6 @@ final class InvalidStateTransitionErrorModel extends JsonObjectModel implements 
         }
 
         return $this->newState;
-    }
-
-    public function setCode(?string $code): void
-    {
-        $this->code = $code;
     }
 
     public function setMessage(?string $message): void

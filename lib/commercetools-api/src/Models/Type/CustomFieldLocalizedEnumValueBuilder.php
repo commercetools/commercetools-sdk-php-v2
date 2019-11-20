@@ -27,10 +27,6 @@ final class CustomFieldLocalizedEnumValueBuilder implements Builder
      */
     private $key;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|LocalizedString
      */

@@ -41,10 +41,6 @@ final class MyPaymentDraftBuilder implements Builder
      */
     private $transaction;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|PaymentMethodInfo
      */

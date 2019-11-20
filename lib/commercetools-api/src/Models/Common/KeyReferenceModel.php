@@ -34,10 +34,8 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     ];
 
     public function __construct(
-        string $typeId = null,
         string $key = null
     ) {
-        $this->typeId = $typeId;
         $this->key = $key;
         $this->typeId = static::DISCRIMINATOR_VALUE;
     }
@@ -74,11 +72,6 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
         }
 
         return $this->key;
-    }
-
-    public function setTypeId(?string $typeId): void
-    {
-        $this->typeId = $typeId;
     }
 
     public function setKey(?string $key): void

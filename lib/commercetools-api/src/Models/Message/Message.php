@@ -96,7 +96,5 @@ interface Message extends LoggedResource
 
     public function setResourceVersion(?int $resourceVersion): void;
 
-    public function setType(?string $type): void;
-
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void;
 }

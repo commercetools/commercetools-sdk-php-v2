@@ -48,17 +48,16 @@ final class StagedOrderSetCustomShippingMethodActionModel extends JsonObjectMode
     protected $taxCategory;
 
     public function __construct(
-        string $action = null,
         ShippingRateDraft $shippingRate = null,
         ExternalTaxRateDraft $externalTaxRate = null,
         string $shippingMethodName = null,
         TaxCategoryResourceIdentifier $taxCategory = null
     ) {
-        $this->action = $action;
         $this->shippingRate = $shippingRate;
         $this->externalTaxRate = $externalTaxRate;
         $this->shippingMethodName = $shippingMethodName;
         $this->taxCategory = $taxCategory;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -147,11 +146,6 @@ final class StagedOrderSetCustomShippingMethodActionModel extends JsonObjectMode
         }
 
         return $this->taxCategory;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setShippingRate(?ShippingRateDraft $shippingRate): void

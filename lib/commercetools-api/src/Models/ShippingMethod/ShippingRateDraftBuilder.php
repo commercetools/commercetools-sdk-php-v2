@@ -32,10 +32,6 @@ final class ShippingRateDraftBuilder implements Builder
      */
     private $freeAbove;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ShippingRatePriceTierCollection
      */

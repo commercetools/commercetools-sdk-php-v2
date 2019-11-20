@@ -55,11 +55,9 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     ];
 
     public function __construct(
-        string $name = null,
-        string $type = null
+        string $name = null
     ) {
         $this->name = $name;
-        $this->type = $type;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -104,11 +102,6 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     public function setName(?string $name): void
     {
         $this->name = $name;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     /**

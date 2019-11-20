@@ -22,11 +22,6 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
-
-    /**
-     * @var ?string
-     */
     private $message;
 
     /**
@@ -58,18 +53,6 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
      * @var ?int
      */
     private $variantId;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
 
     /**
      * @return null|string
@@ -125,16 +108,6 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     public function getVariantId()
     {
         return $this->variantId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCode(?string $code)
-    {
-        $this->code = $code;
-
-        return $this;
     }
 
     /**
@@ -230,7 +203,6 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     public function build(): MatchingPriceNotFoundError
     {
         return new MatchingPriceNotFoundErrorModel(
-            $this->code,
             $this->message,
             $this->country,
             $this->productId,

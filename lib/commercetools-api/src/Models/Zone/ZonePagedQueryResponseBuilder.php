@@ -40,10 +40,6 @@ final class ZonePagedQueryResponseBuilder implements Builder
      */
     private $results;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|int
      */

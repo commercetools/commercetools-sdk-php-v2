@@ -31,13 +31,12 @@ final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectMo
     protected $attributeName;
 
     public function __construct(
-        string $action = null,
         AttributePlainEnumValueCollection $values = null,
         string $attributeName = null
     ) {
-        $this->action = $action;
         $this->values = $values;
         $this->attributeName = $attributeName;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -89,11 +88,6 @@ final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectMo
         }
 
         return $this->attributeName;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setValues(?AttributePlainEnumValueCollection $values): void

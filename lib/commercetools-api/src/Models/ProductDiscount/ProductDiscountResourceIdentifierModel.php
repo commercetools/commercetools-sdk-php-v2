@@ -31,13 +31,12 @@ final class ProductDiscountResourceIdentifierModel extends JsonObjectModel imple
     protected $key;
 
     public function __construct(
-        string $typeId = null,
         string $id = null,
         string $key = null
     ) {
-        $this->typeId = $typeId;
         $this->id = $id;
         $this->key = $key;
+        $this->typeId = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -89,11 +88,6 @@ final class ProductDiscountResourceIdentifierModel extends JsonObjectModel imple
         }
 
         return $this->key;
-    }
-
-    public function setTypeId(?string $typeId): void
-    {
-        $this->typeId = $typeId;
     }
 
     public function setId(?string $id): void

@@ -38,15 +38,14 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     protected $variantId;
 
     public function __construct(
-        string $type = null,
         Image $image = null,
         bool $staged = null,
         int $variantId = null
     ) {
-        $this->type = $type;
         $this->image = $image;
         $this->staged = $staged;
         $this->variantId = $variantId;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -116,11 +115,6 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
         }
 
         return $this->variantId;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setImage(?Image $image): void

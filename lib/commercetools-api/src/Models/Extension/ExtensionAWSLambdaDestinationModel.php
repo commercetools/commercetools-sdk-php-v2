@@ -35,15 +35,14 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     protected $accessSecret;
 
     public function __construct(
-        string $type = null,
         string $accessKey = null,
         string $arn = null,
         string $accessSecret = null
     ) {
-        $this->type = $type;
         $this->accessKey = $accessKey;
         $this->arn = $arn;
         $this->accessSecret = $accessSecret;
+        $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -112,11 +111,6 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
         }
 
         return $this->accessSecret;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
     }
 
     public function setAccessKey(?string $accessKey): void

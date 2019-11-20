@@ -28,11 +28,10 @@ final class CartAddPaymentActionModel extends JsonObjectModel implements CartAdd
     protected $payment;
 
     public function __construct(
-        string $action = null,
         PaymentResourceIdentifier $payment = null
     ) {
-        $this->action = $action;
         $this->payment = $payment;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -68,11 +67,6 @@ final class CartAddPaymentActionModel extends JsonObjectModel implements CartAdd
         }
 
         return $this->payment;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setPayment(?PaymentResourceIdentifier $payment): void

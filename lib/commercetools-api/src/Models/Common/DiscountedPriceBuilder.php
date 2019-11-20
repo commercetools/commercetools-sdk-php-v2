@@ -27,10 +27,6 @@ final class DiscountedPriceBuilder implements Builder
      */
     private $value;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|ProductDiscountReference
      */

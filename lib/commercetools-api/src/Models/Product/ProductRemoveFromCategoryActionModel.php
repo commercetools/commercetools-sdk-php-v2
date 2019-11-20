@@ -33,13 +33,12 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     protected $category;
 
     public function __construct(
-        string $action = null,
         bool $staged = null,
         CategoryResourceIdentifier $category = null
     ) {
-        $this->action = $action;
         $this->staged = $staged;
         $this->category = $category;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -92,11 +91,6 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
         }
 
         return $this->category;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setStaged(?bool $staged): void

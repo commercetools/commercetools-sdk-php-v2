@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductSetSkuActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?bool
      */
     private $staged;
@@ -34,18 +29,6 @@ final class ProductSetSkuActionBuilder implements Builder
      * @var ?string
      */
     private $sku;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|bool
@@ -69,16 +52,6 @@ final class ProductSetSkuActionBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -114,7 +87,6 @@ final class ProductSetSkuActionBuilder implements Builder
     public function build(): ProductSetSkuAction
     {
         return new ProductSetSkuActionModel(
-            $this->action,
             $this->staged,
             $this->variantId,
             $this->sku

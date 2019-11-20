@@ -19,11 +19,6 @@ final class StagedOrderSetLineItemCustomFieldActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $action;
-
-    /**
-     * @var ?string
-     */
     private $lineItemId;
 
     /**
@@ -35,18 +30,6 @@ final class StagedOrderSetLineItemCustomFieldActionBuilder implements Builder
      * @var ?JsonObject
      */
     private $value;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|string
@@ -70,16 +53,6 @@ final class StagedOrderSetLineItemCustomFieldActionBuilder implements Builder
     public function getValue()
     {
         return $this->value;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -115,7 +88,6 @@ final class StagedOrderSetLineItemCustomFieldActionBuilder implements Builder
     public function build(): StagedOrderSetLineItemCustomFieldAction
     {
         return new StagedOrderSetLineItemCustomFieldActionModel(
-            $this->action,
             $this->lineItemId,
             $this->name,
             $this->value

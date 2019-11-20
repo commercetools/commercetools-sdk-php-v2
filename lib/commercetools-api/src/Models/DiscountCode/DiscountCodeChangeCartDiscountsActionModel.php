@@ -27,11 +27,10 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
     protected $cartDiscounts;
 
     public function __construct(
-        string $action = null,
         CartDiscountResourceIdentifierCollection $cartDiscounts = null
     ) {
-        $this->action = $action;
         $this->cartDiscounts = $cartDiscounts;
+        $this->action = static::DISCRIMINATOR_VALUE;
     }
 
     /**
@@ -66,11 +65,6 @@ final class DiscountCodeChangeCartDiscountsActionModel extends JsonObjectModel i
         }
 
         return $this->cartDiscounts;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 
     public function setCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts): void

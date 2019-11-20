@@ -18,29 +18,12 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
     private $oldEmail;
 
     /**
      * @var ?string
      */
     private $email;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|string
@@ -56,16 +39,6 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -91,7 +64,6 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     public function build(): OrderCustomerEmailSetMessagePayload
     {
         return new OrderCustomerEmailSetMessagePayloadModel(
-            $this->type,
             $this->oldEmail,
             $this->email
         );

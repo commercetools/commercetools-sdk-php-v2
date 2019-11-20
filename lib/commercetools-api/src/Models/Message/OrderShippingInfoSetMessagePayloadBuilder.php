@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
      * @var ShippingInfo|?ShippingInfoBuilder
      */
     private $shippingInfo;
@@ -31,18 +26,6 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
      * @var ShippingInfo|?ShippingInfoBuilder
      */
     private $oldShippingInfo;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
 
     /**
      * @return null|ShippingInfo
@@ -58,16 +41,6 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
     public function getOldShippingInfo()
     {
         return $this->oldShippingInfo instanceof ShippingInfoBuilder ? $this->oldShippingInfo->build() : $this->oldShippingInfo;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
     /**
@@ -113,7 +86,6 @@ final class OrderShippingInfoSetMessagePayloadBuilder implements Builder
     public function build(): OrderShippingInfoSetMessagePayload
     {
         return new OrderShippingInfoSetMessagePayloadModel(
-            $this->type,
             ($this->shippingInfo instanceof ShippingInfoBuilder ? $this->shippingInfo->build() : $this->shippingInfo),
             ($this->oldShippingInfo instanceof ShippingInfoBuilder ? $this->oldShippingInfo->build() : $this->oldShippingInfo)
         );

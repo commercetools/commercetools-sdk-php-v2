@@ -16,26 +16,9 @@ use Commercetools\Base\Builder;
 final class StateAddRolesActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $action;
-
-    /**
      * @var ?array
      */
     private $roles;
-
-    public function __construct()
-    {
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
 
     /**
      * @return null|array
@@ -43,16 +26,6 @@ final class StateAddRolesActionBuilder implements Builder
     public function getRoles()
     {
         return $this->roles;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAction(?string $action)
-    {
-        $this->action = $action;
-
-        return $this;
     }
 
     /**
@@ -68,7 +41,6 @@ final class StateAddRolesActionBuilder implements Builder
     public function build(): StateAddRolesAction
     {
         return new StateAddRolesActionModel(
-            $this->action,
             $this->roles
         );
     }

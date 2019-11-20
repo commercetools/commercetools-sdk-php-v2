@@ -27,10 +27,6 @@ final class DiscountedLineItemPriceBuilder implements Builder
      */
     private $value;
 
-    public function __construct()
-    {
-    }
-
     /**
      * @return null|DiscountedLineItemPortionCollection
      */
