@@ -7,7 +7,7 @@ declare(strict_types = 1);
 namespace Commercetools\Import\Test\Client\Resource;
 
 use PHPUnit\Framework\TestCase;
-use Commercetools\Import\Client\ApiRoot;
+use Commercetools\Import\Client\ImportRoot;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItems;
 use Psr\Http\Message\RequestInterface;
 
@@ -17,7 +17,7 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsTest ex
     {
         return [
             'ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsGet_withLimit' => [
-                function(ApiRoot $builder): RequestInterface {
+                function(ImportRoot $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue("projectKey")
                         ->products()
@@ -30,7 +30,7 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsTest ex
                 '{projectKey}/products/importSinkKey={importSinkKey}/import-items?limit=limit',
             ],
             'ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsGet_withOffset' => [
-                function(ApiRoot $builder): RequestInterface {
+                function(ImportRoot $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue("projectKey")
                         ->products()
@@ -43,7 +43,7 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsTest ex
                 '{projectKey}/products/importSinkKey={importSinkKey}/import-items?offset=offset',
             ],
             'ByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsGet' => [
-                function(ApiRoot $builder): RequestInterface {
+                function(ImportRoot $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue("projectKey")
                         ->products()
@@ -62,7 +62,7 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyImportItemsTest ex
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ImportRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());

@@ -7,7 +7,7 @@ declare(strict_types = 1);
 namespace Commercetools\Import\Test\Client\Resource;
 
 use PHPUnit\Framework\TestCase;
-use Commercetools\Import\Client\ApiRoot;
+use Commercetools\Import\Client\ImportRoot;
 use Commercetools\Import\Client\Resource\ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyResourceKeyByResourceKey;
 use Psr\Http\Message\RequestInterface;
 
@@ -17,7 +17,7 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyResourceKeyByResou
     {
         return [
             'ByProjectKeyProductsImportSinkKeyByImportSinkKeyResourceKeyByResourceKeyDelete' => [
-                function(ApiRoot $builder): RequestInterface {
+                function(ImportRoot $builder): RequestInterface {
                     return $builder
                         ->withProjectKeyValue("projectKey")
                         ->products()
@@ -36,7 +36,7 @@ class ResourceByProjectKeyProductsImportSinkKeyByImportSinkKeyResourceKeyByResou
      */
     public function testBuilder(callable $builderFunction, string $method, string $relativeUri, string $body = null)
     {
-        $builder = new ApiRoot();
+        $builder = new ImportRoot();
         $request = $builderFunction($builder);
         $this->assertSame(strtolower($method), strtolower($request->getMethod()));
         $this->assertStringContainsString(str_replace(['{', '}'], '', $relativeUri), (string)$request->getUri());

@@ -12,7 +12,7 @@ use Commercetools\Client\ApiResource;
 use Commercetools\Import\Client\Resource\ResourceByProjectKey;
 use GuzzleHttp\Client;
 
-class ApiRoot extends ApiResource
+class ImportRoot extends ApiResource
 {
     /**
      * @psalm-param array<string, scalar> $args
