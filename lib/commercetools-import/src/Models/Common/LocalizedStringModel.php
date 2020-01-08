@@ -26,7 +26,7 @@ final class LocalizedStringModel extends JsonObjectModel implements LocalizedStr
             return null;
         }
         if (1 === preg_match(LocalizedString::FIELD_PATTERN0, $key)) {
-            // @psalm-var scalar $data
+            /** @psalm-var scalar $data */
             return (string) $data;
         }
 

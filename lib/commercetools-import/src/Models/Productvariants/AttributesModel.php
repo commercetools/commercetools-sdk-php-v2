@@ -27,7 +27,7 @@ final class AttributesModel extends JsonObjectModel implements Attributes
             return null;
         }
         if (1 === preg_match(Attributes::FIELD_PATTERN0, $key)) {
-            // @psalm-var stdClass $data
+            /** @psalm-var stdClass $data */
             return JsonObjectModel::of($data);
         }
 

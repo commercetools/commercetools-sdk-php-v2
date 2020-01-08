@@ -66,14 +66,14 @@ final class ProjectUpdateActionModel extends JsonObjectModel implements ProjectU
     {
         $fieldName = ProjectUpdateAction::DISCRIMINATOR_FIELD;
         if (is_object($value) && isset($value->{$fieldName})) {
-            /** @var string $discriminatorValue */
+            /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value->{$fieldName};
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
         }
         if (is_array($value) && isset($value[$fieldName])) {
-            /** @var string $discriminatorValue */
+            /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value[$fieldName];
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];

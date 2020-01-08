@@ -17,7 +17,7 @@ class ClientCredentialsConfig extends AuthConfig implements BaseClientCredential
 
     const GRANT_TYPE = 'client_credentials';
 
-    /** @var ClientCredentials */
+    /** @psalm-var ClientCredentials */
     private $credentials;
 
     public function __construct(ClientCredentials $credentials, array $clientOptions = [], string $authUri = self::AUTH_URI)

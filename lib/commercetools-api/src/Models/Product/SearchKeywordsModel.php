@@ -27,7 +27,7 @@ final class SearchKeywordsModel extends JsonObjectModel implements SearchKeyword
             return null;
         }
         if (1 === preg_match(SearchKeywords::FIELD_PATTERN0, $key)) {
-            // @psalm-var array<int, stdClass> $data
+            /** @psalm-var array<int, stdClass> $data */
             return new SearchKeywordCollection($data);
         }
 

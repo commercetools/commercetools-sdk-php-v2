@@ -22,7 +22,7 @@ class JsonObjectModel extends BaseJsonObject implements JsonObject
             return JsonObjectModel::of($data);
         }
         if (is_array($data) && isset($data[0]) && $data[0] instanceof stdClass) {
-            // @psalm-var ?array<int, stdClass> $data
+            /** @psalm-var ?array<int, stdClass> $data */
             return new JsonObjectCollection($data);
         }
 

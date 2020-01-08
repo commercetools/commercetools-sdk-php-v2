@@ -81,14 +81,14 @@ final class ShoppingListUpdateActionModel extends JsonObjectModel implements Sho
     {
         $fieldName = ShoppingListUpdateAction::DISCRIMINATOR_FIELD;
         if (is_object($value) && isset($value->{$fieldName})) {
-            /** @var string $discriminatorValue */
+            /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value->{$fieldName};
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
         }
         if (is_array($value) && isset($value[$fieldName])) {
-            /** @var string $discriminatorValue */
+            /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value[$fieldName];
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];

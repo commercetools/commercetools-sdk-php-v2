@@ -15,9 +15,9 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
 {
     /** @psalm-var ?array<int, TScalar|scalar> */
     private $data;
-    /** @var array<string, array<string, int>> */
+    /** @psalm-var array<string, array<string, int>> */
     private $indexes = [];
-    /** @var MapperIterator */
+    /** @psalm-var MapperIterator */
     private $iterator;
 
     /**
@@ -91,10 +91,13 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
      */
     public function current()
     {
-        /** @psalm-var ?TScalar $current  */
+        /** @psalm-var ?TScalar */
         return $this->iterator->current();
     }
 
+    /**
+     * @return void
+     */
     public function next()
     {
         $this->iterator->next();
@@ -105,7 +108,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
      */
     public function key()
     {
-        /** @var int $key */
+        /** @psalm-var int */
         return $this->iterator->key();
     }
 
@@ -117,6 +120,9 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
         return $this->iterator->valid();
     }
 
+    /**
+     * @return void
+     */
     public function rewind()
     {
         $this->iterator->rewind();
@@ -147,6 +153,8 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
      * @psalm-param TScalar|scalar $value
      *
      * @param mixed $value
+     *
+     * @return void
      */
     public function offsetSet($offset, $value)
     {
@@ -156,11 +164,13 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
 
     /**
      * @param int $offset
+     *
+     * @return void
      */
     public function offsetUnset($offset)
     {
         if ($this->offsetExists($offset)) {
-            // @psalm-suppress PossiblyNullArrayAccess
+            /** @psalm-suppress PossiblyNullArrayAccess */
             unset($this->data[$offset]);
             $this->iterator = $this->getIterator();
         }

@@ -17,9 +17,9 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
 {
     /** @psalm-var ?array<string, TObject|stdClass> */
     private $data;
-    /** @var array<string, array<string, string>> */
+    /** @psalm-var array<string, array<string, string>> */
     private $indexes = [];
-    /** @var MapperIterator */
+    /** @psalm-var MapperIterator */
     private $iterator;
 
     /**
@@ -47,7 +47,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
         if (is_array($data)) {
             return self::fromArray($data);
         }
-        // @var stdClass $data)
+        /** @psalm-var stdClass $data) */
         return self::fromStdClass($data);
     }
 
@@ -73,7 +73,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
      */
     final public static function fromStdClass(stdClass $data = null)
     {
-        /** @var array<string, stdClass|TObject> $t */
+        /** @psalm-var array<string, TObject|stdClass> $t */
         $t = (array) $data;
 
         return new static($t);
@@ -128,10 +128,13 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
      */
     public function current()
     {
-        /** @psalm-var ?TObject $current  */
+        /** @psalm-var ?TObject */
         return $this->iterator->current();
     }
 
+    /**
+     * @return void
+     */
     public function next()
     {
         $this->iterator->next();
@@ -142,7 +145,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
      */
     public function key()
     {
-        /** @var string $key */
+        /** @psalm-var string */
         return $this->iterator->key();
     }
 
@@ -154,6 +157,9 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
         return $this->iterator->valid();
     }
 
+    /**
+     * @return void
+     */
     public function rewind()
     {
         $this->iterator->rewind();
@@ -184,6 +190,8 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
      * @psalm-param TObject|stdClass $value
      *
      * @param mixed $value
+     *
+     * @return void
      */
     public function offsetSet($offset, $value)
     {
@@ -192,11 +200,13 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
 
     /**
      * @param string $offset
+     *
+     * @return void
      */
     public function offsetUnset($offset)
     {
         if ($this->offsetExists($offset)) {
-            // @psalm-suppress PossiblyNullArrayAccess
+            /** @psalm-suppress PossiblyNullArrayAccess */
             unset($this->data[$offset]);
             $this->iterator = $this->getIterator();
         }

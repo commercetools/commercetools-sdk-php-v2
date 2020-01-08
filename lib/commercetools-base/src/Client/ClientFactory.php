@@ -64,6 +64,7 @@ class ClientFactory
 
     /**
      * @throws InvalidArgumentException
+     * @psalm-param array<int|string, callable> $middlewares
      */
     private function createGuzzle6Client(array $options, array $middlewares = []): HttpClient
     {
@@ -84,10 +85,6 @@ class ClientFactory
             ],
             $options
         );
-        /**
-         * @var string
-         * @var callable $middleware
-         */
         foreach ($middlewares as $key => $middleware) {
             if (!is_callable($middleware)) {
                 throw new InvalidArgumentException('Middleware isn\'t callable');

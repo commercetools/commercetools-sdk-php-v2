@@ -12,7 +12,7 @@ class PreAuthTokenProvider implements TokenProvider
 {
     const TOKEN = 'token';
 
-    /** @var Token */
+    /** @psalm-var Token */
     private $token;
 
     public function __construct(Token $token)

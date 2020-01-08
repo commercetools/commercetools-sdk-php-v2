@@ -14,15 +14,15 @@ class Config implements BaseConfig
 {
     const API_URI = 'https://import.commercetools.com';
 
-    /** @var string */
+    /** @psalm-var string */
     private $apiUri;
 
-    /** @var array */
+    /** @psalm-var array */
     private $clientOptions;
 
     public function __construct(array $clientOptions = [], string $baseUri = null)
     {
-        /** @var string $apiUri */
+        /** @psalm-var string $apiUri */
         $apiUri = $baseUri ?? static::API_URI;
         $this->apiUri = $apiUri;
         $this->clientOptions = $clientOptions;

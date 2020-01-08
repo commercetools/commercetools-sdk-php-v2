@@ -12,7 +12,7 @@ use stdClass;
 
 abstract class BaseJsonObject implements JsonObject
 {
-    /** @var ?stdClass */
+    /** @psalm-var ?stdClass */
     private $rawData;
 
     /**
@@ -65,7 +65,7 @@ abstract class BaseJsonObject implements JsonObject
     final protected function raw(string $field)
     {
         if (isset($this->rawData->{$field})) {
-            /*
+            /**
              * @psalm-suppress PossiblyNullPropertyFetch
              * @psalm-var scalar|array<int, mixed>|array<string, mixed>|stdClass|null
              */

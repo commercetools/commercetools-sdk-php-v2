@@ -10,10 +10,10 @@ namespace Commercetools\Client;
 
 class TokenModel implements Token
 {
-    /** @var string */
+    /** @psalm-var string */
     private $value;
 
-    /** @var int */
+    /** @psalm-var int */
     private $expiresIn;
 
     public function __construct(string $value, int $expiresIn = null)

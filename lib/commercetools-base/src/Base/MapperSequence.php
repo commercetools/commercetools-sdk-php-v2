@@ -17,9 +17,9 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
 {
     /** @psalm-var ?array<int, TObject|stdClass> */
     private $data;
-    /** @var array<string, array<string, int>> */
+    /** @psalm-var array<string, array<string, int>> */
     private $indexes = [];
-    /** @var MapperIterator */
+    /** @psalm-var MapperIterator */
     private $iterator;
 
     /**
@@ -93,10 +93,13 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
      */
     public function current()
     {
-        /** @psalm-var ?TObject $current  */
+        /** @psalm-var ?TObject */
         return $this->iterator->current();
     }
 
+    /**
+     * @return void
+     */
     public function next()
     {
         $this->iterator->next();
@@ -107,7 +110,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
      */
     public function key()
     {
-        /** @var int $key */
+        /** @psalm-var int */
         return $this->iterator->key();
     }
 
@@ -119,6 +122,9 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
         return $this->iterator->valid();
     }
 
+    /**
+     * @return void
+     */
     public function rewind()
     {
         $this->iterator->rewind();
@@ -149,6 +155,8 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
      * @psalm-param TObject|stdClass $value
      *
      * @param mixed $value
+     *
+     * @return void
      */
     public function offsetSet($offset, $value)
     {
@@ -158,11 +166,13 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
 
     /**
      * @param int $offset
+     *
+     * @return void
      */
     public function offsetUnset($offset)
     {
         if ($this->offsetExists($offset)) {
-            // @psalm-suppress PossiblyNullArrayAccess
+            /** @psalm-suppress PossiblyNullArrayAccess */
             unset($this->data[$offset]);
             $this->iterator = $this->getIterator();
         }

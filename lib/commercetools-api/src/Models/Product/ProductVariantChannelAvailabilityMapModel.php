@@ -27,7 +27,7 @@ final class ProductVariantChannelAvailabilityMapModel extends JsonObjectModel im
             return null;
         }
         if (1 === preg_match(ProductVariantChannelAvailabilityMap::FIELD_PATTERN0, $key)) {
-            // @psalm-var stdClass|array<string, mixed> $data
+            /** @psalm-var stdClass|array<string, mixed> $data */
 
             return ProductVariantChannelAvailabilityModel::of($data);
         }

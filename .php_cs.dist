@@ -1,0 +1,17 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->in('lib/commercetools-api/src')
+    ->in('lib/commercetools-base/src')
+    ->in('lib/commercetools-import/src')
+    ;
+
+return PhpCsFixer\Config::create()
+    ->setUsingCache(false)
+    ->setRules([
+        '@PhpCsFixer' => true,
+        'phpdoc_to_comment' => false,
+        'phpdoc_no_empty_return' => false,
+    ])
+    ->setFinder($finder)
+;

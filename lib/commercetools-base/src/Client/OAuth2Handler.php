@@ -12,7 +12,7 @@ use Psr\Http\Message\RequestInterface;
 
 class OAuth2Handler
 {
-    /** @var TokenProvider */
+    /** @psalm-var TokenProvider */
     private $provider;
 
     /**

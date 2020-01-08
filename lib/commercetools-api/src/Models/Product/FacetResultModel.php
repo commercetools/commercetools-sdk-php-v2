@@ -61,14 +61,14 @@ final class FacetResultModel extends JsonObjectModel implements FacetResult
     {
         $fieldName = FacetResult::DISCRIMINATOR_FIELD;
         if (is_object($value) && isset($value->{$fieldName})) {
-            /** @var string $discriminatorValue */
+            /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value->{$fieldName};
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
         }
         if (is_array($value) && isset($value[$fieldName])) {
-            /** @var string $discriminatorValue */
+            /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value[$fieldName];
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];

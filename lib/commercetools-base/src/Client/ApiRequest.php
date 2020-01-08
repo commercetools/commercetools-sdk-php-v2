@@ -22,7 +22,7 @@ class ApiRequest extends Request
     private $queryParts;
     /** @psalm-var string */
     private $query;
-    /** @var null|Client */
+    /** @psalm-var Client|null */
     private $client;
 
     /**
@@ -48,7 +48,7 @@ class ApiRequest extends Request
     {
         $query = $this->getUri()->getQuery();
         if ($this->query !== $query) {
-            // @var array<string, scalar[]>
+            /** @psalm-var array<string, scalar[]> */
             $this->queryParts = array_map(
                 /**
                  * @psalm-param scalar|scalar[] $value

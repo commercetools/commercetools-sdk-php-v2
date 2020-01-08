@@ -27,7 +27,7 @@ final class SuggestionResultModel extends JsonObjectModel implements SuggestionR
             return null;
         }
         if (1 === preg_match(SuggestionResult::FIELD_PATTERN0, $key)) {
-            // @psalm-var array<int, stdClass> $data
+            /** @psalm-var array<int, stdClass> $data */
             return new SuggestionCollection($data);
         }
 

@@ -63,14 +63,14 @@ final class CartDiscountTargetModel extends JsonObjectModel implements CartDisco
     {
         $fieldName = CartDiscountTarget::DISCRIMINATOR_FIELD;
         if (is_object($value) && isset($value->{$fieldName})) {
-            /** @var string $discriminatorValue */
+            /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value->{$fieldName};
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];
             }
         }
         if (is_array($value) && isset($value[$fieldName])) {
-            /** @var string $discriminatorValue */
+            /** @psalm-var string $discriminatorValue */
             $discriminatorValue = $value[$fieldName];
             if (isset(static::$discriminatorClasses[$discriminatorValue])) {
                 return static::$discriminatorClasses[$discriminatorValue];

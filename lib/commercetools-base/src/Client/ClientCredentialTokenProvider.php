@@ -18,13 +18,13 @@ class ClientCredentialTokenProvider implements TokenProvider
     const ACCESS_TOKEN = 'access_token';
     const EXPIRES_IN = 'expires_in';
 
-    /** @var Client */
+    /** @psalm-var Client */
     private $client;
 
-    /** @var string */
+    /** @psalm-var string */
     private $accessTokenUrl;
 
-    /** @var ClientCredentials */
+    /** @psalm-var ClientCredentials */
     private $credentials;
 
     public function __construct(Client $client, string $accessTokenUrl, ClientCredentials $credentials)
@@ -49,7 +49,7 @@ class ClientCredentialTokenProvider implements TokenProvider
 
         $result = $this->client->post($this->accessTokenUrl, $options);
 
-        /** @var array $body */
+        /** @psalm-var array $body */
         $body = json_decode((string) $result->getBody(), true);
 
         return new TokenModel((string) $body[self::ACCESS_TOKEN], (int) $body[self::EXPIRES_IN]);

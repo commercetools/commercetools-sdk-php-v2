@@ -16,22 +16,22 @@ abstract class AuthConfig implements BaseAuthConfig
 
     const GRANT_TYPE = '';
 
-    /** @var string */
+    /** @psalm-var string */
     private $authUri;
 
-    /** @var array */
+    /** @psalm-var array */
     private $clientOptions;
 
     public function __construct(array $clientOptions = [], string $authUri = self::AUTH_URI)
     {
-        // @var string authUri
+        /** @psalm-var string authUri */
         $this->authUri = $authUri;
         $this->clientOptions = $clientOptions;
     }
 
     public function getGrantType(): string
     {
-        // @var string
+        /** @psalm-var string */
         return static::GRANT_TYPE;
     }
 

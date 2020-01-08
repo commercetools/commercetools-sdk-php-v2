@@ -16,13 +16,13 @@ class CachedTokenProvider implements TokenProvider
 {
     const TOKEN_CACHE_KEY = 'access_token';
 
-    /** @var TokenProvider */
+    /** @psalm-var TokenProvider */
     private $provider;
 
-    /** @var CacheInterface|CacheItemPoolInterface */
+    /** @psalm-var CacheItemPoolInterface|CacheInterface */
     private $cache;
 
-    /** @var string */
+    /** @psalm-var string */
     private $cacheKey;
 
     /**
@@ -84,7 +84,7 @@ class CachedTokenProvider implements TokenProvider
     {
         $cache = $this->cache;
         if ($cache instanceof CacheInterface) {
-            /** @var ?string $var */
+            /** @psalm-var ?string */
             return $cache->get($this->cacheKey, null);
         }
 

@@ -10,13 +10,13 @@ namespace Commercetools\Client;
 
 class ClientCredentials
 {
-    /** @var string */
+    /** @psalm-var string */
     private $clientId;
 
-    /** @var string */
+    /** @psalm-var string */
     private $clientSecret;
 
-    /** @var ?string */
+    /** @psalm-var ?string */
     private $scope;
 
     public function __construct(string $clientId, string $clientSecret, string $scope = null)

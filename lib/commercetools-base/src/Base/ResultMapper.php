@@ -45,7 +45,7 @@ class ResultMapper implements MapperInterface
         }
         $params = $constructor->getParameters();
 
-        /** @var array<int, mixed> $args */
+        /** @psalm-var array<int, mixed> $args */
         $args = array_map(
             function (ReflectionParameter $param) use ($data) {
                 return $data[$param->name] ?? null;
