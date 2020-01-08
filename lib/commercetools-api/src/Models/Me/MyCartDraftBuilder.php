@@ -23,9 +23,14 @@ use Commercetools\Base\Builder;
 final class MyCartDraftBuilder implements Builder
 {
     /**
-     * @var ?MyLineItemDraftCollection
+     * @var ?string
      */
-    private $lineItems;
+    private $currency;
+
+    /**
+     * @var ?string
+     */
+    private $customerEmail;
 
     /**
      * @var ?string
@@ -33,9 +38,39 @@ final class MyCartDraftBuilder implements Builder
     private $country;
 
     /**
-     * @var ?AddressCollection
+     * @var ?string
      */
-    private $itemShippingAddresses;
+    private $inventoryMode;
+
+    /**
+     * @var ?MyLineItemDraftCollection
+     */
+    private $lineItems;
+
+    /**
+     * @var Address|?AddressBuilder
+     */
+    private $shippingAddress;
+
+    /**
+     * @var Address|?AddressBuilder
+     */
+    private $billingAddress;
+
+    /**
+     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
+     */
+    private $shippingMethod;
+
+    /**
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
+     * @var ?string
+     */
+    private $locale;
 
     /**
      * @var ?string
@@ -48,99 +83,18 @@ final class MyCartDraftBuilder implements Builder
     private $deleteDaysAfterLastModification;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     * @var ?AddressCollection
      */
-    private $custom;
+    private $itemShippingAddresses;
 
     /**
-     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
-     */
-    private $shippingMethod;
-
-    /**
-     * @var ?string
-     */
-    private $customerEmail;
-
-    /**
-     * @var Address|?AddressBuilder
-     */
-    private $shippingAddress;
-
-    /**
-     * @var ?string
-     */
-    private $currency;
-
-    /**
-     * @var Address|?AddressBuilder
-     */
-    private $billingAddress;
-
-    /**
-     * @var ?string
-     */
-    private $locale;
-
-    /**
-     * @var ?string
-     */
-    private $inventoryMode;
-
-    /**
-     * @return null|MyLineItemDraftCollection
-     */
-    public function getLineItems()
-    {
-        return $this->lineItems;
-    }
-
-    /**
+     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
      * @return null|string
      */
-    public function getCountry()
+    public function getCurrency()
     {
-        return $this->country;
-    }
-
-    /**
-     * @return null|AddressCollection
-     */
-    public function getItemShippingAddresses()
-    {
-        return $this->itemShippingAddresses;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTaxMode()
-    {
-        return $this->taxMode;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getDeleteDaysAfterLastModification()
-    {
-        return $this->deleteDaysAfterLastModification;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|ShippingMethodResourceIdentifier
-     */
-    public function getShippingMethod()
-    {
-        return $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
+        return $this->currency;
     }
 
     /**
@@ -152,21 +106,39 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * <p>Default inventory mode is <code>None</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
+    }
+
+    /**
+     * @return null|MyLineItemDraftCollection
+     */
+    public function getLineItems()
+    {
+        return $this->lineItems;
+    }
+
+    /**
      * @return null|Address
      */
     public function getShippingAddress()
     {
         return $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress;
-    }
-
-    /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
-     *
-     * @return null|string
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
     }
 
     /**
@@ -178,6 +150,24 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * @return null|ShippingMethodResourceIdentifier
+     */
+    public function getShippingMethod()
+    {
+        return $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
      * @return null|string
      */
     public function getLocale()
@@ -186,19 +176,53 @@ final class MyCartDraftBuilder implements Builder
     }
 
     /**
+     * <p>The <code>TaxMode</code> <code>Disabled</code> can not be set on the My Carts endpoint.</p>.
+     *
      * @return null|string
      */
-    public function getInventoryMode()
+    public function getTaxMode()
     {
-        return $this->inventoryMode;
+        return $this->taxMode;
+    }
+
+    /**
+     * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
+     * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>.
+     *
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification()
+    {
+        return $this->deleteDaysAfterLastModification;
+    }
+
+    /**
+     * <p>Contains addresses for orders with multiple shipping addresses.
+     * Each address must contain a key which is unique in this cart.</p>.
+     *
+     * @return null|AddressCollection
+     */
+    public function getItemShippingAddresses()
+    {
+        return $this->itemShippingAddresses;
     }
 
     /**
      * @return $this
      */
-    public function withLineItems(?MyLineItemDraftCollection $lineItems)
+    public function withCurrency(?string $currency)
     {
-        $this->lineItems = $lineItems;
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomerEmail(?string $customerEmail)
+    {
+        $this->customerEmail = $customerEmail;
 
         return $this;
     }
@@ -216,9 +240,69 @@ final class MyCartDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
+    public function withInventoryMode(?string $inventoryMode)
     {
-        $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->inventoryMode = $inventoryMode;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLineItems(?MyLineItemDraftCollection $lineItems)
+    {
+        $this->lineItems = $lineItems;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingAddress(?Address $shippingAddress)
+    {
+        $this->shippingAddress = $shippingAddress;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withBillingAddress(?Address $billingAddress)
+    {
+        $this->billingAddress = $billingAddress;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
+    {
+        $this->shippingMethod = $shippingMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLocale(?string $locale)
+    {
+        $this->locale = $locale;
 
         return $this;
     }
@@ -246,99 +330,9 @@ final class MyCartDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustom(?CustomFieldsDraft $custom)
+    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
     {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
-    {
-        $this->shippingMethod = $shippingMethod;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomerEmail(?string $customerEmail)
-    {
-        $this->customerEmail = $customerEmail;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingAddress(?Address $shippingAddress)
-    {
-        $this->shippingAddress = $shippingAddress;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCurrency(?string $currency)
-    {
-        $this->currency = $currency;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withBillingAddress(?Address $billingAddress)
-    {
-        $this->billingAddress = $billingAddress;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLocale(?string $locale)
-    {
-        $this->locale = $locale;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withInventoryMode(?string $inventoryMode)
-    {
-        $this->inventoryMode = $inventoryMode;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
-    {
-        $this->shippingMethod = $shippingMethod;
+        $this->itemShippingAddresses = $itemShippingAddresses;
 
         return $this;
     }
@@ -363,22 +357,42 @@ final class MyCartDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
+    {
+        $this->shippingMethod = $shippingMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): MyCartDraft
     {
         return new MyCartDraftModel(
-            $this->lineItems,
+            $this->currency,
+            $this->customerEmail,
             $this->country,
-            $this->itemShippingAddresses,
+            $this->inventoryMode,
+            $this->lineItems,
+            ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress),
+            ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress),
+            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->locale,
             $this->taxMode,
             $this->deleteDaysAfterLastModification,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
-            $this->customerEmail,
-            ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress),
-            $this->currency,
-            ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress),
-            $this->locale,
-            $this->inventoryMode
+            $this->itemShippingAddresses
         );
     }
 

@@ -49,6 +49,9 @@ final class ShoppingListSetAnonymousIdActionModel extends JsonObjectModel implem
     }
 
     /**
+     * <p>Anonymous ID of the anonymous customer that this shopping list belongs to.
+     * If this field is not set any existing <code>anonymousId</code> is removed.</p>.
+     *
      * @return null|string
      */
     public function getAnonymousId()

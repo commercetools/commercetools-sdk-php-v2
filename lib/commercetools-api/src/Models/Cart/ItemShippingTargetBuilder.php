@@ -16,24 +16,18 @@ use Commercetools\Base\Builder;
 final class ItemShippingTargetBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $quantity;
-
-    /**
      * @var ?string
      */
     private $addressKey;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+    private $quantity;
 
     /**
+     * <p>The key of the address in the cart's <code>itemShippingAddresses</code></p>.
+     *
      * @return null|string
      */
     public function getAddressKey()
@@ -42,13 +36,15 @@ final class ItemShippingTargetBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>The quantity of items that should go to the address with the specified <code>addressKey</code>.
+     * Only positive values are allowed.
+     * Using <code>0</code> as quantity is also possible in a draft object, but the element will not be present in the resulting ItemShippingDetails.</p>.
+     *
+     * @return null|int
      */
-    public function withQuantity(?int $quantity)
+    public function getQuantity()
     {
-        $this->quantity = $quantity;
-
-        return $this;
+        return $this->quantity;
     }
 
     /**
@@ -61,11 +57,21 @@ final class ItemShippingTargetBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
     public function build(): ItemShippingTarget
     {
         return new ItemShippingTargetModel(
-            $this->quantity,
-            $this->addressKey
+            $this->addressKey,
+            $this->quantity
         );
     }
 

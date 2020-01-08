@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class PaymentUpdateBuilder implements Builder
 {
     /**
-     * @var ?PaymentUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|PaymentUpdateActionCollection
+     * @var ?PaymentUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class PaymentUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|PaymentUpdateActionCollection
      */
-    public function withActions(?PaymentUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class PaymentUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?PaymentUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): PaymentUpdate
     {
         return new PaymentUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

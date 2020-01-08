@@ -20,6 +20,11 @@ final class PaymentMethodInfoBuilder implements Builder
     /**
      * @var ?string
      */
+    private $paymentInterface;
+
+    /**
+     * @var ?string
+     */
     private $method;
 
     /**
@@ -28,11 +33,22 @@ final class PaymentMethodInfoBuilder implements Builder
     private $name;
 
     /**
-     * @var ?string
+     * <p>The interface that handles the payment (usually a PSP).
+     * Cannot be changed once it has been set.
+     * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>.
+     *
+     * @return null|string
      */
-    private $paymentInterface;
+    public function getPaymentInterface()
+    {
+        return $this->paymentInterface;
+    }
 
     /**
+     * <p>The payment method that is used, e.g.
+     * e.g.
+     * a conventional string representing Credit Card, Cash Advance etc.</p>.
+     *
      * @return null|string
      */
     public function getMethod()
@@ -41,6 +57,9 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
+     * <p>A human-readable, localized name for the payment method, e.g.
+     * 'Credit Card'.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -49,11 +68,13 @@ final class PaymentMethodInfoBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getPaymentInterface()
+    public function withPaymentInterface(?string $paymentInterface)
     {
-        return $this->paymentInterface;
+        $this->paymentInterface = $paymentInterface;
+
+        return $this;
     }
 
     /**
@@ -79,16 +100,6 @@ final class PaymentMethodInfoBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPaymentInterface(?string $paymentInterface)
-    {
-        $this->paymentInterface = $paymentInterface;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
@@ -99,9 +110,9 @@ final class PaymentMethodInfoBuilder implements Builder
     public function build(): PaymentMethodInfo
     {
         return new PaymentMethodInfoModel(
+            $this->paymentInterface,
             $this->method,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->paymentInterface
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
         );
     }
 

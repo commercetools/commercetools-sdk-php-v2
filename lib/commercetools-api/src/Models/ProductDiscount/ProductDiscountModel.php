@@ -23,16 +23,6 @@ use stdClass;
 final class ProductDiscountModel extends JsonObjectModel implements ProductDiscount
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -43,9 +33,14 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -53,9 +48,19 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     protected $lastModifiedBy;
 
     /**
-     * @var ?ReferenceCollection
+     * @var ?CreatedBy
      */
-    protected $references;
+    protected $createdBy;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
 
     /**
      * @var ?LocalizedString
@@ -63,14 +68,9 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     protected $description;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?ProductDiscountValue
      */
-    protected $validFrom;
-
-    /**
-     * @var ?bool
-     */
-    protected $isActive;
+    protected $value;
 
     /**
      * @var ?string
@@ -83,59 +83,97 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     protected $sortOrder;
 
     /**
-     * @var ?LocalizedString
+     * @var ?bool
      */
-    protected $name;
+    protected $isActive;
+
+    /**
+     * @var ?ReferenceCollection
+     */
+    protected $references;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $validFrom;
 
     /**
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
-    /**
-     * @var ?ProductDiscountValue
-     */
-    protected $value;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
-
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        ReferenceCollection $references = null,
+        CreatedBy $createdBy = null,
+        LocalizedString $name = null,
+        string $key = null,
         LocalizedString $description = null,
-        DateTimeImmutable $validFrom = null,
-        bool $isActive = null,
+        ProductDiscountValue $value = null,
         string $predicate = null,
         string $sortOrder = null,
-        LocalizedString $name = null,
-        DateTimeImmutable $validUntil = null,
-        ProductDiscountValue $value = null,
-        string $key = null
+        bool $isActive = null,
+        ReferenceCollection $references = null,
+        DateTimeImmutable $validFrom = null,
+        DateTimeImmutable $validUntil = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->references = $references;
+        $this->createdBy = $createdBy;
+        $this->name = $name;
+        $this->key = $key;
         $this->description = $description;
-        $this->validFrom = $validFrom;
-        $this->isActive = $isActive;
+        $this->value = $value;
         $this->predicate = $predicate;
         $this->sortOrder = $sortOrder;
-        $this->name = $name;
+        $this->isActive = $isActive;
+        $this->references = $references;
+        $this->validFrom = $validFrom;
         $this->validUntil = $validUntil;
-        $this->value = $value;
-        $this->key = $key;
+    }
+
+    /**
+     * <p>The unique ID of the product discount</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductDiscount::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the product discount.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductDiscount::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -181,58 +219,8 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscount::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductDiscount::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        if (is_null($this->createdBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductDiscount::FIELD_CREATED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->createdBy = CreatedByModel::of($data);
-        }
-
-        return $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -251,110 +239,23 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
-     * @return null|ReferenceCollection
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getReferences()
+    public function getCreatedBy()
     {
-        if (is_null($this->references)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductDiscount::FIELD_REFERENCES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->references = ReferenceCollection::fromArray($data);
-        }
-
-        return $this->references;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        if (is_null($this->description)) {
+        if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductDiscount::FIELD_DESCRIPTION);
+            $data = $this->raw(ProductDiscount::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->description = LocalizedStringModel::of($data);
+            $this->createdBy = CreatedByModel::of($data);
         }
 
-        return $this->description;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidFrom()
-    {
-        if (is_null($this->validFrom)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscount::FIELD_VALID_FROM);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->validFrom = $data;
-        }
-
-        return $this->validFrom;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsActive()
-    {
-        if (is_null($this->isActive)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductDiscount::FIELD_IS_ACTIVE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isActive = (bool) $data;
-        }
-
-        return $this->isActive;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPredicate()
-    {
-        if (is_null($this->predicate)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscount::FIELD_PREDICATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->predicate = (string) $data;
-        }
-
-        return $this->predicate;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSortOrder()
-    {
-        if (is_null($this->sortOrder)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscount::FIELD_SORT_ORDER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sortOrder = (string) $data;
-        }
-
-        return $this->sortOrder;
+        return $this->createdBy;
     }
 
     /**
@@ -376,6 +277,168 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
     }
 
     /**
+     * <p>User-specific unique identifier for a product discount.
+     * Must be unique across a project.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductDiscount::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDiscount::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
+    }
+
+    /**
+     * @return null|ProductDiscountValue
+     */
+    public function getValue()
+    {
+        if (is_null($this->value)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDiscount::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->value = ProductDiscountValueModel::of($data);
+        }
+
+        return $this->value;
+    }
+
+    /**
+     * <p>A valid ProductDiscount Predicate.</p>.
+     *
+     * @return null|string
+     */
+    public function getPredicate()
+    {
+        if (is_null($this->predicate)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductDiscount::FIELD_PREDICATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->predicate = (string) $data;
+        }
+
+        return $this->predicate;
+    }
+
+    /**
+     * <p>The string contains a number between 0 and 1.
+     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.
+     * A sortOrder must be unambiguous.</p>.
+     *
+     * @return null|string
+     */
+    public function getSortOrder()
+    {
+        if (is_null($this->sortOrder)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductDiscount::FIELD_SORT_ORDER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sortOrder = (string) $data;
+        }
+
+        return $this->sortOrder;
+    }
+
+    /**
+     * <p>Only active discount will be applied to product prices.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        if (is_null($this->isActive)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductDiscount::FIELD_IS_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isActive = (bool) $data;
+        }
+
+        return $this->isActive;
+    }
+
+    /**
+     * <p>The platform will generate this array from the predicate.
+     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     *
+     * @return null|ReferenceCollection
+     */
+    public function getReferences()
+    {
+        if (is_null($this->references)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductDiscount::FIELD_REFERENCES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->references = ReferenceCollection::fromArray($data);
+        }
+
+        return $this->references;
+    }
+
+    /**
+     * <p>The time from which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidFrom()
+    {
+        if (is_null($this->validFrom)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductDiscount::FIELD_VALID_FROM);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validFrom = $data;
+        }
+
+        return $this->validFrom;
+    }
+
+    /**
+     * <p>The time from which the discount should be ineffective.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -396,39 +459,14 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
         return $this->validUntil;
     }
 
-    /**
-     * @return null|ProductDiscountValue
-     */
-    public function getValue()
+    public function setId(?string $id): void
     {
-        if (is_null($this->value)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductDiscount::FIELD_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = ProductDiscountValueModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
-        }
-
-        return $this->value;
+        $this->id = $id;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setVersion(?int $version): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscount::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -441,14 +479,9 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
-    public function setId(?string $id): void
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
-        $this->id = $id;
-    }
-
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setCreatedBy(?CreatedBy $createdBy): void
@@ -456,14 +489,14 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
         $this->createdBy = $createdBy;
     }
 
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    public function setName(?LocalizedString $name): void
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->name = $name;
     }
 
-    public function setReferences(?ReferenceCollection $references): void
+    public function setKey(?string $key): void
     {
-        $this->references = $references;
+        $this->key = $key;
     }
 
     public function setDescription(?LocalizedString $description): void
@@ -471,14 +504,9 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
         $this->description = $description;
     }
 
-    public function setValidFrom(?DateTimeImmutable $validFrom): void
+    public function setValue(?ProductDiscountValue $value): void
     {
-        $this->validFrom = $validFrom;
-    }
-
-    public function setIsActive(?bool $isActive): void
-    {
-        $this->isActive = $isActive;
+        $this->value = $value;
     }
 
     public function setPredicate(?string $predicate): void
@@ -491,24 +519,24 @@ final class ProductDiscountModel extends JsonObjectModel implements ProductDisco
         $this->sortOrder = $sortOrder;
     }
 
-    public function setName(?LocalizedString $name): void
+    public function setIsActive(?bool $isActive): void
     {
-        $this->name = $name;
+        $this->isActive = $isActive;
+    }
+
+    public function setReferences(?ReferenceCollection $references): void
+    {
+        $this->references = $references;
+    }
+
+    public function setValidFrom(?DateTimeImmutable $validFrom): void
+    {
+        $this->validFrom = $validFrom;
     }
 
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
-    }
-
-    public function setValue(?ProductDiscountValue $value): void
-    {
-        $this->value = $value;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 
     public function jsonSerialize()

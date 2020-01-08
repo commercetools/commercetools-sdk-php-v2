@@ -18,19 +18,9 @@ use Commercetools\Base\Builder;
 final class ShippingMethodDraftBuilder implements Builder
 {
     /**
-     * @var ?ZoneRateDraftCollection
-     */
-    private $zoneRates;
-
-    /**
      * @var ?string
      */
-    private $predicate;
-
-    /**
-     * @var ?bool
-     */
-    private $isDefault;
+    private $key;
 
     /**
      * @var ?string
@@ -43,37 +33,31 @@ final class ShippingMethodDraftBuilder implements Builder
     private $description;
 
     /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
      * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
-     * @return null|ZoneRateDraftCollection
+     * @var ?ZoneRateDraftCollection
      */
-    public function getZoneRates()
-    {
-        return $this->zoneRates;
-    }
+    private $zoneRates;
+
+    /**
+     * @var ?bool
+     */
+    private $isDefault;
+
+    /**
+     * @var ?string
+     */
+    private $predicate;
 
     /**
      * @return null|string
      */
-    public function getPredicate()
+    public function getKey()
     {
-        return $this->predicate;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsDefault()
-    {
-        return $this->isDefault;
+        return $this->key;
     }
 
     /**
@@ -93,14 +77,6 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -109,31 +85,39 @@ final class ShippingMethodDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ZoneRateDraftCollection
      */
-    public function withZoneRates(?ZoneRateDraftCollection $zoneRates)
+    public function getZoneRates()
     {
-        $this->zoneRates = $zoneRates;
+        return $this->zoneRates;
+    }
 
-        return $this;
+    /**
+     * <p>If <code>true</code> the shipping method will be the default one in a project.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsDefault()
+    {
+        return $this->isDefault;
+    }
+
+    /**
+     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>.
+     *
+     * @return null|string
+     */
+    public function getPredicate()
+    {
+        return $this->predicate;
     }
 
     /**
      * @return $this
      */
-    public function withPredicate(?string $predicate)
+    public function withKey(?string $key)
     {
-        $this->predicate = $predicate;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withIsDefault(?bool $isDefault)
-    {
-        $this->isDefault = $isDefault;
+        $this->key = $key;
 
         return $this;
     }
@@ -161,9 +145,9 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)
     {
-        $this->key = $key;
+        $this->taxCategory = $taxCategory;
 
         return $this;
     }
@@ -171,9 +155,29 @@ final class ShippingMethodDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)
+    public function withZoneRates(?ZoneRateDraftCollection $zoneRates)
     {
-        $this->taxCategory = $taxCategory;
+        $this->zoneRates = $zoneRates;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withIsDefault(?bool $isDefault)
+    {
+        $this->isDefault = $isDefault;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPredicate(?string $predicate)
+    {
+        $this->predicate = $predicate;
 
         return $this;
     }
@@ -191,13 +195,13 @@ final class ShippingMethodDraftBuilder implements Builder
     public function build(): ShippingMethodDraft
     {
         return new ShippingMethodDraftModel(
-            $this->zoneRates,
-            $this->predicate,
-            $this->isDefault,
+            $this->key,
             $this->name,
             $this->description,
-            $this->key,
-            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory)
+            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory),
+            $this->zoneRates,
+            $this->isDefault,
+            $this->predicate
         );
     }
 

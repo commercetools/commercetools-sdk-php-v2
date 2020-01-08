@@ -35,6 +35,9 @@ interface ProductDraft extends JsonObject
     const FIELD_PUBLISH = 'publish';
 
     /**
+     * <p>A predefined product type assigned to the product.
+     * All products must have a product type.</p>.
+     *
      * @return null|ProductTypeResourceIdentifier
      */
     public function getProductType();
@@ -45,11 +48,18 @@ interface ProductDraft extends JsonObject
     public function getName();
 
     /**
+     * <p>Human-readable identifiers usually used as deep-link URLs for the product.
+     * A slug must be unique across a project, but a product can have the same slug for different languages.
+     * Slugs have a maximum size of 256.
+     * Valid characters are: alphabetic characters (<code>A-Z, a-z</code>), numeric characters (<code>0-9</code>), underscores (<code>_</code>) and hyphens (<code>-</code>).</p>.
+     *
      * @return null|LocalizedString
      */
     public function getSlug();
 
     /**
+     * <p>User-specific unique identifier for the product.</p>.
+     *
      * @return null|string
      */
     public function getKey();
@@ -60,6 +70,8 @@ interface ProductDraft extends JsonObject
     public function getDescription();
 
     /**
+     * <p>Categories assigned to the product.</p>.
+     *
      * @return null|CategoryResourceIdentifierCollection
      */
     public function getCategories();
@@ -85,11 +97,16 @@ interface ProductDraft extends JsonObject
     public function getMetaKeywords();
 
     /**
+     * <p>The master product variant.
+     * Required if the <code>variants</code> array has product variants.</p>.
+     *
      * @return null|ProductVariantDraft
      */
     public function getMasterVariant();
 
     /**
+     * <p>An array of related product variants.</p>.
+     *
      * @return null|ProductVariantDraftCollection
      */
     public function getVariants();
@@ -110,6 +127,8 @@ interface ProductDraft extends JsonObject
     public function getState();
 
     /**
+     * <p>If <code>true</code>, the product is published immediately.</p>.
+     *
      * @return null|bool
      */
     public function getPublish();

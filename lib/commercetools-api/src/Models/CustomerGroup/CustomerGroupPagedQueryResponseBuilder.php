@@ -18,12 +18,7 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
-    private $total;
-
-    /**
-     * @var ?int
-     */
-    private $offset;
+    private $limit;
 
     /**
      * @var ?int
@@ -33,12 +28,33 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
-    private $limit;
+    private $total;
+
+    /**
+     * @var ?int
+     */
+    private $offset;
 
     /**
      * @var ?CustomerGroupCollection
      */
     private $results;
+
+    /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
 
     /**
      * @return null|int
@@ -57,27 +73,31 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getLimit()
-    {
-        return $this->limit;
-    }
-
-    /**
      * @return null|CustomerGroupCollection
      */
     public function getResults()
     {
         return $this->results;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLimit(?int $limit)
+    {
+        $this->limit = $limit;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCount(?int $count)
+    {
+        $this->count = $count;
+
+        return $this;
     }
 
     /**
@@ -103,26 +123,6 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCount(?int $count)
-    {
-        $this->count = $count;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLimit(?int $limit)
-    {
-        $this->limit = $limit;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResults(?CustomerGroupCollection $results)
     {
         $this->results = $results;
@@ -133,10 +133,10 @@ final class CustomerGroupPagedQueryResponseBuilder implements Builder
     public function build(): CustomerGroupPagedQueryResponse
     {
         return new CustomerGroupPagedQueryResponseModel(
+            $this->limit,
+            $this->count,
             $this->total,
             $this->offset,
-            $this->count,
-            $this->limit,
             $this->results
         );
     }

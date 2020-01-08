@@ -21,6 +21,9 @@ interface CustomerSignInResult extends JsonObject
     public function getCustomer();
 
     /**
+     * <p>A cart that is associated to the customer.
+     * Empty if the customer does not have a cart yet.</p>.
+     *
      * @return null|JsonObject
      */
     public function getCart();

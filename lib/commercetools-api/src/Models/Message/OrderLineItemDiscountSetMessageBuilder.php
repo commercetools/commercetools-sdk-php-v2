@@ -28,16 +28,6 @@ use DateTimeImmutable;
 final class OrderLineItemDiscountSetMessageBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -48,14 +38,24 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
 
     /**
      * @var ?int
@@ -68,19 +68,14 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     private $resource;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
-     */
-    private $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     private $resourceVersion;
 
     /**
-     * @var Money|?MoneyBuilder
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
-    private $totalPrice;
+    private $resourceUserProvidedIdentifiers;
 
     /**
      * @var ?string
@@ -88,30 +83,19 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     private $lineItemId;
 
     /**
-     * @var TaxedItemPrice|?TaxedItemPriceBuilder
-     */
-    private $taxedPrice;
-
-    /**
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var Money|?MoneyBuilder
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
+    private $totalPrice;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var TaxedItemPrice|?TaxedItemPriceBuilder
      */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $taxedPrice;
 
     /**
      * @return null|string
@@ -130,11 +114,19 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -143,6 +135,14 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     public function getLastModifiedBy()
     {
         return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -162,14 +162,6 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -178,11 +170,11 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|Money
+     * @return null|UserProvidedIdentifiers
      */
-    public function getTotalPrice()
+    public function getResourceUserProvidedIdentifiers()
     {
-        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
     }
 
     /**
@@ -194,14 +186,6 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|TaxedItemPrice
-     */
-    public function getTaxedPrice()
-    {
-        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
-    }
-
-    /**
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
@@ -210,23 +194,19 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Money
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getTotalPrice()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
 
     /**
-     * @return $this
+     * @return null|TaxedItemPrice
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getTaxedPrice()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
 
     /**
@@ -252,9 +232,19 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -265,6 +255,16 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -292,16 +292,6 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
-    {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
@@ -312,9 +302,9 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalPrice(?Money $totalPrice)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
-        $this->totalPrice = $totalPrice;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
 
         return $this;
     }
@@ -332,16 +322,6 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
-    {
-        $this->taxedPrice = $taxedPrice;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
@@ -352,9 +332,19 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withTotalPrice(?Money $totalPrice)
     {
-        $this->createdBy = $createdBy;
+        $this->totalPrice = $totalPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
+    {
+        $this->taxedPrice = $taxedPrice;
 
         return $this;
     }
@@ -365,6 +355,16 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -412,20 +412,20 @@ final class OrderLineItemDiscountSetMessageBuilder implements Builder
     public function build(): OrderLineItemDiscountSetMessage
     {
         return new OrderLineItemDiscountSetMessageModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
+            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->lineItemId,
-            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
-            $this->discountedPricePerQuantity
+            $this->discountedPricePerQuantity,
+            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
+            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice)
         );
     }
 

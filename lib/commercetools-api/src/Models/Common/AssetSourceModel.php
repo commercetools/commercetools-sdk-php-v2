@@ -16,11 +16,6 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     /**
      * @var ?string
      */
-    protected $contentType;
-
-    /**
-     * @var ?string
-     */
     protected $uri;
 
     /**
@@ -33,33 +28,21 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
      */
     protected $dimensions;
 
+    /**
+     * @var ?string
+     */
+    protected $contentType;
+
     public function __construct(
-        string $contentType = null,
         string $uri = null,
         string $key = null,
-        AssetDimensions $dimensions = null
+        AssetDimensions $dimensions = null,
+        string $contentType = null
     ) {
-        $this->contentType = $contentType;
         $this->uri = $uri;
         $this->key = $key;
         $this->dimensions = $dimensions;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getContentType()
-    {
-        if (is_null($this->contentType)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(AssetSource::FIELD_CONTENT_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->contentType = (string) $data;
-        }
-
-        return $this->contentType;
+        $this->contentType = $contentType;
     }
 
     /**
@@ -114,9 +97,21 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
         return $this->dimensions;
     }
 
-    public function setContentType(?string $contentType): void
+    /**
+     * @return null|string
+     */
+    public function getContentType()
     {
-        $this->contentType = $contentType;
+        if (is_null($this->contentType)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AssetSource::FIELD_CONTENT_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->contentType = (string) $data;
+        }
+
+        return $this->contentType;
     }
 
     public function setUri(?string $uri): void
@@ -132,5 +127,10 @@ final class AssetSourceModel extends JsonObjectModel implements AssetSource
     public function setDimensions(?AssetDimensions $dimensions): void
     {
         $this->dimensions = $dimensions;
+    }
+
+    public function setContentType(?string $contentType): void
+    {
+        $this->contentType = $contentType;
     }
 }

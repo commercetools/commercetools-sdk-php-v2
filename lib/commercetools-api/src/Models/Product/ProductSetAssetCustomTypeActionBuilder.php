@@ -19,29 +19,9 @@ use Commercetools\Base\JsonObject;
 final class ProductSetAssetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $assetId;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
-
-    /**
-     * @var ?JsonObject
-     */
-    private $fields;
-
-    /**
-     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
-     */
-    private $type;
 
     /**
      * @var ?string
@@ -49,25 +29,29 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     private $sku;
 
     /**
+     * @var ?bool
+     */
+    private $staged;
+
+    /**
+     * @var ?string
+     */
+    private $assetId;
+
+    /**
      * @var ?string
      */
     private $assetKey;
 
     /**
-     * @return null|string
+     * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
      */
-    public function getAssetId()
-    {
-        return $this->assetId;
-    }
+    private $type;
 
     /**
-     * @return null|bool
+     * @var ?JsonObject
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $fields;
 
     /**
      * @return null|int
@@ -75,22 +59,6 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     public function getVariantId()
     {
         return $this->variantId;
-    }
-
-    /**
-     * @return null|JsonObject
-     */
-    public function getFields()
-    {
-        return $this->fields;
-    }
-
-    /**
-     * @return null|TypeResourceIdentifier
-     */
-    public function getType()
-    {
-        return $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type;
     }
 
     /**
@@ -102,6 +70,22 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        return $this->assetId;
+    }
+
+    /**
      * @return null|string
      */
     public function getAssetKey()
@@ -110,23 +94,24 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>If set, the custom type is set to this new value.
+     * If absent, the custom type and any existing custom fields are removed.</p>.
+     *
+     * @return null|TypeResourceIdentifier
      */
-    public function withAssetId(?string $assetId)
+    public function getType()
     {
-        $this->assetId = $assetId;
-
-        return $this;
+        return $this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type;
     }
 
     /**
-     * @return $this
+     * <p>If set, the custom fields are set to this new value.</p>.
+     *
+     * @return null|JsonObject
      */
-    public function withStaged(?bool $staged)
+    public function getFields()
     {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->fields;
     }
 
     /**
@@ -135,26 +120,6 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFields(?JsonObject $fields)
-    {
-        $this->fields = $fields;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?TypeResourceIdentifier $type)
-    {
-        $this->type = $type;
 
         return $this;
     }
@@ -172,9 +137,49 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssetId(?string $assetId)
+    {
+        $this->assetId = $assetId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAssetKey(?string $assetKey)
     {
         $this->assetKey = $assetKey;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withType(?TypeResourceIdentifier $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withFields(?JsonObject $fields)
+    {
+        $this->fields = $fields;
 
         return $this;
     }
@@ -192,13 +197,13 @@ final class ProductSetAssetCustomTypeActionBuilder implements Builder
     public function build(): ProductSetAssetCustomTypeAction
     {
         return new ProductSetAssetCustomTypeActionModel(
-            $this->assetId,
-            $this->staged,
             $this->variantId,
-            $this->fields,
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
             $this->sku,
-            $this->assetKey
+            $this->staged,
+            $this->assetId,
+            $this->assetKey,
+            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
+            $this->fields
         );
     }
 

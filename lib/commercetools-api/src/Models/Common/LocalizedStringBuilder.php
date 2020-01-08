@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Common;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\MapperMap;
+use stdClass;
 
 /**
  * @implements Builder<LocalizedString>
@@ -26,16 +27,21 @@ final class LocalizedStringBuilder extends MapperMap implements Builder
     }
 
     /**
-     * @psalm-return callable(string):?mixed
+     * @psalm-return callable(string):?LocalizedString
      */
     protected function mapper()
     {
         return
             /**
-             * @psalm-return ?mixed
+             * @psalm-return ?LocalizedString
              */
             function (string $key) {
-                return $this->get($key);
+                $data = $this->get($key);
+                if ($data instanceof stdClass) {
+                    $data = LocalizedStringModel::of($data);
+                }
+
+                return $data;
             };
     }
 }

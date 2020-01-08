@@ -36,6 +36,8 @@ final class ZoneRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>The array must not contain two shipping rates with the same currency.</p>.
+     *
      * @return null|ShippingRateDraftCollection
      */
     public function getShippingRates()

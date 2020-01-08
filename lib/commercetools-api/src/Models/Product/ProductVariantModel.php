@@ -21,9 +21,34 @@ use stdClass;
 final class ProductVariantModel extends JsonObjectModel implements ProductVariant
 {
     /**
-     * @var ?ScopedPrice
+     * @var ?int
      */
-    protected $scopedPrice;
+    protected $id;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?PriceCollection
+     */
+    protected $prices;
+
+    /**
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
+
+    /**
+     * @var ?Price
+     */
+    protected $price;
 
     /**
      * @var ?ImageCollection
@@ -36,94 +61,154 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     protected $assets;
 
     /**
+     * @var ?ProductVariantAvailability
+     */
+    protected $availability;
+
+    /**
      * @var ?bool
      */
     protected $isMatchingVariant;
 
     /**
-     * @var ?Price
+     * @var ?ScopedPrice
      */
-    protected $price;
+    protected $scopedPrice;
 
     /**
      * @var ?bool
      */
     protected $scopedPriceDiscounted;
 
-    /**
-     * @var ?AttributeCollection
-     */
-    protected $attributes;
-
-    /**
-     * @var ?ProductVariantAvailability
-     */
-    protected $availability;
-
-    /**
-     * @var ?int
-     */
-    protected $id;
-
-    /**
-     * @var ?PriceCollection
-     */
-    protected $prices;
-
-    /**
-     * @var ?string
-     */
-    protected $sku;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
-
     public function __construct(
-        ScopedPrice $scopedPrice = null,
+        int $id = null,
+        string $sku = null,
+        string $key = null,
+        PriceCollection $prices = null,
+        AttributeCollection $attributes = null,
+        Price $price = null,
         ImageCollection $images = null,
         AssetCollection $assets = null,
-        bool $isMatchingVariant = null,
-        Price $price = null,
-        bool $scopedPriceDiscounted = null,
-        AttributeCollection $attributes = null,
         ProductVariantAvailability $availability = null,
-        int $id = null,
-        PriceCollection $prices = null,
-        string $sku = null,
-        string $key = null
+        bool $isMatchingVariant = null,
+        ScopedPrice $scopedPrice = null,
+        bool $scopedPriceDiscounted = null
     ) {
-        $this->scopedPrice = $scopedPrice;
-        $this->images = $images;
-        $this->assets = $assets;
-        $this->isMatchingVariant = $isMatchingVariant;
-        $this->price = $price;
-        $this->scopedPriceDiscounted = $scopedPriceDiscounted;
-        $this->attributes = $attributes;
-        $this->availability = $availability;
         $this->id = $id;
-        $this->prices = $prices;
         $this->sku = $sku;
         $this->key = $key;
+        $this->prices = $prices;
+        $this->attributes = $attributes;
+        $this->price = $price;
+        $this->images = $images;
+        $this->assets = $assets;
+        $this->availability = $availability;
+        $this->isMatchingVariant = $isMatchingVariant;
+        $this->scopedPrice = $scopedPrice;
+        $this->scopedPriceDiscounted = $scopedPriceDiscounted;
     }
 
     /**
-     * @return null|ScopedPrice
+     * @return null|int
      */
-    public function getScopedPrice()
+    public function getId()
     {
-        if (is_null($this->scopedPrice)) {
+        if (is_null($this->id)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductVariant::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (int) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductVariant::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductVariant::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * @return null|PriceCollection
+     */
+    public function getPrices()
+    {
+        if (is_null($this->prices)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariant::FIELD_PRICES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->prices = PriceCollection::fromArray($data);
+        }
+
+        return $this->prices;
+    }
+
+    /**
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariant::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
+    }
+
+    /**
+     * @return null|Price
+     */
+    public function getPrice()
+    {
+        if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductVariant::FIELD_SCOPED_PRICE);
+            $data = $this->raw(ProductVariant::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->scopedPrice = ScopedPriceModel::of($data);
+            $this->price = PriceModel::of($data);
         }
 
-        return $this->scopedPrice;
+        return $this->price;
     }
 
     /**
@@ -161,6 +246,24 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
+     * @return null|ProductVariantAvailability
+     */
+    public function getAvailability()
+    {
+        if (is_null($this->availability)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductVariant::FIELD_AVAILABILITY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->availability = ProductVariantAvailabilityModel::of($data);
+        }
+
+        return $this->availability;
+    }
+
+    /**
      * @return null|bool
      */
     public function getIsMatchingVariant()
@@ -178,21 +281,21 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
     }
 
     /**
-     * @return null|Price
+     * @return null|ScopedPrice
      */
-    public function getPrice()
+    public function getScopedPrice()
     {
-        if (is_null($this->price)) {
+        if (is_null($this->scopedPrice)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductVariant::FIELD_PRICE);
+            $data = $this->raw(ProductVariant::FIELD_SCOPED_PRICE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->price = PriceModel::of($data);
+            $this->scopedPrice = ScopedPriceModel::of($data);
         }
 
-        return $this->price;
+        return $this->scopedPrice;
     }
 
     /**
@@ -212,112 +315,34 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
         return $this->scopedPriceDiscounted;
     }
 
-    /**
-     * @return null|AttributeCollection
-     */
-    public function getAttributes()
+    public function setId(?int $id): void
     {
-        if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariant::FIELD_ATTRIBUTES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->attributes = AttributeCollection::fromArray($data);
-        }
-
-        return $this->attributes;
+        $this->id = $id;
     }
 
-    /**
-     * @return null|ProductVariantAvailability
-     */
-    public function getAvailability()
+    public function setSku(?string $sku): void
     {
-        if (is_null($this->availability)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductVariant::FIELD_AVAILABILITY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->availability = ProductVariantAvailabilityModel::of($data);
-        }
-
-        return $this->availability;
+        $this->sku = $sku;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getId()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductVariant::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (int) $data;
-        }
-
-        return $this->id;
+        $this->key = $key;
     }
 
-    /**
-     * @return null|PriceCollection
-     */
-    public function getPrices()
+    public function setPrices(?PriceCollection $prices): void
     {
-        if (is_null($this->prices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariant::FIELD_PRICES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->prices = PriceCollection::fromArray($data);
-        }
-
-        return $this->prices;
+        $this->prices = $prices;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getSku()
+    public function setAttributes(?AttributeCollection $attributes): void
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductVariant::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
+        $this->attributes = $attributes;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setPrice(?Price $price): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductVariant::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    public function setScopedPrice(?ScopedPrice $scopedPrice): void
-    {
-        $this->scopedPrice = $scopedPrice;
+        $this->price = $price;
     }
 
     public function setImages(?ImageCollection $images): void
@@ -330,48 +355,23 @@ final class ProductVariantModel extends JsonObjectModel implements ProductVarian
         $this->assets = $assets;
     }
 
-    public function setIsMatchingVariant(?bool $isMatchingVariant): void
-    {
-        $this->isMatchingVariant = $isMatchingVariant;
-    }
-
-    public function setPrice(?Price $price): void
-    {
-        $this->price = $price;
-    }
-
-    public function setScopedPriceDiscounted(?bool $scopedPriceDiscounted): void
-    {
-        $this->scopedPriceDiscounted = $scopedPriceDiscounted;
-    }
-
-    public function setAttributes(?AttributeCollection $attributes): void
-    {
-        $this->attributes = $attributes;
-    }
-
     public function setAvailability(?ProductVariantAvailability $availability): void
     {
         $this->availability = $availability;
     }
 
-    public function setId(?int $id): void
+    public function setIsMatchingVariant(?bool $isMatchingVariant): void
     {
-        $this->id = $id;
+        $this->isMatchingVariant = $isMatchingVariant;
     }
 
-    public function setPrices(?PriceCollection $prices): void
+    public function setScopedPrice(?ScopedPrice $scopedPrice): void
     {
-        $this->prices = $prices;
+        $this->scopedPrice = $scopedPrice;
     }
 
-    public function setSku(?string $sku): void
+    public function setScopedPriceDiscounted(?bool $scopedPriceDiscounted): void
     {
-        $this->sku = $sku;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
+        $this->scopedPriceDiscounted = $scopedPriceDiscounted;
     }
 }

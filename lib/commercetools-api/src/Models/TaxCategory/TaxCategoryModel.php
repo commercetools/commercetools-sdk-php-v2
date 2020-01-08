@@ -20,16 +20,6 @@ use stdClass;
 final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -40,9 +30,14 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -50,9 +45,9 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     protected $lastModifiedBy;
 
     /**
-     * @var ?TaxRateCollection
+     * @var ?CreatedBy
      */
-    protected $rates;
+    protected $createdBy;
 
     /**
      * @var ?string
@@ -65,32 +60,75 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     protected $description;
 
     /**
+     * @var ?TaxRateCollection
+     */
+    protected $rates;
+
+    /**
      * @var ?string
      */
     protected $key;
 
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        TaxRateCollection $rates = null,
+        CreatedBy $createdBy = null,
         string $name = null,
         string $description = null,
+        TaxRateCollection $rates = null,
         string $key = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->rates = $rates;
+        $this->createdBy = $createdBy;
         $this->name = $name;
         $this->description = $description;
+        $this->rates = $rates;
         $this->key = $key;
+    }
+
+    /**
+     * <p>The unique ID of the category.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TaxCategory::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the category.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(TaxCategory::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -136,58 +174,8 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategory::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(TaxCategory::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        if (is_null($this->createdBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxCategory::FIELD_CREATED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->createdBy = CreatedByModel::of($data);
-        }
-
-        return $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -206,20 +194,23 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
-     * @return null|TaxRateCollection
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getRates()
+    public function getCreatedBy()
     {
-        if (is_null($this->rates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TaxCategory::FIELD_RATES);
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TaxCategory::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->rates = TaxRateCollection::fromArray($data);
+
+            $this->createdBy = CreatedByModel::of($data);
         }
 
-        return $this->rates;
+        return $this->createdBy;
     }
 
     /**
@@ -257,6 +248,27 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
+     * <p>The tax rates have unique IDs in the rates list</p>.
+     *
+     * @return null|TaxRateCollection
+     */
+    public function getRates()
+    {
+        if (is_null($this->rates)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(TaxCategory::FIELD_RATES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->rates = TaxRateCollection::fromArray($data);
+        }
+
+        return $this->rates;
+    }
+
+    /**
+     * <p>User-specific unique identifier for the category.</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -273,16 +285,6 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
         return $this->key;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-    }
-
     public function setId(?string $id): void
     {
         $this->id = $id;
@@ -293,9 +295,14 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
@@ -303,9 +310,9 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
-    public function setRates(?TaxRateCollection $rates): void
+    public function setCreatedBy(?CreatedBy $createdBy): void
     {
-        $this->rates = $rates;
+        $this->createdBy = $createdBy;
     }
 
     public function setName(?string $name): void
@@ -316,6 +323,11 @@ final class TaxCategoryModel extends JsonObjectModel implements TaxCategory
     public function setDescription(?string $description): void
     {
         $this->description = $description;
+    }
+
+    public function setRates(?TaxRateCollection $rates): void
+    {
+        $this->rates = $rates;
     }
 
     public function setKey(?string $key): void

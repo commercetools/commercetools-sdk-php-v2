@@ -14,9 +14,9 @@ use stdClass;
 final class SubscriptionDraftModel extends JsonObjectModel implements SubscriptionDraft
 {
     /**
-     * @var ?DeliveryFormat
+     * @var ?ChangeSubscriptionCollection
      */
-    protected $format;
+    protected $changes;
 
     /**
      * @var ?Destination
@@ -24,9 +24,9 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     protected $destination;
 
     /**
-     * @var ?ChangeSubscriptionCollection
+     * @var ?string
      */
-    protected $changes;
+    protected $key;
 
     /**
      * @var ?MessageSubscriptionCollection
@@ -34,40 +34,39 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     protected $messages;
 
     /**
-     * @var ?string
+     * @var ?DeliveryFormat
      */
-    protected $key;
+    protected $format;
 
     public function __construct(
-        DeliveryFormat $format = null,
-        Destination $destination = null,
         ChangeSubscriptionCollection $changes = null,
+        Destination $destination = null,
+        string $key = null,
         MessageSubscriptionCollection $messages = null,
-        string $key = null
+        DeliveryFormat $format = null
     ) {
-        $this->format = $format;
-        $this->destination = $destination;
         $this->changes = $changes;
-        $this->messages = $messages;
+        $this->destination = $destination;
         $this->key = $key;
+        $this->messages = $messages;
+        $this->format = $format;
     }
 
     /**
-     * @return null|DeliveryFormat
+     * @return null|ChangeSubscriptionCollection
      */
-    public function getFormat()
+    public function getChanges()
     {
-        if (is_null($this->format)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(SubscriptionDraft::FIELD_FORMAT);
+        if (is_null($this->changes)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(SubscriptionDraft::FIELD_CHANGES);
             if (is_null($data)) {
                 return null;
             }
-            $className = DeliveryFormatModel::resolveDiscriminatorClass($data);
-            $this->format = $className::of($data);
+            $this->changes = ChangeSubscriptionCollection::fromArray($data);
         }
 
-        return $this->format;
+        return $this->changes;
     }
 
     /**
@@ -89,20 +88,20 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
-     * @return null|ChangeSubscriptionCollection
+     * @return null|string
      */
-    public function getChanges()
+    public function getKey()
     {
-        if (is_null($this->changes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(SubscriptionDraft::FIELD_CHANGES);
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SubscriptionDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->changes = ChangeSubscriptionCollection::fromArray($data);
+            $this->key = (string) $data;
         }
 
-        return $this->changes;
+        return $this->key;
     }
 
     /**
@@ -123,30 +122,21 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
     }
 
     /**
-     * @return null|string
+     * @return null|DeliveryFormat
      */
-    public function getKey()
+    public function getFormat()
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDraft::FIELD_KEY);
+        if (is_null($this->format)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(SubscriptionDraft::FIELD_FORMAT);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+            $className = DeliveryFormatModel::resolveDiscriminatorClass($data);
+            $this->format = $className::of($data);
         }
 
-        return $this->key;
-    }
-
-    public function setFormat(?DeliveryFormat $format): void
-    {
-        $this->format = $format;
-    }
-
-    public function setDestination(?Destination $destination): void
-    {
-        $this->destination = $destination;
+        return $this->format;
     }
 
     public function setChanges(?ChangeSubscriptionCollection $changes): void
@@ -154,13 +144,23 @@ final class SubscriptionDraftModel extends JsonObjectModel implements Subscripti
         $this->changes = $changes;
     }
 
-    public function setMessages(?MessageSubscriptionCollection $messages): void
+    public function setDestination(?Destination $destination): void
     {
-        $this->messages = $messages;
+        $this->destination = $destination;
     }
 
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    public function setMessages(?MessageSubscriptionCollection $messages): void
+    {
+        $this->messages = $messages;
+    }
+
+    public function setFormat(?DeliveryFormat $format): void
+    {
+        $this->format = $format;
     }
 }

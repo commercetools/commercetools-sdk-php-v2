@@ -20,7 +20,17 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     /**
      * @var ?string
      */
-    protected $interactionId;
+    protected $id;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $timestamp;
+
+    /**
+     * @var ?string
+     */
+    protected $type;
 
     /**
      * @var ?TypedMoney
@@ -30,54 +40,88 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     /**
      * @var ?string
      */
+    protected $interactionId;
+
+    /**
+     * @var ?string
+     */
     protected $state;
 
-    /**
-     * @var ?string
-     */
-    protected $id;
-
-    /**
-     * @var ?string
-     */
-    protected $type;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $timestamp;
-
     public function __construct(
-        string $interactionId = null,
-        TypedMoney $amount = null,
-        string $state = null,
         string $id = null,
+        DateTimeImmutable $timestamp = null,
         string $type = null,
-        DateTimeImmutable $timestamp = null
+        TypedMoney $amount = null,
+        string $interactionId = null,
+        string $state = null
     ) {
-        $this->interactionId = $interactionId;
-        $this->amount = $amount;
-        $this->state = $state;
         $this->id = $id;
-        $this->type = $type;
         $this->timestamp = $timestamp;
+        $this->type = $type;
+        $this->amount = $amount;
+        $this->interactionId = $interactionId;
+        $this->state = $state;
     }
 
     /**
+     * <p>The unique ID of this object.</p>.
+     *
      * @return null|string
      */
-    public function getInteractionId()
+    public function getId()
     {
-        if (is_null($this->interactionId)) {
+        if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Transaction::FIELD_INTERACTION_ID);
+            $data = $this->raw(Transaction::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->interactionId = (string) $data;
+            $this->id = (string) $data;
         }
 
-        return $this->interactionId;
+        return $this->id;
+    }
+
+    /**
+     * <p>The time at which the transaction took place.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getTimestamp()
+    {
+        if (is_null($this->timestamp)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Transaction::FIELD_TIMESTAMP);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->timestamp = $data;
+        }
+
+        return $this->timestamp;
+    }
+
+    /**
+     * <p>The type of this transaction.</p>.
+     *
+     * @return null|string
+     */
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Transaction::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
     }
 
     /**
@@ -99,6 +143,28 @@ final class TransactionModel extends JsonObjectModel implements Transaction
     }
 
     /**
+     * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>.
+     *
+     * @return null|string
+     */
+    public function getInteractionId()
+    {
+        if (is_null($this->interactionId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Transaction::FIELD_INTERACTION_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->interactionId = (string) $data;
+        }
+
+        return $this->interactionId;
+    }
+
+    /**
+     * <p>The state of this transaction.</p>.
+     *
      * @return null|string
      */
     public function getState()
@@ -115,79 +181,14 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         return $this->state;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Transaction::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Transaction::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->type = (string) $data;
-        }
-
-        return $this->type;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getTimestamp()
-    {
-        if (is_null($this->timestamp)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Transaction::FIELD_TIMESTAMP);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->timestamp = $data;
-        }
-
-        return $this->timestamp;
-    }
-
-    public function setInteractionId(?string $interactionId): void
-    {
-        $this->interactionId = $interactionId;
-    }
-
-    public function setAmount(?TypedMoney $amount): void
-    {
-        $this->amount = $amount;
-    }
-
-    public function setState(?string $state): void
-    {
-        $this->state = $state;
-    }
-
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    public function setTimestamp(?DateTimeImmutable $timestamp): void
+    {
+        $this->timestamp = $timestamp;
     }
 
     public function setType(?string $type): void
@@ -195,9 +196,19 @@ final class TransactionModel extends JsonObjectModel implements Transaction
         $this->type = $type;
     }
 
-    public function setTimestamp(?DateTimeImmutable $timestamp): void
+    public function setAmount(?TypedMoney $amount): void
     {
-        $this->timestamp = $timestamp;
+        $this->amount = $amount;
+    }
+
+    public function setInteractionId(?string $interactionId): void
+    {
+        $this->interactionId = $interactionId;
+    }
+
+    public function setState(?string $state): void
+    {
+        $this->state = $state;
     }
 
     public function jsonSerialize()

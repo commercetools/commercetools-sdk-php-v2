@@ -18,14 +18,14 @@ use Commercetools\Base\Builder;
 final class TypeDraftBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $name;
-
-    /**
-     * @var ?FieldDefinitionCollection
-     */
-    private $fieldDefinitions;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -33,14 +33,22 @@ final class TypeDraftBuilder implements Builder
     private $description;
 
     /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
      * @var ?array
      */
     private $resourceTypeIds;
+
+    /**
+     * @var ?FieldDefinitionCollection
+     */
+    private $fieldDefinitions;
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * @return null|LocalizedString
@@ -48,14 +56,6 @@ final class TypeDraftBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|FieldDefinitionCollection
-     */
-    public function getFieldDefinitions()
-    {
-        return $this->fieldDefinitions;
     }
 
     /**
@@ -67,14 +67,8 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
+     * <p>The IDs of the resources that can be customized with this type.</p>.
+     *
      * @return null|array
      */
     public function getResourceTypeIds()
@@ -83,11 +77,19 @@ final class TypeDraftBuilder implements Builder
     }
 
     /**
+     * @return null|FieldDefinitionCollection
+     */
+    public function getFieldDefinitions()
+    {
+        return $this->fieldDefinitions;
+    }
+
+    /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withKey(?string $key)
     {
-        $this->name = $name;
+        $this->key = $key;
 
         return $this;
     }
@@ -95,9 +97,9 @@ final class TypeDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions)
+    public function withName(?LocalizedString $name)
     {
-        $this->fieldDefinitions = $fieldDefinitions;
+        $this->name = $name;
 
         return $this;
     }
@@ -115,9 +117,9 @@ final class TypeDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withResourceTypeIds(?array $resourceTypeIds)
     {
-        $this->key = $key;
+        $this->resourceTypeIds = $resourceTypeIds;
 
         return $this;
     }
@@ -125,9 +127,9 @@ final class TypeDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceTypeIds(?array $resourceTypeIds)
+    public function withFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions)
     {
-        $this->resourceTypeIds = $resourceTypeIds;
+        $this->fieldDefinitions = $fieldDefinitions;
 
         return $this;
     }
@@ -155,11 +157,11 @@ final class TypeDraftBuilder implements Builder
     public function build(): TypeDraft
     {
         return new TypeDraftModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->fieldDefinitions,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->key,
-            $this->resourceTypeIds
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->resourceTypeIds,
+            $this->fieldDefinitions
         );
     }
 

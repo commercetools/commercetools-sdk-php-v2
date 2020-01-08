@@ -16,6 +16,11 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     /**
      * @var ?string
      */
+    protected $key;
+
+    /**
+     * @var ?string
+     */
     protected $name;
 
     /**
@@ -28,21 +33,37 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
      */
     protected $locations;
 
-    /**
-     * @var ?string
-     */
-    protected $key;
-
     public function __construct(
+        string $key = null,
         string $name = null,
         string $description = null,
-        LocationCollection $locations = null,
-        string $key = null
+        LocationCollection $locations = null
     ) {
+        $this->key = $key;
         $this->name = $name;
         $this->description = $description;
         $this->locations = $locations;
-        $this->key = $key;
+    }
+
+    /**
+     * <p>User-specific unique identifier for a zone.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ZoneDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -96,21 +117,9 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
         return $this->locations;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ZoneDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        $this->key = $key;
     }
 
     public function setName(?string $name): void
@@ -126,10 +135,5 @@ final class ZoneDraftModel extends JsonObjectModel implements ZoneDraft
     public function setLocations(?LocationCollection $locations): void
     {
         $this->locations = $locations;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 }

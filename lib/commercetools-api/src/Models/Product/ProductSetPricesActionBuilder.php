@@ -17,19 +17,9 @@ use Commercetools\Base\Builder;
 final class ProductSetPricesActionBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
-
-    /**
-     * @var ?PriceDraftCollection
-     */
-    private $prices;
 
     /**
      * @var ?string
@@ -37,12 +27,14 @@ final class ProductSetPricesActionBuilder implements Builder
     private $sku;
 
     /**
-     * @return null|bool
+     * @var ?PriceDraftCollection
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $prices;
+
+    /**
+     * @var ?bool
+     */
+    private $staged;
 
     /**
      * @return null|int
@@ -50,14 +42,6 @@ final class ProductSetPricesActionBuilder implements Builder
     public function getVariantId()
     {
         return $this->variantId;
-    }
-
-    /**
-     * @return null|PriceDraftCollection
-     */
-    public function getPrices()
-    {
-        return $this->prices;
     }
 
     /**
@@ -69,13 +53,19 @@ final class ProductSetPricesActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|PriceDraftCollection
      */
-    public function withStaged(?bool $staged)
+    public function getPrices()
     {
-        $this->staged = $staged;
+        return $this->prices;
+    }
 
-        return $this;
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
     }
 
     /**
@@ -84,6 +74,16 @@ final class ProductSetPricesActionBuilder implements Builder
     public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
 
         return $this;
     }
@@ -101,9 +101,9 @@ final class ProductSetPricesActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSku(?string $sku)
+    public function withStaged(?bool $staged)
     {
-        $this->sku = $sku;
+        $this->staged = $staged;
 
         return $this;
     }
@@ -111,10 +111,10 @@ final class ProductSetPricesActionBuilder implements Builder
     public function build(): ProductSetPricesAction
     {
         return new ProductSetPricesActionModel(
-            $this->staged,
             $this->variantId,
+            $this->sku,
             $this->prices,
-            $this->sku
+            $this->staged
         );
     }
 

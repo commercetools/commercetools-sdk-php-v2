@@ -18,14 +18,24 @@ use Commercetools\Base\Builder;
 final class CartSetCartTotalTaxActionBuilder implements Builder
 {
     /**
+     * @var Money|?MoneyBuilder
+     */
+    private $externalTotalGross;
+
+    /**
      * @var ?TaxPortionDraftCollection
      */
     private $externalTaxPortions;
 
     /**
-     * @var Money|?MoneyBuilder
+     * <p>The total gross amount of the cart (totalNet + taxes).</p>.
+     *
+     * @return null|Money
      */
-    private $externalTotalGross;
+    public function getExternalTotalGross()
+    {
+        return $this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross;
+    }
 
     /**
      * @return null|TaxPortionDraftCollection
@@ -36,11 +46,13 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     }
 
     /**
-     * @return null|Money
+     * @return $this
      */
-    public function getExternalTotalGross()
+    public function withExternalTotalGross(?Money $externalTotalGross)
     {
-        return $this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross;
+        $this->externalTotalGross = $externalTotalGross;
+
+        return $this;
     }
 
     /**
@@ -49,16 +61,6 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     public function withExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions)
     {
         $this->externalTaxPortions = $externalTaxPortions;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExternalTotalGross(?Money $externalTotalGross)
-    {
-        $this->externalTotalGross = $externalTotalGross;
 
         return $this;
     }
@@ -76,8 +78,8 @@ final class CartSetCartTotalTaxActionBuilder implements Builder
     public function build(): CartSetCartTotalTaxAction
     {
         return new CartSetCartTotalTaxActionModel(
-            $this->externalTaxPortions,
-            ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross)
+            ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross),
+            $this->externalTaxPortions
         );
     }
 

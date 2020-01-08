@@ -26,6 +26,8 @@ final class MyOrderFromCartDraftBuilder implements Builder
     private $version;
 
     /**
+     * <p>The unique ID of the cart from which an order is created.</p>.
+     *
      * @return null|string
      */
     public function getId()

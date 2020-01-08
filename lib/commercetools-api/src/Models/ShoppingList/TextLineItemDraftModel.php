@@ -25,11 +25,6 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     protected $addedAt;
 
     /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -37,28 +32,35 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     /**
      * @var ?LocalizedString
      */
-    protected $name;
+    protected $description;
 
     /**
      * @var ?LocalizedString
      */
-    protected $description;
+    protected $name;
+
+    /**
+     * @var ?int
+     */
+    protected $quantity;
 
     public function __construct(
         DateTimeImmutable $addedAt = null,
-        int $quantity = null,
         CustomFieldsDraft $custom = null,
+        LocalizedString $description = null,
         LocalizedString $name = null,
-        LocalizedString $description = null
+        int $quantity = null
     ) {
         $this->addedAt = $addedAt;
-        $this->quantity = $quantity;
         $this->custom = $custom;
-        $this->name = $name;
         $this->description = $description;
+        $this->name = $name;
+        $this->quantity = $quantity;
     }
 
     /**
+     * <p>Defaults to the current date and time.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
@@ -80,23 +82,8 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(TextLineItemDraft::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -112,6 +99,24 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
         }
 
         return $this->custom;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TextLineItemDraft::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
 
     /**
@@ -133,21 +138,22 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
     }
 
     /**
-     * @return null|LocalizedString
+     * <p>Defaults to <code>1</code>.</p>.
+     *
+     * @return null|int
      */
-    public function getDescription()
+    public function getQuantity()
     {
-        if (is_null($this->description)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TextLineItemDraft::FIELD_DESCRIPTION);
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(TextLineItemDraft::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->description = LocalizedStringModel::of($data);
+            $this->quantity = (int) $data;
         }
 
-        return $this->description;
+        return $this->quantity;
     }
 
     public function setAddedAt(?DateTimeImmutable $addedAt): void
@@ -155,14 +161,14 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
         $this->addedAt = $addedAt;
     }
 
-    public function setQuantity(?int $quantity): void
-    {
-        $this->quantity = $quantity;
-    }
-
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
+    }
+
+    public function setDescription(?LocalizedString $description): void
+    {
+        $this->description = $description;
     }
 
     public function setName(?LocalizedString $name): void
@@ -170,9 +176,9 @@ final class TextLineItemDraftModel extends JsonObjectModel implements TextLineIt
         $this->name = $name;
     }
 
-    public function setDescription(?LocalizedString $description): void
+    public function setQuantity(?int $quantity): void
     {
-        $this->description = $description;
+        $this->quantity = $quantity;
     }
 
     public function jsonSerialize()

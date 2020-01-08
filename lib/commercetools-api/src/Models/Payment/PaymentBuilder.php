@@ -28,16 +28,6 @@ use DateTimeImmutable;
 final class PaymentBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -48,14 +38,49 @@ final class PaymentBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * @var CustomerReference|?CustomerReferenceBuilder
+     */
+    private $customer;
+
+    /**
+     * @var ?string
+     */
+    private $anonymousId;
+
+    /**
+     * @var ?string
+     */
+    private $externalId;
+
+    /**
+     * @var ?string
+     */
+    private $interfaceId;
+
+    /**
+     * @var TypedMoney|?TypedMoneyBuilder
+     */
+    private $amountPlanned;
 
     /**
      * @var TypedMoney|?TypedMoneyBuilder
@@ -65,32 +90,7 @@ final class PaymentBuilder implements Builder
     /**
      * @var ?string
      */
-    private $anonymousId;
-
-    /**
-     * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
-     */
-    private $paymentMethodInfo;
-
-    /**
-     * @var CustomFields|?CustomFieldsBuilder
-     */
-    private $custom;
-
-    /**
-     * @var ?string
-     */
     private $authorizedUntil;
-
-    /**
-     * @var ?string
-     */
-    private $externalId;
-
-    /**
-     * @var ?TransactionCollection
-     */
-    private $transactions;
 
     /**
      * @var TypedMoney|?TypedMoneyBuilder
@@ -103,24 +103,9 @@ final class PaymentBuilder implements Builder
     private $amountRefunded;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
      */
-    private $amountPlanned;
-
-    /**
-     * @var ?CustomFieldsCollection
-     */
-    private $interfaceInteractions;
-
-    /**
-     * @var ?string
-     */
-    private $interfaceId;
-
-    /**
-     * @var ?string
-     */
-    private $key;
+    private $paymentMethodInfo;
 
     /**
      * @var PaymentStatus|?PaymentStatusBuilder
@@ -128,25 +113,24 @@ final class PaymentBuilder implements Builder
     private $paymentStatus;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var ?TransactionCollection
      */
-    private $customer;
+    private $transactions;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var ?CustomFieldsCollection
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
+    private $interfaceInteractions;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $custom;
+
+    /**
+     * @var ?string
+     */
+    private $key;
 
     /**
      * @return null|string
@@ -165,6 +149,34 @@ final class PaymentBuilder implements Builder
     }
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|LastModifiedBy
+     */
+    public function getLastModifiedBy()
+    {
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -173,11 +185,54 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * @return null|LastModifiedBy
+     * <p>A reference to the customer this payment belongs to.</p>.
+     *
+     * @return null|CustomerReference
      */
-    public function getLastModifiedBy()
+    public function getCustomer()
     {
-        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
+    }
+
+    /**
+     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     *
+     * @return null|string
+     */
+    public function getAnonymousId()
+    {
+        return $this->anonymousId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
+     * Cannot be changed once it has been set.
+     * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>.
+     *
+     * @return null|string
+     */
+    public function getInterfaceId()
+    {
+        return $this->interfaceId;
+    }
+
+    /**
+     * <p>How much money this payment intends to receive from the customer.
+     * The value usually matches the cart or order gross total.</p>.
+     *
+     * @return null|TypedMoney
+     */
+    public function getAmountPlanned()
+    {
+        return $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
     }
 
     /**
@@ -191,49 +246,9 @@ final class PaymentBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getAnonymousId()
-    {
-        return $this->anonymousId;
-    }
-
-    /**
-     * @return null|PaymentMethodInfo
-     */
-    public function getPaymentMethodInfo()
-    {
-        return $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getAuthorizedUntil()
     {
         return $this->authorizedUntil;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
-     * @return null|TransactionCollection
-     */
-    public function getTransactions()
-    {
-        return $this->transactions;
     }
 
     /**
@@ -253,35 +268,11 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * @return null|TypedMoney
+     * @return null|PaymentMethodInfo
      */
-    public function getAmountPlanned()
+    public function getPaymentMethodInfo()
     {
-        return $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
-    }
-
-    /**
-     * @return null|CustomFieldsCollection
-     */
-    public function getInterfaceInteractions()
-    {
-        return $this->interfaceInteractions;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getInterfaceId()
-    {
-        return $this->interfaceId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
+        return $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo;
     }
 
     /**
@@ -293,31 +284,45 @@ final class PaymentBuilder implements Builder
     }
 
     /**
-     * @return null|CustomerReference
+     * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>.
+     *
+     * @return null|TransactionCollection
      */
-    public function getCustomer()
+    public function getTransactions()
     {
-        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
+        return $this->transactions;
     }
 
     /**
-     * @return $this
+     * <p>Interface interactions can be requests sent to the PSP, responses received from the PSP or notifications received from the PSP.
+     * Some interactions may result in a transaction.
+     * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
+     * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>.
+     *
+     * @return null|CustomFieldsCollection
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getInterfaceInteractions()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->interfaceInteractions;
     }
 
     /**
-     * @return $this
+     * @return null|CustomFields
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getCustom()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
 
-        return $this;
+    /**
+     * <p>User-specific unique identifier for the payment (max.
+     * 256 characters).</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -343,9 +348,19 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -363,9 +378,19 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmountAuthorized(?TypedMoney $amountAuthorized)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->amountAuthorized = $amountAuthorized;
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomer(?CustomerReference $customer)
+    {
+        $this->customer = $customer;
 
         return $this;
     }
@@ -383,36 +408,6 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
-    {
-        $this->paymentMethodInfo = $paymentMethodInfo;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAuthorizedUntil(?string $authorizedUntil)
-    {
-        $this->authorizedUntil = $authorizedUntil;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withExternalId(?string $externalId)
     {
         $this->externalId = $externalId;
@@ -423,9 +418,39 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTransactions(?TransactionCollection $transactions)
+    public function withInterfaceId(?string $interfaceId)
     {
-        $this->transactions = $transactions;
+        $this->interfaceId = $interfaceId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAmountPlanned(?TypedMoney $amountPlanned)
+    {
+        $this->amountPlanned = $amountPlanned;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAmountAuthorized(?TypedMoney $amountAuthorized)
+    {
+        $this->amountAuthorized = $amountAuthorized;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAuthorizedUntil(?string $authorizedUntil)
+    {
+        $this->authorizedUntil = $authorizedUntil;
 
         return $this;
     }
@@ -453,39 +478,9 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmountPlanned(?TypedMoney $amountPlanned)
+    public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
     {
-        $this->amountPlanned = $amountPlanned;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withInterfaceInteractions(?CustomFieldsCollection $interfaceInteractions)
-    {
-        $this->interfaceInteractions = $interfaceInteractions;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withInterfaceId(?string $interfaceId)
-    {
-        $this->interfaceId = $interfaceId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
+        $this->paymentMethodInfo = $paymentMethodInfo;
 
         return $this;
     }
@@ -503,9 +498,9 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomer(?CustomerReference $customer)
+    public function withTransactions(?TransactionCollection $transactions)
     {
-        $this->customer = $customer;
+        $this->transactions = $transactions;
 
         return $this;
     }
@@ -513,9 +508,29 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withInterfaceInteractions(?CustomFieldsCollection $interfaceInteractions)
     {
-        $this->createdBy = $createdBy;
+        $this->interfaceInteractions = $interfaceInteractions;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -533,29 +548,39 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAmountPlannedBuilder(?TypedMoneyBuilder $amountPlanned)
+    {
+        $this->amountPlanned = $amountPlanned;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAmountAuthorizedBuilder(?TypedMoneyBuilder $amountAuthorized)
     {
         $this->amountAuthorized = $amountAuthorized;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
-    {
-        $this->paymentMethodInfo = $paymentMethodInfo;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
-    {
-        $this->custom = $custom;
 
         return $this;
     }
@@ -583,9 +608,9 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmountPlannedBuilder(?TypedMoneyBuilder $amountPlanned)
+    public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
     {
-        $this->amountPlanned = $amountPlanned;
+        $this->paymentMethodInfo = $paymentMethodInfo;
 
         return $this;
     }
@@ -603,9 +628,9 @@ final class PaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
-        $this->customer = $customer;
+        $this->custom = $custom;
 
         return $this;
     }
@@ -613,27 +638,27 @@ final class PaymentBuilder implements Builder
     public function build(): Payment
     {
         return new PaymentModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
             $this->anonymousId,
-            ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            $this->authorizedUntil,
             $this->externalId,
-            $this->transactions,
+            $this->interfaceId,
+            ($this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
+            ($this->amountAuthorized instanceof TypedMoneyBuilder ? $this->amountAuthorized->build() : $this->amountAuthorized),
+            $this->authorizedUntil,
             ($this->amountPaid instanceof TypedMoneyBuilder ? $this->amountPaid->build() : $this->amountPaid),
             ($this->amountRefunded instanceof TypedMoneyBuilder ? $this->amountRefunded->build() : $this->amountRefunded),
-            ($this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
-            $this->interfaceInteractions,
-            $this->interfaceId,
-            $this->key,
+            ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo),
             ($this->paymentStatus instanceof PaymentStatusBuilder ? $this->paymentStatus->build() : $this->paymentStatus),
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)
+            $this->transactions,
+            $this->interfaceInteractions,
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->key
         );
     }
 

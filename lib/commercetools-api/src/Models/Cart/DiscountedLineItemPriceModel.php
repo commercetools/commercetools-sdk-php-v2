@@ -16,21 +16,39 @@ use stdClass;
 final class DiscountedLineItemPriceModel extends JsonObjectModel implements DiscountedLineItemPrice
 {
     /**
-     * @var ?DiscountedLineItemPortionCollection
-     */
-    protected $includedDiscounts;
-
-    /**
      * @var ?TypedMoney
      */
     protected $value;
 
+    /**
+     * @var ?DiscountedLineItemPortionCollection
+     */
+    protected $includedDiscounts;
+
     public function __construct(
-        DiscountedLineItemPortionCollection $includedDiscounts = null,
-        TypedMoney $value = null
+        TypedMoney $value = null,
+        DiscountedLineItemPortionCollection $includedDiscounts = null
     ) {
-        $this->includedDiscounts = $includedDiscounts;
         $this->value = $value;
+        $this->includedDiscounts = $includedDiscounts;
+    }
+
+    /**
+     * @return null|TypedMoney
+     */
+    public function getValue()
+    {
+        if (is_null($this->value)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountedLineItemPrice::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->value = TypedMoneyModel::of($data);
+        }
+
+        return $this->value;
     }
 
     /**
@@ -50,31 +68,13 @@ final class DiscountedLineItemPriceModel extends JsonObjectModel implements Disc
         return $this->includedDiscounts;
     }
 
-    /**
-     * @return null|TypedMoney
-     */
-    public function getValue()
+    public function setValue(?TypedMoney $value): void
     {
-        if (is_null($this->value)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountedLineItemPrice::FIELD_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
-        }
-
-        return $this->value;
+        $this->value = $value;
     }
 
     public function setIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts): void
     {
         $this->includedDiscounts = $includedDiscounts;
-    }
-
-    public function setValue(?TypedMoney $value): void
-    {
-        $this->value = $value;
     }
 }

@@ -16,9 +16,9 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     const DISCRIMINATOR_VALUE = '';
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    protected $centAmount;
+    protected $type;
 
     /**
      * @var ?int
@@ -26,9 +26,9 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     protected $fractionDigits;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $type;
+    protected $centAmount;
 
     /**
      * @var ?string
@@ -44,31 +44,31 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     ];
 
     public function __construct(
-        int $centAmount = null,
         int $fractionDigits = null,
+        int $centAmount = null,
         string $currencyCode = null
     ) {
-        $this->centAmount = $centAmount;
         $this->fractionDigits = $fractionDigits;
+        $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getCentAmount()
+    public function getType()
     {
-        if (is_null($this->centAmount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(TypedMoney::FIELD_CENT_AMOUNT);
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TypedMoney::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
-            $this->centAmount = (int) $data;
+            $this->type = (string) $data;
         }
 
-        return $this->centAmount;
+        return $this->type;
     }
 
     /**
@@ -89,20 +89,20 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
     }
 
     /**
-     * @return null|string
+     * @return null|int
      */
-    public function getType()
+    public function getCentAmount()
     {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(TypedMoney::FIELD_TYPE);
+        if (is_null($this->centAmount)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(TypedMoney::FIELD_CENT_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->type = (string) $data;
+            $this->centAmount = (int) $data;
         }
 
-        return $this->type;
+        return $this->centAmount;
     }
 
     /**
@@ -124,14 +124,14 @@ final class TypedMoneyModel extends JsonObjectModel implements TypedMoney
         return $this->currencyCode;
     }
 
-    public function setCentAmount(?int $centAmount): void
-    {
-        $this->centAmount = $centAmount;
-    }
-
     public function setFractionDigits(?int $fractionDigits): void
     {
         $this->fractionDigits = $fractionDigits;
+    }
+
+    public function setCentAmount(?int $centAmount): void
+    {
+        $this->centAmount = $centAmount;
     }
 
     public function setCurrencyCode(?string $currencyCode): void

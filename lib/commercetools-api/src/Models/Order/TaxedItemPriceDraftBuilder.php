@@ -20,20 +20,12 @@ final class TaxedItemPriceDraftBuilder implements Builder
     /**
      * @var Money|?MoneyBuilder
      */
-    private $totalGross;
+    private $totalNet;
 
     /**
      * @var Money|?MoneyBuilder
      */
-    private $totalNet;
-
-    /**
-     * @return null|Money
-     */
-    public function getTotalGross()
-    {
-        return $this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross;
-    }
+    private $totalGross;
 
     /**
      * @return null|Money
@@ -44,13 +36,11 @@ final class TaxedItemPriceDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Money
      */
-    public function withTotalGross(?Money $totalGross)
+    public function getTotalGross()
     {
-        $this->totalGross = $totalGross;
-
-        return $this;
+        return $this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross;
     }
 
     /**
@@ -66,7 +56,7 @@ final class TaxedItemPriceDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalGrossBuilder(?MoneyBuilder $totalGross)
+    public function withTotalGross(?Money $totalGross)
     {
         $this->totalGross = $totalGross;
 
@@ -83,11 +73,21 @@ final class TaxedItemPriceDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTotalGrossBuilder(?MoneyBuilder $totalGross)
+    {
+        $this->totalGross = $totalGross;
+
+        return $this;
+    }
+
     public function build(): TaxedItemPriceDraft
     {
         return new TaxedItemPriceDraftModel(
-            ($this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross),
-            ($this->totalNet instanceof MoneyBuilder ? $this->totalNet->build() : $this->totalNet)
+            ($this->totalNet instanceof MoneyBuilder ? $this->totalNet->build() : $this->totalNet),
+            ($this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross)
         );
     }
 

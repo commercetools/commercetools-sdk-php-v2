@@ -21,6 +21,8 @@ interface CustomFields extends JsonObject
     public function getType();
 
     /**
+     * <p>A valid JSON object, based on FieldDefinition.</p>.
+     *
      * @return null|FieldContainer
      */
     public function getFields();

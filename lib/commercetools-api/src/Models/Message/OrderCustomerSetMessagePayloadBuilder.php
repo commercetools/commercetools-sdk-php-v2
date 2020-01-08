@@ -20,9 +20,9 @@ use Commercetools\Base\Builder;
 final class OrderCustomerSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var CustomerReference|?CustomerReferenceBuilder
      */
-    private $oldCustomerGroup;
+    private $customer;
 
     /**
      * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
@@ -35,16 +35,16 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     private $oldCustomer;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
-    private $customer;
+    private $oldCustomerGroup;
 
     /**
-     * @return null|CustomerGroupReference
+     * @return null|CustomerReference
      */
-    public function getOldCustomerGroup()
+    public function getCustomer()
     {
-        return $this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup;
+        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
     }
 
     /**
@@ -64,19 +64,19 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return null|CustomerReference
+     * @return null|CustomerGroupReference
      */
-    public function getCustomer()
+    public function getOldCustomerGroup()
     {
-        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
+        return $this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup;
     }
 
     /**
      * @return $this
      */
-    public function withOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup)
+    public function withCustomer(?CustomerReference $customer)
     {
-        $this->oldCustomerGroup = $oldCustomerGroup;
+        $this->customer = $customer;
 
         return $this;
     }
@@ -104,9 +104,9 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomer(?CustomerReference $customer)
+    public function withOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup)
     {
-        $this->customer = $customer;
+        $this->oldCustomerGroup = $oldCustomerGroup;
 
         return $this;
     }
@@ -114,9 +114,9 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldCustomerGroupBuilder(?CustomerGroupReferenceBuilder $oldCustomerGroup)
+    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
     {
-        $this->oldCustomerGroup = $oldCustomerGroup;
+        $this->customer = $customer;
 
         return $this;
     }
@@ -144,9 +144,9 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
+    public function withOldCustomerGroupBuilder(?CustomerGroupReferenceBuilder $oldCustomerGroup)
     {
-        $this->customer = $customer;
+        $this->oldCustomerGroup = $oldCustomerGroup;
 
         return $this;
     }
@@ -154,10 +154,10 @@ final class OrderCustomerSetMessagePayloadBuilder implements Builder
     public function build(): OrderCustomerSetMessagePayload
     {
         return new OrderCustomerSetMessagePayloadModel(
-            ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup),
+            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
             ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
             ($this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer),
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)
+            ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup)
         );
     }
 

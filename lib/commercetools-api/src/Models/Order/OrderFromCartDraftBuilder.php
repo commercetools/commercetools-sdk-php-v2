@@ -20,27 +20,7 @@ final class OrderFromCartDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $shipmentState;
-
-    /**
-     * @var ?string
-     */
-    private $orderNumber;
-
-    /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
-     */
-    private $state;
-
-    /**
-     * @var ?string
-     */
     private $id;
-
-    /**
-     * @var ?string
-     */
-    private $paymentState;
 
     /**
      * @var ?int
@@ -50,46 +30,36 @@ final class OrderFromCartDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $orderNumber;
+
+    /**
+     * @var ?string
+     */
+    private $paymentState;
+
+    /**
+     * @var ?string
+     */
+    private $shipmentState;
+
+    /**
+     * @var ?string
+     */
     private $orderState;
 
     /**
-     * @return null|string
+     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
      */
-    public function getShipmentState()
-    {
-        return $this->shipmentState;
-    }
+    private $state;
 
     /**
-     * @return null|string
-     */
-    public function getOrderNumber()
-    {
-        return $this->orderNumber;
-    }
-
-    /**
-     * @return null|StateResourceIdentifier
-     */
-    public function getState()
-    {
-        return $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state;
-    }
-
-    /**
+     * <p>The unique id of the cart from which an order is created.</p>.
+     *
      * @return null|string
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPaymentState()
-    {
-        return $this->paymentState;
     }
 
     /**
@@ -101,6 +71,38 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
+     * <p>String that uniquely identifies an order.
+     * It can be used to create more human-readable (in contrast to ID) identifier for the order.
+     * It should be unique across a project.
+     * Once it's set it cannot be changed.
+     * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getOrderNumber()
+    {
+        return $this->orderNumber;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPaymentState()
+    {
+        return $this->paymentState;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getShipmentState()
+    {
+        return $this->shipmentState;
+    }
+
+    /**
+     * <p>Order will be created with <code>Open</code> status by default.</p>.
+     *
      * @return null|string
      */
     public function getOrderState()
@@ -109,33 +111,11 @@ final class OrderFromCartDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|StateResourceIdentifier
      */
-    public function withShipmentState(?string $shipmentState)
+    public function getState()
     {
-        $this->shipmentState = $shipmentState;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withOrderNumber(?string $orderNumber)
-    {
-        $this->orderNumber = $orderNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withState(?StateResourceIdentifier $state)
-    {
-        $this->state = $state;
-
-        return $this;
+        return $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state;
     }
 
     /**
@@ -144,16 +124,6 @@ final class OrderFromCartDraftBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPaymentState(?string $paymentState)
-    {
-        $this->paymentState = $paymentState;
 
         return $this;
     }
@@ -171,9 +141,49 @@ final class OrderFromCartDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withOrderNumber(?string $orderNumber)
+    {
+        $this->orderNumber = $orderNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPaymentState(?string $paymentState)
+    {
+        $this->paymentState = $paymentState;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShipmentState(?string $shipmentState)
+    {
+        $this->shipmentState = $shipmentState;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withOrderState(?string $orderState)
     {
         $this->orderState = $orderState;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withState(?StateResourceIdentifier $state)
+    {
+        $this->state = $state;
 
         return $this;
     }
@@ -191,13 +201,13 @@ final class OrderFromCartDraftBuilder implements Builder
     public function build(): OrderFromCartDraft
     {
         return new OrderFromCartDraftModel(
-            $this->shipmentState,
-            $this->orderNumber,
-            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state),
             $this->id,
-            $this->paymentState,
             $this->version,
-            $this->orderState
+            $this->orderNumber,
+            $this->paymentState,
+            $this->shipmentState,
+            $this->orderState,
+            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state)
         );
     }
 

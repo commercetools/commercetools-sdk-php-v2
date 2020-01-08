@@ -19,19 +19,14 @@ use DateTimeImmutable;
 final class DeliveryBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var Address|?AddressBuilder
-     */
-    private $address;
-
-    /**
      * @var ?string
      */
     private $id;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?DeliveryItemCollection
@@ -44,20 +39,9 @@ final class DeliveryBuilder implements Builder
     private $parcels;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var Address|?AddressBuilder
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|Address
-     */
-    public function getAddress()
-    {
-        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
-    }
+    private $address;
 
     /**
      * @return null|string
@@ -68,6 +52,17 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * <p>Items which are shipped in this delivery regardless their distribution over several parcels.
+     * Can also be specified individually for each Parcel.</p>.
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -84,23 +79,11 @@ final class DeliveryBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Address
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getAddress()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAddress(?Address $address)
-    {
-        $this->address = $address;
-
-        return $this;
+        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
     }
 
     /**
@@ -109,6 +92,16 @@ final class DeliveryBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -136,6 +129,16 @@ final class DeliveryBuilder implements Builder
     /**
      * @return $this
      */
+    public function withAddress(?Address $address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAddressBuilder(?AddressBuilder $address)
     {
         $this->address = $address;
@@ -146,11 +149,11 @@ final class DeliveryBuilder implements Builder
     public function build(): Delivery
     {
         return new DeliveryModel(
-            $this->createdAt,
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
             $this->id,
+            $this->createdAt,
             $this->items,
-            $this->parcels
+            $this->parcels,
+            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
         );
     }
 

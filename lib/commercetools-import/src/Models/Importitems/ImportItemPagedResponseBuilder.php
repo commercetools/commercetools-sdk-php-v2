@@ -18,6 +18,11 @@ final class ImportItemPagedResponseBuilder implements Builder
     /**
      * @var ?int
      */
+    private $limit;
+
+    /**
+     * @var ?int
+     */
     private $offset;
 
     /**
@@ -26,14 +31,19 @@ final class ImportItemPagedResponseBuilder implements Builder
     private $count;
 
     /**
-     * @var ?int
-     */
-    private $limit;
-
-    /**
      * @var ?ImportItemCollection
      */
     private $results;
+
+    /**
+     * <p>The maximum number of import items returned for a page.</p>.
+     *
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
 
     /**
      * <p>The offset supplied by the client or the server default. It is the number of elements skipped.</p>.
@@ -56,16 +66,6 @@ final class ImportItemPagedResponseBuilder implements Builder
     }
 
     /**
-     * <p>The maximum number of import items returned for a page.</p>.
-     *
-     * @return null|int
-     */
-    public function getLimit()
-    {
-        return $this->limit;
-    }
-
-    /**
      * <p>The results for this paged response.</p>.
      *
      * @return null|ImportItemCollection
@@ -73,6 +73,16 @@ final class ImportItemPagedResponseBuilder implements Builder
     public function getResults()
     {
         return $this->results;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLimit(?int $limit)
+    {
+        $this->limit = $limit;
+
+        return $this;
     }
 
     /**
@@ -98,16 +108,6 @@ final class ImportItemPagedResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLimit(?int $limit)
-    {
-        $this->limit = $limit;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResults(?ImportItemCollection $results)
     {
         $this->results = $results;
@@ -118,9 +118,9 @@ final class ImportItemPagedResponseBuilder implements Builder
     public function build(): ImportItemPagedResponse
     {
         return new ImportItemPagedResponseModel(
+            $this->limit,
             $this->offset,
             $this->count,
-            $this->limit,
             $this->results
         );
     }

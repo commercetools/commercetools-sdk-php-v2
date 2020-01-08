@@ -18,11 +18,6 @@ final class CustomerChangePasswordBuilder implements Builder
     /**
      * @var ?string
      */
-    private $newPassword;
-
-    /**
-     * @var ?string
-     */
     private $id;
 
     /**
@@ -36,12 +31,9 @@ final class CustomerChangePasswordBuilder implements Builder
     private $currentPassword;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getNewPassword()
-    {
-        return $this->newPassword;
-    }
+    private $newPassword;
 
     /**
      * @return null|string
@@ -68,13 +60,11 @@ final class CustomerChangePasswordBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withNewPassword(?string $newPassword)
+    public function getNewPassword()
     {
-        $this->newPassword = $newPassword;
-
-        return $this;
+        return $this->newPassword;
     }
 
     /**
@@ -107,13 +97,23 @@ final class CustomerChangePasswordBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withNewPassword(?string $newPassword)
+    {
+        $this->newPassword = $newPassword;
+
+        return $this;
+    }
+
     public function build(): CustomerChangePassword
     {
         return new CustomerChangePasswordModel(
-            $this->newPassword,
             $this->id,
             $this->version,
-            $this->currentPassword
+            $this->currentPassword,
+            $this->newPassword
         );
     }
 

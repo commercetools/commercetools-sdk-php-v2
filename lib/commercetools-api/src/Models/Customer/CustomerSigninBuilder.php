@@ -16,14 +16,9 @@ use Commercetools\Base\Builder;
 final class CustomerSigninBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $updateProductData;
-
-    /**
      * @var ?string
      */
-    private $anonymousId;
+    private $email;
 
     /**
      * @var ?string
@@ -33,32 +28,29 @@ final class CustomerSigninBuilder implements Builder
     /**
      * @var ?string
      */
-    private $anonymousCartSignInMode;
-
-    /**
-     * @var ?string
-     */
     private $anonymousCartId;
 
     /**
      * @var ?string
      */
-    private $email;
+    private $anonymousCartSignInMode;
 
     /**
-     * @return null|bool
+     * @var ?string
      */
-    public function getUpdateProductData()
-    {
-        return $this->updateProductData;
-    }
+    private $anonymousId;
+
+    /**
+     * @var ?bool
+     */
+    private $updateProductData;
 
     /**
      * @return null|string
      */
-    public function getAnonymousId()
+    public function getEmail()
     {
-        return $this->anonymousId;
+        return $this->email;
     }
 
     /**
@@ -72,14 +64,6 @@ final class CustomerSigninBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getAnonymousCartSignInMode()
-    {
-        return $this->anonymousCartSignInMode;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getAnonymousCartId()
     {
         return $this->anonymousCartId;
@@ -88,27 +72,33 @@ final class CustomerSigninBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getEmail()
+    public function getAnonymousCartSignInMode()
     {
-        return $this->email;
+        return $this->anonymousCartSignInMode;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAnonymousId()
+    {
+        return $this->anonymousId;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getUpdateProductData()
+    {
+        return $this->updateProductData;
     }
 
     /**
      * @return $this
      */
-    public function withUpdateProductData(?bool $updateProductData)
+    public function withEmail(?string $email)
     {
-        $this->updateProductData = $updateProductData;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAnonymousId(?string $anonymousId)
-    {
-        $this->anonymousId = $anonymousId;
+        $this->email = $email;
 
         return $this;
     }
@@ -126,16 +116,6 @@ final class CustomerSigninBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAnonymousCartSignInMode(?string $anonymousCartSignInMode)
-    {
-        $this->anonymousCartSignInMode = $anonymousCartSignInMode;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withAnonymousCartId(?string $anonymousCartId)
     {
         $this->anonymousCartId = $anonymousCartId;
@@ -146,9 +126,29 @@ final class CustomerSigninBuilder implements Builder
     /**
      * @return $this
      */
-    public function withEmail(?string $email)
+    public function withAnonymousCartSignInMode(?string $anonymousCartSignInMode)
     {
-        $this->email = $email;
+        $this->anonymousCartSignInMode = $anonymousCartSignInMode;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAnonymousId(?string $anonymousId)
+    {
+        $this->anonymousId = $anonymousId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withUpdateProductData(?bool $updateProductData)
+    {
+        $this->updateProductData = $updateProductData;
 
         return $this;
     }
@@ -156,12 +156,12 @@ final class CustomerSigninBuilder implements Builder
     public function build(): CustomerSignin
     {
         return new CustomerSigninModel(
-            $this->updateProductData,
-            $this->anonymousId,
+            $this->email,
             $this->password,
-            $this->anonymousCartSignInMode,
             $this->anonymousCartId,
-            $this->email
+            $this->anonymousCartSignInMode,
+            $this->anonymousId,
+            $this->updateProductData
         );
     }
 

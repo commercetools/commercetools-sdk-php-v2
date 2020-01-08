@@ -23,14 +23,14 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
     private $assetId;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $description;
-
-    /**
      * @var ?string
      */
     private $assetKey;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $description;
 
     /**
      * @return null|string
@@ -41,19 +41,19 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
     }
 
     /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
-
-    /**
      * @return null|string
      */
     public function getAssetKey()
     {
         return $this->assetKey;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
 
     /**
@@ -69,9 +69,9 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescription(?LocalizedString $description)
+    public function withAssetKey(?string $assetKey)
     {
-        $this->description = $description;
+        $this->assetKey = $assetKey;
 
         return $this;
     }
@@ -79,9 +79,9 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAssetKey(?string $assetKey)
+    public function withDescription(?LocalizedString $description)
     {
-        $this->assetKey = $assetKey;
+        $this->description = $description;
 
         return $this;
     }
@@ -100,8 +100,8 @@ final class CategorySetAssetDescriptionActionBuilder implements Builder
     {
         return new CategorySetAssetDescriptionActionModel(
             $this->assetId,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->assetKey
+            $this->assetKey,
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
         );
     }
 

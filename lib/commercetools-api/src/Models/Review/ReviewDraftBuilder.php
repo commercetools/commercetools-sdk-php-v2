@@ -25,37 +25,12 @@ final class ReviewDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $key;
+
+    /**
+     * @var ?string
+     */
     private $uniquenessValue;
-
-    /**
-     * @var ?string
-     */
-    private $authorName;
-
-    /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-     * @var ?int
-     */
-    private $rating;
-
-    /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
-     */
-    private $state;
-
-    /**
-     * @var ?string
-     */
-    private $text;
-
-    /**
-     * @var ?string
-     */
-    private $title;
 
     /**
      * @var ?string
@@ -65,12 +40,17 @@ final class ReviewDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $key;
+    private $authorName;
 
     /**
-     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
+     * @var ?string
      */
-    private $customer;
+    private $title;
+
+    /**
+     * @var ?string
+     */
+    private $text;
 
     /**
      * @var ?JsonObject
@@ -78,59 +58,44 @@ final class ReviewDraftBuilder implements Builder
     private $target;
 
     /**
+     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     */
+    private $state;
+
+    /**
+     * @var ?int
+     */
+    private $rating;
+
+    /**
+     * @var CustomerResourceIdentifier|?CustomerResourceIdentifierBuilder
+     */
+    private $customer;
+
+    /**
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>User-specific unique identifier for the review.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>If set, this value must be unique among reviews.
+     * For example, if you want to have only one review per customer and per product, you can set the value to <code>customer's id</code> + <code>product's id</code>.</p>.
+     *
      * @return null|string
      */
     public function getUniquenessValue()
     {
         return $this->uniquenessValue;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAuthorName()
-    {
-        return $this->authorName;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getRating()
-    {
-        return $this->rating;
-    }
-
-    /**
-     * @return null|StateResourceIdentifier
-     */
-    public function getState()
-    {
-        return $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTitle()
-    {
-        return $this->title;
     }
 
     /**
@@ -144,20 +109,31 @@ final class ReviewDraftBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getKey()
+    public function getAuthorName()
     {
-        return $this->key;
+        return $this->authorName;
     }
 
     /**
-     * @return null|CustomerResourceIdentifier
+     * @return null|string
      */
-    public function getCustomer()
+    public function getTitle()
     {
-        return $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer;
+        return $this->title;
     }
 
     /**
+     * @return null|string
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel</p>.
+     *
      * @return null|JsonObject
      */
     public function getTarget()
@@ -166,71 +142,60 @@ final class ReviewDraftBuilder implements Builder
     }
 
     /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p>Number between -100 and 100 included.
+     * Rating of the targeted object, like a product.
+     * This rating can represent the number of stars, or a percentage, or a like (+1)/dislike (-1)
+     * A rating is used in the ratings statistics of the targeted object, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.</p>.
+     *
+     * @return null|int
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * <p>The customer who created the review.</p>.
+     *
+     * @return null|CustomerResourceIdentifier
+     */
+    public function getCustomer()
+    {
+        return $this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer;
+    }
+
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
      * @return $this
      */
     public function withUniquenessValue(?string $uniquenessValue)
     {
         $this->uniquenessValue = $uniquenessValue;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAuthorName(?string $authorName)
-    {
-        $this->authorName = $authorName;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withRating(?int $rating)
-    {
-        $this->rating = $rating;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withState(?StateResourceIdentifier $state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withText(?string $text)
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTitle(?string $title)
-    {
-        $this->title = $title;
 
         return $this;
     }
@@ -248,9 +213,9 @@ final class ReviewDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withAuthorName(?string $authorName)
     {
-        $this->key = $key;
+        $this->authorName = $authorName;
 
         return $this;
     }
@@ -258,9 +223,19 @@ final class ReviewDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomer(?CustomerResourceIdentifier $customer)
+    public function withTitle(?string $title)
     {
-        $this->customer = $customer;
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withText(?string $text)
+    {
+        $this->text = $text;
 
         return $this;
     }
@@ -278,7 +253,37 @@ final class ReviewDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withState(?StateResourceIdentifier $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withRating(?int $rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomer(?CustomerResourceIdentifier $customer)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -305,20 +310,30 @@ final class ReviewDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): ReviewDraft
     {
         return new ReviewDraftModel(
-            $this->uniquenessValue,
-            $this->authorName,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            $this->rating,
-            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state),
-            $this->text,
-            $this->title,
-            $this->locale,
             $this->key,
+            $this->uniquenessValue,
+            $this->locale,
+            $this->authorName,
+            $this->title,
+            $this->text,
+            $this->target,
+            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state),
+            $this->rating,
             ($this->customer instanceof CustomerResourceIdentifierBuilder ? $this->customer->build() : $this->customer),
-            $this->target
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

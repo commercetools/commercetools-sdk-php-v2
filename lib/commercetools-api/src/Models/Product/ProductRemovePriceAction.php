@@ -14,6 +14,8 @@ interface ProductRemovePriceAction extends ProductUpdateAction
     const FIELD_STAGED = 'staged';
 
     /**
+     * <p>ID of the <a href="#price">Price</a></p>.
+     *
      * @return null|string
      */
     public function getPriceId();

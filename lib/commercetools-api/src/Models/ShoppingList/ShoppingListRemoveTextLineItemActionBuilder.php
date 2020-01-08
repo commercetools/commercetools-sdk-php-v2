@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $quantity;
-
-    /**
      * @var ?string
      */
     private $textLineItemId;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+    private $quantity;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withQuantity(?int $quantity)
+    public function getQuantity()
     {
-        $this->quantity = $quantity;
-
-        return $this;
+        return $this->quantity;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ShoppingListRemoveTextLineItemActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
     public function build(): ShoppingListRemoveTextLineItemAction
     {
         return new ShoppingListRemoveTextLineItemActionModel(
-            $this->quantity,
-            $this->textLineItemId
+            $this->textLineItemId,
+            $this->quantity
         );
     }
 

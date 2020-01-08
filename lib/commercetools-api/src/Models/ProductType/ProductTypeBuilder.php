@@ -21,16 +21,6 @@ use DateTimeImmutable;
 final class ProductTypeBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -41,14 +31,29 @@ final class ProductTypeBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * @var ?string
+     */
+    private $key;
 
     /**
      * @var ?string
@@ -66,9 +71,24 @@ final class ProductTypeBuilder implements Builder
     private $attributes;
 
     /**
-     * @var ?string
+     * <p>The unique ID of the product type.</p>.
+     *
+     * @return null|string
      */
-    private $key;
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the product type.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -87,22 +107,18 @@ final class ProductTypeBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        return $this->id;
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
 
     /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -111,11 +127,14 @@ final class ProductTypeBuilder implements Builder
     }
 
     /**
-     * @return null|LastModifiedBy
+     * <p>User-specific unique identifier for the product type (max.
+     * 256 characters).</p>.
+     *
+     * @return null|string
      */
-    public function getLastModifiedBy()
+    public function getKey()
     {
-        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+        return $this->key;
     }
 
     /**
@@ -143,11 +162,23 @@ final class ProductTypeBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getKey()
+    public function withId(?string $id)
     {
-        return $this->key;
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withVersion(?int $version)
+    {
+        $this->version = $version;
+
+        return $this;
     }
 
     /**
@@ -173,19 +204,9 @@ final class ProductTypeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withId(?string $id)
+    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withVersion(?int $version)
-    {
-        $this->version = $version;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -203,9 +224,9 @@ final class ProductTypeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
+    public function withKey(?string $key)
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->key = $key;
 
         return $this;
     }
@@ -243,9 +264,9 @@ final class ProductTypeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->key = $key;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -260,29 +281,19 @@ final class ProductTypeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
-    {
-        $this->lastModifiedBy = $lastModifiedBy;
-
-        return $this;
-    }
-
     public function build(): ProductType
     {
         return new ProductTypeModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->key,
             $this->name,
             $this->description,
-            $this->attributes,
-            $this->key
+            $this->attributes
         );
     }
 

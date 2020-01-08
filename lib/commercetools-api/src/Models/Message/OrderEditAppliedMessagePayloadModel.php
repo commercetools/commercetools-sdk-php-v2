@@ -25,21 +25,21 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     protected $type;
 
     /**
-     * @var ?OrderEditApplied
-     */
-    protected $result;
-
-    /**
      * @var ?OrderEditReference
      */
     protected $edit;
 
+    /**
+     * @var ?OrderEditApplied
+     */
+    protected $result;
+
     public function __construct(
-        OrderEditApplied $result = null,
-        OrderEditReference $edit = null
+        OrderEditReference $edit = null,
+        OrderEditApplied $result = null
     ) {
-        $this->result = $result;
         $this->edit = $edit;
+        $this->result = $result;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -61,24 +61,6 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * @return null|OrderEditApplied
-     */
-    public function getResult()
-    {
-        if (is_null($this->result)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditAppliedMessagePayload::FIELD_RESULT);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->result = OrderEditAppliedModel::of($data);
-        }
-
-        return $this->result;
-    }
-
-    /**
      * @return null|OrderEditReference
      */
     public function getEdit()
@@ -96,13 +78,31 @@ final class OrderEditAppliedMessagePayloadModel extends JsonObjectModel implemen
         return $this->edit;
     }
 
-    public function setResult(?OrderEditApplied $result): void
+    /**
+     * @return null|OrderEditApplied
+     */
+    public function getResult()
     {
-        $this->result = $result;
+        if (is_null($this->result)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderEditAppliedMessagePayload::FIELD_RESULT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->result = OrderEditAppliedModel::of($data);
+        }
+
+        return $this->result;
     }
 
     public function setEdit(?OrderEditReference $edit): void
     {
         $this->edit = $edit;
+    }
+
+    public function setResult(?OrderEditApplied $result): void
+    {
+        $this->result = $result;
     }
 }

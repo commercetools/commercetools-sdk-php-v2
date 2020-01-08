@@ -24,9 +24,9 @@ final class DuplicateFieldErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var Reference|?ReferenceBuilder
+     * @var ?string
      */
-    private $conflictingResource;
+    private $field;
 
     /**
      * @var ?JsonObject
@@ -34,9 +34,9 @@ final class DuplicateFieldErrorBuilder implements Builder
     private $duplicateValue;
 
     /**
-     * @var ?string
+     * @var Reference|?ReferenceBuilder
      */
-    private $field;
+    private $conflictingResource;
 
     /**
      * @return null|string
@@ -47,11 +47,11 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
-     * @return null|Reference
+     * @return null|string
      */
-    public function getConflictingResource()
+    public function getField()
     {
-        return $this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource;
+        return $this->field;
     }
 
     /**
@@ -63,11 +63,11 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|Reference
      */
-    public function getField()
+    public function getConflictingResource()
     {
-        return $this->field;
+        return $this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource;
     }
 
     /**
@@ -83,9 +83,9 @@ final class DuplicateFieldErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withConflictingResource(?Reference $conflictingResource)
+    public function withField(?string $field)
     {
-        $this->conflictingResource = $conflictingResource;
+        $this->field = $field;
 
         return $this;
     }
@@ -103,9 +103,9 @@ final class DuplicateFieldErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withField(?string $field)
+    public function withConflictingResource(?Reference $conflictingResource)
     {
-        $this->field = $field;
+        $this->conflictingResource = $conflictingResource;
 
         return $this;
     }
@@ -124,9 +124,9 @@ final class DuplicateFieldErrorBuilder implements Builder
     {
         return new DuplicateFieldErrorModel(
             $this->message,
-            ($this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource),
+            $this->field,
             $this->duplicateValue,
-            $this->field
+            ($this->conflictingResource instanceof ReferenceBuilder ? $this->conflictingResource->build() : $this->conflictingResource)
         );
     }
 

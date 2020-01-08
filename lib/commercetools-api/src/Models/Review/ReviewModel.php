@@ -27,16 +27,6 @@ use stdClass;
 final class ReviewModel extends JsonObjectModel implements Review
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -47,9 +37,14 @@ final class ReviewModel extends JsonObjectModel implements Review
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -57,19 +52,29 @@ final class ReviewModel extends JsonObjectModel implements Review
     protected $lastModifiedBy;
 
     /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
      * @var ?string
      */
     protected $uniquenessValue;
 
     /**
-     * @var ?CustomFields
+     * @var ?string
      */
-    protected $custom;
+    protected $locale;
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    protected $rating;
+    protected $authorName;
 
     /**
      * @var ?string
@@ -79,7 +84,7 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * @var ?string
      */
-    protected $locale;
+    protected $text;
 
     /**
      * @var ?JsonObject
@@ -92,9 +97,9 @@ final class ReviewModel extends JsonObjectModel implements Review
     protected $includedInStatistics;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $authorName;
+    protected $rating;
 
     /**
      * @var ?StateReference
@@ -102,58 +107,91 @@ final class ReviewModel extends JsonObjectModel implements Review
     protected $state;
 
     /**
-     * @var ?string
-     */
-    protected $text;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
-
-    /**
      * @var ?CustomerReference
      */
     protected $customer;
 
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
+        CreatedBy $createdBy = null,
+        string $key = null,
         string $uniquenessValue = null,
-        CustomFields $custom = null,
-        int $rating = null,
-        string $title = null,
         string $locale = null,
+        string $authorName = null,
+        string $title = null,
+        string $text = null,
         JsonObject $target = null,
         bool $includedInStatistics = null,
-        string $authorName = null,
+        int $rating = null,
         StateReference $state = null,
-        string $text = null,
-        string $key = null,
-        CustomerReference $customer = null
+        CustomerReference $customer = null,
+        CustomFields $custom = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
+        $this->key = $key;
         $this->uniquenessValue = $uniquenessValue;
-        $this->custom = $custom;
-        $this->rating = $rating;
-        $this->title = $title;
         $this->locale = $locale;
+        $this->authorName = $authorName;
+        $this->title = $title;
+        $this->text = $text;
         $this->target = $target;
         $this->includedInStatistics = $includedInStatistics;
-        $this->authorName = $authorName;
+        $this->rating = $rating;
         $this->state = $state;
-        $this->text = $text;
-        $this->key = $key;
         $this->customer = $customer;
+        $this->custom = $custom;
+    }
+
+    /**
+     * <p>The unique ID of the review.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Review::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the review.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Review::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -199,40 +237,28 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * @return null|string
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Review::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
+        return $this->lastModifiedBy;
     }
 
     /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Review::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -251,21 +277,22 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * @return null|LastModifiedBy
+     * <p>User-specific unique identifier for the review.</p>.
+     *
+     * @return null|string
      */
-    public function getLastModifiedBy()
+    public function getKey()
     {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Review::FIELD_LAST_MODIFIED_BY);
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Review::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
+            $this->key = (string) $data;
         }
 
-        return $this->lastModifiedBy;
+        return $this->key;
     }
 
     /**
@@ -286,38 +313,37 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * @return null|CustomFields
+     * @return null|string
      */
-    public function getCustom()
+    public function getLocale()
     {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Review::FIELD_CUSTOM);
+        if (is_null($this->locale)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Review::FIELD_LOCALE);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->custom = CustomFieldsModel::of($data);
+            $this->locale = (string) $data;
         }
 
-        return $this->custom;
+        return $this->locale;
     }
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getRating()
+    public function getAuthorName()
     {
-        if (is_null($this->rating)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Review::FIELD_RATING);
+        if (is_null($this->authorName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Review::FIELD_AUTHOR_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->rating = (int) $data;
+            $this->authorName = (string) $data;
         }
 
-        return $this->rating;
+        return $this->authorName;
     }
 
     /**
@@ -340,21 +366,24 @@ final class ReviewModel extends JsonObjectModel implements Review
     /**
      * @return null|string
      */
-    public function getLocale()
+    public function getText()
     {
-        if (is_null($this->locale)) {
+        if (is_null($this->text)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_LOCALE);
+            $data = $this->raw(Review::FIELD_TEXT);
             if (is_null($data)) {
                 return null;
             }
-            $this->locale = (string) $data;
+            $this->text = (string) $data;
         }
 
-        return $this->locale;
+        return $this->text;
     }
 
     /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel</p>.
+     *
      * @return null|JsonObject
      */
     public function getTarget()
@@ -372,6 +401,10 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
+     * <p>Indicates if this review is taken into account in the ratings statistics of the target.
+     * A review is per default used in the statistics, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.
+     * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>.
+     *
      * @return null|bool
      */
     public function getIncludedInStatistics()
@@ -389,20 +422,22 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * @return null|string
+     * <p>Number between -100 and 100 included.</p>.
+     *
+     * @return null|int
      */
-    public function getAuthorName()
+    public function getRating()
     {
-        if (is_null($this->authorName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_AUTHOR_NAME);
+        if (is_null($this->rating)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Review::FIELD_RATING);
             if (is_null($data)) {
                 return null;
             }
-            $this->authorName = (string) $data;
+            $this->rating = (int) $data;
         }
 
-        return $this->authorName;
+        return $this->rating;
     }
 
     /**
@@ -424,40 +459,8 @@ final class ReviewModel extends JsonObjectModel implements Review
     }
 
     /**
-     * @return null|string
-     */
-    public function getText()
-    {
-        if (is_null($this->text)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_TEXT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->text = (string) $data;
-        }
-
-        return $this->text;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Review::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
+     * <p>The customer who created the review.</p>.
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -475,14 +478,22 @@ final class ReviewModel extends JsonObjectModel implements Review
         return $this->customer;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
     {
-        $this->createdAt = $createdAt;
-    }
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Review::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
 
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
     }
 
     public function setId(?string $id): void
@@ -495,9 +506,14 @@ final class ReviewModel extends JsonObjectModel implements Review
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
@@ -505,19 +521,29 @@ final class ReviewModel extends JsonObjectModel implements Review
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+
     public function setUniquenessValue(?string $uniquenessValue): void
     {
         $this->uniquenessValue = $uniquenessValue;
     }
 
-    public function setCustom(?CustomFields $custom): void
+    public function setLocale(?string $locale): void
     {
-        $this->custom = $custom;
+        $this->locale = $locale;
     }
 
-    public function setRating(?int $rating): void
+    public function setAuthorName(?string $authorName): void
     {
-        $this->rating = $rating;
+        $this->authorName = $authorName;
     }
 
     public function setTitle(?string $title): void
@@ -525,9 +551,9 @@ final class ReviewModel extends JsonObjectModel implements Review
         $this->title = $title;
     }
 
-    public function setLocale(?string $locale): void
+    public function setText(?string $text): void
     {
-        $this->locale = $locale;
+        $this->text = $text;
     }
 
     public function setTarget(?JsonObject $target): void
@@ -540,9 +566,9 @@ final class ReviewModel extends JsonObjectModel implements Review
         $this->includedInStatistics = $includedInStatistics;
     }
 
-    public function setAuthorName(?string $authorName): void
+    public function setRating(?int $rating): void
     {
-        $this->authorName = $authorName;
+        $this->rating = $rating;
     }
 
     public function setState(?StateReference $state): void
@@ -550,19 +576,14 @@ final class ReviewModel extends JsonObjectModel implements Review
         $this->state = $state;
     }
 
-    public function setText(?string $text): void
-    {
-        $this->text = $text;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
-    }
-
     public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
+    }
+
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
     public function jsonSerialize()

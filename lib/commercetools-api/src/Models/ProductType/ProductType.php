@@ -21,11 +21,15 @@ interface ProductType extends LoggedResource
     const FIELD_ATTRIBUTES = 'attributes';
 
     /**
+     * <p>The unique ID of the product type.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the product type.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
@@ -41,16 +45,23 @@ interface ProductType extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
+     * <p>User-specific unique identifier for the product type (max.
+     * 256 characters).</p>.
+     *
      * @return null|string
      */
     public function getKey();

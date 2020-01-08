@@ -17,12 +17,17 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     /**
      * @var ?int
      */
+    protected $averageRating;
+
+    /**
+     * @var ?int
+     */
     protected $highestRating;
 
     /**
      * @var ?int
      */
-    protected $averageRating;
+    protected $lowestRating;
 
     /**
      * @var ?int
@@ -34,43 +39,24 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
      */
     protected $ratingsDistribution;
 
-    /**
-     * @var ?int
-     */
-    protected $lowestRating;
-
     public function __construct(
-        int $highestRating = null,
         int $averageRating = null,
+        int $highestRating = null,
+        int $lowestRating = null,
         int $count = null,
-        JsonObject $ratingsDistribution = null,
-        int $lowestRating = null
+        JsonObject $ratingsDistribution = null
     ) {
-        $this->highestRating = $highestRating;
         $this->averageRating = $averageRating;
+        $this->highestRating = $highestRating;
+        $this->lowestRating = $lowestRating;
         $this->count = $count;
         $this->ratingsDistribution = $ratingsDistribution;
-        $this->lowestRating = $lowestRating;
     }
 
     /**
-     * @return null|int
-     */
-    public function getHighestRating()
-    {
-        if (is_null($this->highestRating)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ReviewRatingStatistics::FIELD_HIGHEST_RATING);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->highestRating = (int) $data;
-        }
-
-        return $this->highestRating;
-    }
-
-    /**
+     * <p>Average rating of one target
+     * This number is rounded with 5 decimals.</p>.
+     *
      * @return null|int
      */
     public function getAverageRating()
@@ -88,6 +74,46 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     }
 
     /**
+     * <p>Highest rating of one target</p>.
+     *
+     * @return null|int
+     */
+    public function getHighestRating()
+    {
+        if (is_null($this->highestRating)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ReviewRatingStatistics::FIELD_HIGHEST_RATING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->highestRating = (int) $data;
+        }
+
+        return $this->highestRating;
+    }
+
+    /**
+     * <p>Lowest rating of one target</p>.
+     *
+     * @return null|int
+     */
+    public function getLowestRating()
+    {
+        if (is_null($this->lowestRating)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ReviewRatingStatistics::FIELD_LOWEST_RATING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lowestRating = (int) $data;
+        }
+
+        return $this->lowestRating;
+    }
+
+    /**
+     * <p>Number of ratings taken into account</p>.
+     *
      * @return null|int
      */
     public function getCount()
@@ -105,6 +131,10 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     }
 
     /**
+     * <p>The full distribution of the ratings.
+     * The keys are the different ratings and the values are the count of reviews having this rating.
+     * Only the used ratings appear in this object.</p>.
+     *
      * @return null|JsonObject
      */
     public function getRatingsDistribution()
@@ -121,21 +151,9 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
         return $this->ratingsDistribution;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getLowestRating()
+    public function setAverageRating(?int $averageRating): void
     {
-        if (is_null($this->lowestRating)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ReviewRatingStatistics::FIELD_LOWEST_RATING);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lowestRating = (int) $data;
-        }
-
-        return $this->lowestRating;
+        $this->averageRating = $averageRating;
     }
 
     public function setHighestRating(?int $highestRating): void
@@ -143,9 +161,9 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
         $this->highestRating = $highestRating;
     }
 
-    public function setAverageRating(?int $averageRating): void
+    public function setLowestRating(?int $lowestRating): void
     {
-        $this->averageRating = $averageRating;
+        $this->lowestRating = $lowestRating;
     }
 
     public function setCount(?int $count): void
@@ -156,10 +174,5 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     public function setRatingsDistribution(?JsonObject $ratingsDistribution): void
     {
         $this->ratingsDistribution = $ratingsDistribution;
-    }
-
-    public function setLowestRating(?int $lowestRating): void
-    {
-        $this->lowestRating = $lowestRating;
     }
 }

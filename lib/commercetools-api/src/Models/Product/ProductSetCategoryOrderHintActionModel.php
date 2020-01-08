@@ -22,6 +22,11 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     /**
      * @var ?string
      */
+    protected $categoryId;
+
+    /**
+     * @var ?string
+     */
     protected $orderHint;
 
     /**
@@ -29,19 +34,14 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
      */
     protected $staged;
 
-    /**
-     * @var ?string
-     */
-    protected $categoryId;
-
     public function __construct(
+        string $categoryId = null,
         string $orderHint = null,
-        bool $staged = null,
-        string $categoryId = null
+        bool $staged = null
     ) {
+        $this->categoryId = $categoryId;
         $this->orderHint = $orderHint;
         $this->staged = $staged;
-        $this->categoryId = $categoryId;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -60,6 +60,23 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
         }
 
         return $this->action;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCategoryId()
+    {
+        if (is_null($this->categoryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetCategoryOrderHintAction::FIELD_CATEGORY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->categoryId = (string) $data;
+        }
+
+        return $this->categoryId;
     }
 
     /**
@@ -96,21 +113,9 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
         return $this->staged;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getCategoryId()
+    public function setCategoryId(?string $categoryId): void
     {
-        if (is_null($this->categoryId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetCategoryOrderHintAction::FIELD_CATEGORY_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->categoryId = (string) $data;
-        }
-
-        return $this->categoryId;
+        $this->categoryId = $categoryId;
     }
 
     public function setOrderHint(?string $orderHint): void
@@ -121,10 +126,5 @@ final class ProductSetCategoryOrderHintActionModel extends JsonObjectModel imple
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
-    }
-
-    public function setCategoryId(?string $categoryId): void
-    {
-        $this->categoryId = $categoryId;
     }
 }

@@ -24,16 +24,6 @@ use DateTimeImmutable;
 final class ProductDiscountBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -44,9 +34,14 @@ final class ProductDiscountBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -54,9 +49,19 @@ final class ProductDiscountBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var ?ReferenceCollection
+     * @var CreatedBy|?CreatedByBuilder
      */
-    private $references;
+    private $createdBy;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var ?string
+     */
+    private $key;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -64,14 +69,9 @@ final class ProductDiscountBuilder implements Builder
     private $description;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ProductDiscountValue|?ProductDiscountValueBuilder
      */
-    private $validFrom;
-
-    /**
-     * @var ?bool
-     */
-    private $isActive;
+    private $value;
 
     /**
      * @var ?string
@@ -84,9 +84,19 @@ final class ProductDiscountBuilder implements Builder
     private $sortOrder;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var ?bool
      */
-    private $name;
+    private $isActive;
+
+    /**
+     * @var ?ReferenceCollection
+     */
+    private $references;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $validFrom;
 
     /**
      * @var ?DateTimeImmutable
@@ -94,14 +104,24 @@ final class ProductDiscountBuilder implements Builder
     private $validUntil;
 
     /**
-     * @var ProductDiscountValue|?ProductDiscountValueBuilder
+     * <p>The unique ID of the product discount</p>.
+     *
+     * @return null|string
      */
-    private $value;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var ?string
+     * <p>The current version of the product discount.</p>.
+     *
+     * @return null|int
      */
-    private $key;
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -120,30 +140,8 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -152,51 +150,13 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|ReferenceCollection
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getReferences()
+    public function getCreatedBy()
     {
-        return $this->references;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidFrom()
-    {
-        return $this->validFrom;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPredicate()
-    {
-        return $this->predicate;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -208,11 +168,22 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>User-specific unique identifier for a product discount.
+     * Must be unique across a project.</p>.
+     *
+     * @return null|string
      */
-    public function getValidUntil()
+    public function getKey()
     {
-        return $this->validUntil;
+        return $this->key;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
 
     /**
@@ -224,31 +195,68 @@ final class ProductDiscountBuilder implements Builder
     }
 
     /**
+     * <p>A valid ProductDiscount Predicate.</p>.
+     *
      * @return null|string
      */
-    public function getKey()
+    public function getPredicate()
     {
-        return $this->key;
+        return $this->predicate;
     }
 
     /**
-     * @return $this
+     * <p>The string contains a number between 0 and 1.
+     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.
+     * A sortOrder must be unambiguous.</p>.
+     *
+     * @return null|string
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getSortOrder()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->sortOrder;
     }
 
     /**
-     * @return $this
+     * <p>Only active discount will be applied to product prices.</p>.
+     *
+     * @return null|bool
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getIsActive()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->isActive;
+    }
 
-        return $this;
+    /**
+     * <p>The platform will generate this array from the predicate.
+     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     *
+     * @return null|ReferenceCollection
+     */
+    public function getReferences()
+    {
+        return $this->references;
+    }
+
+    /**
+     * <p>The time from which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidFrom()
+    {
+        return $this->validFrom;
+    }
+
+    /**
+     * <p>The time from which the discount should be ineffective.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
+    {
+        return $this->validUntil;
     }
 
     /**
@@ -274,9 +282,19 @@ final class ProductDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -294,9 +312,29 @@ final class ProductDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withReferences(?ReferenceCollection $references)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->references = $references;
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -314,19 +352,9 @@ final class ProductDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValidFrom(?DateTimeImmutable $validFrom)
+    public function withValue(?ProductDiscountValue $value)
     {
-        $this->validFrom = $validFrom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withIsActive(?bool $isActive)
-    {
-        $this->isActive = $isActive;
+        $this->value = $value;
 
         return $this;
     }
@@ -354,9 +382,29 @@ final class ProductDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withIsActive(?bool $isActive)
     {
-        $this->name = $name;
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withReferences(?ReferenceCollection $references)
+    {
+        $this->references = $references;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValidFrom(?DateTimeImmutable $validFrom)
+    {
+        $this->validFrom = $validFrom;
 
         return $this;
     }
@@ -374,19 +422,9 @@ final class ProductDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?ProductDiscountValue $value)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->value = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -404,9 +442,9 @@ final class ProductDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->name = $name;
 
         return $this;
     }
@@ -424,16 +462,6 @@ final class ProductDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withValueBuilder(?ProductDiscountValueBuilder $value)
     {
         $this->value = $value;
@@ -444,22 +472,22 @@ final class ProductDiscountBuilder implements Builder
     public function build(): ProductDiscount
     {
         return new ProductDiscountModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            $this->references,
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->key,
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->validFrom,
-            $this->isActive,
+            ($this->value instanceof ProductDiscountValueBuilder ? $this->value->build() : $this->value),
             $this->predicate,
             $this->sortOrder,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->validUntil,
-            ($this->value instanceof ProductDiscountValueBuilder ? $this->value->build() : $this->value),
-            $this->key
+            $this->isActive,
+            $this->references,
+            $this->validFrom,
+            $this->validUntil
         );
     }
 

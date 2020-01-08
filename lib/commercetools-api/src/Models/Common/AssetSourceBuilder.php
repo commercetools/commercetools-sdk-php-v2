@@ -18,11 +18,6 @@ final class AssetSourceBuilder implements Builder
     /**
      * @var ?string
      */
-    private $contentType;
-
-    /**
-     * @var ?string
-     */
     private $uri;
 
     /**
@@ -36,12 +31,9 @@ final class AssetSourceBuilder implements Builder
     private $dimensions;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getContentType()
-    {
-        return $this->contentType;
-    }
+    private $contentType;
 
     /**
      * @return null|string
@@ -68,13 +60,11 @@ final class AssetSourceBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withContentType(?string $contentType)
+    public function getContentType()
     {
-        $this->contentType = $contentType;
-
-        return $this;
+        return $this->contentType;
     }
 
     /**
@@ -110,6 +100,16 @@ final class AssetSourceBuilder implements Builder
     /**
      * @return $this
      */
+    public function withContentType(?string $contentType)
+    {
+        $this->contentType = $contentType;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withDimensionsBuilder(?AssetDimensionsBuilder $dimensions)
     {
         $this->dimensions = $dimensions;
@@ -120,10 +120,10 @@ final class AssetSourceBuilder implements Builder
     public function build(): AssetSource
     {
         return new AssetSourceModel(
-            $this->contentType,
             $this->uri,
             $this->key,
-            ($this->dimensions instanceof AssetDimensionsBuilder ? $this->dimensions->build() : $this->dimensions)
+            ($this->dimensions instanceof AssetDimensionsBuilder ? $this->dimensions->build() : $this->dimensions),
+            $this->contentType
         );
     }
 

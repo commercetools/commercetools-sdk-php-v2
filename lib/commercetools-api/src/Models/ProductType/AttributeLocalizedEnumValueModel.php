@@ -16,21 +16,38 @@ use stdClass;
 final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements AttributeLocalizedEnumValue
 {
     /**
-     * @var ?LocalizedString
-     */
-    protected $label;
-
-    /**
      * @var ?string
      */
     protected $key;
 
+    /**
+     * @var ?LocalizedString
+     */
+    protected $label;
+
     public function __construct(
-        LocalizedString $label = null,
-        string $key = null
+        string $key = null,
+        LocalizedString $label = null
     ) {
-        $this->label = $label;
         $this->key = $key;
+        $this->label = $label;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AttributeLocalizedEnumValue::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -51,30 +68,13 @@ final class AttributeLocalizedEnumValueModel extends JsonObjectModel implements 
         return $this->label;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(AttributeLocalizedEnumValue::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        $this->key = $key;
     }
 
     public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 }

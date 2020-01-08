@@ -24,16 +24,6 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder implements Builder
 {
     /**
-     * @var ShippingRateDraft|?ShippingRateDraftBuilder
-     */
-    private $shippingRate;
-
-    /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
-     */
-    private $externalTaxRate;
-
-    /**
      * @var Address|?AddressBuilder
      */
     private $address;
@@ -44,25 +34,19 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     private $shippingMethodName;
 
     /**
+     * @var ShippingRateDraft|?ShippingRateDraftBuilder
+     */
+    private $shippingRate;
+
+    /**
      * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
      */
     private $taxCategory;
 
     /**
-     * @return null|ShippingRateDraft
+     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
-    public function getShippingRate()
-    {
-        return $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate;
-    }
-
-    /**
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
-    }
+    private $externalTaxRate;
 
     /**
      * @return null|Address
@@ -81,6 +65,14 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     }
 
     /**
+     * @return null|ShippingRateDraft
+     */
+    public function getShippingRate()
+    {
+        return $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate;
+    }
+
+    /**
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -89,23 +81,11 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     }
 
     /**
-     * @return $this
+     * @return null|ExternalTaxRateDraft
      */
-    public function withShippingRate(?ShippingRateDraft $shippingRate)
+    public function getExternalTaxRate()
     {
-        $this->shippingRate = $shippingRate;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
-    {
-        $this->externalTaxRate = $externalTaxRate;
-
-        return $this;
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
     }
 
     /**
@@ -131,6 +111,16 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     /**
      * @return $this
      */
+    public function withShippingRate(?ShippingRateDraft $shippingRate)
+    {
+        $this->shippingRate = $shippingRate;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTaxCategory(?TaxCategoryResourceIdentifier $taxCategory)
     {
         $this->taxCategory = $taxCategory;
@@ -141,17 +131,7 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     /**
      * @return $this
      */
-    public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)
-    {
-        $this->shippingRate = $shippingRate;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
 
@@ -171,6 +151,16 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
     /**
      * @return $this
      */
+    public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)
+    {
+        $this->shippingRate = $shippingRate;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTaxCategoryBuilder(?TaxCategoryResourceIdentifierBuilder $taxCategory)
     {
         $this->taxCategory = $taxCategory;
@@ -178,14 +168,24 @@ final class StagedOrderSetShippingAddressAndCustomShippingMethodActionBuilder im
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    {
+        $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
     public function build(): StagedOrderSetShippingAddressAndCustomShippingMethodAction
     {
         return new StagedOrderSetShippingAddressAndCustomShippingMethodActionModel(
-            ($this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate),
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
             $this->shippingMethodName,
-            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory)
+            ($this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate),
+            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory),
+            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate)
         );
     }
 

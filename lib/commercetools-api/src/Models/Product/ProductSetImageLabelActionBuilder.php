@@ -18,17 +18,7 @@ final class ProductSetImageLabelActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $imageUrl;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
-     * @var ?string
-     */
-    private $label;
+    private $sku;
 
     /**
      * @var ?int
@@ -38,30 +28,24 @@ final class ProductSetImageLabelActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $sku;
+    private $imageUrl;
+
+    /**
+     * @var ?string
+     */
+    private $label;
+
+    /**
+     * @var ?bool
+     */
+    private $staged;
 
     /**
      * @return null|string
      */
-    public function getImageUrl()
+    public function getSku()
     {
-        return $this->imageUrl;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLabel()
-    {
-        return $this->label;
+        return $this->sku;
     }
 
     /**
@@ -73,39 +57,40 @@ final class ProductSetImageLabelActionBuilder implements Builder
     }
 
     /**
+     * <p>The URL of the image.</p>.
+     *
      * @return null|string
      */
-    public function getSku()
+    public function getImageUrl()
     {
-        return $this->sku;
+        return $this->imageUrl;
+    }
+
+    /**
+     * <p>The new image label.
+     * If left blank or set to null, the label is removed.</p>.
+     *
+     * @return null|string
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
     }
 
     /**
      * @return $this
      */
-    public function withImageUrl(?string $imageUrl)
+    public function withSku(?string $sku)
     {
-        $this->imageUrl = $imageUrl;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withStaged(?bool $staged)
-    {
-        $this->staged = $staged;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLabel(?string $label)
-    {
-        $this->label = $label;
+        $this->sku = $sku;
 
         return $this;
     }
@@ -123,9 +108,29 @@ final class ProductSetImageLabelActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSku(?string $sku)
+    public function withImageUrl(?string $imageUrl)
     {
-        $this->sku = $sku;
+        $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLabel(?string $label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
 
         return $this;
     }
@@ -133,11 +138,11 @@ final class ProductSetImageLabelActionBuilder implements Builder
     public function build(): ProductSetImageLabelAction
     {
         return new ProductSetImageLabelActionModel(
-            $this->imageUrl,
-            $this->staged,
-            $this->label,
+            $this->sku,
             $this->variantId,
-            $this->sku
+            $this->imageUrl,
+            $this->label,
+            $this->staged
         );
     }
 

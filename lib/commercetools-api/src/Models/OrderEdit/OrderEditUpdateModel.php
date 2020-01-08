@@ -14,9 +14,9 @@ use stdClass;
 final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpdate
 {
     /**
-     * @var ?bool
+     * @var ?int
      */
-    protected $dryRun;
+    protected $version;
 
     /**
      * @var ?OrderEditUpdateActionCollection
@@ -24,35 +24,35 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
     protected $actions;
 
     /**
-     * @var ?int
+     * @var ?bool
      */
-    protected $version;
+    protected $dryRun;
 
     public function __construct(
-        bool $dryRun = null,
+        int $version = null,
         OrderEditUpdateActionCollection $actions = null,
-        int $version = null
+        bool $dryRun = null
     ) {
-        $this->dryRun = $dryRun;
-        $this->actions = $actions;
         $this->version = $version;
+        $this->actions = $actions;
+        $this->dryRun = $dryRun;
     }
 
     /**
-     * @return null|bool
+     * @return null|int
      */
-    public function getDryRun()
+    public function getVersion()
     {
-        if (is_null($this->dryRun)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(OrderEditUpdate::FIELD_DRY_RUN);
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(OrderEditUpdate::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
-            $this->dryRun = (bool) $data;
+            $this->version = (int) $data;
         }
 
-        return $this->dryRun;
+        return $this->version;
     }
 
     /**
@@ -73,25 +73,25 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
     }
 
     /**
-     * @return null|int
+     * @return null|bool
      */
-    public function getVersion()
+    public function getDryRun()
     {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(OrderEditUpdate::FIELD_VERSION);
+        if (is_null($this->dryRun)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(OrderEditUpdate::FIELD_DRY_RUN);
             if (is_null($data)) {
                 return null;
             }
-            $this->version = (int) $data;
+            $this->dryRun = (bool) $data;
         }
 
-        return $this->version;
+        return $this->dryRun;
     }
 
-    public function setDryRun(?bool $dryRun): void
+    public function setVersion(?int $version): void
     {
-        $this->dryRun = $dryRun;
+        $this->version = $version;
     }
 
     public function setActions(?OrderEditUpdateActionCollection $actions): void
@@ -99,8 +99,8 @@ final class OrderEditUpdateModel extends JsonObjectModel implements OrderEditUpd
         $this->actions = $actions;
     }
 
-    public function setVersion(?int $version): void
+    public function setDryRun(?bool $dryRun): void
     {
-        $this->version = $version;
+        $this->dryRun = $dryRun;
     }
 }

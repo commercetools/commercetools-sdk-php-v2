@@ -23,21 +23,21 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     protected $type;
 
     /**
-     * @var ?ChannelReference
-     */
-    protected $supplyChannel;
-
-    /**
      * @var ?string
      */
     protected $sku;
 
+    /**
+     * @var ?ChannelReference
+     */
+    protected $supplyChannel;
+
     public function __construct(
-        ChannelReference $supplyChannel = null,
-        string $sku = null
+        string $sku = null,
+        ChannelReference $supplyChannel = null
     ) {
-        $this->supplyChannel = $supplyChannel;
         $this->sku = $sku;
+        $this->supplyChannel = $supplyChannel;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,6 +59,23 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(InventoryEntryDeletedMessagePayload::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
      * @return null|ChannelReference
      */
     public function getSupplyChannel()
@@ -76,30 +93,13 @@ final class InventoryEntryDeletedMessagePayloadModel extends JsonObjectModel imp
         return $this->supplyChannel;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getSku()
+    public function setSku(?string $sku): void
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntryDeletedMessagePayload::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
+        $this->sku = $sku;
     }
 
     public function setSupplyChannel(?ChannelReference $supplyChannel): void
     {
         $this->supplyChannel = $supplyChannel;
-    }
-
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
     }
 }

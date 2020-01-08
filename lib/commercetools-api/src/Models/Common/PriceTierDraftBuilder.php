@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class PriceTierDraftBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
-     */
-    private $value;
-
-    /**
      * @var ?int
      */
     private $minimumQuantity;
 
     /**
-     * @return null|Money
+     * @var Money|?MoneyBuilder
      */
-    public function getValue()
-    {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
-    }
+    private $value;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class PriceTierDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Money
      */
-    public function withValue(?Money $value)
+    public function getValue()
     {
-        $this->value = $value;
-
-        return $this;
+        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -57,6 +47,16 @@ final class PriceTierDraftBuilder implements Builder
     public function withMinimumQuantity(?int $minimumQuantity)
     {
         $this->minimumQuantity = $minimumQuantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValue(?Money $value)
+    {
+        $this->value = $value;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class PriceTierDraftBuilder implements Builder
     public function build(): PriceTierDraft
     {
         return new PriceTierDraftModel(
-            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value),
-            $this->minimumQuantity
+            $this->minimumQuantity,
+            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value)
         );
     }
 

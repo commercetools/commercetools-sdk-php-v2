@@ -16,14 +16,14 @@ use stdClass;
 final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinition
 {
     /**
-     * @var ?string
+     * @var ?FieldType
      */
-    protected $name;
+    protected $type;
 
     /**
      * @var ?string
      */
-    protected $inputHint;
+    protected $name;
 
     /**
      * @var ?LocalizedString
@@ -31,30 +31,55 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     protected $label;
 
     /**
-     * @var ?FieldType
-     */
-    protected $type;
-
-    /**
      * @var ?bool
      */
     protected $required;
 
+    /**
+     * @var ?string
+     */
+    protected $inputHint;
+
     public function __construct(
-        string $name = null,
-        string $inputHint = null,
-        LocalizedString $label = null,
         FieldType $type = null,
-        bool $required = null
+        string $name = null,
+        LocalizedString $label = null,
+        bool $required = null,
+        string $inputHint = null
     ) {
-        $this->name = $name;
-        $this->inputHint = $inputHint;
-        $this->label = $label;
         $this->type = $type;
+        $this->name = $name;
+        $this->label = $label;
         $this->required = $required;
+        $this->inputHint = $inputHint;
     }
 
     /**
+     * <p>Describes the type of the field.</p>.
+     *
+     * @return null|FieldType
+     */
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(FieldDefinition::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->type = FieldTypeModel::of($data);
+        }
+
+        return $this->type;
+    }
+
+    /**
+     * <p>The name of the field.
+     * The name must be between two and 36 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>).
+     * The name must be unique for a given resource type ID.
+     * In case there is a field with the same name in another type it has to have the same FieldType also.</p>.
+     *
      * @return null|string
      */
     public function getName()
@@ -72,23 +97,8 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     }
 
     /**
-     * @return null|string
-     */
-    public function getInputHint()
-    {
-        if (is_null($this->inputHint)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(FieldDefinition::FIELD_INPUT_HINT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->inputHint = (string) $data;
-        }
-
-        return $this->inputHint;
-    }
-
-    /**
+     * <p>A human-readable label for the field.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -107,24 +117,8 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
     }
 
     /**
-     * @return null|FieldType
-     */
-    public function getType()
-    {
-        if (is_null($this->type)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(FieldDefinition::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = FieldTypeModel::resolveDiscriminatorClass($data);
-            $this->type = $className::of($data);
-        }
-
-        return $this->type;
-    }
-
-    /**
+     * <p>Whether the field is required to have a value.</p>.
+     *
      * @return null|bool
      */
     public function getRequired()
@@ -141,19 +135,24 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
         return $this->required;
     }
 
-    public function setName(?string $name): void
+    /**
+     * <p>Provides a visual representation type for this field.
+     * It is only relevant for string-based field types like StringType and LocalizedStringType.</p>.
+     *
+     * @return null|string
+     */
+    public function getInputHint()
     {
-        $this->name = $name;
-    }
+        if (is_null($this->inputHint)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(FieldDefinition::FIELD_INPUT_HINT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inputHint = (string) $data;
+        }
 
-    public function setInputHint(?string $inputHint): void
-    {
-        $this->inputHint = $inputHint;
-    }
-
-    public function setLabel(?LocalizedString $label): void
-    {
-        $this->label = $label;
+        return $this->inputHint;
     }
 
     public function setType(?FieldType $type): void
@@ -161,8 +160,23 @@ final class FieldDefinitionModel extends JsonObjectModel implements FieldDefinit
         $this->type = $type;
     }
 
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setLabel(?LocalizedString $label): void
+    {
+        $this->label = $label;
+    }
+
     public function setRequired(?bool $required): void
     {
         $this->required = $required;
+    }
+
+    public function setInputHint(?string $inputHint): void
+    {
+        $this->inputHint = $inputHint;
     }
 }

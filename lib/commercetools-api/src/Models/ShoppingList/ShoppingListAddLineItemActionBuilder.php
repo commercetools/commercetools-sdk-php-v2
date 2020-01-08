@@ -19,14 +19,9 @@ use DateTimeImmutable;
 final class ShoppingListAddLineItemActionBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
+     * @var ?string
      */
-    private $addedAt;
-
-    /**
-     * @var ?int
-     */
-    private $quantity;
+    private $sku;
 
     /**
      * @var ?string
@@ -34,34 +29,31 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     private $productId;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
      * @var ?int
      */
     private $variantId;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    private $sku;
+    private $quantity;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var ?DateTimeImmutable
      */
-    public function getAddedAt()
-    {
-        return $this->addedAt;
-    }
+    private $addedAt;
 
     /**
-     * @return null|int
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    public function getQuantity()
+    private $custom;
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
     {
-        return $this->quantity;
+        return $this->sku;
     }
 
     /**
@@ -73,14 +65,6 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
      * @return null|int
      */
     public function getVariantId()
@@ -89,29 +73,35 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|int
      */
-    public function getSku()
+    public function getQuantity()
     {
-        return $this->sku;
+        return $this->quantity;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
+    {
+        return $this->addedAt;
+    }
+
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
      * @return $this
      */
-    public function withAddedAt(?DateTimeImmutable $addedAt)
+    public function withSku(?string $sku)
     {
-        $this->addedAt = $addedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withQuantity(?int $quantity)
-    {
-        $this->quantity = $quantity;
+        $this->sku = $sku;
 
         return $this;
     }
@@ -129,16 +119,6 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
@@ -149,9 +129,29 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSku(?string $sku)
+    public function withQuantity(?int $quantity)
     {
-        $this->sku = $sku;
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAddedAt(?DateTimeImmutable $addedAt)
+    {
+        $this->addedAt = $addedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -169,12 +169,12 @@ final class ShoppingListAddLineItemActionBuilder implements Builder
     public function build(): ShoppingListAddLineItemAction
     {
         return new ShoppingListAddLineItemActionModel(
-            $this->addedAt,
-            $this->quantity,
+            $this->sku,
             $this->productId,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
             $this->variantId,
-            $this->sku
+            $this->quantity,
+            $this->addedAt,
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

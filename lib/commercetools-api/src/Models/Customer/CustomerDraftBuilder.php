@@ -25,12 +25,62 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $anonymousId;
+    private $customerNumber;
+
+    /**
+     * @var ?string
+     */
+    private $email;
+
+    /**
+     * @var ?string
+     */
+    private $password;
+
+    /**
+     * @var ?string
+     */
+    private $firstName;
 
     /**
      * @var ?string
      */
     private $lastName;
+
+    /**
+     * @var ?string
+     */
+    private $middleName;
+
+    /**
+     * @var ?string
+     */
+    private $title;
+
+    /**
+     * @var ?string
+     */
+    private $anonymousCartId;
+
+    /**
+     * @var ?string
+     */
+    private $anonymousId;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $dateOfBirth;
+
+    /**
+     * @var ?string
+     */
+    private $companyName;
+
+    /**
+     * @var ?string
+     */
+    private $vatId;
 
     /**
      * @var ?AddressCollection
@@ -43,9 +93,29 @@ final class CustomerDraftBuilder implements Builder
     private $defaultShippingAddress;
 
     /**
-     * @var ?StoreResourceIdentifierCollection
+     * @var ?array
      */
-    private $stores;
+    private $shippingAddresses;
+
+    /**
+     * @var ?int
+     */
+    private $defaultBillingAddress;
+
+    /**
+     * @var ?array
+     */
+    private $billingAddresses;
+
+    /**
+     * @var ?bool
+     */
+    private $isEmailVerified;
+
+    /**
+     * @var ?string
+     */
+    private $externalId;
 
     /**
      * @var CustomerGroupResourceIdentifier|?CustomerGroupResourceIdentifierBuilder
@@ -60,62 +130,7 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $companyName;
-
-    /**
-     * @var ?string
-     */
-    private $vatId;
-
-    /**
-     * @var ?string
-     */
-    private $externalId;
-
-    /**
-     * @var ?array
-     */
-    private $billingAddresses;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $dateOfBirth;
-
-    /**
-     * @var ?string
-     */
     private $locale;
-
-    /**
-     * @var ?string
-     */
-    private $title;
-
-    /**
-     * @var ?string
-     */
-    private $customerNumber;
-
-    /**
-     * @var ?bool
-     */
-    private $isEmailVerified;
-
-    /**
-     * @var ?string
-     */
-    private $firstName;
-
-    /**
-     * @var ?string
-     */
-    private $password;
-
-    /**
-     * @var ?string
-     */
-    private $middleName;
 
     /**
      * @var ?string
@@ -125,34 +140,52 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $anonymousCartId;
-
-    /**
-     * @var ?string
-     */
     private $key;
 
     /**
-     * @var ?int
+     * @var ?StoreResourceIdentifierCollection
      */
-    private $defaultBillingAddress;
+    private $stores;
 
     /**
-     * @var ?string
+     * <p>String that uniquely identifies a customer.
+     * It can be used to create more human-readable (in contrast to ID) identifier for the customer.
+     * It should be <strong>unique</strong> across a project.
+     * Once it's set it cannot be changed.</p>.
+     *
+     * @return null|string
      */
-    private $email;
+    public function getCustomerNumber()
+    {
+        return $this->customerNumber;
+    }
 
     /**
-     * @var ?array
+     * <p>The customer's email address and the main identifier of uniqueness for a customer account.
+     * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project, and are case insensitive.
+     * For more information, see Email uniquenes.</p>.
+     *
+     * @return null|string
      */
-    private $shippingAddresses;
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
     /**
      * @return null|string
      */
-    public function getAnonymousId()
+    public function getPassword()
     {
-        return $this->anonymousId;
+        return $this->password;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
     }
 
     /**
@@ -164,43 +197,47 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * @return null|AddressCollection
+     * @return null|string
      */
-    public function getAddresses()
+    public function getMiddleName()
     {
-        return $this->addresses;
+        return $this->middleName;
     }
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getDefaultShippingAddress()
+    public function getTitle()
     {
-        return $this->defaultShippingAddress;
+        return $this->title;
     }
 
     /**
-     * @return null|StoreResourceIdentifierCollection
+     * <p>Identifies a single cart that will be assigned to the new customer account.</p>.
+     *
+     * @return null|string
      */
-    public function getStores()
+    public function getAnonymousCartId()
     {
-        return $this->stores;
+        return $this->anonymousCartId;
     }
 
     /**
-     * @return null|CustomerGroupResourceIdentifier
+     * <p>Identifies carts and orders belonging to an anonymous session that will be assigned to the new customer account.</p>.
+     *
+     * @return null|string
      */
-    public function getCustomerGroup()
+    public function getAnonymousId()
     {
-        return $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup;
+        return $this->anonymousId;
     }
 
     /**
-     * @return null|CustomFieldsDraft
+     * @return null|DateTimeImmutable
      */
-    public function getCustom()
+    public function getDateOfBirth()
     {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+        return $this->dateOfBirth;
     }
 
     /**
@@ -220,51 +257,57 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>Sets the ID of each address to be unique in the addresses list.</p>.
+     *
+     * @return null|AddressCollection
      */
-    public function getExternalId()
+    public function getAddresses()
     {
-        return $this->externalId;
+        return $this->addresses;
     }
 
     /**
+     * <p>The index of the address in the addresses array.
+     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     *
+     * @return null|int
+     */
+    public function getDefaultShippingAddress()
+    {
+        return $this->defaultShippingAddress;
+    }
+
+    /**
+     * <p>The indices of the shipping addresses in the addresses array.
+     * The <code>shippingAddressIds</code> of the Customer will be set to the IDs of that addresses.</p>.
+     *
+     * @return null|array
+     */
+    public function getShippingAddresses()
+    {
+        return $this->shippingAddresses;
+    }
+
+    /**
+     * <p>The index of the address in the addresses array.
+     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     *
+     * @return null|int
+     */
+    public function getDefaultBillingAddress()
+    {
+        return $this->defaultBillingAddress;
+    }
+
+    /**
+     * <p>The indices of the billing addresses in the addresses array.
+     * The <code>billingAddressIds</code> of the customer will be set to the IDs of that addresses.</p>.
+     *
      * @return null|array
      */
     public function getBillingAddresses()
     {
         return $this->billingAddresses;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getDateOfBirth()
-    {
-        return $this->dateOfBirth;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLocale()
-    {
-        return $this->locale;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCustomerNumber()
-    {
-        return $this->customerNumber;
     }
 
     /**
@@ -278,25 +321,37 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getFirstName()
+    public function getExternalId()
     {
-        return $this->firstName;
+        return $this->externalId;
     }
 
     /**
-     * @return null|string
+     * @return null|CustomerGroupResourceIdentifier
      */
-    public function getPassword()
+    public function getCustomerGroup()
     {
-        return $this->password;
+        return $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup;
     }
 
     /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Must be one of the languages supported for this project</p>.
+     *
      * @return null|string
      */
-    public function getMiddleName()
+    public function getLocale()
     {
-        return $this->middleName;
+        return $this->locale;
     }
 
     /**
@@ -308,14 +363,10 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getAnonymousCartId()
-    {
-        return $this->anonymousCartId;
-    }
-
-    /**
+     * <p>User-specific unique identifier for a customer.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -324,35 +375,53 @@ final class CustomerDraftBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * <p>References to the stores the customer account is associated with.
+     * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
+     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>.
+     *
+     * @return null|StoreResourceIdentifierCollection
      */
-    public function getDefaultBillingAddress()
+    public function getStores()
     {
-        return $this->defaultBillingAddress;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @return null|array
-     */
-    public function getShippingAddresses()
-    {
-        return $this->shippingAddresses;
+        return $this->stores;
     }
 
     /**
      * @return $this
      */
-    public function withAnonymousId(?string $anonymousId)
+    public function withCustomerNumber(?string $customerNumber)
     {
-        $this->anonymousId = $anonymousId;
+        $this->customerNumber = $customerNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withEmail(?string $email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPassword(?string $password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withFirstName(?string $firstName)
+    {
+        $this->firstName = $firstName;
 
         return $this;
     }
@@ -370,9 +439,9 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAddresses(?AddressCollection $addresses)
+    public function withMiddleName(?string $middleName)
     {
-        $this->addresses = $addresses;
+        $this->middleName = $middleName;
 
         return $this;
     }
@@ -380,9 +449,9 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDefaultShippingAddress(?int $defaultShippingAddress)
+    public function withTitle(?string $title)
     {
-        $this->defaultShippingAddress = $defaultShippingAddress;
+        $this->title = $title;
 
         return $this;
     }
@@ -390,9 +459,9 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStores(?StoreResourceIdentifierCollection $stores)
+    public function withAnonymousCartId(?string $anonymousCartId)
     {
-        $this->stores = $stores;
+        $this->anonymousCartId = $anonymousCartId;
 
         return $this;
     }
@@ -400,9 +469,9 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
+    public function withAnonymousId(?string $anonymousId)
     {
-        $this->customerGroup = $customerGroup;
+        $this->anonymousId = $anonymousId;
 
         return $this;
     }
@@ -410,9 +479,9 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustom(?CustomFieldsDraft $custom)
+    public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
     {
-        $this->custom = $custom;
+        $this->dateOfBirth = $dateOfBirth;
 
         return $this;
     }
@@ -440,9 +509,9 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalId(?string $externalId)
+    public function withAddresses(?AddressCollection $addresses)
     {
-        $this->externalId = $externalId;
+        $this->addresses = $addresses;
 
         return $this;
     }
@@ -450,9 +519,9 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withBillingAddresses(?array $billingAddresses)
+    public function withDefaultShippingAddress(?int $defaultShippingAddress)
     {
-        $this->billingAddresses = $billingAddresses;
+        $this->defaultShippingAddress = $defaultShippingAddress;
 
         return $this;
     }
@@ -460,109 +529,9 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
+    public function withShippingAddresses(?array $shippingAddresses)
     {
-        $this->dateOfBirth = $dateOfBirth;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLocale(?string $locale)
-    {
-        $this->locale = $locale;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTitle(?string $title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomerNumber(?string $customerNumber)
-    {
-        $this->customerNumber = $customerNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withIsEmailVerified(?bool $isEmailVerified)
-    {
-        $this->isEmailVerified = $isEmailVerified;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFirstName(?string $firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPassword(?string $password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMiddleName(?string $middleName)
-    {
-        $this->middleName = $middleName;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSalutation(?string $salutation)
-    {
-        $this->salutation = $salutation;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAnonymousCartId(?string $anonymousCartId)
-    {
-        $this->anonymousCartId = $anonymousCartId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
+        $this->shippingAddresses = $shippingAddresses;
 
         return $this;
     }
@@ -580,9 +549,9 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withEmail(?string $email)
+    public function withBillingAddresses(?array $billingAddresses)
     {
-        $this->email = $email;
+        $this->billingAddresses = $billingAddresses;
 
         return $this;
     }
@@ -590,9 +559,79 @@ final class CustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingAddresses(?array $shippingAddresses)
+    public function withIsEmailVerified(?bool $isEmailVerified)
     {
-        $this->shippingAddresses = $shippingAddresses;
+        $this->isEmailVerified = $isEmailVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalId(?string $externalId)
+    {
+        $this->externalId = $externalId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
+    {
+        $this->customerGroup = $customerGroup;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLocale(?string $locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSalutation(?string $salutation)
+    {
+        $this->salutation = $salutation;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStores(?StoreResourceIdentifierCollection $stores)
+    {
+        $this->stores = $stores;
 
         return $this;
     }
@@ -620,31 +659,31 @@ final class CustomerDraftBuilder implements Builder
     public function build(): CustomerDraft
     {
         return new CustomerDraftModel(
-            $this->anonymousId,
+            $this->customerNumber,
+            $this->email,
+            $this->password,
+            $this->firstName,
             $this->lastName,
-            $this->addresses,
-            $this->defaultShippingAddress,
-            $this->stores,
-            ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->middleName,
+            $this->title,
+            $this->anonymousCartId,
+            $this->anonymousId,
+            $this->dateOfBirth,
             $this->companyName,
             $this->vatId,
-            $this->externalId,
-            $this->billingAddresses,
-            $this->dateOfBirth,
-            $this->locale,
-            $this->title,
-            $this->customerNumber,
-            $this->isEmailVerified,
-            $this->firstName,
-            $this->password,
-            $this->middleName,
-            $this->salutation,
-            $this->anonymousCartId,
-            $this->key,
+            $this->addresses,
+            $this->defaultShippingAddress,
+            $this->shippingAddresses,
             $this->defaultBillingAddress,
-            $this->email,
-            $this->shippingAddresses
+            $this->billingAddresses,
+            $this->isEmailVerified,
+            $this->externalId,
+            ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup),
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->locale,
+            $this->salutation,
+            $this->key,
+            $this->stores
         );
     }
 

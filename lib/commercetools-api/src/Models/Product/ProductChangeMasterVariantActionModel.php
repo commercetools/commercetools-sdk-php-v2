@@ -20,11 +20,6 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     protected $action;
 
     /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -34,14 +29,19 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
      */
     protected $sku;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        bool $staged = null,
         int $variantId = null,
-        string $sku = null
+        string $sku = null,
+        bool $staged = null
     ) {
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -60,23 +60,6 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductChangeMasterVariantAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
     }
 
     /**
@@ -113,9 +96,21 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
         return $this->sku;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->staged = $staged;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductChangeMasterVariantAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setVariantId(?int $variantId): void
@@ -126,5 +121,10 @@ final class ProductChangeMasterVariantActionModel extends JsonObjectModel implem
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

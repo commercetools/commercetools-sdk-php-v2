@@ -19,22 +19,16 @@ final class DiscountCodeSetValidFromAndUntilActionBuilder implements Builder
     /**
      * @var ?DateTimeImmutable
      */
-    private $validUntil;
+    private $validFrom;
 
     /**
      * @var ?DateTimeImmutable
      */
-    private $validFrom;
+    private $validUntil;
 
     /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidUntil()
-    {
-        return $this->validUntil;
-    }
-
-    /**
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -43,13 +37,13 @@ final class DiscountCodeSetValidFromAndUntilActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     *
+     * @return null|DateTimeImmutable
      */
-    public function withValidUntil(?DateTimeImmutable $validUntil)
+    public function getValidUntil()
     {
-        $this->validUntil = $validUntil;
-
-        return $this;
+        return $this->validUntil;
     }
 
     /**
@@ -62,11 +56,21 @@ final class DiscountCodeSetValidFromAndUntilActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withValidUntil(?DateTimeImmutable $validUntil)
+    {
+        $this->validUntil = $validUntil;
+
+        return $this;
+    }
+
     public function build(): DiscountCodeSetValidFromAndUntilAction
     {
         return new DiscountCodeSetValidFromAndUntilActionModel(
-            $this->validUntil,
-            $this->validFrom
+            $this->validFrom,
+            $this->validUntil
         );
     }
 

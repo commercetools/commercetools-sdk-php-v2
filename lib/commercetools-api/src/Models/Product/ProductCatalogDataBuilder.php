@@ -16,6 +16,11 @@ use Commercetools\Base\Builder;
 final class ProductCatalogDataBuilder implements Builder
 {
     /**
+     * @var ?bool
+     */
+    private $published;
+
+    /**
      * @var ProductData|?ProductDataBuilder
      */
     private $current;
@@ -28,12 +33,15 @@ final class ProductCatalogDataBuilder implements Builder
     /**
      * @var ?bool
      */
-    private $published;
+    private $hasStagedChanges;
 
     /**
-     * @var ?bool
+     * @return null|bool
      */
-    private $hasStagedChanges;
+    public function getPublished()
+    {
+        return $this->published;
+    }
 
     /**
      * @return null|ProductData
@@ -54,17 +62,19 @@ final class ProductCatalogDataBuilder implements Builder
     /**
      * @return null|bool
      */
-    public function getPublished()
-    {
-        return $this->published;
-    }
-
-    /**
-     * @return null|bool
-     */
     public function getHasStagedChanges()
     {
         return $this->hasStagedChanges;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPublished(?bool $published)
+    {
+        $this->published = $published;
+
+        return $this;
     }
 
     /**
@@ -83,16 +93,6 @@ final class ProductCatalogDataBuilder implements Builder
     public function withStaged(?ProductData $staged)
     {
         $this->staged = $staged;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPublished(?bool $published)
-    {
-        $this->published = $published;
 
         return $this;
     }
@@ -130,9 +130,9 @@ final class ProductCatalogDataBuilder implements Builder
     public function build(): ProductCatalogData
     {
         return new ProductCatalogDataModel(
+            $this->published,
             ($this->current instanceof ProductDataBuilder ? $this->current->build() : $this->current),
             ($this->staged instanceof ProductDataBuilder ? $this->staged->build() : $this->staged),
-            $this->published,
             $this->hasStagedChanges
         );
     }

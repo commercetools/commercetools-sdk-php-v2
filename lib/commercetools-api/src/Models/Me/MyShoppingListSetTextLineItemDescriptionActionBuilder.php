@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class MyShoppingListSetTextLineItemDescriptionActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $description;
-
-    /**
      * @var ?string
      */
     private $textLineItemId;
 
     /**
-     * @return null|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    public function getDescription()
-    {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
+    private $description;
 
     /**
      * @return null|string
@@ -44,13 +36,11 @@ final class MyShoppingListSetTextLineItemDescriptionActionBuilder implements Bui
     }
 
     /**
-     * @return $this
+     * @return null|LocalizedString
      */
-    public function withDescription(?LocalizedString $description)
+    public function getDescription()
     {
-        $this->description = $description;
-
-        return $this;
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
 
     /**
@@ -59,6 +49,16 @@ final class MyShoppingListSetTextLineItemDescriptionActionBuilder implements Bui
     public function withTextLineItemId(?string $textLineItemId)
     {
         $this->textLineItemId = $textLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class MyShoppingListSetTextLineItemDescriptionActionBuilder implements Bui
     public function build(): MyShoppingListSetTextLineItemDescriptionAction
     {
         return new MyShoppingListSetTextLineItemDescriptionActionModel(
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->textLineItemId
+            $this->textLineItemId,
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
         );
     }
 

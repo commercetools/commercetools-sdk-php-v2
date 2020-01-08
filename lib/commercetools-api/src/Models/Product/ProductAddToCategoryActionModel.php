@@ -23,6 +23,11 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     protected $action;
 
     /**
+     * @var ?CategoryResourceIdentifier
+     */
+    protected $category;
+
+    /**
      * @var ?string
      */
     protected $orderHint;
@@ -32,19 +37,14 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
      */
     protected $staged;
 
-    /**
-     * @var ?CategoryResourceIdentifier
-     */
-    protected $category;
-
     public function __construct(
+        CategoryResourceIdentifier $category = null,
         string $orderHint = null,
-        bool $staged = null,
-        CategoryResourceIdentifier $category = null
+        bool $staged = null
     ) {
+        $this->category = $category;
         $this->orderHint = $orderHint;
         $this->staged = $staged;
-        $this->category = $category;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -63,6 +63,24 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
         }
 
         return $this->action;
+    }
+
+    /**
+     * @return null|CategoryResourceIdentifier
+     */
+    public function getCategory()
+    {
+        if (is_null($this->category)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductAddToCategoryAction::FIELD_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->category = CategoryResourceIdentifierModel::of($data);
+        }
+
+        return $this->category;
     }
 
     /**
@@ -99,22 +117,9 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
         return $this->staged;
     }
 
-    /**
-     * @return null|CategoryResourceIdentifier
-     */
-    public function getCategory()
+    public function setCategory(?CategoryResourceIdentifier $category): void
     {
-        if (is_null($this->category)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductAddToCategoryAction::FIELD_CATEGORY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->category = CategoryResourceIdentifierModel::of($data);
-        }
-
-        return $this->category;
+        $this->category = $category;
     }
 
     public function setOrderHint(?string $orderHint): void
@@ -125,10 +130,5 @@ final class ProductAddToCategoryActionModel extends JsonObjectModel implements P
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
-    }
-
-    public function setCategory(?CategoryResourceIdentifier $category): void
-    {
-        $this->category = $category;
     }
 }

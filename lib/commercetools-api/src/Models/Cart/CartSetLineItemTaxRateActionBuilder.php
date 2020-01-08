@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class CartSetLineItemTaxRateActionBuilder implements Builder
 {
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
-     */
-    private $externalTaxRate;
-
-    /**
      * @var ?string
      */
     private $lineItemId;
 
     /**
-     * @return null|ExternalTaxRateDraft
+     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
-    public function getExternalTaxRate()
-    {
-        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
-    }
+    private $externalTaxRate;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class CartSetLineItemTaxRateActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ExternalTaxRateDraft
      */
-    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
+    public function getExternalTaxRate()
     {
-        $this->externalTaxRate = $externalTaxRate;
-
-        return $this;
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
     }
 
     /**
@@ -57,6 +47,16 @@ final class CartSetLineItemTaxRateActionBuilder implements Builder
     public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
+    {
+        $this->externalTaxRate = $externalTaxRate;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class CartSetLineItemTaxRateActionBuilder implements Builder
     public function build(): CartSetLineItemTaxRateAction
     {
         return new CartSetLineItemTaxRateActionModel(
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
-            $this->lineItemId
+            $this->lineItemId,
+            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate)
         );
     }
 

@@ -21,21 +21,21 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
     protected $action;
 
     /**
-     * @var ?AttributeLocalizedEnumValue
-     */
-    protected $newValue;
-
-    /**
      * @var ?string
      */
     protected $attributeName;
 
+    /**
+     * @var ?AttributeLocalizedEnumValue
+     */
+    protected $newValue;
+
     public function __construct(
-        AttributeLocalizedEnumValue $newValue = null,
-        string $attributeName = null
+        string $attributeName = null,
+        AttributeLocalizedEnumValue $newValue = null
     ) {
-        $this->newValue = $newValue;
         $this->attributeName = $attributeName;
+        $this->newValue = $newValue;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -57,6 +57,23 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
     }
 
     /**
+     * @return null|string
+     */
+    public function getAttributeName()
+    {
+        if (is_null($this->attributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductTypeChangeLocalizedEnumValueLabelAction::FIELD_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributeName = (string) $data;
+        }
+
+        return $this->attributeName;
+    }
+
+    /**
      * @return null|AttributeLocalizedEnumValue
      */
     public function getNewValue()
@@ -74,30 +91,13 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionModel extends JsonObje
         return $this->newValue;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getAttributeName()
+    public function setAttributeName(?string $attributeName): void
     {
-        if (is_null($this->attributeName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeLocalizedEnumValueLabelAction::FIELD_ATTRIBUTE_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->attributeName = (string) $data;
-        }
-
-        return $this->attributeName;
+        $this->attributeName = $attributeName;
     }
 
     public function setNewValue(?AttributeLocalizedEnumValue $newValue): void
     {
         $this->newValue = $newValue;
-    }
-
-    public function setAttributeName(?string $attributeName): void
-    {
-        $this->attributeName = $attributeName;
     }
 }

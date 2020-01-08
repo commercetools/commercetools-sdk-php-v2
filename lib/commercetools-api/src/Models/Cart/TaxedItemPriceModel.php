@@ -18,37 +18,19 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
     /**
      * @var ?TypedMoney
      */
-    protected $totalGross;
+    protected $totalNet;
 
     /**
      * @var ?TypedMoney
      */
-    protected $totalNet;
+    protected $totalGross;
 
     public function __construct(
-        TypedMoney $totalGross = null,
-        TypedMoney $totalNet = null
+        TypedMoney $totalNet = null,
+        TypedMoney $totalGross = null
     ) {
-        $this->totalGross = $totalGross;
         $this->totalNet = $totalNet;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getTotalGross()
-    {
-        if (is_null($this->totalGross)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxedItemPrice::FIELD_TOTAL_GROSS);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->totalGross = $className::of($data);
-        }
-
-        return $this->totalGross;
+        $this->totalGross = $totalGross;
     }
 
     /**
@@ -62,20 +44,40 @@ final class TaxedItemPriceModel extends JsonObjectModel implements TaxedItemPric
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->totalNet = $className::of($data);
+
+            $this->totalNet = TypedMoneyModel::of($data);
         }
 
         return $this->totalNet;
     }
 
-    public function setTotalGross(?TypedMoney $totalGross): void
+    /**
+     * <p>TaxedItemPrice fields can not be used in query predicates.</p>.
+     *
+     * @return null|TypedMoney
+     */
+    public function getTotalGross()
     {
-        $this->totalGross = $totalGross;
+        if (is_null($this->totalGross)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TaxedItemPrice::FIELD_TOTAL_GROSS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalGross = TypedMoneyModel::of($data);
+        }
+
+        return $this->totalGross;
     }
 
     public function setTotalNet(?TypedMoney $totalNet): void
     {
         $this->totalNet = $totalNet;
+    }
+
+    public function setTotalGross(?TypedMoney $totalGross): void
+    {
+        $this->totalGross = $totalGross;
     }
 }

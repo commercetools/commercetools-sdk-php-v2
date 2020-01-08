@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetLineItemShippingDetailsActionBuilder implements Builder
 {
     /**
-     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
-     */
-    private $shippingDetails;
-
-    /**
      * @var ?string
      */
     private $lineItemId;
 
     /**
-     * @return null|ItemShippingDetailsDraft
+     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
      */
-    public function getShippingDetails()
-    {
-        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
-    }
+    private $shippingDetails;
 
     /**
      * @return null|string
@@ -44,13 +36,11 @@ final class StagedOrderSetLineItemShippingDetailsActionBuilder implements Builde
     }
 
     /**
-     * @return $this
+     * @return null|ItemShippingDetailsDraft
      */
-    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
+    public function getShippingDetails()
     {
-        $this->shippingDetails = $shippingDetails;
-
-        return $this;
+        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
     }
 
     /**
@@ -59,6 +49,16 @@ final class StagedOrderSetLineItemShippingDetailsActionBuilder implements Builde
     public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class StagedOrderSetLineItemShippingDetailsActionBuilder implements Builde
     public function build(): StagedOrderSetLineItemShippingDetailsAction
     {
         return new StagedOrderSetLineItemShippingDetailsActionModel(
-            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails),
-            $this->lineItemId
+            $this->lineItemId,
+            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
         );
     }
 

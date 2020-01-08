@@ -15,11 +15,6 @@ use stdClass;
 final class FacetResultTermModel extends JsonObjectModel implements FacetResultTerm
 {
     /**
-     * @var ?int
-     */
-    protected $count;
-
-    /**
      * @var ?JsonObject
      */
     protected $term;
@@ -27,33 +22,21 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
     /**
      * @var ?int
      */
+    protected $count;
+
+    /**
+     * @var ?int
+     */
     protected $productCount;
 
     public function __construct(
-        int $count = null,
         JsonObject $term = null,
+        int $count = null,
         int $productCount = null
     ) {
-        $this->count = $count;
         $this->term = $term;
+        $this->count = $count;
         $this->productCount = $productCount;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        if (is_null($this->count)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(FacetResultTerm::FIELD_COUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->count = (int) $data;
-        }
-
-        return $this->count;
     }
 
     /**
@@ -76,6 +59,23 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
     /**
      * @return null|int
      */
+    public function getCount()
+    {
+        if (is_null($this->count)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(FacetResultTerm::FIELD_COUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->count = (int) $data;
+        }
+
+        return $this->count;
+    }
+
+    /**
+     * @return null|int
+     */
     public function getProductCount()
     {
         if (is_null($this->productCount)) {
@@ -90,14 +90,14 @@ final class FacetResultTermModel extends JsonObjectModel implements FacetResultT
         return $this->productCount;
     }
 
-    public function setCount(?int $count): void
-    {
-        $this->count = $count;
-    }
-
     public function setTerm(?JsonObject $term): void
     {
         $this->term = $term;
+    }
+
+    public function setCount(?int $count): void
+    {
+        $this->count = $count;
     }
 
     public function setProductCount(?int $productCount): void

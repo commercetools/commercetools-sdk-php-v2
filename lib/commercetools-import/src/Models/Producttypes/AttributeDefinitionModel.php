@@ -16,6 +16,21 @@ use stdClass;
 final class AttributeDefinitionModel extends JsonObjectModel implements AttributeDefinition
 {
     /**
+     * @var ?AttributeType
+     */
+    protected $type;
+
+    /**
+     * @var ?string
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $label;
+
+    /**
      * @var ?bool
      */
     protected $isRequired;
@@ -26,9 +41,9 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     protected $attributeConstraint;
 
     /**
-     * @var ?string
+     * @var ?LocalizedString
      */
-    protected $name;
+    protected $inputTip;
 
     /**
      * @var ?string
@@ -40,39 +55,77 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
      */
     protected $isSearchable;
 
-    /**
-     * @var ?LocalizedString
-     */
-    protected $label;
-
-    /**
-     * @var ?AttributeType
-     */
-    protected $type;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $inputTip;
-
     public function __construct(
+        AttributeType $type = null,
+        string $name = null,
+        LocalizedString $label = null,
         bool $isRequired = null,
         string $attributeConstraint = null,
-        string $name = null,
+        LocalizedString $inputTip = null,
         string $inputHint = null,
-        bool $isSearchable = null,
-        LocalizedString $label = null,
-        AttributeType $type = null,
-        LocalizedString $inputTip = null
+        bool $isSearchable = null
     ) {
+        $this->type = $type;
+        $this->name = $name;
+        $this->label = $label;
         $this->isRequired = $isRequired;
         $this->attributeConstraint = $attributeConstraint;
-        $this->name = $name;
+        $this->inputTip = $inputTip;
         $this->inputHint = $inputHint;
         $this->isSearchable = $isSearchable;
-        $this->label = $label;
-        $this->type = $type;
-        $this->inputTip = $inputTip;
+    }
+
+    /**
+     * @return null|AttributeType
+     */
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AttributeDefinition::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->type = AttributeTypeModel::of($data);
+        }
+
+        return $this->type;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AttributeDefinition::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->name = (string) $data;
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getLabel()
+    {
+        if (is_null($this->label)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AttributeDefinition::FIELD_LABEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->label = LocalizedStringModel::of($data);
+        }
+
+        return $this->label;
     }
 
     /**
@@ -110,20 +163,21 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     }
 
     /**
-     * @return null|string
+     * @return null|LocalizedString
      */
-    public function getName()
+    public function getInputTip()
     {
-        if (is_null($this->name)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(AttributeDefinition::FIELD_NAME);
+        if (is_null($this->inputTip)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AttributeDefinition::FIELD_INPUT_TIP);
             if (is_null($data)) {
                 return null;
             }
-            $this->name = (string) $data;
+
+            $this->inputTip = LocalizedStringModel::of($data);
         }
 
-        return $this->name;
+        return $this->inputTip;
     }
 
     /**
@@ -160,58 +214,19 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         return $this->isSearchable;
     }
 
-    /**
-     * @return null|LocalizedString
-     */
-    public function getLabel()
+    public function setType(?AttributeType $type): void
     {
-        if (is_null($this->label)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(AttributeDefinition::FIELD_LABEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->label = LocalizedStringModel::of($data);
-        }
-
-        return $this->label;
+        $this->type = $type;
     }
 
-    /**
-     * @return null|AttributeType
-     */
-    public function getType()
+    public function setName(?string $name): void
     {
-        if (is_null($this->type)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(AttributeDefinition::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->type = AttributeTypeModel::of($data);
-        }
-
-        return $this->type;
+        $this->name = $name;
     }
 
-    /**
-     * @return null|LocalizedString
-     */
-    public function getInputTip()
+    public function setLabel(?LocalizedString $label): void
     {
-        if (is_null($this->inputTip)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(AttributeDefinition::FIELD_INPUT_TIP);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->inputTip = LocalizedStringModel::of($data);
-        }
-
-        return $this->inputTip;
+        $this->label = $label;
     }
 
     public function setIsRequired(?bool $isRequired): void
@@ -224,9 +239,9 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
         $this->attributeConstraint = $attributeConstraint;
     }
 
-    public function setName(?string $name): void
+    public function setInputTip(?LocalizedString $inputTip): void
     {
-        $this->name = $name;
+        $this->inputTip = $inputTip;
     }
 
     public function setInputHint(?string $inputHint): void
@@ -237,20 +252,5 @@ final class AttributeDefinitionModel extends JsonObjectModel implements Attribut
     public function setIsSearchable(?bool $isSearchable): void
     {
         $this->isSearchable = $isSearchable;
-    }
-
-    public function setLabel(?LocalizedString $label): void
-    {
-        $this->label = $label;
-    }
-
-    public function setType(?AttributeType $type): void
-    {
-        $this->type = $type;
-    }
-
-    public function setInputTip(?LocalizedString $inputTip): void
-    {
-        $this->inputTip = $inputTip;
     }
 }

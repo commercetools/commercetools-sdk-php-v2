@@ -21,39 +21,29 @@ use Commercetools\Base\Builder;
 final class CategoryDraftBuilder implements Builder
 {
     /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $slug;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $description;
+
+    /**
      * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
      */
     private $parent;
 
     /**
-     * @var ?AssetDraftCollection
-     */
-    private $assets;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $metaKeywords;
-
-    /**
      * @var ?string
      */
     private $orderHint;
-
-    /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $metaTitle;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
 
     /**
      * @var ?string
@@ -63,7 +53,7 @@ final class CategoryDraftBuilder implements Builder
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $description;
+    private $metaTitle;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -71,16 +61,58 @@ final class CategoryDraftBuilder implements Builder
     private $metaDescription;
 
     /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $metaKeywords;
+
+    /**
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
+     * @var ?AssetDraftCollection
+     */
+    private $assets;
+
+    /**
      * @var ?string
      */
     private $key;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @return null|LocalizedString
      */
-    private $slug;
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
 
     /**
+     * <p>human-readable identifier usually used as deep-link URL to the related category.
+     * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
+     * Maximum size is 256.
+     * <strong>Must be unique across a project!</strong> The same category can have the same slug for different languages.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+    }
+
+    /**
+     * <p>A category that is the parent of this category in the category tree.
+     * The parent can be set by its ID or by its key.</p>.
+     *
      * @return null|CategoryResourceIdentifier
      */
     public function getParent()
@@ -89,51 +121,14 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
-     * @return null|AssetDraftCollection
-     */
-    public function getAssets()
-    {
-        return $this->assets;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaKeywords()
-    {
-        return $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords;
-    }
-
-    /**
+     * <p>An attribute as base for a custom category order in one level.
+     * A random value will be assigned by API if not set.</p>.
+     *
      * @return null|string
      */
     public function getOrderHint()
     {
         return $this->orderHint;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaTitle()
-    {
-        return $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -147,9 +142,9 @@ final class CategoryDraftBuilder implements Builder
     /**
      * @return null|LocalizedString
      */
-    public function getDescription()
+    public function getMetaTitle()
     {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+        return $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle;
     }
 
     /**
@@ -161,6 +156,35 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
+     * @return null|LocalizedString
+     */
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return null|AssetDraftCollection
+     */
+    public function getAssets()
+    {
+        return $this->assets;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the category.
+     * Keys can only contain alphanumeric characters (<code>a-Z, 0-9</code>), underscores and hyphens (<code>-, _</code>) and be between 2 and 256 characters.</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -169,119 +193,11 @@ final class CategoryDraftBuilder implements Builder
     }
 
     /**
-     * @return null|LocalizedString
-     */
-    public function getSlug()
-    {
-        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withParent(?CategoryResourceIdentifier $parent)
-    {
-        $this->parent = $parent;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAssets(?AssetDraftCollection $assets)
-    {
-        $this->assets = $assets;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaKeywords(?LocalizedString $metaKeywords)
-    {
-        $this->metaKeywords = $metaKeywords;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withOrderHint(?string $orderHint)
-    {
-        $this->orderHint = $orderHint;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaTitle(?LocalizedString $metaTitle)
-    {
-        $this->metaTitle = $metaTitle;
-
-        return $this;
-    }
-
-    /**
      * @return $this
      */
     public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExternalId(?string $externalId)
-    {
-        $this->externalId = $externalId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDescription(?LocalizedString $description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaDescription(?LocalizedString $metaDescription)
-    {
-        $this->metaDescription = $metaDescription;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
 
         return $this;
     }
@@ -299,9 +215,159 @@ final class CategoryDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withParent(?CategoryResourceIdentifier $parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withOrderHint(?string $orderHint)
+    {
+        $this->orderHint = $orderHint;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalId(?string $externalId)
+    {
+        $this->externalId = $externalId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMetaTitle(?LocalizedString $metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMetaDescription(?LocalizedString $metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMetaKeywords(?LocalizedString $metaKeywords)
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssets(?AssetDraftCollection $assets)
+    {
+        $this->assets = $assets;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withNameBuilder(?LocalizedStringBuilder $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSlugBuilder(?LocalizedStringBuilder $slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withParentBuilder(?CategoryResourceIdentifierBuilder $parent)
     {
         $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
 
         return $this;
     }
@@ -326,71 +392,21 @@ final class CategoryDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
-    {
-        $this->metaTitle = $metaTitle;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
-    {
-        $this->metaDescription = $metaDescription;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSlugBuilder(?LocalizedStringBuilder $slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
     public function build(): CategoryDraft
     {
         return new CategoryDraftModel(
-            ($this->parent instanceof CategoryResourceIdentifierBuilder ? $this->parent->build() : $this->parent),
-            $this->assets,
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
-            $this->orderHint,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->externalId,
+            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            ($this->parent instanceof CategoryResourceIdentifierBuilder ? $this->parent->build() : $this->parent),
+            $this->orderHint,
+            $this->externalId,
+            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
             ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
-            $this->key,
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
+            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->assets,
+            $this->key
         );
     }
 

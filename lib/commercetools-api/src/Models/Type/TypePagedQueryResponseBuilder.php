@@ -18,12 +18,7 @@ final class TypePagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
-    private $total;
-
-    /**
-     * @var ?int
-     */
-    private $offset;
+    private $limit;
 
     /**
      * @var ?int
@@ -33,12 +28,33 @@ final class TypePagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
-    private $limit;
+    private $total;
+
+    /**
+     * @var ?int
+     */
+    private $offset;
 
     /**
      * @var ?TypeCollection
      */
     private $results;
+
+    /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
 
     /**
      * @return null|int
@@ -57,27 +73,31 @@ final class TypePagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getLimit()
-    {
-        return $this->limit;
-    }
-
-    /**
      * @return null|TypeCollection
      */
     public function getResults()
     {
         return $this->results;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLimit(?int $limit)
+    {
+        $this->limit = $limit;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCount(?int $count)
+    {
+        $this->count = $count;
+
+        return $this;
     }
 
     /**
@@ -103,26 +123,6 @@ final class TypePagedQueryResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCount(?int $count)
-    {
-        $this->count = $count;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLimit(?int $limit)
-    {
-        $this->limit = $limit;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResults(?TypeCollection $results)
     {
         $this->results = $results;
@@ -133,10 +133,10 @@ final class TypePagedQueryResponseBuilder implements Builder
     public function build(): TypePagedQueryResponse
     {
         return new TypePagedQueryResponseModel(
+            $this->limit,
+            $this->count,
             $this->total,
             $this->offset,
-            $this->count,
-            $this->limit,
             $this->results
         );
     }

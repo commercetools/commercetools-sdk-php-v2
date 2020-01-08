@@ -17,9 +17,9 @@ use DateTimeImmutable;
 final class OrderEditAppliedBuilder implements Builder
 {
     /**
-     * @var OrderExcerpt|?OrderExcerptBuilder
+     * @var ?DateTimeImmutable
      */
-    private $excerptAfterEdit;
+    private $appliedAt;
 
     /**
      * @var OrderExcerpt|?OrderExcerptBuilder
@@ -27,16 +27,16 @@ final class OrderEditAppliedBuilder implements Builder
     private $excerptBeforeEdit;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var OrderExcerpt|?OrderExcerptBuilder
      */
-    private $appliedAt;
+    private $excerptAfterEdit;
 
     /**
-     * @return null|OrderExcerpt
+     * @return null|DateTimeImmutable
      */
-    public function getExcerptAfterEdit()
+    public function getAppliedAt()
     {
-        return $this->excerptAfterEdit instanceof OrderExcerptBuilder ? $this->excerptAfterEdit->build() : $this->excerptAfterEdit;
+        return $this->appliedAt;
     }
 
     /**
@@ -48,19 +48,19 @@ final class OrderEditAppliedBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * @return null|OrderExcerpt
      */
-    public function getAppliedAt()
+    public function getExcerptAfterEdit()
     {
-        return $this->appliedAt;
+        return $this->excerptAfterEdit instanceof OrderExcerptBuilder ? $this->excerptAfterEdit->build() : $this->excerptAfterEdit;
     }
 
     /**
      * @return $this
      */
-    public function withExcerptAfterEdit(?OrderExcerpt $excerptAfterEdit)
+    public function withAppliedAt(?DateTimeImmutable $appliedAt)
     {
-        $this->excerptAfterEdit = $excerptAfterEdit;
+        $this->appliedAt = $appliedAt;
 
         return $this;
     }
@@ -78,17 +78,7 @@ final class OrderEditAppliedBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAppliedAt(?DateTimeImmutable $appliedAt)
-    {
-        $this->appliedAt = $appliedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExcerptAfterEditBuilder(?OrderExcerptBuilder $excerptAfterEdit)
+    public function withExcerptAfterEdit(?OrderExcerpt $excerptAfterEdit)
     {
         $this->excerptAfterEdit = $excerptAfterEdit;
 
@@ -105,12 +95,22 @@ final class OrderEditAppliedBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withExcerptAfterEditBuilder(?OrderExcerptBuilder $excerptAfterEdit)
+    {
+        $this->excerptAfterEdit = $excerptAfterEdit;
+
+        return $this;
+    }
+
     public function build(): OrderEditApplied
     {
         return new OrderEditAppliedModel(
-            ($this->excerptAfterEdit instanceof OrderExcerptBuilder ? $this->excerptAfterEdit->build() : $this->excerptAfterEdit),
+            $this->appliedAt,
             ($this->excerptBeforeEdit instanceof OrderExcerptBuilder ? $this->excerptBeforeEdit->build() : $this->excerptBeforeEdit),
-            $this->appliedAt
+            ($this->excerptAfterEdit instanceof OrderExcerptBuilder ? $this->excerptAfterEdit->build() : $this->excerptAfterEdit)
         );
     }
 

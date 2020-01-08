@@ -14,38 +14,21 @@ use stdClass;
 final class ShoppingListUpdateModel extends JsonObjectModel implements ShoppingListUpdate
 {
     /**
-     * @var ?ShoppingListUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        ShoppingListUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|ShoppingListUpdateActionCollection
+     * @var ?ShoppingListUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShoppingListUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = ShoppingListUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        ShoppingListUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class ShoppingListUpdateModel extends JsonObjectModel implements ShoppingL
         return $this->version;
     }
 
-    public function setActions(?ShoppingListUpdateActionCollection $actions): void
+    /**
+     * @return null|ShoppingListUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShoppingListUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = ShoppingListUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?ShoppingListUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

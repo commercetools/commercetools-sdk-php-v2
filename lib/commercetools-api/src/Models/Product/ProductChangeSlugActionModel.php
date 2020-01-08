@@ -23,21 +23,21 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
     protected $action;
 
     /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?LocalizedString
      */
     protected $slug;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        bool $staged = null,
-        LocalizedString $slug = null
+        LocalizedString $slug = null,
+        bool $staged = null
     ) {
-        $this->staged = $staged;
         $this->slug = $slug;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,23 +59,10 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductChangeSlugAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
-    }
-
-    /**
+     * <p>Every slug must be unique across a project, but a product can have the same slug for different languages.
+     * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
+     * Maximum size is <code>256</code>.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -93,13 +80,30 @@ final class ProductChangeSlugActionModel extends JsonObjectModel implements Prod
         return $this->slug;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->staged = $staged;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductChangeSlugAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

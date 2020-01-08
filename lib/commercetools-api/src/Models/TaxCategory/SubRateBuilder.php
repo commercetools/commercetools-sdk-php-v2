@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class SubRateBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $amount;
-
-    /**
      * @var ?string
      */
     private $name;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
+    private $amount;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class SubRateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withAmount(?int $amount)
+    public function getAmount()
     {
-        $this->amount = $amount;
-
-        return $this;
+        return $this->amount;
     }
 
     /**
@@ -61,11 +51,21 @@ final class SubRateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withAmount(?int $amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
     public function build(): SubRate
     {
         return new SubRateModel(
-            $this->amount,
-            $this->name
+            $this->name,
+            $this->amount
         );
     }
 

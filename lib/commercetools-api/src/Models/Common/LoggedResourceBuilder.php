@@ -17,16 +17,6 @@ use DateTimeImmutable;
 final class LoggedResourceBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -37,9 +27,14 @@ final class LoggedResourceBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -47,20 +42,9 @@ final class LoggedResourceBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var CreatedBy|?CreatedByBuilder
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $createdBy;
 
     /**
      * @return null|string
@@ -79,11 +63,19 @@ final class LoggedResourceBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -95,23 +87,11 @@ final class LoggedResourceBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|CreatedBy
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getCreatedBy()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -137,9 +117,19 @@ final class LoggedResourceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -157,7 +147,7 @@ final class LoggedResourceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
         $this->createdBy = $createdBy;
 
@@ -174,15 +164,25 @@ final class LoggedResourceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
     public function build(): LoggedResource
     {
         return new LoggedResourceModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
-            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy)
+            $this->createdAt,
+            $this->lastModifiedAt,
+            ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy)
         );
     }
 

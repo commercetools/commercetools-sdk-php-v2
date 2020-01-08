@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\MapperMap;
+use stdClass;
 
 /**
  * @implements Builder<CategoryOrderHints>
@@ -26,16 +27,21 @@ final class CategoryOrderHintsBuilder extends MapperMap implements Builder
     }
 
     /**
-     * @psalm-return callable(string):?mixed
+     * @psalm-return callable(string):?CategoryOrderHints
      */
     protected function mapper()
     {
         return
             /**
-             * @psalm-return ?mixed
+             * @psalm-return ?CategoryOrderHints
              */
             function (string $key) {
-                return $this->get($key);
+                $data = $this->get($key);
+                if ($data instanceof stdClass) {
+                    $data = CategoryOrderHintsModel::of($data);
+                }
+
+                return $data;
             };
     }
 }

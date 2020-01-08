@@ -30,16 +30,6 @@ use stdClass;
 final class ChannelModel extends JsonObjectModel implements Channel
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -50,9 +40,14 @@ final class ChannelModel extends JsonObjectModel implements Channel
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -60,14 +55,14 @@ final class ChannelModel extends JsonObjectModel implements Channel
     protected $lastModifiedBy;
 
     /**
-     * @var ?Address
+     * @var ?CreatedBy
      */
-    protected $address;
+    protected $createdBy;
 
     /**
-     * @var ?CustomFields
+     * @var ?string
      */
-    protected $custom;
+    protected $key;
 
     /**
      * @var ?array
@@ -77,17 +72,17 @@ final class ChannelModel extends JsonObjectModel implements Channel
     /**
      * @var ?LocalizedString
      */
-    protected $description;
-
-    /**
-     * @var ?GeoJson
-     */
-    protected $geoLocation;
+    protected $name;
 
     /**
      * @var ?LocalizedString
      */
-    protected $name;
+    protected $description;
+
+    /**
+     * @var ?Address
+     */
+    protected $address;
 
     /**
      * @var ?ReviewRatingStatistics
@@ -95,40 +90,81 @@ final class ChannelModel extends JsonObjectModel implements Channel
     protected $reviewRatingStatistics;
 
     /**
-     * @var ?string
+     * @var ?CustomFields
      */
-    protected $key;
+    protected $custom;
+
+    /**
+     * @var ?GeoJson
+     */
+    protected $geoLocation;
 
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        Address $address = null,
-        CustomFields $custom = null,
+        CreatedBy $createdBy = null,
+        string $key = null,
         array $roles = null,
-        LocalizedString $description = null,
-        GeoJson $geoLocation = null,
         LocalizedString $name = null,
+        LocalizedString $description = null,
+        Address $address = null,
         ReviewRatingStatistics $reviewRatingStatistics = null,
-        string $key = null
+        CustomFields $custom = null,
+        GeoJson $geoLocation = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->address = $address;
-        $this->custom = $custom;
-        $this->roles = $roles;
-        $this->description = $description;
-        $this->geoLocation = $geoLocation;
-        $this->name = $name;
-        $this->reviewRatingStatistics = $reviewRatingStatistics;
+        $this->createdBy = $createdBy;
         $this->key = $key;
+        $this->roles = $roles;
+        $this->name = $name;
+        $this->description = $description;
+        $this->address = $address;
+        $this->reviewRatingStatistics = $reviewRatingStatistics;
+        $this->custom = $custom;
+        $this->geoLocation = $geoLocation;
+    }
+
+    /**
+     * <p>The unique ID of the channel.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Channel::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Channel::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -174,58 +210,8 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Channel::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Channel::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        if (is_null($this->createdBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_CREATED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->createdBy = CreatedByModel::of($data);
-        }
-
-        return $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -244,6 +230,108 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Channel::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
+    }
+
+    /**
+     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Channel::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>The roles of this channel.
+     * Each channel must have at least one role.</p>.
+     *
+     * @return null|array
+     */
+    public function getRoles()
+    {
+        if (is_null($this->roles)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(Channel::FIELD_ROLES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->roles = $data;
+        }
+
+        return $this->roles;
+    }
+
+    /**
+     * <p>A human-readable name of the channel.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Channel::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * <p>A human-readable description of the channel.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Channel::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
+    }
+
+    /**
+     * <p>The address where this channel is located (e.g.
+     * if the channel is a physical store).</p>.
+     *
      * @return null|Address
      */
     public function getAddress()
@@ -259,6 +347,26 @@ final class ChannelModel extends JsonObjectModel implements Channel
         }
 
         return $this->address;
+    }
+
+    /**
+     * <p>Statistics about the review ratings taken into account for this channel.</p>.
+     *
+     * @return null|ReviewRatingStatistics
+     */
+    public function getReviewRatingStatistics()
+    {
+        if (is_null($this->reviewRatingStatistics)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Channel::FIELD_REVIEW_RATING_STATISTICS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->reviewRatingStatistics = ReviewRatingStatisticsModel::of($data);
+        }
+
+        return $this->reviewRatingStatistics;
     }
 
     /**
@@ -280,41 +388,8 @@ final class ChannelModel extends JsonObjectModel implements Channel
     }
 
     /**
-     * @return null|array
-     */
-    public function getRoles()
-    {
-        if (is_null($this->roles)) {
-            /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(Channel::FIELD_ROLES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->roles = $data;
-        }
-
-        return $this->roles;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        if (is_null($this->description)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->description = LocalizedStringModel::of($data);
-        }
-
-        return $this->description;
-    }
-
-    /**
+     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>.
+     *
      * @return null|GeoJson
      */
     public function getGeoLocation()
@@ -325,74 +400,11 @@ final class ChannelModel extends JsonObjectModel implements Channel
             if (is_null($data)) {
                 return null;
             }
-            $className = GeoJsonModel::resolveDiscriminatorClass($data);
-            $this->geoLocation = $className::of($data);
+
+            $this->geoLocation = GeoJsonModel::of($data);
         }
 
         return $this->geoLocation;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|ReviewRatingStatistics
-     */
-    public function getReviewRatingStatistics()
-    {
-        if (is_null($this->reviewRatingStatistics)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Channel::FIELD_REVIEW_RATING_STATISTICS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->reviewRatingStatistics = ReviewRatingStatisticsModel::of($data);
-        }
-
-        return $this->reviewRatingStatistics;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Channel::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setId(?string $id): void
@@ -405,9 +417,14 @@ final class ChannelModel extends JsonObjectModel implements Channel
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
@@ -415,14 +432,14 @@ final class ChannelModel extends JsonObjectModel implements Channel
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
-    public function setAddress(?Address $address): void
+    public function setCreatedBy(?CreatedBy $createdBy): void
     {
-        $this->address = $address;
+        $this->createdBy = $createdBy;
     }
 
-    public function setCustom(?CustomFields $custom): void
+    public function setKey(?string $key): void
     {
-        $this->custom = $custom;
+        $this->key = $key;
     }
 
     public function setRoles(?array $roles): void
@@ -430,19 +447,19 @@ final class ChannelModel extends JsonObjectModel implements Channel
         $this->roles = $roles;
     }
 
+    public function setName(?LocalizedString $name): void
+    {
+        $this->name = $name;
+    }
+
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
-    public function setGeoLocation(?GeoJson $geoLocation): void
+    public function setAddress(?Address $address): void
     {
-        $this->geoLocation = $geoLocation;
-    }
-
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
+        $this->address = $address;
     }
 
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void
@@ -450,9 +467,14 @@ final class ChannelModel extends JsonObjectModel implements Channel
         $this->reviewRatingStatistics = $reviewRatingStatistics;
     }
 
-    public function setKey(?string $key): void
+    public function setCustom(?CustomFields $custom): void
     {
-        $this->key = $key;
+        $this->custom = $custom;
+    }
+
+    public function setGeoLocation(?GeoJson $geoLocation): void
+    {
+        $this->geoLocation = $geoLocation;
     }
 
     public function jsonSerialize()

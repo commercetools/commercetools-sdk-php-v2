@@ -21,6 +21,8 @@ final class ProductDiscountChangePredicateActionBuilder implements Builder
     private $predicate;
 
     /**
+     * <p>A valid ProductDiscount Predicate.</p>.
+     *
      * @return null|string
      */
     public function getPredicate()

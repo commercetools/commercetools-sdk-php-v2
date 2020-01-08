@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Parcel|?ParcelBuilder
-     */
-    private $parcel;
-
-    /**
      * @var ?string
      */
     private $deliveryId;
 
     /**
-     * @return null|Parcel
+     * @var Parcel|?ParcelBuilder
      */
-    public function getParcel()
-    {
-        return $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel;
-    }
+    private $parcel;
 
     /**
      * @return null|string
@@ -44,13 +36,11 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Parcel
      */
-    public function withParcel(?Parcel $parcel)
+    public function getParcel()
     {
-        $this->parcel = $parcel;
-
-        return $this;
+        return $this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel;
     }
 
     /**
@@ -59,6 +49,16 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withParcel(?Parcel $parcel)
+    {
+        $this->parcel = $parcel;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class ParcelRemovedFromDeliveryMessagePayloadBuilder implements Builder
     public function build(): ParcelRemovedFromDeliveryMessagePayload
     {
         return new ParcelRemovedFromDeliveryMessagePayloadModel(
-            ($this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel),
-            $this->deliveryId
+            $this->deliveryId,
+            ($this->parcel instanceof ParcelBuilder ? $this->parcel->build() : $this->parcel)
         );
     }
 

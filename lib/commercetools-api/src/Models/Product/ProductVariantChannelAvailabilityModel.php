@@ -13,9 +13,9 @@ use Commercetools\Base\JsonObjectModel;
 final class ProductVariantChannelAvailabilityModel extends JsonObjectModel implements ProductVariantChannelAvailability
 {
     /**
-     * @var ?int
+     * @var ?bool
      */
-    protected $availableQuantity;
+    protected $isOnStock;
 
     /**
      * @var ?int
@@ -23,35 +23,35 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     protected $restockableInDays;
 
     /**
-     * @var ?bool
+     * @var ?int
      */
-    protected $isOnStock;
+    protected $availableQuantity;
 
     public function __construct(
-        int $availableQuantity = null,
+        bool $isOnStock = null,
         int $restockableInDays = null,
-        bool $isOnStock = null
+        int $availableQuantity = null
     ) {
-        $this->availableQuantity = $availableQuantity;
-        $this->restockableInDays = $restockableInDays;
         $this->isOnStock = $isOnStock;
+        $this->restockableInDays = $restockableInDays;
+        $this->availableQuantity = $availableQuantity;
     }
 
     /**
-     * @return null|int
+     * @return null|bool
      */
-    public function getAvailableQuantity()
+    public function getIsOnStock()
     {
-        if (is_null($this->availableQuantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductVariantChannelAvailability::FIELD_AVAILABLE_QUANTITY);
+        if (is_null($this->isOnStock)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductVariantChannelAvailability::FIELD_IS_ON_STOCK);
             if (is_null($data)) {
                 return null;
             }
-            $this->availableQuantity = (int) $data;
+            $this->isOnStock = (bool) $data;
         }
 
-        return $this->availableQuantity;
+        return $this->isOnStock;
     }
 
     /**
@@ -72,25 +72,25 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
     }
 
     /**
-     * @return null|bool
+     * @return null|int
      */
-    public function getIsOnStock()
+    public function getAvailableQuantity()
     {
-        if (is_null($this->isOnStock)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductVariantChannelAvailability::FIELD_IS_ON_STOCK);
+        if (is_null($this->availableQuantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductVariantChannelAvailability::FIELD_AVAILABLE_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->isOnStock = (bool) $data;
+            $this->availableQuantity = (int) $data;
         }
 
-        return $this->isOnStock;
+        return $this->availableQuantity;
     }
 
-    public function setAvailableQuantity(?int $availableQuantity): void
+    public function setIsOnStock(?bool $isOnStock): void
     {
-        $this->availableQuantity = $availableQuantity;
+        $this->isOnStock = $isOnStock;
     }
 
     public function setRestockableInDays(?int $restockableInDays): void
@@ -98,8 +98,8 @@ final class ProductVariantChannelAvailabilityModel extends JsonObjectModel imple
         $this->restockableInDays = $restockableInDays;
     }
 
-    public function setIsOnStock(?bool $isOnStock): void
+    public function setAvailableQuantity(?int $availableQuantity): void
     {
-        $this->isOnStock = $isOnStock;
+        $this->availableQuantity = $availableQuantity;
     }
 }

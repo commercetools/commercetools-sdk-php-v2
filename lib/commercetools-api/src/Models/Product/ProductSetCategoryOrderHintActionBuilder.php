@@ -18,6 +18,11 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     /**
      * @var ?string
      */
+    private $categoryId;
+
+    /**
+     * @var ?string
+     */
     private $orderHint;
 
     /**
@@ -26,9 +31,12 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     private $staged;
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $categoryId;
+    public function getCategoryId()
+    {
+        return $this->categoryId;
+    }
 
     /**
      * @return null|string
@@ -47,11 +55,13 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getCategoryId()
+    public function withCategoryId(?string $categoryId)
     {
-        return $this->categoryId;
+        $this->categoryId = $categoryId;
+
+        return $this;
     }
 
     /**
@@ -74,22 +84,12 @@ final class ProductSetCategoryOrderHintActionBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withCategoryId(?string $categoryId)
-    {
-        $this->categoryId = $categoryId;
-
-        return $this;
-    }
-
     public function build(): ProductSetCategoryOrderHintAction
     {
         return new ProductSetCategoryOrderHintActionModel(
+            $this->categoryId,
             $this->orderHint,
-            $this->staged,
-            $this->categoryId
+            $this->staged
         );
     }
 

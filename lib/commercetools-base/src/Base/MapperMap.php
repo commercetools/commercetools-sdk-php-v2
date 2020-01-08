@@ -11,11 +11,11 @@ namespace Commercetools\Base;
 use stdClass;
 
 /**
- * @template T
+ * @template TObject
  */
 abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable, \IteratorAggregate
 {
-    /** @psalm-var ?array<string, T|stdClass> */
+    /** @psalm-var ?array<string, TObject|stdClass> */
     private $data;
     /** @var array<string, array<string, string>> */
     private $indexes = [];
@@ -23,7 +23,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     private $iterator;
 
     /**
-     * @psalm-param ?array<string, T|stdClass> $data
+     * @psalm-param ?array<string, TObject|stdClass> $data
      */
     public function __construct(array $data = null)
     {
@@ -35,6 +35,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
+     * @template T
      * @psalm-param ?stdClass|array<string, T|stdClass> $data
      *
      * @param null|mixed $data
@@ -72,13 +73,14 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
      */
     final public static function fromStdClass(stdClass $data = null)
     {
-        /** @var array<string, stdClass|T> $t */
+        /** @var array<string, stdClass|TObject> $t */
         $t = (array) $data;
 
         return new static($t);
     }
 
     /**
+     * @template T
      * @psalm-param array<string, T|stdClass> $data
      *
      * @return static
@@ -89,7 +91,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
-     * @psalm-param T|stdClass $value
+     * @psalm-param TObject|stdClass $value
      *
      * @param $value
      *
@@ -101,7 +103,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
-     * @psalm-return ?T
+     * @psalm-return ?TObject
      */
     public function at(string $key)
     {
@@ -122,11 +124,11 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
-     * @return ?T
+     * @return ?TObject
      */
     public function current()
     {
-        /** @psalm-var ?T $current  */
+        /** @psalm-var ?TObject $current  */
         return $this->iterator->current();
     }
 
@@ -170,7 +172,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     /**
      * @param string $offset
      *
-     * @return ?T
+     * @return ?TObject
      */
     public function offsetGet($offset)
     {
@@ -179,7 +181,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
 
     /**
      * @param string $offset
-     * @psalm-param T|stdClass $value
+     * @psalm-param TObject|stdClass $value
      *
      * @param mixed $value
      */
@@ -208,7 +210,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
-     * @psalm-return T|stdClass|null
+     * @psalm-return TObject|stdClass|null
      */
     final protected function get(string $key)
     {
@@ -220,7 +222,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
-     * @psalm-param T|stdClass $data
+     * @psalm-param TObject|stdClass $data
      *
      * @param mixed $data
      */
@@ -230,7 +232,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
-     * @psalm-param T|stdClass $value
+     * @psalm-param TObject|stdClass $value
      *
      * @param $value
      *
@@ -245,12 +247,12 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
-     * @psalm-return callable(string): ?T
+     * @psalm-return callable(string): ?TObject
      */
     abstract protected function mapper();
 
     /**
-     * @psalm-param T|stdClass $value
+     * @psalm-param TObject|stdClass $value
      */
     final protected function addToIndex(string $field, string $key, string $indexKey): void
     {
@@ -258,7 +260,7 @@ abstract class MapperMap implements Collection, \ArrayAccess, \JsonSerializable,
     }
 
     /**
-     * @psalm-return ?T
+     * @psalm-return ?TObject
      */
     final protected function valueByKey(string $field, string $key)
     {

@@ -14,38 +14,21 @@ use stdClass;
 final class OrderUpdateModel extends JsonObjectModel implements OrderUpdate
 {
     /**
-     * @var ?OrderUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        OrderUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|OrderUpdateActionCollection
+     * @var ?OrderUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = OrderUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        OrderUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class OrderUpdateModel extends JsonObjectModel implements OrderUpdate
         return $this->version;
     }
 
-    public function setActions(?OrderUpdateActionCollection $actions): void
+    /**
+     * @return null|OrderUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = OrderUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?OrderUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

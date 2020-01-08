@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class SubscriptionUpdateBuilder implements Builder
 {
     /**
-     * @var ?SubscriptionUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|SubscriptionUpdateActionCollection
+     * @var ?SubscriptionUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class SubscriptionUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|SubscriptionUpdateActionCollection
      */
-    public function withActions(?SubscriptionUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class SubscriptionUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?SubscriptionUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): SubscriptionUpdate
     {
         return new SubscriptionUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

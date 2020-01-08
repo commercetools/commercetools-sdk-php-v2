@@ -49,6 +49,8 @@ final class OrderEditSetKeyActionModel extends JsonObjectModel implements OrderE
     }
 
     /**
+     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     *
      * @return null|string
      */
     public function getKey()

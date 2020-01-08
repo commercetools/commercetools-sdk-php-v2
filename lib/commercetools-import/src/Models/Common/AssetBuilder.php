@@ -16,6 +16,11 @@ use Commercetools\Base\Builder;
 final class AssetBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
      * @var ?AssetSourceCollection
      */
     private $sources;
@@ -31,14 +36,20 @@ final class AssetBuilder implements Builder
     private $description;
 
     /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
      * @var ?array
      */
     private $tags;
+
+    /**
+     * <p>User-defined identifier for the asset.
+     * Asset keys are unique inside their container (a product variant or a category).</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * @return null|AssetSourceCollection
@@ -65,22 +76,21 @@ final class AssetBuilder implements Builder
     }
 
     /**
-     * <p>User-defined identifier for the asset.
-     * Asset keys are unique inside their container (a product variant or a category).</p>.
-     *
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
      * @return null|array
      */
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -109,16 +119,6 @@ final class AssetBuilder implements Builder
     public function withDescription(?LocalizedString $description)
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
 
         return $this;
     }
@@ -156,10 +156,10 @@ final class AssetBuilder implements Builder
     public function build(): Asset
     {
         return new AssetModel(
+            $this->key,
             $this->sources,
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->key,
             $this->tags
         );
     }

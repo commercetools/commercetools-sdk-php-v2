@@ -20,16 +20,6 @@ use stdClass;
 final class ExtensionModel extends JsonObjectModel implements Extension
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -40,9 +30,14 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -50,9 +45,14 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     protected $lastModifiedBy;
 
     /**
-     * @var ?int
+     * @var ?CreatedBy
      */
-    protected $timeoutInMs;
+    protected $createdBy;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
 
     /**
      * @var ?ExtensionDestination
@@ -65,32 +65,66 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     protected $triggers;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $key;
+    protected $timeoutInMs;
 
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        int $timeoutInMs = null,
+        CreatedBy $createdBy = null,
+        string $key = null,
         ExtensionDestination $destination = null,
         ExtensionTriggerCollection $triggers = null,
-        string $key = null
+        int $timeoutInMs = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->timeoutInMs = $timeoutInMs;
+        $this->createdBy = $createdBy;
+        $this->key = $key;
         $this->destination = $destination;
         $this->triggers = $triggers;
-        $this->key = $key;
+        $this->timeoutInMs = $timeoutInMs;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Extension::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Extension::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -136,58 +170,8 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Extension::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Extension::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        if (is_null($this->createdBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Extension::FIELD_CREATED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->createdBy = CreatedByModel::of($data);
-        }
-
-        return $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -206,20 +190,40 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     }
 
     /**
-     * @return null|int
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getTimeoutInMs()
+    public function getCreatedBy()
     {
-        if (is_null($this->timeoutInMs)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Extension::FIELD_TIMEOUT_IN_MS);
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Extension::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->timeoutInMs = (int) $data;
+
+            $this->createdBy = CreatedByModel::of($data);
         }
 
-        return $this->timeoutInMs;
+        return $this->createdBy;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Extension::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -233,8 +237,8 @@ final class ExtensionModel extends JsonObjectModel implements Extension
             if (is_null($data)) {
                 return null;
             }
-            $className = ExtensionDestinationModel::resolveDiscriminatorClass($data);
-            $this->destination = $className::of($data);
+
+            $this->destination = ExtensionDestinationModel::of($data);
         }
 
         return $this->destination;
@@ -258,30 +262,23 @@ final class ExtensionModel extends JsonObjectModel implements Extension
     }
 
     /**
-     * @return null|string
+     * <p>The maximum time the commercetools platform waits for a response from the extension.
+     * If not present, <code>2000</code> (2 seconds) is used.</p>.
+     *
+     * @return null|int
      */
-    public function getKey()
+    public function getTimeoutInMs()
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Extension::FIELD_KEY);
+        if (is_null($this->timeoutInMs)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Extension::FIELD_TIMEOUT_IN_MS);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+            $this->timeoutInMs = (int) $data;
         }
 
-        return $this->key;
-    }
-
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->timeoutInMs;
     }
 
     public function setId(?string $id): void
@@ -294,9 +291,14 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
@@ -304,9 +306,14 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
-    public function setTimeoutInMs(?int $timeoutInMs): void
+    public function setCreatedBy(?CreatedBy $createdBy): void
     {
-        $this->timeoutInMs = $timeoutInMs;
+        $this->createdBy = $createdBy;
+    }
+
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     public function setDestination(?ExtensionDestination $destination): void
@@ -319,9 +326,9 @@ final class ExtensionModel extends JsonObjectModel implements Extension
         $this->triggers = $triggers;
     }
 
-    public function setKey(?string $key): void
+    public function setTimeoutInMs(?int $timeoutInMs): void
     {
-        $this->key = $key;
+        $this->timeoutInMs = $timeoutInMs;
     }
 
     public function jsonSerialize()

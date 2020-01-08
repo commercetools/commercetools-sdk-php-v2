@@ -30,34 +30,14 @@ final class ShoppingListLineItemBuilder implements Builder
     private $addedAt;
 
     /**
-     * @var ?int
-     */
-    private $quantity;
-
-    /**
-     * @var ?string
-     */
-    private $productId;
-
-    /**
      * @var CustomFields|?CustomFieldsBuilder
      */
     private $custom;
 
     /**
-     * @var ProductVariant|?ProductVariantBuilder
+     * @var ?DateTimeImmutable
      */
-    private $variant;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
-
-    /**
-     * @var ?int
-     */
-    private $variantId;
+    private $deactivatedAt;
 
     /**
      * @var ?string
@@ -65,9 +45,14 @@ final class ShoppingListLineItemBuilder implements Builder
     private $id;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $deactivatedAt;
+    private $name;
+
+    /**
+     * @var ?string
+     */
+    private $productId;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -80,27 +65,26 @@ final class ShoppingListLineItemBuilder implements Builder
     private $productType;
 
     /**
+     * @var ?int
+     */
+    private $quantity;
+
+    /**
+     * @var ProductVariant|?ProductVariantBuilder
+     */
+    private $variant;
+
+    /**
+     * @var ?int
+     */
+    private $variantId;
+
+    /**
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
     {
         return $this->addedAt;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        return $this->productId;
     }
 
     /**
@@ -112,27 +96,11 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * @return null|ProductVariant
+     * @return null|DateTimeImmutable
      */
-    public function getVariant()
+    public function getDeactivatedAt()
     {
-        return $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        return $this->variantId;
+        return $this->deactivatedAt;
     }
 
     /**
@@ -144,11 +112,19 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * @return null|LocalizedString
      */
-    public function getDeactivatedAt()
+    public function getName()
     {
-        return $this->deactivatedAt;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getProductId()
+    {
+        return $this->productId;
     }
 
     /**
@@ -168,31 +144,35 @@ final class ShoppingListLineItemBuilder implements Builder
     }
 
     /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @return null|ProductVariant
+     */
+    public function getVariant()
+    {
+        return $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        return $this->variantId;
+    }
+
+    /**
      * @return $this
      */
     public function withAddedAt(?DateTimeImmutable $addedAt)
     {
         $this->addedAt = $addedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withQuantity(?int $quantity)
-    {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withProductId(?string $productId)
-    {
-        $this->productId = $productId;
 
         return $this;
     }
@@ -210,29 +190,9 @@ final class ShoppingListLineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariant(?ProductVariant $variant)
+    public function withDeactivatedAt(?DateTimeImmutable $deactivatedAt)
     {
-        $this->variant = $variant;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withVariantId(?int $variantId)
-    {
-        $this->variantId = $variantId;
+        $this->deactivatedAt = $deactivatedAt;
 
         return $this;
     }
@@ -250,9 +210,19 @@ final class ShoppingListLineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDeactivatedAt(?DateTimeImmutable $deactivatedAt)
+    public function withName(?LocalizedString $name)
     {
-        $this->deactivatedAt = $deactivatedAt;
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withProductId(?string $productId)
+    {
+        $this->productId = $productId;
 
         return $this;
     }
@@ -280,9 +250,9 @@ final class ShoppingListLineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withQuantity(?int $quantity)
     {
-        $this->custom = $custom;
+        $this->quantity = $quantity;
 
         return $this;
     }
@@ -290,9 +260,29 @@ final class ShoppingListLineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariantBuilder(?ProductVariantBuilder $variant)
+    public function withVariant(?ProductVariant $variant)
     {
         $this->variant = $variant;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withVariantId(?int $variantId)
+    {
+        $this->variantId = $variantId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -327,20 +317,30 @@ final class ShoppingListLineItemBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withVariantBuilder(?ProductVariantBuilder $variant)
+    {
+        $this->variant = $variant;
+
+        return $this;
+    }
+
     public function build(): ShoppingListLineItem
     {
         return new ShoppingListLineItemModel(
             $this->addedAt,
-            $this->quantity,
-            $this->productId,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->variantId,
-            $this->id,
             $this->deactivatedAt,
+            $this->id,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->productId,
             ($this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug),
-            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType)
+            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType),
+            $this->quantity,
+            ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant),
+            $this->variantId
         );
     }
 

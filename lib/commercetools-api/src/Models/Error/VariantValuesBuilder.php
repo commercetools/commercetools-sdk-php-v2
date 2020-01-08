@@ -18,9 +18,9 @@ use Commercetools\Base\Builder;
 final class VariantValuesBuilder implements Builder
 {
     /**
-     * @var ?AttributeCollection
+     * @var ?string
      */
-    private $attributes;
+    private $sku;
 
     /**
      * @var ?PriceDraftCollection
@@ -28,16 +28,16 @@ final class VariantValuesBuilder implements Builder
     private $prices;
 
     /**
-     * @var ?string
+     * @var ?AttributeCollection
      */
-    private $sku;
+    private $attributes;
 
     /**
-     * @return null|AttributeCollection
+     * @return null|string
      */
-    public function getAttributes()
+    public function getSku()
     {
-        return $this->attributes;
+        return $this->sku;
     }
 
     /**
@@ -49,19 +49,19 @@ final class VariantValuesBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|AttributeCollection
      */
-    public function getSku()
+    public function getAttributes()
     {
-        return $this->sku;
+        return $this->attributes;
     }
 
     /**
      * @return $this
      */
-    public function withAttributes(?AttributeCollection $attributes)
+    public function withSku(?string $sku)
     {
-        $this->attributes = $attributes;
+        $this->sku = $sku;
 
         return $this;
     }
@@ -79,9 +79,9 @@ final class VariantValuesBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSku(?string $sku)
+    public function withAttributes(?AttributeCollection $attributes)
     {
-        $this->sku = $sku;
+        $this->attributes = $attributes;
 
         return $this;
     }
@@ -89,9 +89,9 @@ final class VariantValuesBuilder implements Builder
     public function build(): VariantValues
     {
         return new VariantValuesModel(
-            $this->attributes,
+            $this->sku,
             $this->prices,
-            $this->sku
+            $this->attributes
         );
     }
 

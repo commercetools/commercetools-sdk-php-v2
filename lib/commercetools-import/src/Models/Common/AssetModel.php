@@ -14,6 +14,11 @@ use stdClass;
 final class AssetModel extends JsonObjectModel implements Asset
 {
     /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
      * @var ?AssetSourceCollection
      */
     protected $sources;
@@ -29,27 +34,42 @@ final class AssetModel extends JsonObjectModel implements Asset
     protected $description;
 
     /**
-     * @var ?string
-     */
-    protected $key;
-
-    /**
      * @var ?array
      */
     protected $tags;
 
     public function __construct(
+        string $key = null,
         AssetSourceCollection $sources = null,
         LocalizedString $name = null,
         LocalizedString $description = null,
-        string $key = null,
         array $tags = null
     ) {
+        $this->key = $key;
         $this->sources = $sources;
         $this->name = $name;
         $this->description = $description;
-        $this->key = $key;
         $this->tags = $tags;
+    }
+
+    /**
+     * <p>User-defined identifier for the asset.
+     * Asset keys are unique inside their container (a product variant or a category).</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Asset::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -106,26 +126,6 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
-     * <p>User-defined identifier for the asset.
-     * Asset keys are unique inside their container (a product variant or a category).</p>.
-     *
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Asset::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
      * @return null|array
      */
     public function getTags()
@@ -142,6 +142,11 @@ final class AssetModel extends JsonObjectModel implements Asset
         return $this->tags;
     }
 
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+
     public function setSources(?AssetSourceCollection $sources): void
     {
         $this->sources = $sources;
@@ -155,11 +160,6 @@ final class AssetModel extends JsonObjectModel implements Asset
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 
     public function setTags(?array $tags): void

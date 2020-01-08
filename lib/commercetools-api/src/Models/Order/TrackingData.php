@@ -19,11 +19,15 @@ interface TrackingData extends JsonObject
     const FIELD_IS_RETURN = 'isReturn';
 
     /**
+     * <p>The ID to track one parcel.</p>.
+     *
      * @return null|string
      */
     public function getTrackingId();
 
     /**
+     * <p>The carrier that delivers the parcel.</p>.
+     *
      * @return null|string
      */
     public function getCarrier();
@@ -39,6 +43,8 @@ interface TrackingData extends JsonObject
     public function getProviderTransaction();
 
     /**
+     * <p>Flag to distinguish if the parcel is on the way to the customer (false) or on the way back (true).</p>.
+     *
      * @return null|bool
      */
     public function getIsReturn();

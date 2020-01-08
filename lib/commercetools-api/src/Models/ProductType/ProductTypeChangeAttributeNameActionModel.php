@@ -22,19 +22,19 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
     /**
      * @var ?string
      */
-    protected $newAttributeName;
+    protected $attributeName;
 
     /**
      * @var ?string
      */
-    protected $attributeName;
+    protected $newAttributeName;
 
     public function __construct(
-        string $newAttributeName = null,
-        string $attributeName = null
+        string $attributeName = null,
+        string $newAttributeName = null
     ) {
-        $this->newAttributeName = $newAttributeName;
         $this->attributeName = $attributeName;
+        $this->newAttributeName = $newAttributeName;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,23 +58,6 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
     /**
      * @return null|string
      */
-    public function getNewAttributeName()
-    {
-        if (is_null($this->newAttributeName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeAttributeNameAction::FIELD_NEW_ATTRIBUTE_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->newAttributeName = (string) $data;
-        }
-
-        return $this->newAttributeName;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getAttributeName()
     {
         if (is_null($this->attributeName)) {
@@ -89,13 +72,30 @@ final class ProductTypeChangeAttributeNameActionModel extends JsonObjectModel im
         return $this->attributeName;
     }
 
-    public function setNewAttributeName(?string $newAttributeName): void
+    /**
+     * @return null|string
+     */
+    public function getNewAttributeName()
     {
-        $this->newAttributeName = $newAttributeName;
+        if (is_null($this->newAttributeName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductTypeChangeAttributeNameAction::FIELD_NEW_ATTRIBUTE_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->newAttributeName = (string) $data;
+        }
+
+        return $this->newAttributeName;
     }
 
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
+    }
+
+    public function setNewAttributeName(?string $newAttributeName): void
+    {
+        $this->newAttributeName = $newAttributeName;
     }
 }

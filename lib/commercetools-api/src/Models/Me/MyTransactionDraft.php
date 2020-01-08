@@ -20,11 +20,17 @@ interface MyTransactionDraft extends JsonObject
     const FIELD_INTERACTION_ID = 'interactionId';
 
     /**
+     * <p>The time at which the transaction took place.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getTimestamp();
 
     /**
+     * <p>The type of this transaction.
+     * Only the <code>Authorization</code> or <code>Charge</code>
+     * TransactionTypes are allowed here.</p>.
+     *
      * @return null|string
      */
     public function getType();
@@ -35,6 +41,11 @@ interface MyTransactionDraft extends JsonObject
     public function getAmount();
 
     /**
+     * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
+     * If a matching interaction was logged in the interfaceInteractions array,
+     * the corresponding interaction should be findable with this ID.
+     * The <code>state</code> is set to the <code>Initial</code> TransactionState.</p>.
+     *
      * @return null|string
      */
     public function getInteractionId();

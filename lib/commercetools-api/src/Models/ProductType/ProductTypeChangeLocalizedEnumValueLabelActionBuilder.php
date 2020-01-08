@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Builder
 {
     /**
-     * @var AttributeLocalizedEnumValue|?AttributeLocalizedEnumValueBuilder
-     */
-    private $newValue;
-
-    /**
      * @var ?string
      */
     private $attributeName;
 
     /**
-     * @return null|AttributeLocalizedEnumValue
+     * @var AttributeLocalizedEnumValue|?AttributeLocalizedEnumValueBuilder
      */
-    public function getNewValue()
-    {
-        return $this->newValue instanceof AttributeLocalizedEnumValueBuilder ? $this->newValue->build() : $this->newValue;
-    }
+    private $newValue;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     }
 
     /**
-     * @return $this
+     * @return null|AttributeLocalizedEnumValue
      */
-    public function withNewValue(?AttributeLocalizedEnumValue $newValue)
+    public function getNewValue()
     {
-        $this->newValue = $newValue;
-
-        return $this;
+        return $this->newValue instanceof AttributeLocalizedEnumValueBuilder ? $this->newValue->build() : $this->newValue;
     }
 
     /**
@@ -57,6 +47,16 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     public function withAttributeName(?string $attributeName)
     {
         $this->attributeName = $attributeName;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withNewValue(?AttributeLocalizedEnumValue $newValue)
+    {
+        $this->newValue = $newValue;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class ProductTypeChangeLocalizedEnumValueLabelActionBuilder implements Bui
     public function build(): ProductTypeChangeLocalizedEnumValueLabelAction
     {
         return new ProductTypeChangeLocalizedEnumValueLabelActionModel(
-            ($this->newValue instanceof AttributeLocalizedEnumValueBuilder ? $this->newValue->build() : $this->newValue),
-            $this->attributeName
+            $this->attributeName,
+            ($this->newValue instanceof AttributeLocalizedEnumValueBuilder ? $this->newValue->build() : $this->newValue)
         );
     }
 

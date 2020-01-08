@@ -30,23 +30,23 @@ final class CartSetCustomLineItemCustomTypeActionModel extends JsonObjectModel i
     protected $customLineItemId;
 
     /**
-     * @var ?FieldContainer
-     */
-    protected $fields;
-
-    /**
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
+    /**
+     * @var ?FieldContainer
+     */
+    protected $fields;
+
     public function __construct(
         string $customLineItemId = null,
-        FieldContainer $fields = null,
-        TypeResourceIdentifier $type = null
+        TypeResourceIdentifier $type = null,
+        FieldContainer $fields = null
     ) {
         $this->customLineItemId = $customLineItemId;
-        $this->fields = $fields;
         $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -85,24 +85,6 @@ final class CartSetCustomLineItemCustomTypeActionModel extends JsonObjectModel i
     }
 
     /**
-     * @return null|FieldContainer
-     */
-    public function getFields()
-    {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetCustomLineItemCustomTypeAction::FIELD_FIELDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->fields = FieldContainerModel::of($data);
-        }
-
-        return $this->fields;
-    }
-
-    /**
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -120,18 +102,36 @@ final class CartSetCustomLineItemCustomTypeActionModel extends JsonObjectModel i
         return $this->type;
     }
 
+    /**
+     * @return null|FieldContainer
+     */
+    public function getFields()
+    {
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartSetCustomLineItemCustomTypeAction::FIELD_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fields = FieldContainerModel::of($data);
+        }
+
+        return $this->fields;
+    }
+
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
-    public function setFields(?FieldContainer $fields): void
-    {
-        $this->fields = $fields;
-    }
-
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
+    }
+
+    public function setFields(?FieldContainer $fields): void
+    {
+        $this->fields = $fields;
     }
 }

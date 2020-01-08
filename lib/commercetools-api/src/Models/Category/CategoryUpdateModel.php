@@ -14,38 +14,21 @@ use stdClass;
 final class CategoryUpdateModel extends JsonObjectModel implements CategoryUpdate
 {
     /**
-     * @var ?CategoryUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        CategoryUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|CategoryUpdateActionCollection
+     * @var ?CategoryUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CategoryUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = CategoryUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        CategoryUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class CategoryUpdateModel extends JsonObjectModel implements CategoryUpdat
         return $this->version;
     }
 
-    public function setActions(?CategoryUpdateActionCollection $actions): void
+    /**
+     * @return null|CategoryUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CategoryUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = CategoryUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?CategoryUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

@@ -27,6 +27,11 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
     protected $projectKey;
 
     /**
+     * @var ?string
+     */
+    protected $notificationType;
+
+    /**
      * @var ?Reference
      */
     protected $resource;
@@ -37,32 +42,27 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
     protected $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $notificationType;
+    protected $version;
 
     /**
      * @var ?DateTimeImmutable
      */
     protected $modifiedAt;
 
-    /**
-     * @var ?int
-     */
-    protected $version;
-
     public function __construct(
         string $projectKey = null,
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        DateTimeImmutable $modifiedAt = null,
-        int $version = null
+        int $version = null,
+        DateTimeImmutable $modifiedAt = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->modifiedAt = $modifiedAt;
         $this->version = $version;
+        $this->modifiedAt = $modifiedAt;
         $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
@@ -81,6 +81,23 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
         }
 
         return $this->projectKey;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getNotificationType()
+    {
+        if (is_null($this->notificationType)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->notificationType = (string) $data;
+        }
+
+        return $this->notificationType;
     }
 
     /**
@@ -120,20 +137,20 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
     }
 
     /**
-     * @return null|string
+     * @return null|int
      */
-    public function getNotificationType()
+    public function getVersion()
     {
-        if (is_null($this->notificationType)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ResourceDeletedDelivery::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
-            $this->notificationType = (string) $data;
+            $this->version = (int) $data;
         }
 
-        return $this->notificationType;
+        return $this->version;
     }
 
     /**
@@ -157,23 +174,6 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
         return $this->modifiedAt;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ResourceDeletedDelivery::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
     public function setProjectKey(?string $projectKey): void
     {
         $this->projectKey = $projectKey;
@@ -189,14 +189,14 @@ final class ResourceDeletedDeliveryModel extends JsonObjectModel implements Reso
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
-    public function setModifiedAt(?DateTimeImmutable $modifiedAt): void
-    {
-        $this->modifiedAt = $modifiedAt;
-    }
-
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setModifiedAt(?DateTimeImmutable $modifiedAt): void
+    {
+        $this->modifiedAt = $modifiedAt;
     }
 
     public function jsonSerialize()

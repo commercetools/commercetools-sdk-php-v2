@@ -25,11 +25,15 @@ interface ShippingMethod extends LoggedResource
     const FIELD_PREDICATE = 'predicate';
 
     /**
+     * <p>The unique ID of the shipping method.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the shipping method.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
@@ -55,6 +59,8 @@ interface ShippingMethod extends LoggedResource
     public function getCreatedBy();
 
     /**
+     * <p>User-specific unique identifier for the shipping method.</p>.
+     *
      * @return null|string
      */
     public function getKey();
@@ -80,11 +86,15 @@ interface ShippingMethod extends LoggedResource
     public function getZoneRates();
 
     /**
+     * <p>One shipping method in a project can be default.</p>.
+     *
      * @return null|bool
      */
     public function getIsDefault();
 
     /**
+     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>.
+     *
      * @return null|string
      */
     public function getPredicate();

@@ -18,20 +18,12 @@ final class PaymentTransactionStateChangedMessagePayloadBuilder implements Build
     /**
      * @var ?string
      */
-    private $state;
+    private $transactionId;
 
     /**
      * @var ?string
      */
-    private $transactionId;
-
-    /**
-     * @return null|string
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
+    private $state;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class PaymentTransactionStateChangedMessagePayloadBuilder implements Build
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withState(?string $state)
+    public function getState()
     {
-        $this->state = $state;
-
-        return $this;
+        return $this->state;
     }
 
     /**
@@ -61,11 +51,21 @@ final class PaymentTransactionStateChangedMessagePayloadBuilder implements Build
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withState(?string $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
     public function build(): PaymentTransactionStateChangedMessagePayload
     {
         return new PaymentTransactionStateChangedMessagePayloadModel(
-            $this->state,
-            $this->transactionId
+            $this->transactionId,
+            $this->state
         );
     }
 

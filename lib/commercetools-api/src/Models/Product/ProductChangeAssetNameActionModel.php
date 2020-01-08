@@ -23,21 +23,6 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     protected $action;
 
     /**
-     * @var ?string
-     */
-    protected $assetId;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -48,24 +33,39 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     protected $sku;
 
     /**
+     * @var ?bool
+     */
+    protected $staged;
+
+    /**
+     * @var ?string
+     */
+    protected $assetId;
+
+    /**
      * @var ?string
      */
     protected $assetKey;
 
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
     public function __construct(
-        string $assetId = null,
-        LocalizedString $name = null,
-        bool $staged = null,
         int $variantId = null,
         string $sku = null,
-        string $assetKey = null
+        bool $staged = null,
+        string $assetId = null,
+        string $assetKey = null,
+        LocalizedString $name = null
     ) {
-        $this->assetId = $assetId;
-        $this->name = $name;
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->staged = $staged;
+        $this->assetId = $assetId;
         $this->assetKey = $assetKey;
+        $this->name = $name;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -84,58 +84,6 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAssetId()
-    {
-        if (is_null($this->assetId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductChangeAssetNameAction::FIELD_ASSET_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assetId = (string) $data;
-        }
-
-        return $this->assetId;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductChangeAssetNameAction::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductChangeAssetNameAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
     }
 
     /**
@@ -173,6 +121,40 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
     }
 
     /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductChangeAssetNameAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        if (is_null($this->assetId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductChangeAssetNameAction::FIELD_ASSET_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetId = (string) $data;
+        }
+
+        return $this->assetId;
+    }
+
+    /**
      * @return null|string
      */
     public function getAssetKey()
@@ -189,19 +171,22 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
         return $this->assetKey;
     }
 
-    public function setAssetId(?string $assetId): void
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
     {
-        $this->assetId = $assetId;
-    }
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductChangeAssetNameAction::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
 
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
-    }
+            $this->name = LocalizedStringModel::of($data);
+        }
 
-    public function setStaged(?bool $staged): void
-    {
-        $this->staged = $staged;
+        return $this->name;
     }
 
     public function setVariantId(?int $variantId): void
@@ -214,8 +199,23 @@ final class ProductChangeAssetNameActionModel extends JsonObjectModel implements
         $this->sku = $sku;
     }
 
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
+    }
+
+    public function setAssetId(?string $assetId): void
+    {
+        $this->assetId = $assetId;
+    }
+
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
+    }
+
+    public function setName(?LocalizedString $name): void
+    {
+        $this->name = $name;
     }
 }

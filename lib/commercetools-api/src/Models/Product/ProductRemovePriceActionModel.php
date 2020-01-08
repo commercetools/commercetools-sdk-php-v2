@@ -20,21 +20,21 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     protected $action;
 
     /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?string
      */
     protected $priceId;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        bool $staged = null,
-        string $priceId = null
+        string $priceId = null,
+        bool $staged = null
     ) {
-        $this->staged = $staged;
         $this->priceId = $priceId;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -56,23 +56,8 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
     }
 
     /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductRemovePriceAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
-    }
-
-    /**
+     * <p>ID of the <a href="#price">Price</a></p>.
+     *
      * @return null|string
      */
     public function getPriceId()
@@ -89,13 +74,30 @@ final class ProductRemovePriceActionModel extends JsonObjectModel implements Pro
         return $this->priceId;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->staged = $staged;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductRemovePriceAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setPriceId(?string $priceId): void
     {
         $this->priceId = $priceId;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

@@ -21,19 +21,9 @@ use Commercetools\Base\Builder;
 final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Money|?MoneyBuilder
-     */
-    private $totalPrice;
-
-    /**
      * @var ?string
      */
     private $lineItemId;
-
-    /**
-     * @var TaxedItemPrice|?TaxedItemPriceBuilder
-     */
-    private $taxedPrice;
 
     /**
      * @var ?DiscountedLineItemPriceForQuantityCollection
@@ -41,12 +31,14 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     private $discountedPricePerQuantity;
 
     /**
-     * @return null|Money
+     * @var Money|?MoneyBuilder
      */
-    public function getTotalPrice()
-    {
-        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
-    }
+    private $totalPrice;
+
+    /**
+     * @var TaxedItemPrice|?TaxedItemPriceBuilder
+     */
+    private $taxedPrice;
 
     /**
      * @return null|string
@@ -54,14 +46,6 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
-    }
-
-    /**
-     * @return null|TaxedItemPrice
-     */
-    public function getTaxedPrice()
-    {
-        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
 
     /**
@@ -73,13 +57,19 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Money
      */
-    public function withTotalPrice(?Money $totalPrice)
+    public function getTotalPrice()
     {
-        $this->totalPrice = $totalPrice;
+        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+    }
 
-        return $this;
+    /**
+     * @return null|TaxedItemPrice
+     */
+    public function getTaxedPrice()
+    {
+        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
 
     /**
@@ -95,9 +85,9 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
+    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
     {
-        $this->taxedPrice = $taxedPrice;
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
 
         return $this;
     }
@@ -105,9 +95,19 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
+    public function withTotalPrice(?Money $totalPrice)
     {
-        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->totalPrice = $totalPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
+    {
+        $this->taxedPrice = $taxedPrice;
 
         return $this;
     }
@@ -135,10 +135,10 @@ final class OrderLineItemDiscountSetMessagePayloadBuilder implements Builder
     public function build(): OrderLineItemDiscountSetMessagePayload
     {
         return new OrderLineItemDiscountSetMessagePayloadModel(
-            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
             $this->lineItemId,
-            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
-            $this->discountedPricePerQuantity
+            $this->discountedPricePerQuantity,
+            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
+            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice)
         );
     }
 

@@ -27,11 +27,15 @@ interface Product extends LoggedResource
     const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
 
     /**
+     * <p>The unique ID of the product.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the product.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
@@ -47,16 +51,23 @@ interface Product extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
+     * <p>User-specific unique identifier for the product.
+     * <em>Product keys are different from product variant keys.</em></p>.
+     *
      * @return null|string
      */
     public function getKey();
@@ -67,6 +78,8 @@ interface Product extends LoggedResource
     public function getProductType();
 
     /**
+     * <p>The product data in the master catalog.</p>.
+     *
      * @return null|ProductCatalogData
      */
     public function getMasterData();
@@ -82,6 +95,8 @@ interface Product extends LoggedResource
     public function getState();
 
     /**
+     * <p>Statistics about the review ratings taken into account for this product.</p>.
+     *
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics();

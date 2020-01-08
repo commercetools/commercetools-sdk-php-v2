@@ -22,6 +22,9 @@ interface ApiClient extends JsonObject
     const FIELD_SECRET = 'secret';
 
     /**
+     * <p>The unique ID of the API client.
+     * This is the OAuth2 <code>client_id</code> and can be used to obtain a token.</p>.
+     *
      * @return null|string
      */
     public function getId();
@@ -32,6 +35,9 @@ interface ApiClient extends JsonObject
     public function getName();
 
     /**
+     * <p>A whitespace separated list of the OAuth scopes.
+     * This is the OAuth2 <code>scope</code> and can be used to obtain a token.</p>.
+     *
      * @return null|string
      */
     public function getScope();
@@ -42,16 +48,23 @@ interface ApiClient extends JsonObject
     public function getCreatedAt();
 
     /**
+     * <p>The last day this API Client was used to obtain a token.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getLastUsedAt();
 
     /**
+     * <p>If set, the client will be deleted on (or shortly after) this point in time.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getDeleteAt();
 
     /**
+     * <p>The secret is only shown once in the response of creating the API Client.
+     * This is the OAuth2 <code>client_secret</code> and can be used to obtain a token.</p>.
+     *
      * @return null|string
      */
     public function getSecret();

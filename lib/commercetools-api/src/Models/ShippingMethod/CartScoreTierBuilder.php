@@ -28,14 +28,14 @@ final class CartScoreTierBuilder implements Builder
     private $price;
 
     /**
-     * @var ?bool
-     */
-    private $isMatching;
-
-    /**
      * @var PriceFunction|?PriceFunctionBuilder
      */
     private $priceFunction;
+
+    /**
+     * @var ?bool
+     */
+    private $isMatching;
 
     /**
      * @return null|int
@@ -54,19 +54,19 @@ final class CartScoreTierBuilder implements Builder
     }
 
     /**
-     * @return null|bool
-     */
-    public function getIsMatching()
-    {
-        return $this->isMatching;
-    }
-
-    /**
      * @return null|PriceFunction
      */
     public function getPriceFunction()
     {
         return $this->priceFunction instanceof PriceFunctionBuilder ? $this->priceFunction->build() : $this->priceFunction;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getIsMatching()
+    {
+        return $this->isMatching;
     }
 
     /**
@@ -92,9 +92,9 @@ final class CartScoreTierBuilder implements Builder
     /**
      * @return $this
      */
-    public function withIsMatching(?bool $isMatching)
+    public function withPriceFunction(?PriceFunction $priceFunction)
     {
-        $this->isMatching = $isMatching;
+        $this->priceFunction = $priceFunction;
 
         return $this;
     }
@@ -102,9 +102,9 @@ final class CartScoreTierBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPriceFunction(?PriceFunction $priceFunction)
+    public function withIsMatching(?bool $isMatching)
     {
-        $this->priceFunction = $priceFunction;
+        $this->isMatching = $isMatching;
 
         return $this;
     }
@@ -134,8 +134,8 @@ final class CartScoreTierBuilder implements Builder
         return new CartScoreTierModel(
             $this->score,
             ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
-            $this->isMatching,
-            ($this->priceFunction instanceof PriceFunctionBuilder ? $this->priceFunction->build() : $this->priceFunction)
+            ($this->priceFunction instanceof PriceFunctionBuilder ? $this->priceFunction->build() : $this->priceFunction),
+            $this->isMatching
         );
     }
 

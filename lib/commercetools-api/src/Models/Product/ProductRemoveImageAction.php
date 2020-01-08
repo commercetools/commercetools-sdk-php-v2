@@ -26,6 +26,8 @@ interface ProductRemoveImageAction extends ProductUpdateAction
     public function getSku();
 
     /**
+     * <p>The URL of the image.</p>.
+     *
      * @return null|string
      */
     public function getImageUrl();

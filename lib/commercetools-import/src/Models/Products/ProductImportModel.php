@@ -31,32 +31,22 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     /**
      * @var ?LocalizedString
      */
-    protected $metaKeywords;
-
-    /**
-     * @var ?SearchKeywords
-     */
-    protected $searchKeywords;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaTitle;
-
-    /**
-     * @var ?LocalizedString
-     */
     protected $name;
+
+    /**
+     * @var ?ProductTypeKeyReference
+     */
+    protected $productType;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
 
     /**
      * @var ?LocalizedString
      */
     protected $description;
-
-    /**
-     * @var ?StateKeyReference
-     */
-    protected $state;
 
     /**
      * @var ?CategoryKeyReferenceCollection
@@ -66,49 +56,59 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     /**
      * @var ?LocalizedString
      */
+    protected $metaTitle;
+
+    /**
+     * @var ?LocalizedString
+     */
     protected $metaDescription;
 
     /**
      * @var ?LocalizedString
      */
-    protected $slug;
-
-    /**
-     * @var ?ProductTypeKeyReference
-     */
-    protected $productType;
+    protected $metaKeywords;
 
     /**
      * @var ?TaxCategoryKeyReference
      */
     protected $taxCategory;
 
+    /**
+     * @var ?SearchKeywords
+     */
+    protected $searchKeywords;
+
+    /**
+     * @var ?StateKeyReference
+     */
+    protected $state;
+
     public function __construct(
         string $key = null,
-        LocalizedString $metaKeywords = null,
-        SearchKeywords $searchKeywords = null,
-        LocalizedString $metaTitle = null,
         LocalizedString $name = null,
-        LocalizedString $description = null,
-        StateKeyReference $state = null,
-        CategoryKeyReferenceCollection $categories = null,
-        LocalizedString $metaDescription = null,
-        LocalizedString $slug = null,
         ProductTypeKeyReference $productType = null,
-        TaxCategoryKeyReference $taxCategory = null
+        LocalizedString $slug = null,
+        LocalizedString $description = null,
+        CategoryKeyReferenceCollection $categories = null,
+        LocalizedString $metaTitle = null,
+        LocalizedString $metaDescription = null,
+        LocalizedString $metaKeywords = null,
+        TaxCategoryKeyReference $taxCategory = null,
+        SearchKeywords $searchKeywords = null,
+        StateKeyReference $state = null
     ) {
         $this->key = $key;
-        $this->metaKeywords = $metaKeywords;
-        $this->searchKeywords = $searchKeywords;
-        $this->metaTitle = $metaTitle;
         $this->name = $name;
-        $this->description = $description;
-        $this->state = $state;
-        $this->categories = $categories;
-        $this->metaDescription = $metaDescription;
-        $this->slug = $slug;
         $this->productType = $productType;
+        $this->slug = $slug;
+        $this->description = $description;
+        $this->categories = $categories;
+        $this->metaTitle = $metaTitle;
+        $this->metaDescription = $metaDescription;
+        $this->metaKeywords = $metaKeywords;
         $this->taxCategory = $taxCategory;
+        $this->searchKeywords = $searchKeywords;
+        $this->state = $state;
     }
 
     /**
@@ -126,60 +126,6 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         }
 
         return $this->key;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaKeywords()
-    {
-        if (is_null($this->metaKeywords)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductImport::FIELD_META_KEYWORDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->metaKeywords = LocalizedStringModel::of($data);
-        }
-
-        return $this->metaKeywords;
-    }
-
-    /**
-     * @return null|SearchKeywords
-     */
-    public function getSearchKeywords()
-    {
-        if (is_null($this->searchKeywords)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductImport::FIELD_SEARCH_KEYWORDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->searchKeywords = SearchKeywordsModel::of($data);
-        }
-
-        return $this->searchKeywords;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaTitle()
-    {
-        if (is_null($this->metaTitle)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductImport::FIELD_META_TITLE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->metaTitle = LocalizedStringModel::of($data);
-        }
-
-        return $this->metaTitle;
     }
 
     /**
@@ -203,6 +149,50 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
     /**
+     * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
+     * <p>The product type referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|ProductTypeKeyReference
+     */
+    public function getProductType()
+    {
+        if (is_null($this->productType)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductImport::FIELD_PRODUCT_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->productType = ProductTypeKeyReferenceModel::of($data);
+        }
+
+        return $this->productType;
+    }
+
+    /**
+     * <p>Human-readable identifiers usually used as deep-link URL to the related product. Each slug must be unique across a project,
+     * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductImport::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
+    }
+
+    /**
      * <p>Maps to <code>Product.description</code>.</p>.
      *
      * @return null|LocalizedString
@@ -220,29 +210,6 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         }
 
         return $this->description;
-    }
-
-    /**
-     * <p>References a state by its key.</p>
-     * <p>The tax category referenced must already exist
-     * in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
-     *
-     * @return null|StateKeyReference
-     */
-    public function getState()
-    {
-        if (is_null($this->state)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductImport::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->state = StateKeyReferenceModel::of($data);
-        }
-
-        return $this->state;
     }
 
     /**
@@ -270,6 +237,24 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     /**
      * @return null|LocalizedString
      */
+    public function getMetaTitle()
+    {
+        if (is_null($this->metaTitle)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductImport::FIELD_META_TITLE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaTitle = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaTitle;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
     public function getMetaDescription()
     {
         if (is_null($this->metaDescription)) {
@@ -286,47 +271,21 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
     }
 
     /**
-     * <p>Human-readable identifiers usually used as deep-link URL to the related product. Each slug must be unique across a project,
-     * but a product can have the same slug for different languages. Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.</p>.
-     *
      * @return null|LocalizedString
      */
-    public function getSlug()
+    public function getMetaKeywords()
     {
-        if (is_null($this->slug)) {
+        if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductImport::FIELD_SLUG);
+            $data = $this->raw(ProductImport::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->slug = LocalizedStringModel::of($data);
+            $this->metaKeywords = LocalizedStringModel::of($data);
         }
 
-        return $this->slug;
-    }
-
-    /**
-     * <p>The product's product type. Maps to <code>Product.productType</code>.</p>
-     * <p>The product type referenced
-     * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
-     *
-     * @return null|ProductTypeKeyReference
-     */
-    public function getProductType()
-    {
-        if (is_null($this->productType)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductImport::FIELD_PRODUCT_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->productType = ProductTypeKeyReferenceModel::of($data);
-        }
-
-        return $this->productType;
+        return $this->metaKeywords;
     }
 
     /**
@@ -352,24 +311,50 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         return $this->taxCategory;
     }
 
+    /**
+     * @return null|SearchKeywords
+     */
+    public function getSearchKeywords()
+    {
+        if (is_null($this->searchKeywords)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductImport::FIELD_SEARCH_KEYWORDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->searchKeywords = SearchKeywordsModel::of($data);
+        }
+
+        return $this->searchKeywords;
+    }
+
+    /**
+     * <p>References a state by its key.</p>
+     * <p>The tax category referenced must already exist
+     * in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|StateKeyReference
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductImport::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateKeyReferenceModel::of($data);
+        }
+
+        return $this->state;
+    }
+
     public function setKey(?string $key): void
     {
         $this->key = $key;
-    }
-
-    public function setMetaKeywords(?LocalizedString $metaKeywords): void
-    {
-        $this->metaKeywords = $metaKeywords;
-    }
-
-    public function setSearchKeywords(?SearchKeywords $searchKeywords): void
-    {
-        $this->searchKeywords = $searchKeywords;
-    }
-
-    public function setMetaTitle(?LocalizedString $metaTitle): void
-    {
-        $this->metaTitle = $metaTitle;
     }
 
     public function setName(?LocalizedString $name): void
@@ -377,24 +362,9 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         $this->name = $name;
     }
 
-    public function setDescription(?LocalizedString $description): void
+    public function setProductType(?ProductTypeKeyReference $productType): void
     {
-        $this->description = $description;
-    }
-
-    public function setState(?StateKeyReference $state): void
-    {
-        $this->state = $state;
-    }
-
-    public function setCategories(?CategoryKeyReferenceCollection $categories): void
-    {
-        $this->categories = $categories;
-    }
-
-    public function setMetaDescription(?LocalizedString $metaDescription): void
-    {
-        $this->metaDescription = $metaDescription;
+        $this->productType = $productType;
     }
 
     public function setSlug(?LocalizedString $slug): void
@@ -402,13 +372,43 @@ final class ProductImportModel extends JsonObjectModel implements ProductImport
         $this->slug = $slug;
     }
 
-    public function setProductType(?ProductTypeKeyReference $productType): void
+    public function setDescription(?LocalizedString $description): void
     {
-        $this->productType = $productType;
+        $this->description = $description;
+    }
+
+    public function setCategories(?CategoryKeyReferenceCollection $categories): void
+    {
+        $this->categories = $categories;
+    }
+
+    public function setMetaTitle(?LocalizedString $metaTitle): void
+    {
+        $this->metaTitle = $metaTitle;
+    }
+
+    public function setMetaDescription(?LocalizedString $metaDescription): void
+    {
+        $this->metaDescription = $metaDescription;
+    }
+
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
+    {
+        $this->metaKeywords = $metaKeywords;
     }
 
     public function setTaxCategory(?TaxCategoryKeyReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
+    }
+
+    public function setSearchKeywords(?SearchKeywords $searchKeywords): void
+    {
+        $this->searchKeywords = $searchKeywords;
+    }
+
+    public function setState(?StateKeyReference $state): void
+    {
+        $this->state = $state;
     }
 }

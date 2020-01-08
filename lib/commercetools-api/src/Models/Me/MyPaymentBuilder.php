@@ -27,32 +27,7 @@ final class MyPaymentBuilder implements Builder
     /**
      * @var ?string
      */
-    private $anonymousId;
-
-    /**
-     * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
-     */
-    private $paymentMethodInfo;
-
-    /**
-     * @var CustomFields|?CustomFieldsBuilder
-     */
-    private $custom;
-
-    /**
-     * @var TypedMoney|?TypedMoneyBuilder
-     */
-    private $amountPlanned;
-
-    /**
-     * @var ?string
-     */
     private $id;
-
-    /**
-     * @var ?TransactionCollection
-     */
-    private $transactions;
 
     /**
      * @var ?int
@@ -65,36 +40,29 @@ final class MyPaymentBuilder implements Builder
     private $customer;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getAnonymousId()
-    {
-        return $this->anonymousId;
-    }
+    private $anonymousId;
 
     /**
-     * @return null|PaymentMethodInfo
+     * @var TypedMoney|?TypedMoneyBuilder
      */
-    public function getPaymentMethodInfo()
-    {
-        return $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo;
-    }
+    private $amountPlanned;
 
     /**
-     * @return null|CustomFields
+     * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
      */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
+    private $paymentMethodInfo;
 
     /**
-     * @return null|TypedMoney
+     * @var ?TransactionCollection
      */
-    public function getAmountPlanned()
-    {
-        return $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
-    }
+    private $transactions;
+
+    /**
+     * @var CustomFields|?CustomFieldsBuilder
+     */
+    private $custom;
 
     /**
      * @return null|string
@@ -102,14 +70,6 @@ final class MyPaymentBuilder implements Builder
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return null|TransactionCollection
-     */
-    public function getTransactions()
-    {
-        return $this->transactions;
     }
 
     /**
@@ -121,6 +81,8 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
+     * <p>A reference to the customer this payment belongs to.</p>.
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -129,43 +91,51 @@ final class MyPaymentBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     *
+     * @return null|string
      */
-    public function withAnonymousId(?string $anonymousId)
+    public function getAnonymousId()
     {
-        $this->anonymousId = $anonymousId;
-
-        return $this;
+        return $this->anonymousId;
     }
 
     /**
-     * @return $this
+     * <p>How much money this payment intends to receive from the customer.
+     * The value usually matches the cart or order gross total.</p>.
+     *
+     * @return null|TypedMoney
      */
-    public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
+    public function getAmountPlanned()
     {
-        $this->paymentMethodInfo = $paymentMethodInfo;
-
-        return $this;
+        return $this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
     }
 
     /**
-     * @return $this
+     * @return null|PaymentMethodInfo
      */
-    public function withCustom(?CustomFields $custom)
+    public function getPaymentMethodInfo()
     {
-        $this->custom = $custom;
-
-        return $this;
+        return $this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo;
     }
 
     /**
-     * @return $this
+     * <p>A list of financial transactions of different TransactionTypes
+     * with different TransactionStates.</p>.
+     *
+     * @return null|TransactionCollection
      */
-    public function withAmountPlanned(?TypedMoney $amountPlanned)
+    public function getTransactions()
     {
-        $this->amountPlanned = $amountPlanned;
+        return $this->transactions;
+    }
 
-        return $this;
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -174,16 +144,6 @@ final class MyPaymentBuilder implements Builder
     public function withId(?string $id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTransactions(?TransactionCollection $transactions)
-    {
-        $this->transactions = $transactions;
 
         return $this;
     }
@@ -211,7 +171,27 @@ final class MyPaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
+    public function withAnonymousId(?string $anonymousId)
+    {
+        $this->anonymousId = $anonymousId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAmountPlanned(?TypedMoney $amountPlanned)
+    {
+        $this->amountPlanned = $amountPlanned;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo)
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
 
@@ -221,9 +201,29 @@ final class MyPaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withTransactions(?TransactionCollection $transactions)
+    {
+        $this->transactions = $transactions;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
+    {
+        $this->customer = $customer;
 
         return $this;
     }
@@ -241,9 +241,19 @@ final class MyPaymentBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
+    public function withPaymentMethodInfoBuilder(?PaymentMethodInfoBuilder $paymentMethodInfo)
     {
-        $this->customer = $customer;
+        $this->paymentMethodInfo = $paymentMethodInfo;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -251,14 +261,14 @@ final class MyPaymentBuilder implements Builder
     public function build(): MyPayment
     {
         return new MyPaymentModel(
-            $this->anonymousId,
-            ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
             $this->id,
-            $this->transactions,
             $this->version,
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)
+            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
+            $this->anonymousId,
+            ($this->amountPlanned instanceof TypedMoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
+            ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo),
+            $this->transactions,
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

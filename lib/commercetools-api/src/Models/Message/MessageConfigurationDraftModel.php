@@ -13,38 +13,21 @@ use Commercetools\Base\JsonObjectModel;
 final class MessageConfigurationDraftModel extends JsonObjectModel implements MessageConfigurationDraft
 {
     /**
-     * @var ?int
-     */
-    protected $deleteDaysAfterCreation;
-
-    /**
      * @var ?bool
      */
     protected $enabled;
 
-    public function __construct(
-        int $deleteDaysAfterCreation = null,
-        bool $enabled = null
-    ) {
-        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
-        $this->enabled = $enabled;
-    }
-
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getDeleteDaysAfterCreation()
-    {
-        if (is_null($this->deleteDaysAfterCreation)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MessageConfigurationDraft::FIELD_DELETE_DAYS_AFTER_CREATION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->deleteDaysAfterCreation = (int) $data;
-        }
+    protected $deleteDaysAfterCreation;
 
-        return $this->deleteDaysAfterCreation;
+    public function __construct(
+        bool $enabled = null,
+        int $deleteDaysAfterCreation = null
+    ) {
+        $this->enabled = $enabled;
+        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
     }
 
     /**
@@ -64,13 +47,30 @@ final class MessageConfigurationDraftModel extends JsonObjectModel implements Me
         return $this->enabled;
     }
 
-    public function setDeleteDaysAfterCreation(?int $deleteDaysAfterCreation): void
+    /**
+     * @return null|int
+     */
+    public function getDeleteDaysAfterCreation()
     {
-        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
+        if (is_null($this->deleteDaysAfterCreation)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MessageConfigurationDraft::FIELD_DELETE_DAYS_AFTER_CREATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deleteDaysAfterCreation = (int) $data;
+        }
+
+        return $this->deleteDaysAfterCreation;
     }
 
     public function setEnabled(?bool $enabled): void
     {
         $this->enabled = $enabled;
+    }
+
+    public function setDeleteDaysAfterCreation(?int $deleteDaysAfterCreation): void
+    {
+        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
     }
 }

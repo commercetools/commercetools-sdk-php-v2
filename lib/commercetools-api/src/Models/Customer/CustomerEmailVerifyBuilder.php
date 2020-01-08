@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class CustomerEmailVerifyBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $tokenValue;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getTokenValue()
-    {
-        return $this->tokenValue;
-    }
+    private $tokenValue;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class CustomerEmailVerifyBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withTokenValue(?string $tokenValue)
+    public function getTokenValue()
     {
-        $this->tokenValue = $tokenValue;
-
-        return $this;
+        return $this->tokenValue;
     }
 
     /**
@@ -61,11 +51,21 @@ final class CustomerEmailVerifyBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTokenValue(?string $tokenValue)
+    {
+        $this->tokenValue = $tokenValue;
+
+        return $this;
+    }
+
     public function build(): CustomerEmailVerify
     {
         return new CustomerEmailVerifyModel(
-            $this->tokenValue,
-            $this->version
+            $this->version,
+            $this->tokenValue
         );
     }
 

@@ -23,21 +23,21 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     protected $action;
 
     /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?CategoryResourceIdentifier
      */
     protected $category;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        bool $staged = null,
-        CategoryResourceIdentifier $category = null
+        CategoryResourceIdentifier $category = null,
+        bool $staged = null
     ) {
-        $this->staged = $staged;
         $this->category = $category;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,23 +59,6 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductRemoveFromCategoryAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
-    }
-
-    /**
      * @return null|CategoryResourceIdentifier
      */
     public function getCategory()
@@ -93,13 +76,30 @@ final class ProductRemoveFromCategoryActionModel extends JsonObjectModel impleme
         return $this->category;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->staged = $staged;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductRemoveFromCategoryAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setCategory(?CategoryResourceIdentifier $category): void
     {
         $this->category = $category;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

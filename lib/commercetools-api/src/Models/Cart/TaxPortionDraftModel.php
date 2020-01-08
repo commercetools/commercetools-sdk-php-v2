@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoneyDraft;
-use Commercetools\Api\Models\Common\TypedMoneyDraftModel;
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Base\JsonObjectModel;
 use stdClass;
 
 final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDraft
 {
     /**
-     * @var ?TypedMoneyDraft
+     * @var ?string
      */
-    protected $amount;
+    protected $name;
 
     /**
      * @var ?int
@@ -26,36 +26,35 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     protected $rate;
 
     /**
-     * @var ?string
+     * @var ?Money
      */
-    protected $name;
+    protected $amount;
 
     public function __construct(
-        TypedMoneyDraft $amount = null,
+        string $name = null,
         int $rate = null,
-        string $name = null
+        Money $amount = null
     ) {
-        $this->amount = $amount;
-        $this->rate = $rate;
         $this->name = $name;
+        $this->rate = $rate;
+        $this->amount = $amount;
     }
 
     /**
-     * @return null|TypedMoneyDraft
+     * @return null|string
      */
-    public function getAmount()
+    public function getName()
     {
-        if (is_null($this->amount)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxPortionDraft::FIELD_AMOUNT);
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TaxPortionDraft::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $className = TypedMoneyDraftModel::resolveDiscriminatorClass($data);
-            $this->amount = $className::of($data);
+            $this->name = (string) $data;
         }
 
-        return $this->amount;
+        return $this->name;
     }
 
     /**
@@ -76,25 +75,26 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
     }
 
     /**
-     * @return null|string
+     * @return null|Money
      */
-    public function getName()
+    public function getAmount()
     {
-        if (is_null($this->name)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(TaxPortionDraft::FIELD_NAME);
+        if (is_null($this->amount)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TaxPortionDraft::FIELD_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->name = (string) $data;
+
+            $this->amount = MoneyModel::of($data);
         }
 
-        return $this->name;
+        return $this->amount;
     }
 
-    public function setAmount(?TypedMoneyDraft $amount): void
+    public function setName(?string $name): void
     {
-        $this->amount = $amount;
+        $this->name = $name;
     }
 
     public function setRate(?int $rate): void
@@ -102,8 +102,8 @@ final class TaxPortionDraftModel extends JsonObjectModel implements TaxPortionDr
         $this->rate = $rate;
     }
 
-    public function setName(?string $name): void
+    public function setAmount(?Money $amount): void
     {
-        $this->name = $name;
+        $this->amount = $amount;
     }
 }

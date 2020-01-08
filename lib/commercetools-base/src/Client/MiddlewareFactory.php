@@ -38,7 +38,7 @@ class MiddlewareFactory
     }
 
     /**
-     * @psalm-return callable()
+     * @psalm-return callable
      */
     public static function createMiddlewareForOAuthHandler(OAuth2Handler $handler)
     {
@@ -46,7 +46,7 @@ class MiddlewareFactory
     }
 
     /**
-     * @psalm-return callable()
+     * @psalm-return callable
      */
     public static function createLoggerMiddleware(LoggerInterface $logger, string $logLevel = LogLevel::INFO, string $template = MessageFormatter::CLF)
     {

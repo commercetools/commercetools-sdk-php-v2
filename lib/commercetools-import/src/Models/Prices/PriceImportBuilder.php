@@ -32,19 +32,24 @@ final class PriceImportBuilder implements Builder
     private $key;
 
     /**
+     * @var Money|?MoneyBuilder
+     */
+    private $value;
+
+    /**
      * @var ?string
      */
     private $country;
 
     /**
-     * @var ProductKeyReference|?ProductKeyReferenceBuilder
+     * @var ?DateTimeImmutable
      */
-    private $product;
+    private $validFrom;
 
     /**
-     * @var ProductVariantKeyReference|?ProductVariantKeyReferenceBuilder
+     * @var ?DateTimeImmutable
      */
-    private $productVariant;
+    private $validUntil;
 
     /**
      * @var CustomerGroupKeyReference|?CustomerGroupKeyReferenceBuilder
@@ -57,19 +62,14 @@ final class PriceImportBuilder implements Builder
     private $channel;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ProductVariantKeyReference|?ProductVariantKeyReferenceBuilder
      */
-    private $validUntil;
+    private $productVariant;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ProductKeyReference|?ProductKeyReferenceBuilder
      */
-    private $validFrom;
-
-    /**
-     * @var Money|?MoneyBuilder
-     */
-    private $value;
+    private $product;
 
     /**
      * @return null|string
@@ -77,6 +77,17 @@ final class PriceImportBuilder implements Builder
     public function getKey()
     {
         return $this->key;
+    }
+
+    /**
+     * <p>Maps to <code>Price.value</code>.</p>
+     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>.
+     *
+     * @return null|Money
+     */
+    public function getValue()
+    {
+        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -90,29 +101,23 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>The product in which this product variant containong the price is contained. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * <p>Maps to <code>Price.validFrom</code>.</p>.
      *
-     * @return null|ProductKeyReference
+     * @return null|DateTimeImmutable
      */
-    public function getProduct()
+    public function getValidFrom()
     {
-        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
+        return $this->validFrom;
     }
 
     /**
-     * <p>The product variant in which this price is contained.</p>
-     * <p>The product variant referenced
-     * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * <p>Maps to <code>Price.validUntil</code>.</p>.
      *
-     * @return null|ProductVariantKeyReference
+     * @return null|DateTimeImmutable
      */
-    public function getProductVariant()
+    public function getValidUntil()
     {
-        return $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant;
+        return $this->validUntil;
     }
 
     /**
@@ -142,34 +147,29 @@ final class PriceImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Price.validUntil</code>.</p>.
+     * <p>The product variant in which this price is contained.</p>
+     * <p>The product variant referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|DateTimeImmutable
+     * @return null|ProductVariantKeyReference
      */
-    public function getValidUntil()
+    public function getProductVariant()
     {
-        return $this->validUntil;
+        return $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant;
     }
 
     /**
-     * <p>Maps to <code>Price.validFrom</code>.</p>.
+     * <p>The product in which this product variant containong the price is contained. Maps to <code>ProductVariant.product</code>.</p>
+     * <p>The product referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|DateTimeImmutable
+     * @return null|ProductKeyReference
      */
-    public function getValidFrom()
+    public function getProduct()
     {
-        return $this->validFrom;
-    }
-
-    /**
-     * <p>Maps to <code>Price.value</code>.</p>
-     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>.
-     *
-     * @return null|Money
-     */
-    public function getValue()
-    {
-        return $this->value instanceof MoneyBuilder ? $this->value->build() : $this->value;
+        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
     }
 
     /**
@@ -178,6 +178,16 @@ final class PriceImportBuilder implements Builder
     public function withKey(?string $key)
     {
         $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValue(?Money $value)
+    {
+        $this->value = $value;
 
         return $this;
     }
@@ -195,9 +205,9 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProduct(?ProductKeyReference $product)
+    public function withValidFrom(?DateTimeImmutable $validFrom)
     {
-        $this->product = $product;
+        $this->validFrom = $validFrom;
 
         return $this;
     }
@@ -205,9 +215,9 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductVariant(?ProductVariantKeyReference $productVariant)
+    public function withValidUntil(?DateTimeImmutable $validUntil)
     {
-        $this->productVariant = $productVariant;
+        $this->validUntil = $validUntil;
 
         return $this;
     }
@@ -235,9 +245,9 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValidUntil(?DateTimeImmutable $validUntil)
+    public function withProductVariant(?ProductVariantKeyReference $productVariant)
     {
-        $this->validUntil = $validUntil;
+        $this->productVariant = $productVariant;
 
         return $this;
     }
@@ -245,27 +255,7 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValidFrom(?DateTimeImmutable $validFrom)
-    {
-        $this->validFrom = $validFrom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValue(?Money $value)
-    {
-        $this->value = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withProductBuilder(?ProductKeyReferenceBuilder $product)
+    public function withProduct(?ProductKeyReference $product)
     {
         $this->product = $product;
 
@@ -275,9 +265,9 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
+    public function withValueBuilder(?MoneyBuilder $value)
     {
-        $this->productVariant = $productVariant;
+        $this->value = $value;
 
         return $this;
     }
@@ -305,9 +295,19 @@ final class PriceImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValueBuilder(?MoneyBuilder $value)
+    public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
     {
-        $this->value = $value;
+        $this->productVariant = $productVariant;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withProductBuilder(?ProductKeyReferenceBuilder $product)
+    {
+        $this->product = $product;
 
         return $this;
     }
@@ -316,14 +316,14 @@ final class PriceImportBuilder implements Builder
     {
         return new PriceImportModel(
             $this->key,
+            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value),
             $this->country,
-            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product),
-            ($this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant),
+            $this->validFrom,
+            $this->validUntil,
             ($this->customerGroup instanceof CustomerGroupKeyReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
             ($this->channel instanceof ChannelKeyReferenceBuilder ? $this->channel->build() : $this->channel),
-            $this->validUntil,
-            $this->validFrom,
-            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value)
+            ($this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant),
+            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product)
         );
     }
 

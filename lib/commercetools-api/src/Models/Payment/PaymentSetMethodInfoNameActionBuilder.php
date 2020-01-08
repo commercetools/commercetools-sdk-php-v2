@@ -23,6 +23,8 @@ final class PaymentSetMethodInfoNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>If not provided, the name is unset.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()

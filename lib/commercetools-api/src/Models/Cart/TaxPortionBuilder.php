@@ -18,9 +18,9 @@ use Commercetools\Base\Builder;
 final class TaxPortionBuilder implements Builder
 {
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var ?string
      */
-    private $amount;
+    private $name;
 
     /**
      * @var ?int
@@ -28,25 +28,9 @@ final class TaxPortionBuilder implements Builder
     private $rate;
 
     /**
-     * @var ?string
+     * @var TypedMoney|?TypedMoneyBuilder
      */
-    private $name;
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmount()
-    {
-        return $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getRate()
-    {
-        return $this->rate;
-    }
+    private $amount;
 
     /**
      * @return null|string
@@ -57,11 +41,29 @@ final class TaxPortionBuilder implements Builder
     }
 
     /**
+     * <p>A number in the range [0..1]</p>.
+     *
+     * @return null|int
+     */
+    public function getRate()
+    {
+        return $this->rate;
+    }
+
+    /**
+     * @return null|TypedMoney
+     */
+    public function getAmount()
+    {
+        return $this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount;
+    }
+
+    /**
      * @return $this
      */
-    public function withAmount(?TypedMoney $amount)
+    public function withName(?string $name)
     {
-        $this->amount = $amount;
+        $this->name = $name;
 
         return $this;
     }
@@ -79,9 +81,9 @@ final class TaxPortionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withAmount(?TypedMoney $amount)
     {
-        $this->name = $name;
+        $this->amount = $amount;
 
         return $this;
     }
@@ -99,9 +101,9 @@ final class TaxPortionBuilder implements Builder
     public function build(): TaxPortion
     {
         return new TaxPortionModel(
-            ($this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount),
+            $this->name,
             $this->rate,
-            $this->name
+            ($this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount)
         );
     }
 

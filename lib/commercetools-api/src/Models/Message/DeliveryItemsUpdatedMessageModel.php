@@ -25,16 +25,6 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     const DISCRIMINATOR_VALUE = 'DeliveryItemsUpdated';
 
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -45,14 +35,24 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
 
     /**
      * @var ?int
@@ -65,11 +65,6 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     protected $resource;
 
     /**
-     * @var ?UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     protected $resourceVersion;
@@ -80,6 +75,11 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     protected $type;
 
     /**
+     * @var ?UserProvidedIdentifiers
+     */
+    protected $resourceUserProvidedIdentifiers;
+
+    /**
      * @var ?string
      */
     protected $deliveryId;
@@ -87,42 +87,76 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     /**
      * @var ?DeliveryItemCollection
      */
-    protected $oldItems;
+    protected $items;
 
     /**
      * @var ?DeliveryItemCollection
      */
-    protected $items;
+    protected $oldItems;
 
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
+        CreatedBy $createdBy = null,
         int $sequenceNumber = null,
         Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
+        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         string $deliveryId = null,
-        DeliveryItemCollection $oldItems = null,
-        DeliveryItemCollection $items = null
+        DeliveryItemCollection $items = null,
+        DeliveryItemCollection $oldItems = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
         $this->sequenceNumber = $sequenceNumber;
         $this->resource = $resource;
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->deliveryId = $deliveryId;
-        $this->oldItems = $oldItems;
         $this->items = $items;
+        $this->oldItems = $oldItems;
         $this->type = static::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Message::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Message::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -168,37 +202,21 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -217,24 +235,6 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
         }
 
         return $this->createdBy;
-    }
-
-    /**
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
-        }
-
-        return $this->lastModifiedBy;
     }
 
     /**
@@ -273,24 +273,6 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        if (is_null($this->resourceUserProvidedIdentifiers)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
-        }
-
-        return $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -325,6 +307,24 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     }
 
     /**
+     * @return null|UserProvidedIdentifiers
+     */
+    public function getResourceUserProvidedIdentifiers()
+    {
+        if (is_null($this->resourceUserProvidedIdentifiers)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
+        }
+
+        return $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
      * @return null|string
      */
     public function getDeliveryId()
@@ -344,23 +344,6 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
     /**
      * @return null|DeliveryItemCollection
      */
-    public function getOldItems()
-    {
-        if (is_null($this->oldItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DeliveryItemsUpdatedMessage::FIELD_OLD_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldItems = DeliveryItemCollection::fromArray($data);
-        }
-
-        return $this->oldItems;
-    }
-
-    /**
-     * @return null|DeliveryItemCollection
-     */
     public function getItems()
     {
         if (is_null($this->items)) {
@@ -375,14 +358,21 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
         return $this->items;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    /**
+     * @return null|DeliveryItemCollection
+     */
+    public function getOldItems()
     {
-        $this->createdAt = $createdAt;
-    }
+        if (is_null($this->oldItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(DeliveryItemsUpdatedMessage::FIELD_OLD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldItems = DeliveryItemCollection::fromArray($data);
+        }
 
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->oldItems;
     }
 
     public function setId(?string $id): void
@@ -395,14 +385,24 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
+    }
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
     }
 
     public function setSequenceNumber(?int $sequenceNumber): void
@@ -415,14 +415,14 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
         $this->resource = $resource;
     }
 
-    public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
-    {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
+    }
+
+    public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
+    {
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
     public function setDeliveryId(?string $deliveryId): void
@@ -430,14 +430,14 @@ final class DeliveryItemsUpdatedMessageModel extends JsonObjectModel implements 
         $this->deliveryId = $deliveryId;
     }
 
-    public function setOldItems(?DeliveryItemCollection $oldItems): void
-    {
-        $this->oldItems = $oldItems;
-    }
-
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
+    }
+
+    public function setOldItems(?DeliveryItemCollection $oldItems): void
+    {
+        $this->oldItems = $oldItems;
     }
 
     public function jsonSerialize()

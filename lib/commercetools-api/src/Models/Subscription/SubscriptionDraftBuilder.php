@@ -16,9 +16,9 @@ use Commercetools\Base\Builder;
 final class SubscriptionDraftBuilder implements Builder
 {
     /**
-     * @var DeliveryFormat|?DeliveryFormatBuilder
+     * @var ?ChangeSubscriptionCollection
      */
-    private $format;
+    private $changes;
 
     /**
      * @var Destination|?DestinationBuilder
@@ -26,9 +26,9 @@ final class SubscriptionDraftBuilder implements Builder
     private $destination;
 
     /**
-     * @var ?ChangeSubscriptionCollection
+     * @var ?string
      */
-    private $changes;
+    private $key;
 
     /**
      * @var ?MessageSubscriptionCollection
@@ -36,16 +36,16 @@ final class SubscriptionDraftBuilder implements Builder
     private $messages;
 
     /**
-     * @var ?string
+     * @var DeliveryFormat|?DeliveryFormatBuilder
      */
-    private $key;
+    private $format;
 
     /**
-     * @return null|DeliveryFormat
+     * @return null|ChangeSubscriptionCollection
      */
-    public function getFormat()
+    public function getChanges()
     {
-        return $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format;
+        return $this->changes;
     }
 
     /**
@@ -57,11 +57,11 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
-     * @return null|ChangeSubscriptionCollection
+     * @return null|string
      */
-    public function getChanges()
+    public function getKey()
     {
-        return $this->changes;
+        return $this->key;
     }
 
     /**
@@ -73,19 +73,19 @@ final class SubscriptionDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|DeliveryFormat
      */
-    public function getKey()
+    public function getFormat()
     {
-        return $this->key;
+        return $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format;
     }
 
     /**
      * @return $this
      */
-    public function withFormat(?DeliveryFormat $format)
+    public function withChanges(?ChangeSubscriptionCollection $changes)
     {
-        $this->format = $format;
+        $this->changes = $changes;
 
         return $this;
     }
@@ -103,9 +103,9 @@ final class SubscriptionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withChanges(?ChangeSubscriptionCollection $changes)
+    public function withKey(?string $key)
     {
-        $this->changes = $changes;
+        $this->key = $key;
 
         return $this;
     }
@@ -123,17 +123,7 @@ final class SubscriptionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFormatBuilder(?DeliveryFormatBuilder $format)
+    public function withFormat(?DeliveryFormat $format)
     {
         $this->format = $format;
 
@@ -150,14 +140,24 @@ final class SubscriptionDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withFormatBuilder(?DeliveryFormatBuilder $format)
+    {
+        $this->format = $format;
+
+        return $this;
+    }
+
     public function build(): SubscriptionDraft
     {
         return new SubscriptionDraftModel(
-            ($this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format),
-            ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination),
             $this->changes,
+            ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination),
+            $this->key,
             $this->messages,
-            $this->key
+            ($this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format)
         );
     }
 

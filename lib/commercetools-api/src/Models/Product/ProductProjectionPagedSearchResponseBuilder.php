@@ -18,17 +18,17 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     /**
      * @var ?int
      */
+    private $count;
+
+    /**
+     * @var ?int
+     */
     private $total;
 
     /**
      * @var ?int
      */
     private $offset;
-
-    /**
-     * @var ?int
-     */
-    private $count;
 
     /**
      * @var ?ProductProjectionCollection
@@ -39,6 +39,14 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
      * @var FacetResults|?FacetResultsBuilder
      */
     private $facets;
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
 
     /**
      * @return null|int
@@ -54,14 +62,6 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     public function getOffset()
     {
         return $this->offset;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        return $this->count;
     }
 
     /**
@@ -83,6 +83,16 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCount(?int $count)
+    {
+        $this->count = $count;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTotal(?int $total)
     {
         $this->total = $total;
@@ -96,16 +106,6 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     public function withOffset(?int $offset)
     {
         $this->offset = $offset;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCount(?int $count)
-    {
-        $this->count = $count;
 
         return $this;
     }
@@ -143,9 +143,9 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     public function build(): ProductProjectionPagedSearchResponse
     {
         return new ProductProjectionPagedSearchResponseModel(
+            $this->count,
             $this->total,
             $this->offset,
-            $this->count,
             $this->results,
             ($this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets)
         );

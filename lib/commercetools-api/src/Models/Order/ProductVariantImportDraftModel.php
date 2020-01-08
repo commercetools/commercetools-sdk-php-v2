@@ -17,19 +17,14 @@ use stdClass;
 final class ProductVariantImportDraftModel extends JsonObjectModel implements ProductVariantImportDraft
 {
     /**
-     * @var ?ImageCollection
-     */
-    protected $images;
-
-    /**
-     * @var ?AttributeCollection
-     */
-    protected $attributes;
-
-    /**
      * @var ?int
      */
     protected $id;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
 
     /**
      * @var ?PriceDraftCollection
@@ -37,59 +32,34 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     protected $prices;
 
     /**
-     * @var ?string
+     * @var ?AttributeCollection
      */
-    protected $sku;
+    protected $attributes;
+
+    /**
+     * @var ?ImageCollection
+     */
+    protected $images;
 
     public function __construct(
-        ImageCollection $images = null,
-        AttributeCollection $attributes = null,
         int $id = null,
+        string $sku = null,
         PriceDraftCollection $prices = null,
-        string $sku = null
+        AttributeCollection $attributes = null,
+        ImageCollection $images = null
     ) {
-        $this->images = $images;
-        $this->attributes = $attributes;
         $this->id = $id;
-        $this->prices = $prices;
         $this->sku = $sku;
+        $this->prices = $prices;
+        $this->attributes = $attributes;
+        $this->images = $images;
     }
 
     /**
-     * @return null|ImageCollection
-     */
-    public function getImages()
-    {
-        if (is_null($this->images)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariantImportDraft::FIELD_IMAGES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->images = ImageCollection::fromArray($data);
-        }
-
-        return $this->images;
-    }
-
-    /**
-     * @return null|AttributeCollection
-     */
-    public function getAttributes()
-    {
-        if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariantImportDraft::FIELD_ATTRIBUTES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->attributes = AttributeCollection::fromArray($data);
-        }
-
-        return $this->attributes;
-    }
-
-    /**
+     * <p>The sequential ID of the variant within the product.
+     * The variant with provided ID should exist in some existing product, so you also need to specify the productId if this property is set,
+     * or alternatively you can just specify SKU of the product variant.</p>.
+     *
      * @return null|int
      */
     public function getId()
@@ -107,6 +77,29 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * <p>The SKU of the existing variant.</p>.
+     *
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductVariantImportDraft::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * <p>The prices of the variant.
+     * The prices should not contain two prices for the same price scope (same currency, country and customer group).
+     * If this property is defined, then it will override the <code>prices</code> property from the original product variant, otherwise <code>prices</code> property from the original product variant would be copied in the resulting order.</p>.
+     *
      * @return null|PriceDraftCollection
      */
     public function getPrices()
@@ -124,30 +117,43 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * @return null|string
+     * <p>If this property is defined, then it will override the <code>attributes</code> property from the original
+     * product variant, otherwise <code>attributes</code> property from the original product variant would be copied in the resulting order.</p>.
+     *
+     * @return null|AttributeCollection
      */
-    public function getSku()
+    public function getAttributes()
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductVariantImportDraft::FIELD_SKU);
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantImportDraft::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
-            $this->sku = (string) $data;
+            $this->attributes = AttributeCollection::fromArray($data);
         }
 
-        return $this->sku;
+        return $this->attributes;
     }
 
-    public function setImages(?ImageCollection $images): void
+    /**
+     * <p>If this property is defined, then it will override the <code>images</code> property from the original
+     * product variant, otherwise <code>images</code> property from the original product variant would be copied in the resulting order.</p>.
+     *
+     * @return null|ImageCollection
+     */
+    public function getImages()
     {
-        $this->images = $images;
-    }
+        if (is_null($this->images)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantImportDraft::FIELD_IMAGES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->images = ImageCollection::fromArray($data);
+        }
 
-    public function setAttributes(?AttributeCollection $attributes): void
-    {
-        $this->attributes = $attributes;
+        return $this->images;
     }
 
     public function setId(?int $id): void
@@ -155,13 +161,23 @@ final class ProductVariantImportDraftModel extends JsonObjectModel implements Pr
         $this->id = $id;
     }
 
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
+    }
+
     public function setPrices(?PriceDraftCollection $prices): void
     {
         $this->prices = $prices;
     }
 
-    public function setSku(?string $sku): void
+    public function setAttributes(?AttributeCollection $attributes): void
     {
-        $this->sku = $sku;
+        $this->attributes = $attributes;
+    }
+
+    public function setImages(?ImageCollection $images): void
+    {
+        $this->images = $images;
     }
 }

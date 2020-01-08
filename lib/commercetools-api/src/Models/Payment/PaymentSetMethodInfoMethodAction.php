@@ -13,6 +13,8 @@ interface PaymentSetMethodInfoMethodAction extends PaymentUpdateAction
     const FIELD_METHOD = 'method';
 
     /**
+     * <p>If not provided, the method is unset.</p>.
+     *
      * @return null|string
      */
     public function getMethod();

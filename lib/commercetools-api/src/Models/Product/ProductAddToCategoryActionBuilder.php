@@ -18,6 +18,11 @@ use Commercetools\Base\Builder;
 final class ProductAddToCategoryActionBuilder implements Builder
 {
     /**
+     * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
+     */
+    private $category;
+
+    /**
      * @var ?string
      */
     private $orderHint;
@@ -28,9 +33,12 @@ final class ProductAddToCategoryActionBuilder implements Builder
     private $staged;
 
     /**
-     * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
+     * @return null|CategoryResourceIdentifier
      */
-    private $category;
+    public function getCategory()
+    {
+        return $this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category;
+    }
 
     /**
      * @return null|string
@@ -49,11 +57,13 @@ final class ProductAddToCategoryActionBuilder implements Builder
     }
 
     /**
-     * @return null|CategoryResourceIdentifier
+     * @return $this
      */
-    public function getCategory()
+    public function withCategory(?CategoryResourceIdentifier $category)
     {
-        return $this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category;
+        $this->category = $category;
+
+        return $this;
     }
 
     /**
@@ -79,16 +89,6 @@ final class ProductAddToCategoryActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCategory(?CategoryResourceIdentifier $category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCategoryBuilder(?CategoryResourceIdentifierBuilder $category)
     {
         $this->category = $category;
@@ -99,9 +99,9 @@ final class ProductAddToCategoryActionBuilder implements Builder
     public function build(): ProductAddToCategoryAction
     {
         return new ProductAddToCategoryActionModel(
+            ($this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category),
             $this->orderHint,
-            $this->staged,
-            ($this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category)
+            $this->staged
         );
     }
 

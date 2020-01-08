@@ -20,16 +20,6 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     protected $action;
 
     /**
-     * @var ?array
-     */
-    protected $assetOrder;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -39,16 +29,26 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
      */
     protected $sku;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
+    /**
+     * @var ?array
+     */
+    protected $assetOrder;
+
     public function __construct(
-        array $assetOrder = null,
-        bool $staged = null,
         int $variantId = null,
-        string $sku = null
+        string $sku = null,
+        bool $staged = null,
+        array $assetOrder = null
     ) {
-        $this->assetOrder = $assetOrder;
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->staged = $staged;
+        $this->assetOrder = $assetOrder;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -67,40 +67,6 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|array
-     */
-    public function getAssetOrder()
-    {
-        if (is_null($this->assetOrder)) {
-            /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ProductChangeAssetOrderAction::FIELD_ASSET_ORDER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assetOrder = $data;
-        }
-
-        return $this->assetOrder;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductChangeAssetOrderAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
     }
 
     /**
@@ -137,14 +103,38 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
         return $this->sku;
     }
 
-    public function setAssetOrder(?array $assetOrder): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->assetOrder = $assetOrder;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductChangeAssetOrderAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|array
+     */
+    public function getAssetOrder()
     {
-        $this->staged = $staged;
+        if (is_null($this->assetOrder)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(ProductChangeAssetOrderAction::FIELD_ASSET_ORDER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetOrder = $data;
+        }
+
+        return $this->assetOrder;
     }
 
     public function setVariantId(?int $variantId): void
@@ -155,5 +145,15 @@ final class ProductChangeAssetOrderActionModel extends JsonObjectModel implement
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
+    }
+
+    public function setAssetOrder(?array $assetOrder): void
+    {
+        $this->assetOrder = $assetOrder;
     }
 }

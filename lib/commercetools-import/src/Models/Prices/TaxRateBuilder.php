@@ -18,7 +18,12 @@ final class TaxRateBuilder implements Builder
     /**
      * @var ?string
      */
-    private $country;
+    private $id;
+
+    /**
+     * @var ?string
+     */
+    private $name;
 
     /**
      * @var ?int
@@ -33,7 +38,7 @@ final class TaxRateBuilder implements Builder
     /**
      * @var ?string
      */
-    private $name;
+    private $country;
 
     /**
      * @var ?string
@@ -41,23 +46,24 @@ final class TaxRateBuilder implements Builder
     private $state;
 
     /**
-     * @var ?string
-     */
-    private $id;
-
-    /**
      * @var ?SubRateCollection
      */
     private $subRates;
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
-     *
      * @return null|string
      */
-    public function getCountry()
+    public function getId()
     {
-        return $this->country;
+        return $this->id;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -77,11 +83,13 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
      * @return null|string
      */
-    public function getName()
+    public function getCountry()
     {
-        return $this->name;
+        return $this->country;
     }
 
     /**
@@ -90,14 +98,6 @@ final class TaxRateBuilder implements Builder
     public function getState()
     {
         return $this->state;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -111,9 +111,19 @@ final class TaxRateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCountry(?string $country)
+    public function withId(?string $id)
     {
-        $this->country = $country;
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?string $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -141,9 +151,9 @@ final class TaxRateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withCountry(?string $country)
     {
-        $this->name = $name;
+        $this->country = $country;
 
         return $this;
     }
@@ -161,16 +171,6 @@ final class TaxRateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withId(?string $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withSubRates(?SubRateCollection $subRates)
     {
         $this->subRates = $subRates;
@@ -181,12 +181,12 @@ final class TaxRateBuilder implements Builder
     public function build(): TaxRate
     {
         return new TaxRateModel(
-            $this->country,
+            $this->id,
+            $this->name,
             $this->amount,
             $this->includedInPrice,
-            $this->name,
+            $this->country,
             $this->state,
-            $this->id,
             $this->subRates
         );
     }

@@ -49,6 +49,9 @@ final class CustomerSetCustomerNumberActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>It should be <strong>unique</strong> across a project.
+     * Once it's set, it cannot be changed.</p>.
+     *
      * @return null|string
      */
     public function getCustomerNumber()

@@ -21,6 +21,10 @@ interface TaxRate extends JsonObject
     const FIELD_SUB_RATES = 'subRates';
 
     /**
+     * <p>The ID is always set if the tax rate is part of a TaxCategory.
+     * The external tax rates in a
+     * Cart do not contain an <code>id</code>.</p>.
+     *
      * @return null|string
      */
     public function getId();
@@ -31,6 +35,9 @@ interface TaxRate extends JsonObject
     public function getName();
 
     /**
+     * <p>Percentage in the range of [0..1].
+     * The sum of the amounts of all <code>subRates</code>, if there are any.</p>.
+     *
      * @return null|int
      */
     public function getAmount();
@@ -48,11 +55,17 @@ interface TaxRate extends JsonObject
     public function getCountry();
 
     /**
+     * <p>The state in the country</p>.
+     *
      * @return null|string
      */
     public function getState();
 
     /**
+     * <p>For countries (e.g.
+     * the US) where the total tax is a combination of multiple taxes (e.g.
+     * state and local taxes).</p>.
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates();

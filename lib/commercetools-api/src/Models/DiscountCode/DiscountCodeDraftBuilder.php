@@ -22,39 +22,9 @@ use DateTimeImmutable;
 final class DiscountCodeDraftBuilder implements Builder
 {
     /**
-     * @var ?CartDiscountResourceIdentifierCollection
-     */
-    private $cartDiscounts;
-
-    /**
-     * @var ?string
-     */
-    private $code;
-
-    /**
-     * @var ?string
-     */
-    private $cartPredicate;
-
-    /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $name;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $validUntil;
-
-    /**
-     * @var ?array
-     */
-    private $groups;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -62,14 +32,19 @@ final class DiscountCodeDraftBuilder implements Builder
     private $description;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?string
      */
-    private $validFrom;
+    private $code;
 
     /**
-     * @var ?int
+     * @var ?CartDiscountResourceIdentifierCollection
      */
-    private $maxApplicationsPerCustomer;
+    private $cartDiscounts;
+
+    /**
+     * @var ?string
+     */
+    private $cartPredicate;
 
     /**
      * @var ?bool
@@ -82,36 +57,29 @@ final class DiscountCodeDraftBuilder implements Builder
     private $maxApplications;
 
     /**
-     * @return null|CartDiscountResourceIdentifierCollection
+     * @var ?int
      */
-    public function getCartDiscounts()
-    {
-        return $this->cartDiscounts;
-    }
+    private $maxApplicationsPerCustomer;
 
     /**
-     * @return null|string
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    public function getCode()
-    {
-        return $this->code;
-    }
+    private $custom;
 
     /**
-     * @return null|string
+     * @var ?array
      */
-    public function getCartPredicate()
-    {
-        return $this->cartPredicate;
-    }
+    private $groups;
 
     /**
-     * @return null|CustomFieldsDraft
+     * @var ?DateTimeImmutable
      */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
+    private $validFrom;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $validUntil;
 
     /**
      * @return null|LocalizedString
@@ -119,22 +87,6 @@ final class DiscountCodeDraftBuilder implements Builder
     public function getName()
     {
         return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidUntil()
-    {
-        return $this->validUntil;
-    }
-
-    /**
-     * @return null|array
-     */
-    public function getGroups()
-    {
-        return $this->groups;
     }
 
     /**
@@ -146,19 +98,36 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>Unique identifier of this discount code.
+     * This value is added to the cart
+     * to enable the related cart discounts in the cart.</p>.
+     *
+     * @return null|string
      */
-    public function getValidFrom()
+    public function getCode()
     {
-        return $this->validFrom;
+        return $this->code;
     }
 
     /**
-     * @return null|int
+     * <p>The referenced matching cart discounts can be applied to the cart once the discount code is added.
+     * The number of cart discounts in a discount code is limited to <strong>10</strong>.</p>.
+     *
+     * @return null|CartDiscountResourceIdentifierCollection
      */
-    public function getMaxApplicationsPerCustomer()
+    public function getCartDiscounts()
     {
-        return $this->maxApplicationsPerCustomer;
+        return $this->cartDiscounts;
+    }
+
+    /**
+     * <p>The discount code can only be applied to carts that match this predicate.</p>.
+     *
+     * @return null|string
+     */
+    public function getCartPredicate()
+    {
+        return $this->cartPredicate;
     }
 
     /**
@@ -178,43 +147,51 @@ final class DiscountCodeDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts)
+    public function getMaxApplicationsPerCustomer()
     {
-        $this->cartDiscounts = $cartDiscounts;
-
-        return $this;
+        return $this->maxApplicationsPerCustomer;
     }
 
     /**
-     * @return $this
+     * @return null|CustomFieldsDraft
      */
-    public function withCode(?string $code)
+    public function getCustom()
     {
-        $this->code = $code;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
-     * @return $this
+     * <p>The groups to which this discount code shall belong to.</p>.
+     *
+     * @return null|array
      */
-    public function withCartPredicate(?string $cartPredicate)
+    public function getGroups()
     {
-        $this->cartPredicate = $cartPredicate;
-
-        return $this;
+        return $this->groups;
     }
 
     /**
-     * @return $this
+     * <p>The time from which the discount can be applied on a cart.
+     * Before that time the code is invalid.</p>.
+     *
+     * @return null|DateTimeImmutable
      */
-    public function withCustom(?CustomFieldsDraft $custom)
+    public function getValidFrom()
     {
-        $this->custom = $custom;
+        return $this->validFrom;
+    }
 
-        return $this;
+    /**
+     * <p>The time until the discount can be applied on a cart.
+     * After that time the code is invalid.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
+    {
+        return $this->validUntil;
     }
 
     /**
@@ -223,26 +200,6 @@ final class DiscountCodeDraftBuilder implements Builder
     public function withName(?LocalizedString $name)
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValidUntil(?DateTimeImmutable $validUntil)
-    {
-        $this->validUntil = $validUntil;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withGroups(?array $groups)
-    {
-        $this->groups = $groups;
 
         return $this;
     }
@@ -260,9 +217,9 @@ final class DiscountCodeDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValidFrom(?DateTimeImmutable $validFrom)
+    public function withCode(?string $code)
     {
-        $this->validFrom = $validFrom;
+        $this->code = $code;
 
         return $this;
     }
@@ -270,9 +227,19 @@ final class DiscountCodeDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
+    public function withCartDiscounts(?CartDiscountResourceIdentifierCollection $cartDiscounts)
     {
-        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
+        $this->cartDiscounts = $cartDiscounts;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCartPredicate(?string $cartPredicate)
+    {
+        $this->cartPredicate = $cartPredicate;
 
         return $this;
     }
@@ -300,9 +267,49 @@ final class DiscountCodeDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
+    {
+        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withGroups(?array $groups)
+    {
+        $this->groups = $groups;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValidFrom(?DateTimeImmutable $validFrom)
+    {
+        $this->validFrom = $validFrom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValidUntil(?DateTimeImmutable $validUntil)
+    {
+        $this->validUntil = $validUntil;
 
         return $this;
     }
@@ -327,21 +334,31 @@ final class DiscountCodeDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): DiscountCodeDraft
     {
         return new DiscountCodeDraftModel(
-            $this->cartDiscounts,
-            $this->code,
-            $this->cartPredicate,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->validUntil,
-            $this->groups,
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->validFrom,
-            $this->maxApplicationsPerCustomer,
+            $this->code,
+            $this->cartDiscounts,
+            $this->cartPredicate,
             $this->isActive,
-            $this->maxApplications
+            $this->maxApplications,
+            $this->maxApplicationsPerCustomer,
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->groups,
+            $this->validFrom,
+            $this->validUntil
         );
     }
 

@@ -14,41 +14,27 @@ use stdClass;
 final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShippingDetails
 {
     /**
-     * @var ?bool
-     */
-    protected $valid;
-
-    /**
      * @var ?ItemShippingTargetCollection
      */
     protected $targets;
 
-    public function __construct(
-        bool $valid = null,
-        ItemShippingTargetCollection $targets = null
-    ) {
-        $this->valid = $valid;
-        $this->targets = $targets;
-    }
-
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getValid()
-    {
-        if (is_null($this->valid)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ItemShippingDetails::FIELD_VALID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->valid = (bool) $data;
-        }
+    protected $valid;
 
-        return $this->valid;
+    public function __construct(
+        ItemShippingTargetCollection $targets = null,
+        bool $valid = null
+    ) {
+        $this->targets = $targets;
+        $this->valid = $valid;
     }
 
     /**
+     * <p>Used to map what sub-quantity should be shipped to which address.
+     * Duplicate address keys are not allowed.</p>.
+     *
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets()
@@ -65,13 +51,34 @@ final class ItemShippingDetailsModel extends JsonObjectModel implements ItemShip
         return $this->targets;
     }
 
-    public function setValid(?bool $valid): void
+    /**
+     * <p><code>true</code> if the quantity of the (custom) line item is equal to the sum of the sub-quantities in <code>targets</code>, <code>false</code> otherwise.
+     * A cart cannot be ordered when the value is <code>false</code>.
+     * The error InvalidItemShippingDetails will be triggered.</p>.
+     *
+     * @return null|bool
+     */
+    public function getValid()
     {
-        $this->valid = $valid;
+        if (is_null($this->valid)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ItemShippingDetails::FIELD_VALID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->valid = (bool) $data;
+        }
+
+        return $this->valid;
     }
 
     public function setTargets(?ItemShippingTargetCollection $targets): void
     {
         $this->targets = $targets;
+    }
+
+    public function setValid(?bool $valid): void
+    {
+        $this->valid = $valid;
     }
 }

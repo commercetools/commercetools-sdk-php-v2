@@ -18,7 +18,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     /**
      * @var ?string
      */
-    protected $orderNumber;
+    protected $key;
 
     /**
      * @var ?string
@@ -28,7 +28,7 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     /**
      * @var ?string
      */
-    protected $sku;
+    protected $orderNumber;
 
     /**
      * @var ?string
@@ -36,46 +36,46 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     protected $customerNumber;
 
     /**
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
      * @var ?LocalizedString
      */
     protected $slug;
 
-    /**
-     * @var ?string
-     */
-    protected $key;
-
     public function __construct(
-        string $orderNumber = null,
+        string $key = null,
         string $externalId = null,
-        string $sku = null,
+        string $orderNumber = null,
         string $customerNumber = null,
-        LocalizedString $slug = null,
-        string $key = null
+        string $sku = null,
+        LocalizedString $slug = null
     ) {
-        $this->orderNumber = $orderNumber;
-        $this->externalId = $externalId;
-        $this->sku = $sku;
-        $this->customerNumber = $customerNumber;
-        $this->slug = $slug;
         $this->key = $key;
+        $this->externalId = $externalId;
+        $this->orderNumber = $orderNumber;
+        $this->customerNumber = $customerNumber;
+        $this->sku = $sku;
+        $this->slug = $slug;
     }
 
     /**
      * @return null|string
      */
-    public function getOrderNumber()
+    public function getKey()
     {
-        if (is_null($this->orderNumber)) {
+        if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(UserProvidedIdentifiers::FIELD_ORDER_NUMBER);
+            $data = $this->raw(UserProvidedIdentifiers::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->orderNumber = (string) $data;
+            $this->key = (string) $data;
         }
 
-        return $this->orderNumber;
+        return $this->key;
     }
 
     /**
@@ -98,18 +98,18 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     /**
      * @return null|string
      */
-    public function getSku()
+    public function getOrderNumber()
     {
-        if (is_null($this->sku)) {
+        if (is_null($this->orderNumber)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(UserProvidedIdentifiers::FIELD_SKU);
+            $data = $this->raw(UserProvidedIdentifiers::FIELD_ORDER_NUMBER);
             if (is_null($data)) {
                 return null;
             }
-            $this->sku = (string) $data;
+            $this->orderNumber = (string) $data;
         }
 
-        return $this->sku;
+        return $this->orderNumber;
     }
 
     /**
@@ -130,6 +130,23 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
     }
 
     /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(UserProvidedIdentifiers::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -147,26 +164,9 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
         return $this->slug;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(UserProvidedIdentifiers::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    public function setOrderNumber(?string $orderNumber): void
-    {
-        $this->orderNumber = $orderNumber;
+        $this->key = $key;
     }
 
     public function setExternalId(?string $externalId): void
@@ -174,9 +174,9 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
         $this->externalId = $externalId;
     }
 
-    public function setSku(?string $sku): void
+    public function setOrderNumber(?string $orderNumber): void
     {
-        $this->sku = $sku;
+        $this->orderNumber = $orderNumber;
     }
 
     public function setCustomerNumber(?string $customerNumber): void
@@ -184,13 +184,13 @@ final class UserProvidedIdentifiersModel extends JsonObjectModel implements User
         $this->customerNumber = $customerNumber;
     }
 
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
+    }
+
     public function setSlug(?LocalizedString $slug): void
     {
         $this->slug = $slug;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 }

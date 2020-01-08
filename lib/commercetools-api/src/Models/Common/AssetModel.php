@@ -16,14 +16,14 @@ use stdClass;
 final class AssetModel extends JsonObjectModel implements Asset
 {
     /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
      * @var ?AssetSourceCollection
      */
     protected $sources;
-
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
 
     /**
      * @var ?LocalizedString
@@ -36,36 +36,53 @@ final class AssetModel extends JsonObjectModel implements Asset
     protected $description;
 
     /**
-     * @var ?string
+     * @var ?array
      */
-    protected $id;
+    protected $tags;
+
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
 
     /**
      * @var ?string
      */
     protected $key;
 
-    /**
-     * @var ?array
-     */
-    protected $tags;
-
     public function __construct(
+        string $id = null,
         AssetSourceCollection $sources = null,
-        CustomFields $custom = null,
         LocalizedString $name = null,
         LocalizedString $description = null,
-        string $id = null,
-        string $key = null,
-        array $tags = null
+        array $tags = null,
+        CustomFields $custom = null,
+        string $key = null
     ) {
+        $this->id = $id;
         $this->sources = $sources;
-        $this->custom = $custom;
         $this->name = $name;
         $this->description = $description;
-        $this->id = $id;
-        $this->key = $key;
         $this->tags = $tags;
+        $this->custom = $custom;
+        $this->key = $key;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Asset::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
 
     /**
@@ -83,24 +100,6 @@ final class AssetModel extends JsonObjectModel implements Asset
         }
 
         return $this->sources;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Asset::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsModel::of($data);
-        }
-
-        return $this->custom;
     }
 
     /**
@@ -140,20 +139,38 @@ final class AssetModel extends JsonObjectModel implements Asset
     }
 
     /**
-     * @return null|string
+     * @return null|array
      */
-    public function getId()
+    public function getTags()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Asset::FIELD_ID);
+        if (is_null($this->tags)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(Asset::FIELD_TAGS);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+            $this->tags = $data;
         }
 
-        return $this->id;
+        return $this->tags;
+    }
+
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Asset::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
     }
 
     /**
@@ -173,31 +190,14 @@ final class AssetModel extends JsonObjectModel implements Asset
         return $this->key;
     }
 
-    /**
-     * @return null|array
-     */
-    public function getTags()
+    public function setId(?string $id): void
     {
-        if (is_null($this->tags)) {
-            /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(Asset::FIELD_TAGS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->tags = $data;
-        }
-
-        return $this->tags;
+        $this->id = $id;
     }
 
     public function setSources(?AssetSourceCollection $sources): void
     {
         $this->sources = $sources;
-    }
-
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
     }
 
     public function setName(?LocalizedString $name): void
@@ -210,18 +210,18 @@ final class AssetModel extends JsonObjectModel implements Asset
         $this->description = $description;
     }
 
-    public function setId(?string $id): void
+    public function setTags(?array $tags): void
     {
-        $this->id = $id;
+        $this->tags = $tags;
+    }
+
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 
     public function setKey(?string $key): void
     {
         $this->key = $key;
-    }
-
-    public function setTags(?array $tags): void
-    {
-        $this->tags = $tags;
     }
 }

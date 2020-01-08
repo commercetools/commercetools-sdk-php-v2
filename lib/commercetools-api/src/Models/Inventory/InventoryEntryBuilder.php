@@ -25,16 +25,6 @@ use DateTimeImmutable;
 final class InventoryEntryBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -45,9 +35,14 @@ final class InventoryEntryBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -55,9 +50,34 @@ final class InventoryEntryBuilder implements Builder
     private $lastModifiedBy;
 
     /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * @var ?string
+     */
+    private $sku;
+
+    /**
+     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     */
+    private $supplyChannel;
+
+    /**
+     * @var ?int
+     */
+    private $quantityOnStock;
+
+    /**
      * @var ?int
      */
     private $availableQuantity;
+
+    /**
+     * @var ?int
+     */
+    private $restockableInDays;
 
     /**
      * @var ?DateTimeImmutable
@@ -70,24 +90,22 @@ final class InventoryEntryBuilder implements Builder
     private $custom;
 
     /**
-     * @var ?int
+     * <p>The unique ID of the inventory entry.</p>.
+     *
+     * @return null|string
      */
-    private $quantityOnStock;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     * @return null|int
      */
-    private $supplyChannel;
-
-    /**
-     * @var ?int
-     */
-    private $restockableInDays;
-
-    /**
-     * @var ?string
-     */
-    private $sku;
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -106,30 +124,8 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -138,6 +134,48 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * <p>Optional connection to a particular supplier.</p>.
+     *
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getSupplyChannel()
+    {
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
+    }
+
+    /**
+     * <p>Overall amount of stock.
+     * (available + reserved)</p>.
+     *
+     * @return null|int
+     */
+    public function getQuantityOnStock()
+    {
+        return $this->quantityOnStock;
+    }
+
+    /**
+     * <p>Available amount of stock.
+     * (available means: <code>quantityOnStock</code> - reserved quantity)</p>.
+     *
      * @return null|int
      */
     public function getAvailableQuantity()
@@ -146,6 +184,18 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
+     * <p>The time period in days, that tells how often this inventory entry is restocked.</p>.
+     *
+     * @return null|int
+     */
+    public function getRestockableInDays()
+    {
+        return $this->restockableInDays;
+    }
+
+    /**
+     * <p>The date and time of the next restock.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()
@@ -159,58 +209,6 @@ final class InventoryEntryBuilder implements Builder
     public function getCustom()
     {
         return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantityOnStock()
-    {
-        return $this->quantityOnStock;
-    }
-
-    /**
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel()
-    {
-        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getRestockableInDays()
-    {
-        return $this->restockableInDays;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSku()
-    {
-        return $this->sku;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
     }
 
     /**
@@ -236,9 +234,19 @@ final class InventoryEntryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -256,9 +264,59 @@ final class InventoryEntryBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withQuantityOnStock(?int $quantityOnStock)
+    {
+        $this->quantityOnStock = $quantityOnStock;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAvailableQuantity(?int $availableQuantity)
     {
         $this->availableQuantity = $availableQuantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withRestockableInDays(?int $restockableInDays)
+    {
+        $this->restockableInDays = $restockableInDays;
 
         return $this;
     }
@@ -286,39 +344,9 @@ final class InventoryEntryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantityOnStock(?int $quantityOnStock)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->quantityOnStock = $quantityOnStock;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
-    {
-        $this->supplyChannel = $supplyChannel;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withRestockableInDays(?int $restockableInDays)
-    {
-        $this->restockableInDays = $restockableInDays;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -336,9 +364,9 @@ final class InventoryEntryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -353,32 +381,22 @@ final class InventoryEntryBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
-    {
-        $this->supplyChannel = $supplyChannel;
-
-        return $this;
-    }
-
     public function build(): InventoryEntry
     {
         return new InventoryEntryModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            $this->availableQuantity,
-            $this->expectedDelivery,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            $this->quantityOnStock,
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->sku,
             ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
+            $this->quantityOnStock,
+            $this->availableQuantity,
             $this->restockableInDays,
-            $this->sku
+            $this->expectedDelivery,
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

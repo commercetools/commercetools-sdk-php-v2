@@ -14,38 +14,21 @@ use stdClass;
 final class TypeUpdateModel extends JsonObjectModel implements TypeUpdate
 {
     /**
-     * @var ?TypeUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        TypeUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|TypeUpdateActionCollection
+     * @var ?TypeUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TypeUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = TypeUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        TypeUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class TypeUpdateModel extends JsonObjectModel implements TypeUpdate
         return $this->version;
     }
 
-    public function setActions(?TypeUpdateActionCollection $actions): void
+    /**
+     * @return null|TypeUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(TypeUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = TypeUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?TypeUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

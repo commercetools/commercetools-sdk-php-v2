@@ -16,7 +16,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     /**
      * @var ?string
      */
-    protected $country;
+    protected $name;
 
     /**
      * @var ?int
@@ -31,7 +31,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     /**
      * @var ?string
      */
-    protected $name;
+    protected $country;
 
     /**
      * @var ?string
@@ -44,41 +44,44 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     protected $subRates;
 
     public function __construct(
-        string $country = null,
+        string $name = null,
         int $amount = null,
         bool $includedInPrice = null,
-        string $name = null,
+        string $country = null,
         string $state = null,
         SubRateCollection $subRates = null
     ) {
-        $this->country = $country;
+        $this->name = $name;
         $this->amount = $amount;
         $this->includedInPrice = $includedInPrice;
-        $this->name = $name;
+        $this->country = $country;
         $this->state = $state;
         $this->subRates = $subRates;
     }
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
-     *
      * @return null|string
      */
-    public function getCountry()
+    public function getName()
     {
-        if (is_null($this->country)) {
+        if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxRateDraft::FIELD_COUNTRY);
+            $data = $this->raw(TaxRateDraft::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->country = (string) $data;
+            $this->name = (string) $data;
         }
 
-        return $this->country;
+        return $this->name;
     }
 
     /**
+     * <p>Percentage in the range of [0..1].
+     * Must be supplied if no <code>subRates</code> are specified.
+     * If <code>subRates</code> are specified
+     * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>.
+     *
      * @return null|int
      */
     public function getAmount()
@@ -113,23 +116,27 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     }
 
     /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
      * @return null|string
      */
-    public function getName()
+    public function getCountry()
     {
-        if (is_null($this->name)) {
+        if (is_null($this->country)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TaxRateDraft::FIELD_NAME);
+            $data = $this->raw(TaxRateDraft::FIELD_COUNTRY);
             if (is_null($data)) {
                 return null;
             }
-            $this->name = (string) $data;
+            $this->country = (string) $data;
         }
 
-        return $this->name;
+        return $this->country;
     }
 
     /**
+     * <p>The state in the country</p>.
+     *
      * @return null|string
      */
     public function getState()
@@ -147,6 +154,10 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     }
 
     /**
+     * <p>For countries (e.g.
+     * the US) where the total tax is a combination of multiple taxes (e.g.
+     * state and local taxes).</p>.
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates()
@@ -163,9 +174,9 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         return $this->subRates;
     }
 
-    public function setCountry(?string $country): void
+    public function setName(?string $name): void
     {
-        $this->country = $country;
+        $this->name = $name;
     }
 
     public function setAmount(?int $amount): void
@@ -178,9 +189,9 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         $this->includedInPrice = $includedInPrice;
     }
 
-    public function setName(?string $name): void
+    public function setCountry(?string $country): void
     {
-        $this->name = $name;
+        $this->country = $country;
     }
 
     public function setState(?string $state): void

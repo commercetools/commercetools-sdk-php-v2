@@ -18,11 +18,6 @@ final class ImageBuilder implements Builder
     /**
      * @var ?string
      */
-    private $label;
-
-    /**
-     * @var ?string
-     */
     private $url;
 
     /**
@@ -31,12 +26,9 @@ final class ImageBuilder implements Builder
     private $dimensions;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getLabel()
-    {
-        return $this->label;
-    }
+    private $label;
 
     /**
      * @return null|string
@@ -55,13 +47,11 @@ final class ImageBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withLabel(?string $label)
+    public function getLabel()
     {
-        $this->label = $label;
-
-        return $this;
+        return $this->label;
     }
 
     /**
@@ -87,6 +77,16 @@ final class ImageBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLabel(?string $label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withDimensionsBuilder(?AssetDimensionsBuilder $dimensions)
     {
         $this->dimensions = $dimensions;
@@ -97,9 +97,9 @@ final class ImageBuilder implements Builder
     public function build(): Image
     {
         return new ImageModel(
-            $this->label,
             $this->url,
-            ($this->dimensions instanceof AssetDimensionsBuilder ? $this->dimensions->build() : $this->dimensions)
+            ($this->dimensions instanceof AssetDimensionsBuilder ? $this->dimensions->build() : $this->dimensions),
+            $this->label
         );
     }
 

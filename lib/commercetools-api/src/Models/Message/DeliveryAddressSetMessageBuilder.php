@@ -25,16 +25,6 @@ use DateTimeImmutable;
 final class DeliveryAddressSetMessageBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -45,14 +35,24 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
 
     /**
      * @var ?int
@@ -65,19 +65,14 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     private $resource;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
-     */
-    private $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     private $resourceVersion;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
-    private $oldAddress;
+    private $resourceUserProvidedIdentifiers;
 
     /**
      * @var ?string
@@ -90,20 +85,9 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     private $address;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var Address|?AddressBuilder
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $oldAddress;
 
     /**
      * @return null|string
@@ -122,11 +106,19 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -135,6 +127,14 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     public function getLastModifiedBy()
     {
         return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -154,14 +154,6 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -170,11 +162,11 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|Address
+     * @return null|UserProvidedIdentifiers
      */
-    public function getOldAddress()
+    public function getResourceUserProvidedIdentifiers()
     {
-        return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
     }
 
     /**
@@ -194,23 +186,11 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Address
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getOldAddress()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
     }
 
     /**
@@ -236,9 +216,19 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -249,6 +239,16 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -276,16 +276,6 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
-    {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
@@ -296,9 +286,9 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldAddress(?Address $oldAddress)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
-        $this->oldAddress = $oldAddress;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
 
         return $this;
     }
@@ -326,9 +316,9 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withOldAddress(?Address $oldAddress)
     {
-        $this->createdBy = $createdBy;
+        $this->oldAddress = $oldAddress;
 
         return $this;
     }
@@ -339,6 +329,16 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -366,16 +366,6 @@ final class DeliveryAddressSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldAddressBuilder(?AddressBuilder $oldAddress)
-    {
-        $this->oldAddress = $oldAddress;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withAddressBuilder(?AddressBuilder $address)
     {
         $this->address = $address;
@@ -383,22 +373,32 @@ final class DeliveryAddressSetMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withOldAddressBuilder(?AddressBuilder $oldAddress)
+    {
+        $this->oldAddress = $oldAddress;
+
+        return $this;
+    }
+
     public function build(): DeliveryAddressSetMessage
     {
         return new DeliveryAddressSetMessageModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress),
+            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->deliveryId,
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
+            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
+            ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress)
         );
     }
 

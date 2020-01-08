@@ -22,19 +22,19 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     /**
      * @var ?string
      */
-    protected $oldPaymentState;
+    protected $paymentState;
 
     /**
      * @var ?string
      */
-    protected $paymentState;
+    protected $oldPaymentState;
 
     public function __construct(
-        string $oldPaymentState = null,
-        string $paymentState = null
+        string $paymentState = null,
+        string $oldPaymentState = null
     ) {
-        $this->oldPaymentState = $oldPaymentState;
         $this->paymentState = $paymentState;
+        $this->oldPaymentState = $oldPaymentState;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,23 +58,6 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
     /**
      * @return null|string
      */
-    public function getOldPaymentState()
-    {
-        if (is_null($this->oldPaymentState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderPaymentStateChangedMessagePayload::FIELD_OLD_PAYMENT_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldPaymentState = (string) $data;
-        }
-
-        return $this->oldPaymentState;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getPaymentState()
     {
         if (is_null($this->paymentState)) {
@@ -89,13 +72,30 @@ final class OrderPaymentStateChangedMessagePayloadModel extends JsonObjectModel 
         return $this->paymentState;
     }
 
-    public function setOldPaymentState(?string $oldPaymentState): void
+    /**
+     * @return null|string
+     */
+    public function getOldPaymentState()
     {
-        $this->oldPaymentState = $oldPaymentState;
+        if (is_null($this->oldPaymentState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderPaymentStateChangedMessagePayload::FIELD_OLD_PAYMENT_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldPaymentState = (string) $data;
+        }
+
+        return $this->oldPaymentState;
     }
 
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
+    }
+
+    public function setOldPaymentState(?string $oldPaymentState): void
+    {
+        $this->oldPaymentState = $oldPaymentState;
     }
 }

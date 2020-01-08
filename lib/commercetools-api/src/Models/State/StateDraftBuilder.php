@@ -18,14 +18,14 @@ use Commercetools\Base\Builder;
 final class StateDraftBuilder implements Builder
 {
     /**
-     * @var ?bool
+     * @var ?string
      */
-    private $initial;
+    private $key;
 
     /**
-     * @var ?array
+     * @var ?string
      */
-    private $roles;
+    private $type;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -38,34 +38,34 @@ final class StateDraftBuilder implements Builder
     private $description;
 
     /**
+     * @var ?bool
+     */
+    private $initial;
+
+    /**
+     * @var ?array
+     */
+    private $roles;
+
+    /**
      * @var ?StateResourceIdentifierCollection
      */
     private $transitions;
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $type;
-
-    /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
-     * @return null|bool
-     */
-    public function getInitial()
+    public function getKey()
     {
-        return $this->initial;
+        return $this->key;
     }
 
     /**
-     * @return null|array
+     * @return null|string
      */
-    public function getRoles()
+    public function getType()
     {
-        return $this->roles;
+        return $this->type;
     }
 
     /**
@@ -85,6 +85,22 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
+     * @return null|bool
+     */
+    public function getInitial()
+    {
+        return $this->initial;
+    }
+
+    /**
+     * @return null|array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
      * @return null|StateResourceIdentifierCollection
      */
     public function getTransitions()
@@ -93,27 +109,11 @@ final class StateDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
      * @return $this
      */
-    public function withInitial(?bool $initial)
+    public function withKey(?string $key)
     {
-        $this->initial = $initial;
+        $this->key = $key;
 
         return $this;
     }
@@ -121,9 +121,9 @@ final class StateDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withRoles(?array $roles)
+    public function withType(?string $type)
     {
-        $this->roles = $roles;
+        $this->type = $type;
 
         return $this;
     }
@@ -151,29 +151,29 @@ final class StateDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withInitial(?bool $initial)
+    {
+        $this->initial = $initial;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withRoles(?array $roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTransitions(?StateResourceIdentifierCollection $transitions)
     {
         $this->transitions = $transitions;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
 
         return $this;
     }
@@ -201,13 +201,13 @@ final class StateDraftBuilder implements Builder
     public function build(): StateDraft
     {
         return new StateDraftModel(
-            $this->initial,
-            $this->roles,
+            $this->key,
+            $this->type,
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->transitions,
-            $this->type,
-            $this->key
+            $this->initial,
+            $this->roles,
+            $this->transitions
         );
     }
 

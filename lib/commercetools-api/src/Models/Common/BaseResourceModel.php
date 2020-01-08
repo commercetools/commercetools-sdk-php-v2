@@ -15,16 +15,6 @@ use DateTimeImmutable;
 final class BaseResourceModel extends JsonObjectModel implements BaseResource
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -34,16 +24,60 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
      */
     protected $version;
 
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
+
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
-        int $version = null
+        int $version = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(BaseResource::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(BaseResource::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -88,38 +122,14 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
         return $this->lastModifiedAt;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getId()
+    public function setId(?string $id): void
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(BaseResource::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
+        $this->id = $id;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getVersion()
+    public function setVersion(?int $version): void
     {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(BaseResource::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -130,16 +140,6 @@ final class BaseResourceModel extends JsonObjectModel implements BaseResource
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
-    }
-
-    public function setId(?string $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
     }
 
     public function jsonSerialize()

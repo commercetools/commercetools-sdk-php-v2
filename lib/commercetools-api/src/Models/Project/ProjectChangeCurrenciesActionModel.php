@@ -49,6 +49,8 @@ final class ProjectChangeCurrenciesActionModel extends JsonObjectModel implement
     }
 
     /**
+     * <p>A three-digit currency code as per currency code.</p>.
+     *
      * @return null|array
      */
     public function getCurrencies()

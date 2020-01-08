@@ -14,38 +14,21 @@ use stdClass;
 final class ShippingMethodUpdateModel extends JsonObjectModel implements ShippingMethodUpdate
 {
     /**
-     * @var ?ShippingMethodUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        ShippingMethodUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|ShippingMethodUpdateActionCollection
+     * @var ?ShippingMethodUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShippingMethodUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = ShippingMethodUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        ShippingMethodUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class ShippingMethodUpdateModel extends JsonObjectModel implements Shippin
         return $this->version;
     }
 
-    public function setActions(?ShippingMethodUpdateActionCollection $actions): void
+    /**
+     * @return null|ShippingMethodUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShippingMethodUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = ShippingMethodUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?ShippingMethodUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

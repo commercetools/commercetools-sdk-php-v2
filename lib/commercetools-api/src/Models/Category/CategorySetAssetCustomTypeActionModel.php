@@ -29,9 +29,9 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     protected $assetId;
 
     /**
-     * @var ?JsonObject
+     * @var ?string
      */
-    protected $fields;
+    protected $assetKey;
 
     /**
      * @var ?TypeResourceIdentifier
@@ -39,20 +39,20 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     protected $type;
 
     /**
-     * @var ?string
+     * @var ?JsonObject
      */
-    protected $assetKey;
+    protected $fields;
 
     public function __construct(
         string $assetId = null,
-        JsonObject $fields = null,
+        string $assetKey = null,
         TypeResourceIdentifier $type = null,
-        string $assetKey = null
+        JsonObject $fields = null
     ) {
         $this->assetId = $assetId;
-        $this->fields = $fields;
-        $this->type = $type;
         $this->assetKey = $assetKey;
+        $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -91,23 +91,26 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|string
      */
-    public function getFields()
+    public function getAssetKey()
     {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategorySetAssetCustomTypeAction::FIELD_FIELDS);
+        if (is_null($this->assetKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategorySetAssetCustomTypeAction::FIELD_ASSET_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->fields = JsonObjectModel::of($data);
+            $this->assetKey = (string) $data;
         }
 
-        return $this->fields;
+        return $this->assetKey;
     }
 
     /**
+     * <p>If set, the custom type is set to this new value.
+     * If absent, the custom type and any existing custom fields are removed.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -126,20 +129,22 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
     }
 
     /**
-     * @return null|string
+     * <p>If set, the custom fields are set to this new value.</p>.
+     *
+     * @return null|JsonObject
      */
-    public function getAssetKey()
+    public function getFields()
     {
-        if (is_null($this->assetKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetCustomTypeAction::FIELD_ASSET_KEY);
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategorySetAssetCustomTypeAction::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
-            $this->assetKey = (string) $data;
+            $this->fields = JsonObjectModel::of($data);
         }
 
-        return $this->assetKey;
+        return $this->fields;
     }
 
     public function setAssetId(?string $assetId): void
@@ -147,9 +152,9 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
         $this->assetId = $assetId;
     }
 
-    public function setFields(?JsonObject $fields): void
+    public function setAssetKey(?string $assetKey): void
     {
-        $this->fields = $fields;
+        $this->assetKey = $assetKey;
     }
 
     public function setType(?TypeResourceIdentifier $type): void
@@ -157,8 +162,8 @@ final class CategorySetAssetCustomTypeActionModel extends JsonObjectModel implem
         $this->type = $type;
     }
 
-    public function setAssetKey(?string $assetKey): void
+    public function setFields(?JsonObject $fields): void
     {
-        $this->assetKey = $assetKey;
+        $this->fields = $fields;
     }
 }

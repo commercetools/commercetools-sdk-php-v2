@@ -13,38 +13,21 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implements CustomerCreatePasswordResetToken
 {
     /**
-     * @var ?int
-     */
-    protected $ttlMinutes;
-
-    /**
      * @var ?string
      */
     protected $email;
 
-    public function __construct(
-        int $ttlMinutes = null,
-        string $email = null
-    ) {
-        $this->ttlMinutes = $ttlMinutes;
-        $this->email = $email;
-    }
-
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getTtlMinutes()
-    {
-        if (is_null($this->ttlMinutes)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerCreatePasswordResetToken::FIELD_TTL_MINUTES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->ttlMinutes = (int) $data;
-        }
+    protected $ttlMinutes;
 
-        return $this->ttlMinutes;
+    public function __construct(
+        string $email = null,
+        int $ttlMinutes = null
+    ) {
+        $this->email = $email;
+        $this->ttlMinutes = $ttlMinutes;
     }
 
     /**
@@ -64,13 +47,30 @@ final class CustomerCreatePasswordResetTokenModel extends JsonObjectModel implem
         return $this->email;
     }
 
-    public function setTtlMinutes(?int $ttlMinutes): void
+    /**
+     * @return null|int
+     */
+    public function getTtlMinutes()
     {
-        $this->ttlMinutes = $ttlMinutes;
+        if (is_null($this->ttlMinutes)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomerCreatePasswordResetToken::FIELD_TTL_MINUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->ttlMinutes = (int) $data;
+        }
+
+        return $this->ttlMinutes;
     }
 
     public function setEmail(?string $email): void
     {
         $this->email = $email;
+    }
+
+    public function setTtlMinutes(?int $ttlMinutes): void
+    {
+        $this->ttlMinutes = $ttlMinutes;
     }
 }

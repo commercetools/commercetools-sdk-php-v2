@@ -14,39 +14,21 @@ use stdClass;
 final class CustomFieldsModel extends JsonObjectModel implements CustomFields
 {
     /**
-     * @var ?FieldContainer
-     */
-    protected $fields;
-
-    /**
      * @var ?TypeReference
      */
     protected $type;
 
-    public function __construct(
-        FieldContainer $fields = null,
-        TypeReference $type = null
-    ) {
-        $this->fields = $fields;
-        $this->type = $type;
-    }
-
     /**
-     * @return null|FieldContainer
+     * @var ?FieldContainer
      */
-    public function getFields()
-    {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomFields::FIELD_FIELDS);
-            if (is_null($data)) {
-                return null;
-            }
+    protected $fields;
 
-            $this->fields = FieldContainerModel::of($data);
-        }
-
-        return $this->fields;
+    public function __construct(
+        TypeReference $type = null,
+        FieldContainer $fields = null
+    ) {
+        $this->type = $type;
+        $this->fields = $fields;
     }
 
     /**
@@ -67,13 +49,33 @@ final class CustomFieldsModel extends JsonObjectModel implements CustomFields
         return $this->type;
     }
 
-    public function setFields(?FieldContainer $fields): void
+    /**
+     * <p>A valid JSON object, based on FieldDefinition.</p>.
+     *
+     * @return null|FieldContainer
+     */
+    public function getFields()
     {
-        $this->fields = $fields;
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomFields::FIELD_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fields = FieldContainerModel::of($data);
+        }
+
+        return $this->fields;
     }
 
     public function setType(?TypeReference $type): void
     {
         $this->type = $type;
+    }
+
+    public function setFields(?FieldContainer $fields): void
+    {
+        $this->fields = $fields;
     }
 }

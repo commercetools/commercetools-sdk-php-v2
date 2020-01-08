@@ -21,16 +21,6 @@ use stdClass;
 final class CustomObjectModel extends JsonObjectModel implements CustomObject
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -41,9 +31,14 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -51,40 +46,79 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     protected $lastModifiedBy;
 
     /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
      * @var ?string
      */
     protected $container;
-
-    /**
-     * @var ?JsonObject
-     */
-    protected $value;
 
     /**
      * @var ?string
      */
     protected $key;
 
+    /**
+     * @var ?JsonObject
+     */
+    protected $value;
+
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
+        CreatedBy $createdBy = null,
         string $container = null,
-        JsonObject $value = null,
-        string $key = null
+        string $key = null,
+        JsonObject $value = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
         $this->container = $container;
-        $this->value = $value;
         $this->key = $key;
+        $this->value = $value;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomObject::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomObject::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -130,37 +164,21 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomObject::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomObject::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CustomObject::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -182,24 +200,8 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
     }
 
     /**
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomObject::FIELD_LAST_MODIFIED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
-        }
-
-        return $this->lastModifiedBy;
-    }
-
-    /**
+     * <p>A namespace to group custom objects.</p>.
+     *
      * @return null|string
      */
     public function getContainer()
@@ -214,23 +216,6 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
         }
 
         return $this->container;
-    }
-
-    /**
-     * @return null|JsonObject
-     */
-    public function getValue()
-    {
-        if (is_null($this->value)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(CustomObject::FIELD_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->value = JsonObjectModel::of($data);
-        }
-
-        return $this->value;
     }
 
     /**
@@ -250,14 +235,21 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
         return $this->key;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    /**
+     * @return null|JsonObject
+     */
+    public function getValue()
     {
-        $this->createdAt = $createdAt;
-    }
+        if (is_null($this->value)) {
+            /** @psalm-var ?stdClass $data */
+            $data = $this->raw(CustomObject::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->value = JsonObjectModel::of($data);
+        }
 
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->value;
     }
 
     public function setId(?string $id): void
@@ -270,9 +262,14 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
@@ -280,19 +277,24 @@ final class CustomObjectModel extends JsonObjectModel implements CustomObject
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
+    }
+
     public function setContainer(?string $container): void
     {
         $this->container = $container;
     }
 
-    public function setValue(?JsonObject $value): void
-    {
-        $this->value = $value;
-    }
-
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    public function setValue(?JsonObject $value): void
+    {
+        $this->value = $value;
     }
 
     public function jsonSerialize()

@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Cart;
 
-use Commercetools\Api\Models\Common\TypedMoneyDraft;
-use Commercetools\Api\Models\Common\TypedMoneyDraftBuilder;
+use Commercetools\Api\Models\Common\Money;
+use Commercetools\Api\Models\Common\MoneyBuilder;
 use Commercetools\Base\Builder;
 
 /**
@@ -18,9 +18,9 @@ use Commercetools\Base\Builder;
 final class TaxPortionDraftBuilder implements Builder
 {
     /**
-     * @var TypedMoneyDraft|?TypedMoneyDraftBuilder
+     * @var ?string
      */
-    private $amount;
+    private $name;
 
     /**
      * @var ?int
@@ -28,16 +28,16 @@ final class TaxPortionDraftBuilder implements Builder
     private $rate;
 
     /**
-     * @var ?string
+     * @var Money|?MoneyBuilder
      */
-    private $name;
+    private $amount;
 
     /**
-     * @return null|TypedMoneyDraft
+     * @return null|string
      */
-    public function getAmount()
+    public function getName()
     {
-        return $this->amount instanceof TypedMoneyDraftBuilder ? $this->amount->build() : $this->amount;
+        return $this->name;
     }
 
     /**
@@ -49,19 +49,19 @@ final class TaxPortionDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|Money
      */
-    public function getName()
+    public function getAmount()
     {
-        return $this->name;
+        return $this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount;
     }
 
     /**
      * @return $this
      */
-    public function withAmount(?TypedMoneyDraft $amount)
+    public function withName(?string $name)
     {
-        $this->amount = $amount;
+        $this->name = $name;
 
         return $this;
     }
@@ -79,9 +79,9 @@ final class TaxPortionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withAmount(?Money $amount)
     {
-        $this->name = $name;
+        $this->amount = $amount;
 
         return $this;
     }
@@ -89,7 +89,7 @@ final class TaxPortionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmountBuilder(?TypedMoneyDraftBuilder $amount)
+    public function withAmountBuilder(?MoneyBuilder $amount)
     {
         $this->amount = $amount;
 
@@ -99,9 +99,9 @@ final class TaxPortionDraftBuilder implements Builder
     public function build(): TaxPortionDraft
     {
         return new TaxPortionDraftModel(
-            ($this->amount instanceof TypedMoneyDraftBuilder ? $this->amount->build() : $this->amount),
+            $this->name,
             $this->rate,
-            $this->name
+            ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount)
         );
     }
 

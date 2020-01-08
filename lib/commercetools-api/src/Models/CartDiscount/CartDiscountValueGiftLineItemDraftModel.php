@@ -30,14 +30,14 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     protected $product;
 
     /**
-     * @var ?ChannelReference
-     */
-    protected $supplyChannel;
-
-    /**
      * @var ?int
      */
     protected $variantId;
+
+    /**
+     * @var ?ChannelReference
+     */
+    protected $supplyChannel;
 
     /**
      * @var ?ChannelReference
@@ -46,13 +46,13 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
 
     public function __construct(
         ProductReference $product = null,
-        ChannelReference $supplyChannel = null,
         int $variantId = null,
+        ChannelReference $supplyChannel = null,
         ChannelReference $distributionChannel = null
     ) {
         $this->product = $product;
-        $this->supplyChannel = $supplyChannel;
         $this->variantId = $variantId;
+        $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
@@ -93,6 +93,23 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
     }
 
     /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CartDiscountValueGiftLineItemDraft::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
+    }
+
+    /**
      * @return null|ChannelReference
      */
     public function getSupplyChannel()
@@ -108,23 +125,6 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
         }
 
         return $this->supplyChannel;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CartDiscountValueGiftLineItemDraft::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
     }
 
     /**
@@ -150,14 +150,14 @@ final class CartDiscountValueGiftLineItemDraftModel extends JsonObjectModel impl
         $this->product = $product;
     }
 
-    public function setSupplyChannel(?ChannelReference $supplyChannel): void
-    {
-        $this->supplyChannel = $supplyChannel;
-    }
-
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
+    }
+
+    public function setSupplyChannel(?ChannelReference $supplyChannel): void
+    {
+        $this->supplyChannel = $supplyChannel;
     }
 
     public function setDistributionChannel(?ChannelReference $distributionChannel): void

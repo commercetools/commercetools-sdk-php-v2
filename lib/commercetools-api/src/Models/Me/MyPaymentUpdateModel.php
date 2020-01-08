@@ -14,38 +14,21 @@ use stdClass;
 final class MyPaymentUpdateModel extends JsonObjectModel implements MyPaymentUpdate
 {
     /**
-     * @var ?MyPaymentUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        MyPaymentUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|MyPaymentUpdateActionCollection
+     * @var ?MyPaymentUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyPaymentUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = MyPaymentUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        MyPaymentUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class MyPaymentUpdateModel extends JsonObjectModel implements MyPaymentUpd
         return $this->version;
     }
 
-    public function setActions(?MyPaymentUpdateActionCollection $actions): void
+    /**
+     * @return null|MyPaymentUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(MyPaymentUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = MyPaymentUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?MyPaymentUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

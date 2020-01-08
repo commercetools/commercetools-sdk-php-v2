@@ -21,6 +21,8 @@ final class ProjectChangeLanguagesActionBuilder implements Builder
     private $languages;
 
     /**
+     * <p>.</p>.
+     *
      * @return null|array
      */
     public function getLanguages()

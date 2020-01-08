@@ -23,9 +23,9 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     protected $type;
 
     /**
-     * @var ?OrderExcerpt
+     * @var ?DateTimeImmutable
      */
-    protected $excerptAfterEdit;
+    protected $appliedAt;
 
     /**
      * @var ?OrderExcerpt
@@ -33,18 +33,18 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
     protected $excerptBeforeEdit;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?OrderExcerpt
      */
-    protected $appliedAt;
+    protected $excerptAfterEdit;
 
     public function __construct(
-        OrderExcerpt $excerptAfterEdit = null,
+        DateTimeImmutable $appliedAt = null,
         OrderExcerpt $excerptBeforeEdit = null,
-        DateTimeImmutable $appliedAt = null
+        OrderExcerpt $excerptAfterEdit = null
     ) {
-        $this->excerptAfterEdit = $excerptAfterEdit;
-        $this->excerptBeforeEdit = $excerptBeforeEdit;
         $this->appliedAt = $appliedAt;
+        $this->excerptBeforeEdit = $excerptBeforeEdit;
+        $this->excerptAfterEdit = $excerptAfterEdit;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -63,42 +63,6 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
         }
 
         return $this->type;
-    }
-
-    /**
-     * @return null|OrderExcerpt
-     */
-    public function getExcerptAfterEdit()
-    {
-        if (is_null($this->excerptAfterEdit)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditApplied::FIELD_EXCERPT_AFTER_EDIT);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->excerptAfterEdit = OrderExcerptModel::of($data);
-        }
-
-        return $this->excerptAfterEdit;
-    }
-
-    /**
-     * @return null|OrderExcerpt
-     */
-    public function getExcerptBeforeEdit()
-    {
-        if (is_null($this->excerptBeforeEdit)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditApplied::FIELD_EXCERPT_BEFORE_EDIT);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->excerptBeforeEdit = OrderExcerptModel::of($data);
-        }
-
-        return $this->excerptBeforeEdit;
     }
 
     /**
@@ -122,9 +86,45 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
         return $this->appliedAt;
     }
 
-    public function setExcerptAfterEdit(?OrderExcerpt $excerptAfterEdit): void
+    /**
+     * @return null|OrderExcerpt
+     */
+    public function getExcerptBeforeEdit()
     {
-        $this->excerptAfterEdit = $excerptAfterEdit;
+        if (is_null($this->excerptBeforeEdit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderEditApplied::FIELD_EXCERPT_BEFORE_EDIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->excerptBeforeEdit = OrderExcerptModel::of($data);
+        }
+
+        return $this->excerptBeforeEdit;
+    }
+
+    /**
+     * @return null|OrderExcerpt
+     */
+    public function getExcerptAfterEdit()
+    {
+        if (is_null($this->excerptAfterEdit)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderEditApplied::FIELD_EXCERPT_AFTER_EDIT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->excerptAfterEdit = OrderExcerptModel::of($data);
+        }
+
+        return $this->excerptAfterEdit;
+    }
+
+    public function setAppliedAt(?DateTimeImmutable $appliedAt): void
+    {
+        $this->appliedAt = $appliedAt;
     }
 
     public function setExcerptBeforeEdit(?OrderExcerpt $excerptBeforeEdit): void
@@ -132,9 +132,9 @@ final class OrderEditAppliedModel extends JsonObjectModel implements OrderEditAp
         $this->excerptBeforeEdit = $excerptBeforeEdit;
     }
 
-    public function setAppliedAt(?DateTimeImmutable $appliedAt): void
+    public function setExcerptAfterEdit(?OrderExcerpt $excerptAfterEdit): void
     {
-        $this->appliedAt = $appliedAt;
+        $this->excerptAfterEdit = $excerptAfterEdit;
     }
 
     public function jsonSerialize()

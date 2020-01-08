@@ -23,21 +23,21 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
     protected $action;
 
     /**
-     * @var ?DeliveryItemCollection
-     */
-    protected $items;
-
-    /**
      * @var ?string
      */
     protected $parcelId;
 
+    /**
+     * @var ?DeliveryItemCollection
+     */
+    protected $items;
+
     public function __construct(
-        DeliveryItemCollection $items = null,
-        string $parcelId = null
+        string $parcelId = null,
+        DeliveryItemCollection $items = null
     ) {
-        $this->items = $items;
         $this->parcelId = $parcelId;
+        $this->items = $items;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,23 +59,6 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * @return null|DeliveryItemCollection
-     */
-    public function getItems()
-    {
-        if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(StagedOrderSetParcelItemsAction::FIELD_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->items = DeliveryItemCollection::fromArray($data);
-        }
-
-        return $this->items;
-    }
-
-    /**
      * @return null|string
      */
     public function getParcelId()
@@ -92,13 +75,30 @@ final class StagedOrderSetParcelItemsActionModel extends JsonObjectModel impleme
         return $this->parcelId;
     }
 
-    public function setItems(?DeliveryItemCollection $items): void
+    /**
+     * @return null|DeliveryItemCollection
+     */
+    public function getItems()
     {
-        $this->items = $items;
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(StagedOrderSetParcelItemsAction::FIELD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->items = DeliveryItemCollection::fromArray($data);
+        }
+
+        return $this->items;
     }
 
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
+    }
+
+    public function setItems(?DeliveryItemCollection $items): void
+    {
+        $this->items = $items;
     }
 }

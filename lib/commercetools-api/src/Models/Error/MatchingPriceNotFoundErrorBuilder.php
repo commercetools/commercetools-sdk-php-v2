@@ -27,12 +27,22 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $country;
+    private $productId;
+
+    /**
+     * @var ?int
+     */
+    private $variantId;
 
     /**
      * @var ?string
      */
-    private $productId;
+    private $currency;
+
+    /**
+     * @var ?string
+     */
+    private $country;
 
     /**
      * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
@@ -45,16 +55,6 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     private $channel;
 
     /**
-     * @var ?string
-     */
-    private $currency;
-
-    /**
-     * @var ?int
-     */
-    private $variantId;
-
-    /**
      * @return null|string
      */
     public function getMessage()
@@ -65,17 +65,33 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getCountry()
+    public function getProductId()
     {
-        return $this->country;
+        return $this->productId;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        return $this->variantId;
     }
 
     /**
      * @return null|string
      */
-    public function getProductId()
+    public function getCurrency()
     {
-        return $this->productId;
+        return $this->currency;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        return $this->country;
     }
 
     /**
@@ -95,22 +111,6 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        return $this->variantId;
-    }
-
-    /**
      * @return $this
      */
     public function withMessage(?string $message)
@@ -123,9 +123,9 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCountry(?string $country)
+    public function withProductId(?string $productId)
     {
-        $this->country = $country;
+        $this->productId = $productId;
 
         return $this;
     }
@@ -133,9 +133,29 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductId(?string $productId)
+    public function withVariantId(?int $variantId)
     {
-        $this->productId = $productId;
+        $this->variantId = $variantId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCurrency(?string $currency)
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCountry(?string $country)
+    {
+        $this->country = $country;
 
         return $this;
     }
@@ -156,26 +176,6 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     public function withChannel(?ChannelReference $channel)
     {
         $this->channel = $channel;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCurrency(?string $currency)
-    {
-        $this->currency = $currency;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withVariantId(?int $variantId)
-    {
-        $this->variantId = $variantId;
 
         return $this;
     }
@@ -204,12 +204,12 @@ final class MatchingPriceNotFoundErrorBuilder implements Builder
     {
         return new MatchingPriceNotFoundErrorModel(
             $this->message,
-            $this->country,
             $this->productId,
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel),
+            $this->variantId,
             $this->currency,
-            $this->variantId
+            $this->country,
+            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
+            ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel)
         );
     }
 

@@ -18,24 +18,18 @@ use Commercetools\Base\Builder;
 final class ExternalTaxAmountDraftBuilder implements Builder
 {
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
-     */
-    private $taxRate;
-
-    /**
      * @var Money|?MoneyBuilder
      */
     private $totalGross;
 
     /**
-     * @return null|ExternalTaxRateDraft
+     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
-    public function getTaxRate()
-    {
-        return $this->taxRate instanceof ExternalTaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate;
-    }
+    private $taxRate;
 
     /**
+     * <p>The total gross amount of the item (totalNet + taxes).</p>.
+     *
      * @return null|Money
      */
     public function getTotalGross()
@@ -44,13 +38,11 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ExternalTaxRateDraft
      */
-    public function withTaxRate(?ExternalTaxRateDraft $taxRate)
+    public function getTaxRate()
     {
-        $this->taxRate = $taxRate;
-
-        return $this;
+        return $this->taxRate instanceof ExternalTaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate;
     }
 
     /**
@@ -66,7 +58,7 @@ final class ExternalTaxAmountDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxRateBuilder(?ExternalTaxRateDraftBuilder $taxRate)
+    public function withTaxRate(?ExternalTaxRateDraft $taxRate)
     {
         $this->taxRate = $taxRate;
 
@@ -83,11 +75,21 @@ final class ExternalTaxAmountDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTaxRateBuilder(?ExternalTaxRateDraftBuilder $taxRate)
+    {
+        $this->taxRate = $taxRate;
+
+        return $this;
+    }
+
     public function build(): ExternalTaxAmountDraft
     {
         return new ExternalTaxAmountDraftModel(
-            ($this->taxRate instanceof ExternalTaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate),
-            ($this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross)
+            ($this->totalGross instanceof MoneyBuilder ? $this->totalGross->build() : $this->totalGross),
+            ($this->taxRate instanceof ExternalTaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate)
         );
     }
 

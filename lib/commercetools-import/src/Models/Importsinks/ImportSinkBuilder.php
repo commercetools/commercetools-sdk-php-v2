@@ -17,21 +17,6 @@ use DateTimeImmutable;
 final class ImportSinkBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
-     * @var ?int
-     */
-    private $version;
-
-    /**
      * @var ?string
      */
     private $key;
@@ -42,34 +27,19 @@ final class ImportSinkBuilder implements Builder
     private $resourceType;
 
     /**
-     * <p>When the import sink was created.</p>.
-     *
-     * @return null|DateTimeImmutable
+     * @var ?int
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
+    private $version;
 
     /**
-     * <p>When the import sink was modified.</p>.
-     *
-     * @return null|DateTimeImmutable
+     * @var ?DateTimeImmutable
      */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $createdAt;
 
     /**
-     * <p>The version of this resource.</p>.
-     *
-     * @return null|int
+     * @var ?DateTimeImmutable
      */
-    public function getVersion()
-    {
-        return $this->version;
-    }
+    private $lastModifiedAt;
 
     /**
      * <p>The unique key of the import sink.</p>.
@@ -93,33 +63,33 @@ final class ImportSinkBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>The version of this resource.</p>.
+     *
+     * @return null|int
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getVersion()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->version;
     }
 
     /**
-     * @return $this
+     * <p>When the import sink was created.</p>.
+     *
+     * @return null|DateTimeImmutable
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getCreatedAt()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->createdAt;
     }
 
     /**
-     * @return $this
+     * <p>When the import sink was modified.</p>.
+     *
+     * @return null|DateTimeImmutable
      */
-    public function withVersion(?int $version)
+    public function getLastModifiedAt()
     {
-        $this->version = $version;
-
-        return $this;
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -142,14 +112,44 @@ final class ImportSinkBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withVersion(?int $version)
+    {
+        $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+
+        return $this;
+    }
+
     public function build(): ImportSink
     {
         return new ImportSinkModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
-            $this->version,
             $this->key,
-            $this->resourceType
+            $this->resourceType,
+            $this->version,
+            $this->createdAt,
+            $this->lastModifiedAt
         );
     }
 

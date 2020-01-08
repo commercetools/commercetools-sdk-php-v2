@@ -24,6 +24,11 @@ final class MyShoppingListSetTextLineItemCustomFieldActionModel extends JsonObje
     /**
      * @var ?string
      */
+    protected $textLineItemId;
+
+    /**
+     * @var ?string
+     */
     protected $name;
 
     /**
@@ -31,19 +36,14 @@ final class MyShoppingListSetTextLineItemCustomFieldActionModel extends JsonObje
      */
     protected $value;
 
-    /**
-     * @var ?string
-     */
-    protected $textLineItemId;
-
     public function __construct(
+        string $textLineItemId = null,
         string $name = null,
-        JsonObject $value = null,
-        string $textLineItemId = null
+        JsonObject $value = null
     ) {
+        $this->textLineItemId = $textLineItemId;
         $this->name = $name;
         $this->value = $value;
-        $this->textLineItemId = $textLineItemId;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -62,6 +62,23 @@ final class MyShoppingListSetTextLineItemCustomFieldActionModel extends JsonObje
         }
 
         return $this->action;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTextLineItemId()
+    {
+        if (is_null($this->textLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyShoppingListSetTextLineItemCustomFieldAction::FIELD_TEXT_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->textLineItemId = (string) $data;
+        }
+
+        return $this->textLineItemId;
     }
 
     /**
@@ -98,21 +115,9 @@ final class MyShoppingListSetTextLineItemCustomFieldActionModel extends JsonObje
         return $this->value;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getTextLineItemId()
+    public function setTextLineItemId(?string $textLineItemId): void
     {
-        if (is_null($this->textLineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListSetTextLineItemCustomFieldAction::FIELD_TEXT_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->textLineItemId = (string) $data;
-        }
-
-        return $this->textLineItemId;
+        $this->textLineItemId = $textLineItemId;
     }
 
     public function setName(?string $name): void
@@ -123,10 +128,5 @@ final class MyShoppingListSetTextLineItemCustomFieldActionModel extends JsonObje
     public function setValue(?JsonObject $value): void
     {
         $this->value = $value;
-    }
-
-    public function setTextLineItemId(?string $textLineItemId): void
-    {
-        $this->textLineItemId = $textLineItemId;
     }
 }

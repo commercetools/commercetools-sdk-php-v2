@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class InventoryEntryUpdateBuilder implements Builder
 {
     /**
-     * @var ?InventoryEntryUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|InventoryEntryUpdateActionCollection
+     * @var ?InventoryEntryUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class InventoryEntryUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|InventoryEntryUpdateActionCollection
      */
-    public function withActions(?InventoryEntryUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class InventoryEntryUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?InventoryEntryUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): InventoryEntryUpdate
     {
         return new InventoryEntryUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

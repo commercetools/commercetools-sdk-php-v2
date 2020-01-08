@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class MessageSubscriptionBuilder implements Builder
 {
     /**
-     * @var ?array
-     */
-    private $types;
-
-    /**
      * @var ?string
      */
     private $resourceTypeId;
 
     /**
-     * @return null|array
+     * @var ?array
      */
-    public function getTypes()
-    {
-        return $this->types;
-    }
+    private $types;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class MessageSubscriptionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|array
      */
-    public function withTypes(?array $types)
+    public function getTypes()
     {
-        $this->types = $types;
-
-        return $this;
+        return $this->types;
     }
 
     /**
@@ -61,11 +51,21 @@ final class MessageSubscriptionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTypes(?array $types)
+    {
+        $this->types = $types;
+
+        return $this;
+    }
+
     public function build(): MessageSubscription
     {
         return new MessageSubscriptionModel(
-            $this->types,
-            $this->resourceTypeId
+            $this->resourceTypeId,
+            $this->types
         );
     }
 

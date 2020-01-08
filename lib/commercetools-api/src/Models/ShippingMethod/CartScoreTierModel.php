@@ -33,25 +33,25 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     protected $price;
 
     /**
-     * @var ?bool
-     */
-    protected $isMatching;
-
-    /**
      * @var ?PriceFunction
      */
     protected $priceFunction;
 
+    /**
+     * @var ?bool
+     */
+    protected $isMatching;
+
     public function __construct(
         int $score = null,
         Money $price = null,
-        bool $isMatching = null,
-        PriceFunction $priceFunction = null
+        PriceFunction $priceFunction = null,
+        bool $isMatching = null
     ) {
         $this->score = $score;
         $this->price = $price;
-        $this->isMatching = $isMatching;
         $this->priceFunction = $priceFunction;
+        $this->isMatching = $isMatching;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -108,23 +108,6 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
     }
 
     /**
-     * @return null|bool
-     */
-    public function getIsMatching()
-    {
-        if (is_null($this->isMatching)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(CartScoreTier::FIELD_IS_MATCHING);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isMatching = (bool) $data;
-        }
-
-        return $this->isMatching;
-    }
-
-    /**
      * @return null|PriceFunction
      */
     public function getPriceFunction()
@@ -142,6 +125,23 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
         return $this->priceFunction;
     }
 
+    /**
+     * @return null|bool
+     */
+    public function getIsMatching()
+    {
+        if (is_null($this->isMatching)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(CartScoreTier::FIELD_IS_MATCHING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isMatching = (bool) $data;
+        }
+
+        return $this->isMatching;
+    }
+
     public function setScore(?int $score): void
     {
         $this->score = $score;
@@ -152,13 +152,13 @@ final class CartScoreTierModel extends JsonObjectModel implements CartScoreTier
         $this->price = $price;
     }
 
-    public function setIsMatching(?bool $isMatching): void
-    {
-        $this->isMatching = $isMatching;
-    }
-
     public function setPriceFunction(?PriceFunction $priceFunction): void
     {
         $this->priceFunction = $priceFunction;
+    }
+
+    public function setIsMatching(?bool $isMatching): void
+    {
+        $this->isMatching = $isMatching;
     }
 }

@@ -23,6 +23,8 @@ final class StoreSetNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>The updated name of the store</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()

@@ -32,19 +32,24 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $key;
 
     /**
+     * @var ?Money
+     */
+    protected $value;
+
+    /**
      * @var ?string
      */
     protected $country;
 
     /**
-     * @var ?ProductKeyReference
+     * @var ?DateTimeImmutable
      */
-    protected $product;
+    protected $validFrom;
 
     /**
-     * @var ?ProductVariantKeyReference
+     * @var ?DateTimeImmutable
      */
-    protected $productVariant;
+    protected $validUntil;
 
     /**
      * @var ?CustomerGroupKeyReference
@@ -57,40 +62,35 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     protected $channel;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?ProductVariantKeyReference
      */
-    protected $validUntil;
+    protected $productVariant;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?ProductKeyReference
      */
-    protected $validFrom;
-
-    /**
-     * @var ?Money
-     */
-    protected $value;
+    protected $product;
 
     public function __construct(
         string $key = null,
+        Money $value = null,
         string $country = null,
-        ProductKeyReference $product = null,
-        ProductVariantKeyReference $productVariant = null,
+        DateTimeImmutable $validFrom = null,
+        DateTimeImmutable $validUntil = null,
         CustomerGroupKeyReference $customerGroup = null,
         ChannelKeyReference $channel = null,
-        DateTimeImmutable $validUntil = null,
-        DateTimeImmutable $validFrom = null,
-        Money $value = null
+        ProductVariantKeyReference $productVariant = null,
+        ProductKeyReference $product = null
     ) {
         $this->key = $key;
+        $this->value = $value;
         $this->country = $country;
-        $this->product = $product;
-        $this->productVariant = $productVariant;
+        $this->validFrom = $validFrom;
+        $this->validUntil = $validUntil;
         $this->customerGroup = $customerGroup;
         $this->channel = $channel;
-        $this->validUntil = $validUntil;
-        $this->validFrom = $validFrom;
-        $this->value = $value;
+        $this->productVariant = $productVariant;
+        $this->product = $product;
     }
 
     /**
@@ -108,6 +108,27 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         }
 
         return $this->key;
+    }
+
+    /**
+     * <p>Maps to <code>Price.value</code>.</p>
+     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>.
+     *
+     * @return null|Money
+     */
+    public function getValue()
+    {
+        if (is_null($this->value)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(PriceImport::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->value = MoneyModel::of($data);
+        }
+
+        return $this->value;
     }
 
     /**
@@ -130,49 +151,49 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * <p>The product in which this product variant containong the price is contained. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * <p>Maps to <code>Price.validFrom</code>.</p>.
      *
-     * @return null|ProductKeyReference
+     * @return null|DateTimeImmutable
      */
-    public function getProduct()
+    public function getValidFrom()
     {
-        if (is_null($this->product)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PriceImport::FIELD_PRODUCT);
+        if (is_null($this->validFrom)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PriceImport::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->product = ProductKeyReferenceModel::of($data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validFrom = $data;
         }
 
-        return $this->product;
+        return $this->validFrom;
     }
 
     /**
-     * <p>The product variant in which this price is contained.</p>
-     * <p>The product variant referenced
-     * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * <p>Maps to <code>Price.validUntil</code>.</p>.
      *
-     * @return null|ProductVariantKeyReference
+     * @return null|DateTimeImmutable
      */
-    public function getProductVariant()
+    public function getValidUntil()
     {
-        if (is_null($this->productVariant)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PriceImport::FIELD_PRODUCT_VARIANT);
+        if (is_null($this->validUntil)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PriceImport::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->productVariant = ProductVariantKeyReferenceModel::of($data);
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validUntil = $data;
         }
 
-        return $this->productVariant;
+        return $this->validUntil;
     }
 
     /**
@@ -222,70 +243,49 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
     }
 
     /**
-     * <p>Maps to <code>Price.validUntil</code>.</p>.
+     * <p>The product variant in which this price is contained.</p>
+     * <p>The product variant referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|DateTimeImmutable
+     * @return null|ProductVariantKeyReference
      */
-    public function getValidUntil()
+    public function getProductVariant()
     {
-        if (is_null($this->validUntil)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PriceImport::FIELD_VALID_UNTIL);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->validUntil = $data;
-        }
-
-        return $this->validUntil;
-    }
-
-    /**
-     * <p>Maps to <code>Price.validFrom</code>.</p>.
-     *
-     * @return null|DateTimeImmutable
-     */
-    public function getValidFrom()
-    {
-        if (is_null($this->validFrom)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PriceImport::FIELD_VALID_FROM);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->validFrom = $data;
-        }
-
-        return $this->validFrom;
-    }
-
-    /**
-     * <p>Maps to <code>Price.value</code>.</p>
-     * <p>The Import API <strong>only</strong> supports <code>centPrecision</code> prices.</p>.
-     *
-     * @return null|Money
-     */
-    public function getValue()
-    {
-        if (is_null($this->value)) {
+        if (is_null($this->productVariant)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PriceImport::FIELD_VALUE);
+            $data = $this->raw(PriceImport::FIELD_PRODUCT_VARIANT);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->value = MoneyModel::of($data);
+            $this->productVariant = ProductVariantKeyReferenceModel::of($data);
         }
 
-        return $this->value;
+        return $this->productVariant;
+    }
+
+    /**
+     * <p>The product in which this product variant containong the price is contained. Maps to <code>ProductVariant.product</code>.</p>
+     * <p>The product referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|ProductKeyReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(PriceImport::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductKeyReferenceModel::of($data);
+        }
+
+        return $this->product;
     }
 
     public function setKey(?string $key): void
@@ -293,19 +293,24 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->key = $key;
     }
 
+    public function setValue(?Money $value): void
+    {
+        $this->value = $value;
+    }
+
     public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
 
-    public function setProduct(?ProductKeyReference $product): void
+    public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
-        $this->product = $product;
+        $this->validFrom = $validFrom;
     }
 
-    public function setProductVariant(?ProductVariantKeyReference $productVariant): void
+    public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
-        $this->productVariant = $productVariant;
+        $this->validUntil = $validUntil;
     }
 
     public function setCustomerGroup(?CustomerGroupKeyReference $customerGroup): void
@@ -318,30 +323,25 @@ final class PriceImportModel extends JsonObjectModel implements PriceImport
         $this->channel = $channel;
     }
 
-    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    public function setProductVariant(?ProductVariantKeyReference $productVariant): void
     {
-        $this->validUntil = $validUntil;
+        $this->productVariant = $productVariant;
     }
 
-    public function setValidFrom(?DateTimeImmutable $validFrom): void
+    public function setProduct(?ProductKeyReference $product): void
     {
-        $this->validFrom = $validFrom;
-    }
-
-    public function setValue(?Money $value): void
-    {
-        $this->value = $value;
+        $this->product = $product;
     }
 
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[PriceImport::FIELD_VALID_UNTIL]) && $data[PriceImport::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
-            $data[PriceImport::FIELD_VALID_UNTIL] = $data[PriceImport::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
-        }
-
         if (isset($data[PriceImport::FIELD_VALID_FROM]) && $data[PriceImport::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
             $data[PriceImport::FIELD_VALID_FROM] = $data[PriceImport::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[PriceImport::FIELD_VALID_UNTIL]) && $data[PriceImport::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
+            $data[PriceImport::FIELD_VALID_UNTIL] = $data[PriceImport::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

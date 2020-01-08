@@ -26,16 +26,6 @@ use stdClass;
 final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -46,14 +36,39 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?string
+     */
+    protected $code;
 
     /**
      * @var ?CartDiscountReferenceCollection
@@ -63,7 +78,12 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     /**
      * @var ?string
      */
-    protected $code;
+    protected $cartPredicate;
+
+    /**
+     * @var ?bool
+     */
+    protected $isActive;
 
     /**
      * @var ?ReferenceCollection
@@ -71,9 +91,14 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     protected $references;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $cartPredicate;
+    protected $maxApplications;
+
+    /**
+     * @var ?int
+     */
+    protected $maxApplicationsPerCustomer;
 
     /**
      * @var ?CustomFields
@@ -86,80 +111,91 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     protected $groups;
 
     /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-
-    /**
      * @var ?DateTimeImmutable
      */
     protected $validFrom;
-
-    /**
-     * @var ?bool
-     */
-    protected $isActive;
-
-    /**
-     * @var ?int
-     */
-    protected $maxApplications;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
 
     /**
      * @var ?DateTimeImmutable
      */
     protected $validUntil;
 
-    /**
-     * @var ?int
-     */
-    protected $maxApplicationsPerCustomer;
-
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        CartDiscountReferenceCollection $cartDiscounts = null,
+        CreatedBy $createdBy = null,
+        LocalizedString $name = null,
+        LocalizedString $description = null,
         string $code = null,
-        ReferenceCollection $references = null,
+        CartDiscountReferenceCollection $cartDiscounts = null,
         string $cartPredicate = null,
+        bool $isActive = null,
+        ReferenceCollection $references = null,
+        int $maxApplications = null,
+        int $maxApplicationsPerCustomer = null,
         CustomFields $custom = null,
         array $groups = null,
-        LocalizedString $description = null,
         DateTimeImmutable $validFrom = null,
-        bool $isActive = null,
-        int $maxApplications = null,
-        LocalizedString $name = null,
-        DateTimeImmutable $validUntil = null,
-        int $maxApplicationsPerCustomer = null
+        DateTimeImmutable $validUntil = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->cartDiscounts = $cartDiscounts;
+        $this->createdBy = $createdBy;
+        $this->name = $name;
+        $this->description = $description;
         $this->code = $code;
-        $this->references = $references;
+        $this->cartDiscounts = $cartDiscounts;
         $this->cartPredicate = $cartPredicate;
+        $this->isActive = $isActive;
+        $this->references = $references;
+        $this->maxApplications = $maxApplications;
+        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
         $this->custom = $custom;
         $this->groups = $groups;
-        $this->description = $description;
         $this->validFrom = $validFrom;
-        $this->isActive = $isActive;
-        $this->maxApplications = $maxApplications;
-        $this->name = $name;
         $this->validUntil = $validUntil;
-        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
+    }
+
+    /**
+     * <p>The unique ID of the discount code.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCode::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(DiscountCode::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -205,58 +241,8 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCode::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(DiscountCode::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        if (is_null($this->createdBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountCode::FIELD_CREATED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->createdBy = CreatedByModel::of($data);
-        }
-
-        return $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -275,179 +261,23 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     }
 
     /**
-     * @return null|CartDiscountReferenceCollection
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getCartDiscounts()
+    public function getCreatedBy()
     {
-        if (is_null($this->cartDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DiscountCode::FIELD_CART_DISCOUNTS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->cartDiscounts = CartDiscountReferenceCollection::fromArray($data);
-        }
-
-        return $this->cartDiscounts;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        if (is_null($this->code)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCode::FIELD_CODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->code = (string) $data;
-        }
-
-        return $this->code;
-    }
-
-    /**
-     * @return null|ReferenceCollection
-     */
-    public function getReferences()
-    {
-        if (is_null($this->references)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DiscountCode::FIELD_REFERENCES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->references = ReferenceCollection::fromArray($data);
-        }
-
-        return $this->references;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCartPredicate()
-    {
-        if (is_null($this->cartPredicate)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCode::FIELD_CART_PREDICATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->cartPredicate = (string) $data;
-        }
-
-        return $this->cartPredicate;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
+        if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountCode::FIELD_CUSTOM);
+            $data = $this->raw(DiscountCode::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->createdBy = CreatedByModel::of($data);
         }
 
-        return $this->custom;
-    }
-
-    /**
-     * @return null|array
-     */
-    public function getGroups()
-    {
-        if (is_null($this->groups)) {
-            /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(DiscountCode::FIELD_GROUPS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->groups = $data;
-        }
-
-        return $this->groups;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        if (is_null($this->description)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountCode::FIELD_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->description = LocalizedStringModel::of($data);
-        }
-
-        return $this->description;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidFrom()
-    {
-        if (is_null($this->validFrom)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCode::FIELD_VALID_FROM);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->validFrom = $data;
-        }
-
-        return $this->validFrom;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsActive()
-    {
-        if (is_null($this->isActive)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(DiscountCode::FIELD_IS_ACTIVE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isActive = (bool) $data;
-        }
-
-        return $this->isActive;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getMaxApplications()
-    {
-        if (is_null($this->maxApplications)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(DiscountCode::FIELD_MAX_APPLICATIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->maxApplications = (int) $data;
-        }
-
-        return $this->maxApplications;
+        return $this->createdBy;
     }
 
     /**
@@ -469,6 +299,222 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
     }
 
     /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountCode::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
+    }
+
+    /**
+     * <p>Unique identifier of this discount code.
+     * This value is added to the cart
+     * to enable the related cart discounts in the cart.</p>.
+     *
+     * @return null|string
+     */
+    public function getCode()
+    {
+        if (is_null($this->code)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCode::FIELD_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->code = (string) $data;
+        }
+
+        return $this->code;
+    }
+
+    /**
+     * <p>The referenced matching cart discounts can be applied to the cart once the DiscountCode is added.</p>.
+     *
+     * @return null|CartDiscountReferenceCollection
+     */
+    public function getCartDiscounts()
+    {
+        if (is_null($this->cartDiscounts)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(DiscountCode::FIELD_CART_DISCOUNTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->cartDiscounts = CartDiscountReferenceCollection::fromArray($data);
+        }
+
+        return $this->cartDiscounts;
+    }
+
+    /**
+     * <p>The discount code can only be applied to carts that match this predicate.</p>.
+     *
+     * @return null|string
+     */
+    public function getCartPredicate()
+    {
+        if (is_null($this->cartPredicate)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCode::FIELD_CART_PREDICATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->cartPredicate = (string) $data;
+        }
+
+        return $this->cartPredicate;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        if (is_null($this->isActive)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(DiscountCode::FIELD_IS_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isActive = (bool) $data;
+        }
+
+        return $this->isActive;
+    }
+
+    /**
+     * <p>The platform will generate this array from the cart predicate.
+     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     *
+     * @return null|ReferenceCollection
+     */
+    public function getReferences()
+    {
+        if (is_null($this->references)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(DiscountCode::FIELD_REFERENCES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->references = ReferenceCollection::fromArray($data);
+        }
+
+        return $this->references;
+    }
+
+    /**
+     * <p>The discount code can only be applied <code>maxApplications</code> times.</p>.
+     *
+     * @return null|int
+     */
+    public function getMaxApplications()
+    {
+        if (is_null($this->maxApplications)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(DiscountCode::FIELD_MAX_APPLICATIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->maxApplications = (int) $data;
+        }
+
+        return $this->maxApplications;
+    }
+
+    /**
+     * <p>The discount code can only be applied <code>maxApplicationsPerCustomer</code> times per customer.</p>.
+     *
+     * @return null|int
+     */
+    public function getMaxApplicationsPerCustomer()
+    {
+        if (is_null($this->maxApplicationsPerCustomer)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(DiscountCode::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->maxApplicationsPerCustomer = (int) $data;
+        }
+
+        return $this->maxApplicationsPerCustomer;
+    }
+
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountCode::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
+     * <p>The groups to which this discount code belong.</p>.
+     *
+     * @return null|array
+     */
+    public function getGroups()
+    {
+        if (is_null($this->groups)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(DiscountCode::FIELD_GROUPS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->groups = $data;
+        }
+
+        return $this->groups;
+    }
+
+    /**
+     * <p>The time from which the discount can be applied on a cart.
+     * Before that time the code is invalid.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidFrom()
+    {
+        if (is_null($this->validFrom)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCode::FIELD_VALID_FROM);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validFrom = $data;
+        }
+
+        return $this->validFrom;
+    }
+
+    /**
+     * <p>The time until the discount can be applied on a cart.
+     * After that time the code is invalid.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()
@@ -489,21 +535,14 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         return $this->validUntil;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getMaxApplicationsPerCustomer()
+    public function setId(?string $id): void
     {
-        if (is_null($this->maxApplicationsPerCustomer)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(DiscountCode::FIELD_MAX_APPLICATIONS_PER_CUSTOMER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->maxApplicationsPerCustomer = (int) $data;
-        }
+        $this->id = $id;
+    }
 
-        return $this->maxApplicationsPerCustomer;
+    public function setVersion(?int $version): void
+    {
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -516,14 +555,9 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
-    public function setId(?string $id): void
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
-        $this->id = $id;
-    }
-
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setCreatedBy(?CreatedBy $createdBy): void
@@ -531,14 +565,14 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->createdBy = $createdBy;
     }
 
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    public function setName(?LocalizedString $name): void
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->name = $name;
     }
 
-    public function setCartDiscounts(?CartDiscountReferenceCollection $cartDiscounts): void
+    public function setDescription(?LocalizedString $description): void
     {
-        $this->cartDiscounts = $cartDiscounts;
+        $this->description = $description;
     }
 
     public function setCode(?string $code): void
@@ -546,14 +580,34 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->code = $code;
     }
 
-    public function setReferences(?ReferenceCollection $references): void
+    public function setCartDiscounts(?CartDiscountReferenceCollection $cartDiscounts): void
     {
-        $this->references = $references;
+        $this->cartDiscounts = $cartDiscounts;
     }
 
     public function setCartPredicate(?string $cartPredicate): void
     {
         $this->cartPredicate = $cartPredicate;
+    }
+
+    public function setIsActive(?bool $isActive): void
+    {
+        $this->isActive = $isActive;
+    }
+
+    public function setReferences(?ReferenceCollection $references): void
+    {
+        $this->references = $references;
+    }
+
+    public function setMaxApplications(?int $maxApplications): void
+    {
+        $this->maxApplications = $maxApplications;
+    }
+
+    public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
+    {
+        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
     }
 
     public function setCustom(?CustomFields $custom): void
@@ -566,39 +620,14 @@ final class DiscountCodeModel extends JsonObjectModel implements DiscountCode
         $this->groups = $groups;
     }
 
-    public function setDescription(?LocalizedString $description): void
-    {
-        $this->description = $description;
-    }
-
     public function setValidFrom(?DateTimeImmutable $validFrom): void
     {
         $this->validFrom = $validFrom;
     }
 
-    public function setIsActive(?bool $isActive): void
-    {
-        $this->isActive = $isActive;
-    }
-
-    public function setMaxApplications(?int $maxApplications): void
-    {
-        $this->maxApplications = $maxApplications;
-    }
-
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
-    }
-
     public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
         $this->validUntil = $validUntil;
-    }
-
-    public function setMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer): void
-    {
-        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
     }
 
     public function jsonSerialize()

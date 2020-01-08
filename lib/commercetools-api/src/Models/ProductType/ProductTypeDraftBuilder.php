@@ -18,6 +18,11 @@ final class ProductTypeDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $key;
+
+    /**
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -31,9 +36,16 @@ final class ProductTypeDraftBuilder implements Builder
     private $attributes;
 
     /**
-     * @var ?string
+     * <p>User-specific unique identifier for the product type (min.
+     * 2 and max.
+     * 256 characters).</p>.
+     *
+     * @return null|string
      */
-    private $key;
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * @return null|string
@@ -60,11 +72,13 @@ final class ProductTypeDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getKey()
+    public function withKey(?string $key)
     {
-        return $this->key;
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -97,23 +111,13 @@ final class ProductTypeDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
     public function build(): ProductTypeDraft
     {
         return new ProductTypeDraftModel(
+            $this->key,
             $this->name,
             $this->description,
-            $this->attributes,
-            $this->key
+            $this->attributes
         );
     }
 

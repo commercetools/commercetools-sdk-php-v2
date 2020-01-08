@@ -16,9 +16,9 @@ use Commercetools\Base\Builder;
 final class ExtensionDraftBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?string
      */
-    private $timeoutInMs;
+    private $key;
 
     /**
      * @var ExtensionDestination|?ExtensionDestinationBuilder
@@ -31,35 +31,13 @@ final class ExtensionDraftBuilder implements Builder
     private $triggers;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    private $key;
+    private $timeoutInMs;
 
     /**
-     * @return null|int
-     */
-    public function getTimeoutInMs()
-    {
-        return $this->timeoutInMs;
-    }
-
-    /**
-     * @return null|ExtensionDestination
-     */
-    public function getDestination()
-    {
-        return $this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination;
-    }
-
-    /**
-     * @return null|ExtensionTriggerCollection
-     */
-    public function getTriggers()
-    {
-        return $this->triggers;
-    }
-
-    /**
+     * <p>User-specific unique identifier for the extension</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -68,11 +46,44 @@ final class ExtensionDraftBuilder implements Builder
     }
 
     /**
+     * <p>Details where the extension can be reached</p>.
+     *
+     * @return null|ExtensionDestination
+     */
+    public function getDestination()
+    {
+        return $this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination;
+    }
+
+    /**
+     * <p>Describes what triggers the extension</p>.
+     *
+     * @return null|ExtensionTriggerCollection
+     */
+    public function getTriggers()
+    {
+        return $this->triggers;
+    }
+
+    /**
+     * <p>The maximum time the commercetools platform waits for a response from the extension.
+     * The maximum value is 2000 ms (2 seconds).
+     * This limit can be increased per project after we review the performance impact.
+     * Please contact Support via the <a href="https://support.commercetools.com">Support Portal</a> and provide the region, project key and use case.</p>.
+     *
+     * @return null|int
+     */
+    public function getTimeoutInMs()
+    {
+        return $this->timeoutInMs;
+    }
+
+    /**
      * @return $this
      */
-    public function withTimeoutInMs(?int $timeoutInMs)
+    public function withKey(?string $key)
     {
-        $this->timeoutInMs = $timeoutInMs;
+        $this->key = $key;
 
         return $this;
     }
@@ -100,9 +111,9 @@ final class ExtensionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withTimeoutInMs(?int $timeoutInMs)
     {
-        $this->key = $key;
+        $this->timeoutInMs = $timeoutInMs;
 
         return $this;
     }
@@ -120,10 +131,10 @@ final class ExtensionDraftBuilder implements Builder
     public function build(): ExtensionDraft
     {
         return new ExtensionDraftModel(
-            $this->timeoutInMs,
+            $this->key,
             ($this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination),
             $this->triggers,
-            $this->key
+            $this->timeoutInMs
         );
     }
 

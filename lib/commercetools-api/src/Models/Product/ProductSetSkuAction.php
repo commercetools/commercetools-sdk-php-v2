@@ -20,6 +20,9 @@ interface ProductSetSkuAction extends ProductUpdateAction
     public function getVariantId();
 
     /**
+     * <p>SKU must be unique.
+     * If left blank or set to <code>null</code>, the sku is unset/removed.</p>.
+     *
      * @return null|string
      */
     public function getSku();

@@ -44,11 +44,15 @@ interface Customer extends LoggedResource
     const FIELD_STORES = 'stores';
 
     /**
+     * <p>The unique ID of the customer.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the customer.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
@@ -64,21 +68,33 @@ interface Customer extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
+     * <p>The customer number can be used to create a more human-readable (in contrast to ID) identifier for the customer.
+     * It should be unique across a project.
+     * Once the field was set it cannot be changed anymore.</p>.
+     *
      * @return null|string
      */
     public function getCustomerNumber();
 
     /**
+     * <p>The customer's email address and the main identifier of uniqueness for a customer account.
+     * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project.
+     * For more information, see Email uniquenes.</p>.
+     *
      * @return null|string
      */
     public function getEmail();
@@ -124,26 +140,36 @@ interface Customer extends LoggedResource
     public function getVatId();
 
     /**
+     * <p>The addresses have unique IDs in the addresses list</p>.
+     *
      * @return null|AddressCollection
      */
     public function getAddresses();
 
     /**
+     * <p>The address ID in the addresses list</p>.
+     *
      * @return null|string
      */
     public function getDefaultShippingAddressId();
 
     /**
+     * <p>The IDs from the addresses list which are used as shipping addresses</p>.
+     *
      * @return null|array
      */
     public function getShippingAddressIds();
 
     /**
+     * <p>The address ID in the addresses list</p>.
+     *
      * @return null|string
      */
     public function getDefaultBillingAddressId();
 
     /**
+     * <p>The IDs from the addresses list which are used as billing addresses</p>.
+     *
      * @return null|array
      */
     public function getBillingAddressIds();
@@ -179,11 +205,19 @@ interface Customer extends LoggedResource
     public function getSalutation();
 
     /**
+     * <p>User-specific unique identifier for a customer.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction</p>.
+     *
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>References to the stores the customer account is associated with.
+     * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
+     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>.
+     *
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores();

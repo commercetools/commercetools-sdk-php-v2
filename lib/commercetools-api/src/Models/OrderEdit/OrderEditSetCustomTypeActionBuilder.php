@@ -19,24 +19,19 @@ use Commercetools\Base\JsonObject;
 final class OrderEditSetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var ?JsonObject
-     */
-    private $fields;
-
-    /**
      * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @return null|JsonObject
+     * @var ?JsonObject
      */
-    public function getFields()
-    {
-        return $this->fields;
-    }
+    private $fields;
 
     /**
+     * <p>If set, the custom type is set to this new value.
+     * If absent, the custom type and any existing custom fields are removed.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -45,13 +40,13 @@ final class OrderEditSetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>If set, the custom fields are set to this new value.</p>.
+     *
+     * @return null|JsonObject
      */
-    public function withFields(?JsonObject $fields)
+    public function getFields()
     {
-        $this->fields = $fields;
-
-        return $this;
+        return $this->fields;
     }
 
     /**
@@ -60,6 +55,16 @@ final class OrderEditSetCustomTypeActionBuilder implements Builder
     public function withType(?TypeResourceIdentifier $type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withFields(?JsonObject $fields)
+    {
+        $this->fields = $fields;
 
         return $this;
     }
@@ -77,8 +82,8 @@ final class OrderEditSetCustomTypeActionBuilder implements Builder
     public function build(): OrderEditSetCustomTypeAction
     {
         return new OrderEditSetCustomTypeActionModel(
-            $this->fields,
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type)
+            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
+            $this->fields
         );
     }
 

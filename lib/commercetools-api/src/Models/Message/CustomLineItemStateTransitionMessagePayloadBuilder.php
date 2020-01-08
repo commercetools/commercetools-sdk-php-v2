@@ -19,24 +19,9 @@ use DateTimeImmutable;
 final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
-     * @var StateReference|?StateReferenceBuilder
-     */
-    private $toState;
-
-    /**
-     * @var StateReference|?StateReferenceBuilder
-     */
-    private $fromState;
-
-    /**
      * @var ?string
      */
     private $customLineItemId;
-
-    /**
-     * @var ?int
-     */
-    private $quantity;
 
     /**
      * @var ?DateTimeImmutable
@@ -44,20 +29,19 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     private $transitionDate;
 
     /**
-     * @return null|StateReference
+     * @var ?int
      */
-    public function getToState()
-    {
-        return $this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState;
-    }
+    private $quantity;
 
     /**
-     * @return null|StateReference
+     * @var StateReference|?StateReferenceBuilder
      */
-    public function getFromState()
-    {
-        return $this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState;
-    }
+    private $fromState;
+
+    /**
+     * @var StateReference|?StateReferenceBuilder
+     */
+    private $toState;
 
     /**
      * @return null|string
@@ -65,14 +49,6 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
     }
 
     /**
@@ -84,23 +60,27 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withToState(?StateReference $toState)
+    public function getQuantity()
     {
-        $this->toState = $toState;
-
-        return $this;
+        return $this->quantity;
     }
 
     /**
-     * @return $this
+     * @return null|StateReference
      */
-    public function withFromState(?StateReference $fromState)
+    public function getFromState()
     {
-        $this->fromState = $fromState;
+        return $this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState;
+    }
 
-        return $this;
+    /**
+     * @return null|StateReference
+     */
+    public function getToState()
+    {
+        return $this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState;
     }
 
     /**
@@ -109,16 +89,6 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withQuantity(?int $quantity)
-    {
-        $this->quantity = $quantity;
 
         return $this;
     }
@@ -136,7 +106,27 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
     /**
      * @return $this
      */
-    public function withToStateBuilder(?StateReferenceBuilder $toState)
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withFromState(?StateReference $fromState)
+    {
+        $this->fromState = $fromState;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withToState(?StateReference $toState)
     {
         $this->toState = $toState;
 
@@ -153,14 +143,24 @@ final class CustomLineItemStateTransitionMessagePayloadBuilder implements Builde
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withToStateBuilder(?StateReferenceBuilder $toState)
+    {
+        $this->toState = $toState;
+
+        return $this;
+    }
+
     public function build(): CustomLineItemStateTransitionMessagePayload
     {
         return new CustomLineItemStateTransitionMessagePayloadModel(
-            ($this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState),
-            ($this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState),
             $this->customLineItemId,
+            $this->transitionDate,
             $this->quantity,
-            $this->transitionDate
+            ($this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState),
+            ($this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState)
         );
     }
 

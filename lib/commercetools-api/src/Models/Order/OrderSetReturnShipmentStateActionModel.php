@@ -22,19 +22,19 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
     /**
      * @var ?string
      */
-    protected $shipmentState;
+    protected $returnItemId;
 
     /**
      * @var ?string
      */
-    protected $returnItemId;
+    protected $shipmentState;
 
     public function __construct(
-        string $shipmentState = null,
-        string $returnItemId = null
+        string $returnItemId = null,
+        string $shipmentState = null
     ) {
-        $this->shipmentState = $shipmentState;
         $this->returnItemId = $returnItemId;
+        $this->shipmentState = $shipmentState;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,23 +58,6 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
     /**
      * @return null|string
      */
-    public function getShipmentState()
-    {
-        if (is_null($this->shipmentState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderSetReturnShipmentStateAction::FIELD_SHIPMENT_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->shipmentState = (string) $data;
-        }
-
-        return $this->shipmentState;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getReturnItemId()
     {
         if (is_null($this->returnItemId)) {
@@ -89,13 +72,30 @@ final class OrderSetReturnShipmentStateActionModel extends JsonObjectModel imple
         return $this->returnItemId;
     }
 
-    public function setShipmentState(?string $shipmentState): void
+    /**
+     * @return null|string
+     */
+    public function getShipmentState()
     {
-        $this->shipmentState = $shipmentState;
+        if (is_null($this->shipmentState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderSetReturnShipmentStateAction::FIELD_SHIPMENT_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shipmentState = (string) $data;
+        }
+
+        return $this->shipmentState;
     }
 
     public function setReturnItemId(?string $returnItemId): void
     {
         $this->returnItemId = $returnItemId;
+    }
+
+    public function setShipmentState(?string $shipmentState): void
+    {
+        $this->shipmentState = $shipmentState;
     }
 }

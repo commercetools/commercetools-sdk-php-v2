@@ -21,21 +21,6 @@ use DateTimeImmutable;
 final class MyShoppingListAddTextLineItemActionBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $addedAt;
-
-    /**
-     * @var ?int
-     */
-    private $quantity;
-
-    /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $name;
@@ -46,28 +31,19 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     private $description;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var ?int
      */
-    public function getAddedAt()
-    {
-        return $this->addedAt;
-    }
+    private $quantity;
 
     /**
-     * @return null|int
+     * @var ?DateTimeImmutable
      */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+    private $addedAt;
 
     /**
-     * @return null|CustomFieldsDraft
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
+    private $custom;
 
     /**
      * @return null|LocalizedString
@@ -86,33 +62,27 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withAddedAt(?DateTimeImmutable $addedAt)
+    public function getQuantity()
     {
-        $this->addedAt = $addedAt;
-
-        return $this;
+        return $this->quantity;
     }
 
     /**
-     * @return $this
+     * @return null|DateTimeImmutable
      */
-    public function withQuantity(?int $quantity)
+    public function getAddedAt()
     {
-        $this->quantity = $quantity;
-
-        return $this;
+        return $this->addedAt;
     }
 
     /**
-     * @return $this
+     * @return null|CustomFieldsDraft
      */
-    public function withCustom(?CustomFieldsDraft $custom)
+    public function getCustom()
     {
-        $this->custom = $custom;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -138,7 +108,27 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAddedAt(?DateTimeImmutable $addedAt)
+    {
+        $this->addedAt = $addedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
 
@@ -165,14 +155,24 @@ final class MyShoppingListAddTextLineItemActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): MyShoppingListAddTextLineItemAction
     {
         return new MyShoppingListAddTextLineItemActionModel(
-            $this->addedAt,
-            $this->quantity,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->quantity,
+            $this->addedAt,
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

@@ -15,6 +15,8 @@ interface OrderEditSetStagedActionsAction extends OrderEditUpdateAction
     const FIELD_STAGED_ACTIONS = 'stagedActions';
 
     /**
+     * <p>The actions to edit the <code>resource</code>.</p>.
+     *
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions();

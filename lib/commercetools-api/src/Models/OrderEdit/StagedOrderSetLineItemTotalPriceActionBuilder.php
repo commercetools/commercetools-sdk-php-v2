@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
 {
     /**
-     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
-     */
-    private $externalTotalPrice;
-
-    /**
      * @var ?string
      */
     private $lineItemId;
 
     /**
-     * @return null|ExternalLineItemTotalPrice
+     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
      */
-    public function getExternalTotalPrice()
-    {
-        return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
-    }
+    private $externalTotalPrice;
 
     /**
      * @return null|string
@@ -44,13 +36,11 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ExternalLineItemTotalPrice
      */
-    public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
+    public function getExternalTotalPrice()
     {
-        $this->externalTotalPrice = $externalTotalPrice;
-
-        return $this;
+        return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
     }
 
     /**
@@ -59,6 +49,16 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
     public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
+    {
+        $this->externalTotalPrice = $externalTotalPrice;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class StagedOrderSetLineItemTotalPriceActionBuilder implements Builder
     public function build(): StagedOrderSetLineItemTotalPriceAction
     {
         return new StagedOrderSetLineItemTotalPriceActionModel(
-            ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice),
-            $this->lineItemId
+            $this->lineItemId,
+            ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice)
         );
     }
 

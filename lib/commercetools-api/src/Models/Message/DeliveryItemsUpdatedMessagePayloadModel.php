@@ -29,21 +29,21 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     /**
      * @var ?DeliveryItemCollection
      */
-    protected $oldItems;
+    protected $items;
 
     /**
      * @var ?DeliveryItemCollection
      */
-    protected $items;
+    protected $oldItems;
 
     public function __construct(
         string $deliveryId = null,
-        DeliveryItemCollection $oldItems = null,
-        DeliveryItemCollection $items = null
+        DeliveryItemCollection $items = null,
+        DeliveryItemCollection $oldItems = null
     ) {
         $this->deliveryId = $deliveryId;
-        $this->oldItems = $oldItems;
         $this->items = $items;
+        $this->oldItems = $oldItems;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -84,23 +84,6 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
     /**
      * @return null|DeliveryItemCollection
      */
-    public function getOldItems()
-    {
-        if (is_null($this->oldItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DeliveryItemsUpdatedMessagePayload::FIELD_OLD_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldItems = DeliveryItemCollection::fromArray($data);
-        }
-
-        return $this->oldItems;
-    }
-
-    /**
-     * @return null|DeliveryItemCollection
-     */
     public function getItems()
     {
         if (is_null($this->items)) {
@@ -115,18 +98,35 @@ final class DeliveryItemsUpdatedMessagePayloadModel extends JsonObjectModel impl
         return $this->items;
     }
 
+    /**
+     * @return null|DeliveryItemCollection
+     */
+    public function getOldItems()
+    {
+        if (is_null($this->oldItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(DeliveryItemsUpdatedMessagePayload::FIELD_OLD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldItems = DeliveryItemCollection::fromArray($data);
+        }
+
+        return $this->oldItems;
+    }
+
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
 
-    public function setOldItems(?DeliveryItemCollection $oldItems): void
-    {
-        $this->oldItems = $oldItems;
-    }
-
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
+    }
+
+    public function setOldItems(?DeliveryItemCollection $oldItems): void
+    {
+        $this->oldItems = $oldItems;
     }
 }

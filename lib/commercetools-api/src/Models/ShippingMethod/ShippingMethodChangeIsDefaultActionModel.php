@@ -49,6 +49,8 @@ final class ShippingMethodChangeIsDefaultActionModel extends JsonObjectModel imp
     }
 
     /**
+     * <p>Only one ShippingMethod in a project can be default.</p>.
+     *
      * @return null|bool
      */
     public function getIsDefault()

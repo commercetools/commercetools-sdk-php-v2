@@ -31,11 +31,16 @@ interface LineItemImportDraft extends JsonObject
     const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+     * <p>ID of the existing product.
+     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>.
+     *
      * @return null|string
      */
     public function getProductId();
 
     /**
+     * <p>The product name.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName();
@@ -61,11 +66,20 @@ interface LineItemImportDraft extends JsonObject
     public function getState();
 
     /**
+     * <p>Optional connection to a particular supplier.
+     * By providing supply channel information, you can uniquely identify
+     * inventory entries that should be reserved.
+     * The provided channel should have the
+     * InventorySupply role.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
 
     /**
+     * <p>The channel is used to select a ProductPrice.
+     * The provided channel should have the ProductDistribution role.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
@@ -76,6 +90,8 @@ interface LineItemImportDraft extends JsonObject
     public function getTaxRate();
 
     /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

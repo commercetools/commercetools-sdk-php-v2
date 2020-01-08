@@ -27,16 +27,6 @@ use DateTimeImmutable;
 final class CustomerBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -47,9 +37,14 @@ final class CustomerBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -57,14 +52,49 @@ final class CustomerBuilder implements Builder
     private $lastModifiedBy;
 
     /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * @var ?string
+     */
+    private $customerNumber;
+
+    /**
+     * @var ?string
+     */
+    private $email;
+
+    /**
+     * @var ?string
+     */
+    private $password;
+
+    /**
+     * @var ?string
+     */
+    private $firstName;
+
+    /**
      * @var ?string
      */
     private $lastName;
 
     /**
-     * @var ?AddressCollection
+     * @var ?string
      */
-    private $addresses;
+    private $middleName;
+
+    /**
+     * @var ?string
+     */
+    private $title;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $dateOfBirth;
 
     /**
      * @var ?string
@@ -77,19 +107,14 @@ final class CustomerBuilder implements Builder
     private $vatId;
 
     /**
-     * @var ?string
+     * @var ?AddressCollection
      */
-    private $locale;
+    private $addresses;
 
     /**
      * @var ?string
      */
-    private $title;
-
-    /**
-     * @var ?bool
-     */
-    private $isEmailVerified;
+    private $defaultShippingAddressId;
 
     /**
      * @var ?array
@@ -99,22 +124,22 @@ final class CustomerBuilder implements Builder
     /**
      * @var ?string
      */
-    private $password;
+    private $defaultBillingAddressId;
+
+    /**
+     * @var ?array
+     */
+    private $billingAddressIds;
+
+    /**
+     * @var ?bool
+     */
+    private $isEmailVerified;
 
     /**
      * @var ?string
      */
-    private $key;
-
-    /**
-     * @var ?string
-     */
-    private $email;
-
-    /**
-     * @var ?StoreKeyReferenceCollection
-     */
-    private $stores;
+    private $externalId;
 
     /**
      * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
@@ -129,47 +154,42 @@ final class CustomerBuilder implements Builder
     /**
      * @var ?string
      */
-    private $externalId;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $dateOfBirth;
-
-    /**
-     * @var ?array
-     */
-    private $billingAddressIds;
-
-    /**
-     * @var ?string
-     */
-    private $defaultShippingAddressId;
-
-    /**
-     * @var ?string
-     */
-    private $customerNumber;
-
-    /**
-     * @var ?string
-     */
-    private $defaultBillingAddressId;
-
-    /**
-     * @var ?string
-     */
-    private $firstName;
-
-    /**
-     * @var ?string
-     */
-    private $middleName;
+    private $locale;
 
     /**
      * @var ?string
      */
     private $salutation;
+
+    /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
+     * @var ?StoreKeyReferenceCollection
+     */
+    private $stores;
+
+    /**
+     * <p>The unique ID of the customer.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the customer.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -188,22 +208,18 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        return $this->id;
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
 
     /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -212,11 +228,43 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * @return null|LastModifiedBy
+     * <p>The customer number can be used to create a more human-readable (in contrast to ID) identifier for the customer.
+     * It should be unique across a project.
+     * Once the field was set it cannot be changed anymore.</p>.
+     *
+     * @return null|string
      */
-    public function getLastModifiedBy()
+    public function getCustomerNumber()
     {
-        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+        return $this->customerNumber;
+    }
+
+    /**
+     * <p>The customer's email address and the main identifier of uniqueness for a customer account.
+     * Email addresses are either unique to the store they're specified for, <em>or</em> for the entire project.
+     * For more information, see Email uniquenes.</p>.
+     *
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
     }
 
     /**
@@ -228,11 +276,27 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * @return null|AddressCollection
+     * @return null|string
      */
-    public function getAddresses()
+    public function getMiddleName()
     {
-        return $this->addresses;
+        return $this->middleName;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getDateOfBirth()
+    {
+        return $this->dateOfBirth;
     }
 
     /**
@@ -252,19 +316,53 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>The addresses have unique IDs in the addresses list</p>.
+     *
+     * @return null|AddressCollection
      */
-    public function getLocale()
+    public function getAddresses()
     {
-        return $this->locale;
+        return $this->addresses;
     }
 
     /**
+     * <p>The address ID in the addresses list</p>.
+     *
      * @return null|string
      */
-    public function getTitle()
+    public function getDefaultShippingAddressId()
     {
-        return $this->title;
+        return $this->defaultShippingAddressId;
+    }
+
+    /**
+     * <p>The IDs from the addresses list which are used as shipping addresses</p>.
+     *
+     * @return null|array
+     */
+    public function getShippingAddressIds()
+    {
+        return $this->shippingAddressIds;
+    }
+
+    /**
+     * <p>The address ID in the addresses list</p>.
+     *
+     * @return null|string
+     */
+    public function getDefaultBillingAddressId()
+    {
+        return $this->defaultBillingAddressId;
+    }
+
+    /**
+     * <p>The IDs from the addresses list which are used as billing addresses</p>.
+     *
+     * @return null|array
+     */
+    public function getBillingAddressIds()
+    {
+        return $this->billingAddressIds;
     }
 
     /**
@@ -276,43 +374,11 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * @return null|array
-     */
-    public function getShippingAddressIds()
-    {
-        return $this->shippingAddressIds;
-    }
-
-    /**
      * @return null|string
      */
-    public function getPassword()
+    public function getExternalId()
     {
-        return $this->password;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @return null|StoreKeyReferenceCollection
-     */
-    public function getStores()
-    {
-        return $this->stores;
+        return $this->externalId;
     }
 
     /**
@@ -334,65 +400,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getExternalId()
+    public function getLocale()
     {
-        return $this->externalId;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getDateOfBirth()
-    {
-        return $this->dateOfBirth;
-    }
-
-    /**
-     * @return null|array
-     */
-    public function getBillingAddressIds()
-    {
-        return $this->billingAddressIds;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getDefaultShippingAddressId()
-    {
-        return $this->defaultShippingAddressId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCustomerNumber()
-    {
-        return $this->customerNumber;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getDefaultBillingAddressId()
-    {
-        return $this->defaultBillingAddressId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getMiddleName()
-    {
-        return $this->middleName;
+        return $this->locale;
     }
 
     /**
@@ -404,23 +414,27 @@ final class CustomerBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>User-specific unique identifier for a customer.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction</p>.
+     *
+     * @return null|string
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getKey()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->key;
     }
 
     /**
-     * @return $this
+     * <p>References to the stores the customer account is associated with.
+     * If no stores are specified, the customer is a global customer, and can log in using the Password Flow for global Customers.
+     * If one or more stores are specified, the customer can only log in using the Password Flow for Customers in a Store for those specific stores.</p>.
+     *
+     * @return null|StoreKeyReferenceCollection
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getStores()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->stores;
     }
 
     /**
@@ -446,9 +460,19 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -466,6 +490,56 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomerNumber(?string $customerNumber)
+    {
+        $this->customerNumber = $customerNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withEmail(?string $email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPassword(?string $password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withFirstName(?string $firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withLastName(?string $lastName)
     {
         $this->lastName = $lastName;
@@ -476,9 +550,29 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAddresses(?AddressCollection $addresses)
+    public function withMiddleName(?string $middleName)
     {
-        $this->addresses = $addresses;
+        $this->middleName = $middleName;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTitle(?string $title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
+    {
+        $this->dateOfBirth = $dateOfBirth;
 
         return $this;
     }
@@ -506,9 +600,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLocale(?string $locale)
+    public function withAddresses(?AddressCollection $addresses)
     {
-        $this->locale = $locale;
+        $this->addresses = $addresses;
 
         return $this;
     }
@@ -516,19 +610,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTitle(?string $title)
+    public function withDefaultShippingAddressId(?string $defaultShippingAddressId)
     {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withIsEmailVerified(?bool $isEmailVerified)
-    {
-        $this->isEmailVerified = $isEmailVerified;
+        $this->defaultShippingAddressId = $defaultShippingAddressId;
 
         return $this;
     }
@@ -546,9 +630,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPassword(?string $password)
+    public function withDefaultBillingAddressId(?string $defaultBillingAddressId)
     {
-        $this->password = $password;
+        $this->defaultBillingAddressId = $defaultBillingAddressId;
 
         return $this;
     }
@@ -556,9 +640,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withBillingAddressIds(?array $billingAddressIds)
     {
-        $this->key = $key;
+        $this->billingAddressIds = $billingAddressIds;
 
         return $this;
     }
@@ -566,9 +650,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withEmail(?string $email)
+    public function withIsEmailVerified(?bool $isEmailVerified)
     {
-        $this->email = $email;
+        $this->isEmailVerified = $isEmailVerified;
 
         return $this;
     }
@@ -576,9 +660,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStores(?StoreKeyReferenceCollection $stores)
+    public function withExternalId(?string $externalId)
     {
-        $this->stores = $stores;
+        $this->externalId = $externalId;
 
         return $this;
     }
@@ -606,79 +690,9 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalId(?string $externalId)
+    public function withLocale(?string $locale)
     {
-        $this->externalId = $externalId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
-    {
-        $this->dateOfBirth = $dateOfBirth;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withBillingAddressIds(?array $billingAddressIds)
-    {
-        $this->billingAddressIds = $billingAddressIds;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDefaultShippingAddressId(?string $defaultShippingAddressId)
-    {
-        $this->defaultShippingAddressId = $defaultShippingAddressId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomerNumber(?string $customerNumber)
-    {
-        $this->customerNumber = $customerNumber;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDefaultBillingAddressId(?string $defaultBillingAddressId)
-    {
-        $this->defaultBillingAddressId = $defaultBillingAddressId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFirstName(?string $firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMiddleName(?string $middleName)
-    {
-        $this->middleName = $middleName;
+        $this->locale = $locale;
 
         return $this;
     }
@@ -696,9 +710,19 @@ final class CustomerBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withKey(?string $key)
     {
-        $this->createdBy = $createdBy;
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStores(?StoreKeyReferenceCollection $stores)
+    {
+        $this->stores = $stores;
 
         return $this;
     }
@@ -709,6 +733,16 @@ final class CustomerBuilder implements Builder
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -736,35 +770,35 @@ final class CustomerBuilder implements Builder
     public function build(): Customer
     {
         return new CustomerModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->customerNumber,
+            $this->email,
+            $this->password,
+            $this->firstName,
             $this->lastName,
-            $this->addresses,
+            $this->middleName,
+            $this->title,
+            $this->dateOfBirth,
             $this->companyName,
             $this->vatId,
-            $this->locale,
-            $this->title,
-            $this->isEmailVerified,
+            $this->addresses,
+            $this->defaultShippingAddressId,
             $this->shippingAddressIds,
-            $this->password,
-            $this->key,
-            $this->email,
-            $this->stores,
+            $this->defaultBillingAddressId,
+            $this->billingAddressIds,
+            $this->isEmailVerified,
+            $this->externalId,
             ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            $this->externalId,
-            $this->dateOfBirth,
-            $this->billingAddressIds,
-            $this->defaultShippingAddressId,
-            $this->customerNumber,
-            $this->defaultBillingAddressId,
-            $this->firstName,
-            $this->middleName,
-            $this->salutation
+            $this->locale,
+            $this->salutation,
+            $this->key,
+            $this->stores
         );
     }
 

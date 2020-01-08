@@ -23,6 +23,11 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     protected $action;
 
     /**
+     * @var ?string
+     */
+    protected $priceId;
+
+    /**
      * @var ?PriceDraft
      */
     protected $price;
@@ -32,19 +37,14 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
      */
     protected $staged;
 
-    /**
-     * @var ?string
-     */
-    protected $priceId;
-
     public function __construct(
+        string $priceId = null,
         PriceDraft $price = null,
-        bool $staged = null,
-        string $priceId = null
+        bool $staged = null
     ) {
+        $this->priceId = $priceId;
         $this->price = $price;
         $this->staged = $staged;
-        $this->priceId = $priceId;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -63,6 +63,25 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
         }
 
         return $this->action;
+    }
+
+    /**
+     * <p>ID of the <a href="#price">Price</a></p>.
+     *
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        if (is_null($this->priceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductChangePriceAction::FIELD_PRICE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceId = (string) $data;
+        }
+
+        return $this->priceId;
     }
 
     /**
@@ -100,21 +119,9 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
         return $this->staged;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getPriceId()
+    public function setPriceId(?string $priceId): void
     {
-        if (is_null($this->priceId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductChangePriceAction::FIELD_PRICE_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->priceId = (string) $data;
-        }
-
-        return $this->priceId;
+        $this->priceId = $priceId;
     }
 
     public function setPrice(?PriceDraft $price): void
@@ -125,10 +132,5 @@ final class ProductChangePriceActionModel extends JsonObjectModel implements Pro
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
-    }
-
-    public function setPriceId(?string $priceId): void
-    {
-        $this->priceId = $priceId;
     }
 }

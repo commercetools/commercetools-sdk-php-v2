@@ -21,6 +21,8 @@ final class ShoppingListSetKeyActionBuilder implements Builder
     private $key;
 
     /**
+     * <p>User-specific unique identifier for the shopping list.</p>.
+     *
      * @return null|string
      */
     public function getKey()

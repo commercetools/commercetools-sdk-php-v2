@@ -30,23 +30,23 @@ final class MyCartSetLineItemCustomTypeActionModel extends JsonObjectModel imple
     protected $lineItemId;
 
     /**
-     * @var ?FieldContainer
-     */
-    protected $fields;
-
-    /**
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
+    /**
+     * @var ?FieldContainer
+     */
+    protected $fields;
+
     public function __construct(
         string $lineItemId = null,
-        FieldContainer $fields = null,
-        TypeResourceIdentifier $type = null
+        TypeResourceIdentifier $type = null,
+        FieldContainer $fields = null
     ) {
         $this->lineItemId = $lineItemId;
-        $this->fields = $fields;
         $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -85,24 +85,6 @@ final class MyCartSetLineItemCustomTypeActionModel extends JsonObjectModel imple
     }
 
     /**
-     * @return null|FieldContainer
-     */
-    public function getFields()
-    {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCartSetLineItemCustomTypeAction::FIELD_FIELDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->fields = FieldContainerModel::of($data);
-        }
-
-        return $this->fields;
-    }
-
-    /**
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -120,18 +102,36 @@ final class MyCartSetLineItemCustomTypeActionModel extends JsonObjectModel imple
         return $this->type;
     }
 
+    /**
+     * @return null|FieldContainer
+     */
+    public function getFields()
+    {
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(MyCartSetLineItemCustomTypeAction::FIELD_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fields = FieldContainerModel::of($data);
+        }
+
+        return $this->fields;
+    }
+
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
     }
 
-    public function setFields(?FieldContainer $fields): void
-    {
-        $this->fields = $fields;
-    }
-
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
+    }
+
+    public function setFields(?FieldContainer $fields): void
+    {
+        $this->fields = $fields;
     }
 }

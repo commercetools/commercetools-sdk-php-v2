@@ -23,16 +23,6 @@ use DateTimeImmutable;
 final class CustomerEmailChangedMessageBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -43,14 +33,24 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
 
     /**
      * @var ?int
@@ -63,35 +63,19 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     private $resource;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
-     */
-    private $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     private $resourceVersion;
 
     /**
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
+     */
+    private $resourceUserProvidedIdentifiers;
+
+    /**
      * @var ?string
      */
     private $email;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
 
     /**
      * @return null|string
@@ -110,11 +94,19 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -123,6 +115,14 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     public function getLastModifiedBy()
     {
         return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -142,14 +142,6 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -158,31 +150,19 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     }
 
     /**
+     * @return null|UserProvidedIdentifiers
+     */
+    public function getResourceUserProvidedIdentifiers()
+    {
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
      * @return null|string
      */
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
     }
 
     /**
@@ -208,9 +188,19 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -221,6 +211,16 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -248,9 +248,9 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
+    public function withResourceVersion(?int $resourceVersion)
     {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->resourceVersion = $resourceVersion;
 
         return $this;
     }
@@ -258,9 +258,9 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceVersion(?int $resourceVersion)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
-        $this->resourceVersion = $resourceVersion;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
 
         return $this;
     }
@@ -278,9 +278,9 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->createdBy = $createdBy;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -288,9 +288,9 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -318,16 +318,16 @@ final class CustomerEmailChangedMessageBuilder implements Builder
     public function build(): CustomerEmailChangedMessage
     {
         return new CustomerEmailChangedMessageModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
+            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->email
         );
     }

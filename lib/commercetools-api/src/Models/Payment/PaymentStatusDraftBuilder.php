@@ -20,6 +20,11 @@ final class PaymentStatusDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $interfaceCode;
+
+    /**
+     * @var ?string
+     */
     private $interfaceText;
 
     /**
@@ -28,9 +33,12 @@ final class PaymentStatusDraftBuilder implements Builder
     private $state;
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $interfaceCode;
+    public function getInterfaceCode()
+    {
+        return $this->interfaceCode;
+    }
 
     /**
      * @return null|string
@@ -49,11 +57,13 @@ final class PaymentStatusDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getInterfaceCode()
+    public function withInterfaceCode(?string $interfaceCode)
     {
-        return $this->interfaceCode;
+        $this->interfaceCode = $interfaceCode;
+
+        return $this;
     }
 
     /**
@@ -79,16 +89,6 @@ final class PaymentStatusDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withInterfaceCode(?string $interfaceCode)
-    {
-        $this->interfaceCode = $interfaceCode;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withStateBuilder(?StateResourceIdentifierBuilder $state)
     {
         $this->state = $state;
@@ -99,9 +99,9 @@ final class PaymentStatusDraftBuilder implements Builder
     public function build(): PaymentStatusDraft
     {
         return new PaymentStatusDraftModel(
+            $this->interfaceCode,
             $this->interfaceText,
-            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state),
-            $this->interfaceCode
+            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state)
         );
     }
 

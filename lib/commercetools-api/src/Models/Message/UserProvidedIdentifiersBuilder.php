@@ -20,7 +20,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     /**
      * @var ?string
      */
-    private $orderNumber;
+    private $key;
 
     /**
      * @var ?string
@@ -30,7 +30,7 @@ final class UserProvidedIdentifiersBuilder implements Builder
     /**
      * @var ?string
      */
-    private $sku;
+    private $orderNumber;
 
     /**
      * @var ?string
@@ -38,21 +38,21 @@ final class UserProvidedIdentifiersBuilder implements Builder
     private $customerNumber;
 
     /**
+     * @var ?string
+     */
+    private $sku;
+
+    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $slug;
 
     /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
      * @return null|string
      */
-    public function getOrderNumber()
+    public function getKey()
     {
-        return $this->orderNumber;
+        return $this->key;
     }
 
     /**
@@ -66,9 +66,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getSku()
+    public function getOrderNumber()
     {
-        return $this->sku;
+        return $this->orderNumber;
     }
 
     /**
@@ -80,6 +80,14 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -88,19 +96,11 @@ final class UserProvidedIdentifiersBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
      * @return $this
      */
-    public function withOrderNumber(?string $orderNumber)
+    public function withKey(?string $key)
     {
-        $this->orderNumber = $orderNumber;
+        $this->key = $key;
 
         return $this;
     }
@@ -118,9 +118,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSku(?string $sku)
+    public function withOrderNumber(?string $orderNumber)
     {
-        $this->sku = $sku;
+        $this->orderNumber = $orderNumber;
 
         return $this;
     }
@@ -138,9 +138,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSlug(?LocalizedString $slug)
+    public function withSku(?string $sku)
     {
-        $this->slug = $slug;
+        $this->sku = $sku;
 
         return $this;
     }
@@ -148,9 +148,9 @@ final class UserProvidedIdentifiersBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withSlug(?LocalizedString $slug)
     {
-        $this->key = $key;
+        $this->slug = $slug;
 
         return $this;
     }
@@ -168,12 +168,12 @@ final class UserProvidedIdentifiersBuilder implements Builder
     public function build(): UserProvidedIdentifiers
     {
         return new UserProvidedIdentifiersModel(
-            $this->orderNumber,
+            $this->key,
             $this->externalId,
-            $this->sku,
+            $this->orderNumber,
             $this->customerNumber,
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
-            $this->key
+            $this->sku,
+            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
         );
     }
 

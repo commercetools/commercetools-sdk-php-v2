@@ -18,9 +18,9 @@ use Commercetools\Base\Builder;
 final class ProductSetDiscountedPriceActionBuilder implements Builder
 {
     /**
-     * @var DiscountedPrice|?DiscountedPriceBuilder
+     * @var ?string
      */
-    private $discounted;
+    private $priceId;
 
     /**
      * @var ?bool
@@ -28,16 +28,16 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     private $staged;
 
     /**
-     * @var ?string
+     * @var DiscountedPrice|?DiscountedPriceBuilder
      */
-    private $priceId;
+    private $discounted;
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|string
      */
-    public function getDiscounted()
+    public function getPriceId()
     {
-        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
+        return $this->priceId;
     }
 
     /**
@@ -49,19 +49,19 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|DiscountedPrice
      */
-    public function getPriceId()
+    public function getDiscounted()
     {
-        return $this->priceId;
+        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
     }
 
     /**
      * @return $this
      */
-    public function withDiscounted(?DiscountedPrice $discounted)
+    public function withPriceId(?string $priceId)
     {
-        $this->discounted = $discounted;
+        $this->priceId = $priceId;
 
         return $this;
     }
@@ -79,9 +79,9 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPriceId(?string $priceId)
+    public function withDiscounted(?DiscountedPrice $discounted)
     {
-        $this->priceId = $priceId;
+        $this->discounted = $discounted;
 
         return $this;
     }
@@ -99,9 +99,9 @@ final class ProductSetDiscountedPriceActionBuilder implements Builder
     public function build(): ProductSetDiscountedPriceAction
     {
         return new ProductSetDiscountedPriceActionModel(
-            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
+            $this->priceId,
             $this->staged,
-            $this->priceId
+            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted)
         );
     }
 

@@ -31,6 +31,8 @@ final class MyOrderFromCartDraftModel extends JsonObjectModel implements MyOrder
     }
 
     /**
+     * <p>The unique ID of the cart from which an order is created.</p>.
+     *
      * @return null|string
      */
     public function getId()

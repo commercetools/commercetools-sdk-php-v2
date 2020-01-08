@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ZoneUpdateBuilder implements Builder
 {
     /**
-     * @var ?ZoneUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|ZoneUpdateActionCollection
+     * @var ?ZoneUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class ZoneUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ZoneUpdateActionCollection
      */
-    public function withActions(?ZoneUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ZoneUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?ZoneUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): ZoneUpdate
     {
         return new ZoneUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

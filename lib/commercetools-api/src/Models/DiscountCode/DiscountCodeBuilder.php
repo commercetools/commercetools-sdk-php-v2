@@ -27,16 +27,6 @@ use DateTimeImmutable;
 final class DiscountCodeBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -47,14 +37,39 @@ final class DiscountCodeBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $description;
+
+    /**
+     * @var ?string
+     */
+    private $code;
 
     /**
      * @var ?CartDiscountReferenceCollection
@@ -64,7 +79,12 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @var ?string
      */
-    private $code;
+    private $cartPredicate;
+
+    /**
+     * @var ?bool
+     */
+    private $isActive;
 
     /**
      * @var ?ReferenceCollection
@@ -72,9 +92,14 @@ final class DiscountCodeBuilder implements Builder
     private $references;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    private $cartPredicate;
+    private $maxApplications;
+
+    /**
+     * @var ?int
+     */
+    private $maxApplicationsPerCustomer;
 
     /**
      * @var CustomFields|?CustomFieldsBuilder
@@ -87,29 +112,9 @@ final class DiscountCodeBuilder implements Builder
     private $groups;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $description;
-
-    /**
      * @var ?DateTimeImmutable
      */
     private $validFrom;
-
-    /**
-     * @var ?bool
-     */
-    private $isActive;
-
-    /**
-     * @var ?int
-     */
-    private $maxApplications;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
 
     /**
      * @var ?DateTimeImmutable
@@ -117,9 +122,22 @@ final class DiscountCodeBuilder implements Builder
     private $validUntil;
 
     /**
-     * @var ?int
+     * <p>The unique ID of the discount code.</p>.
+     *
+     * @return null|string
      */
-    private $maxApplicationsPerCustomer;
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -138,30 +156,8 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -170,83 +166,13 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * @return null|CartDiscountReferenceCollection
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getCartDiscounts()
+    public function getCreatedBy()
     {
-        return $this->cartDiscounts;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
-
-    /**
-     * @return null|ReferenceCollection
-     */
-    public function getReferences()
-    {
-        return $this->references;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCartPredicate()
-    {
-        return $this->cartPredicate;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|array
-     */
-    public function getGroups()
-    {
-        return $this->groups;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidFrom()
-    {
-        return $this->validFrom;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getMaxApplications()
-    {
-        return $this->maxApplications;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -258,14 +184,77 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * @return null|LocalizedString
      */
-    public function getValidUntil()
+    public function getDescription()
     {
-        return $this->validUntil;
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
 
     /**
+     * <p>Unique identifier of this discount code.
+     * This value is added to the cart
+     * to enable the related cart discounts in the cart.</p>.
+     *
+     * @return null|string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * <p>The referenced matching cart discounts can be applied to the cart once the DiscountCode is added.</p>.
+     *
+     * @return null|CartDiscountReferenceCollection
+     */
+    public function getCartDiscounts()
+    {
+        return $this->cartDiscounts;
+    }
+
+    /**
+     * <p>The discount code can only be applied to carts that match this predicate.</p>.
+     *
+     * @return null|string
+     */
+    public function getCartPredicate()
+    {
+        return $this->cartPredicate;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * <p>The platform will generate this array from the cart predicate.
+     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     *
+     * @return null|ReferenceCollection
+     */
+    public function getReferences()
+    {
+        return $this->references;
+    }
+
+    /**
+     * <p>The discount code can only be applied <code>maxApplications</code> times.</p>.
+     *
+     * @return null|int
+     */
+    public function getMaxApplications()
+    {
+        return $this->maxApplications;
+    }
+
+    /**
+     * <p>The discount code can only be applied <code>maxApplicationsPerCustomer</code> times per customer.</p>.
+     *
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer()
@@ -274,23 +263,43 @@ final class DiscountCodeBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|CustomFields
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getCustom()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
-     * @return $this
+     * <p>The groups to which this discount code belong.</p>.
+     *
+     * @return null|array
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getGroups()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->groups;
+    }
 
-        return $this;
+    /**
+     * <p>The time from which the discount can be applied on a cart.
+     * Before that time the code is invalid.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidFrom()
+    {
+        return $this->validFrom;
+    }
+
+    /**
+     * <p>The time until the discount can be applied on a cart.
+     * After that time the code is invalid.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
+    {
+        return $this->validUntil;
     }
 
     /**
@@ -316,9 +325,19 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -336,9 +355,29 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCartDiscounts(?CartDiscountReferenceCollection $cartDiscounts)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->cartDiscounts = $cartDiscounts;
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
 
         return $this;
     }
@@ -356,9 +395,9 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withReferences(?ReferenceCollection $references)
+    public function withCartDiscounts(?CartDiscountReferenceCollection $cartDiscounts)
     {
-        $this->references = $references;
+        $this->cartDiscounts = $cartDiscounts;
 
         return $this;
     }
@@ -369,6 +408,46 @@ final class DiscountCodeBuilder implements Builder
     public function withCartPredicate(?string $cartPredicate)
     {
         $this->cartPredicate = $cartPredicate;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withIsActive(?bool $isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withReferences(?ReferenceCollection $references)
+    {
+        $this->references = $references;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMaxApplications(?int $maxApplications)
+    {
+        $this->maxApplications = $maxApplications;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
+    {
+        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
 
         return $this;
     }
@@ -396,49 +475,9 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescription(?LocalizedString $description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withValidFrom(?DateTimeImmutable $validFrom)
     {
         $this->validFrom = $validFrom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withIsActive(?bool $isActive)
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMaxApplications(?int $maxApplications)
-    {
-        $this->maxApplications = $maxApplications;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
 
         return $this;
     }
@@ -456,9 +495,9 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMaxApplicationsPerCustomer(?int $maxApplicationsPerCustomer)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->maxApplicationsPerCustomer = $maxApplicationsPerCustomer;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -476,19 +515,9 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
-        $this->lastModifiedBy = $lastModifiedBy;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
-    {
-        $this->custom = $custom;
+        $this->name = $name;
 
         return $this;
     }
@@ -506,9 +535,9 @@ final class DiscountCodeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
-        $this->name = $name;
+        $this->custom = $custom;
 
         return $this;
     }
@@ -516,25 +545,25 @@ final class DiscountCodeBuilder implements Builder
     public function build(): DiscountCode
     {
         return new DiscountCodeModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            $this->cartDiscounts,
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->code,
-            $this->references,
+            $this->cartDiscounts,
             $this->cartPredicate,
+            $this->isActive,
+            $this->references,
+            $this->maxApplications,
+            $this->maxApplicationsPerCustomer,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             $this->groups,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->validFrom,
-            $this->isActive,
-            $this->maxApplications,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->validUntil,
-            $this->maxApplicationsPerCustomer
+            $this->validUntil
         );
     }
 

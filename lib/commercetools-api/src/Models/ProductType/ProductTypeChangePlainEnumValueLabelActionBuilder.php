@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
 {
     /**
-     * @var AttributePlainEnumValue|?AttributePlainEnumValueBuilder
-     */
-    private $newValue;
-
-    /**
      * @var ?string
      */
     private $attributeName;
 
     /**
-     * @return null|AttributePlainEnumValue
+     * @var AttributePlainEnumValue|?AttributePlainEnumValueBuilder
      */
-    public function getNewValue()
-    {
-        return $this->newValue instanceof AttributePlainEnumValueBuilder ? $this->newValue->build() : $this->newValue;
-    }
+    private $newValue;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|AttributePlainEnumValue
      */
-    public function withNewValue(?AttributePlainEnumValue $newValue)
+    public function getNewValue()
     {
-        $this->newValue = $newValue;
-
-        return $this;
+        return $this->newValue instanceof AttributePlainEnumValueBuilder ? $this->newValue->build() : $this->newValue;
     }
 
     /**
@@ -57,6 +47,16 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     public function withAttributeName(?string $attributeName)
     {
         $this->attributeName = $attributeName;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withNewValue(?AttributePlainEnumValue $newValue)
+    {
+        $this->newValue = $newValue;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class ProductTypeChangePlainEnumValueLabelActionBuilder implements Builder
     public function build(): ProductTypeChangePlainEnumValueLabelAction
     {
         return new ProductTypeChangePlainEnumValueLabelActionModel(
-            ($this->newValue instanceof AttributePlainEnumValueBuilder ? $this->newValue->build() : $this->newValue),
-            $this->attributeName
+            $this->attributeName,
+            ($this->newValue instanceof AttributePlainEnumValueBuilder ? $this->newValue->build() : $this->newValue)
         );
     }
 

@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class ExtensionInputBuilder implements Builder
 {
     /**
-     * @var Reference|?ReferenceBuilder
-     */
-    private $resource;
-
-    /**
      * @var ?string
      */
     private $action;
 
     /**
-     * @return null|Reference
+     * @var Reference|?ReferenceBuilder
      */
-    public function getResource()
-    {
-        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
-    }
+    private $resource;
 
     /**
      * @return null|string
@@ -44,13 +36,11 @@ final class ExtensionInputBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Reference
      */
-    public function withResource(?Reference $resource)
+    public function getResource()
     {
-        $this->resource = $resource;
-
-        return $this;
+        return $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource;
     }
 
     /**
@@ -59,6 +49,16 @@ final class ExtensionInputBuilder implements Builder
     public function withAction(?string $action)
     {
         $this->action = $action;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withResource(?Reference $resource)
+    {
+        $this->resource = $resource;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class ExtensionInputBuilder implements Builder
     public function build(): ExtensionInput
     {
         return new ExtensionInputModel(
-            ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            $this->action
+            $this->action,
+            ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource)
         );
     }
 

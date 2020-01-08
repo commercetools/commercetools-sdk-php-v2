@@ -26,16 +26,6 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     const DISCRIMINATOR_VALUE = 'OrderDiscountCodeStateSet';
 
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -46,14 +36,24 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
 
     /**
      * @var ?int
@@ -66,11 +66,6 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     protected $resource;
 
     /**
-     * @var ?UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     protected $resourceVersion;
@@ -81,6 +76,11 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     protected $type;
 
     /**
+     * @var ?UserProvidedIdentifiers
+     */
+    protected $resourceUserProvidedIdentifiers;
+
+    /**
      * @var ?DiscountCodeReference
      */
     protected $discountCode;
@@ -88,42 +88,76 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     /**
      * @var ?string
      */
-    protected $oldState;
+    protected $state;
 
     /**
      * @var ?string
      */
-    protected $state;
+    protected $oldState;
 
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
+        CreatedBy $createdBy = null,
         int $sequenceNumber = null,
         Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
+        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         DiscountCodeReference $discountCode = null,
-        string $oldState = null,
-        string $state = null
+        string $state = null,
+        string $oldState = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
         $this->sequenceNumber = $sequenceNumber;
         $this->resource = $resource;
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->discountCode = $discountCode;
-        $this->oldState = $oldState;
         $this->state = $state;
+        $this->oldState = $oldState;
         $this->type = static::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Message::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Message::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -169,37 +203,21 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -218,24 +236,6 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
         }
 
         return $this->createdBy;
-    }
-
-    /**
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
-        }
-
-        return $this->lastModifiedBy;
     }
 
     /**
@@ -274,24 +274,6 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        if (is_null($this->resourceUserProvidedIdentifiers)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
-        }
-
-        return $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -326,6 +308,24 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     }
 
     /**
+     * @return null|UserProvidedIdentifiers
+     */
+    public function getResourceUserProvidedIdentifiers()
+    {
+        if (is_null($this->resourceUserProvidedIdentifiers)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
+        }
+
+        return $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
      * @return null|DiscountCodeReference
      */
     public function getDiscountCode()
@@ -346,23 +346,6 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
     /**
      * @return null|string
      */
-    public function getOldState()
-    {
-        if (is_null($this->oldState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderDiscountCodeStateSetMessage::FIELD_OLD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldState = (string) $data;
-        }
-
-        return $this->oldState;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getState()
     {
         if (is_null($this->state)) {
@@ -377,14 +360,21 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
         return $this->state;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    /**
+     * @return null|string
+     */
+    public function getOldState()
     {
-        $this->createdAt = $createdAt;
-    }
+        if (is_null($this->oldState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderDiscountCodeStateSetMessage::FIELD_OLD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldState = (string) $data;
+        }
 
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->oldState;
     }
 
     public function setId(?string $id): void
@@ -397,14 +387,24 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
+    }
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
     }
 
     public function setSequenceNumber(?int $sequenceNumber): void
@@ -417,14 +417,14 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
         $this->resource = $resource;
     }
 
-    public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
-    {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
+    }
+
+    public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
+    {
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
     public function setDiscountCode(?DiscountCodeReference $discountCode): void
@@ -432,14 +432,14 @@ final class OrderDiscountCodeStateSetMessageModel extends JsonObjectModel implem
         $this->discountCode = $discountCode;
     }
 
-    public function setOldState(?string $oldState): void
-    {
-        $this->oldState = $oldState;
-    }
-
     public function setState(?string $state): void
     {
         $this->state = $state;
+    }
+
+    public function setOldState(?string $oldState): void
+    {
+        $this->oldState = $oldState;
     }
 
     public function jsonSerialize()

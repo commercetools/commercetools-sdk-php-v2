@@ -23,21 +23,21 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     protected $type;
 
     /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?CategoryReference
      */
     protected $category;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        bool $staged = null,
-        CategoryReference $category = null
+        CategoryReference $category = null,
+        bool $staged = null
     ) {
-        $this->staged = $staged;
         $this->category = $category;
+        $this->staged = $staged;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,23 +59,6 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
     }
 
     /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductAddedToCategoryMessagePayload::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
-    }
-
-    /**
      * @return null|CategoryReference
      */
     public function getCategory()
@@ -93,13 +76,30 @@ final class ProductAddedToCategoryMessagePayloadModel extends JsonObjectModel im
         return $this->category;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->staged = $staged;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductAddedToCategoryMessagePayload::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setCategory(?CategoryReference $category): void
     {
         $this->category = $category;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

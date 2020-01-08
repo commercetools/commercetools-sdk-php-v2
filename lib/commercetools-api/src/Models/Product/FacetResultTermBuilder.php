@@ -17,11 +17,6 @@ use Commercetools\Base\JsonObject;
 final class FacetResultTermBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $count;
-
-    /**
      * @var ?JsonObject
      */
     private $term;
@@ -29,15 +24,12 @@ final class FacetResultTermBuilder implements Builder
     /**
      * @var ?int
      */
-    private $productCount;
+    private $count;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getCount()
-    {
-        return $this->count;
-    }
+    private $productCount;
 
     /**
      * @return null|JsonObject
@@ -45,6 +37,14 @@ final class FacetResultTermBuilder implements Builder
     public function getTerm()
     {
         return $this->term;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
     }
 
     /**
@@ -58,9 +58,9 @@ final class FacetResultTermBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCount(?int $count)
+    public function withTerm(?JsonObject $term)
     {
-        $this->count = $count;
+        $this->term = $term;
 
         return $this;
     }
@@ -68,9 +68,9 @@ final class FacetResultTermBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTerm(?JsonObject $term)
+    public function withCount(?int $count)
     {
-        $this->term = $term;
+        $this->count = $count;
 
         return $this;
     }
@@ -88,8 +88,8 @@ final class FacetResultTermBuilder implements Builder
     public function build(): FacetResultTerm
     {
         return new FacetResultTermModel(
-            $this->count,
             $this->term,
+            $this->count,
             $this->productCount
         );
     }

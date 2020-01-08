@@ -27,16 +27,6 @@ use DateTimeImmutable;
 final class OrderEditAppliedMessageBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -47,14 +37,24 @@ final class OrderEditAppliedMessageBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
 
     /**
      * @var ?int
@@ -67,19 +67,14 @@ final class OrderEditAppliedMessageBuilder implements Builder
     private $resource;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
-     */
-    private $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     private $resourceVersion;
 
     /**
-     * @var OrderEditApplied|?OrderEditAppliedBuilder
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
-    private $result;
+    private $resourceUserProvidedIdentifiers;
 
     /**
      * @var OrderEditReference|?OrderEditReferenceBuilder
@@ -87,20 +82,9 @@ final class OrderEditAppliedMessageBuilder implements Builder
     private $edit;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var OrderEditApplied|?OrderEditAppliedBuilder
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $result;
 
     /**
      * @return null|string
@@ -119,11 +103,19 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -132,6 +124,14 @@ final class OrderEditAppliedMessageBuilder implements Builder
     public function getLastModifiedBy()
     {
         return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -151,14 +151,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -167,11 +159,11 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
-     * @return null|OrderEditApplied
+     * @return null|UserProvidedIdentifiers
      */
-    public function getResult()
+    public function getResourceUserProvidedIdentifiers()
     {
-        return $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result;
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
     }
 
     /**
@@ -183,23 +175,11 @@ final class OrderEditAppliedMessageBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|OrderEditApplied
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getResult()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result;
     }
 
     /**
@@ -225,9 +205,19 @@ final class OrderEditAppliedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -238,6 +228,16 @@ final class OrderEditAppliedMessageBuilder implements Builder
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -265,16 +265,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
-    {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
@@ -285,9 +275,9 @@ final class OrderEditAppliedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResult(?OrderEditApplied $result)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
-        $this->result = $result;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
 
         return $this;
     }
@@ -305,9 +295,9 @@ final class OrderEditAppliedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withResult(?OrderEditApplied $result)
     {
-        $this->createdBy = $createdBy;
+        $this->result = $result;
 
         return $this;
     }
@@ -318,6 +308,16 @@ final class OrderEditAppliedMessageBuilder implements Builder
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -345,16 +345,6 @@ final class OrderEditAppliedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResultBuilder(?OrderEditAppliedBuilder $result)
-    {
-        $this->result = $result;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withEditBuilder(?OrderEditReferenceBuilder $edit)
     {
         $this->edit = $edit;
@@ -362,21 +352,31 @@ final class OrderEditAppliedMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withResultBuilder(?OrderEditAppliedBuilder $result)
+    {
+        $this->result = $result;
+
+        return $this;
+    }
+
     public function build(): OrderEditAppliedMessage
     {
         return new OrderEditAppliedMessageModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            ($this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result),
-            ($this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit)
+            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
+            ($this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit),
+            ($this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result)
         );
     }
 

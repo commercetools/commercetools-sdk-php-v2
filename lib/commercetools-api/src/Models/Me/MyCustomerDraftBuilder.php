@@ -23,27 +23,37 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $email;
+
+    /**
+     * @var ?string
+     */
+    private $password;
+
+    /**
+     * @var ?string
+     */
+    private $firstName;
+
+    /**
+     * @var ?string
+     */
     private $lastName;
 
     /**
-     * @var ?AddressCollection
+     * @var ?string
      */
-    private $addresses;
+    private $middleName;
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    private $defaultShippingAddress;
+    private $title;
 
     /**
-     * @var ?StoreResourceIdentifierCollection
+     * @var ?DateTimeImmutable
      */
-    private $stores;
-
-    /**
-     * @var CustomFields|?CustomFieldsBuilder
-     */
-    private $custom;
+    private $dateOfBirth;
 
     /**
      * @var ?string
@@ -56,34 +66,14 @@ final class MyCustomerDraftBuilder implements Builder
     private $vatId;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?AddressCollection
      */
-    private $dateOfBirth;
+    private $addresses;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    private $locale;
-
-    /**
-     * @var ?string
-     */
-    private $title;
-
-    /**
-     * @var ?string
-     */
-    private $firstName;
-
-    /**
-     * @var ?string
-     */
-    private $password;
-
-    /**
-     * @var ?string
-     */
-    private $middleName;
+    private $defaultShippingAddress;
 
     /**
      * @var ?int
@@ -91,9 +81,43 @@ final class MyCustomerDraftBuilder implements Builder
     private $defaultBillingAddress;
 
     /**
+     * @var CustomFields|?CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
      * @var ?string
      */
-    private $email;
+    private $locale;
+
+    /**
+     * @var ?StoreResourceIdentifierCollection
+     */
+    private $stores;
+
+    /**
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
 
     /**
      * @return null|string
@@ -104,35 +128,27 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * @return null|AddressCollection
+     * @return null|string
      */
-    public function getAddresses()
+    public function getMiddleName()
     {
-        return $this->addresses;
+        return $this->middleName;
     }
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getDefaultShippingAddress()
+    public function getTitle()
     {
-        return $this->defaultShippingAddress;
+        return $this->title;
     }
 
     /**
-     * @return null|StoreResourceIdentifierCollection
+     * @return null|DateTimeImmutable
      */
-    public function getStores()
+    public function getDateOfBirth()
     {
-        return $this->stores;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+        return $this->dateOfBirth;
     }
 
     /**
@@ -152,11 +168,45 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>Sets the ID of each address to be unique in the addresses list.</p>.
+     *
+     * @return null|AddressCollection
      */
-    public function getDateOfBirth()
+    public function getAddresses()
     {
-        return $this->dateOfBirth;
+        return $this->addresses;
+    }
+
+    /**
+     * <p>The index of the address in the addresses array.
+     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     *
+     * @return null|int
+     */
+    public function getDefaultShippingAddress()
+    {
+        return $this->defaultShippingAddress;
+    }
+
+    /**
+     * <p>The index of the address in the addresses array.
+     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     *
+     * @return null|int
+     */
+    public function getDefaultBillingAddress()
+    {
+        return $this->defaultBillingAddress;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -168,51 +218,41 @@ final class MyCustomerDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|StoreResourceIdentifierCollection
      */
-    public function getTitle()
+    public function getStores()
     {
-        return $this->title;
+        return $this->stores;
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getFirstName()
+    public function withEmail(?string $email)
     {
-        return $this->firstName;
+        $this->email = $email;
+
+        return $this;
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getPassword()
+    public function withPassword(?string $password)
     {
-        return $this->password;
+        $this->password = $password;
+
+        return $this;
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getMiddleName()
+    public function withFirstName(?string $firstName)
     {
-        return $this->middleName;
-    }
+        $this->firstName = $firstName;
 
-    /**
-     * @return null|int
-     */
-    public function getDefaultBillingAddress()
-    {
-        return $this->defaultBillingAddress;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getEmail()
-    {
-        return $this->email;
+        return $this;
     }
 
     /**
@@ -228,9 +268,9 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAddresses(?AddressCollection $addresses)
+    public function withMiddleName(?string $middleName)
     {
-        $this->addresses = $addresses;
+        $this->middleName = $middleName;
 
         return $this;
     }
@@ -238,9 +278,9 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDefaultShippingAddress(?int $defaultShippingAddress)
+    public function withTitle(?string $title)
     {
-        $this->defaultShippingAddress = $defaultShippingAddress;
+        $this->title = $title;
 
         return $this;
     }
@@ -248,19 +288,9 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStores(?StoreResourceIdentifierCollection $stores)
+    public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
     {
-        $this->stores = $stores;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
+        $this->dateOfBirth = $dateOfBirth;
 
         return $this;
     }
@@ -288,9 +318,9 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDateOfBirth(?DateTimeImmutable $dateOfBirth)
+    public function withAddresses(?AddressCollection $addresses)
     {
-        $this->dateOfBirth = $dateOfBirth;
+        $this->addresses = $addresses;
 
         return $this;
     }
@@ -298,49 +328,9 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLocale(?string $locale)
+    public function withDefaultShippingAddress(?int $defaultShippingAddress)
     {
-        $this->locale = $locale;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTitle(?string $title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFirstName(?string $firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPassword(?string $password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMiddleName(?string $middleName)
-    {
-        $this->middleName = $middleName;
+        $this->defaultShippingAddress = $defaultShippingAddress;
 
         return $this;
     }
@@ -358,9 +348,29 @@ final class MyCustomerDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withEmail(?string $email)
+    public function withCustom(?CustomFields $custom)
     {
-        $this->email = $email;
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLocale(?string $locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStores(?StoreResourceIdentifierCollection $stores)
+    {
+        $this->stores = $stores;
 
         return $this;
     }
@@ -378,21 +388,21 @@ final class MyCustomerDraftBuilder implements Builder
     public function build(): MyCustomerDraft
     {
         return new MyCustomerDraftModel(
+            $this->email,
+            $this->password,
+            $this->firstName,
             $this->lastName,
-            $this->addresses,
-            $this->defaultShippingAddress,
-            $this->stores,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->middleName,
+            $this->title,
+            $this->dateOfBirth,
             $this->companyName,
             $this->vatId,
-            $this->dateOfBirth,
-            $this->locale,
-            $this->title,
-            $this->firstName,
-            $this->password,
-            $this->middleName,
+            $this->addresses,
+            $this->defaultShippingAddress,
             $this->defaultBillingAddress,
-            $this->email
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->locale,
+            $this->stores
         );
     }
 

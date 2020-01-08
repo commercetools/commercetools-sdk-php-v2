@@ -49,6 +49,10 @@ final class PaymentSetKeyActionModel extends JsonObjectModel implements PaymentS
     }
 
     /**
+     * <p>User-specific unique identifier for the payment (max.
+     * 256 characters).
+     * If not provided an existing key will be removed.</p>.
+     *
      * @return null|string
      */
     public function getKey()

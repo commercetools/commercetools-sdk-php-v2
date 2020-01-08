@@ -18,20 +18,12 @@ final class PriceFunctionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $function;
+    private $currencyCode;
 
     /**
      * @var ?string
      */
-    private $currencyCode;
-
-    /**
-     * @return null|string
-     */
-    public function getFunction()
-    {
-        return $this->function;
-    }
+    private $function;
 
     /**
      * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
@@ -44,13 +36,11 @@ final class PriceFunctionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withFunction(?string $function)
+    public function getFunction()
     {
-        $this->function = $function;
-
-        return $this;
+        return $this->function;
     }
 
     /**
@@ -63,11 +53,21 @@ final class PriceFunctionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withFunction(?string $function)
+    {
+        $this->function = $function;
+
+        return $this;
+    }
+
     public function build(): PriceFunction
     {
         return new PriceFunctionModel(
-            $this->function,
-            $this->currencyCode
+            $this->currencyCode,
+            $this->function
         );
     }
 

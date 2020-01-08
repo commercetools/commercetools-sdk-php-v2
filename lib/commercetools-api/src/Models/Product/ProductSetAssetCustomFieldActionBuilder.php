@@ -17,21 +17,6 @@ use Commercetools\Base\JsonObject;
 final class ProductSetAssetCustomFieldActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $assetId;
-
-    /**
-     * @var ?string
-     */
-    private $name;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -42,9 +27,14 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     private $sku;
 
     /**
-     * @var ?JsonObject
+     * @var ?bool
      */
-    private $value;
+    private $staged;
+
+    /**
+     * @var ?string
+     */
+    private $assetId;
 
     /**
      * @var ?string
@@ -52,28 +42,14 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     private $assetKey;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getAssetId()
-    {
-        return $this->assetId;
-    }
+    private $name;
 
     /**
-     * @return null|string
+     * @var ?JsonObject
      */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $value;
 
     /**
      * @return null|int
@@ -92,11 +68,19 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|bool
      */
-    public function getValue()
+    public function getStaged()
     {
-        return $this->value;
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        return $this->assetId;
     }
 
     /**
@@ -108,33 +92,19 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withAssetId(?string $assetId)
+    public function getName()
     {
-        $this->assetId = $assetId;
-
-        return $this;
+        return $this->name;
     }
 
     /**
-     * @return $this
+     * @return null|JsonObject
      */
-    public function withName(?string $name)
+    public function getValue()
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withStaged(?bool $staged)
-    {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->value;
     }
 
     /**
@@ -160,9 +130,19 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withStaged(?bool $staged)
     {
-        $this->value = $value;
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssetId(?string $assetId)
+    {
+        $this->assetId = $assetId;
 
         return $this;
     }
@@ -177,16 +157,36 @@ final class ProductSetAssetCustomFieldActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withName(?string $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValue(?JsonObject $value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
     public function build(): ProductSetAssetCustomFieldAction
     {
         return new ProductSetAssetCustomFieldActionModel(
-            $this->assetId,
-            $this->name,
-            $this->staged,
             $this->variantId,
             $this->sku,
-            $this->value,
-            $this->assetKey
+            $this->staged,
+            $this->assetId,
+            $this->assetKey,
+            $this->name,
+            $this->value
         );
     }
 

@@ -21,11 +21,15 @@ interface Zone extends LoggedResource
     const FIELD_LOCATIONS = 'locations';
 
     /**
+     * <p>The unique ID of the zone.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the zone.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
@@ -51,6 +55,10 @@ interface Zone extends LoggedResource
     public function getCreatedBy();
 
     /**
+     * <p>User-specific unique identifier for a zone.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction.</p>.
+     *
      * @return null|string
      */
     public function getKey();

@@ -13,38 +13,21 @@ use Commercetools\Base\JsonObjectModel;
 final class SubRateModel extends JsonObjectModel implements SubRate
 {
     /**
-     * @var ?int
-     */
-    protected $amount;
-
-    /**
      * @var ?string
      */
     protected $name;
 
-    public function __construct(
-        int $amount = null,
-        string $name = null
-    ) {
-        $this->amount = $amount;
-        $this->name = $name;
-    }
-
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getAmount()
-    {
-        if (is_null($this->amount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(SubRate::FIELD_AMOUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->amount = (int) $data;
-        }
+    protected $amount;
 
-        return $this->amount;
+    public function __construct(
+        string $name = null,
+        int $amount = null
+    ) {
+        $this->name = $name;
+        $this->amount = $amount;
     }
 
     /**
@@ -64,13 +47,30 @@ final class SubRateModel extends JsonObjectModel implements SubRate
         return $this->name;
     }
 
-    public function setAmount(?int $amount): void
+    /**
+     * @return null|int
+     */
+    public function getAmount()
     {
-        $this->amount = $amount;
+        if (is_null($this->amount)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(SubRate::FIELD_AMOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->amount = (int) $data;
+        }
+
+        return $this->amount;
     }
 
     public function setName(?string $name): void
     {
         $this->name = $name;
+    }
+
+    public function setAmount(?int $amount): void
+    {
+        $this->amount = $amount;
     }
 }

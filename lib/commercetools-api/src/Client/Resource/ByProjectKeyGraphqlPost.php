@@ -10,6 +10,8 @@ namespace Commercetools\Api\Client\Resource;
 
 use Commercetools\Api\Models\Error\ErrorResponse;
 use Commercetools\Api\Models\Error\ErrorResponseModel;
+use Commercetools\Api\Models\GraphQL\GraphQLResponse;
+use Commercetools\Api\Models\GraphQL\GraphQLResponseModel;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
 use Commercetools\Base\ResultMapper;
@@ -41,7 +43,7 @@ class ByProjectKeyGraphqlPost extends ApiRequest
     /**
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
-     * @psalm-return ErrorResponse|JsonObject|T|null
+     * @psalm-return ErrorResponse|GraphQLResponse|JsonObject|T|null
      */
     public function mapFromResponse(?ResponseInterface $response, string $resultType = null)
     {
@@ -52,7 +54,7 @@ class ByProjectKeyGraphqlPost extends ApiRequest
         if (is_null($resultType)) {
             switch ($response->getStatusCode()) {
                 case '200':
-                    $resultType = JsonObjectModel::class;
+                    $resultType = GraphQLResponseModel::class;
 
                     break;
                 case '400':
@@ -89,7 +91,7 @@ class ByProjectKeyGraphqlPost extends ApiRequest
      * @template T of JsonObject
      * @psalm-param ?class-string<T> $resultType
      *
-     * @return null|ErrorResponse|JsonObject
+     * @return null|ErrorResponse|GraphQLResponse|JsonObject
      */
     public function execute(array $options = [], string $resultType = null)
     {

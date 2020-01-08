@@ -19,6 +19,26 @@ use DateTimeImmutable;
 final class ProductDiscountDraftBuilder implements Builder
 {
     /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $description;
+
+    /**
+     * @var ProductDiscountValueDraft|?ProductDiscountValueDraftBuilder
+     */
+    private $value;
+
+    /**
      * @var ?string
      */
     private $predicate;
@@ -29,19 +49,9 @@ final class ProductDiscountDraftBuilder implements Builder
     private $sortOrder;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var ?bool
      */
-    private $name;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $validUntil;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $description;
+    private $isActive;
 
     /**
      * @var ?DateTimeImmutable
@@ -49,35 +59,9 @@ final class ProductDiscountDraftBuilder implements Builder
     private $validFrom;
 
     /**
-     * @var ?bool
+     * @var ?DateTimeImmutable
      */
-    private $isActive;
-
-    /**
-     * @var ProductDiscountValueDraft|?ProductDiscountValueDraftBuilder
-     */
-    private $value;
-
-    /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
-     * @return null|string
-     */
-    public function getPredicate()
-    {
-        return $this->predicate;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSortOrder()
-    {
-        return $this->sortOrder;
-    }
+    private $validUntil;
 
     /**
      * @return null|LocalizedString
@@ -88,11 +72,15 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>User-specific unique identifier for a product discount.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction</p>.
+     *
+     * @return null|string
      */
-    public function getValidUntil()
+    public function getKey()
     {
-        return $this->validUntil;
+        return $this->key;
     }
 
     /**
@@ -104,22 +92,6 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidFrom()
-    {
-        return $this->validFrom;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
-
-    /**
      * @return null|ProductDiscountValueDraft
      */
     public function getValue()
@@ -128,11 +100,96 @@ final class ProductDiscountDraftBuilder implements Builder
     }
 
     /**
+     * <p>A valid ProductDiscount Predicate.</p>.
+     *
      * @return null|string
      */
-    public function getKey()
+    public function getPredicate()
     {
-        return $this->key;
+        return $this->predicate;
+    }
+
+    /**
+     * <p>The string must contain a decimal number between 0 and 1.
+     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>.
+     *
+     * @return null|string
+     */
+    public function getSortOrder()
+    {
+        return $this->sortOrder;
+    }
+
+    /**
+     * <p>If set to <code>true</code> the discount will be applied to product prices.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * <p>The time from which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidFrom()
+    {
+        return $this->validFrom;
+    }
+
+    /**
+     * <p>The time from which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
+    {
+        return $this->validUntil;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValue(?ProductDiscountValueDraft $value)
+    {
+        $this->value = $value;
+
+        return $this;
     }
 
     /**
@@ -158,29 +215,9 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withIsActive(?bool $isActive)
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValidUntil(?DateTimeImmutable $validUntil)
-    {
-        $this->validUntil = $validUntil;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDescription(?LocalizedString $description)
-    {
-        $this->description = $description;
+        $this->isActive = $isActive;
 
         return $this;
     }
@@ -198,29 +235,9 @@ final class ProductDiscountDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withIsActive(?bool $isActive)
+    public function withValidUntil(?DateTimeImmutable $validUntil)
     {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValue(?ProductDiscountValueDraft $value)
-    {
-        $this->value = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
+        $this->validUntil = $validUntil;
 
         return $this;
     }
@@ -258,15 +275,15 @@ final class ProductDiscountDraftBuilder implements Builder
     public function build(): ProductDiscountDraft
     {
         return new ProductDiscountDraftModel(
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->key,
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            ($this->value instanceof ProductDiscountValueDraftBuilder ? $this->value->build() : $this->value),
             $this->predicate,
             $this->sortOrder,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->validUntil,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->validFrom,
             $this->isActive,
-            ($this->value instanceof ProductDiscountValueDraftBuilder ? $this->value->build() : $this->value),
-            $this->key
+            $this->validFrom,
+            $this->validUntil
         );
     }
 

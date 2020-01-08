@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Type;
 
 use Commercetools\Base\Builder;
 use Commercetools\Base\MapperMap;
+use stdClass;
 
 /**
  * @implements Builder<FieldContainer>
@@ -26,16 +27,21 @@ final class FieldContainerBuilder extends MapperMap implements Builder
     }
 
     /**
-     * @psalm-return callable(string):?mixed
+     * @psalm-return callable(string):?FieldContainer
      */
     protected function mapper()
     {
         return
             /**
-             * @psalm-return ?mixed
+             * @psalm-return ?FieldContainer
              */
             function (string $key) {
-                return $this->get($key);
+                $data = $this->get($key);
+                if ($data instanceof stdClass) {
+                    $data = FieldContainerModel::of($data);
+                }
+
+                return $data;
             };
     }
 }

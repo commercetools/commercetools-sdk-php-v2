@@ -23,21 +23,21 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     protected $type;
 
     /**
-     * @var ?bool
-     */
-    protected $force;
-
-    /**
      * @var ?StateReference
      */
     protected $state;
 
+    /**
+     * @var ?bool
+     */
+    protected $force;
+
     public function __construct(
-        bool $force = null,
-        StateReference $state = null
+        StateReference $state = null,
+        bool $force = null
     ) {
-        $this->force = $force;
         $this->state = $state;
+        $this->force = $force;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,23 +59,6 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|bool
-     */
-    public function getForce()
-    {
-        if (is_null($this->force)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(OrderStateTransitionMessagePayload::FIELD_FORCE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->force = (bool) $data;
-        }
-
-        return $this->force;
-    }
-
-    /**
      * @return null|StateReference
      */
     public function getState()
@@ -93,13 +76,30 @@ final class OrderStateTransitionMessagePayloadModel extends JsonObjectModel impl
         return $this->state;
     }
 
-    public function setForce(?bool $force): void
+    /**
+     * @return null|bool
+     */
+    public function getForce()
     {
-        $this->force = $force;
+        if (is_null($this->force)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(OrderStateTransitionMessagePayload::FIELD_FORCE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->force = (bool) $data;
+        }
+
+        return $this->force;
     }
 
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
+    }
+
+    public function setForce(?bool $force): void
+    {
+        $this->force = $force;
     }
 }

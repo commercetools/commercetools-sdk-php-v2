@@ -24,12 +24,12 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @var ?DeliveryItemCollection
      */
-    private $oldItems;
+    private $items;
 
     /**
      * @var ?DeliveryItemCollection
      */
-    private $items;
+    private $oldItems;
 
     /**
      * @return null|string
@@ -42,17 +42,17 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @return null|DeliveryItemCollection
      */
-    public function getOldItems()
+    public function getItems()
     {
-        return $this->oldItems;
+        return $this->items;
     }
 
     /**
      * @return null|DeliveryItemCollection
      */
-    public function getItems()
+    public function getOldItems()
     {
-        return $this->items;
+        return $this->oldItems;
     }
 
     /**
@@ -68,9 +68,9 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldItems(?DeliveryItemCollection $oldItems)
+    public function withItems(?DeliveryItemCollection $items)
     {
-        $this->oldItems = $oldItems;
+        $this->items = $items;
 
         return $this;
     }
@@ -78,9 +78,9 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withItems(?DeliveryItemCollection $items)
+    public function withOldItems(?DeliveryItemCollection $oldItems)
     {
-        $this->items = $items;
+        $this->oldItems = $oldItems;
 
         return $this;
     }
@@ -89,8 +89,8 @@ final class DeliveryItemsUpdatedMessagePayloadBuilder implements Builder
     {
         return new DeliveryItemsUpdatedMessagePayloadModel(
             $this->deliveryId,
-            $this->oldItems,
-            $this->items
+            $this->items,
+            $this->oldItems
         );
     }
 

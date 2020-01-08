@@ -50,6 +50,11 @@ final class CartSetShippingRateInputActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>Based on the definition of ShippingRateInputType.
+     * If CartClassification is defined, it must be ClassificationShippingRateInput.
+     * If CartScore is defined, it must be ScoreShippingRateInput.
+     * Otherwise it can not bet set.</p>.
+     *
      * @return null|ShippingRateInputDraft
      */
     public function getShippingRateInput()

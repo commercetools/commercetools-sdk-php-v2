@@ -21,21 +21,21 @@ final class CartSetLineItemTaxRateActionModel extends JsonObjectModel implements
     protected $action;
 
     /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-
-    /**
      * @var ?string
      */
     protected $lineItemId;
 
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
     public function __construct(
-        ExternalTaxRateDraft $externalTaxRate = null,
-        string $lineItemId = null
+        string $lineItemId = null,
+        ExternalTaxRateDraft $externalTaxRate = null
     ) {
-        $this->externalTaxRate = $externalTaxRate;
         $this->lineItemId = $lineItemId;
+        $this->externalTaxRate = $externalTaxRate;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -57,6 +57,23 @@ final class CartSetLineItemTaxRateActionModel extends JsonObjectModel implements
     }
 
     /**
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartSetLineItemTaxRateAction::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
+    }
+
+    /**
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate()
@@ -74,30 +91,13 @@ final class CartSetLineItemTaxRateActionModel extends JsonObjectModel implements
         return $this->externalTaxRate;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getLineItemId()
+    public function setLineItemId(?string $lineItemId): void
     {
-        if (is_null($this->lineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CartSetLineItemTaxRateAction::FIELD_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItemId = (string) $data;
-        }
-
-        return $this->lineItemId;
+        $this->lineItemId = $lineItemId;
     }
 
     public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
     {
         $this->externalTaxRate = $externalTaxRate;
-    }
-
-    public function setLineItemId(?string $lineItemId): void
-    {
-        $this->lineItemId = $lineItemId;
     }
 }

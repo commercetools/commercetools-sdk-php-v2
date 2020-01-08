@@ -8,18 +8,17 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Client\Resource;
 
+use Commercetools\Api\Models\GraphQL\GraphQLRequest;
 use Commercetools\Client\ApiResource;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
 class ResourceByProjectKeyGraphql extends ApiResource
 {
     /**
-     * @psalm-param ?object $body
+     * @psalm-param ?GraphQLRequest $body
      * @psalm-param array<string, scalar|scalar[]> $headers
-     *
-     * @param null|mixed $body
      */
-    public function post($body = null, array $headers = []): ByProjectKeyGraphqlPost
+    public function post(?GraphQLRequest $body = null, array $headers = []): ByProjectKeyGraphqlPost
     {
         $args = $this->getArgs();
 

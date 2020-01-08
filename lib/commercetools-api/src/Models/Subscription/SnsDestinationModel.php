@@ -27,21 +27,21 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     /**
      * @var ?string
      */
-    protected $topicArn;
+    protected $accessSecret;
 
     /**
      * @var ?string
      */
-    protected $accessSecret;
+    protected $topicArn;
 
     public function __construct(
         string $accessKey = null,
-        string $topicArn = null,
-        string $accessSecret = null
+        string $accessSecret = null,
+        string $topicArn = null
     ) {
         $this->accessKey = $accessKey;
-        $this->topicArn = $topicArn;
         $this->accessSecret = $accessSecret;
+        $this->topicArn = $topicArn;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -82,23 +82,6 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
     /**
      * @return null|string
      */
-    public function getTopicArn()
-    {
-        if (is_null($this->topicArn)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(SnsDestination::FIELD_TOPIC_ARN);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->topicArn = (string) $data;
-        }
-
-        return $this->topicArn;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getAccessSecret()
     {
         if (is_null($this->accessSecret)) {
@@ -113,18 +96,35 @@ final class SnsDestinationModel extends JsonObjectModel implements SnsDestinatio
         return $this->accessSecret;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getTopicArn()
+    {
+        if (is_null($this->topicArn)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SnsDestination::FIELD_TOPIC_ARN);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->topicArn = (string) $data;
+        }
+
+        return $this->topicArn;
+    }
+
     public function setAccessKey(?string $accessKey): void
     {
         $this->accessKey = $accessKey;
     }
 
-    public function setTopicArn(?string $topicArn): void
-    {
-        $this->topicArn = $topicArn;
-    }
-
     public function setAccessSecret(?string $accessSecret): void
     {
         $this->accessSecret = $accessSecret;
+    }
+
+    public function setTopicArn(?string $topicArn): void
+    {
+        $this->topicArn = $topicArn;
     }
 }

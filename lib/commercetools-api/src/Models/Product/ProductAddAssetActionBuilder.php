@@ -20,22 +20,7 @@ final class ProductAddAssetActionBuilder implements Builder
     /**
      * @var ?int
      */
-    private $position;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
-     * @var ?int
-     */
     private $variantId;
-
-    /**
-     * @var AssetDraft|?AssetDraftBuilder
-     */
-    private $asset;
 
     /**
      * @var ?string
@@ -43,20 +28,19 @@ final class ProductAddAssetActionBuilder implements Builder
     private $sku;
 
     /**
-     * @return null|int
+     * @var ?bool
      */
-    public function getPosition()
-    {
-        return $this->position;
-    }
+    private $staged;
 
     /**
-     * @return null|bool
+     * @var AssetDraft|?AssetDraftBuilder
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $asset;
+
+    /**
+     * @var ?int
+     */
+    private $position;
 
     /**
      * @return null|int
@@ -64,14 +48,6 @@ final class ProductAddAssetActionBuilder implements Builder
     public function getVariantId()
     {
         return $this->variantId;
-    }
-
-    /**
-     * @return null|AssetDraft
-     */
-    public function getAsset()
-    {
-        return $this->asset instanceof AssetDraftBuilder ? $this->asset->build() : $this->asset;
     }
 
     /**
@@ -83,23 +59,29 @@ final class ProductAddAssetActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withPosition(?int $position)
+    public function getStaged()
     {
-        $this->position = $position;
-
-        return $this;
+        return $this->staged;
     }
 
     /**
-     * @return $this
+     * @return null|AssetDraft
      */
-    public function withStaged(?bool $staged)
+    public function getAsset()
     {
-        $this->staged = $staged;
+        return $this->asset instanceof AssetDraftBuilder ? $this->asset->build() : $this->asset;
+    }
 
-        return $this;
+    /**
+     * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>.
+     *
+     * @return null|int
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 
     /**
@@ -108,16 +90,6 @@ final class ProductAddAssetActionBuilder implements Builder
     public function withVariantId(?int $variantId)
     {
         $this->variantId = $variantId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAsset(?AssetDraft $asset)
-    {
-        $this->asset = $asset;
 
         return $this;
     }
@@ -135,6 +107,36 @@ final class ProductAddAssetActionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAsset(?AssetDraft $asset)
+    {
+        $this->asset = $asset;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPosition(?int $position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAssetBuilder(?AssetDraftBuilder $asset)
     {
         $this->asset = $asset;
@@ -145,11 +147,11 @@ final class ProductAddAssetActionBuilder implements Builder
     public function build(): ProductAddAssetAction
     {
         return new ProductAddAssetActionModel(
-            $this->position,
-            $this->staged,
             $this->variantId,
+            $this->sku,
+            $this->staged,
             ($this->asset instanceof AssetDraftBuilder ? $this->asset->build() : $this->asset),
-            $this->sku
+            $this->position
         );
     }
 

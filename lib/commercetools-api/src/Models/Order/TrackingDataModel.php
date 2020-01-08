@@ -13,9 +13,9 @@ use Commercetools\Base\JsonObjectModel;
 final class TrackingDataModel extends JsonObjectModel implements TrackingData
 {
     /**
-     * @var ?bool
+     * @var ?string
      */
-    protected $isReturn;
+    protected $trackingId;
 
     /**
      * @var ?string
@@ -25,50 +25,54 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     /**
      * @var ?string
      */
-    protected $providerTransaction;
-
-    /**
-     * @var ?string
-     */
     protected $provider;
 
     /**
      * @var ?string
      */
-    protected $trackingId;
+    protected $providerTransaction;
+
+    /**
+     * @var ?bool
+     */
+    protected $isReturn;
 
     public function __construct(
-        bool $isReturn = null,
+        string $trackingId = null,
         string $carrier = null,
-        string $providerTransaction = null,
         string $provider = null,
-        string $trackingId = null
+        string $providerTransaction = null,
+        bool $isReturn = null
     ) {
-        $this->isReturn = $isReturn;
-        $this->carrier = $carrier;
-        $this->providerTransaction = $providerTransaction;
-        $this->provider = $provider;
         $this->trackingId = $trackingId;
+        $this->carrier = $carrier;
+        $this->provider = $provider;
+        $this->providerTransaction = $providerTransaction;
+        $this->isReturn = $isReturn;
     }
 
     /**
-     * @return null|bool
+     * <p>The ID to track one parcel.</p>.
+     *
+     * @return null|string
      */
-    public function getIsReturn()
+    public function getTrackingId()
     {
-        if (is_null($this->isReturn)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(TrackingData::FIELD_IS_RETURN);
+        if (is_null($this->trackingId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TrackingData::FIELD_TRACKING_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->isReturn = (bool) $data;
+            $this->trackingId = (string) $data;
         }
 
-        return $this->isReturn;
+        return $this->trackingId;
     }
 
     /**
+     * <p>The carrier that delivers the parcel.</p>.
+     *
      * @return null|string
      */
     public function getCarrier()
@@ -83,23 +87,6 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
         }
 
         return $this->carrier;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getProviderTransaction()
-    {
-        if (is_null($this->providerTransaction)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(TrackingData::FIELD_PROVIDER_TRANSACTION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->providerTransaction = (string) $data;
-        }
-
-        return $this->providerTransaction;
     }
 
     /**
@@ -122,23 +109,42 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
     /**
      * @return null|string
      */
-    public function getTrackingId()
+    public function getProviderTransaction()
     {
-        if (is_null($this->trackingId)) {
+        if (is_null($this->providerTransaction)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(TrackingData::FIELD_TRACKING_ID);
+            $data = $this->raw(TrackingData::FIELD_PROVIDER_TRANSACTION);
             if (is_null($data)) {
                 return null;
             }
-            $this->trackingId = (string) $data;
+            $this->providerTransaction = (string) $data;
         }
 
-        return $this->trackingId;
+        return $this->providerTransaction;
     }
 
-    public function setIsReturn(?bool $isReturn): void
+    /**
+     * <p>Flag to distinguish if the parcel is on the way to the customer (false) or on the way back (true).</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsReturn()
     {
-        $this->isReturn = $isReturn;
+        if (is_null($this->isReturn)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(TrackingData::FIELD_IS_RETURN);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isReturn = (bool) $data;
+        }
+
+        return $this->isReturn;
+    }
+
+    public function setTrackingId(?string $trackingId): void
+    {
+        $this->trackingId = $trackingId;
     }
 
     public function setCarrier(?string $carrier): void
@@ -146,18 +152,18 @@ final class TrackingDataModel extends JsonObjectModel implements TrackingData
         $this->carrier = $carrier;
     }
 
-    public function setProviderTransaction(?string $providerTransaction): void
-    {
-        $this->providerTransaction = $providerTransaction;
-    }
-
     public function setProvider(?string $provider): void
     {
         $this->provider = $provider;
     }
 
-    public function setTrackingId(?string $trackingId): void
+    public function setProviderTransaction(?string $providerTransaction): void
     {
-        $this->trackingId = $trackingId;
+        $this->providerTransaction = $providerTransaction;
+    }
+
+    public function setIsReturn(?bool $isReturn): void
+    {
+        $this->isReturn = $isReturn;
     }
 }

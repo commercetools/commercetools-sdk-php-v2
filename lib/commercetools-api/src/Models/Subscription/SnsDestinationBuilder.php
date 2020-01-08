@@ -23,12 +23,12 @@ final class SnsDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $topicArn;
+    private $accessSecret;
 
     /**
      * @var ?string
      */
-    private $accessSecret;
+    private $topicArn;
 
     /**
      * @return null|string
@@ -41,17 +41,17 @@ final class SnsDestinationBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getTopicArn()
+    public function getAccessSecret()
     {
-        return $this->topicArn;
+        return $this->accessSecret;
     }
 
     /**
      * @return null|string
      */
-    public function getAccessSecret()
+    public function getTopicArn()
     {
-        return $this->accessSecret;
+        return $this->topicArn;
     }
 
     /**
@@ -67,9 +67,9 @@ final class SnsDestinationBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTopicArn(?string $topicArn)
+    public function withAccessSecret(?string $accessSecret)
     {
-        $this->topicArn = $topicArn;
+        $this->accessSecret = $accessSecret;
 
         return $this;
     }
@@ -77,9 +77,9 @@ final class SnsDestinationBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAccessSecret(?string $accessSecret)
+    public function withTopicArn(?string $topicArn)
     {
-        $this->accessSecret = $accessSecret;
+        $this->topicArn = $topicArn;
 
         return $this;
     }
@@ -88,8 +88,8 @@ final class SnsDestinationBuilder implements Builder
     {
         return new SnsDestinationModel(
             $this->accessKey,
-            $this->topicArn,
-            $this->accessSecret
+            $this->accessSecret,
+            $this->topicArn
         );
     }
 

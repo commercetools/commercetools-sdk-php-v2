@@ -14,11 +14,6 @@ use stdClass;
 final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategoryDraft
 {
     /**
-     * @var ?TaxRateDraftCollection
-     */
-    protected $rates;
-
-    /**
      * @var ?string
      */
     protected $name;
@@ -29,37 +24,25 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     protected $description;
 
     /**
+     * @var ?TaxRateDraftCollection
+     */
+    protected $rates;
+
+    /**
      * @var ?string
      */
     protected $key;
 
     public function __construct(
-        TaxRateDraftCollection $rates = null,
         string $name = null,
         string $description = null,
+        TaxRateDraftCollection $rates = null,
         string $key = null
     ) {
-        $this->rates = $rates;
         $this->name = $name;
         $this->description = $description;
+        $this->rates = $rates;
         $this->key = $key;
-    }
-
-    /**
-     * @return null|TaxRateDraftCollection
-     */
-    public function getRates()
-    {
-        if (is_null($this->rates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TaxCategoryDraft::FIELD_RATES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->rates = TaxRateDraftCollection::fromArray($data);
-        }
-
-        return $this->rates;
     }
 
     /**
@@ -97,6 +80,23 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     }
 
     /**
+     * @return null|TaxRateDraftCollection
+     */
+    public function getRates()
+    {
+        if (is_null($this->rates)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(TaxCategoryDraft::FIELD_RATES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->rates = TaxRateDraftCollection::fromArray($data);
+        }
+
+        return $this->rates;
+    }
+
+    /**
      * @return null|string
      */
     public function getKey()
@@ -113,11 +113,6 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
         return $this->key;
     }
 
-    public function setRates(?TaxRateDraftCollection $rates): void
-    {
-        $this->rates = $rates;
-    }
-
     public function setName(?string $name): void
     {
         $this->name = $name;
@@ -126,6 +121,11 @@ final class TaxCategoryDraftModel extends JsonObjectModel implements TaxCategory
     public function setDescription(?string $description): void
     {
         $this->description = $description;
+    }
+
+    public function setRates(?TaxRateDraftCollection $rates): void
+    {
+        $this->rates = $rates;
     }
 
     public function setKey(?string $key): void

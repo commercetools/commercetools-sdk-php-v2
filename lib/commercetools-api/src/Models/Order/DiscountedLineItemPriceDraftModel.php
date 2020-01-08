@@ -17,38 +17,21 @@ use stdClass;
 final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements DiscountedLineItemPriceDraft
 {
     /**
-     * @var ?DiscountedLineItemPortionCollection
-     */
-    protected $includedDiscounts;
-
-    /**
      * @var ?Money
      */
     protected $value;
 
-    public function __construct(
-        DiscountedLineItemPortionCollection $includedDiscounts = null,
-        Money $value = null
-    ) {
-        $this->includedDiscounts = $includedDiscounts;
-        $this->value = $value;
-    }
-
     /**
-     * @return null|DiscountedLineItemPortionCollection
+     * @var ?DiscountedLineItemPortionCollection
      */
-    public function getIncludedDiscounts()
-    {
-        if (is_null($this->includedDiscounts)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DiscountedLineItemPriceDraft::FIELD_INCLUDED_DISCOUNTS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->includedDiscounts = DiscountedLineItemPortionCollection::fromArray($data);
-        }
+    protected $includedDiscounts;
 
-        return $this->includedDiscounts;
+    public function __construct(
+        Money $value = null,
+        DiscountedLineItemPortionCollection $includedDiscounts = null
+    ) {
+        $this->value = $value;
+        $this->includedDiscounts = $includedDiscounts;
     }
 
     /**
@@ -69,13 +52,30 @@ final class DiscountedLineItemPriceDraftModel extends JsonObjectModel implements
         return $this->value;
     }
 
-    public function setIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts): void
+    /**
+     * @return null|DiscountedLineItemPortionCollection
+     */
+    public function getIncludedDiscounts()
     {
-        $this->includedDiscounts = $includedDiscounts;
+        if (is_null($this->includedDiscounts)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(DiscountedLineItemPriceDraft::FIELD_INCLUDED_DISCOUNTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->includedDiscounts = DiscountedLineItemPortionCollection::fromArray($data);
+        }
+
+        return $this->includedDiscounts;
     }
 
     public function setValue(?Money $value): void
     {
         $this->value = $value;
+    }
+
+    public function setIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts): void
+    {
+        $this->includedDiscounts = $includedDiscounts;
     }
 }

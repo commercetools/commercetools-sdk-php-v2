@@ -16,21 +16,41 @@ use stdClass;
 final class ExternalTaxAmountDraftModel extends JsonObjectModel implements ExternalTaxAmountDraft
 {
     /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $taxRate;
-
-    /**
      * @var ?Money
      */
     protected $totalGross;
 
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $taxRate;
+
     public function __construct(
-        ExternalTaxRateDraft $taxRate = null,
-        Money $totalGross = null
+        Money $totalGross = null,
+        ExternalTaxRateDraft $taxRate = null
     ) {
-        $this->taxRate = $taxRate;
         $this->totalGross = $totalGross;
+        $this->taxRate = $taxRate;
+    }
+
+    /**
+     * <p>The total gross amount of the item (totalNet + taxes).</p>.
+     *
+     * @return null|Money
+     */
+    public function getTotalGross()
+    {
+        if (is_null($this->totalGross)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ExternalTaxAmountDraft::FIELD_TOTAL_GROSS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalGross = MoneyModel::of($data);
+        }
+
+        return $this->totalGross;
     }
 
     /**
@@ -51,31 +71,13 @@ final class ExternalTaxAmountDraftModel extends JsonObjectModel implements Exter
         return $this->taxRate;
     }
 
-    /**
-     * @return null|Money
-     */
-    public function getTotalGross()
+    public function setTotalGross(?Money $totalGross): void
     {
-        if (is_null($this->totalGross)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExternalTaxAmountDraft::FIELD_TOTAL_GROSS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->totalGross = MoneyModel::of($data);
-        }
-
-        return $this->totalGross;
+        $this->totalGross = $totalGross;
     }
 
     public function setTaxRate(?ExternalTaxRateDraft $taxRate): void
     {
         $this->taxRate = $taxRate;
-    }
-
-    public function setTotalGross(?Money $totalGross): void
-    {
-        $this->totalGross = $totalGross;
     }
 }

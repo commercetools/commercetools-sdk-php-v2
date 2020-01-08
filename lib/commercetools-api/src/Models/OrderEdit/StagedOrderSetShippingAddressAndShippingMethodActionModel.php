@@ -28,11 +28,6 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
     protected $action;
 
     /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-
-    /**
      * @var ?Address
      */
     protected $address;
@@ -42,14 +37,19 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
      */
     protected $shippingMethod;
 
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
     public function __construct(
-        ExternalTaxRateDraft $externalTaxRate = null,
         Address $address = null,
-        ShippingMethodResourceIdentifier $shippingMethod = null
+        ShippingMethodResourceIdentifier $shippingMethod = null,
+        ExternalTaxRateDraft $externalTaxRate = null
     ) {
-        $this->externalTaxRate = $externalTaxRate;
         $this->address = $address;
         $this->shippingMethod = $shippingMethod;
+        $this->externalTaxRate = $externalTaxRate;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -68,24 +68,6 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        if (is_null($this->externalTaxRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderSetShippingAddressAndShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-        }
-
-        return $this->externalTaxRate;
     }
 
     /**
@@ -124,9 +106,22 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
         return $this->shippingMethod;
     }
 
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    /**
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
     {
-        $this->externalTaxRate = $externalTaxRate;
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderSetShippingAddressAndShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
     }
 
     public function setAddress(?Address $address): void
@@ -137,5 +132,10 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionModel extends Js
     public function setShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod): void
     {
         $this->shippingMethod = $shippingMethod;
+    }
+
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    {
+        $this->externalTaxRate = $externalTaxRate;
     }
 }

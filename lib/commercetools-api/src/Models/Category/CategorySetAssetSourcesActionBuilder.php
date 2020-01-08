@@ -17,11 +17,6 @@ use Commercetools\Base\Builder;
 final class CategorySetAssetSourcesActionBuilder implements Builder
 {
     /**
-     * @var ?AssetSourceCollection
-     */
-    private $sources;
-
-    /**
      * @var ?string
      */
     private $assetId;
@@ -32,12 +27,9 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
     private $assetKey;
 
     /**
-     * @return null|AssetSourceCollection
+     * @var ?AssetSourceCollection
      */
-    public function getSources()
-    {
-        return $this->sources;
-    }
+    private $sources;
 
     /**
      * @return null|string
@@ -56,13 +48,11 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|AssetSourceCollection
      */
-    public function withSources(?AssetSourceCollection $sources)
+    public function getSources()
     {
-        $this->sources = $sources;
-
-        return $this;
+        return $this->sources;
     }
 
     /**
@@ -85,12 +75,22 @@ final class CategorySetAssetSourcesActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withSources(?AssetSourceCollection $sources)
+    {
+        $this->sources = $sources;
+
+        return $this;
+    }
+
     public function build(): CategorySetAssetSourcesAction
     {
         return new CategorySetAssetSourcesActionModel(
-            $this->sources,
             $this->assetId,
-            $this->assetKey
+            $this->assetKey,
+            $this->sources
         );
     }
 

@@ -18,6 +18,21 @@ use Commercetools\Import\Models\Common\LocalizedStringBuilder;
 final class AttributeDefinitionBuilder implements Builder
 {
     /**
+     * @var AttributeType|?AttributeTypeBuilder
+     */
+    private $type;
+
+    /**
+     * @var ?string
+     */
+    private $name;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $label;
+
+    /**
      * @var ?bool
      */
     private $isRequired;
@@ -28,9 +43,9 @@ final class AttributeDefinitionBuilder implements Builder
     private $attributeConstraint;
 
     /**
-     * @var ?string
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $name;
+    private $inputTip;
 
     /**
      * @var ?string
@@ -43,19 +58,28 @@ final class AttributeDefinitionBuilder implements Builder
     private $isSearchable;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @return null|AttributeType
      */
-    private $label;
+    public function getType()
+    {
+        return $this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type;
+    }
 
     /**
-     * @var AttributeType|?AttributeTypeBuilder
+     * @return null|string
      */
-    private $type;
+    public function getName()
+    {
+        return $this->name;
+    }
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @return null|LocalizedString
      */
-    private $inputTip;
+    public function getLabel()
+    {
+        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
+    }
 
     /**
      * @return null|bool
@@ -74,11 +98,11 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|LocalizedString
      */
-    public function getName()
+    public function getInputTip()
     {
-        return $this->name;
+        return $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip;
     }
 
     /**
@@ -98,27 +122,33 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
-     * @return null|LocalizedString
+     * @return $this
      */
-    public function getLabel()
+    public function withType(?AttributeType $type)
     {
-        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
+        $this->type = $type;
+
+        return $this;
     }
 
     /**
-     * @return null|AttributeType
+     * @return $this
      */
-    public function getType()
+    public function withName(?string $name)
     {
-        return $this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
-     * @return null|LocalizedString
+     * @return $this
      */
-    public function getInputTip()
+    public function withLabel(?LocalizedString $label)
     {
-        return $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip;
+        $this->label = $label;
+
+        return $this;
     }
 
     /**
@@ -144,9 +174,9 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withInputTip(?LocalizedString $inputTip)
     {
-        $this->name = $name;
+        $this->inputTip = $inputTip;
 
         return $this;
     }
@@ -174,29 +204,9 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLabel(?LocalizedString $label)
-    {
-        $this->label = $label;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?AttributeType $type)
+    public function withTypeBuilder(?AttributeTypeBuilder $type)
     {
         $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withInputTip(?LocalizedString $inputTip)
-    {
-        $this->inputTip = $inputTip;
 
         return $this;
     }
@@ -214,16 +224,6 @@ final class AttributeDefinitionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTypeBuilder(?AttributeTypeBuilder $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withInputTipBuilder(?LocalizedStringBuilder $inputTip)
     {
         $this->inputTip = $inputTip;
@@ -234,14 +234,14 @@ final class AttributeDefinitionBuilder implements Builder
     public function build(): AttributeDefinition
     {
         return new AttributeDefinitionModel(
+            ($this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type),
+            $this->name,
+            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
             $this->isRequired,
             $this->attributeConstraint,
-            $this->name,
+            ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip),
             $this->inputHint,
-            $this->isSearchable,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
-            ($this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type),
-            ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip)
+            $this->isSearchable
         );
     }
 

@@ -16,9 +16,9 @@ use Commercetools\Base\Builder;
 final class TrackingDataBuilder implements Builder
 {
     /**
-     * @var ?bool
+     * @var ?string
      */
-    private $isReturn;
+    private $trackingId;
 
     /**
      * @var ?string
@@ -28,40 +28,36 @@ final class TrackingDataBuilder implements Builder
     /**
      * @var ?string
      */
-    private $providerTransaction;
-
-    /**
-     * @var ?string
-     */
     private $provider;
 
     /**
      * @var ?string
      */
-    private $trackingId;
+    private $providerTransaction;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getIsReturn()
+    private $isReturn;
+
+    /**
+     * <p>The ID to track one parcel.</p>.
+     *
+     * @return null|string
+     */
+    public function getTrackingId()
     {
-        return $this->isReturn;
+        return $this->trackingId;
     }
 
     /**
+     * <p>The carrier that delivers the parcel.</p>.
+     *
      * @return null|string
      */
     public function getCarrier()
     {
         return $this->carrier;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getProviderTransaction()
-    {
-        return $this->providerTransaction;
     }
 
     /**
@@ -75,17 +71,27 @@ final class TrackingDataBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getTrackingId()
+    public function getProviderTransaction()
     {
-        return $this->trackingId;
+        return $this->providerTransaction;
+    }
+
+    /**
+     * <p>Flag to distinguish if the parcel is on the way to the customer (false) or on the way back (true).</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsReturn()
+    {
+        return $this->isReturn;
     }
 
     /**
      * @return $this
      */
-    public function withIsReturn(?bool $isReturn)
+    public function withTrackingId(?string $trackingId)
     {
-        $this->isReturn = $isReturn;
+        $this->trackingId = $trackingId;
 
         return $this;
     }
@@ -103,16 +109,6 @@ final class TrackingDataBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProviderTransaction(?string $providerTransaction)
-    {
-        $this->providerTransaction = $providerTransaction;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withProvider(?string $provider)
     {
         $this->provider = $provider;
@@ -123,9 +119,19 @@ final class TrackingDataBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTrackingId(?string $trackingId)
+    public function withProviderTransaction(?string $providerTransaction)
     {
-        $this->trackingId = $trackingId;
+        $this->providerTransaction = $providerTransaction;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withIsReturn(?bool $isReturn)
+    {
+        $this->isReturn = $isReturn;
 
         return $this;
     }
@@ -133,11 +139,11 @@ final class TrackingDataBuilder implements Builder
     public function build(): TrackingData
     {
         return new TrackingDataModel(
-            $this->isReturn,
+            $this->trackingId,
             $this->carrier,
-            $this->providerTransaction,
             $this->provider,
-            $this->trackingId
+            $this->providerTransaction,
+            $this->isReturn
         );
     }
 

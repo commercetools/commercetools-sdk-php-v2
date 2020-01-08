@@ -25,7 +25,12 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     /**
      * @var ?int
      */
-    protected $position;
+    protected $variantId;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
 
     /**
      * @var ?bool
@@ -33,32 +38,27 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     protected $staged;
 
     /**
-     * @var ?int
-     */
-    protected $variantId;
-
-    /**
      * @var ?AssetDraft
      */
     protected $asset;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $sku;
+    protected $position;
 
     public function __construct(
-        int $position = null,
-        bool $staged = null,
         int $variantId = null,
+        string $sku = null,
+        bool $staged = null,
         AssetDraft $asset = null,
-        string $sku = null
+        int $position = null
     ) {
-        $this->position = $position;
-        $this->staged = $staged;
         $this->variantId = $variantId;
-        $this->asset = $asset;
         $this->sku = $sku;
+        $this->staged = $staged;
+        $this->asset = $asset;
+        $this->position = $position;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -82,18 +82,35 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     /**
      * @return null|int
      */
-    public function getPosition()
+    public function getVariantId()
     {
-        if (is_null($this->position)) {
+        if (is_null($this->variantId)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(ProductAddAssetAction::FIELD_POSITION);
+            $data = $this->raw(ProductAddAssetAction::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->position = (int) $data;
+            $this->variantId = (int) $data;
         }
 
-        return $this->position;
+        return $this->variantId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductAddAssetAction::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
 
     /**
@@ -111,23 +128,6 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
         }
 
         return $this->staged;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductAddAssetAction::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
     }
 
     /**
@@ -149,30 +149,22 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
     }
 
     /**
-     * @return null|string
+     * <p>Position of the new asset inside the existing list (from <code>0</code> to the size of the list)</p>.
+     *
+     * @return null|int
      */
-    public function getSku()
+    public function getPosition()
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductAddAssetAction::FIELD_SKU);
+        if (is_null($this->position)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductAddAssetAction::FIELD_POSITION);
             if (is_null($data)) {
                 return null;
             }
-            $this->sku = (string) $data;
+            $this->position = (int) $data;
         }
 
-        return $this->sku;
-    }
-
-    public function setPosition(?int $position): void
-    {
-        $this->position = $position;
-    }
-
-    public function setStaged(?bool $staged): void
-    {
-        $this->staged = $staged;
+        return $this->position;
     }
 
     public function setVariantId(?int $variantId): void
@@ -180,13 +172,23 @@ final class ProductAddAssetActionModel extends JsonObjectModel implements Produc
         $this->variantId = $variantId;
     }
 
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
+    }
+
     public function setAsset(?AssetDraft $asset): void
     {
         $this->asset = $asset;
     }
 
-    public function setSku(?string $sku): void
+    public function setPosition(?int $position): void
     {
-        $this->sku = $sku;
+        $this->position = $position;
     }
 }

@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ShippingMethodUpdateBuilder implements Builder
 {
     /**
-     * @var ?ShippingMethodUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|ShippingMethodUpdateActionCollection
+     * @var ?ShippingMethodUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class ShippingMethodUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ShippingMethodUpdateActionCollection
      */
-    public function withActions(?ShippingMethodUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ShippingMethodUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?ShippingMethodUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): ShippingMethodUpdate
     {
         return new ShippingMethodUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

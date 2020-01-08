@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
 {
     /**
-     * @var TaxRateDraft|?TaxRateDraftBuilder
-     */
-    private $taxRate;
-
-    /**
      * @var ?string
      */
     private $taxRateId;
 
     /**
-     * @return null|TaxRateDraft
+     * @var TaxRateDraft|?TaxRateDraftBuilder
      */
-    public function getTaxRate()
-    {
-        return $this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate;
-    }
+    private $taxRate;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|TaxRateDraft
      */
-    public function withTaxRate(?TaxRateDraft $taxRate)
+    public function getTaxRate()
     {
-        $this->taxRate = $taxRate;
-
-        return $this;
+        return $this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate;
     }
 
     /**
@@ -57,6 +47,16 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     public function withTaxRateId(?string $taxRateId)
     {
         $this->taxRateId = $taxRateId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxRate(?TaxRateDraft $taxRate)
+    {
+        $this->taxRate = $taxRate;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class TaxCategoryReplaceTaxRateActionBuilder implements Builder
     public function build(): TaxCategoryReplaceTaxRateAction
     {
         return new TaxCategoryReplaceTaxRateActionModel(
-            ($this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate),
-            $this->taxRateId
+            $this->taxRateId,
+            ($this->taxRate instanceof TaxRateDraftBuilder ? $this->taxRate->build() : $this->taxRate)
         );
     }
 

@@ -16,9 +16,9 @@ use stdClass;
 final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
 {
     /**
-     * @var ?DateTimeImmutable
+     * @var ?ReturnItemCollection
      */
-    protected $returnDate;
+    protected $items;
 
     /**
      * @var ?string
@@ -26,18 +26,54 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
     protected $returnTrackingId;
 
     /**
-     * @var ?ReturnItemCollection
+     * @var ?DateTimeImmutable
      */
-    protected $items;
+    protected $returnDate;
 
     public function __construct(
-        DateTimeImmutable $returnDate = null,
+        ReturnItemCollection $items = null,
         string $returnTrackingId = null,
-        ReturnItemCollection $items = null
+        DateTimeImmutable $returnDate = null
     ) {
-        $this->returnDate = $returnDate;
-        $this->returnTrackingId = $returnTrackingId;
         $this->items = $items;
+        $this->returnTrackingId = $returnTrackingId;
+        $this->returnDate = $returnDate;
+    }
+
+    /**
+     * @return null|ReturnItemCollection
+     */
+    public function getItems()
+    {
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ReturnInfo::FIELD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->items = ReturnItemCollection::fromArray($data);
+        }
+
+        return $this->items;
+    }
+
+    /**
+     * <p>Identifies, which return tracking ID is connected to this particular return.</p>.
+     *
+     * @return null|string
+     */
+    public function getReturnTrackingId()
+    {
+        if (is_null($this->returnTrackingId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReturnInfo::FIELD_RETURN_TRACKING_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->returnTrackingId = (string) $data;
+        }
+
+        return $this->returnTrackingId;
     }
 
     /**
@@ -61,43 +97,9 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
         return $this->returnDate;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getReturnTrackingId()
+    public function setItems(?ReturnItemCollection $items): void
     {
-        if (is_null($this->returnTrackingId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnInfo::FIELD_RETURN_TRACKING_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->returnTrackingId = (string) $data;
-        }
-
-        return $this->returnTrackingId;
-    }
-
-    /**
-     * @return null|ReturnItemCollection
-     */
-    public function getItems()
-    {
-        if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ReturnInfo::FIELD_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->items = ReturnItemCollection::fromArray($data);
-        }
-
-        return $this->items;
-    }
-
-    public function setReturnDate(?DateTimeImmutable $returnDate): void
-    {
-        $this->returnDate = $returnDate;
+        $this->items = $items;
     }
 
     public function setReturnTrackingId(?string $returnTrackingId): void
@@ -105,9 +107,9 @@ final class ReturnInfoModel extends JsonObjectModel implements ReturnInfo
         $this->returnTrackingId = $returnTrackingId;
     }
 
-    public function setItems(?ReturnItemCollection $items): void
+    public function setReturnDate(?DateTimeImmutable $returnDate): void
     {
-        $this->items = $items;
+        $this->returnDate = $returnDate;
     }
 
     public function jsonSerialize()

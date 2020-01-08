@@ -15,36 +15,19 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
     /**
      * @var ?int
      */
-    protected $resourceVersion;
+    protected $editVersion;
 
     /**
      * @var ?int
      */
-    protected $editVersion;
+    protected $resourceVersion;
 
     public function __construct(
-        int $resourceVersion = null,
-        int $editVersion = null
+        int $editVersion = null,
+        int $resourceVersion = null
     ) {
-        $this->resourceVersion = $resourceVersion;
         $this->editVersion = $editVersion;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getResourceVersion()
-    {
-        if (is_null($this->resourceVersion)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(OrderEditApply::FIELD_RESOURCE_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->resourceVersion = (int) $data;
-        }
-
-        return $this->resourceVersion;
+        $this->resourceVersion = $resourceVersion;
     }
 
     /**
@@ -64,13 +47,30 @@ final class OrderEditApplyModel extends JsonObjectModel implements OrderEditAppl
         return $this->editVersion;
     }
 
-    public function setResourceVersion(?int $resourceVersion): void
+    /**
+     * @return null|int
+     */
+    public function getResourceVersion()
     {
-        $this->resourceVersion = $resourceVersion;
+        if (is_null($this->resourceVersion)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(OrderEditApply::FIELD_RESOURCE_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->resourceVersion = (int) $data;
+        }
+
+        return $this->resourceVersion;
     }
 
     public function setEditVersion(?int $editVersion): void
     {
         $this->editVersion = $editVersion;
+    }
+
+    public function setResourceVersion(?int $resourceVersion): void
+    {
+        $this->resourceVersion = $resourceVersion;
     }
 }

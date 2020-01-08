@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class CustomFieldsBuilder implements Builder
 {
     /**
-     * @var FieldContainer|?FieldContainerBuilder
-     */
-    private $fields;
-
-    /**
      * @var TypeReference|?TypeReferenceBuilder
      */
     private $type;
 
     /**
-     * @return null|FieldContainer
+     * @var FieldContainer|?FieldContainerBuilder
      */
-    public function getFields()
-    {
-        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
-    }
+    private $fields;
 
     /**
      * @return null|TypeReference
@@ -42,13 +34,13 @@ final class CustomFieldsBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>A valid JSON object, based on FieldDefinition.</p>.
+     *
+     * @return null|FieldContainer
      */
-    public function withFields(?FieldContainer $fields)
+    public function getFields()
     {
-        $this->fields = $fields;
-
-        return $this;
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
@@ -64,7 +56,7 @@ final class CustomFieldsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
 
@@ -81,11 +73,21 @@ final class CustomFieldsBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
+
     public function build(): CustomFields
     {
         return new CustomFieldsModel(
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields),
-            ($this->type instanceof TypeReferenceBuilder ? $this->type->build() : $this->type)
+            ($this->type instanceof TypeReferenceBuilder ? $this->type->build() : $this->type),
+            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
         );
     }
 

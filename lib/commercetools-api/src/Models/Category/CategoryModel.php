@@ -25,16 +25,6 @@ use stdClass;
 final class CategoryModel extends JsonObjectModel implements Category
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -45,9 +35,14 @@ final class CategoryModel extends JsonObjectModel implements Category
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -55,14 +50,39 @@ final class CategoryModel extends JsonObjectModel implements Category
     protected $lastModifiedBy;
 
     /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?CategoryReferenceCollection
+     */
+    protected $ancestors;
+
+    /**
      * @var ?CategoryReference
      */
     protected $parent;
 
     /**
-     * @var ?CustomFields
+     * @var ?string
      */
-    protected $custom;
+    protected $orderHint;
 
     /**
      * @var ?string
@@ -72,7 +92,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * @var ?LocalizedString
      */
-    protected $description;
+    protected $metaTitle;
 
     /**
      * @var ?LocalizedString
@@ -80,85 +100,103 @@ final class CategoryModel extends JsonObjectModel implements Category
     protected $metaDescription;
 
     /**
-     * @var ?AssetCollection
-     */
-    protected $assets;
-
-    /**
      * @var ?LocalizedString
      */
     protected $metaKeywords;
 
     /**
-     * @var ?string
+     * @var ?CustomFields
      */
-    protected $orderHint;
+    protected $custom;
 
     /**
-     * @var ?LocalizedString
+     * @var ?AssetCollection
      */
-    protected $metaTitle;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-
-    /**
-     * @var ?CategoryReferenceCollection
-     */
-    protected $ancestors;
+    protected $assets;
 
     /**
      * @var ?string
      */
     protected $key;
 
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
-
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        CategoryReference $parent = null,
-        CustomFields $custom = null,
-        string $externalId = null,
-        LocalizedString $description = null,
-        LocalizedString $metaDescription = null,
-        AssetCollection $assets = null,
-        LocalizedString $metaKeywords = null,
-        string $orderHint = null,
-        LocalizedString $metaTitle = null,
+        CreatedBy $createdBy = null,
         LocalizedString $name = null,
+        LocalizedString $slug = null,
+        LocalizedString $description = null,
         CategoryReferenceCollection $ancestors = null,
-        string $key = null,
-        LocalizedString $slug = null
+        CategoryReference $parent = null,
+        string $orderHint = null,
+        string $externalId = null,
+        LocalizedString $metaTitle = null,
+        LocalizedString $metaDescription = null,
+        LocalizedString $metaKeywords = null,
+        CustomFields $custom = null,
+        AssetCollection $assets = null,
+        string $key = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->parent = $parent;
-        $this->custom = $custom;
-        $this->externalId = $externalId;
-        $this->description = $description;
-        $this->metaDescription = $metaDescription;
-        $this->assets = $assets;
-        $this->metaKeywords = $metaKeywords;
-        $this->orderHint = $orderHint;
-        $this->metaTitle = $metaTitle;
+        $this->createdBy = $createdBy;
         $this->name = $name;
-        $this->ancestors = $ancestors;
-        $this->key = $key;
         $this->slug = $slug;
+        $this->description = $description;
+        $this->ancestors = $ancestors;
+        $this->parent = $parent;
+        $this->orderHint = $orderHint;
+        $this->externalId = $externalId;
+        $this->metaTitle = $metaTitle;
+        $this->metaDescription = $metaDescription;
+        $this->metaKeywords = $metaKeywords;
+        $this->custom = $custom;
+        $this->assets = $assets;
+        $this->key = $key;
+    }
+
+    /**
+     * <p>The unique ID of the category.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Category::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the category.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Category::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -204,58 +242,8 @@ final class CategoryModel extends JsonObjectModel implements Category
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Category::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Category::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        if (is_null($this->createdBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_CREATED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->createdBy = CreatedByModel::of($data);
-        }
-
-        return $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -274,56 +262,62 @@ final class CategoryModel extends JsonObjectModel implements Category
     }
 
     /**
-     * @return null|CategoryReference
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getParent()
+    public function getCreatedBy()
     {
-        if (is_null($this->parent)) {
+        if (is_null($this->createdBy)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_PARENT);
+            $data = $this->raw(Category::FIELD_CREATED_BY);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->parent = CategoryReferenceModel::of($data);
+            $this->createdBy = CreatedByModel::of($data);
         }
 
-        return $this->parent;
+        return $this->createdBy;
     }
 
     /**
-     * @return null|CustomFields
+     * @return null|LocalizedString
      */
-    public function getCustom()
+    public function getName()
     {
-        if (is_null($this->custom)) {
+        if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_CUSTOM);
+            $data = $this->raw(Category::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->custom = CustomFieldsModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
-        return $this->custom;
+        return $this->name;
     }
 
     /**
-     * @return null|string
+     * <p>human-readable identifiers usually used as deep-link URL to the related category.
+     * Each slug is unique across a project, but a category can have the same slug for different languages.</p>.
+     *
+     * @return null|LocalizedString
      */
-    public function getExternalId()
+    public function getSlug()
     {
-        if (is_null($this->externalId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Category::FIELD_EXTERNAL_ID);
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_SLUG);
             if (is_null($data)) {
                 return null;
             }
-            $this->externalId = (string) $data;
+
+            $this->slug = LocalizedStringModel::of($data);
         }
 
-        return $this->externalId;
+        return $this->slug;
     }
 
     /**
@@ -345,59 +339,47 @@ final class CategoryModel extends JsonObjectModel implements Category
     }
 
     /**
-     * @return null|LocalizedString
+     * <p>Contains the parent path towards the root category.</p>.
+     *
+     * @return null|CategoryReferenceCollection
      */
-    public function getMetaDescription()
+    public function getAncestors()
     {
-        if (is_null($this->metaDescription)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_META_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->metaDescription = LocalizedStringModel::of($data);
-        }
-
-        return $this->metaDescription;
-    }
-
-    /**
-     * @return null|AssetCollection
-     */
-    public function getAssets()
-    {
-        if (is_null($this->assets)) {
+        if (is_null($this->ancestors)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Category::FIELD_ASSETS);
+            $data = $this->raw(Category::FIELD_ANCESTORS);
             if (is_null($data)) {
                 return null;
             }
-            $this->assets = AssetCollection::fromArray($data);
+            $this->ancestors = CategoryReferenceCollection::fromArray($data);
         }
 
-        return $this->assets;
+        return $this->ancestors;
     }
 
     /**
-     * @return null|LocalizedString
+     * <p>A category that is the parent of this category in the category tree.</p>.
+     *
+     * @return null|CategoryReference
      */
-    public function getMetaKeywords()
+    public function getParent()
     {
-        if (is_null($this->metaKeywords)) {
+        if (is_null($this->parent)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_META_KEYWORDS);
+            $data = $this->raw(Category::FIELD_PARENT);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->metaKeywords = LocalizedStringModel::of($data);
+            $this->parent = CategoryReferenceModel::of($data);
         }
 
-        return $this->metaKeywords;
+        return $this->parent;
     }
 
     /**
+     * <p>An attribute as base for a custom category order in one level.</p>.
+     *
      * @return null|string
      */
     public function getOrderHint()
@@ -412,6 +394,23 @@ final class CategoryModel extends JsonObjectModel implements Category
         }
 
         return $this->orderHint;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Category::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
     }
 
     /**
@@ -435,39 +434,79 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * @return null|LocalizedString
      */
-    public function getName()
+    public function getMetaDescription()
     {
-        if (is_null($this->name)) {
+        if (is_null($this->metaDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_NAME);
+            $data = $this->raw(Category::FIELD_META_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->name = LocalizedStringModel::of($data);
+            $this->metaDescription = LocalizedStringModel::of($data);
         }
 
-        return $this->name;
+        return $this->metaDescription;
     }
 
     /**
-     * @return null|CategoryReferenceCollection
+     * @return null|LocalizedString
      */
-    public function getAncestors()
+    public function getMetaKeywords()
     {
-        if (is_null($this->ancestors)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Category::FIELD_ANCESTORS);
+        if (is_null($this->metaKeywords)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
-            $this->ancestors = CategoryReferenceCollection::fromArray($data);
+
+            $this->metaKeywords = LocalizedStringModel::of($data);
         }
 
-        return $this->ancestors;
+        return $this->metaKeywords;
     }
 
     /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Category::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
+     * <p>Can be used to store images, icons or movies related to this category.</p>.
+     *
+     * @return null|AssetCollection
+     */
+    public function getAssets()
+    {
+        if (is_null($this->assets)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(Category::FIELD_ASSETS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assets = AssetCollection::fromArray($data);
+        }
+
+        return $this->assets;
+    }
+
+    /**
+     * <p>User-specific unique identifier for the category.</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -484,22 +523,14 @@ final class CategoryModel extends JsonObjectModel implements Category
         return $this->key;
     }
 
-    /**
-     * @return null|LocalizedString
-     */
-    public function getSlug()
+    public function setId(?string $id): void
     {
-        if (is_null($this->slug)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Category::FIELD_SLUG);
-            if (is_null($data)) {
-                return null;
-            }
+        $this->id = $id;
+    }
 
-            $this->slug = LocalizedStringModel::of($data);
-        }
-
-        return $this->slug;
+    public function setVersion(?int $version): void
+    {
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -512,14 +543,9 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
-    public function setId(?string $id): void
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
-        $this->id = $id;
-    }
-
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setCreatedBy(?CreatedBy $createdBy): void
@@ -527,24 +553,14 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->createdBy = $createdBy;
     }
 
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    public function setName(?LocalizedString $name): void
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->name = $name;
     }
 
-    public function setParent(?CategoryReference $parent): void
+    public function setSlug(?LocalizedString $slug): void
     {
-        $this->parent = $parent;
-    }
-
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    public function setExternalId(?string $externalId): void
-    {
-        $this->externalId = $externalId;
+        $this->slug = $slug;
     }
 
     public function setDescription(?LocalizedString $description): void
@@ -552,19 +568,14 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->description = $description;
     }
 
-    public function setMetaDescription(?LocalizedString $metaDescription): void
+    public function setAncestors(?CategoryReferenceCollection $ancestors): void
     {
-        $this->metaDescription = $metaDescription;
+        $this->ancestors = $ancestors;
     }
 
-    public function setAssets(?AssetCollection $assets): void
+    public function setParent(?CategoryReference $parent): void
     {
-        $this->assets = $assets;
-    }
-
-    public function setMetaKeywords(?LocalizedString $metaKeywords): void
-    {
-        $this->metaKeywords = $metaKeywords;
+        $this->parent = $parent;
     }
 
     public function setOrderHint(?string $orderHint): void
@@ -572,29 +583,39 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->orderHint = $orderHint;
     }
 
+    public function setExternalId(?string $externalId): void
+    {
+        $this->externalId = $externalId;
+    }
+
     public function setMetaTitle(?LocalizedString $metaTitle): void
     {
         $this->metaTitle = $metaTitle;
     }
 
-    public function setName(?LocalizedString $name): void
+    public function setMetaDescription(?LocalizedString $metaDescription): void
     {
-        $this->name = $name;
+        $this->metaDescription = $metaDescription;
     }
 
-    public function setAncestors(?CategoryReferenceCollection $ancestors): void
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
-        $this->ancestors = $ancestors;
+        $this->metaKeywords = $metaKeywords;
+    }
+
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setAssets(?AssetCollection $assets): void
+    {
+        $this->assets = $assets;
     }
 
     public function setKey(?string $key): void
     {
         $this->key = $key;
-    }
-
-    public function setSlug(?LocalizedString $slug): void
-    {
-        $this->slug = $slug;
     }
 
     public function jsonSerialize()

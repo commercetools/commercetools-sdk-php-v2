@@ -13,6 +13,8 @@ interface ProjectChangeCurrenciesAction extends ProjectUpdateAction
     const FIELD_CURRENCIES = 'currencies';
 
     /**
+     * <p>A three-digit currency code as per currency code.</p>.
+     *
      * @return null|array
      */
     public function getCurrencies();

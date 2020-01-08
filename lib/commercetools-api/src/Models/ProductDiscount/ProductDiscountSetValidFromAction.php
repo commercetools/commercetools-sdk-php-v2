@@ -15,6 +15,9 @@ interface ProductDiscountSetValidFromAction extends ProductDiscountUpdateAction
     const FIELD_VALID_FROM = 'validFrom';
 
     /**
+     * <p>The time from which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();

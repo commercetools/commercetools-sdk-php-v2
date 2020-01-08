@@ -13,6 +13,8 @@ interface ProductDiscountChangePredicateAction extends ProductDiscountUpdateActi
     const FIELD_PREDICATE = 'predicate';
 
     /**
+     * <p>A valid ProductDiscount Predicate.</p>.
+     *
      * @return null|string
      */
     public function getPredicate();

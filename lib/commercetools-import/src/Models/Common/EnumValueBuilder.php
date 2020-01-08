@@ -18,20 +18,12 @@ final class EnumValueBuilder implements Builder
     /**
      * @var ?string
      */
-    private $label;
+    private $key;
 
     /**
      * @var ?string
      */
-    private $key;
-
-    /**
-     * @return null|string
-     */
-    public function getLabel()
-    {
-        return $this->label;
-    }
+    private $label;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class EnumValueBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withLabel(?string $label)
+    public function getLabel()
     {
-        $this->label = $label;
-
-        return $this;
+        return $this->label;
     }
 
     /**
@@ -61,11 +51,21 @@ final class EnumValueBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withLabel(?string $label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
     public function build(): EnumValue
     {
         return new EnumValueModel(
-            $this->label,
-            $this->key
+            $this->key,
+            $this->label
         );
     }
 

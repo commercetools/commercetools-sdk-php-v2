@@ -23,16 +23,6 @@ use DateTimeImmutable;
 final class StateBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -43,9 +33,14 @@ final class StateBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -53,29 +48,14 @@ final class StateBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var ?bool
+     * @var CreatedBy|?CreatedByBuilder
      */
-    private $initial;
+    private $createdBy;
 
     /**
-     * @var ?array
+     * @var ?string
      */
-    private $roles;
-
-    /**
-     * @var ?bool
-     */
-    private $builtIn;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $description;
-
-    /**
-     * @var ?StateReferenceCollection
-     */
-    private $transitions;
+    private $key;
 
     /**
      * @var ?string
@@ -88,25 +68,29 @@ final class StateBuilder implements Builder
     private $name;
 
     /**
-     * @var ?string
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $key;
+    private $description;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var ?bool
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
+    private $initial;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var ?bool
      */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $builtIn;
+
+    /**
+     * @var ?array
+     */
+    private $roles;
+
+    /**
+     * @var ?StateReferenceCollection
+     */
+    private $transitions;
 
     /**
      * @return null|string
@@ -125,14 +109,24 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
     }
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -141,43 +135,23 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * @return null|bool
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getInitial()
+    public function getCreatedBy()
     {
-        return $this->initial;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
-     * @return null|array
+     * <p>A unique identifier for the state.</p>.
+     *
+     * @return null|string
      */
-    public function getRoles()
+    public function getKey()
     {
-        return $this->roles;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getBuiltIn()
-    {
-        return $this->builtIn;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
-
-    /**
-     * @return null|StateReferenceCollection
-     */
-    public function getTransitions()
-    {
-        return $this->transitions;
+        return $this->key;
     }
 
     /**
@@ -189,6 +163,8 @@ final class StateBuilder implements Builder
     }
 
     /**
+     * <p>A human-readable name of the state.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -197,31 +173,56 @@ final class StateBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>A human-readable description of the state.</p>.
+     *
+     * @return null|LocalizedString
      */
-    public function getKey()
+    public function getDescription()
     {
-        return $this->key;
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
 
     /**
-     * @return $this
+     * <p>A state can be declared as an initial state for any state machine.
+     * When a workflow starts, this first state must be an <code>initial</code> state.</p>.
+     *
+     * @return null|bool
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getInitial()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->initial;
     }
 
     /**
-     * @return $this
+     * <p>Builtin states are integral parts of the project that cannot be deleted nor the key can be changed.</p>.
+     *
+     * @return null|bool
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getBuiltIn()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->builtIn;
+    }
 
-        return $this;
+    /**
+     * @return null|array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * <p>Transitions are a way to describe possible transformations of the current state to other states of the same <code>type</code> (e.g.: <em>Initial</em> -&gt; <em>Shipped</em>).
+     * When performing a <code>transitionState</code> update action and <code>transitions</code> is set, the currently referenced state must have a transition to the new state.
+     * If <code>transitions</code> is an empty list, it means the current state is a final state and no further transitions are allowed.
+     * If <code>transitions</code> is not set, the validation is turned off.
+     * When performing a <code>transitionState</code> update action, any other state of the same <code>type</code> can be transitioned to.</p>.
+     *
+     * @return null|StateReferenceCollection
+     */
+    public function getTransitions()
+    {
+        return $this->transitions;
     }
 
     /**
@@ -247,9 +248,19 @@ final class StateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -267,9 +278,9 @@ final class StateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withInitial(?bool $initial)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->initial = $initial;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -277,39 +288,9 @@ final class StateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withRoles(?array $roles)
+    public function withKey(?string $key)
     {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withBuiltIn(?bool $builtIn)
-    {
-        $this->builtIn = $builtIn;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDescription(?LocalizedString $description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTransitions(?StateReferenceCollection $transitions)
-    {
-        $this->transitions = $transitions;
+        $this->key = $key;
 
         return $this;
     }
@@ -337,9 +318,9 @@ final class StateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withDescription(?LocalizedString $description)
     {
-        $this->key = $key;
+        $this->description = $description;
 
         return $this;
     }
@@ -347,9 +328,39 @@ final class StateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withInitial(?bool $initial)
     {
-        $this->createdBy = $createdBy;
+        $this->initial = $initial;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withBuiltIn(?bool $builtIn)
+    {
+        $this->builtIn = $builtIn;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withRoles(?array $roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTransitions(?StateReferenceCollection $transitions)
+    {
+        $this->transitions = $transitions;
 
         return $this;
     }
@@ -367,9 +378,9 @@ final class StateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
-        $this->description = $description;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -384,23 +395,33 @@ final class StateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
     public function build(): State
     {
         return new StateModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            $this->initial,
-            $this->roles,
-            $this->builtIn,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->transitions,
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->key,
             $this->type,
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->key
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->initial,
+            $this->builtIn,
+            $this->roles,
+            $this->transitions
         );
     }
 

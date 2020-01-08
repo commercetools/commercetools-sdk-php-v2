@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ProductTypeChangePlainEnumValueOrderActionBuilder implements Builder
 {
     /**
-     * @var ?AttributePlainEnumValueCollection
-     */
-    private $values;
-
-    /**
      * @var ?string
      */
     private $attributeName;
 
     /**
-     * @return null|AttributePlainEnumValueCollection
+     * @var ?AttributePlainEnumValueCollection
      */
-    public function getValues()
-    {
-        return $this->values;
-    }
+    private $values;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class ProductTypeChangePlainEnumValueOrderActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|AttributePlainEnumValueCollection
      */
-    public function withValues(?AttributePlainEnumValueCollection $values)
+    public function getValues()
     {
-        $this->values = $values;
-
-        return $this;
+        return $this->values;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ProductTypeChangePlainEnumValueOrderActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withValues(?AttributePlainEnumValueCollection $values)
+    {
+        $this->values = $values;
+
+        return $this;
+    }
+
     public function build(): ProductTypeChangePlainEnumValueOrderAction
     {
         return new ProductTypeChangePlainEnumValueOrderActionModel(
-            $this->values,
-            $this->attributeName
+            $this->attributeName,
+            $this->values
         );
     }
 

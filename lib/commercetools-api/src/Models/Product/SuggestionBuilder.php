@@ -21,6 +21,8 @@ final class SuggestionBuilder implements Builder
     private $text;
 
     /**
+     * <p>The suggested text.</p>.
+     *
      * @return null|string
      */
     public function getText()

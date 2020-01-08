@@ -24,16 +24,6 @@ use stdClass;
 final class InventoryEntryModel extends JsonObjectModel implements InventoryEntry
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -44,9 +34,14 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -54,9 +49,34 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     protected $lastModifiedBy;
 
     /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     * @var ?ChannelResourceIdentifier
+     */
+    protected $supplyChannel;
+
+    /**
+     * @var ?int
+     */
+    protected $quantityOnStock;
+
+    /**
      * @var ?int
      */
     protected $availableQuantity;
+
+    /**
+     * @var ?int
+     */
+    protected $restockableInDays;
 
     /**
      * @var ?DateTimeImmutable
@@ -68,54 +88,70 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
      */
     protected $custom;
 
-    /**
-     * @var ?int
-     */
-    protected $quantityOnStock;
-
-    /**
-     * @var ?ChannelResourceIdentifier
-     */
-    protected $supplyChannel;
-
-    /**
-     * @var ?int
-     */
-    protected $restockableInDays;
-
-    /**
-     * @var ?string
-     */
-    protected $sku;
-
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        int $availableQuantity = null,
-        DateTimeImmutable $expectedDelivery = null,
-        CustomFields $custom = null,
-        int $quantityOnStock = null,
+        CreatedBy $createdBy = null,
+        string $sku = null,
         ChannelResourceIdentifier $supplyChannel = null,
+        int $quantityOnStock = null,
+        int $availableQuantity = null,
         int $restockableInDays = null,
-        string $sku = null
+        DateTimeImmutable $expectedDelivery = null,
+        CustomFields $custom = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
+        $this->sku = $sku;
+        $this->supplyChannel = $supplyChannel;
+        $this->quantityOnStock = $quantityOnStock;
         $this->availableQuantity = $availableQuantity;
+        $this->restockableInDays = $restockableInDays;
         $this->expectedDelivery = $expectedDelivery;
         $this->custom = $custom;
-        $this->quantityOnStock = $quantityOnStock;
-        $this->supplyChannel = $supplyChannel;
-        $this->restockableInDays = $restockableInDays;
-        $this->sku = $sku;
+    }
+
+    /**
+     * <p>The unique ID of the inventory entry.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(InventoryEntry::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(InventoryEntry::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -161,58 +197,8 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntry::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntry::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        if (is_null($this->createdBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntry::FIELD_CREATED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->createdBy = CreatedByModel::of($data);
-        }
-
-        return $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -231,6 +217,86 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        if (is_null($this->createdBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(InventoryEntry::FIELD_CREATED_BY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->createdBy = CreatedByModel::of($data);
+        }
+
+        return $this->createdBy;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(InventoryEntry::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * <p>Optional connection to a particular supplier.</p>.
+     *
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getSupplyChannel()
+    {
+        if (is_null($this->supplyChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(InventoryEntry::FIELD_SUPPLY_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
+        }
+
+        return $this->supplyChannel;
+    }
+
+    /**
+     * <p>Overall amount of stock.
+     * (available + reserved)</p>.
+     *
+     * @return null|int
+     */
+    public function getQuantityOnStock()
+    {
+        if (is_null($this->quantityOnStock)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(InventoryEntry::FIELD_QUANTITY_ON_STOCK);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantityOnStock = (int) $data;
+        }
+
+        return $this->quantityOnStock;
+    }
+
+    /**
+     * <p>Available amount of stock.
+     * (available means: <code>quantityOnStock</code> - reserved quantity)</p>.
+     *
      * @return null|int
      */
     public function getAvailableQuantity()
@@ -248,6 +314,27 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     }
 
     /**
+     * <p>The time period in days, that tells how often this inventory entry is restocked.</p>.
+     *
+     * @return null|int
+     */
+    public function getRestockableInDays()
+    {
+        if (is_null($this->restockableInDays)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(InventoryEntry::FIELD_RESTOCKABLE_IN_DAYS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->restockableInDays = (int) $data;
+        }
+
+        return $this->restockableInDays;
+    }
+
+    /**
+     * <p>The date and time of the next restock.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery()
@@ -286,73 +373,14 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         return $this->custom;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getQuantityOnStock()
+    public function setId(?string $id): void
     {
-        if (is_null($this->quantityOnStock)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntry::FIELD_QUANTITY_ON_STOCK);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantityOnStock = (int) $data;
-        }
-
-        return $this->quantityOnStock;
+        $this->id = $id;
     }
 
-    /**
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel()
+    public function setVersion(?int $version): void
     {
-        if (is_null($this->supplyChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntry::FIELD_SUPPLY_CHANNEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
-        }
-
-        return $this->supplyChannel;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getRestockableInDays()
-    {
-        if (is_null($this->restockableInDays)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntry::FIELD_RESTOCKABLE_IN_DAYS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->restockableInDays = (int) $data;
-        }
-
-        return $this->restockableInDays;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSku()
-    {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntry::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -365,14 +393,9 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
-    public function setId(?string $id): void
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
-        $this->id = $id;
-    }
-
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setCreatedBy(?CreatedBy $createdBy): void
@@ -380,14 +403,29 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
         $this->createdBy = $createdBy;
     }
 
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    public function setSku(?string $sku): void
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->sku = $sku;
+    }
+
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
+    {
+        $this->supplyChannel = $supplyChannel;
+    }
+
+    public function setQuantityOnStock(?int $quantityOnStock): void
+    {
+        $this->quantityOnStock = $quantityOnStock;
     }
 
     public function setAvailableQuantity(?int $availableQuantity): void
     {
         $this->availableQuantity = $availableQuantity;
+    }
+
+    public function setRestockableInDays(?int $restockableInDays): void
+    {
+        $this->restockableInDays = $restockableInDays;
     }
 
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void
@@ -398,26 +436,6 @@ final class InventoryEntryModel extends JsonObjectModel implements InventoryEntr
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
-    }
-
-    public function setQuantityOnStock(?int $quantityOnStock): void
-    {
-        $this->quantityOnStock = $quantityOnStock;
-    }
-
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
-    {
-        $this->supplyChannel = $supplyChannel;
-    }
-
-    public function setRestockableInDays(?int $restockableInDays): void
-    {
-        $this->restockableInDays = $restockableInDays;
-    }
-
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
     }
 
     public function jsonSerialize()

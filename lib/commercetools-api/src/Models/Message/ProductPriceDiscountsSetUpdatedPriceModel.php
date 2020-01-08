@@ -16,16 +16,6 @@ use stdClass;
 final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel implements ProductPriceDiscountsSetUpdatedPrice
 {
     /**
-     * @var ?DiscountedPrice
-     */
-    protected $discounted;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -33,7 +23,7 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     /**
      * @var ?string
      */
-    protected $priceId;
+    protected $variantKey;
 
     /**
      * @var ?string
@@ -43,22 +33,100 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     /**
      * @var ?string
      */
-    protected $variantKey;
+    protected $priceId;
+
+    /**
+     * @var ?DiscountedPrice
+     */
+    protected $discounted;
+
+    /**
+     * @var ?bool
+     */
+    protected $staged;
 
     public function __construct(
-        DiscountedPrice $discounted = null,
-        bool $staged = null,
         int $variantId = null,
-        string $priceId = null,
+        string $variantKey = null,
         string $sku = null,
-        string $variantKey = null
+        string $priceId = null,
+        DiscountedPrice $discounted = null,
+        bool $staged = null
     ) {
+        $this->variantId = $variantId;
+        $this->variantKey = $variantKey;
+        $this->sku = $sku;
+        $this->priceId = $priceId;
         $this->discounted = $discounted;
         $this->staged = $staged;
-        $this->variantId = $variantId;
-        $this->priceId = $priceId;
-        $this->sku = $sku;
-        $this->variantKey = $variantKey;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getVariantKey()
+    {
+        if (is_null($this->variantKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_VARIANT_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantKey = (string) $data;
+        }
+
+        return $this->variantKey;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        if (is_null($this->priceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_PRICE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceId = (string) $data;
+        }
+
+        return $this->priceId;
     }
 
     /**
@@ -96,72 +164,24 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
         return $this->staged;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
+    public function setVariantId(?int $variantId): void
     {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
+        $this->variantId = $variantId;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getPriceId()
+    public function setVariantKey(?string $variantKey): void
     {
-        if (is_null($this->priceId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_PRICE_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->priceId = (string) $data;
-        }
-
-        return $this->priceId;
+        $this->variantKey = $variantKey;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getSku()
+    public function setSku(?string $sku): void
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
+        $this->sku = $sku;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getVariantKey()
+    public function setPriceId(?string $priceId): void
     {
-        if (is_null($this->variantKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPriceDiscountsSetUpdatedPrice::FIELD_VARIANT_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantKey = (string) $data;
-        }
-
-        return $this->variantKey;
+        $this->priceId = $priceId;
     }
 
     public function setDiscounted(?DiscountedPrice $discounted): void
@@ -172,25 +192,5 @@ final class ProductPriceDiscountsSetUpdatedPriceModel extends JsonObjectModel im
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
-    }
-
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
-    }
-
-    public function setPriceId(?string $priceId): void
-    {
-        $this->priceId = $priceId;
-    }
-
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
-    }
-
-    public function setVariantKey(?string $variantKey): void
-    {
-        $this->variantKey = $variantKey;
     }
 }

@@ -24,24 +24,9 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     private $addedAt;
 
     /**
-     * @var ?int
-     */
-    private $quantity;
-
-    /**
-     * @var ?string
-     */
-    private $productId;
-
-    /**
      * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
     private $custom;
-
-    /**
-     * @var ?int
-     */
-    private $variantId;
 
     /**
      * @var ?string
@@ -49,27 +34,26 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     private $sku;
 
     /**
+     * @var ?string
+     */
+    private $productId;
+
+    /**
+     * @var ?int
+     */
+    private $quantity;
+
+    /**
+     * @var ?int
+     */
+    private $variantId;
+
+    /**
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
     {
         return $this->addedAt;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        return $this->productId;
     }
 
     /**
@@ -81,14 +65,6 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        return $this->variantId;
-    }
-
-    /**
      * @return null|string
      */
     public function getSku()
@@ -97,31 +73,35 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     }
 
     /**
+     * @return null|string
+     */
+    public function getProductId()
+    {
+        return $this->productId;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        return $this->variantId;
+    }
+
+    /**
      * @return $this
      */
     public function withAddedAt(?DateTimeImmutable $addedAt)
     {
         $this->addedAt = $addedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withQuantity(?int $quantity)
-    {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withProductId(?string $productId)
-    {
-        $this->productId = $productId;
 
         return $this;
     }
@@ -139,9 +119,9 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariantId(?int $variantId)
+    public function withSku(?string $sku)
     {
-        $this->variantId = $variantId;
+        $this->sku = $sku;
 
         return $this;
     }
@@ -149,9 +129,29 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSku(?string $sku)
+    public function withProductId(?string $productId)
     {
-        $this->sku = $sku;
+        $this->productId = $productId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withVariantId(?int $variantId)
+    {
+        $this->variantId = $variantId;
 
         return $this;
     }
@@ -170,11 +170,11 @@ final class ShoppingListLineItemDraftBuilder implements Builder
     {
         return new ShoppingListLineItemDraftModel(
             $this->addedAt,
-            $this->quantity,
-            $this->productId,
             ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            $this->variantId,
-            $this->sku
+            $this->sku,
+            $this->productId,
+            $this->quantity,
+            $this->variantId
         );
     }
 

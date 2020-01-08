@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class DeliveryItemBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $quantity;
-
-    /**
      * @var ?string
      */
     private $id;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+    private $quantity;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class DeliveryItemBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withQuantity(?int $quantity)
+    public function getQuantity()
     {
-        $this->quantity = $quantity;
-
-        return $this;
+        return $this->quantity;
     }
 
     /**
@@ -61,11 +51,21 @@ final class DeliveryItemBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
     public function build(): DeliveryItem
     {
         return new DeliveryItemModel(
-            $this->quantity,
-            $this->id
+            $this->id,
+            $this->quantity
         );
     }
 

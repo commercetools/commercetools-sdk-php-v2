@@ -18,20 +18,12 @@ final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $oldPaymentState;
+    private $paymentState;
 
     /**
      * @var ?string
      */
-    private $paymentState;
-
-    /**
-     * @return null|string
-     */
-    public function getOldPaymentState()
-    {
-        return $this->oldPaymentState;
-    }
+    private $oldPaymentState;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withOldPaymentState(?string $oldPaymentState)
+    public function getOldPaymentState()
     {
-        $this->oldPaymentState = $oldPaymentState;
-
-        return $this;
+        return $this->oldPaymentState;
     }
 
     /**
@@ -61,11 +51,21 @@ final class OrderPaymentStateChangedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withOldPaymentState(?string $oldPaymentState)
+    {
+        $this->oldPaymentState = $oldPaymentState;
+
+        return $this;
+    }
+
     public function build(): OrderPaymentStateChangedMessagePayload
     {
         return new OrderPaymentStateChangedMessagePayloadModel(
-            $this->oldPaymentState,
-            $this->paymentState
+            $this->paymentState,
+            $this->oldPaymentState
         );
     }
 

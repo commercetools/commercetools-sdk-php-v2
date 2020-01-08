@@ -13,6 +13,8 @@ interface CustomerSetCompanyNameAction extends CustomerUpdateAction
     const FIELD_COMPANY_NAME = 'companyName';
 
     /**
+     * <p>If not defined, the company name is unset.</p>.
+     *
      * @return null|string
      */
     public function getCompanyName();

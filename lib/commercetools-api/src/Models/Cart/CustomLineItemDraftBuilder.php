@@ -24,9 +24,9 @@ use Commercetools\Base\Builder;
 final class CustomLineItemDraftBuilder implements Builder
 {
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $externalTaxRate;
+    private $name;
 
     /**
      * @var ?int
@@ -34,24 +34,9 @@ final class CustomLineItemDraftBuilder implements Builder
     private $quantity;
 
     /**
-     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
-     */
-    private $shippingDetails;
-
-    /**
      * @var Money|?MoneyBuilder
      */
     private $money;
-
-    /**
-     * @var CustomFields|?CustomFieldsBuilder
-     */
-    private $custom;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
 
     /**
      * @var ?string
@@ -64,27 +49,37 @@ final class CustomLineItemDraftBuilder implements Builder
     private $taxCategory;
 
     /**
-     * @return null|ExternalTaxRateDraft
+     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
-    public function getExternalTaxRate()
+    private $externalTaxRate;
+
+    /**
+     * @var CustomFields|?CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+     * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
+     */
+    private $shippingDetails;
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
     {
-        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
+     * <p>The amount of a CustomLineItemin the cart.
+     * Must be a positive integer.</p>.
+     *
      * @return null|int
      */
     public function getQuantity()
     {
         return $this->quantity;
-    }
-
-    /**
-     * @return null|ItemShippingDetailsDraft
-     */
-    public function getShippingDetails()
-    {
-        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
     }
 
     /**
@@ -96,22 +91,6 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
      * @return null|string
      */
     public function getSlug()
@@ -120,6 +99,8 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * <p>The given tax category will be used to select a tax rate when a cart has the TaxMode <code>Platform</code>.</p>.
+     *
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -128,11 +109,41 @@ final class CustomLineItemDraftBuilder implements Builder
     }
 
     /**
+     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>.
+     *
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
+    {
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Container for custom line item specific address(es).</p>.
+     *
+     * @return null|ItemShippingDetailsDraft
+     */
+    public function getShippingDetails()
+    {
+        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
+
+    /**
      * @return $this
      */
-    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
+    public function withName(?LocalizedString $name)
     {
-        $this->externalTaxRate = $externalTaxRate;
+        $this->name = $name;
 
         return $this;
     }
@@ -150,39 +161,9 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
-    {
-        $this->shippingDetails = $shippingDetails;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withMoney(?Money $money)
     {
         $this->money = $money;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
 
         return $this;
     }
@@ -210,7 +191,7 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
 
@@ -220,29 +201,19 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
-    {
-        $this->shippingDetails = $shippingDetails;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMoneyBuilder(?MoneyBuilder $money)
-    {
-        $this->money = $money;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
 
         return $this;
     }
@@ -260,6 +231,16 @@ final class CustomLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withMoneyBuilder(?MoneyBuilder $money)
+    {
+        $this->money = $money;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTaxCategoryBuilder(?TaxCategoryResourceIdentifierBuilder $taxCategory)
     {
         $this->taxCategory = $taxCategory;
@@ -267,17 +248,47 @@ final class CustomLineItemDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    {
+        $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
     public function build(): CustomLineItemDraft
     {
         return new CustomLineItemDraftModel(
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
-            $this->quantity,
-            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails),
-            ($this->money instanceof MoneyBuilder ? $this->money->build() : $this->money),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->quantity,
+            ($this->money instanceof MoneyBuilder ? $this->money->build() : $this->money),
             $this->slug,
-            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory)
+            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory),
+            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
         );
     }
 

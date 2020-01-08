@@ -49,6 +49,8 @@ final class CustomerSetDefaultShippingAddressActionModel extends JsonObjectModel
     }
 
     /**
+     * <p>If not defined, the customer's <code>defaultShippingAddress</code> is unset.</p>.
+     *
      * @return null|string
      */
     public function getAddressId()

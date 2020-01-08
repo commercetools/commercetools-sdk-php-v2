@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class LocalizedEnumValueBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $label;
-
-    /**
      * @var ?string
      */
     private $key;
 
     /**
-     * @return null|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    public function getLabel()
-    {
-        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
-    }
+    private $label;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class LocalizedEnumValueBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|LocalizedString
      */
-    public function withLabel(?LocalizedString $label)
+    public function getLabel()
     {
-        $this->label = $label;
-
-        return $this;
+        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
     }
 
     /**
@@ -57,6 +47,16 @@ final class LocalizedEnumValueBuilder implements Builder
     public function withKey(?string $key)
     {
         $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLabel(?LocalizedString $label)
+    {
+        $this->label = $label;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class LocalizedEnumValueBuilder implements Builder
     public function build(): LocalizedEnumValue
     {
         return new LocalizedEnumValueModel(
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
-            $this->key
+            $this->key,
+            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label)
         );
     }
 

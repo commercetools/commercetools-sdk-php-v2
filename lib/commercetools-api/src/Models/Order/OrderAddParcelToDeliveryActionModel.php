@@ -26,9 +26,9 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     protected $deliveryId;
 
     /**
-     * @var ?DeliveryItemCollection
+     * @var ?ParcelMeasurements
      */
-    protected $items;
+    protected $measurements;
 
     /**
      * @var ?TrackingData
@@ -36,20 +36,20 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     protected $trackingData;
 
     /**
-     * @var ?ParcelMeasurements
+     * @var ?DeliveryItemCollection
      */
-    protected $measurements;
+    protected $items;
 
     public function __construct(
         string $deliveryId = null,
-        DeliveryItemCollection $items = null,
+        ParcelMeasurements $measurements = null,
         TrackingData $trackingData = null,
-        ParcelMeasurements $measurements = null
+        DeliveryItemCollection $items = null
     ) {
         $this->deliveryId = $deliveryId;
-        $this->items = $items;
-        $this->trackingData = $trackingData;
         $this->measurements = $measurements;
+        $this->trackingData = $trackingData;
+        $this->items = $items;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -88,20 +88,21 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * @return null|DeliveryItemCollection
+     * @return null|ParcelMeasurements
      */
-    public function getItems()
+    public function getMeasurements()
     {
-        if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderAddParcelToDeliveryAction::FIELD_ITEMS);
+        if (is_null($this->measurements)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderAddParcelToDeliveryAction::FIELD_MEASUREMENTS);
             if (is_null($data)) {
                 return null;
             }
-            $this->items = DeliveryItemCollection::fromArray($data);
+
+            $this->measurements = ParcelMeasurementsModel::of($data);
         }
 
-        return $this->items;
+        return $this->measurements;
     }
 
     /**
@@ -123,21 +124,20 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
     }
 
     /**
-     * @return null|ParcelMeasurements
+     * @return null|DeliveryItemCollection
      */
-    public function getMeasurements()
+    public function getItems()
     {
-        if (is_null($this->measurements)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderAddParcelToDeliveryAction::FIELD_MEASUREMENTS);
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderAddParcelToDeliveryAction::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->measurements = ParcelMeasurementsModel::of($data);
+            $this->items = DeliveryItemCollection::fromArray($data);
         }
 
-        return $this->measurements;
+        return $this->items;
     }
 
     public function setDeliveryId(?string $deliveryId): void
@@ -145,9 +145,9 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
         $this->deliveryId = $deliveryId;
     }
 
-    public function setItems(?DeliveryItemCollection $items): void
+    public function setMeasurements(?ParcelMeasurements $measurements): void
     {
-        $this->items = $items;
+        $this->measurements = $measurements;
     }
 
     public function setTrackingData(?TrackingData $trackingData): void
@@ -155,8 +155,8 @@ final class OrderAddParcelToDeliveryActionModel extends JsonObjectModel implemen
         $this->trackingData = $trackingData;
     }
 
-    public function setMeasurements(?ParcelMeasurements $measurements): void
+    public function setItems(?DeliveryItemCollection $items): void
     {
-        $this->measurements = $measurements;
+        $this->items = $items;
     }
 }

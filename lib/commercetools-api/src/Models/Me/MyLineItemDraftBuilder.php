@@ -22,9 +22,34 @@ use Commercetools\Base\Builder;
 final class MyLineItemDraftBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $productId;
+
+    /**
+     * @var ?int
+     */
+    private $variantId;
+
+    /**
      * @var ?int
      */
     private $quantity;
+
+    /**
+     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     */
+    private $supplyChannel;
+
+    /**
+     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     */
+    private $distributionChannel;
+
+    /**
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     */
+    private $custom;
 
     /**
      * @var ItemShippingDetailsDraft|?ItemShippingDetailsDraftBuilder
@@ -34,48 +59,7 @@ final class MyLineItemDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $productId;
-
-    /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
-     */
-    private $supplyChannel;
-
-    /**
-     * @var ?int
-     */
-    private $variantId;
-
-    /**
-     * @var ?string
-     */
     private $sku;
-
-    /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
-     */
-    private $distributionChannel;
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|ItemShippingDetailsDraft
-     */
-    public function getShippingDetails()
-    {
-        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
-    }
 
     /**
      * @return null|string
@@ -83,22 +67,6 @@ final class MyLineItemDraftBuilder implements Builder
     public function getProductId()
     {
         return $this->productId;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel()
-    {
-        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
 
     /**
@@ -110,14 +78,29 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|int
      */
-    public function getSku()
+    public function getQuantity()
     {
-        return $this->sku;
+        return $this->quantity;
     }
 
     /**
+     * <p>By providing supply channel information, you can unique identify
+     * inventory entries that should be reserved.
+     * The provided channel should have the InventorySupply role.</p>.
+     *
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getSupplyChannel()
+    {
+        return $this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
+    }
+
+    /**
+     * <p>The channel is used to select a ProductPrice.
+     * The provided channel should have the ProductDistribution role.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -126,23 +109,31 @@ final class MyLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
      */
-    public function withQuantity(?int $quantity)
+    public function getCustom()
     {
-        $this->quantity = $quantity;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
-     * @return $this
+     * <p>Container for line item specific address(es).</p>.
+     *
+     * @return null|ItemShippingDetailsDraft
      */
-    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
+    public function getShippingDetails()
     {
-        $this->shippingDetails = $shippingDetails;
+        return $this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails;
+    }
 
-        return $this;
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
     }
 
     /**
@@ -151,26 +142,6 @@ final class MyLineItemDraftBuilder implements Builder
     public function withProductId(?string $productId)
     {
         $this->productId = $productId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
-    {
-        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -188,9 +159,19 @@ final class MyLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSku(?string $sku)
+    public function withQuantity(?int $quantity)
     {
-        $this->sku = $sku;
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -208,7 +189,17 @@ final class MyLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingDetails(?ItemShippingDetailsDraft $shippingDetails)
     {
         $this->shippingDetails = $shippingDetails;
 
@@ -218,9 +209,9 @@ final class MyLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withSku(?string $sku)
     {
-        $this->custom = $custom;
+        $this->sku = $sku;
 
         return $this;
     }
@@ -245,17 +236,37 @@ final class MyLineItemDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingDetailsBuilder(?ItemShippingDetailsDraftBuilder $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
     public function build(): MyLineItemDraft
     {
         return new MyLineItemDraftModel(
-            $this->quantity,
-            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails),
             $this->productId,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
             $this->variantId,
-            $this->sku,
-            ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel)
+            $this->quantity,
+            ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
+            ($this->distributionChannel instanceof ChannelResourceIdentifierBuilder ? $this->distributionChannel->build() : $this->distributionChannel),
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            ($this->shippingDetails instanceof ItemShippingDetailsDraftBuilder ? $this->shippingDetails->build() : $this->shippingDetails),
+            $this->sku
         );
     }
 

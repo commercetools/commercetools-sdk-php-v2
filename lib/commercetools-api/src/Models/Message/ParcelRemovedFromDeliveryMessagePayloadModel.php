@@ -23,21 +23,21 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     protected $type;
 
     /**
-     * @var ?Parcel
-     */
-    protected $parcel;
-
-    /**
      * @var ?string
      */
     protected $deliveryId;
 
+    /**
+     * @var ?Parcel
+     */
+    protected $parcel;
+
     public function __construct(
-        Parcel $parcel = null,
-        string $deliveryId = null
+        string $deliveryId = null,
+        Parcel $parcel = null
     ) {
-        $this->parcel = $parcel;
         $this->deliveryId = $deliveryId;
+        $this->parcel = $parcel;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,6 +59,23 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * @return null|string
+     */
+    public function getDeliveryId()
+    {
+        if (is_null($this->deliveryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ParcelRemovedFromDeliveryMessagePayload::FIELD_DELIVERY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deliveryId = (string) $data;
+        }
+
+        return $this->deliveryId;
+    }
+
+    /**
      * @return null|Parcel
      */
     public function getParcel()
@@ -76,30 +93,13 @@ final class ParcelRemovedFromDeliveryMessagePayloadModel extends JsonObjectModel
         return $this->parcel;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getDeliveryId()
+    public function setDeliveryId(?string $deliveryId): void
     {
-        if (is_null($this->deliveryId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ParcelRemovedFromDeliveryMessagePayload::FIELD_DELIVERY_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->deliveryId = (string) $data;
-        }
-
-        return $this->deliveryId;
+        $this->deliveryId = $deliveryId;
     }
 
     public function setParcel(?Parcel $parcel): void
     {
         $this->parcel = $parcel;
-    }
-
-    public function setDeliveryId(?string $deliveryId): void
-    {
-        $this->deliveryId = $deliveryId;
     }
 }

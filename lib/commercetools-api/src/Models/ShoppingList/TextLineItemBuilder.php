@@ -26,19 +26,9 @@ final class TextLineItemBuilder implements Builder
     private $addedAt;
 
     /**
-     * @var ?int
-     */
-    private $quantity;
-
-    /**
      * @var CustomFields|?CustomFieldsBuilder
      */
     private $custom;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -51,19 +41,23 @@ final class TextLineItemBuilder implements Builder
     private $id;
 
     /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var ?int
+     */
+    private $quantity;
+
+    /**
+     * <p>When the text line item was added to the shopping list.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getAddedAt()
     {
         return $this->addedAt;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        return $this->quantity;
     }
 
     /**
@@ -77,25 +71,35 @@ final class TextLineItemBuilder implements Builder
     /**
      * @return null|LocalizedString
      */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
     public function getDescription()
     {
         return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
 
     /**
+     * <p>The unique ID of this TextLineItem.</p>.
+     *
      * @return null|string
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
     }
 
     /**
@@ -111,29 +115,9 @@ final class TextLineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
-    {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
 
         return $this;
     }
@@ -161,9 +145,9 @@ final class TextLineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withName(?LocalizedString $name)
     {
-        $this->custom = $custom;
+        $this->name = $name;
 
         return $this;
     }
@@ -171,9 +155,19 @@ final class TextLineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withQuantity(?int $quantity)
     {
-        $this->name = $name;
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -188,15 +182,25 @@ final class TextLineItemBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withNameBuilder(?LocalizedStringBuilder $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
     public function build(): TextLineItem
     {
         return new TextLineItemModel(
             $this->addedAt,
-            $this->quantity,
             ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->id
+            $this->id,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->quantity
         );
     }
 

@@ -16,17 +16,17 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     /**
      * @var ?int
      */
+    protected $count;
+
+    /**
+     * @var ?int
+     */
     protected $total;
 
     /**
      * @var ?int
      */
     protected $offset;
-
-    /**
-     * @var ?int
-     */
-    protected $count;
 
     /**
      * @var ?ProductProjectionCollection
@@ -39,17 +39,34 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     protected $facets;
 
     public function __construct(
+        int $count = null,
         int $total = null,
         int $offset = null,
-        int $count = null,
         ProductProjectionCollection $results = null,
         FacetResults $facets = null
     ) {
+        $this->count = $count;
         $this->total = $total;
         $this->offset = $offset;
-        $this->count = $count;
         $this->results = $results;
         $this->facets = $facets;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        if (is_null($this->count)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductProjectionPagedSearchResponse::FIELD_COUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->count = (int) $data;
+        }
+
+        return $this->count;
     }
 
     /**
@@ -87,23 +104,6 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     }
 
     /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        if (is_null($this->count)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductProjectionPagedSearchResponse::FIELD_COUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->count = (int) $data;
-        }
-
-        return $this->count;
-    }
-
-    /**
      * @return null|ProductProjectionCollection
      */
     public function getResults()
@@ -138,6 +138,11 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
         return $this->facets;
     }
 
+    public function setCount(?int $count): void
+    {
+        $this->count = $count;
+    }
+
     public function setTotal(?int $total): void
     {
         $this->total = $total;
@@ -146,11 +151,6 @@ final class ProductProjectionPagedSearchResponseModel extends JsonObjectModel im
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
-    }
-
-    public function setCount(?int $count): void
-    {
-        $this->count = $count;
     }
 
     public function setResults(?ProductProjectionCollection $results): void

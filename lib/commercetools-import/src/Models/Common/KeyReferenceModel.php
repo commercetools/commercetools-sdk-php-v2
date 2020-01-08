@@ -18,12 +18,12 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     /**
      * @var ?string
      */
-    protected $typeId;
+    protected $key;
 
     /**
      * @var ?string
      */
-    protected $key;
+    protected $typeId;
 
     /**
      * @psalm-var array<string, class-string<KeyReference> >
@@ -51,6 +51,23 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
     }
 
     /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(KeyReference::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
      * <p>The type of the referenced resource.</p>.
      *
      * @return null|string
@@ -67,23 +84,6 @@ final class KeyReferenceModel extends JsonObjectModel implements KeyReference
         }
 
         return $this->typeId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(KeyReference::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
     }
 
     public function setKey(?string $key): void

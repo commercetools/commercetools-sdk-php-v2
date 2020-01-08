@@ -25,21 +25,21 @@ final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel im
     protected $action;
 
     /**
-     * @var ?FieldContainer
-     */
-    protected $fields;
-
-    /**
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
+    /**
+     * @var ?FieldContainer
+     */
+    protected $fields;
+
     public function __construct(
-        FieldContainer $fields = null,
-        TypeResourceIdentifier $type = null
+        TypeResourceIdentifier $type = null,
+        FieldContainer $fields = null
     ) {
-        $this->fields = $fields;
         $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -61,24 +61,6 @@ final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel im
     }
 
     /**
-     * @return null|FieldContainer
-     */
-    public function getFields()
-    {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentAddInterfaceInteractionAction::FIELD_FIELDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->fields = FieldContainerModel::of($data);
-        }
-
-        return $this->fields;
-    }
-
-    /**
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -96,13 +78,31 @@ final class PaymentAddInterfaceInteractionActionModel extends JsonObjectModel im
         return $this->type;
     }
 
-    public function setFields(?FieldContainer $fields): void
+    /**
+     * @return null|FieldContainer
+     */
+    public function getFields()
     {
-        $this->fields = $fields;
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(PaymentAddInterfaceInteractionAction::FIELD_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fields = FieldContainerModel::of($data);
+        }
+
+        return $this->fields;
     }
 
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
+    }
+
+    public function setFields(?FieldContainer $fields): void
+    {
+        $this->fields = $fields;
     }
 }

@@ -49,6 +49,8 @@ final class DiscountCodeSetMaxApplicationsPerCustomerActionModel extends JsonObj
     }
 
     /**
+     * <p>If the <code>maxApplicationsPerCustomer</code> parameter is not included, the field will be emptied.</p>.
+     *
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer()

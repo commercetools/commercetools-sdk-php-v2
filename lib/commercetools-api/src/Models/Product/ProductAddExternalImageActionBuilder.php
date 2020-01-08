@@ -18,16 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductAddExternalImageActionBuilder implements Builder
 {
     /**
-     * @var Image|?ImageBuilder
-     */
-    private $image;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -38,20 +28,14 @@ final class ProductAddExternalImageActionBuilder implements Builder
     private $sku;
 
     /**
-     * @return null|Image
+     * @var Image|?ImageBuilder
      */
-    public function getImage()
-    {
-        return $this->image instanceof ImageBuilder ? $this->image->build() : $this->image;
-    }
+    private $image;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $staged;
 
     /**
      * @return null|int
@@ -70,23 +54,19 @@ final class ProductAddExternalImageActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Image
      */
-    public function withImage(?Image $image)
+    public function getImage()
     {
-        $this->image = $image;
-
-        return $this;
+        return $this->image instanceof ImageBuilder ? $this->image->build() : $this->image;
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withStaged(?bool $staged)
+    public function getStaged()
     {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->staged;
     }
 
     /**
@@ -112,6 +92,26 @@ final class ProductAddExternalImageActionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withImage(?Image $image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withImageBuilder(?ImageBuilder $image)
     {
         $this->image = $image;
@@ -122,10 +122,10 @@ final class ProductAddExternalImageActionBuilder implements Builder
     public function build(): ProductAddExternalImageAction
     {
         return new ProductAddExternalImageActionModel(
-            ($this->image instanceof ImageBuilder ? $this->image->build() : $this->image),
-            $this->staged,
             $this->variantId,
-            $this->sku
+            $this->sku,
+            ($this->image instanceof ImageBuilder ? $this->image->build() : $this->image),
+            $this->staged
         );
     }
 

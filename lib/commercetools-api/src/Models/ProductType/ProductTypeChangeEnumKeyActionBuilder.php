@@ -18,11 +18,6 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $newKey;
-
-    /**
-     * @var ?string
-     */
     private $attributeName;
 
     /**
@@ -31,12 +26,9 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     private $key;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getNewKey()
-    {
-        return $this->newKey;
-    }
+    private $newKey;
 
     /**
      * @return null|string
@@ -55,13 +47,11 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withNewKey(?string $newKey)
+    public function getNewKey()
     {
-        $this->newKey = $newKey;
-
-        return $this;
+        return $this->newKey;
     }
 
     /**
@@ -84,12 +74,22 @@ final class ProductTypeChangeEnumKeyActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withNewKey(?string $newKey)
+    {
+        $this->newKey = $newKey;
+
+        return $this;
+    }
+
     public function build(): ProductTypeChangeEnumKeyAction
     {
         return new ProductTypeChangeEnumKeyActionModel(
-            $this->newKey,
             $this->attributeName,
-            $this->key
+            $this->key,
+            $this->newKey
         );
     }
 

@@ -21,21 +21,21 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
     protected $action;
 
     /**
-     * @var ?ItemShippingDetailsDraft
-     */
-    protected $shippingDetails;
-
-    /**
      * @var ?string
      */
     protected $lineItemId;
 
+    /**
+     * @var ?ItemShippingDetailsDraft
+     */
+    protected $shippingDetails;
+
     public function __construct(
-        ItemShippingDetailsDraft $shippingDetails = null,
-        string $lineItemId = null
+        string $lineItemId = null,
+        ItemShippingDetailsDraft $shippingDetails = null
     ) {
-        $this->shippingDetails = $shippingDetails;
         $this->lineItemId = $lineItemId;
+        $this->shippingDetails = $shippingDetails;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -57,6 +57,23 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
     }
 
     /**
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartSetLineItemShippingDetailsAction::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
+    }
+
+    /**
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails()
@@ -74,30 +91,13 @@ final class CartSetLineItemShippingDetailsActionModel extends JsonObjectModel im
         return $this->shippingDetails;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getLineItemId()
+    public function setLineItemId(?string $lineItemId): void
     {
-        if (is_null($this->lineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CartSetLineItemShippingDetailsAction::FIELD_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItemId = (string) $data;
-        }
-
-        return $this->lineItemId;
+        $this->lineItemId = $lineItemId;
     }
 
     public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
     {
         $this->shippingDetails = $shippingDetails;
-    }
-
-    public function setLineItemId(?string $lineItemId): void
-    {
-        $this->lineItemId = $lineItemId;
     }
 }

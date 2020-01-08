@@ -15,36 +15,19 @@ final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
     /**
      * @var ?string
      */
-    protected $function;
+    protected $currencyCode;
 
     /**
      * @var ?string
      */
-    protected $currencyCode;
+    protected $function;
 
     public function __construct(
-        string $function = null,
-        string $currencyCode = null
+        string $currencyCode = null,
+        string $function = null
     ) {
-        $this->function = $function;
         $this->currencyCode = $currencyCode;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getFunction()
-    {
-        if (is_null($this->function)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PriceFunction::FIELD_FUNCTION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->function = (string) $data;
-        }
-
-        return $this->function;
+        $this->function = $function;
     }
 
     /**
@@ -66,13 +49,30 @@ final class PriceFunctionModel extends JsonObjectModel implements PriceFunction
         return $this->currencyCode;
     }
 
-    public function setFunction(?string $function): void
+    /**
+     * @return null|string
+     */
+    public function getFunction()
     {
-        $this->function = $function;
+        if (is_null($this->function)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PriceFunction::FIELD_FUNCTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->function = (string) $data;
+        }
+
+        return $this->function;
     }
 
     public function setCurrencyCode(?string $currencyCode): void
     {
         $this->currencyCode = $currencyCode;
+    }
+
+    public function setFunction(?string $function): void
+    {
+        $this->function = $function;
     }
 }

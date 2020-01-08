@@ -50,6 +50,8 @@ final class ProjectSetShippingRateInputTypeActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>If not set, removes existing shippingRateInputType.</p>.
+     *
      * @return null|ShippingRateInputType
      */
     public function getShippingRateInputType()

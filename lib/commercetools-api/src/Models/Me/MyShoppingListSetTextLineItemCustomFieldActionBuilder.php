@@ -19,6 +19,11 @@ final class MyShoppingListSetTextLineItemCustomFieldActionBuilder implements Bui
     /**
      * @var ?string
      */
+    private $textLineItemId;
+
+    /**
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -27,9 +32,12 @@ final class MyShoppingListSetTextLineItemCustomFieldActionBuilder implements Bui
     private $value;
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $textLineItemId;
+    public function getTextLineItemId()
+    {
+        return $this->textLineItemId;
+    }
 
     /**
      * @return null|string
@@ -48,11 +56,13 @@ final class MyShoppingListSetTextLineItemCustomFieldActionBuilder implements Bui
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getTextLineItemId()
+    public function withTextLineItemId(?string $textLineItemId)
     {
-        return $this->textLineItemId;
+        $this->textLineItemId = $textLineItemId;
+
+        return $this;
     }
 
     /**
@@ -75,22 +85,12 @@ final class MyShoppingListSetTextLineItemCustomFieldActionBuilder implements Bui
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withTextLineItemId(?string $textLineItemId)
-    {
-        $this->textLineItemId = $textLineItemId;
-
-        return $this;
-    }
-
     public function build(): MyShoppingListSetTextLineItemCustomFieldAction
     {
         return new MyShoppingListSetTextLineItemCustomFieldActionModel(
+            $this->textLineItemId,
             $this->name,
-            $this->value,
-            $this->textLineItemId
+            $this->value
         );
     }
 

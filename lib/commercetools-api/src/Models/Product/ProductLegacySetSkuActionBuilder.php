@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ProductLegacySetSkuActionBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $variantId;
-
-    /**
      * @var ?string
      */
     private $sku;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getVariantId()
-    {
-        return $this->variantId;
-    }
+    private $variantId;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class ProductLegacySetSkuActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withVariantId(?int $variantId)
+    public function getVariantId()
     {
-        $this->variantId = $variantId;
-
-        return $this;
+        return $this->variantId;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ProductLegacySetSkuActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withVariantId(?int $variantId)
+    {
+        $this->variantId = $variantId;
+
+        return $this;
+    }
+
     public function build(): ProductLegacySetSkuAction
     {
         return new ProductLegacySetSkuActionModel(
-            $this->variantId,
-            $this->sku
+            $this->sku,
+            $this->variantId
         );
     }
 

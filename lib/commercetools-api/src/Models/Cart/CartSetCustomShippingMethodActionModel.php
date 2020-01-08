@@ -25,35 +25,35 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     protected $action;
 
     /**
-     * @var ?ShippingRateDraft
-     */
-    protected $shippingRate;
-
-    /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-
-    /**
      * @var ?string
      */
     protected $shippingMethodName;
+
+    /**
+     * @var ?ShippingRateDraft
+     */
+    protected $shippingRate;
 
     /**
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
     public function __construct(
-        ShippingRateDraft $shippingRate = null,
-        ExternalTaxRateDraft $externalTaxRate = null,
         string $shippingMethodName = null,
-        TaxCategoryResourceIdentifier $taxCategory = null
+        ShippingRateDraft $shippingRate = null,
+        TaxCategoryResourceIdentifier $taxCategory = null,
+        ExternalTaxRateDraft $externalTaxRate = null
     ) {
-        $this->shippingRate = $shippingRate;
-        $this->externalTaxRate = $externalTaxRate;
         $this->shippingMethodName = $shippingMethodName;
+        $this->shippingRate = $shippingRate;
         $this->taxCategory = $taxCategory;
+        $this->externalTaxRate = $externalTaxRate;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -75,6 +75,23 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
     }
 
     /**
+     * @return null|string
+     */
+    public function getShippingMethodName()
+    {
+        if (is_null($this->shippingMethodName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartSetCustomShippingMethodAction::FIELD_SHIPPING_METHOD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingMethodName = (string) $data;
+        }
+
+        return $this->shippingMethodName;
+    }
+
+    /**
      * @return null|ShippingRateDraft
      */
     public function getShippingRate()
@@ -90,41 +107,6 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
         }
 
         return $this->shippingRate;
-    }
-
-    /**
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        if (is_null($this->externalTaxRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartSetCustomShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-        }
-
-        return $this->externalTaxRate;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getShippingMethodName()
-    {
-        if (is_null($this->shippingMethodName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CartSetCustomShippingMethodAction::FIELD_SHIPPING_METHOD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->shippingMethodName = (string) $data;
-        }
-
-        return $this->shippingMethodName;
     }
 
     /**
@@ -145,14 +127,22 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
         return $this->taxCategory;
     }
 
-    public function setShippingRate(?ShippingRateDraft $shippingRate): void
+    /**
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
     {
-        $this->shippingRate = $shippingRate;
-    }
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartSetCustomShippingMethodAction::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
 
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
-    {
-        $this->externalTaxRate = $externalTaxRate;
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
     }
 
     public function setShippingMethodName(?string $shippingMethodName): void
@@ -160,8 +150,18 @@ final class CartSetCustomShippingMethodActionModel extends JsonObjectModel imple
         $this->shippingMethodName = $shippingMethodName;
     }
 
+    public function setShippingRate(?ShippingRateDraft $shippingRate): void
+    {
+        $this->shippingRate = $shippingRate;
+    }
+
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
+    }
+
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    {
+        $this->externalTaxRate = $externalTaxRate;
     }
 }

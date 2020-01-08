@@ -25,9 +25,9 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     protected $type;
 
     /**
-     * @var ?CustomerGroupReference
+     * @var ?CustomerReference
      */
-    protected $oldCustomerGroup;
+    protected $customer;
 
     /**
      * @var ?CustomerGroupReference
@@ -40,20 +40,20 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     protected $oldCustomer;
 
     /**
-     * @var ?CustomerReference
+     * @var ?CustomerGroupReference
      */
-    protected $customer;
+    protected $oldCustomerGroup;
 
     public function __construct(
-        CustomerGroupReference $oldCustomerGroup = null,
+        CustomerReference $customer = null,
         CustomerGroupReference $customerGroup = null,
         CustomerReference $oldCustomer = null,
-        CustomerReference $customer = null
+        CustomerGroupReference $oldCustomerGroup = null
     ) {
-        $this->oldCustomerGroup = $oldCustomerGroup;
+        $this->customer = $customer;
         $this->customerGroup = $customerGroup;
         $this->oldCustomer = $oldCustomer;
-        $this->customer = $customer;
+        $this->oldCustomerGroup = $oldCustomerGroup;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -75,21 +75,21 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * @return null|CustomerGroupReference
+     * @return null|CustomerReference
      */
-    public function getOldCustomerGroup()
+    public function getCustomer()
     {
-        if (is_null($this->oldCustomerGroup)) {
+        if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderCustomerSetMessagePayload::FIELD_OLD_CUSTOMER_GROUP);
+            $data = $this->raw(OrderCustomerSetMessagePayload::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->oldCustomerGroup = CustomerGroupReferenceModel::of($data);
+            $this->customer = CustomerReferenceModel::of($data);
         }
 
-        return $this->oldCustomerGroup;
+        return $this->customer;
     }
 
     /**
@@ -129,26 +129,26 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
     }
 
     /**
-     * @return null|CustomerReference
+     * @return null|CustomerGroupReference
      */
-    public function getCustomer()
+    public function getOldCustomerGroup()
     {
-        if (is_null($this->customer)) {
+        if (is_null($this->oldCustomerGroup)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderCustomerSetMessagePayload::FIELD_CUSTOMER);
+            $data = $this->raw(OrderCustomerSetMessagePayload::FIELD_OLD_CUSTOMER_GROUP);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->customer = CustomerReferenceModel::of($data);
+            $this->oldCustomerGroup = CustomerGroupReferenceModel::of($data);
         }
 
-        return $this->customer;
+        return $this->oldCustomerGroup;
     }
 
-    public function setOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup): void
+    public function setCustomer(?CustomerReference $customer): void
     {
-        $this->oldCustomerGroup = $oldCustomerGroup;
+        $this->customer = $customer;
     }
 
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
@@ -161,8 +161,8 @@ final class OrderCustomerSetMessagePayloadModel extends JsonObjectModel implemen
         $this->oldCustomer = $oldCustomer;
     }
 
-    public function setCustomer(?CustomerReference $customer): void
+    public function setOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup): void
     {
-        $this->customer = $customer;
+        $this->oldCustomerGroup = $oldCustomerGroup;
     }
 }

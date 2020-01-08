@@ -23,21 +23,21 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     protected $action;
 
     /**
-     * @var ?Address
-     */
-    protected $address;
-
-    /**
      * @var ?string
      */
     protected $addressId;
 
+    /**
+     * @var ?Address
+     */
+    protected $address;
+
     public function __construct(
-        Address $address = null,
-        string $addressId = null
+        string $addressId = null,
+        Address $address = null
     ) {
-        $this->address = $address;
         $this->addressId = $addressId;
+        $this->address = $address;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,6 +59,23 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
     }
 
     /**
+     * @return null|string
+     */
+    public function getAddressId()
+    {
+        if (is_null($this->addressId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyCustomerChangeAddressAction::FIELD_ADDRESS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->addressId = (string) $data;
+        }
+
+        return $this->addressId;
+    }
+
+    /**
      * @return null|Address
      */
     public function getAddress()
@@ -76,30 +93,13 @@ final class MyCustomerChangeAddressActionModel extends JsonObjectModel implement
         return $this->address;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getAddressId()
+    public function setAddressId(?string $addressId): void
     {
-        if (is_null($this->addressId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerChangeAddressAction::FIELD_ADDRESS_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->addressId = (string) $data;
-        }
-
-        return $this->addressId;
+        $this->addressId = $addressId;
     }
 
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
-    }
-
-    public function setAddressId(?string $addressId): void
-    {
-        $this->addressId = $addressId;
     }
 }

@@ -27,6 +27,11 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     /**
      * @var ?string
      */
+    protected $accessSecret;
+
+    /**
+     * @var ?string
+     */
     protected $queueUrl;
 
     /**
@@ -34,21 +39,16 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
      */
     protected $region;
 
-    /**
-     * @var ?string
-     */
-    protected $accessSecret;
-
     public function __construct(
         string $accessKey = null,
+        string $accessSecret = null,
         string $queueUrl = null,
-        string $region = null,
-        string $accessSecret = null
+        string $region = null
     ) {
         $this->accessKey = $accessKey;
+        $this->accessSecret = $accessSecret;
         $this->queueUrl = $queueUrl;
         $this->region = $region;
-        $this->accessSecret = $accessSecret;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -89,6 +89,23 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     /**
      * @return null|string
      */
+    public function getAccessSecret()
+    {
+        if (is_null($this->accessSecret)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SqsDestination::FIELD_ACCESS_SECRET);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->accessSecret = (string) $data;
+        }
+
+        return $this->accessSecret;
+    }
+
+    /**
+     * @return null|string
+     */
     public function getQueueUrl()
     {
         if (is_null($this->queueUrl)) {
@@ -120,26 +137,14 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
         return $this->region;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getAccessSecret()
-    {
-        if (is_null($this->accessSecret)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(SqsDestination::FIELD_ACCESS_SECRET);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->accessSecret = (string) $data;
-        }
-
-        return $this->accessSecret;
-    }
-
     public function setAccessKey(?string $accessKey): void
     {
         $this->accessKey = $accessKey;
+    }
+
+    public function setAccessSecret(?string $accessSecret): void
+    {
+        $this->accessSecret = $accessSecret;
     }
 
     public function setQueueUrl(?string $queueUrl): void
@@ -150,10 +155,5 @@ final class SqsDestinationModel extends JsonObjectModel implements SqsDestinatio
     public function setRegion(?string $region): void
     {
         $this->region = $region;
-    }
-
-    public function setAccessSecret(?string $accessSecret): void
-    {
-        $this->accessSecret = $accessSecret;
     }
 }

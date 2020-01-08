@@ -11,11 +11,11 @@ namespace Commercetools\Base;
 use stdClass;
 
 /**
- * @template T
+ * @template TObject
  */
 abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializable, \IteratorAggregate
 {
-    /** @psalm-var ?array<int, T|stdClass> */
+    /** @psalm-var ?array<int, TObject|stdClass> */
     private $data;
     /** @var array<string, array<string, int>> */
     private $indexes = [];
@@ -23,7 +23,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     private $iterator;
 
     /**
-     * @psalm-param ?array<int, T|stdClass> $data
+     * @psalm-param ?array<int, TObject|stdClass> $data
      */
     public function __construct(array $data = null)
     {
@@ -45,6 +45,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
+     * @template T
      * @psalm-param array<int, T|stdClass> $data
      *
      * @return static
@@ -55,7 +56,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @psalm-param T|stdClass $value
+     * @psalm-param TObject|stdClass $value
      *
      * @param $value
      *
@@ -67,7 +68,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @psalm-return ?T
+     * @psalm-return ?TObject
      */
     public function at(int $index)
     {
@@ -88,11 +89,11 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @return ?T
+     * @return ?TObject
      */
     public function current()
     {
-        /** @psalm-var ?T $current  */
+        /** @psalm-var ?TObject $current  */
         return $this->iterator->current();
     }
 
@@ -136,7 +137,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     /**
      * @param int $offset
      *
-     * @return ?T
+     * @return ?TObject
      */
     public function offsetGet($offset)
     {
@@ -145,7 +146,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
 
     /**
      * @param int $offset
-     * @psalm-param T|stdClass $value
+     * @psalm-param TObject|stdClass $value
      *
      * @param mixed $value
      */
@@ -175,7 +176,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @psalm-return T|stdClass|null
+     * @psalm-return TObject|stdClass|null
      */
     final protected function get(int $index)
     {
@@ -187,7 +188,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @psalm-param T|stdClass $data
+     * @psalm-param TObject|stdClass $data
      *
      * @param mixed $data
      */
@@ -201,7 +202,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @psalm-param T|stdClass $value
+     * @psalm-param TObject|stdClass $value
      *
      * @param $value
      *
@@ -216,12 +217,12 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @psalm-return callable(int): ?T
+     * @psalm-return callable(int): ?TObject
      */
     abstract protected function mapper();
 
     /**
-     * @psalm-param T|object $value
+     * @psalm-param TObject|object $value
      */
     final protected function addToIndex(string $field, string $key, int $index): void
     {
@@ -229,7 +230,7 @@ abstract class MapperSequence implements Collection, \ArrayAccess, \JsonSerializ
     }
 
     /**
-     * @psalm-return ?T
+     * @psalm-return ?TObject
      */
     final protected function valueByKey(string $field, string $key)
     {

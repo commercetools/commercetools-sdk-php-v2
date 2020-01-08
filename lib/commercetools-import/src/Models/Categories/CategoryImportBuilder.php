@@ -26,34 +26,29 @@ final class CategoryImportBuilder implements Builder
     private $key;
 
     /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $slug;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $description;
+
+    /**
      * @var CategoryKeyReference|?CategoryKeyReferenceBuilder
      */
     private $parent;
 
     /**
-     * @var ?AssetCollection
-     */
-    private $assets;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $metaKeywords;
-
-    /**
      * @var ?string
      */
     private $orderHint;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $metaTitle;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
 
     /**
      * @var ?string
@@ -63,7 +58,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $description;
+    private $metaTitle;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -73,7 +68,12 @@ final class CategoryImportBuilder implements Builder
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $slug;
+    private $metaKeywords;
+
+    /**
+     * @var ?AssetCollection
+     */
+    private $assets;
 
     /**
      * @return null|string
@@ -81,6 +81,37 @@ final class CategoryImportBuilder implements Builder
     public function getKey()
     {
         return $this->key;
+    }
+
+    /**
+     * <p>Maps to <code>Category.name</code>.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>Maps to <code>Category.slug</code>.
+     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
+
+    /**
+     * <p>Maps to <code>Category.description</code>.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
     }
 
     /**
@@ -97,26 +128,6 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>.
-     *
-     * @return null|AssetCollection
-     */
-    public function getAssets()
-    {
-        return $this->assets;
-    }
-
-    /**
-     * <p>Maps to <code>Category.metaKeywords</code>.</p>.
-     *
-     * @return null|LocalizedString
-     */
-    public function getMetaKeywords()
-    {
-        return $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords;
-    }
-
-    /**
      * <p>Maps to <code>Category.orderHint</code>.</p>.
      *
      * @return null|string
@@ -124,26 +135,6 @@ final class CategoryImportBuilder implements Builder
     public function getOrderHint()
     {
         return $this->orderHint;
-    }
-
-    /**
-     * <p>Maps to <code>Category.metaTitle</code>.</p>.
-     *
-     * @return null|LocalizedString
-     */
-    public function getMetaTitle()
-    {
-        return $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle;
-    }
-
-    /**
-     * <p>Maps to <code>Category.name</code>.</p>.
-     *
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -157,13 +148,13 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.description</code>.</p>.
+     * <p>Maps to <code>Category.metaTitle</code>.</p>.
      *
      * @return null|LocalizedString
      */
-    public function getDescription()
+    public function getMetaTitle()
     {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+        return $this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle;
     }
 
     /**
@@ -177,14 +168,23 @@ final class CategoryImportBuilder implements Builder
     }
 
     /**
-     * <p>Maps to <code>Category.slug</code>.
-     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>.
+     * <p>Maps to <code>Category.metaKeywords</code>.</p>.
      *
      * @return null|LocalizedString
      */
-    public function getSlug()
+    public function getMetaKeywords()
     {
-        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+        return $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords;
+    }
+
+    /**
+     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>.
+     *
+     * @return null|AssetCollection
+     */
+    public function getAssets()
+    {
+        return $this->assets;
     }
 
     /**
@@ -193,56 +193,6 @@ final class CategoryImportBuilder implements Builder
     public function withKey(?string $key)
     {
         $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withParent(?CategoryKeyReference $parent)
-    {
-        $this->parent = $parent;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAssets(?AssetCollection $assets)
-    {
-        $this->assets = $assets;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaKeywords(?LocalizedString $metaKeywords)
-    {
-        $this->metaKeywords = $metaKeywords;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withOrderHint(?string $orderHint)
-    {
-        $this->orderHint = $orderHint;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaTitle(?LocalizedString $metaTitle)
-    {
-        $this->metaTitle = $metaTitle;
 
         return $this;
     }
@@ -260,9 +210,9 @@ final class CategoryImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalId(?string $externalId)
+    public function withSlug(?LocalizedString $slug)
     {
-        $this->externalId = $externalId;
+        $this->slug = $slug;
 
         return $this;
     }
@@ -280,6 +230,46 @@ final class CategoryImportBuilder implements Builder
     /**
      * @return $this
      */
+    public function withParent(?CategoryKeyReference $parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withOrderHint(?string $orderHint)
+    {
+        $this->orderHint = $orderHint;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalId(?string $externalId)
+    {
+        $this->externalId = $externalId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMetaTitle(?LocalizedString $metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withMetaDescription(?LocalizedString $metaDescription)
     {
         $this->metaDescription = $metaDescription;
@@ -290,27 +280,7 @@ final class CategoryImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSlug(?LocalizedString $slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withParentBuilder(?CategoryKeyReferenceBuilder $parent)
-    {
-        $this->parent = $parent;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
+    public function withMetaKeywords(?LocalizedString $metaKeywords)
     {
         $this->metaKeywords = $metaKeywords;
 
@@ -320,9 +290,9 @@ final class CategoryImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
+    public function withAssets(?AssetCollection $assets)
     {
-        $this->metaTitle = $metaTitle;
+        $this->assets = $assets;
 
         return $this;
     }
@@ -340,9 +310,39 @@ final class CategoryImportBuilder implements Builder
     /**
      * @return $this
      */
+    public function withSlugBuilder(?LocalizedStringBuilder $slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withDescriptionBuilder(?LocalizedStringBuilder $description)
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withParentBuilder(?CategoryKeyReferenceBuilder $parent)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMetaTitleBuilder(?LocalizedStringBuilder $metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
 
         return $this;
     }
@@ -360,9 +360,9 @@ final class CategoryImportBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSlugBuilder(?LocalizedStringBuilder $slug)
+    public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
     {
-        $this->slug = $slug;
+        $this->metaKeywords = $metaKeywords;
 
         return $this;
     }
@@ -371,16 +371,16 @@ final class CategoryImportBuilder implements Builder
     {
         return new CategoryImportModel(
             $this->key,
-            ($this->parent instanceof CategoryKeyReferenceBuilder ? $this->parent->build() : $this->parent),
-            $this->assets,
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
-            $this->orderHint,
-            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->externalId,
+            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            ($this->parent instanceof CategoryKeyReferenceBuilder ? $this->parent->build() : $this->parent),
+            $this->orderHint,
+            $this->externalId,
+            ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
             ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
+            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
+            $this->assets
         );
     }
 

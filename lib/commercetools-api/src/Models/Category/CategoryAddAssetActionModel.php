@@ -23,21 +23,21 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     protected $action;
 
     /**
-     * @var ?int
-     */
-    protected $position;
-
-    /**
      * @var ?AssetDraft
      */
     protected $asset;
 
+    /**
+     * @var ?int
+     */
+    protected $position;
+
     public function __construct(
-        int $position = null,
-        AssetDraft $asset = null
+        AssetDraft $asset = null,
+        int $position = null
     ) {
-        $this->position = $position;
         $this->asset = $asset;
+        $this->position = $position;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,23 +59,6 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
     }
 
     /**
-     * @return null|int
-     */
-    public function getPosition()
-    {
-        if (is_null($this->position)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CategoryAddAssetAction::FIELD_POSITION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->position = (int) $data;
-        }
-
-        return $this->position;
-    }
-
-    /**
      * @return null|AssetDraft
      */
     public function getAsset()
@@ -93,13 +76,32 @@ final class CategoryAddAssetActionModel extends JsonObjectModel implements Categ
         return $this->asset;
     }
 
-    public function setPosition(?int $position): void
+    /**
+     * <p>When specified, the value might be <code>0</code> and should be lower than the total of the assets list.</p>.
+     *
+     * @return null|int
+     */
+    public function getPosition()
     {
-        $this->position = $position;
+        if (is_null($this->position)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CategoryAddAssetAction::FIELD_POSITION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->position = (int) $data;
+        }
+
+        return $this->position;
     }
 
     public function setAsset(?AssetDraft $asset): void
     {
         $this->asset = $asset;
+    }
+
+    public function setPosition(?int $position): void
+    {
+        $this->position = $position;
     }
 }

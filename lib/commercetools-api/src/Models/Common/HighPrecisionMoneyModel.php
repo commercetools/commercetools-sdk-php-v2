@@ -15,9 +15,9 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     const DISCRIMINATOR_VALUE = 'highPrecision';
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    protected $centAmount;
+    protected $type;
 
     /**
      * @var ?int
@@ -25,9 +25,9 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     protected $fractionDigits;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $type;
+    protected $centAmount;
 
     /**
      * @var ?string
@@ -40,33 +40,33 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     protected $preciseAmount;
 
     public function __construct(
-        int $centAmount = null,
         int $fractionDigits = null,
+        int $centAmount = null,
         string $currencyCode = null,
         int $preciseAmount = null
     ) {
-        $this->centAmount = $centAmount;
         $this->fractionDigits = $fractionDigits;
+        $this->centAmount = $centAmount;
         $this->currencyCode = $currencyCode;
         $this->preciseAmount = $preciseAmount;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getCentAmount()
+    public function getType()
     {
-        if (is_null($this->centAmount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(TypedMoney::FIELD_CENT_AMOUNT);
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TypedMoney::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
-            $this->centAmount = (int) $data;
+            $this->type = (string) $data;
         }
 
-        return $this->centAmount;
+        return $this->type;
     }
 
     /**
@@ -87,20 +87,20 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
     }
 
     /**
-     * @return null|string
+     * @return null|int
      */
-    public function getType()
+    public function getCentAmount()
     {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(TypedMoney::FIELD_TYPE);
+        if (is_null($this->centAmount)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(TypedMoney::FIELD_CENT_AMOUNT);
             if (is_null($data)) {
                 return null;
             }
-            $this->type = (string) $data;
+            $this->centAmount = (int) $data;
         }
 
-        return $this->type;
+        return $this->centAmount;
     }
 
     /**
@@ -139,14 +139,14 @@ final class HighPrecisionMoneyModel extends JsonObjectModel implements HighPreci
         return $this->preciseAmount;
     }
 
-    public function setCentAmount(?int $centAmount): void
-    {
-        $this->centAmount = $centAmount;
-    }
-
     public function setFractionDigits(?int $fractionDigits): void
     {
         $this->fractionDigits = $fractionDigits;
+    }
+
+    public function setCentAmount(?int $centAmount): void
+    {
+        $this->centAmount = $centAmount;
     }
 
     public function setCurrencyCode(?string $currencyCode): void

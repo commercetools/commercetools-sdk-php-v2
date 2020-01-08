@@ -18,6 +18,26 @@ use stdClass;
 final class ProductDiscountDraftModel extends JsonObjectModel implements ProductDiscountDraft
 {
     /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
+     * @var ?ProductDiscountValueDraft
+     */
+    protected $value;
+
+    /**
      * @var ?string
      */
     protected $predicate;
@@ -28,19 +48,9 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     protected $sortOrder;
 
     /**
-     * @var ?LocalizedString
+     * @var ?bool
      */
-    protected $name;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validUntil;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
+    protected $isActive;
 
     /**
      * @var ?DateTimeImmutable
@@ -48,74 +58,30 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     protected $validFrom;
 
     /**
-     * @var ?bool
+     * @var ?DateTimeImmutable
      */
-    protected $isActive;
-
-    /**
-     * @var ?ProductDiscountValueDraft
-     */
-    protected $value;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
+    protected $validUntil;
 
     public function __construct(
+        LocalizedString $name = null,
+        string $key = null,
+        LocalizedString $description = null,
+        ProductDiscountValueDraft $value = null,
         string $predicate = null,
         string $sortOrder = null,
-        LocalizedString $name = null,
-        DateTimeImmutable $validUntil = null,
-        LocalizedString $description = null,
-        DateTimeImmutable $validFrom = null,
         bool $isActive = null,
-        ProductDiscountValueDraft $value = null,
-        string $key = null
+        DateTimeImmutable $validFrom = null,
+        DateTimeImmutable $validUntil = null
     ) {
+        $this->name = $name;
+        $this->key = $key;
+        $this->description = $description;
+        $this->value = $value;
         $this->predicate = $predicate;
         $this->sortOrder = $sortOrder;
-        $this->name = $name;
-        $this->validUntil = $validUntil;
-        $this->description = $description;
-        $this->validFrom = $validFrom;
         $this->isActive = $isActive;
-        $this->value = $value;
-        $this->key = $key;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPredicate()
-    {
-        if (is_null($this->predicate)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountDraft::FIELD_PREDICATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->predicate = (string) $data;
-        }
-
-        return $this->predicate;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSortOrder()
-    {
-        if (is_null($this->sortOrder)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountDraft::FIELD_SORT_ORDER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sortOrder = (string) $data;
-        }
-
-        return $this->sortOrder;
+        $this->validFrom = $validFrom;
+        $this->validUntil = $validUntil;
     }
 
     /**
@@ -137,24 +103,24 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>User-specific unique identifier for a product discount.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction</p>.
+     *
+     * @return null|string
      */
-    public function getValidUntil()
+    public function getKey()
     {
-        if (is_null($this->validUntil)) {
+        if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountDraft::FIELD_VALID_UNTIL);
+            $data = $this->raw(ProductDiscountDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->validUntil = $data;
+            $this->key = (string) $data;
         }
 
-        return $this->validUntil;
+        return $this->key;
     }
 
     /**
@@ -176,6 +142,85 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     }
 
     /**
+     * @return null|ProductDiscountValueDraft
+     */
+    public function getValue()
+    {
+        if (is_null($this->value)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDiscountDraft::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->value = ProductDiscountValueDraftModel::of($data);
+        }
+
+        return $this->value;
+    }
+
+    /**
+     * <p>A valid ProductDiscount Predicate.</p>.
+     *
+     * @return null|string
+     */
+    public function getPredicate()
+    {
+        if (is_null($this->predicate)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductDiscountDraft::FIELD_PREDICATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->predicate = (string) $data;
+        }
+
+        return $this->predicate;
+    }
+
+    /**
+     * <p>The string must contain a decimal number between 0 and 1.
+     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.</p>.
+     *
+     * @return null|string
+     */
+    public function getSortOrder()
+    {
+        if (is_null($this->sortOrder)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductDiscountDraft::FIELD_SORT_ORDER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sortOrder = (string) $data;
+        }
+
+        return $this->sortOrder;
+    }
+
+    /**
+     * <p>If set to <code>true</code> the discount will be applied to product prices.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        if (is_null($this->isActive)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductDiscountDraft::FIELD_IS_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isActive = (bool) $data;
+        }
+
+        return $this->isActive;
+    }
+
+    /**
+     * <p>The time from which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -197,55 +242,47 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
     }
 
     /**
-     * @return null|bool
+     * <p>The time from which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     *
+     * @return null|DateTimeImmutable
      */
-    public function getIsActive()
+    public function getValidUntil()
     {
-        if (is_null($this->isActive)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductDiscountDraft::FIELD_IS_ACTIVE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isActive = (bool) $data;
-        }
-
-        return $this->isActive;
-    }
-
-    /**
-     * @return null|ProductDiscountValueDraft
-     */
-    public function getValue()
-    {
-        if (is_null($this->value)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductDiscountDraft::FIELD_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = ProductDiscountValueDraftModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
-        }
-
-        return $this->value;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
+        if (is_null($this->validUntil)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountDraft::FIELD_KEY);
+            $data = $this->raw(ProductDiscountDraft::FIELD_VALID_UNTIL);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validUntil = $data;
         }
 
-        return $this->key;
+        return $this->validUntil;
+    }
+
+    public function setName(?LocalizedString $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
+
+    public function setDescription(?LocalizedString $description): void
+    {
+        $this->description = $description;
+    }
+
+    public function setValue(?ProductDiscountValueDraft $value): void
+    {
+        $this->value = $value;
     }
 
     public function setPredicate(?string $predicate): void
@@ -258,19 +295,9 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
         $this->sortOrder = $sortOrder;
     }
 
-    public function setName(?LocalizedString $name): void
+    public function setIsActive(?bool $isActive): void
     {
-        $this->name = $name;
-    }
-
-    public function setValidUntil(?DateTimeImmutable $validUntil): void
-    {
-        $this->validUntil = $validUntil;
-    }
-
-    public function setDescription(?LocalizedString $description): void
-    {
-        $this->description = $description;
+        $this->isActive = $isActive;
     }
 
     public function setValidFrom(?DateTimeImmutable $validFrom): void
@@ -278,30 +305,20 @@ final class ProductDiscountDraftModel extends JsonObjectModel implements Product
         $this->validFrom = $validFrom;
     }
 
-    public function setIsActive(?bool $isActive): void
+    public function setValidUntil(?DateTimeImmutable $validUntil): void
     {
-        $this->isActive = $isActive;
-    }
-
-    public function setValue(?ProductDiscountValueDraft $value): void
-    {
-        $this->value = $value;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
+        $this->validUntil = $validUntil;
     }
 
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[ProductDiscountDraft::FIELD_VALID_UNTIL]) && $data[ProductDiscountDraft::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
-            $data[ProductDiscountDraft::FIELD_VALID_UNTIL] = $data[ProductDiscountDraft::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
-        }
-
         if (isset($data[ProductDiscountDraft::FIELD_VALID_FROM]) && $data[ProductDiscountDraft::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
             $data[ProductDiscountDraft::FIELD_VALID_FROM] = $data[ProductDiscountDraft::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[ProductDiscountDraft::FIELD_VALID_UNTIL]) && $data[ProductDiscountDraft::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
+            $data[ProductDiscountDraft::FIELD_VALID_UNTIL] = $data[ProductDiscountDraft::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

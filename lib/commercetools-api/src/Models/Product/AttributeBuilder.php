@@ -35,6 +35,8 @@ final class AttributeBuilder implements Builder
     }
 
     /**
+     * <p>A valid JSON value, based on an AttributeDefinition.</p>.
+     *
      * @return null|JsonObject
      */
     public function getValue()

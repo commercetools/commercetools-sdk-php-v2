@@ -16,14 +16,14 @@ use stdClass;
 final class TypeDraftModel extends JsonObjectModel implements TypeDraft
 {
     /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
      * @var ?LocalizedString
      */
     protected $name;
-
-    /**
-     * @var ?FieldDefinitionCollection
-     */
-    protected $fieldDefinitions;
 
     /**
      * @var ?LocalizedString
@@ -31,27 +31,44 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     protected $description;
 
     /**
-     * @var ?string
-     */
-    protected $key;
-
-    /**
      * @var ?array
      */
     protected $resourceTypeIds;
 
+    /**
+     * @var ?FieldDefinitionCollection
+     */
+    protected $fieldDefinitions;
+
     public function __construct(
-        LocalizedString $name = null,
-        FieldDefinitionCollection $fieldDefinitions = null,
-        LocalizedString $description = null,
         string $key = null,
-        array $resourceTypeIds = null
+        LocalizedString $name = null,
+        LocalizedString $description = null,
+        array $resourceTypeIds = null,
+        FieldDefinitionCollection $fieldDefinitions = null
     ) {
-        $this->name = $name;
-        $this->fieldDefinitions = $fieldDefinitions;
-        $this->description = $description;
         $this->key = $key;
+        $this->name = $name;
+        $this->description = $description;
         $this->resourceTypeIds = $resourceTypeIds;
+        $this->fieldDefinitions = $fieldDefinitions;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TypeDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -73,23 +90,6 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     }
 
     /**
-     * @return null|FieldDefinitionCollection
-     */
-    public function getFieldDefinitions()
-    {
-        if (is_null($this->fieldDefinitions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TypeDraft::FIELD_FIELD_DEFINITIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->fieldDefinitions = FieldDefinitionCollection::fromArray($data);
-        }
-
-        return $this->fieldDefinitions;
-    }
-
-    /**
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -108,23 +108,8 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(TypeDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
+     * <p>The IDs of the resources that can be customized with this type.</p>.
+     *
      * @return null|array
      */
     public function getResourceTypeIds()
@@ -141,19 +126,21 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
         return $this->resourceTypeIds;
     }
 
-    public function setName(?LocalizedString $name): void
+    /**
+     * @return null|FieldDefinitionCollection
+     */
+    public function getFieldDefinitions()
     {
-        $this->name = $name;
-    }
+        if (is_null($this->fieldDefinitions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(TypeDraft::FIELD_FIELD_DEFINITIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fieldDefinitions = FieldDefinitionCollection::fromArray($data);
+        }
 
-    public function setFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions): void
-    {
-        $this->fieldDefinitions = $fieldDefinitions;
-    }
-
-    public function setDescription(?LocalizedString $description): void
-    {
-        $this->description = $description;
+        return $this->fieldDefinitions;
     }
 
     public function setKey(?string $key): void
@@ -161,8 +148,23 @@ final class TypeDraftModel extends JsonObjectModel implements TypeDraft
         $this->key = $key;
     }
 
+    public function setName(?LocalizedString $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setDescription(?LocalizedString $description): void
+    {
+        $this->description = $description;
+    }
+
     public function setResourceTypeIds(?array $resourceTypeIds): void
     {
         $this->resourceTypeIds = $resourceTypeIds;
+    }
+
+    public function setFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions): void
+    {
+        $this->fieldDefinitions = $fieldDefinitions;
     }
 }

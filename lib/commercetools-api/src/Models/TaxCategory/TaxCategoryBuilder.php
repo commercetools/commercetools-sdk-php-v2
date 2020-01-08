@@ -21,16 +21,6 @@ use DateTimeImmutable;
 final class TaxCategoryBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -41,9 +31,14 @@ final class TaxCategoryBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -51,9 +46,9 @@ final class TaxCategoryBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var ?TaxRateCollection
+     * @var CreatedBy|?CreatedByBuilder
      */
-    private $rates;
+    private $createdBy;
 
     /**
      * @var ?string
@@ -66,9 +61,34 @@ final class TaxCategoryBuilder implements Builder
     private $description;
 
     /**
+     * @var ?TaxRateCollection
+     */
+    private $rates;
+
+    /**
      * @var ?string
      */
     private $key;
+
+    /**
+     * <p>The unique ID of the category.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the category.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -87,30 +107,8 @@ final class TaxCategoryBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -119,11 +117,13 @@ final class TaxCategoryBuilder implements Builder
     }
 
     /**
-     * @return null|TaxRateCollection
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getRates()
+    public function getCreatedBy()
     {
-        return $this->rates;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -143,31 +143,23 @@ final class TaxCategoryBuilder implements Builder
     }
 
     /**
+     * <p>The tax rates have unique IDs in the rates list</p>.
+     *
+     * @return null|TaxRateCollection
+     */
+    public function getRates()
+    {
+        return $this->rates;
+    }
+
+    /**
+     * <p>User-specific unique identifier for the category.</p>.
+     *
      * @return null|string
      */
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
     }
 
     /**
@@ -193,9 +185,19 @@ final class TaxCategoryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -213,9 +215,9 @@ final class TaxCategoryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withRates(?TaxRateCollection $rates)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->rates = $rates;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -243,9 +245,9 @@ final class TaxCategoryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withRates(?TaxRateCollection $rates)
     {
-        $this->key = $key;
+        $this->rates = $rates;
 
         return $this;
     }
@@ -253,9 +255,9 @@ final class TaxCategoryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withKey(?string $key)
     {
-        $this->createdBy = $createdBy;
+        $this->key = $key;
 
         return $this;
     }
@@ -270,18 +272,28 @@ final class TaxCategoryBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
     public function build(): TaxCategory
     {
         return new TaxCategoryModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            $this->rates,
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->name,
             $this->description,
+            $this->rates,
             $this->key
         );
     }

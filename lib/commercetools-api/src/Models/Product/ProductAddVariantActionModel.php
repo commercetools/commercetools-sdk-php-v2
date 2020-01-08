@@ -24,14 +24,24 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     protected $action;
 
     /**
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?PriceDraftCollection
+     */
+    protected $prices;
+
+    /**
      * @var ?ImageCollection
      */
     protected $images;
-
-    /**
-     * @var ?AssetCollection
-     */
-    protected $assets;
 
     /**
      * @var ?AttributeCollection
@@ -44,36 +54,26 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     protected $staged;
 
     /**
-     * @var ?PriceDraftCollection
+     * @var ?AssetCollection
      */
-    protected $prices;
-
-    /**
-     * @var ?string
-     */
-    protected $sku;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
+    protected $assets;
 
     public function __construct(
+        string $sku = null,
+        string $key = null,
+        PriceDraftCollection $prices = null,
         ImageCollection $images = null,
-        AssetCollection $assets = null,
         AttributeCollection $attributes = null,
         bool $staged = null,
-        PriceDraftCollection $prices = null,
-        string $sku = null,
-        string $key = null
+        AssetCollection $assets = null
     ) {
-        $this->images = $images;
-        $this->assets = $assets;
-        $this->attributes = $attributes;
-        $this->staged = $staged;
-        $this->prices = $prices;
         $this->sku = $sku;
         $this->key = $key;
+        $this->prices = $prices;
+        $this->images = $images;
+        $this->attributes = $attributes;
+        $this->staged = $staged;
+        $this->assets = $assets;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -95,6 +95,57 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductAddVariantAction::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductAddVariantAction::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * @return null|PriceDraftCollection
+     */
+    public function getPrices()
+    {
+        if (is_null($this->prices)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductAddVariantAction::FIELD_PRICES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->prices = PriceDraftCollection::fromArray($data);
+        }
+
+        return $this->prices;
+    }
+
+    /**
      * @return null|ImageCollection
      */
     public function getImages()
@@ -109,23 +160,6 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
         }
 
         return $this->images;
-    }
-
-    /**
-     * @return null|AssetCollection
-     */
-    public function getAssets()
-    {
-        if (is_null($this->assets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_ASSETS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assets = AssetCollection::fromArray($data);
-        }
-
-        return $this->assets;
     }
 
     /**
@@ -163,64 +197,40 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
     }
 
     /**
-     * @return null|PriceDraftCollection
+     * @return null|AssetCollection
      */
-    public function getPrices()
+    public function getAssets()
     {
-        if (is_null($this->prices)) {
+        if (is_null($this->assets)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_PRICES);
+            $data = $this->raw(ProductAddVariantAction::FIELD_ASSETS);
             if (is_null($data)) {
                 return null;
             }
-            $this->prices = PriceDraftCollection::fromArray($data);
+            $this->assets = AssetCollection::fromArray($data);
         }
 
-        return $this->prices;
+        return $this->assets;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getSku()
+    public function setSku(?string $sku): void
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
+        $this->sku = $sku;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductAddVariantAction::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
+        $this->key = $key;
+    }
 
-        return $this->key;
+    public function setPrices(?PriceDraftCollection $prices): void
+    {
+        $this->prices = $prices;
     }
 
     public function setImages(?ImageCollection $images): void
     {
         $this->images = $images;
-    }
-
-    public function setAssets(?AssetCollection $assets): void
-    {
-        $this->assets = $assets;
     }
 
     public function setAttributes(?AttributeCollection $attributes): void
@@ -233,18 +243,8 @@ final class ProductAddVariantActionModel extends JsonObjectModel implements Prod
         $this->staged = $staged;
     }
 
-    public function setPrices(?PriceDraftCollection $prices): void
+    public function setAssets(?AssetCollection $assets): void
     {
-        $this->prices = $prices;
-    }
-
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
+        $this->assets = $assets;
     }
 }

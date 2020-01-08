@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductSetProductVariantKeyActionBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -36,12 +31,9 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     private $key;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $staged;
 
     /**
      * @return null|int
@@ -60,6 +52,8 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
+     * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -68,13 +62,11 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withStaged(?bool $staged)
+    public function getStaged()
     {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->staged;
     }
 
     /**
@@ -107,13 +99,23 @@ final class ProductSetProductVariantKeyActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
     public function build(): ProductSetProductVariantKeyAction
     {
         return new ProductSetProductVariantKeyActionModel(
-            $this->staged,
             $this->variantId,
             $this->sku,
-            $this->key
+            $this->key,
+            $this->staged
         );
     }
 

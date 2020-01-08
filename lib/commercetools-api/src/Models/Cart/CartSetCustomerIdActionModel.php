@@ -49,6 +49,8 @@ final class CartSetCustomerIdActionModel extends JsonObjectModel implements Cart
     }
 
     /**
+     * <p>If set, a customer with the given ID must exist in the project.</p>.
+     *
      * @return null|string
      */
     public function getCustomerId()

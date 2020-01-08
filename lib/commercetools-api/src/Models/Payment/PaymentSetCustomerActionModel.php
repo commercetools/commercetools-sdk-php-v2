@@ -52,6 +52,8 @@ final class PaymentSetCustomerActionModel extends JsonObjectModel implements Pay
     }
 
     /**
+     * <p>A reference to the customer this payment belongs to.</p>.
+     *
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()

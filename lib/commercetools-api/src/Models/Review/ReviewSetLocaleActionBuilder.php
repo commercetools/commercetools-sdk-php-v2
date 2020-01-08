@@ -21,6 +21,8 @@ final class ReviewSetLocaleActionBuilder implements Builder
     private $locale;
 
     /**
+     * <p>If <code>locale</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     *
      * @return null|string
      */
     public function getLocale()

@@ -21,6 +21,8 @@ final class ProjectSetShippingRateInputTypeActionBuilder implements Builder
     private $shippingRateInputType;
 
     /**
+     * <p>If not set, removes existing shippingRateInputType.</p>.
+     *
      * @return null|ShippingRateInputType
      */
     public function getShippingRateInputType()

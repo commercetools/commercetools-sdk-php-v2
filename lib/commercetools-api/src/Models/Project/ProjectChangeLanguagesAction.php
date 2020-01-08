@@ -13,6 +13,8 @@ interface ProjectChangeLanguagesAction extends ProjectUpdateAction
     const FIELD_LANGUAGES = 'languages';
 
     /**
+     * <p>.</p>.
+     *
      * @return null|array
      */
     public function getLanguages();

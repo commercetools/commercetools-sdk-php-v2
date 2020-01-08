@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class OrderSetParcelItemsActionBuilder implements Builder
 {
     /**
-     * @var ?DeliveryItemCollection
-     */
-    private $items;
-
-    /**
      * @var ?string
      */
     private $parcelId;
 
     /**
-     * @return null|DeliveryItemCollection
+     * @var ?DeliveryItemCollection
      */
-    public function getItems()
-    {
-        return $this->items;
-    }
+    private $items;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class OrderSetParcelItemsActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|DeliveryItemCollection
      */
-    public function withItems(?DeliveryItemCollection $items)
+    public function getItems()
     {
-        $this->items = $items;
-
-        return $this;
+        return $this->items;
     }
 
     /**
@@ -61,11 +51,21 @@ final class OrderSetParcelItemsActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withItems(?DeliveryItemCollection $items)
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
     public function build(): OrderSetParcelItemsAction
     {
         return new OrderSetParcelItemsActionModel(
-            $this->items,
-            $this->parcelId
+            $this->parcelId,
+            $this->items
         );
     }
 

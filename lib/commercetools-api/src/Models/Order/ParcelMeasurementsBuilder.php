@@ -18,7 +18,7 @@ final class ParcelMeasurementsBuilder implements Builder
     /**
      * @var ?int
      */
-    private $weightInGram;
+    private $heightInMillimeter;
 
     /**
      * @var ?int
@@ -28,19 +28,19 @@ final class ParcelMeasurementsBuilder implements Builder
     /**
      * @var ?int
      */
-    private $heightInMillimeter;
+    private $widthInMillimeter;
 
     /**
      * @var ?int
      */
-    private $widthInMillimeter;
+    private $weightInGram;
 
     /**
      * @return null|int
      */
-    public function getWeightInGram()
+    public function getHeightInMillimeter()
     {
-        return $this->weightInGram;
+        return $this->heightInMillimeter;
     }
 
     /**
@@ -54,25 +54,25 @@ final class ParcelMeasurementsBuilder implements Builder
     /**
      * @return null|int
      */
-    public function getHeightInMillimeter()
-    {
-        return $this->heightInMillimeter;
-    }
-
-    /**
-     * @return null|int
-     */
     public function getWidthInMillimeter()
     {
         return $this->widthInMillimeter;
     }
 
     /**
+     * @return null|int
+     */
+    public function getWeightInGram()
+    {
+        return $this->weightInGram;
+    }
+
+    /**
      * @return $this
      */
-    public function withWeightInGram(?int $weightInGram)
+    public function withHeightInMillimeter(?int $heightInMillimeter)
     {
-        $this->weightInGram = $weightInGram;
+        $this->heightInMillimeter = $heightInMillimeter;
 
         return $this;
     }
@@ -90,16 +90,6 @@ final class ParcelMeasurementsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withHeightInMillimeter(?int $heightInMillimeter)
-    {
-        $this->heightInMillimeter = $heightInMillimeter;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withWidthInMillimeter(?int $widthInMillimeter)
     {
         $this->widthInMillimeter = $widthInMillimeter;
@@ -107,13 +97,23 @@ final class ParcelMeasurementsBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withWeightInGram(?int $weightInGram)
+    {
+        $this->weightInGram = $weightInGram;
+
+        return $this;
+    }
+
     public function build(): ParcelMeasurements
     {
         return new ParcelMeasurementsModel(
-            $this->weightInGram,
-            $this->lengthInMillimeter,
             $this->heightInMillimeter,
-            $this->widthInMillimeter
+            $this->lengthInMillimeter,
+            $this->widthInMillimeter,
+            $this->weightInGram
         );
     }
 

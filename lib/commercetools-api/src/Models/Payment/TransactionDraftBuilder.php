@@ -19,9 +19,14 @@ use DateTimeImmutable;
 final class TransactionDraftBuilder implements Builder
 {
     /**
+     * @var ?DateTimeImmutable
+     */
+    private $timestamp;
+
+    /**
      * @var ?string
      */
-    private $interactionId;
+    private $type;
 
     /**
      * @var Money|?MoneyBuilder
@@ -31,24 +36,31 @@ final class TransactionDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $state;
+    private $interactionId;
 
     /**
      * @var ?string
      */
-    private $type;
+    private $state;
 
     /**
-     * @var ?DateTimeImmutable
+     * <p>The time at which the transaction took place.</p>.
+     *
+     * @return null|DateTimeImmutable
      */
-    private $timestamp;
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
 
     /**
+     * <p>The type of this transaction.</p>.
+     *
      * @return null|string
      */
-    public function getInteractionId()
+    public function getType()
     {
-        return $this->interactionId;
+        return $this->type;
     }
 
     /**
@@ -60,6 +72,20 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
+     * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>.
+     *
+     * @return null|string
+     */
+    public function getInteractionId()
+    {
+        return $this->interactionId;
+    }
+
+    /**
+     * <p>The state of this transaction.
+     * If not set, defaults to <code>Initial</code>.</p>.
+     *
      * @return null|string
      */
     public function getState()
@@ -68,47 +94,11 @@ final class TransactionDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
      * @return $this
      */
-    public function withInteractionId(?string $interactionId)
+    public function withTimestamp(?DateTimeImmutable $timestamp)
     {
-        $this->interactionId = $interactionId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAmount(?Money $amount)
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withState(?string $state)
-    {
-        $this->state = $state;
+        $this->timestamp = $timestamp;
 
         return $this;
     }
@@ -126,9 +116,29 @@ final class TransactionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTimestamp(?DateTimeImmutable $timestamp)
+    public function withAmount(?Money $amount)
     {
-        $this->timestamp = $timestamp;
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withInteractionId(?string $interactionId)
+    {
+        $this->interactionId = $interactionId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withState(?string $state)
+    {
+        $this->state = $state;
 
         return $this;
     }
@@ -146,11 +156,11 @@ final class TransactionDraftBuilder implements Builder
     public function build(): TransactionDraft
     {
         return new TransactionDraftModel(
-            $this->interactionId,
-            ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount),
-            $this->state,
+            $this->timestamp,
             $this->type,
-            $this->timestamp
+            ($this->amount instanceof MoneyBuilder ? $this->amount->build() : $this->amount),
+            $this->interactionId,
+            $this->state
         );
     }
 

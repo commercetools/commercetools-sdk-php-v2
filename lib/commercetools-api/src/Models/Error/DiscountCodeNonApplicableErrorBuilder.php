@@ -24,17 +24,22 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $reason;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $validityCheckTime;
+    private $discountCode;
 
     /**
      * @var ?string
      */
-    private $discountCode;
+    private $reason;
+
+    /**
+     * @var ?string
+     */
+    private $dicountCodeId;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $validFrom;
 
     /**
      * @var ?DateTimeImmutable
@@ -44,12 +49,7 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     /**
      * @var ?DateTimeImmutable
      */
-    private $validFrom;
-
-    /**
-     * @var ?string
-     */
-    private $dicountCodeId;
+    private $validityCheckTime;
 
     /**
      * @return null|string
@@ -62,25 +62,33 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     /**
      * @return null|string
      */
+    public function getDiscountCode()
+    {
+        return $this->discountCode;
+    }
+
+    /**
+     * @return null|string
+     */
     public function getReason()
     {
         return $this->reason;
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * @return null|string
      */
-    public function getValidityCheckTime()
+    public function getDicountCodeId()
     {
-        return $this->validityCheckTime;
+        return $this->dicountCodeId;
     }
 
     /**
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
-    public function getDiscountCode()
+    public function getValidFrom()
     {
-        return $this->discountCode;
+        return $this->validFrom;
     }
 
     /**
@@ -94,17 +102,9 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     /**
      * @return null|DateTimeImmutable
      */
-    public function getValidFrom()
+    public function getValidityCheckTime()
     {
-        return $this->validFrom;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getDicountCodeId()
-    {
-        return $this->dicountCodeId;
+        return $this->validityCheckTime;
     }
 
     /**
@@ -113,26 +113,6 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     public function withMessage(?string $message)
     {
         $this->message = $message;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withReason(?string $reason)
-    {
-        $this->reason = $reason;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValidityCheckTime(?DateTimeImmutable $validityCheckTime)
-    {
-        $this->validityCheckTime = $validityCheckTime;
 
         return $this;
     }
@@ -150,9 +130,19 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValidUntil(?DateTimeImmutable $validUntil)
+    public function withReason(?string $reason)
     {
-        $this->validUntil = $validUntil;
+        $this->reason = $reason;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDicountCodeId(?string $dicountCodeId)
+    {
+        $this->dicountCodeId = $dicountCodeId;
 
         return $this;
     }
@@ -170,9 +160,19 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDicountCodeId(?string $dicountCodeId)
+    public function withValidUntil(?DateTimeImmutable $validUntil)
     {
-        $this->dicountCodeId = $dicountCodeId;
+        $this->validUntil = $validUntil;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValidityCheckTime(?DateTimeImmutable $validityCheckTime)
+    {
+        $this->validityCheckTime = $validityCheckTime;
 
         return $this;
     }
@@ -181,12 +181,12 @@ final class DiscountCodeNonApplicableErrorBuilder implements Builder
     {
         return new DiscountCodeNonApplicableErrorModel(
             $this->message,
-            $this->reason,
-            $this->validityCheckTime,
             $this->discountCode,
-            $this->validUntil,
+            $this->reason,
+            $this->dicountCodeId,
             $this->validFrom,
-            $this->dicountCodeId
+            $this->validUntil,
+            $this->validityCheckTime
         );
     }
 

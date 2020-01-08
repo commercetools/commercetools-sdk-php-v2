@@ -27,6 +27,11 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     protected $projectKey;
 
     /**
+     * @var ?string
+     */
+    protected $notificationType;
+
+    /**
      * @var ?Reference
      */
     protected $resource;
@@ -39,12 +44,12 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     /**
      * @var ?string
      */
-    protected $notificationType;
+    protected $id;
 
     /**
      * @var ?int
      */
-    protected $sequenceNumber;
+    protected $version;
 
     /**
      * @var ?DateTimeImmutable
@@ -59,6 +64,11 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     /**
      * @var ?int
      */
+    protected $sequenceNumber;
+
+    /**
+     * @var ?int
+     */
     protected $resourceVersion;
 
     /**
@@ -66,38 +76,28 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
      */
     protected $payloadNotIncluded;
 
-    /**
-     * @var ?string
-     */
-    protected $id;
-
-    /**
-     * @var ?int
-     */
-    protected $version;
-
     public function __construct(
         string $projectKey = null,
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        int $sequenceNumber = null,
+        string $id = null,
+        int $version = null,
         DateTimeImmutable $createdAt = null,
         DateTimeImmutable $lastModifiedAt = null,
+        int $sequenceNumber = null,
         int $resourceVersion = null,
-        PayloadNotIncluded $payloadNotIncluded = null,
-        string $id = null,
-        int $version = null
+        PayloadNotIncluded $payloadNotIncluded = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->sequenceNumber = $sequenceNumber;
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
-        $this->resourceVersion = $resourceVersion;
-        $this->payloadNotIncluded = $payloadNotIncluded;
         $this->id = $id;
         $this->version = $version;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
+        $this->sequenceNumber = $sequenceNumber;
+        $this->resourceVersion = $resourceVersion;
+        $this->payloadNotIncluded = $payloadNotIncluded;
         $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
@@ -116,6 +116,23 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
         }
 
         return $this->projectKey;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getNotificationType()
+    {
+        if (is_null($this->notificationType)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->notificationType = (string) $data;
+        }
+
+        return $this->notificationType;
     }
 
     /**
@@ -157,35 +174,35 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     /**
      * @return null|string
      */
-    public function getNotificationType()
+    public function getId()
     {
-        if (is_null($this->notificationType)) {
+        if (is_null($this->id)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
+            $data = $this->raw(MessageDelivery::FIELD_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->notificationType = (string) $data;
+            $this->id = (string) $data;
         }
 
-        return $this->notificationType;
+        return $this->id;
     }
 
     /**
      * @return null|int
      */
-    public function getSequenceNumber()
+    public function getVersion()
     {
-        if (is_null($this->sequenceNumber)) {
+        if (is_null($this->version)) {
             /** @psalm-var ?int $data */
-            $data = $this->raw(MessageDelivery::FIELD_SEQUENCE_NUMBER);
+            $data = $this->raw(MessageDelivery::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
-            $this->sequenceNumber = (int) $data;
+            $this->version = (int) $data;
         }
 
-        return $this->sequenceNumber;
+        return $this->version;
     }
 
     /**
@@ -233,6 +250,23 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     /**
      * @return null|int
      */
+    public function getSequenceNumber()
+    {
+        if (is_null($this->sequenceNumber)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MessageDelivery::FIELD_SEQUENCE_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sequenceNumber = (int) $data;
+        }
+
+        return $this->sequenceNumber;
+    }
+
+    /**
+     * @return null|int
+     */
     public function getResourceVersion()
     {
         if (is_null($this->resourceVersion)) {
@@ -265,40 +299,6 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
         return $this->payloadNotIncluded;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MessageDelivery::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MessageDelivery::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
     public function setProjectKey(?string $projectKey): void
     {
         $this->projectKey = $projectKey;
@@ -314,9 +314,14 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
-    public function setSequenceNumber(?int $sequenceNumber): void
+    public function setId(?string $id): void
     {
-        $this->sequenceNumber = $sequenceNumber;
+        $this->id = $id;
+    }
+
+    public function setVersion(?int $version): void
+    {
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -329,6 +334,11 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
+    public function setSequenceNumber(?int $sequenceNumber): void
+    {
+        $this->sequenceNumber = $sequenceNumber;
+    }
+
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
@@ -337,16 +347,6 @@ final class MessageDeliveryModel extends JsonObjectModel implements MessageDeliv
     public function setPayloadNotIncluded(?PayloadNotIncluded $payloadNotIncluded): void
     {
         $this->payloadNotIncluded = $payloadNotIncluded;
-    }
-
-    public function setId(?string $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
     }
 
     public function jsonSerialize()

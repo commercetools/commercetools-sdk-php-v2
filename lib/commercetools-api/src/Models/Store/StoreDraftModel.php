@@ -16,24 +16,47 @@ use stdClass;
 final class StoreDraftModel extends JsonObjectModel implements StoreDraft
 {
     /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-
-    /**
      * @var ?string
      */
     protected $key;
 
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
     public function __construct(
-        LocalizedString $name = null,
-        string $key = null
+        string $key = null,
+        LocalizedString $name = null
     ) {
-        $this->name = $name;
         $this->key = $key;
+        $this->name = $name;
     }
 
     /**
+     * <p>User-specific unique identifier for the store.
+     * The <code>key</code> is mandatory and immutable.
+     * It is used to reference the store.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StoreDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>The name of the store</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -51,30 +74,13 @@ final class StoreDraftModel extends JsonObjectModel implements StoreDraft
         return $this->name;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(StoreDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        $this->key = $key;
     }
 
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 }

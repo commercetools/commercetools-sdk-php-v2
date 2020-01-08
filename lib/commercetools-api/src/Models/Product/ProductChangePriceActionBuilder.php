@@ -18,6 +18,11 @@ use Commercetools\Base\Builder;
 final class ProductChangePriceActionBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $priceId;
+
+    /**
      * @var PriceDraft|?PriceDraftBuilder
      */
     private $price;
@@ -28,9 +33,14 @@ final class ProductChangePriceActionBuilder implements Builder
     private $staged;
 
     /**
-     * @var ?string
+     * <p>ID of the <a href="#price">Price</a></p>.
+     *
+     * @return null|string
      */
-    private $priceId;
+    public function getPriceId()
+    {
+        return $this->priceId;
+    }
 
     /**
      * @return null|PriceDraft
@@ -49,11 +59,13 @@ final class ProductChangePriceActionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getPriceId()
+    public function withPriceId(?string $priceId)
     {
-        return $this->priceId;
+        $this->priceId = $priceId;
+
+        return $this;
     }
 
     /**
@@ -79,16 +91,6 @@ final class ProductChangePriceActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPriceId(?string $priceId)
-    {
-        $this->priceId = $priceId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withPriceBuilder(?PriceDraftBuilder $price)
     {
         $this->price = $price;
@@ -99,9 +101,9 @@ final class ProductChangePriceActionBuilder implements Builder
     public function build(): ProductChangePriceAction
     {
         return new ProductChangePriceActionModel(
+            $this->priceId,
             ($this->price instanceof PriceDraftBuilder ? $this->price->build() : $this->price),
-            $this->staged,
-            $this->priceId
+            $this->staged
         );
     }
 

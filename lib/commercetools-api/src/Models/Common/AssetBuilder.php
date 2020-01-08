@@ -18,14 +18,14 @@ use Commercetools\Base\Builder;
 final class AssetBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $id;
+
+    /**
      * @var ?AssetSourceCollection
      */
     private $sources;
-
-    /**
-     * @var CustomFields|?CustomFieldsBuilder
-     */
-    private $custom;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -38,9 +38,14 @@ final class AssetBuilder implements Builder
     private $description;
 
     /**
-     * @var ?string
+     * @var ?array
      */
-    private $id;
+    private $tags;
+
+    /**
+     * @var CustomFields|?CustomFieldsBuilder
+     */
+    private $custom;
 
     /**
      * @var ?string
@@ -48,9 +53,12 @@ final class AssetBuilder implements Builder
     private $key;
 
     /**
-     * @var ?array
+     * @return null|string
      */
-    private $tags;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return null|AssetSourceCollection
@@ -58,14 +66,6 @@ final class AssetBuilder implements Builder
     public function getSources()
     {
         return $this->sources;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -85,11 +85,19 @@ final class AssetBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|array
      */
-    public function getId()
+    public function getTags()
     {
-        return $this->id;
+        return $this->tags;
+    }
+
+    /**
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -101,11 +109,13 @@ final class AssetBuilder implements Builder
     }
 
     /**
-     * @return null|array
+     * @return $this
      */
-    public function getTags()
+    public function withId(?string $id)
     {
-        return $this->tags;
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -114,16 +124,6 @@ final class AssetBuilder implements Builder
     public function withSources(?AssetSourceCollection $sources)
     {
         $this->sources = $sources;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
 
         return $this;
     }
@@ -151,26 +151,6 @@ final class AssetBuilder implements Builder
     /**
      * @return $this
      */
-    public function withId(?string $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withTags(?array $tags)
     {
         $this->tags = $tags;
@@ -181,9 +161,19 @@ final class AssetBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -208,16 +198,26 @@ final class AssetBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): Asset
     {
         return new AssetModel(
+            $this->id,
             $this->sources,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->id,
-            $this->key,
-            $this->tags
+            $this->tags,
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            $this->key
         );
     }
 

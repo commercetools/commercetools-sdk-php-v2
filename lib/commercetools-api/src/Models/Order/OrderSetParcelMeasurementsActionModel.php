@@ -21,21 +21,21 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     protected $action;
 
     /**
-     * @var ?ParcelMeasurements
-     */
-    protected $measurements;
-
-    /**
      * @var ?string
      */
     protected $parcelId;
 
+    /**
+     * @var ?ParcelMeasurements
+     */
+    protected $measurements;
+
     public function __construct(
-        ParcelMeasurements $measurements = null,
-        string $parcelId = null
+        string $parcelId = null,
+        ParcelMeasurements $measurements = null
     ) {
-        $this->measurements = $measurements;
         $this->parcelId = $parcelId;
+        $this->measurements = $measurements;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -57,6 +57,23 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
     }
 
     /**
+     * @return null|string
+     */
+    public function getParcelId()
+    {
+        if (is_null($this->parcelId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderSetParcelMeasurementsAction::FIELD_PARCEL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->parcelId = (string) $data;
+        }
+
+        return $this->parcelId;
+    }
+
+    /**
      * @return null|ParcelMeasurements
      */
     public function getMeasurements()
@@ -74,30 +91,13 @@ final class OrderSetParcelMeasurementsActionModel extends JsonObjectModel implem
         return $this->measurements;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getParcelId()
+    public function setParcelId(?string $parcelId): void
     {
-        if (is_null($this->parcelId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderSetParcelMeasurementsAction::FIELD_PARCEL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->parcelId = (string) $data;
-        }
-
-        return $this->parcelId;
+        $this->parcelId = $parcelId;
     }
 
     public function setMeasurements(?ParcelMeasurements $measurements): void
     {
         $this->measurements = $measurements;
-    }
-
-    public function setParcelId(?string $parcelId): void
-    {
-        $this->parcelId = $parcelId;
     }
 }

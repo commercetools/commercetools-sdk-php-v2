@@ -197,7 +197,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->post(null)`
 
-Create Cart
+Creating a cart can fail with an InvalidOperation if the referenced shipping method in the
+CartDraft has a predicate which does not match the cart.
+
 
 ### Example
 ```php
@@ -209,7 +211,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->withId("ID")->get()`
 
-Get Cart by ID
+The cart may not contain up-to-date prices, discounts etc.
+If you want to ensure they’re up-to-date, send an Update request with the Recalculate update action instead.
+
 
 ### Example
 ```php
@@ -273,7 +277,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->categories()->post(null)`
 
-Create Category
+Creating a category produces the CategoryCreated message.
 
 ### Example
 ```php
@@ -426,7 +430,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->get()`
 
-Query custom-objects
+The query endpoint allows to retrieve custom objects in a specific container or all custom objects.
+For performance reasons, it is highly advisable to query only for custom objects in a container by using
+the container field in the where predicate.
+
 
 ### Example
 ```php
@@ -438,7 +445,14 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->post(null)`
 
-Create CustomObject
+Creates a new custom object or updates an existing custom object.
+If an object with the given container/key exists,
+the object will be replaced with the new value and the version is incremented.
+If the request contains a version and an object with the given container/key exists then the version
+must match the version of the existing object. Concurrent updates for the same custom object still can result
+in a Conflict (409) even if the version is not provided.
+Fields with null values will not be saved.
+
 
 ### Example
 ```php
@@ -489,7 +503,8 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customObjects()->withId("ID")->delete()`
 
-Delete CustomObject by container
+The version control is optional. If the query contains a version, then it must match the version of the object.
+
 
 ### Example
 ```php
@@ -565,7 +580,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withKey("key")->get()`
 
-Get CustomerGroup by key
+Gets a customer group by Key.
 
 ### Example
 ```php
@@ -578,7 +593,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customerGroups()->withKey("key")->post(null)`
 
-Update CustomerGroup by key
+Updates a customer group by Key.
 
 ### Example
 ```php
@@ -616,7 +631,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->post(null)`
 
-Create Customer
+Creates a customer. If an anonymous cart is passed in,
+then the cart is assigned to the created customer and the version number of the Cart will increase.
+If the ID of an anonymous session is given, all carts and orders will be assigned to the created customer.
+
 
 ### Example
 ```php
@@ -876,7 +894,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->post(null)`
 
-Create Extension
+Currently, a maximum of 25 extensions can be created per project.
 
 ### Example
 ```php
@@ -888,7 +906,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withId("ID")->get()`
 
-Get Extension by ID
+Retrieves the representation of an extension by its id.
 
 ### Example
 ```php
@@ -927,7 +945,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->extensions()->withKey("key")->get()`
 
-Get Extension by key
+Retrieves the representation of an extension by its key.
 
 ### Example
 ```php
@@ -978,7 +996,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->get()`
 
-Query carts
+Queries carts in a specific Store. The {storeKey} path parameter maps to a Store’s key.
 
 ### Example
 ```php
@@ -991,7 +1009,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->post(null)`
 
-Create Cart
+Creates a cart in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store’s key.
+When using this endpoint the cart’s store field is always set to the store specified in the path parameter.
+Creating a cart can fail with an InvalidOperation if the referenced shipping method
+in the CartDraft has a predicate which does not match the cart.
+
 
 ### Example
 ```php
@@ -1004,7 +1026,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->get()`
 
-Get Cart by ID
+Returns a cart by its ID from a specific Store. The {storeKey} path parameter maps to a Store’s key.
+If the cart exists in the commercetools project but does not have the store field,
+or the store field references a different store, this method returns a ResourceNotFound error.
+The cart may not contain up-to-date prices, discounts etc.
+If you want to ensure they’re up-to-date, send an Update request with the Recalculate update action instead.
+
 
 ### Example
 ```php
@@ -1018,7 +1045,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withId("ID")->post(null)`
 
-Update Cart by ID
+Updates a cart in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store’s key.
+If the cart exists in the commercetools project but does not have the store field,
+or the store field references a different store, this method returns a ResourceNotFound error.
+
 
 ### Example
 ```php
@@ -1059,7 +1089,15 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->post(null)`
 
-Create Customer
+Creates a customer in a specific Store. The {storeKey} path parameter maps to a Store’s key.
+When using this endpoint, if omitted,
+the customer’s stores field is set to the store specified in the path parameter.
+If an anonymous cart is passed in as when using this method,
+then the cart is assigned to the created customer and the version number of the Cart increases.
+If the ID of an anonymous session is given, all carts and orders will be assigned to the created customer and
+the store specified. If you pass in a cart with a store field specified,
+the store field must reference the same store specified in the {storeKey} path parameter.
+
 
 ### Example
 ```php
@@ -1072,7 +1110,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->get()`
 
-Get Customer by ID
+Returns a customer by its ID from a specific Store. The {storeKey} path parameter maps to a Store’s key.
+It also considers customers that do not have the stores field.
+If the customer exists in the commercetools project but the stores field references different stores,
+this method returns a ResourceNotFound error.
+
 
 ### Example
 ```php
@@ -1086,7 +1128,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withId("ID")->post(null)`
 
-Update Customer by ID
+Updates a customer in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store’s key.
+If the customer exists in the commercetools project but the stores field references a different store,
+this method returns a ResourceNotFound error.
+
 
 ### Example
 ```php
@@ -1157,7 +1202,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->get()`
 
-Get Customer by key
+Returns a customer by its Key from a specific Store. The {storeKey} path parameter maps to a Store’s key.
+It also considers customers that do not have the stores field.
+If the customer exists in the commercetools project but the stores field references different stores,
+this method returns a ResourceNotFound error.
+
 
 ### Example
 ```php
@@ -1171,7 +1220,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withKey("key")->post(null)`
 
-Update Customer by key
+If the customer exists in the commercetools project but the stores field references a different store,
+this method returns a ResourceNotFound error.
+
 
 ### Example
 ```php
@@ -1401,7 +1452,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->get()`
 
-Query orders
+Queries orders in a specific Store. The {storeKey} path parameter maps to a Store’s key.
 
 ### Example
 ```php
@@ -1414,7 +1465,11 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->post(null)`
 
-Create Order
+Creates an order from a Cart from a specific Store. The {storeKey} path parameter maps to a Store’s key.
+When using this endpoint the orders’s store field is always set to the store specified in the path parameter.
+The cart must have a shipping address set before creating an order. When using the Platform TaxMode,
+the shipping address is used for tax calculation.
+
 
 ### Example
 ```php
@@ -1427,7 +1482,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->get()`
 
-Get Order by ID
+Returns an order by its ID from a specific Store. The {storeKey} path parameter maps to a Store’s key.
+If the order exists in the commercetools project but does not have the store field,
+or the store field references a different store, this method returns a ResourceNotFound error.
+
 
 ### Example
 ```php
@@ -1441,7 +1499,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withId("ID")->post(null)`
 
-Update Order by ID
+Updates an order in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store’s key.
+If the order exists in the commercetools project but does not have the store field,
+or the store field references a different store, this method returns a ResourceNotFound error.
+
 
 ### Example
 ```php
@@ -1469,7 +1530,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->get()`
 
-Get Order by orderNumber
+Returns an order by its order number from a specific Store.
+The {storeKey} path parameter maps to a Store’s key.
+If the order exists in the commercetools project but does not have the store field,
+or the store field references a different store, this method returns a ResourceNotFound error.
+In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
+it should be provided in URL-encoded format.
+
 
 ### Example
 ```php
@@ -1483,7 +1550,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->withOrderNumber("orderNumber")->post(null)`
 
-Update Order by orderNumber
+Updates an order in the store specified by {storeKey}. The {storeKey} path parameter maps to a Store’s key.
+If the order exists in the commercetools project but does not have the store field,
+or the store field references a different store, this method returns a ResourceNotFound error.
+In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
+it should be provided in URL-encoded format.
+
 
 ### Example
 ```php
@@ -1574,7 +1646,14 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->login()->post(null)`
 
-Authenticate Customer (Sign In)
+Authenticate Customer (Sign In). Retrieves the authenticated
+customer (a customer that matches the given email/password pair).
+If used with an access token for Anonymous Sessions,
+all orders and carts belonging to the anonymousId will be assigned to the newly created customer.
+If a cart is is returned as part of the CustomerSignInResult,
+it has been recalculated (It will have up-to-date prices, taxes and discounts,
+and invalid line items have been removed.).
+
 
 ### Example
 ```php
@@ -2039,7 +2118,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->post(null)`
 
-Create Order
+Creates an order from a Cart.
+The cart must have a shipping address set before creating an order.
+When using the Platform TaxMode, the shipping address is used for tax calculation.
+
 
 ### Example
 ```php
@@ -2228,7 +2310,9 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->orders()->withOrderNumber("orderNumber")->get()`
 
-Get Order by orderNumber
+In case the orderNumber does not match the regular expression [a-zA-Z0-9_-]+,
+it should be provided in URL-encoded format.
+
 
 ### Example
 ```php
@@ -2279,7 +2363,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->payments()->post(null)`
 
-Create Payment
+To create a payment object a payment draft object has to be given with the request.
 
 ### Example
 ```php
@@ -2484,7 +2568,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->get()`
 
-Query product-projections
+You can use the product projections query endpoint to get the current or staged representations of Products.
+When used with an API client that has the view_published_products:{projectKey} scope,
+this endpoint only returns published (current) product projections.
+
 
 ### Example
 ```php
@@ -2496,7 +2583,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->withId("ID")->get()`
 
-Get ProductProjection by ID
+Gets the current or staged representation of a product in a catalog by ID.
+When used with an API client that has the view_published_products:{projectKey} scope,
+this endpoint only returns published (current) product projections.
+
 
 ### Example
 ```php
@@ -2509,7 +2599,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->productProjections()->withKey("key")->get()`
 
-Get ProductProjection by key
+Gets the current or staged representation of a product found by Key.
+When used with an API client that has the view_published_products:{projectKey} scope,
+this endpoint only returns published (current) product projections.
+
 
 ### Example
 ```php
@@ -2663,7 +2756,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->get()`
 
-Query products
+You can use the query endpoint to get the full representations of products.
+REMARK: We suggest to use the performance optimized search endpoint which has a bunch functionalities,
+the query API lacks like sorting on custom attributes, etc.
+
 
 ### Example
 ```php
@@ -2675,7 +2771,10 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->post(null)`
 
-Create Product
+To create a new product, send a representation that is going to become the initial staged representation
+of the new product in the master catalog. If price selection query parameters are provided,
+the selected prices will be added to the response.
+
 
 ### Example
 ```php
@@ -2687,7 +2786,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->get()`
 
-Get Product by ID
+Gets the full representation of a product by ID.
 
 ### Example
 ```php
@@ -2741,7 +2840,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
-Get Product by key
+Gets the full representation of a product by Key.
 
 ### Example
 ```php
@@ -3008,7 +3107,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withId("ID")->get()`
 
-Get ShoppingList by ID
+Gets a shopping list by ID.
 
 ### Example
 ```php
@@ -3047,7 +3146,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->get()`
 
-Get ShoppingList by key
+Gets a shopping list by Key.
 
 ### Example
 ```php
@@ -3060,7 +3159,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->shoppingLists()->withKey("key")->post(null)`
 
-Update ShoppingList by key
+Update a shopping list found by its Key.
 
 ### Example
 ```php
@@ -3263,7 +3362,12 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->post(null)`
 
-Create Subscription
+The creation of a Subscription is eventually consistent, it may take up to a minute before it becomes fully active.
+In order to test that the destination is correctly configured, a test message will be put into the queue.
+If the message could not be delivered, the subscription will not be created.
+The payload of the test message is a notification of type ResourceCreated for the resourceTypeId subscription.
+Currently, a maximum of 25 subscriptions can be created per project.
+
 
 ### Example
 ```php
@@ -3275,7 +3379,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withId("ID")->get()`
 
-Get Subscription by ID
+Retrieves the representation of a subscription by its id.
 
 ### Example
 ```php
@@ -3314,7 +3418,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->subscriptions()->withKey("key")->get()`
 
-Get Subscription by key
+Retrieves the representation of a subscription by its key.
 
 ### Example
 ```php

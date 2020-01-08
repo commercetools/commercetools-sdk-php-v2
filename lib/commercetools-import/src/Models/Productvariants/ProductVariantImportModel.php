@@ -24,9 +24,19 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     protected $key;
 
     /**
-     * @var ?ProductKeyReference
+     * @var ?string
      */
-    protected $product;
+    protected $sku;
+
+    /**
+     * @var ?bool
+     */
+    protected $isMasterVariant;
+
+    /**
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
 
     /**
      * @var ?ImageCollection
@@ -39,36 +49,26 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     protected $assets;
 
     /**
-     * @var ?AttributeCollection
+     * @var ?ProductKeyReference
      */
-    protected $attributes;
-
-    /**
-     * @var ?string
-     */
-    protected $sku;
-
-    /**
-     * @var ?bool
-     */
-    protected $isMasterVariant;
+    protected $product;
 
     public function __construct(
         string $key = null,
-        ProductKeyReference $product = null,
+        string $sku = null,
+        bool $isMasterVariant = null,
+        AttributeCollection $attributes = null,
         ImageCollection $images = null,
         AssetCollection $assets = null,
-        AttributeCollection $attributes = null,
-        string $sku = null,
-        bool $isMasterVariant = null
+        ProductKeyReference $product = null
     ) {
         $this->key = $key;
-        $this->product = $product;
-        $this->images = $images;
-        $this->assets = $assets;
-        $this->attributes = $attributes;
         $this->sku = $sku;
         $this->isMasterVariant = $isMasterVariant;
+        $this->attributes = $attributes;
+        $this->images = $images;
+        $this->assets = $assets;
+        $this->product = $product;
     }
 
     /**
@@ -89,26 +89,63 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
+     * <p>Maps to <code>ProductVariant.sku</code>.</p>.
      *
-     * @return null|ProductKeyReference
+     * @return null|string
      */
-    public function getProduct()
+    public function getSku()
     {
-        if (is_null($this->product)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductVariantImport::FIELD_PRODUCT);
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductVariantImport::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->product = ProductKeyReferenceModel::of($data);
+            $this->sku = (string) $data;
         }
 
-        return $this->product;
+        return $this->sku;
+    }
+
+    /**
+     * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsMasterVariant()
+    {
+        if (is_null($this->isMasterVariant)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductVariantImport::FIELD_IS_MASTER_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isMasterVariant = (bool) $data;
+        }
+
+        return $this->isMasterVariant;
+    }
+
+    /**
+     * <p>Maps to <code>ProductVariant.attributes</code>.</p>
+     * <p>Each attribute referenced must be defined
+     * in an already existing product type in the commercetools project, or the import
+     * item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantImport::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
     }
 
     /**
@@ -150,63 +187,26 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     }
 
     /**
-     * <p>Maps to <code>ProductVariant.attributes</code>.</p>
-     * <p>Each attribute referenced must be defined
-     * in an already existing product type in the commercetools project, or the import
-     * item state is set to <code>Unresolved</code>.</p>.
+     * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
+     * <p>The product referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
      *
-     * @return null|AttributeCollection
+     * @return null|ProductKeyReference
      */
-    public function getAttributes()
+    public function getProduct()
     {
-        if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariantImport::FIELD_ATTRIBUTES);
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductVariantImport::FIELD_PRODUCT);
             if (is_null($data)) {
                 return null;
             }
-            $this->attributes = AttributeCollection::fromArray($data);
+
+            $this->product = ProductKeyReferenceModel::of($data);
         }
 
-        return $this->attributes;
-    }
-
-    /**
-     * <p>Maps to <code>ProductVariant.sku</code>.</p>.
-     *
-     * @return null|string
-     */
-    public function getSku()
-    {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductVariantImport::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
-    }
-
-    /**
-     * <p>Maps to <code>ProductVariant.isMasterVariant</code>.</p>.
-     *
-     * @return null|bool
-     */
-    public function getIsMasterVariant()
-    {
-        if (is_null($this->isMasterVariant)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductVariantImport::FIELD_IS_MASTER_VARIANT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isMasterVariant = (bool) $data;
-        }
-
-        return $this->isMasterVariant;
+        return $this->product;
     }
 
     public function setKey(?string $key): void
@@ -214,9 +214,19 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         $this->key = $key;
     }
 
-    public function setProduct(?ProductKeyReference $product): void
+    public function setSku(?string $sku): void
     {
-        $this->product = $product;
+        $this->sku = $sku;
+    }
+
+    public function setIsMasterVariant(?bool $isMasterVariant): void
+    {
+        $this->isMasterVariant = $isMasterVariant;
+    }
+
+    public function setAttributes(?AttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 
     public function setImages(?ImageCollection $images): void
@@ -229,18 +239,8 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
         $this->assets = $assets;
     }
 
-    public function setAttributes(?AttributeCollection $attributes): void
+    public function setProduct(?ProductKeyReference $product): void
     {
-        $this->attributes = $attributes;
-    }
-
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
-    }
-
-    public function setIsMasterVariant(?bool $isMasterVariant): void
-    {
-        $this->isMasterVariant = $isMasterVariant;
+        $this->product = $product;
     }
 }

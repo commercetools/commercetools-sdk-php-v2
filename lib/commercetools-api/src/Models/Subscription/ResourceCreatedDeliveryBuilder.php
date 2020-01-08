@@ -36,14 +36,14 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $modifiedAt;
-
-    /**
      * @var ?int
      */
     private $version;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $modifiedAt;
 
     /**
      * @return null|string
@@ -70,19 +70,19 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
-     */
-    public function getModifiedAt()
-    {
-        return $this->modifiedAt;
-    }
-
-    /**
      * @return null|int
      */
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getModifiedAt()
+    {
+        return $this->modifiedAt;
     }
 
     /**
@@ -118,9 +118,9 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withModifiedAt(?DateTimeImmutable $modifiedAt)
+    public function withVersion(?int $version)
     {
-        $this->modifiedAt = $modifiedAt;
+        $this->version = $version;
 
         return $this;
     }
@@ -128,9 +128,9 @@ final class ResourceCreatedDeliveryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVersion(?int $version)
+    public function withModifiedAt(?DateTimeImmutable $modifiedAt)
     {
-        $this->version = $version;
+        $this->modifiedAt = $modifiedAt;
 
         return $this;
     }
@@ -161,8 +161,8 @@ final class ResourceCreatedDeliveryBuilder implements Builder
             $this->projectKey,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            $this->modifiedAt,
-            $this->version
+            $this->version,
+            $this->modifiedAt
         );
     }
 

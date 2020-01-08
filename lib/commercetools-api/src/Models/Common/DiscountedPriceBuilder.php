@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class DiscountedPriceBuilder implements Builder
 {
     /**
-     * @var ProductDiscountReference|?ProductDiscountReferenceBuilder
-     */
-    private $discount;
-
-    /**
      * @var Money|?MoneyBuilder
      */
     private $value;
 
     /**
-     * @return null|ProductDiscountReference
+     * @var ProductDiscountReference|?ProductDiscountReferenceBuilder
      */
-    public function getDiscount()
-    {
-        return $this->discount instanceof ProductDiscountReferenceBuilder ? $this->discount->build() : $this->discount;
-    }
+    private $discount;
 
     /**
      * @return null|Money
@@ -44,13 +36,11 @@ final class DiscountedPriceBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ProductDiscountReference
      */
-    public function withDiscount(?ProductDiscountReference $discount)
+    public function getDiscount()
     {
-        $this->discount = $discount;
-
-        return $this;
+        return $this->discount instanceof ProductDiscountReferenceBuilder ? $this->discount->build() : $this->discount;
     }
 
     /**
@@ -66,7 +56,7 @@ final class DiscountedPriceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDiscountBuilder(?ProductDiscountReferenceBuilder $discount)
+    public function withDiscount(?ProductDiscountReference $discount)
     {
         $this->discount = $discount;
 
@@ -83,11 +73,21 @@ final class DiscountedPriceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withDiscountBuilder(?ProductDiscountReferenceBuilder $discount)
+    {
+        $this->discount = $discount;
+
+        return $this;
+    }
+
     public function build(): DiscountedPrice
     {
         return new DiscountedPriceModel(
-            ($this->discount instanceof ProductDiscountReferenceBuilder ? $this->discount->build() : $this->discount),
-            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value)
+            ($this->value instanceof MoneyBuilder ? $this->value->build() : $this->value),
+            ($this->discount instanceof ProductDiscountReferenceBuilder ? $this->discount->build() : $this->discount)
         );
     }
 

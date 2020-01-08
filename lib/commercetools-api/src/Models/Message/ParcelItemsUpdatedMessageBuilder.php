@@ -24,16 +24,6 @@ use DateTimeImmutable;
 final class ParcelItemsUpdatedMessageBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -44,14 +34,24 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
 
     /**
      * @var ?int
@@ -64,14 +64,19 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     private $resource;
 
     /**
+     * @var ?int
+     */
+    private $resourceVersion;
+
+    /**
      * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    private $resourceVersion;
+    private $parcelId;
 
     /**
      * @var ?string
@@ -81,33 +86,12 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     /**
      * @var ?DeliveryItemCollection
      */
-    private $oldItems;
+    private $items;
 
     /**
      * @var ?DeliveryItemCollection
      */
-    private $items;
-
-    /**
-     * @var ?string
-     */
-    private $parcelId;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $oldItems;
 
     /**
      * @return null|string
@@ -126,11 +110,19 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -139,6 +131,14 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     public function getLastModifiedBy()
     {
         return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -158,6 +158,14 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
+     * @return null|int
+     */
+    public function getResourceVersion()
+    {
+        return $this->resourceVersion;
+    }
+
+    /**
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -166,11 +174,11 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getResourceVersion()
+    public function getParcelId()
     {
-        return $this->resourceVersion;
+        return $this->parcelId;
     }
 
     /**
@@ -184,45 +192,17 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     /**
      * @return null|DeliveryItemCollection
      */
-    public function getOldItems()
-    {
-        return $this->oldItems;
-    }
-
-    /**
-     * @return null|DeliveryItemCollection
-     */
     public function getItems()
     {
         return $this->items;
     }
 
     /**
-     * @return null|string
+     * @return null|DeliveryItemCollection
      */
-    public function getParcelId()
+    public function getOldItems()
     {
-        return $this->parcelId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->oldItems;
     }
 
     /**
@@ -248,9 +228,19 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -261,6 +251,16 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -288,16 +288,6 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
-    {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
@@ -308,29 +298,9 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDeliveryId(?string $deliveryId)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
-        $this->deliveryId = $deliveryId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withOldItems(?DeliveryItemCollection $oldItems)
-    {
-        $this->oldItems = $oldItems;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withItems(?DeliveryItemCollection $items)
-    {
-        $this->items = $items;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
 
         return $this;
     }
@@ -348,9 +318,29 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withDeliveryId(?string $deliveryId)
     {
-        $this->createdBy = $createdBy;
+        $this->deliveryId = $deliveryId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withItems(?DeliveryItemCollection $items)
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withOldItems(?DeliveryItemCollection $oldItems)
+    {
+        $this->oldItems = $oldItems;
 
         return $this;
     }
@@ -361,6 +351,16 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -388,20 +388,20 @@ final class ParcelItemsUpdatedMessageBuilder implements Builder
     public function build(): ParcelItemsUpdatedMessage
     {
         return new ParcelItemsUpdatedMessageModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
+            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
+            $this->parcelId,
             $this->deliveryId,
-            $this->oldItems,
             $this->items,
-            $this->parcelId
+            $this->oldItems
         );
     }
 

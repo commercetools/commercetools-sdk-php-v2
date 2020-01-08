@@ -32,12 +32,22 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     /**
      * @var ?string
      */
-    protected $country;
+    protected $productId;
+
+    /**
+     * @var ?int
+     */
+    protected $variantId;
 
     /**
      * @var ?string
      */
-    protected $productId;
+    protected $currency;
+
+    /**
+     * @var ?string
+     */
+    protected $country;
 
     /**
      * @var ?CustomerGroupReference
@@ -49,32 +59,22 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
      */
     protected $channel;
 
-    /**
-     * @var ?string
-     */
-    protected $currency;
-
-    /**
-     * @var ?int
-     */
-    protected $variantId;
-
     public function __construct(
         string $message = null,
-        string $country = null,
         string $productId = null,
-        CustomerGroupReference $customerGroup = null,
-        ChannelReference $channel = null,
+        int $variantId = null,
         string $currency = null,
-        int $variantId = null
+        string $country = null,
+        CustomerGroupReference $customerGroup = null,
+        ChannelReference $channel = null
     ) {
         $this->message = $message;
-        $this->country = $country;
         $this->productId = $productId;
+        $this->variantId = $variantId;
+        $this->currency = $currency;
+        $this->country = $country;
         $this->customerGroup = $customerGroup;
         $this->channel = $channel;
-        $this->currency = $currency;
-        $this->variantId = $variantId;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
 
@@ -115,23 +115,6 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     /**
      * @return null|string
      */
-    public function getCountry()
-    {
-        if (is_null($this->country)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MatchingPriceNotFoundError::FIELD_COUNTRY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->country = (string) $data;
-        }
-
-        return $this->country;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getProductId()
     {
         if (is_null($this->productId)) {
@@ -144,6 +127,57 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
         }
 
         return $this->productId;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MatchingPriceNotFoundError::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCurrency()
+    {
+        if (is_null($this->currency)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MatchingPriceNotFoundError::FIELD_CURRENCY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->currency = (string) $data;
+        }
+
+        return $this->currency;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        if (is_null($this->country)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MatchingPriceNotFoundError::FIELD_COUNTRY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->country = (string) $data;
+        }
+
+        return $this->country;
     }
 
     /**
@@ -182,53 +216,29 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
         return $this->channel;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getCurrency()
-    {
-        if (is_null($this->currency)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MatchingPriceNotFoundError::FIELD_CURRENCY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->currency = (string) $data;
-        }
-
-        return $this->currency;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MatchingPriceNotFoundError::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
-    }
-
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
-    public function setCountry(?string $country): void
-    {
-        $this->country = $country;
-    }
-
     public function setProductId(?string $productId): void
     {
         $this->productId = $productId;
+    }
+
+    public function setVariantId(?int $variantId): void
+    {
+        $this->variantId = $variantId;
+    }
+
+    public function setCurrency(?string $currency): void
+    {
+        $this->currency = $currency;
+    }
+
+    public function setCountry(?string $country): void
+    {
+        $this->country = $country;
     }
 
     public function setCustomerGroup(?CustomerGroupReference $customerGroup): void
@@ -239,15 +249,5 @@ final class MatchingPriceNotFoundErrorModel extends JsonObjectModel implements M
     public function setChannel(?ChannelReference $channel): void
     {
         $this->channel = $channel;
-    }
-
-    public function setCurrency(?string $currency): void
-    {
-        $this->currency = $currency;
-    }
-
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
     }
 }

@@ -49,6 +49,8 @@ final class ProductDiscountChangePredicateActionModel extends JsonObjectModel im
     }
 
     /**
+     * <p>A valid ProductDiscount Predicate.</p>.
+     *
      * @return null|string
      */
     public function getPredicate()

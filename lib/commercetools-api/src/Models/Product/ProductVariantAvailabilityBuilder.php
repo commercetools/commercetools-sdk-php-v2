@@ -16,6 +16,16 @@ use Commercetools\Base\Builder;
 final class ProductVariantAvailabilityBuilder implements Builder
 {
     /**
+     * @var ?bool
+     */
+    private $isOnStock;
+
+    /**
+     * @var ?int
+     */
+    private $restockableInDays;
+
+    /**
      * @var ?int
      */
     private $availableQuantity;
@@ -26,14 +36,20 @@ final class ProductVariantAvailabilityBuilder implements Builder
     private $channels;
 
     /**
-     * @var ?int
+     * @return null|bool
      */
-    private $restockableInDays;
+    public function getIsOnStock()
+    {
+        return $this->isOnStock;
+    }
 
     /**
-     * @var ?bool
+     * @return null|int
      */
-    private $isOnStock;
+    public function getRestockableInDays()
+    {
+        return $this->restockableInDays;
+    }
 
     /**
      * @return null|int
@@ -52,19 +68,23 @@ final class ProductVariantAvailabilityBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return $this
      */
-    public function getRestockableInDays()
+    public function withIsOnStock(?bool $isOnStock)
     {
-        return $this->restockableInDays;
+        $this->isOnStock = $isOnStock;
+
+        return $this;
     }
 
     /**
-     * @return null|bool
+     * @return $this
      */
-    public function getIsOnStock()
+    public function withRestockableInDays(?int $restockableInDays)
     {
-        return $this->isOnStock;
+        $this->restockableInDays = $restockableInDays;
+
+        return $this;
     }
 
     /**
@@ -90,26 +110,6 @@ final class ProductVariantAvailabilityBuilder implements Builder
     /**
      * @return $this
      */
-    public function withRestockableInDays(?int $restockableInDays)
-    {
-        $this->restockableInDays = $restockableInDays;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withIsOnStock(?bool $isOnStock)
-    {
-        $this->isOnStock = $isOnStock;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withChannelsBuilder(?ProductVariantChannelAvailabilityMapBuilder $channels)
     {
         $this->channels = $channels;
@@ -120,10 +120,10 @@ final class ProductVariantAvailabilityBuilder implements Builder
     public function build(): ProductVariantAvailability
     {
         return new ProductVariantAvailabilityModel(
-            $this->availableQuantity,
-            ($this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels),
+            $this->isOnStock,
             $this->restockableInDays,
-            $this->isOnStock
+            $this->availableQuantity,
+            ($this->channels instanceof ProductVariantChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels)
         );
     }
 

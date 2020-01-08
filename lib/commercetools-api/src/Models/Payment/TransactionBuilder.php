@@ -21,7 +21,17 @@ final class TransactionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $interactionId;
+    private $id;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $timestamp;
+
+    /**
+     * @var ?string
+     */
+    private $type;
 
     /**
      * @var TypedMoney|?TypedMoneyBuilder
@@ -31,29 +41,41 @@ final class TransactionBuilder implements Builder
     /**
      * @var ?string
      */
+    private $interactionId;
+
+    /**
+     * @var ?string
+     */
     private $state;
 
     /**
-     * @var ?string
-     */
-    private $id;
-
-    /**
-     * @var ?string
-     */
-    private $type;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $timestamp;
-
-    /**
+     * <p>The unique ID of this object.</p>.
+     *
      * @return null|string
      */
-    public function getInteractionId()
+    public function getId()
     {
-        return $this->interactionId;
+        return $this->id;
+    }
+
+    /**
+     * <p>The time at which the transaction took place.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * <p>The type of this transaction.</p>.
+     *
+     * @return null|string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -65,6 +87,19 @@ final class TransactionBuilder implements Builder
     }
 
     /**
+     * <p>The identifier that is used by the interface that managed the transaction (usually the PSP).
+     * If a matching interaction was logged in the <code>interfaceInteractions</code> array, the corresponding interaction should be findable with this ID.</p>.
+     *
+     * @return null|string
+     */
+    public function getInteractionId()
+    {
+        return $this->interactionId;
+    }
+
+    /**
+     * <p>The state of this transaction.</p>.
+     *
      * @return null|string
      */
     public function getState()
@@ -73,75 +108,11 @@ final class TransactionBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getTimestamp()
-    {
-        return $this->timestamp;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withInteractionId(?string $interactionId)
-    {
-        $this->interactionId = $interactionId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAmount(?TypedMoney $amount)
-    {
-        $this->amount = $amount;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withState(?string $state)
-    {
-        $this->state = $state;
-
-        return $this;
-    }
-
-    /**
      * @return $this
      */
     public function withId(?string $id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?string $type)
-    {
-        $this->type = $type;
 
         return $this;
     }
@@ -159,6 +130,46 @@ final class TransactionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withType(?string $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAmount(?TypedMoney $amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withInteractionId(?string $interactionId)
+    {
+        $this->interactionId = $interactionId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withState(?string $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAmountBuilder(?TypedMoneyBuilder $amount)
     {
         $this->amount = $amount;
@@ -169,12 +180,12 @@ final class TransactionBuilder implements Builder
     public function build(): Transaction
     {
         return new TransactionModel(
-            $this->interactionId,
-            ($this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount),
-            $this->state,
             $this->id,
+            $this->timestamp,
             $this->type,
-            $this->timestamp
+            ($this->amount instanceof TypedMoneyBuilder ? $this->amount->build() : $this->amount),
+            $this->interactionId,
+            $this->state
         );
     }
 

@@ -24,19 +24,19 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validUntil;
+    protected $validFrom;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validFrom;
+    protected $validUntil;
 
     public function __construct(
-        DateTimeImmutable $validUntil = null,
-        DateTimeImmutable $validFrom = null
+        DateTimeImmutable $validFrom = null,
+        DateTimeImmutable $validUntil = null
     ) {
-        $this->validUntil = $validUntil;
         $this->validFrom = $validFrom;
+        $this->validUntil = $validUntil;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,27 +58,8 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
     }
 
     /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidUntil()
-    {
-        if (is_null($this->validUntil)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->validUntil = $data;
-        }
-
-        return $this->validUntil;
-    }
-
-    /**
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom()
@@ -99,9 +80,27 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
         return $this->validFrom;
     }
 
-    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    /**
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
     {
-        $this->validUntil = $validUntil;
+        if (is_null($this->validUntil)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validUntil = $data;
+        }
+
+        return $this->validUntil;
     }
 
     public function setValidFrom(?DateTimeImmutable $validFrom): void
@@ -109,15 +108,20 @@ final class CartDiscountSetValidFromAndUntilActionModel extends JsonObjectModel 
         $this->validFrom = $validFrom;
     }
 
+    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    {
+        $this->validUntil = $validUntil;
+    }
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]) && $data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
-            $data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] = $data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
-        }
-
         if (isset($data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_FROM]) && $data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
             $data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_FROM] = $data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]) && $data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
+            $data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] = $data[CartDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

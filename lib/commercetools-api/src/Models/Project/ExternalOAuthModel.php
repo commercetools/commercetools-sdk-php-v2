@@ -15,36 +15,19 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
     /**
      * @var ?string
      */
-    protected $authorizationHeader;
+    protected $url;
 
     /**
      * @var ?string
      */
-    protected $url;
+    protected $authorizationHeader;
 
     public function __construct(
-        string $authorizationHeader = null,
-        string $url = null
+        string $url = null,
+        string $authorizationHeader = null
     ) {
-        $this->authorizationHeader = $authorizationHeader;
         $this->url = $url;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAuthorizationHeader()
-    {
-        if (is_null($this->authorizationHeader)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ExternalOAuth::FIELD_AUTHORIZATION_HEADER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->authorizationHeader = (string) $data;
-        }
-
-        return $this->authorizationHeader;
+        $this->authorizationHeader = $authorizationHeader;
     }
 
     /**
@@ -64,13 +47,30 @@ final class ExternalOAuthModel extends JsonObjectModel implements ExternalOAuth
         return $this->url;
     }
 
-    public function setAuthorizationHeader(?string $authorizationHeader): void
+    /**
+     * @return null|string
+     */
+    public function getAuthorizationHeader()
     {
-        $this->authorizationHeader = $authorizationHeader;
+        if (is_null($this->authorizationHeader)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ExternalOAuth::FIELD_AUTHORIZATION_HEADER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->authorizationHeader = (string) $data;
+        }
+
+        return $this->authorizationHeader;
     }
 
     public function setUrl(?string $url): void
     {
         $this->url = $url;
+    }
+
+    public function setAuthorizationHeader(?string $authorizationHeader): void
+    {
+        $this->authorizationHeader = $authorizationHeader;
     }
 }

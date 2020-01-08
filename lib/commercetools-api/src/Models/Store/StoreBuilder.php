@@ -23,16 +23,6 @@ use DateTimeImmutable;
 final class StoreBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -43,9 +33,14 @@ final class StoreBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -53,9 +48,9 @@ final class StoreBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var CreatedBy|?CreatedByBuilder
      */
-    private $name;
+    private $createdBy;
 
     /**
      * @var ?string
@@ -63,20 +58,9 @@ final class StoreBuilder implements Builder
     private $key;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $name;
 
     /**
      * @return null|string
@@ -95,11 +79,19 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -111,14 +103,18 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * @return null|LocalizedString
+     * @return null|CreatedBy
      */
-    public function getName()
+    public function getCreatedBy()
     {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
+     * <p>User-specific unique identifier for the store.
+     * The <code>key</code> is mandatory and immutable.
+     * It is used to reference the store.</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -127,23 +123,13 @@ final class StoreBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>The name of the store</p>.
+     *
+     * @return null|LocalizedString
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getName()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -169,9 +155,19 @@ final class StoreBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -189,9 +185,9 @@ final class StoreBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->name = $name;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -209,9 +205,9 @@ final class StoreBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withName(?LocalizedString $name)
     {
-        $this->createdBy = $createdBy;
+        $this->name = $name;
 
         return $this;
     }
@@ -229,6 +225,16 @@ final class StoreBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withNameBuilder(?LocalizedStringBuilder $name)
     {
         $this->name = $name;
@@ -239,14 +245,14 @@ final class StoreBuilder implements Builder
     public function build(): Store
     {
         return new StoreModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->key
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->key,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
         );
     }
 

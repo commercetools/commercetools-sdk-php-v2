@@ -21,9 +21,9 @@ use stdClass;
 final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
 {
     /**
-     * @var ?Money
+     * @var ?CustomerResourceIdentifier
      */
-    protected $amountAuthorized;
+    protected $customer;
 
     /**
      * @var ?string
@@ -31,29 +31,29 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     protected $anonymousId;
 
     /**
-     * @var ?PaymentMethodInfo
-     */
-    protected $paymentMethodInfo;
-
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     * @var ?string
-     */
-    protected $authorizedUntil;
-
-    /**
      * @var ?string
      */
     protected $externalId;
 
     /**
-     * @var ?TransactionDraftCollection
+     * @var ?string
      */
-    protected $transactions;
+    protected $interfaceId;
+
+    /**
+     * @var ?Money
+     */
+    protected $amountPlanned;
+
+    /**
+     * @var ?Money
+     */
+    protected $amountAuthorized;
+
+    /**
+     * @var ?string
+     */
+    protected $authorizedUntil;
 
     /**
      * @var ?Money
@@ -66,24 +66,9 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     protected $amountRefunded;
 
     /**
-     * @var ?Money
+     * @var ?PaymentMethodInfo
      */
-    protected $amountPlanned;
-
-    /**
-     * @var ?CustomFieldsDraftCollection
-     */
-    protected $interfaceInteractions;
-
-    /**
-     * @var ?string
-     */
-    protected $interfaceId;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
+    protected $paymentMethodInfo;
 
     /**
      * @var ?PaymentStatusDraft
@@ -91,42 +76,155 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     protected $paymentStatus;
 
     /**
-     * @var ?CustomerResourceIdentifier
+     * @var ?TransactionDraftCollection
      */
-    protected $customer;
+    protected $transactions;
+
+    /**
+     * @var ?CustomFieldsDraftCollection
+     */
+    protected $interfaceInteractions;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
 
     public function __construct(
-        Money $amountAuthorized = null,
+        CustomerResourceIdentifier $customer = null,
         string $anonymousId = null,
-        PaymentMethodInfo $paymentMethodInfo = null,
-        CustomFieldsDraft $custom = null,
-        string $authorizedUntil = null,
         string $externalId = null,
-        TransactionDraftCollection $transactions = null,
+        string $interfaceId = null,
+        Money $amountPlanned = null,
+        Money $amountAuthorized = null,
+        string $authorizedUntil = null,
         Money $amountPaid = null,
         Money $amountRefunded = null,
-        Money $amountPlanned = null,
-        CustomFieldsDraftCollection $interfaceInteractions = null,
-        string $interfaceId = null,
-        string $key = null,
+        PaymentMethodInfo $paymentMethodInfo = null,
         PaymentStatusDraft $paymentStatus = null,
-        CustomerResourceIdentifier $customer = null
+        TransactionDraftCollection $transactions = null,
+        CustomFieldsDraftCollection $interfaceInteractions = null,
+        CustomFieldsDraft $custom = null,
+        string $key = null
     ) {
-        $this->amountAuthorized = $amountAuthorized;
+        $this->customer = $customer;
         $this->anonymousId = $anonymousId;
-        $this->paymentMethodInfo = $paymentMethodInfo;
-        $this->custom = $custom;
-        $this->authorizedUntil = $authorizedUntil;
         $this->externalId = $externalId;
-        $this->transactions = $transactions;
+        $this->interfaceId = $interfaceId;
+        $this->amountPlanned = $amountPlanned;
+        $this->amountAuthorized = $amountAuthorized;
+        $this->authorizedUntil = $authorizedUntil;
         $this->amountPaid = $amountPaid;
         $this->amountRefunded = $amountRefunded;
-        $this->amountPlanned = $amountPlanned;
-        $this->interfaceInteractions = $interfaceInteractions;
-        $this->interfaceId = $interfaceId;
-        $this->key = $key;
+        $this->paymentMethodInfo = $paymentMethodInfo;
         $this->paymentStatus = $paymentStatus;
-        $this->customer = $customer;
+        $this->transactions = $transactions;
+        $this->interfaceInteractions = $interfaceInteractions;
+        $this->custom = $custom;
+        $this->key = $key;
+    }
+
+    /**
+     * <p>A reference to the customer this payment belongs to.</p>.
+     *
+     * @return null|CustomerResourceIdentifier
+     */
+    public function getCustomer()
+    {
+        if (is_null($this->customer)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(PaymentDraft::FIELD_CUSTOMER);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customer = CustomerResourceIdentifierModel::of($data);
+        }
+
+        return $this->customer;
+    }
+
+    /**
+     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     *
+     * @return null|string
+     */
+    public function getAnonymousId()
+    {
+        if (is_null($this->anonymousId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentDraft::FIELD_ANONYMOUS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->anonymousId = (string) $data;
+        }
+
+        return $this->anonymousId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentDraft::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
+    }
+
+    /**
+     * <p>The identifier that is used by the interface that manages the payment (usually the PSP).
+     * Cannot be changed once it has been set.
+     * The combination of this ID and the PaymentMethodInfo <code>paymentInterface</code> must be unique.</p>.
+     *
+     * @return null|string
+     */
+    public function getInterfaceId()
+    {
+        if (is_null($this->interfaceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentDraft::FIELD_INTERFACE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->interfaceId = (string) $data;
+        }
+
+        return $this->interfaceId;
+    }
+
+    /**
+     * <p>How much money this payment intends to receive from the customer.
+     * The value usually matches the cart or order gross total.</p>.
+     *
+     * @return null|Money
+     */
+    public function getAmountPlanned()
+    {
+        if (is_null($this->amountPlanned)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(PaymentDraft::FIELD_AMOUNT_PLANNED);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->amountPlanned = MoneyModel::of($data);
+        }
+
+        return $this->amountPlanned;
     }
 
     /**
@@ -150,59 +248,6 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     /**
      * @return null|string
      */
-    public function getAnonymousId()
-    {
-        if (is_null($this->anonymousId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentDraft::FIELD_ANONYMOUS_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->anonymousId = (string) $data;
-        }
-
-        return $this->anonymousId;
-    }
-
-    /**
-     * @return null|PaymentMethodInfo
-     */
-    public function getPaymentMethodInfo()
-    {
-        if (is_null($this->paymentMethodInfo)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_PAYMENT_METHOD_INFO);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->paymentMethodInfo = PaymentMethodInfoModel::of($data);
-        }
-
-        return $this->paymentMethodInfo;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getAuthorizedUntil()
     {
         if (is_null($this->authorizedUntil)) {
@@ -215,40 +260,6 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
         }
 
         return $this->authorizedUntil;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        if (is_null($this->externalId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentDraft::FIELD_EXTERNAL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->externalId = (string) $data;
-        }
-
-        return $this->externalId;
-    }
-
-    /**
-     * @return null|TransactionDraftCollection
-     */
-    public function getTransactions()
-    {
-        if (is_null($this->transactions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(PaymentDraft::FIELD_TRANSACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->transactions = TransactionDraftCollection::fromArray($data);
-        }
-
-        return $this->transactions;
     }
 
     /**
@@ -288,72 +299,21 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
     /**
-     * @return null|Money
+     * @return null|PaymentMethodInfo
      */
-    public function getAmountPlanned()
+    public function getPaymentMethodInfo()
     {
-        if (is_null($this->amountPlanned)) {
+        if (is_null($this->paymentMethodInfo)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_AMOUNT_PLANNED);
+            $data = $this->raw(PaymentDraft::FIELD_PAYMENT_METHOD_INFO);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->amountPlanned = MoneyModel::of($data);
+            $this->paymentMethodInfo = PaymentMethodInfoModel::of($data);
         }
 
-        return $this->amountPlanned;
-    }
-
-    /**
-     * @return null|CustomFieldsDraftCollection
-     */
-    public function getInterfaceInteractions()
-    {
-        if (is_null($this->interfaceInteractions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(PaymentDraft::FIELD_INTERFACE_INTERACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->interfaceInteractions = CustomFieldsDraftCollection::fromArray($data);
-        }
-
-        return $this->interfaceInteractions;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getInterfaceId()
-    {
-        if (is_null($this->interfaceId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentDraft::FIELD_INTERFACE_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->interfaceId = (string) $data;
-        }
-
-        return $this->interfaceId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        return $this->paymentMethodInfo;
     }
 
     /**
@@ -375,26 +335,87 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
     }
 
     /**
-     * @return null|CustomerResourceIdentifier
+     * <p>A list of financial transactions of different TransactionTypes with different TransactionStates.</p>.
+     *
+     * @return null|TransactionDraftCollection
      */
-    public function getCustomer()
+    public function getTransactions()
     {
-        if (is_null($this->customer)) {
+        if (is_null($this->transactions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(PaymentDraft::FIELD_TRANSACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->transactions = TransactionDraftCollection::fromArray($data);
+        }
+
+        return $this->transactions;
+    }
+
+    /**
+     * <p>Interface interactions can be requests send to the PSP, responses received from the PSP or notifications received from the PSP.
+     * Some interactions may result in a transaction.
+     * If so, the <code>interactionId</code> in the Transaction should be set to match the ID of the PSP for the interaction.
+     * Interactions are managed by the PSP integration and are usually neither written nor read by the user facing frontends or other services.</p>.
+     *
+     * @return null|CustomFieldsDraftCollection
+     */
+    public function getInterfaceInteractions()
+    {
+        if (is_null($this->interfaceInteractions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(PaymentDraft::FIELD_INTERFACE_INTERACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->interfaceInteractions = CustomFieldsDraftCollection::fromArray($data);
+        }
+
+        return $this->interfaceInteractions;
+    }
+
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(PaymentDraft::FIELD_CUSTOMER);
+            $data = $this->raw(PaymentDraft::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->customer = CustomerResourceIdentifierModel::of($data);
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
-        return $this->customer;
+        return $this->custom;
     }
 
-    public function setAmountAuthorized(?Money $amountAuthorized): void
+    /**
+     * <p>User-specific unique identifier for the payment (max.
+     * 256 characters).</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
     {
-        $this->amountAuthorized = $amountAuthorized;
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    public function setCustomer(?CustomerResourceIdentifier $customer): void
+    {
+        $this->customer = $customer;
     }
 
     public function setAnonymousId(?string $anonymousId): void
@@ -402,29 +423,29 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
         $this->anonymousId = $anonymousId;
     }
 
-    public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
-    {
-        $this->paymentMethodInfo = $paymentMethodInfo;
-    }
-
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    public function setAuthorizedUntil(?string $authorizedUntil): void
-    {
-        $this->authorizedUntil = $authorizedUntil;
-    }
-
     public function setExternalId(?string $externalId): void
     {
         $this->externalId = $externalId;
     }
 
-    public function setTransactions(?TransactionDraftCollection $transactions): void
+    public function setInterfaceId(?string $interfaceId): void
     {
-        $this->transactions = $transactions;
+        $this->interfaceId = $interfaceId;
+    }
+
+    public function setAmountPlanned(?Money $amountPlanned): void
+    {
+        $this->amountPlanned = $amountPlanned;
+    }
+
+    public function setAmountAuthorized(?Money $amountAuthorized): void
+    {
+        $this->amountAuthorized = $amountAuthorized;
+    }
+
+    public function setAuthorizedUntil(?string $authorizedUntil): void
+    {
+        $this->authorizedUntil = $authorizedUntil;
     }
 
     public function setAmountPaid(?Money $amountPaid): void
@@ -437,24 +458,9 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
         $this->amountRefunded = $amountRefunded;
     }
 
-    public function setAmountPlanned(?Money $amountPlanned): void
+    public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
     {
-        $this->amountPlanned = $amountPlanned;
-    }
-
-    public function setInterfaceInteractions(?CustomFieldsDraftCollection $interfaceInteractions): void
-    {
-        $this->interfaceInteractions = $interfaceInteractions;
-    }
-
-    public function setInterfaceId(?string $interfaceId): void
-    {
-        $this->interfaceId = $interfaceId;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
+        $this->paymentMethodInfo = $paymentMethodInfo;
     }
 
     public function setPaymentStatus(?PaymentStatusDraft $paymentStatus): void
@@ -462,8 +468,23 @@ final class PaymentDraftModel extends JsonObjectModel implements PaymentDraft
         $this->paymentStatus = $paymentStatus;
     }
 
-    public function setCustomer(?CustomerResourceIdentifier $customer): void
+    public function setTransactions(?TransactionDraftCollection $transactions): void
     {
-        $this->customer = $customer;
+        $this->transactions = $transactions;
+    }
+
+    public function setInterfaceInteractions(?CustomFieldsDraftCollection $interfaceInteractions): void
+    {
+        $this->interfaceInteractions = $interfaceInteractions;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 }

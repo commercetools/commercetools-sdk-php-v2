@@ -23,6 +23,8 @@ final class PaymentSetCustomerActionBuilder implements Builder
     private $customer;
 
     /**
+     * <p>A reference to the customer this payment belongs to.</p>.
+     *
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()

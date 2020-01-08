@@ -26,14 +26,14 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     protected $action;
 
     /**
-     * @var ?Address
-     */
-    protected $address;
-
-    /**
      * @var ?DeliveryItemCollection
      */
     protected $items;
+
+    /**
+     * @var ?Address
+     */
+    protected $address;
 
     /**
      * @var ?ParcelDraftCollection
@@ -41,12 +41,12 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     protected $parcels;
 
     public function __construct(
-        Address $address = null,
         DeliveryItemCollection $items = null,
+        Address $address = null,
         ParcelDraftCollection $parcels = null
     ) {
-        $this->address = $address;
         $this->items = $items;
+        $this->address = $address;
         $this->parcels = $parcels;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
@@ -69,6 +69,23 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
     }
 
     /**
+     * @return null|DeliveryItemCollection
+     */
+    public function getItems()
+    {
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(StagedOrderAddDeliveryAction::FIELD_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->items = DeliveryItemCollection::fromArray($data);
+        }
+
+        return $this->items;
+    }
+
+    /**
      * @return null|Address
      */
     public function getAddress()
@@ -84,23 +101,6 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
         }
 
         return $this->address;
-    }
-
-    /**
-     * @return null|DeliveryItemCollection
-     */
-    public function getItems()
-    {
-        if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(StagedOrderAddDeliveryAction::FIELD_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->items = DeliveryItemCollection::fromArray($data);
-        }
-
-        return $this->items;
     }
 
     /**
@@ -120,14 +120,14 @@ final class StagedOrderAddDeliveryActionModel extends JsonObjectModel implements
         return $this->parcels;
     }
 
-    public function setAddress(?Address $address): void
-    {
-        $this->address = $address;
-    }
-
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
+    }
+
+    public function setAddress(?Address $address): void
+    {
+        $this->address = $address;
     }
 
     public function setParcels(?ParcelDraftCollection $parcels): void

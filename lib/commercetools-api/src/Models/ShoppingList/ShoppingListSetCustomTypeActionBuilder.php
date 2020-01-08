@@ -20,24 +20,19 @@ use Commercetools\Base\Builder;
 final class ShoppingListSetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var FieldContainer|?FieldContainerBuilder
-     */
-    private $fields;
-
-    /**
      * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @return null|FieldContainer
+     * @var FieldContainer|?FieldContainerBuilder
      */
-    public function getFields()
-    {
-        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
-    }
+    private $fields;
 
     /**
+     * <p>If set, the custom type is set to this new value.
+     * If absent, the custom type and any existing custom fields are removed.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -46,13 +41,13 @@ final class ShoppingListSetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>If set, the custom fields are set to this new value.</p>.
+     *
+     * @return null|FieldContainer
      */
-    public function withFields(?FieldContainer $fields)
+    public function getFields()
     {
-        $this->fields = $fields;
-
-        return $this;
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
@@ -68,7 +63,7 @@ final class ShoppingListSetCustomTypeActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
 
@@ -85,11 +80,21 @@ final class ShoppingListSetCustomTypeActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
+
     public function build(): ShoppingListSetCustomTypeAction
     {
         return new ShoppingListSetCustomTypeActionModel(
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields),
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type)
+            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
+            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
         );
     }
 

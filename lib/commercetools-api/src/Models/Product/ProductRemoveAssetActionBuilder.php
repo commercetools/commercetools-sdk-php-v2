@@ -16,16 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductRemoveAssetActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $assetId;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -36,25 +26,19 @@ final class ProductRemoveAssetActionBuilder implements Builder
     private $sku;
 
     /**
+     * @var ?bool
+     */
+    private $staged;
+
+    /**
+     * @var ?string
+     */
+    private $assetId;
+
+    /**
      * @var ?string
      */
     private $assetKey;
-
-    /**
-     * @return null|string
-     */
-    public function getAssetId()
-    {
-        return $this->assetId;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
 
     /**
      * @return null|int
@@ -73,31 +57,27 @@ final class ProductRemoveAssetActionBuilder implements Builder
     }
 
     /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        return $this->assetId;
+    }
+
+    /**
      * @return null|string
      */
     public function getAssetKey()
     {
         return $this->assetKey;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAssetId(?string $assetId)
-    {
-        $this->assetId = $assetId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withStaged(?bool $staged)
-    {
-        $this->staged = $staged;
-
-        return $this;
     }
 
     /**
@@ -123,6 +103,26 @@ final class ProductRemoveAssetActionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssetId(?string $assetId)
+    {
+        $this->assetId = $assetId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAssetKey(?string $assetKey)
     {
         $this->assetKey = $assetKey;
@@ -133,10 +133,10 @@ final class ProductRemoveAssetActionBuilder implements Builder
     public function build(): ProductRemoveAssetAction
     {
         return new ProductRemoveAssetActionModel(
-            $this->assetId,
-            $this->staged,
             $this->variantId,
             $this->sku,
+            $this->staged,
+            $this->assetId,
             $this->assetKey
         );
     }

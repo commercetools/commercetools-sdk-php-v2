@@ -30,21 +30,21 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     /**
      * @var ?string
      */
-    protected $oldState;
+    protected $state;
 
     /**
      * @var ?string
      */
-    protected $state;
+    protected $oldState;
 
     public function __construct(
         DiscountCodeReference $discountCode = null,
-        string $oldState = null,
-        string $state = null
+        string $state = null,
+        string $oldState = null
     ) {
         $this->discountCode = $discountCode;
-        $this->oldState = $oldState;
         $this->state = $state;
+        $this->oldState = $oldState;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -86,23 +86,6 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
     /**
      * @return null|string
      */
-    public function getOldState()
-    {
-        if (is_null($this->oldState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderDiscountCodeStateSetMessagePayload::FIELD_OLD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldState = (string) $data;
-        }
-
-        return $this->oldState;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getState()
     {
         if (is_null($this->state)) {
@@ -117,18 +100,35 @@ final class OrderDiscountCodeStateSetMessagePayloadModel extends JsonObjectModel
         return $this->state;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getOldState()
+    {
+        if (is_null($this->oldState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderDiscountCodeStateSetMessagePayload::FIELD_OLD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldState = (string) $data;
+        }
+
+        return $this->oldState;
+    }
+
     public function setDiscountCode(?DiscountCodeReference $discountCode): void
     {
         $this->discountCode = $discountCode;
     }
 
-    public function setOldState(?string $oldState): void
-    {
-        $this->oldState = $oldState;
-    }
-
     public function setState(?string $state): void
     {
         $this->state = $state;
+    }
+
+    public function setOldState(?string $oldState): void
+    {
+        $this->oldState = $oldState;
     }
 }

@@ -28,23 +28,23 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     protected $deliveryId;
 
     /**
-     * @var ?TrackingData
-     */
-    protected $trackingData;
-
-    /**
      * @var ?string
      */
     protected $parcelId;
 
+    /**
+     * @var ?TrackingData
+     */
+    protected $trackingData;
+
     public function __construct(
         string $deliveryId = null,
-        TrackingData $trackingData = null,
-        string $parcelId = null
+        string $parcelId = null,
+        TrackingData $trackingData = null
     ) {
         $this->deliveryId = $deliveryId;
-        $this->trackingData = $trackingData;
         $this->parcelId = $parcelId;
+        $this->trackingData = $trackingData;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -83,6 +83,23 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
     }
 
     /**
+     * @return null|string
+     */
+    public function getParcelId()
+    {
+        if (is_null($this->parcelId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ParcelTrackingDataUpdatedMessagePayload::FIELD_PARCEL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->parcelId = (string) $data;
+        }
+
+        return $this->parcelId;
+    }
+
+    /**
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -100,35 +117,18 @@ final class ParcelTrackingDataUpdatedMessagePayloadModel extends JsonObjectModel
         return $this->trackingData;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getParcelId()
-    {
-        if (is_null($this->parcelId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ParcelTrackingDataUpdatedMessagePayload::FIELD_PARCEL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->parcelId = (string) $data;
-        }
-
-        return $this->parcelId;
-    }
-
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
     }
 
-    public function setTrackingData(?TrackingData $trackingData): void
-    {
-        $this->trackingData = $trackingData;
-    }
-
     public function setParcelId(?string $parcelId): void
     {
         $this->parcelId = $parcelId;
+    }
+
+    public function setTrackingData(?TrackingData $trackingData): void
+    {
+        $this->trackingData = $trackingData;
     }
 }

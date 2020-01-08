@@ -26,39 +26,9 @@ use stdClass;
 final class LineItemImportDraftModel extends JsonObjectModel implements LineItemImportDraft
 {
     /**
-     * @var ?TaxRate
-     */
-    protected $taxRate;
-
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
-     * @var ?ItemShippingDetailsDraft
-     */
-    protected $shippingDetails;
-
-    /**
      * @var ?string
      */
     protected $productId;
-
-    /**
-     * @var ?PriceDraft
-     */
-    protected $price;
-
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     * @var ?ProductVariantImportDraft
-     */
-    protected $variant;
 
     /**
      * @var ?LocalizedString
@@ -66,9 +36,19 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     protected $name;
 
     /**
-     * @var ?ChannelResourceIdentifier
+     * @var ?ProductVariantImportDraft
      */
-    protected $supplyChannel;
+    protected $variant;
+
+    /**
+     * @var ?PriceDraft
+     */
+    protected $price;
+
+    /**
+     * @var ?int
+     */
+    protected $quantity;
 
     /**
      * @var ?ItemStateCollection
@@ -78,88 +58,58 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     /**
      * @var ?ChannelResourceIdentifier
      */
+    protected $supplyChannel;
+
+    /**
+     * @var ?ChannelResourceIdentifier
+     */
     protected $distributionChannel;
 
+    /**
+     * @var ?TaxRate
+     */
+    protected $taxRate;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?ItemShippingDetailsDraft
+     */
+    protected $shippingDetails;
+
     public function __construct(
-        TaxRate $taxRate = null,
-        int $quantity = null,
-        ItemShippingDetailsDraft $shippingDetails = null,
         string $productId = null,
-        PriceDraft $price = null,
-        CustomFieldsDraft $custom = null,
-        ProductVariantImportDraft $variant = null,
         LocalizedString $name = null,
-        ChannelResourceIdentifier $supplyChannel = null,
+        ProductVariantImportDraft $variant = null,
+        PriceDraft $price = null,
+        int $quantity = null,
         ItemStateCollection $state = null,
-        ChannelResourceIdentifier $distributionChannel = null
+        ChannelResourceIdentifier $supplyChannel = null,
+        ChannelResourceIdentifier $distributionChannel = null,
+        TaxRate $taxRate = null,
+        CustomFieldsDraft $custom = null,
+        ItemShippingDetailsDraft $shippingDetails = null
     ) {
-        $this->taxRate = $taxRate;
-        $this->quantity = $quantity;
-        $this->shippingDetails = $shippingDetails;
         $this->productId = $productId;
-        $this->price = $price;
-        $this->custom = $custom;
-        $this->variant = $variant;
         $this->name = $name;
-        $this->supplyChannel = $supplyChannel;
+        $this->variant = $variant;
+        $this->price = $price;
+        $this->quantity = $quantity;
         $this->state = $state;
+        $this->supplyChannel = $supplyChannel;
         $this->distributionChannel = $distributionChannel;
+        $this->taxRate = $taxRate;
+        $this->custom = $custom;
+        $this->shippingDetails = $shippingDetails;
     }
 
     /**
-     * @return null|TaxRate
-     */
-    public function getTaxRate()
-    {
-        if (is_null($this->taxRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->taxRate = TaxRateModel::of($data);
-        }
-
-        return $this->taxRate;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|ItemShippingDetailsDraft
-     */
-    public function getShippingDetails()
-    {
-        if (is_null($this->shippingDetails)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_SHIPPING_DETAILS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
-        }
-
-        return $this->shippingDetails;
-    }
-
-    /**
+     * <p>ID of the existing product.
+     * You also need to specify the ID of the variant if this property is set or alternatively you can just specify SKU of the product variant.</p>.
+     *
      * @return null|string
      */
     public function getProductId()
@@ -177,39 +127,23 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * @return null|PriceDraft
+     * <p>The product name.</p>.
+     *
+     * @return null|LocalizedString
      */
-    public function getPrice()
+    public function getName()
     {
-        if (is_null($this->price)) {
+        if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_PRICE);
+            $data = $this->raw(LineItemImportDraft::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->price = PriceDraftModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
-        return $this->price;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
+        return $this->name;
     }
 
     /**
@@ -231,39 +165,38 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * @return null|LocalizedString
+     * @return null|PriceDraft
      */
-    public function getName()
+    public function getPrice()
     {
-        if (is_null($this->name)) {
+        if (is_null($this->price)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_NAME);
+            $data = $this->raw(LineItemImportDraft::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->name = LocalizedStringModel::of($data);
+            $this->price = PriceDraftModel::of($data);
         }
 
-        return $this->name;
+        return $this->price;
     }
 
     /**
-     * @return null|ChannelResourceIdentifier
+     * @return null|int
      */
-    public function getSupplyChannel()
+    public function getQuantity()
     {
-        if (is_null($this->supplyChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemImportDraft::FIELD_SUPPLY_CHANNEL);
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(LineItemImportDraft::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
+            $this->quantity = (int) $data;
         }
 
-        return $this->supplyChannel;
+        return $this->quantity;
     }
 
     /**
@@ -284,6 +217,33 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
+     * <p>Optional connection to a particular supplier.
+     * By providing supply channel information, you can uniquely identify
+     * inventory entries that should be reserved.
+     * The provided channel should have the
+     * InventorySupply role.</p>.
+     *
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getSupplyChannel()
+    {
+        if (is_null($this->supplyChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LineItemImportDraft::FIELD_SUPPLY_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
+        }
+
+        return $this->supplyChannel;
+    }
+
+    /**
+     * <p>The channel is used to select a ProductPrice.
+     * The provided channel should have the ProductDistribution role.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel()
@@ -301,19 +261,60 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         return $this->distributionChannel;
     }
 
-    public function setTaxRate(?TaxRate $taxRate): void
+    /**
+     * @return null|TaxRate
+     */
+    public function getTaxRate()
     {
-        $this->taxRate = $taxRate;
+        if (is_null($this->taxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LineItemImportDraft::FIELD_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxRate = TaxRateModel::of($data);
+        }
+
+        return $this->taxRate;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
     {
-        $this->quantity = $quantity;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LineItemImportDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
 
-    public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
+    /**
+     * @return null|ItemShippingDetailsDraft
+     */
+    public function getShippingDetails()
     {
-        $this->shippingDetails = $shippingDetails;
+        if (is_null($this->shippingDetails)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LineItemImportDraft::FIELD_SHIPPING_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
+        }
+
+        return $this->shippingDetails;
     }
 
     public function setProductId(?string $productId): void
@@ -321,14 +322,9 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         $this->productId = $productId;
     }
 
-    public function setPrice(?PriceDraft $price): void
+    public function setName(?LocalizedString $name): void
     {
-        $this->price = $price;
-    }
-
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
+        $this->name = $name;
     }
 
     public function setVariant(?ProductVariantImportDraft $variant): void
@@ -336,14 +332,14 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         $this->variant = $variant;
     }
 
-    public function setName(?LocalizedString $name): void
+    public function setPrice(?PriceDraft $price): void
     {
-        $this->name = $name;
+        $this->price = $price;
     }
 
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
+    public function setQuantity(?int $quantity): void
     {
-        $this->supplyChannel = $supplyChannel;
+        $this->quantity = $quantity;
     }
 
     public function setState(?ItemStateCollection $state): void
@@ -351,8 +347,28 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         $this->state = $state;
     }
 
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
+    {
+        $this->supplyChannel = $supplyChannel;
+    }
+
     public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
     {
         $this->distributionChannel = $distributionChannel;
+    }
+
+    public function setTaxRate(?TaxRate $taxRate): void
+    {
+        $this->taxRate = $taxRate;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
+    {
+        $this->shippingDetails = $shippingDetails;
     }
 }

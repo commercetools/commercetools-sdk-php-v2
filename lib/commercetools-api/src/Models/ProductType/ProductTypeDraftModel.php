@@ -16,6 +16,11 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     /**
      * @var ?string
      */
+    protected $key;
+
+    /**
+     * @var ?string
+     */
     protected $name;
 
     /**
@@ -28,21 +33,37 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
      */
     protected $attributes;
 
-    /**
-     * @var ?string
-     */
-    protected $key;
-
     public function __construct(
+        string $key = null,
         string $name = null,
         string $description = null,
-        AttributeDefinitionDraftCollection $attributes = null,
-        string $key = null
+        AttributeDefinitionDraftCollection $attributes = null
     ) {
+        $this->key = $key;
         $this->name = $name;
         $this->description = $description;
         $this->attributes = $attributes;
-        $this->key = $key;
+    }
+
+    /**
+     * <p>User-specific unique identifier for the product type (min.
+     * 2 and max.
+     * 256 characters).</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductTypeDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -96,21 +117,9 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
         return $this->attributes;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        $this->key = $key;
     }
 
     public function setName(?string $name): void
@@ -126,10 +135,5 @@ final class ProductTypeDraftModel extends JsonObjectModel implements ProductType
     public function setAttributes(?AttributeDefinitionDraftCollection $attributes): void
     {
         $this->attributes = $attributes;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 }

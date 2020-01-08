@@ -27,21 +27,6 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
     protected $action;
 
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $addedAt;
-
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
      * @var ?LocalizedString
      */
     protected $name;
@@ -51,18 +36,33 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
      */
     protected $description;
 
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $addedAt;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
     public function __construct(
-        DateTimeImmutable $addedAt = null,
-        int $quantity = null,
-        CustomFieldsDraft $custom = null,
         LocalizedString $name = null,
-        LocalizedString $description = null
+        LocalizedString $description = null,
+        int $quantity = null,
+        DateTimeImmutable $addedAt = null,
+        CustomFieldsDraft $custom = null
     ) {
-        $this->addedAt = $addedAt;
-        $this->quantity = $quantity;
-        $this->custom = $custom;
         $this->name = $name;
         $this->description = $description;
+        $this->quantity = $quantity;
+        $this->addedAt = $addedAt;
+        $this->custom = $custom;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -81,62 +81,6 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getAddedAt()
-    {
-        if (is_null($this->addedAt)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListAddTextLineItemAction::FIELD_ADDED_AT);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->addedAt = $data;
-        }
-
-        return $this->addedAt;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MyShoppingListAddTextLineItemAction::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyShoppingListAddTextLineItemAction::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
     }
 
     /**
@@ -175,19 +119,60 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
         return $this->description;
     }
 
-    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
     {
-        $this->addedAt = $addedAt;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MyShoppingListAddTextLineItemAction::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getAddedAt()
     {
-        $this->quantity = $quantity;
+        if (is_null($this->addedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyShoppingListAddTextLineItemAction::FIELD_ADDED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->addedAt = $data;
+        }
+
+        return $this->addedAt;
     }
 
-    public function setCustom(?CustomFieldsDraft $custom): void
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
     {
-        $this->custom = $custom;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(MyShoppingListAddTextLineItemAction::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
 
     public function setName(?LocalizedString $name): void
@@ -198,6 +183,21 @@ final class MyShoppingListAddTextLineItemActionModel extends JsonObjectModel imp
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
+    }
+
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+    public function setAddedAt(?DateTimeImmutable $addedAt): void
+    {
+        $this->addedAt = $addedAt;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 
     public function jsonSerialize()

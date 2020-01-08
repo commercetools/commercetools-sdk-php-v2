@@ -26,16 +26,6 @@ use DateTimeImmutable;
 final class CartDiscountBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -46,14 +36,74 @@ final class CartDiscountBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $description;
+
+    /**
+     * @var CartDiscountValue|?CartDiscountValueBuilder
+     */
+    private $value;
+
+    /**
+     * @var ?string
+     */
+    private $cartPredicate;
+
+    /**
+     * @var CartDiscountTarget|?CartDiscountTargetBuilder
+     */
+    private $target;
+
+    /**
+     * @var ?string
+     */
+    private $sortOrder;
+
+    /**
+     * @var ?bool
+     */
+    private $isActive;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $validFrom;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $validUntil;
 
     /**
      * @var ?bool
@@ -68,7 +118,7 @@ final class CartDiscountBuilder implements Builder
     /**
      * @var ?string
      */
-    private $cartPredicate;
+    private $stackingMode;
 
     /**
      * @var CustomFields|?CustomFieldsBuilder
@@ -76,54 +126,24 @@ final class CartDiscountBuilder implements Builder
     private $custom;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * <p>The unique ID of the cart discount.</p>.
+     *
+     * @return null|string
      */
-    private $description;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var ?DateTimeImmutable
+     * <p>The current version of the cart discount.</p>.
+     *
+     * @return null|int
      */
-    private $validFrom;
-
-    /**
-     * @var ?bool
-     */
-    private $isActive;
-
-    /**
-     * @var CartDiscountTarget|?CartDiscountTargetBuilder
-     */
-    private $target;
-
-    /**
-     * @var ?string
-     */
-    private $stackingMode;
-
-    /**
-     * @var ?string
-     */
-    private $sortOrder;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $validUntil;
-
-    /**
-     * @var CartDiscountValue|?CartDiscountValueBuilder
-     */
-    private $value;
-
-    /**
-     * @var ?string
-     */
-    private $key;
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -142,30 +162,8 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -174,35 +172,32 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|bool
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getRequiresDiscountCode()
+    public function getCreatedBy()
     {
-        return $this->requiresDiscountCode;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
-     * @return null|ReferenceCollection
+     * @return null|LocalizedString
      */
-    public function getReferences()
+    public function getName()
     {
-        return $this->references;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
+     * <p>User-specific unique identifier for a cart discount.
+     * Must be unique across a project.</p>.
+     *
      * @return null|string
      */
-    public function getCartPredicate()
+    public function getKey()
     {
-        return $this->cartPredicate;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+        return $this->key;
     }
 
     /**
@@ -214,14 +209,49 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * @return null|CartDiscountValue
      */
-    public function getValidFrom()
+    public function getValue()
     {
-        return $this->validFrom;
+        return $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value;
     }
 
     /**
+     * <p>A valid Cart predicate.</p>.
+     *
+     * @return null|string
+     */
+    public function getCartPredicate()
+    {
+        return $this->cartPredicate;
+    }
+
+    /**
+     * <p>Empty when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget is set.</p>.
+     *
+     * @return null|CartDiscountTarget
+     */
+    public function getTarget()
+    {
+        return $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target;
+    }
+
+    /**
+     * <p>The string must contain a number between 0 and 1.
+     * All matching cart discounts are applied to a cart in the order defined by this field.
+     * A discount with greater sort order is prioritized higher than a discount with lower sort order.
+     * The sort order is unambiguous among all cart discounts.</p>.
+     *
+     * @return null|string
+     */
+    public function getSortOrder()
+    {
+        return $this->sortOrder;
+    }
+
+    /**
+     * <p>Only active discount can be applied to the cart.</p>.
+     *
      * @return null|bool
      */
     public function getIsActive()
@@ -230,11 +260,40 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|CartDiscountTarget
+     * @return null|DateTimeImmutable
      */
-    public function getTarget()
+    public function getValidFrom()
     {
-        return $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target;
+        return $this->validFrom;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
+    {
+        return $this->validUntil;
+    }
+
+    /**
+     * <p>States whether the discount can only be used in a connection with a DiscountCode.</p>.
+     *
+     * @return null|bool
+     */
+    public function getRequiresDiscountCode()
+    {
+        return $this->requiresDiscountCode;
+    }
+
+    /**
+     * <p>The platform will generate this array from the predicate.
+     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     *
+     * @return null|ReferenceCollection
+     */
+    public function getReferences()
+    {
+        return $this->references;
     }
 
     /**
@@ -249,63 +308,11 @@ final class CartDiscountBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|CustomFields
      */
-    public function getSortOrder()
+    public function getCustom()
     {
-        return $this->sortOrder;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidUntil()
-    {
-        return $this->validUntil;
-    }
-
-    /**
-     * @return null|CartDiscountValue
-     */
-    public function getValue()
-    {
-        return $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -331,9 +338,19 @@ final class CartDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -344,6 +361,116 @@ final class CartDiscountBuilder implements Builder
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValue(?CartDiscountValue $value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCartPredicate(?string $cartPredicate)
+    {
+        $this->cartPredicate = $cartPredicate;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTarget(?CartDiscountTarget $target)
+    {
+        $this->target = $target;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSortOrder(?string $sortOrder)
+    {
+        $this->sortOrder = $sortOrder;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withIsActive(?bool $isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValidFrom(?DateTimeImmutable $validFrom)
+    {
+        $this->validFrom = $validFrom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValidUntil(?DateTimeImmutable $validUntil)
+    {
+        $this->validUntil = $validUntil;
 
         return $this;
     }
@@ -371,9 +498,9 @@ final class CartDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCartPredicate(?string $cartPredicate)
+    public function withStackingMode(?string $stackingMode)
     {
-        $this->cartPredicate = $cartPredicate;
+        $this->stackingMode = $stackingMode;
 
         return $this;
     }
@@ -391,99 +518,9 @@ final class CartDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDescription(?LocalizedString $description)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValidFrom(?DateTimeImmutable $validFrom)
-    {
-        $this->validFrom = $validFrom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withIsActive(?bool $isActive)
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTarget(?CartDiscountTarget $target)
-    {
-        $this->target = $target;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withStackingMode(?string $stackingMode)
-    {
-        $this->stackingMode = $stackingMode;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSortOrder(?string $sortOrder)
-    {
-        $this->sortOrder = $sortOrder;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValidUntil(?DateTimeImmutable $validUntil)
-    {
-        $this->validUntil = $validUntil;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValue(?CartDiscountValue $value)
-    {
-        $this->value = $value;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -501,19 +538,9 @@ final class CartDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
-        $this->lastModifiedBy = $lastModifiedBy;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
-    {
-        $this->custom = $custom;
+        $this->name = $name;
 
         return $this;
     }
@@ -531,6 +558,16 @@ final class CartDiscountBuilder implements Builder
     /**
      * @return $this
      */
+    public function withValueBuilder(?CartDiscountValueBuilder $value)
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTargetBuilder(?CartDiscountTargetBuilder $target)
     {
         $this->target = $target;
@@ -541,19 +578,9 @@ final class CartDiscountBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withValueBuilder(?CartDiscountValueBuilder $value)
-    {
-        $this->value = $value;
+        $this->custom = $custom;
 
         return $this;
     }
@@ -561,26 +588,26 @@ final class CartDiscountBuilder implements Builder
     public function build(): CartDiscount
     {
         return new CartDiscountModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            $this->key,
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            ($this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value),
+            $this->cartPredicate,
+            ($this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target),
+            $this->sortOrder,
+            $this->isActive,
+            $this->validFrom,
+            $this->validUntil,
             $this->requiresDiscountCode,
             $this->references,
-            $this->cartPredicate,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->validFrom,
-            $this->isActive,
-            ($this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target),
             $this->stackingMode,
-            $this->sortOrder,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->validUntil,
-            ($this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value),
-            $this->key
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

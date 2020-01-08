@@ -43,6 +43,8 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     }
 
     /**
+     * <p>Connection to a particular synchronization destination.</p>.
+     *
      * @return null|ChannelReference
      */
     public function getChannel()
@@ -61,6 +63,8 @@ final class SyncInfoModel extends JsonObjectModel implements SyncInfo
     }
 
     /**
+     * <p>Can be used to reference an external order instance, file etc.</p>.
+     *
      * @return null|string
      */
     public function getExternalId()

@@ -19,12 +19,12 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $deliveryId;
+    private $parcelId;
 
     /**
-     * @var ?DeliveryItemCollection
+     * @var ?string
      */
-    private $oldItems;
+    private $deliveryId;
 
     /**
      * @var ?DeliveryItemCollection
@@ -32,9 +32,17 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     private $items;
 
     /**
-     * @var ?string
+     * @var ?DeliveryItemCollection
      */
-    private $parcelId;
+    private $oldItems;
+
+    /**
+     * @return null|string
+     */
+    public function getParcelId()
+    {
+        return $this->parcelId;
+    }
 
     /**
      * @return null|string
@@ -47,25 +55,27 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @return null|DeliveryItemCollection
      */
-    public function getOldItems()
-    {
-        return $this->oldItems;
-    }
-
-    /**
-     * @return null|DeliveryItemCollection
-     */
     public function getItems()
     {
         return $this->items;
     }
 
     /**
-     * @return null|string
+     * @return null|DeliveryItemCollection
      */
-    public function getParcelId()
+    public function getOldItems()
     {
-        return $this->parcelId;
+        return $this->oldItems;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withParcelId(?string $parcelId)
+    {
+        $this->parcelId = $parcelId;
+
+        return $this;
     }
 
     /**
@@ -74,16 +84,6 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     public function withDeliveryId(?string $deliveryId)
     {
         $this->deliveryId = $deliveryId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withOldItems(?DeliveryItemCollection $oldItems)
-    {
-        $this->oldItems = $oldItems;
 
         return $this;
     }
@@ -101,9 +101,9 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withParcelId(?string $parcelId)
+    public function withOldItems(?DeliveryItemCollection $oldItems)
     {
-        $this->parcelId = $parcelId;
+        $this->oldItems = $oldItems;
 
         return $this;
     }
@@ -111,10 +111,10 @@ final class ParcelItemsUpdatedMessagePayloadBuilder implements Builder
     public function build(): ParcelItemsUpdatedMessagePayload
     {
         return new ParcelItemsUpdatedMessagePayloadModel(
+            $this->parcelId,
             $this->deliveryId,
-            $this->oldItems,
             $this->items,
-            $this->parcelId
+            $this->oldItems
         );
     }
 

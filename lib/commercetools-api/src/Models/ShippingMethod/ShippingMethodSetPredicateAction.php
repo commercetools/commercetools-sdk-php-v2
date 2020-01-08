@@ -13,6 +13,9 @@ interface ShippingMethodSetPredicateAction extends ShippingMethodUpdateAction
     const FIELD_PREDICATE = 'predicate';
 
     /**
+     * <p>A valid Cart predicate.
+     * If <code>predicate</code> is absent or <code>null</code>, it is removed if it exists.</p>.
+     *
      * @return null|string
      */
     public function getPredicate();

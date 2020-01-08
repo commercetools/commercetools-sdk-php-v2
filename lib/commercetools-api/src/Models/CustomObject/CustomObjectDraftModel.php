@@ -20,9 +20,9 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     protected $container;
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    protected $version;
+    protected $key;
 
     /**
      * @var ?JsonObject
@@ -30,23 +30,25 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     protected $value;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $key;
+    protected $version;
 
     public function __construct(
         string $container = null,
-        int $version = null,
+        string $key = null,
         JsonObject $value = null,
-        string $key = null
+        int $version = null
     ) {
         $this->container = $container;
-        $this->version = $version;
-        $this->value = $value;
         $this->key = $key;
+        $this->value = $value;
+        $this->version = $version;
     }
 
     /**
+     * <p>A namespace to group custom objects.</p>.
+     *
      * @return null|string
      */
     public function getContainer()
@@ -64,20 +66,22 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     }
 
     /**
-     * @return null|int
+     * <p>A user-defined key that is unique within the given container.</p>.
+     *
+     * @return null|string
      */
-    public function getVersion()
+    public function getKey()
     {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CustomObjectDraft::FIELD_VERSION);
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomObjectDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->version = (int) $data;
+            $this->key = (string) $data;
         }
 
-        return $this->version;
+        return $this->key;
     }
 
     /**
@@ -98,20 +102,20 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
     }
 
     /**
-     * @return null|string
+     * @return null|int
      */
-    public function getKey()
+    public function getVersion()
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomObjectDraft::FIELD_KEY);
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomObjectDraft::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+            $this->version = (int) $data;
         }
 
-        return $this->key;
+        return $this->version;
     }
 
     public function setContainer(?string $container): void
@@ -119,9 +123,9 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
         $this->container = $container;
     }
 
-    public function setVersion(?int $version): void
+    public function setKey(?string $key): void
     {
-        $this->version = $version;
+        $this->key = $key;
     }
 
     public function setValue(?JsonObject $value): void
@@ -129,8 +133,8 @@ final class CustomObjectDraftModel extends JsonObjectModel implements CustomObje
         $this->value = $value;
     }
 
-    public function setKey(?string $key): void
+    public function setVersion(?int $version): void
     {
-        $this->key = $key;
+        $this->version = $version;
     }
 }

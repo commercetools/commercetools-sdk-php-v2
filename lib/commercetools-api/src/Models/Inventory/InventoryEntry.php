@@ -26,6 +26,8 @@ interface InventoryEntry extends LoggedResource
     const FIELD_CUSTOM = 'custom';
 
     /**
+     * <p>The unique ID of the inventory entry.</p>.
+     *
      * @return null|string
      */
     public function getId();
@@ -46,11 +48,15 @@ interface InventoryEntry extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -61,26 +67,38 @@ interface InventoryEntry extends LoggedResource
     public function getSku();
 
     /**
+     * <p>Optional connection to a particular supplier.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
 
     /**
+     * <p>Overall amount of stock.
+     * (available + reserved)</p>.
+     *
      * @return null|int
      */
     public function getQuantityOnStock();
 
     /**
+     * <p>Available amount of stock.
+     * (available means: <code>quantityOnStock</code> - reserved quantity)</p>.
+     *
      * @return null|int
      */
     public function getAvailableQuantity();
 
     /**
+     * <p>The time period in days, that tells how often this inventory entry is restocked.</p>.
+     *
      * @return null|int
      */
     public function getRestockableInDays();
 
     /**
+     * <p>The date and time of the next restock.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getExpectedDelivery();

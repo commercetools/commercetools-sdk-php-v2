@@ -25,21 +25,21 @@ final class CategorySetCustomTypeActionModel extends JsonObjectModel implements 
     protected $action;
 
     /**
-     * @var ?FieldContainer
-     */
-    protected $fields;
-
-    /**
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
+    /**
+     * @var ?FieldContainer
+     */
+    protected $fields;
+
     public function __construct(
-        FieldContainer $fields = null,
-        TypeResourceIdentifier $type = null
+        TypeResourceIdentifier $type = null,
+        FieldContainer $fields = null
     ) {
-        $this->fields = $fields;
         $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -61,24 +61,8 @@ final class CategorySetCustomTypeActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * @return null|FieldContainer
-     */
-    public function getFields()
-    {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategorySetCustomTypeAction::FIELD_FIELDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->fields = FieldContainerModel::of($data);
-        }
-
-        return $this->fields;
-    }
-
-    /**
+     * <p>If absent, the custom type and any existing CustomFields are removed.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -96,13 +80,33 @@ final class CategorySetCustomTypeActionModel extends JsonObjectModel implements 
         return $this->type;
     }
 
-    public function setFields(?FieldContainer $fields): void
+    /**
+     * <p>A valid JSON object, based on the FieldDefinitions of the Type. Sets the custom fields to this value.</p>.
+     *
+     * @return null|FieldContainer
+     */
+    public function getFields()
     {
-        $this->fields = $fields;
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategorySetCustomTypeAction::FIELD_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fields = FieldContainerModel::of($data);
+        }
+
+        return $this->fields;
     }
 
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
+    }
+
+    public function setFields(?FieldContainer $fields): void
+    {
+        $this->fields = $fields;
     }
 }

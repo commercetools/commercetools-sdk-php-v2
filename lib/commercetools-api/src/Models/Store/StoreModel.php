@@ -22,16 +22,6 @@ use stdClass;
 final class StoreModel extends JsonObjectModel implements Store
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -42,9 +32,14 @@ final class StoreModel extends JsonObjectModel implements Store
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -52,33 +47,72 @@ final class StoreModel extends JsonObjectModel implements Store
     protected $lastModifiedBy;
 
     /**
-     * @var ?LocalizedString
+     * @var ?CreatedBy
      */
-    protected $name;
+    protected $createdBy;
 
     /**
      * @var ?string
      */
     protected $key;
 
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        LocalizedString $name = null,
-        string $key = null
+        CreatedBy $createdBy = null,
+        string $key = null,
+        LocalizedString $name = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->name = $name;
+        $this->createdBy = $createdBy;
         $this->key = $key;
+        $this->name = $name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Store::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Store::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -124,37 +158,21 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Store::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Store::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Store::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -176,24 +194,29 @@ final class StoreModel extends JsonObjectModel implements Store
     }
 
     /**
-     * @return null|LastModifiedBy
+     * <p>User-specific unique identifier for the store.
+     * The <code>key</code> is mandatory and immutable.
+     * It is used to reference the store.</p>.
+     *
+     * @return null|string
      */
-    public function getLastModifiedBy()
+    public function getKey()
     {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Store::FIELD_LAST_MODIFIED_BY);
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Store::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
+            $this->key = (string) $data;
         }
 
-        return $this->lastModifiedBy;
+        return $this->key;
     }
 
     /**
+     * <p>The name of the store</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -211,21 +234,14 @@ final class StoreModel extends JsonObjectModel implements Store
         return $this->name;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setId(?string $id): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Store::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
+        $this->id = $id;
+    }
 
-        return $this->key;
+    public function setVersion(?int $version): void
+    {
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -238,14 +254,9 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
-    public function setId(?string $id): void
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
-        $this->id = $id;
-    }
-
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setCreatedBy(?CreatedBy $createdBy): void
@@ -253,19 +264,14 @@ final class StoreModel extends JsonObjectModel implements Store
         $this->createdBy = $createdBy;
     }
 
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
+    public function setKey(?string $key): void
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->key = $key;
     }
 
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 
     public function jsonSerialize()

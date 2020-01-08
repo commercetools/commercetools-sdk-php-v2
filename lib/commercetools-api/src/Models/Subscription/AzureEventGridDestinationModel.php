@@ -22,19 +22,19 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     /**
      * @var ?string
      */
-    protected $accessKey;
+    protected $uri;
 
     /**
      * @var ?string
      */
-    protected $uri;
+    protected $accessKey;
 
     public function __construct(
-        string $accessKey = null,
-        string $uri = null
+        string $uri = null,
+        string $accessKey = null
     ) {
-        $this->accessKey = $accessKey;
         $this->uri = $uri;
+        $this->accessKey = $accessKey;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,23 +58,6 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
     /**
      * @return null|string
      */
-    public function getAccessKey()
-    {
-        if (is_null($this->accessKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(AzureEventGridDestination::FIELD_ACCESS_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->accessKey = (string) $data;
-        }
-
-        return $this->accessKey;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getUri()
     {
         if (is_null($this->uri)) {
@@ -89,13 +72,30 @@ final class AzureEventGridDestinationModel extends JsonObjectModel implements Az
         return $this->uri;
     }
 
-    public function setAccessKey(?string $accessKey): void
+    /**
+     * @return null|string
+     */
+    public function getAccessKey()
     {
-        $this->accessKey = $accessKey;
+        if (is_null($this->accessKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AzureEventGridDestination::FIELD_ACCESS_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->accessKey = (string) $data;
+        }
+
+        return $this->accessKey;
     }
 
     public function setUri(?string $uri): void
     {
         $this->uri = $uri;
+    }
+
+    public function setAccessKey(?string $accessKey): void
+    {
+        $this->accessKey = $accessKey;
     }
 }

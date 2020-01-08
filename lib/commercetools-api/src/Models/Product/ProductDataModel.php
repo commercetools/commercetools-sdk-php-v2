@@ -19,7 +19,12 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * @var ?LocalizedString
      */
-    protected $metaKeywords;
+    protected $name;
+
+    /**
+     * @var ?CategoryReferenceCollection
+     */
+    protected $categories;
 
     /**
      * @var ?CategoryOrderHints
@@ -27,9 +32,14 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     protected $categoryOrderHints;
 
     /**
-     * @var ?SearchKeywords
+     * @var ?LocalizedString
      */
-    protected $searchKeywords;
+    protected $description;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
 
     /**
      * @var ?LocalizedString
@@ -39,17 +49,12 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * @var ?LocalizedString
      */
-    protected $name;
+    protected $metaDescription;
 
     /**
      * @var ?LocalizedString
      */
-    protected $description;
-
-    /**
-     * @var ?ProductVariantCollection
-     */
-    protected $variants;
+    protected $metaKeywords;
 
     /**
      * @var ?ProductVariant
@@ -57,62 +62,74 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     protected $masterVariant;
 
     /**
-     * @var ?CategoryReferenceCollection
+     * @var ?ProductVariantCollection
      */
-    protected $categories;
+    protected $variants;
 
     /**
-     * @var ?LocalizedString
+     * @var ?SearchKeywords
      */
-    protected $metaDescription;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
+    protected $searchKeywords;
 
     public function __construct(
-        LocalizedString $metaKeywords = null,
-        CategoryOrderHints $categoryOrderHints = null,
-        SearchKeywords $searchKeywords = null,
-        LocalizedString $metaTitle = null,
         LocalizedString $name = null,
-        LocalizedString $description = null,
-        ProductVariantCollection $variants = null,
-        ProductVariant $masterVariant = null,
         CategoryReferenceCollection $categories = null,
+        CategoryOrderHints $categoryOrderHints = null,
+        LocalizedString $description = null,
+        LocalizedString $slug = null,
+        LocalizedString $metaTitle = null,
         LocalizedString $metaDescription = null,
-        LocalizedString $slug = null
+        LocalizedString $metaKeywords = null,
+        ProductVariant $masterVariant = null,
+        ProductVariantCollection $variants = null,
+        SearchKeywords $searchKeywords = null
     ) {
-        $this->metaKeywords = $metaKeywords;
-        $this->categoryOrderHints = $categoryOrderHints;
-        $this->searchKeywords = $searchKeywords;
-        $this->metaTitle = $metaTitle;
         $this->name = $name;
-        $this->description = $description;
-        $this->variants = $variants;
-        $this->masterVariant = $masterVariant;
         $this->categories = $categories;
-        $this->metaDescription = $metaDescription;
+        $this->categoryOrderHints = $categoryOrderHints;
+        $this->description = $description;
         $this->slug = $slug;
+        $this->metaTitle = $metaTitle;
+        $this->metaDescription = $metaDescription;
+        $this->metaKeywords = $metaKeywords;
+        $this->masterVariant = $masterVariant;
+        $this->variants = $variants;
+        $this->searchKeywords = $searchKeywords;
     }
 
     /**
      * @return null|LocalizedString
      */
-    public function getMetaKeywords()
+    public function getName()
     {
-        if (is_null($this->metaKeywords)) {
+        if (is_null($this->name)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductData::FIELD_META_KEYWORDS);
+            $data = $this->raw(ProductData::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->metaKeywords = LocalizedStringModel::of($data);
+            $this->name = LocalizedStringModel::of($data);
         }
 
-        return $this->metaKeywords;
+        return $this->name;
+    }
+
+    /**
+     * @return null|CategoryReferenceCollection
+     */
+    public function getCategories()
+    {
+        if (is_null($this->categories)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductData::FIELD_CATEGORIES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->categories = CategoryReferenceCollection::fromArray($data);
+        }
+
+        return $this->categories;
     }
 
     /**
@@ -134,21 +151,39 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
-     * @return null|SearchKeywords
+     * @return null|LocalizedString
      */
-    public function getSearchKeywords()
+    public function getDescription()
     {
-        if (is_null($this->searchKeywords)) {
+        if (is_null($this->description)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductData::FIELD_SEARCH_KEYWORDS);
+            $data = $this->raw(ProductData::FIELD_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->searchKeywords = SearchKeywordsModel::of($data);
+            $this->description = LocalizedStringModel::of($data);
         }
 
-        return $this->searchKeywords;
+        return $this->description;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductData::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
     }
 
     /**
@@ -172,54 +207,37 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     /**
      * @return null|LocalizedString
      */
-    public function getName()
+    public function getMetaDescription()
     {
-        if (is_null($this->name)) {
+        if (is_null($this->metaDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductData::FIELD_NAME);
+            $data = $this->raw(ProductData::FIELD_META_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->name = LocalizedStringModel::of($data);
+            $this->metaDescription = LocalizedStringModel::of($data);
         }
 
-        return $this->name;
+        return $this->metaDescription;
     }
 
     /**
      * @return null|LocalizedString
      */
-    public function getDescription()
+    public function getMetaKeywords()
     {
-        if (is_null($this->description)) {
+        if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductData::FIELD_DESCRIPTION);
+            $data = $this->raw(ProductData::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->description = LocalizedStringModel::of($data);
+            $this->metaKeywords = LocalizedStringModel::of($data);
         }
 
-        return $this->description;
-    }
-
-    /**
-     * @return null|ProductVariantCollection
-     */
-    public function getVariants()
-    {
-        if (is_null($this->variants)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductData::FIELD_VARIANTS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variants = ProductVariantCollection::fromArray($data);
-        }
-
-        return $this->variants;
+        return $this->metaKeywords;
     }
 
     /**
@@ -241,76 +259,38 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
     }
 
     /**
-     * @return null|CategoryReferenceCollection
+     * @return null|ProductVariantCollection
      */
-    public function getCategories()
+    public function getVariants()
     {
-        if (is_null($this->categories)) {
+        if (is_null($this->variants)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductData::FIELD_CATEGORIES);
+            $data = $this->raw(ProductData::FIELD_VARIANTS);
             if (is_null($data)) {
                 return null;
             }
-            $this->categories = CategoryReferenceCollection::fromArray($data);
+            $this->variants = ProductVariantCollection::fromArray($data);
         }
 
-        return $this->categories;
+        return $this->variants;
     }
 
     /**
-     * @return null|LocalizedString
+     * @return null|SearchKeywords
      */
-    public function getMetaDescription()
+    public function getSearchKeywords()
     {
-        if (is_null($this->metaDescription)) {
+        if (is_null($this->searchKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductData::FIELD_META_DESCRIPTION);
+            $data = $this->raw(ProductData::FIELD_SEARCH_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->metaDescription = LocalizedStringModel::of($data);
+            $this->searchKeywords = SearchKeywordsModel::of($data);
         }
 
-        return $this->metaDescription;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getSlug()
-    {
-        if (is_null($this->slug)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductData::FIELD_SLUG);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->slug = LocalizedStringModel::of($data);
-        }
-
-        return $this->slug;
-    }
-
-    public function setMetaKeywords(?LocalizedString $metaKeywords): void
-    {
-        $this->metaKeywords = $metaKeywords;
-    }
-
-    public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
-    {
-        $this->categoryOrderHints = $categoryOrderHints;
-    }
-
-    public function setSearchKeywords(?SearchKeywords $searchKeywords): void
-    {
-        $this->searchKeywords = $searchKeywords;
-    }
-
-    public function setMetaTitle(?LocalizedString $metaTitle): void
-    {
-        $this->metaTitle = $metaTitle;
+        return $this->searchKeywords;
     }
 
     public function setName(?LocalizedString $name): void
@@ -318,24 +298,29 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
         $this->name = $name;
     }
 
+    public function setCategories(?CategoryReferenceCollection $categories): void
+    {
+        $this->categories = $categories;
+    }
+
+    public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
+    {
+        $this->categoryOrderHints = $categoryOrderHints;
+    }
+
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
     }
 
-    public function setVariants(?ProductVariantCollection $variants): void
+    public function setSlug(?LocalizedString $slug): void
     {
-        $this->variants = $variants;
+        $this->slug = $slug;
     }
 
-    public function setMasterVariant(?ProductVariant $masterVariant): void
+    public function setMetaTitle(?LocalizedString $metaTitle): void
     {
-        $this->masterVariant = $masterVariant;
-    }
-
-    public function setCategories(?CategoryReferenceCollection $categories): void
-    {
-        $this->categories = $categories;
+        $this->metaTitle = $metaTitle;
     }
 
     public function setMetaDescription(?LocalizedString $metaDescription): void
@@ -343,8 +328,23 @@ final class ProductDataModel extends JsonObjectModel implements ProductData
         $this->metaDescription = $metaDescription;
     }
 
-    public function setSlug(?LocalizedString $slug): void
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
-        $this->slug = $slug;
+        $this->metaKeywords = $metaKeywords;
+    }
+
+    public function setMasterVariant(?ProductVariant $masterVariant): void
+    {
+        $this->masterVariant = $masterVariant;
+    }
+
+    public function setVariants(?ProductVariantCollection $variants): void
+    {
+        $this->variants = $variants;
+    }
+
+    public function setSearchKeywords(?SearchKeywords $searchKeywords): void
+    {
+        $this->searchKeywords = $searchKeywords;
     }
 }

@@ -22,27 +22,37 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     /**
      * @var ?string
      */
+    protected $email;
+
+    /**
+     * @var ?string
+     */
+    protected $password;
+
+    /**
+     * @var ?string
+     */
+    protected $firstName;
+
+    /**
+     * @var ?string
+     */
     protected $lastName;
 
     /**
-     * @var ?AddressCollection
+     * @var ?string
      */
-    protected $addresses;
+    protected $middleName;
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    protected $defaultShippingAddress;
+    protected $title;
 
     /**
-     * @var ?StoreResourceIdentifierCollection
+     * @var ?DateTimeImmutable
      */
-    protected $stores;
-
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
+    protected $dateOfBirth;
 
     /**
      * @var ?string
@@ -55,34 +65,14 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     protected $vatId;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?AddressCollection
      */
-    protected $dateOfBirth;
+    protected $addresses;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $locale;
-
-    /**
-     * @var ?string
-     */
-    protected $title;
-
-    /**
-     * @var ?string
-     */
-    protected $firstName;
-
-    /**
-     * @var ?string
-     */
-    protected $password;
-
-    /**
-     * @var ?string
-     */
-    protected $middleName;
+    protected $defaultShippingAddress;
 
     /**
      * @var ?int
@@ -90,42 +80,103 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     protected $defaultBillingAddress;
 
     /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
      * @var ?string
      */
-    protected $email;
+    protected $locale;
+
+    /**
+     * @var ?StoreResourceIdentifierCollection
+     */
+    protected $stores;
 
     public function __construct(
+        string $email = null,
+        string $password = null,
+        string $firstName = null,
         string $lastName = null,
-        AddressCollection $addresses = null,
-        int $defaultShippingAddress = null,
-        StoreResourceIdentifierCollection $stores = null,
-        CustomFields $custom = null,
+        string $middleName = null,
+        string $title = null,
+        DateTimeImmutable $dateOfBirth = null,
         string $companyName = null,
         string $vatId = null,
-        DateTimeImmutable $dateOfBirth = null,
-        string $locale = null,
-        string $title = null,
-        string $firstName = null,
-        string $password = null,
-        string $middleName = null,
+        AddressCollection $addresses = null,
+        int $defaultShippingAddress = null,
         int $defaultBillingAddress = null,
-        string $email = null
+        CustomFields $custom = null,
+        string $locale = null,
+        StoreResourceIdentifierCollection $stores = null
     ) {
+        $this->email = $email;
+        $this->password = $password;
+        $this->firstName = $firstName;
         $this->lastName = $lastName;
-        $this->addresses = $addresses;
-        $this->defaultShippingAddress = $defaultShippingAddress;
-        $this->stores = $stores;
-        $this->custom = $custom;
+        $this->middleName = $middleName;
+        $this->title = $title;
+        $this->dateOfBirth = $dateOfBirth;
         $this->companyName = $companyName;
         $this->vatId = $vatId;
-        $this->dateOfBirth = $dateOfBirth;
-        $this->locale = $locale;
-        $this->title = $title;
-        $this->firstName = $firstName;
-        $this->password = $password;
-        $this->middleName = $middleName;
+        $this->addresses = $addresses;
+        $this->defaultShippingAddress = $defaultShippingAddress;
         $this->defaultBillingAddress = $defaultBillingAddress;
-        $this->email = $email;
+        $this->custom = $custom;
+        $this->locale = $locale;
+        $this->stores = $stores;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getEmail()
+    {
+        if (is_null($this->email)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_EMAIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->email = (string) $data;
+        }
+
+        return $this->email;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPassword()
+    {
+        if (is_null($this->password)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_PASSWORD);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->password = (string) $data;
+        }
+
+        return $this->password;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getFirstName()
+    {
+        if (is_null($this->firstName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_FIRST_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->firstName = (string) $data;
+        }
+
+        return $this->firstName;
     }
 
     /**
@@ -146,72 +197,58 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * @return null|AddressCollection
+     * @return null|string
      */
-    public function getAddresses()
+    public function getMiddleName()
     {
-        if (is_null($this->addresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_ADDRESSES);
+        if (is_null($this->middleName)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_MIDDLE_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->addresses = AddressCollection::fromArray($data);
+            $this->middleName = (string) $data;
         }
 
-        return $this->addresses;
+        return $this->middleName;
     }
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getDefaultShippingAddress()
+    public function getTitle()
     {
-        if (is_null($this->defaultShippingAddress)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_DEFAULT_SHIPPING_ADDRESS);
+        if (is_null($this->title)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_TITLE);
             if (is_null($data)) {
                 return null;
             }
-            $this->defaultShippingAddress = (int) $data;
+            $this->title = (string) $data;
         }
 
-        return $this->defaultShippingAddress;
+        return $this->title;
     }
 
     /**
-     * @return null|StoreResourceIdentifierCollection
+     * @return null|DateTimeImmutable
      */
-    public function getStores()
+    public function getDateOfBirth()
     {
-        if (is_null($this->stores)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_STORES);
+        if (is_null($this->dateOfBirth)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_DATE_OF_BIRTH);
             if (is_null($data)) {
                 return null;
             }
-            $this->stores = StoreResourceIdentifierCollection::fromArray($data);
-        }
-
-        return $this->stores;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_CUSTOM);
-            if (is_null($data)) {
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATE_FORMAT, $data);
+            if (false === $data) {
                 return null;
             }
-
-            $this->custom = CustomFieldsModel::of($data);
+            $this->dateOfBirth = $data;
         }
 
-        return $this->custom;
+        return $this->dateOfBirth;
     }
 
     /**
@@ -249,24 +286,82 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>Sets the ID of each address to be unique in the addresses list.</p>.
+     *
+     * @return null|AddressCollection
      */
-    public function getDateOfBirth()
+    public function getAddresses()
     {
-        if (is_null($this->dateOfBirth)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_DATE_OF_BIRTH);
+        if (is_null($this->addresses)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_ADDRESSES);
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATE_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->dateOfBirth = $data;
+            $this->addresses = AddressCollection::fromArray($data);
         }
 
-        return $this->dateOfBirth;
+        return $this->addresses;
+    }
+
+    /**
+     * <p>The index of the address in the addresses array.
+     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     *
+     * @return null|int
+     */
+    public function getDefaultShippingAddress()
+    {
+        if (is_null($this->defaultShippingAddress)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_DEFAULT_SHIPPING_ADDRESS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->defaultShippingAddress = (int) $data;
+        }
+
+        return $this->defaultShippingAddress;
+    }
+
+    /**
+     * <p>The index of the address in the addresses array.
+     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     *
+     * @return null|int
+     */
+    public function getDefaultBillingAddress()
+    {
+        if (is_null($this->defaultBillingAddress)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_DEFAULT_BILLING_ADDRESS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->defaultBillingAddress = (int) $data;
+        }
+
+        return $this->defaultBillingAddress;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFields
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsModel::of($data);
+        }
+
+        return $this->custom;
     }
 
     /**
@@ -287,105 +382,35 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
     }
 
     /**
-     * @return null|string
+     * @return null|StoreResourceIdentifierCollection
      */
-    public function getTitle()
+    public function getStores()
     {
-        if (is_null($this->title)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_TITLE);
+        if (is_null($this->stores)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(MyCustomerDraft::FIELD_STORES);
             if (is_null($data)) {
                 return null;
             }
-            $this->title = (string) $data;
+            $this->stores = StoreResourceIdentifierCollection::fromArray($data);
         }
 
-        return $this->title;
+        return $this->stores;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getFirstName()
+    public function setEmail(?string $email): void
     {
-        if (is_null($this->firstName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_FIRST_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->firstName = (string) $data;
-        }
-
-        return $this->firstName;
+        $this->email = $email;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getPassword()
+    public function setPassword(?string $password): void
     {
-        if (is_null($this->password)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_PASSWORD);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->password = (string) $data;
-        }
-
-        return $this->password;
+        $this->password = $password;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getMiddleName()
+    public function setFirstName(?string $firstName): void
     {
-        if (is_null($this->middleName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_MIDDLE_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->middleName = (string) $data;
-        }
-
-        return $this->middleName;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getDefaultBillingAddress()
-    {
-        if (is_null($this->defaultBillingAddress)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_DEFAULT_BILLING_ADDRESS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->defaultBillingAddress = (int) $data;
-        }
-
-        return $this->defaultBillingAddress;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getEmail()
-    {
-        if (is_null($this->email)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyCustomerDraft::FIELD_EMAIL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->email = (string) $data;
-        }
-
-        return $this->email;
+        $this->firstName = $firstName;
     }
 
     public function setLastName(?string $lastName): void
@@ -393,24 +418,19 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         $this->lastName = $lastName;
     }
 
-    public function setAddresses(?AddressCollection $addresses): void
+    public function setMiddleName(?string $middleName): void
     {
-        $this->addresses = $addresses;
+        $this->middleName = $middleName;
     }
 
-    public function setDefaultShippingAddress(?int $defaultShippingAddress): void
+    public function setTitle(?string $title): void
     {
-        $this->defaultShippingAddress = $defaultShippingAddress;
+        $this->title = $title;
     }
 
-    public function setStores(?StoreResourceIdentifierCollection $stores): void
+    public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void
     {
-        $this->stores = $stores;
-    }
-
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
+        $this->dateOfBirth = $dateOfBirth;
     }
 
     public function setCompanyName(?string $companyName): void
@@ -423,34 +443,14 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         $this->vatId = $vatId;
     }
 
-    public function setDateOfBirth(?DateTimeImmutable $dateOfBirth): void
+    public function setAddresses(?AddressCollection $addresses): void
     {
-        $this->dateOfBirth = $dateOfBirth;
+        $this->addresses = $addresses;
     }
 
-    public function setLocale(?string $locale): void
+    public function setDefaultShippingAddress(?int $defaultShippingAddress): void
     {
-        $this->locale = $locale;
-    }
-
-    public function setTitle(?string $title): void
-    {
-        $this->title = $title;
-    }
-
-    public function setFirstName(?string $firstName): void
-    {
-        $this->firstName = $firstName;
-    }
-
-    public function setPassword(?string $password): void
-    {
-        $this->password = $password;
-    }
-
-    public function setMiddleName(?string $middleName): void
-    {
-        $this->middleName = $middleName;
+        $this->defaultShippingAddress = $defaultShippingAddress;
     }
 
     public function setDefaultBillingAddress(?int $defaultBillingAddress): void
@@ -458,9 +458,19 @@ final class MyCustomerDraftModel extends JsonObjectModel implements MyCustomerDr
         $this->defaultBillingAddress = $defaultBillingAddress;
     }
 
-    public function setEmail(?string $email): void
+    public function setCustom(?CustomFields $custom): void
     {
-        $this->email = $email;
+        $this->custom = $custom;
+    }
+
+    public function setLocale(?string $locale): void
+    {
+        $this->locale = $locale;
+    }
+
+    public function setStores(?StoreResourceIdentifierCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
     public function jsonSerialize()

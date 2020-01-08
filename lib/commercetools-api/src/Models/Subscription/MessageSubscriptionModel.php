@@ -13,38 +13,21 @@ use Commercetools\Base\JsonObjectModel;
 final class MessageSubscriptionModel extends JsonObjectModel implements MessageSubscription
 {
     /**
-     * @var ?array
-     */
-    protected $types;
-
-    /**
      * @var ?string
      */
     protected $resourceTypeId;
 
-    public function __construct(
-        array $types = null,
-        string $resourceTypeId = null
-    ) {
-        $this->types = $types;
-        $this->resourceTypeId = $resourceTypeId;
-    }
-
     /**
-     * @return null|array
+     * @var ?array
      */
-    public function getTypes()
-    {
-        if (is_null($this->types)) {
-            /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(MessageSubscription::FIELD_TYPES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->types = $data;
-        }
+    protected $types;
 
-        return $this->types;
+    public function __construct(
+        string $resourceTypeId = null,
+        array $types = null
+    ) {
+        $this->resourceTypeId = $resourceTypeId;
+        $this->types = $types;
     }
 
     /**
@@ -64,13 +47,30 @@ final class MessageSubscriptionModel extends JsonObjectModel implements MessageS
         return $this->resourceTypeId;
     }
 
-    public function setTypes(?array $types): void
+    /**
+     * @return null|array
+     */
+    public function getTypes()
     {
-        $this->types = $types;
+        if (is_null($this->types)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(MessageSubscription::FIELD_TYPES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->types = $data;
+        }
+
+        return $this->types;
     }
 
     public function setResourceTypeId(?string $resourceTypeId): void
     {
         $this->resourceTypeId = $resourceTypeId;
+    }
+
+    public function setTypes(?array $types): void
+    {
+        $this->types = $types;
     }
 }

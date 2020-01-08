@@ -18,6 +18,11 @@ final class ZoneDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $key;
+
+    /**
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -31,9 +36,16 @@ final class ZoneDraftBuilder implements Builder
     private $locations;
 
     /**
-     * @var ?string
+     * <p>User-specific unique identifier for a zone.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction.</p>.
+     *
+     * @return null|string
      */
-    private $key;
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * @return null|string
@@ -60,11 +72,13 @@ final class ZoneDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getKey()
+    public function withKey(?string $key)
     {
-        return $this->key;
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -97,23 +111,13 @@ final class ZoneDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
     public function build(): ZoneDraft
     {
         return new ZoneDraftModel(
+            $this->key,
             $this->name,
             $this->description,
-            $this->locations,
-            $this->key
+            $this->locations
         );
     }
 

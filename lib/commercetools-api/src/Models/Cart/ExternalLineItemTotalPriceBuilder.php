@@ -20,20 +20,12 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
     /**
      * @var Money|?MoneyBuilder
      */
-    private $totalPrice;
+    private $price;
 
     /**
      * @var Money|?MoneyBuilder
      */
-    private $price;
-
-    /**
-     * @return null|Money
-     */
-    public function getTotalPrice()
-    {
-        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
-    }
+    private $totalPrice;
 
     /**
      * @return null|Money
@@ -44,13 +36,11 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Money
      */
-    public function withTotalPrice(?Money $totalPrice)
+    public function getTotalPrice()
     {
-        $this->totalPrice = $totalPrice;
-
-        return $this;
+        return $this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
     }
 
     /**
@@ -66,7 +56,7 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    public function withTotalPrice(?Money $totalPrice)
     {
         $this->totalPrice = $totalPrice;
 
@@ -83,11 +73,21 @@ final class ExternalLineItemTotalPriceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTotalPriceBuilder(?MoneyBuilder $totalPrice)
+    {
+        $this->totalPrice = $totalPrice;
+
+        return $this;
+    }
+
     public function build(): ExternalLineItemTotalPrice
     {
         return new ExternalLineItemTotalPriceModel(
-            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
-            ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price)
+            ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
+            ($this->totalPrice instanceof MoneyBuilder ? $this->totalPrice->build() : $this->totalPrice)
         );
     }
 

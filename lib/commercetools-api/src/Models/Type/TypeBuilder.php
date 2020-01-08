@@ -23,16 +23,6 @@ use DateTimeImmutable;
 final class TypeBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -43,9 +33,14 @@ final class TypeBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -53,19 +48,9 @@ final class TypeBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * @var CreatedBy|?CreatedByBuilder
      */
-    private $name;
-
-    /**
-     * @var ?FieldDefinitionCollection
-     */
-    private $fieldDefinitions;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $description;
+    private $createdBy;
 
     /**
      * @var ?string
@@ -73,9 +58,44 @@ final class TypeBuilder implements Builder
     private $key;
 
     /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $description;
+
+    /**
      * @var ?array
      */
     private $resourceTypeIds;
+
+    /**
+     * @var ?FieldDefinitionCollection
+     */
+    private $fieldDefinitions;
+
+    /**
+     * <p>The unique ID of the type.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the type.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -94,22 +114,18 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        return $this->id;
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
 
     /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -118,11 +134,14 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * @return null|LastModifiedBy
+     * <p>Identifier for the type (max.
+     * 256 characters).</p>.
+     *
+     * @return null|string
      */
-    public function getLastModifiedBy()
+    public function getKey()
     {
-        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+        return $this->key;
     }
 
     /**
@@ -134,14 +153,6 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * @return null|FieldDefinitionCollection
-     */
-    public function getFieldDefinitions()
-    {
-        return $this->fieldDefinitions;
-    }
-
-    /**
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -150,14 +161,8 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
+     * <p>Defines for which resource(s) the type is valid.</p>.
+     *
      * @return null|array
      */
     public function getResourceTypeIds()
@@ -166,23 +171,11 @@ final class TypeBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|FieldDefinitionCollection
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getFieldDefinitions()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->fieldDefinitions;
     }
 
     /**
@@ -208,9 +201,19 @@ final class TypeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -228,29 +231,9 @@ final class TypeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions)
-    {
-        $this->fieldDefinitions = $fieldDefinitions;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDescription(?LocalizedString $description)
-    {
-        $this->description = $description;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -268,6 +251,26 @@ final class TypeBuilder implements Builder
     /**
      * @return $this
      */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withResourceTypeIds(?array $resourceTypeIds)
     {
         $this->resourceTypeIds = $resourceTypeIds;
@@ -278,9 +281,9 @@ final class TypeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions)
     {
-        $this->createdBy = $createdBy;
+        $this->fieldDefinitions = $fieldDefinitions;
 
         return $this;
     }
@@ -291,6 +294,16 @@ final class TypeBuilder implements Builder
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -318,17 +331,17 @@ final class TypeBuilder implements Builder
     public function build(): Type
     {
         return new TypeModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->fieldDefinitions,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->key,
-            $this->resourceTypeIds
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            $this->resourceTypeIds,
+            $this->fieldDefinitions
         );
     }
 

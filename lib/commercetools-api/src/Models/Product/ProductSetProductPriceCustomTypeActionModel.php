@@ -25,14 +25,14 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     protected $action;
 
     /**
+     * @var ?string
+     */
+    protected $priceId;
+
+    /**
      * @var ?bool
      */
     protected $staged;
-
-    /**
-     * @var ?FieldContainer
-     */
-    protected $fields;
 
     /**
      * @var ?TypeResourceIdentifier
@@ -40,20 +40,20 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     protected $type;
 
     /**
-     * @var ?string
+     * @var ?FieldContainer
      */
-    protected $priceId;
+    protected $fields;
 
     public function __construct(
+        string $priceId = null,
         bool $staged = null,
-        FieldContainer $fields = null,
         TypeResourceIdentifier $type = null,
-        string $priceId = null
+        FieldContainer $fields = null
     ) {
-        $this->staged = $staged;
-        $this->fields = $fields;
-        $this->type = $type;
         $this->priceId = $priceId;
+        $this->staged = $staged;
+        $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -75,6 +75,23 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        if (is_null($this->priceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetProductPriceCustomTypeAction::FIELD_PRICE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceId = (string) $data;
+        }
+
+        return $this->priceId;
+    }
+
+    /**
      * @return null|bool
      */
     public function getStaged()
@@ -89,24 +106,6 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
         }
 
         return $this->staged;
-    }
-
-    /**
-     * @return null|FieldContainer
-     */
-    public function getFields()
-    {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductSetProductPriceCustomTypeAction::FIELD_FIELDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->fields = FieldContainerModel::of($data);
-        }
-
-        return $this->fields;
     }
 
     /**
@@ -128,20 +127,26 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
     }
 
     /**
-     * @return null|string
+     * @return null|FieldContainer
      */
-    public function getPriceId()
+    public function getFields()
     {
-        if (is_null($this->priceId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetProductPriceCustomTypeAction::FIELD_PRICE_ID);
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductSetProductPriceCustomTypeAction::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
-            $this->priceId = (string) $data;
+
+            $this->fields = FieldContainerModel::of($data);
         }
 
-        return $this->priceId;
+        return $this->fields;
+    }
+
+    public function setPriceId(?string $priceId): void
+    {
+        $this->priceId = $priceId;
     }
 
     public function setStaged(?bool $staged): void
@@ -149,18 +154,13 @@ final class ProductSetProductPriceCustomTypeActionModel extends JsonObjectModel 
         $this->staged = $staged;
     }
 
-    public function setFields(?FieldContainer $fields): void
-    {
-        $this->fields = $fields;
-    }
-
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
     }
 
-    public function setPriceId(?string $priceId): void
+    public function setFields(?FieldContainer $fields): void
     {
-        $this->priceId = $priceId;
+        $this->fields = $fields;
     }
 }

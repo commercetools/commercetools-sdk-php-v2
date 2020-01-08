@@ -18,20 +18,12 @@ final class ExternalOAuthBuilder implements Builder
     /**
      * @var ?string
      */
-    private $authorizationHeader;
+    private $url;
 
     /**
      * @var ?string
      */
-    private $url;
-
-    /**
-     * @return null|string
-     */
-    public function getAuthorizationHeader()
-    {
-        return $this->authorizationHeader;
-    }
+    private $authorizationHeader;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class ExternalOAuthBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withAuthorizationHeader(?string $authorizationHeader)
+    public function getAuthorizationHeader()
     {
-        $this->authorizationHeader = $authorizationHeader;
-
-        return $this;
+        return $this->authorizationHeader;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ExternalOAuthBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withAuthorizationHeader(?string $authorizationHeader)
+    {
+        $this->authorizationHeader = $authorizationHeader;
+
+        return $this;
+    }
+
     public function build(): ExternalOAuth
     {
         return new ExternalOAuthModel(
-            $this->authorizationHeader,
-            $this->url
+            $this->url,
+            $this->authorizationHeader
         );
     }
 

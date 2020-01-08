@@ -23,16 +23,6 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     protected $action;
 
     /**
-     * @var ?PriceDraft
-     */
-    protected $price;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -42,16 +32,26 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
      */
     protected $sku;
 
+    /**
+     * @var ?PriceDraft
+     */
+    protected $price;
+
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        PriceDraft $price = null,
-        bool $staged = null,
         int $variantId = null,
-        string $sku = null
+        string $sku = null,
+        PriceDraft $price = null,
+        bool $staged = null
     ) {
-        $this->price = $price;
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->price = $price;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -70,6 +70,40 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
         }
 
         return $this->action;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductAddPriceAction::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductAddPriceAction::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
 
     /**
@@ -107,38 +141,14 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
         return $this->staged;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
+    public function setVariantId(?int $variantId): void
     {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductAddPriceAction::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
+        $this->variantId = $variantId;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getSku()
+    public function setSku(?string $sku): void
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductAddPriceAction::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
+        $this->sku = $sku;
     }
 
     public function setPrice(?PriceDraft $price): void
@@ -149,15 +159,5 @@ final class ProductAddPriceActionModel extends JsonObjectModel implements Produc
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
-    }
-
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
-    }
-
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
     }
 }

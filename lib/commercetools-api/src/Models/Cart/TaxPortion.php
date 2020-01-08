@@ -23,6 +23,8 @@ interface TaxPortion extends JsonObject
     public function getName();
 
     /**
+     * <p>A number in the range [0..1]</p>.
+     *
      * @return null|int
      */
     public function getRate();

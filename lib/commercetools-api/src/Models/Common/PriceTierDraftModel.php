@@ -14,21 +14,38 @@ use stdClass;
 final class PriceTierDraftModel extends JsonObjectModel implements PriceTierDraft
 {
     /**
-     * @var ?Money
-     */
-    protected $value;
-
-    /**
      * @var ?int
      */
     protected $minimumQuantity;
 
+    /**
+     * @var ?Money
+     */
+    protected $value;
+
     public function __construct(
-        Money $value = null,
-        int $minimumQuantity = null
+        int $minimumQuantity = null,
+        Money $value = null
     ) {
-        $this->value = $value;
         $this->minimumQuantity = $minimumQuantity;
+        $this->value = $value;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getMinimumQuantity()
+    {
+        if (is_null($this->minimumQuantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(PriceTierDraft::FIELD_MINIMUM_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->minimumQuantity = (int) $data;
+        }
+
+        return $this->minimumQuantity;
     }
 
     /**
@@ -49,30 +66,13 @@ final class PriceTierDraftModel extends JsonObjectModel implements PriceTierDraf
         return $this->value;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getMinimumQuantity()
+    public function setMinimumQuantity(?int $minimumQuantity): void
     {
-        if (is_null($this->minimumQuantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(PriceTierDraft::FIELD_MINIMUM_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->minimumQuantity = (int) $data;
-        }
-
-        return $this->minimumQuantity;
+        $this->minimumQuantity = $minimumQuantity;
     }
 
     public function setValue(?Money $value): void
     {
         $this->value = $value;
-    }
-
-    public function setMinimumQuantity(?int $minimumQuantity): void
-    {
-        $this->minimumQuantity = $minimumQuantity;
     }
 }

@@ -22,16 +22,6 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     protected $action;
 
     /**
-     * @var ?string
-     */
-    protected $name;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -42,22 +32,32 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     protected $sku;
 
     /**
+     * @var ?string
+     */
+    protected $name;
+
+    /**
      * @var ?JsonObject
      */
     protected $value;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        string $name = null,
-        bool $staged = null,
         int $variantId = null,
         string $sku = null,
-        JsonObject $value = null
+        string $name = null,
+        JsonObject $value = null,
+        bool $staged = null
     ) {
-        $this->name = $name;
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->name = $name;
         $this->value = $value;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -76,40 +76,6 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAttributeAction::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->name = (string) $data;
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetAttributeAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
     }
 
     /**
@@ -147,6 +113,27 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetAttributeAction::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->name = (string) $data;
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * <p>If the attribute exists and the value is omitted or set to <code>null</code>, the attribute is removed.
+     * If the attribute exists and a value is provided, the new value is applied.
+     * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>.
+     *
      * @return null|JsonObject
      */
     public function getValue()
@@ -163,14 +150,21 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
         return $this->value;
     }
 
-    public function setName(?string $name): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->name = $name;
-    }
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetAttributeAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
 
-    public function setStaged(?bool $staged): void
-    {
-        $this->staged = $staged;
+        return $this->staged;
     }
 
     public function setVariantId(?int $variantId): void
@@ -183,8 +177,18 @@ final class ProductSetAttributeActionModel extends JsonObjectModel implements Pr
         $this->sku = $sku;
     }
 
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
+    }
+
     public function setValue(?JsonObject $value): void
     {
         $this->value = $value;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

@@ -16,6 +16,11 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
     /**
      * @var ?int
      */
+    protected $limit;
+
+    /**
+     * @var ?int
+     */
     protected $offset;
 
     /**
@@ -24,25 +29,39 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
     protected $count;
 
     /**
-     * @var ?int
-     */
-    protected $limit;
-
-    /**
      * @var ?ImportItemCollection
      */
     protected $results;
 
     public function __construct(
+        int $limit = null,
         int $offset = null,
         int $count = null,
-        int $limit = null,
         ImportItemCollection $results = null
     ) {
+        $this->limit = $limit;
         $this->offset = $offset;
         $this->count = $count;
-        $this->limit = $limit;
         $this->results = $results;
+    }
+
+    /**
+     * <p>The maximum number of import items returned for a page.</p>.
+     *
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ImportItemPagedResponse::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
     }
 
     /**
@@ -84,25 +103,6 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
     }
 
     /**
-     * <p>The maximum number of import items returned for a page.</p>.
-     *
-     * @return null|int
-     */
-    public function getLimit()
-    {
-        if (is_null($this->limit)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImportItemPagedResponse::FIELD_LIMIT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->limit = (int) $data;
-        }
-
-        return $this->limit;
-    }
-
-    /**
      * <p>The results for this paged response.</p>.
      *
      * @return null|ImportItemCollection
@@ -121,6 +121,11 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
         return $this->results;
     }
 
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
+    }
+
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
@@ -129,11 +134,6 @@ final class ImportItemPagedResponseModel extends JsonObjectModel implements Impo
     public function setCount(?int $count): void
     {
         $this->count = $count;
-    }
-
-    public function setLimit(?int $limit): void
-    {
-        $this->limit = $limit;
     }
 
     public function setResults(?ImportItemCollection $results): void

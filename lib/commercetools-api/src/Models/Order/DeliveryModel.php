@@ -18,19 +18,14 @@ use stdClass;
 final class DeliveryModel extends JsonObjectModel implements Delivery
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?Address
-     */
-    protected $address;
-
-    /**
      * @var ?string
      */
     protected $id;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
 
     /**
      * @var ?DeliveryItemCollection
@@ -42,18 +37,40 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
      */
     protected $parcels;
 
+    /**
+     * @var ?Address
+     */
+    protected $address;
+
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        Address $address = null,
         string $id = null,
+        DateTimeImmutable $createdAt = null,
         DeliveryItemCollection $items = null,
-        ParcelCollection $parcels = null
+        ParcelCollection $parcels = null,
+        Address $address = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->address = $address;
         $this->id = $id;
+        $this->createdAt = $createdAt;
         $this->items = $items;
         $this->parcels = $parcels;
+        $this->address = $address;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Delivery::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
 
     /**
@@ -78,41 +95,9 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     }
 
     /**
-     * @return null|Address
-     */
-    public function getAddress()
-    {
-        if (is_null($this->address)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Delivery::FIELD_ADDRESS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->address = AddressModel::of($data);
-        }
-
-        return $this->address;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Delivery::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
+     * <p>Items which are shipped in this delivery regardless their distribution over several parcels.
+     * Can also be specified individually for each Parcel.</p>.
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems()
@@ -146,19 +131,32 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
         return $this->parcels;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    /**
+     * @return null|Address
+     */
+    public function getAddress()
     {
-        $this->createdAt = $createdAt;
-    }
+        if (is_null($this->address)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Delivery::FIELD_ADDRESS);
+            if (is_null($data)) {
+                return null;
+            }
 
-    public function setAddress(?Address $address): void
-    {
-        $this->address = $address;
+            $this->address = AddressModel::of($data);
+        }
+
+        return $this->address;
     }
 
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    {
+        $this->createdAt = $createdAt;
     }
 
     public function setItems(?DeliveryItemCollection $items): void
@@ -169,6 +167,11 @@ final class DeliveryModel extends JsonObjectModel implements Delivery
     public function setParcels(?ParcelCollection $parcels): void
     {
         $this->parcels = $parcels;
+    }
+
+    public function setAddress(?Address $address): void
+    {
+        $this->address = $address;
     }
 
     public function jsonSerialize()

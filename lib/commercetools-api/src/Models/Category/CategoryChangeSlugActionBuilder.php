@@ -23,6 +23,9 @@ final class CategoryChangeSlugActionBuilder implements Builder
     private $slug;
 
     /**
+     * <p>Allowed are alphabetic, numeric, underscore (_) and hyphen (-) characters.
+     * Maximum size is {{ site.data.api-limits.slugLength }}.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getSlug()

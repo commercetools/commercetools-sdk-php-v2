@@ -20,21 +20,21 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     protected $action;
 
     /**
-     * @var ?int
-     */
-    protected $variantId;
-
-    /**
      * @var ?string
      */
     protected $sku;
 
+    /**
+     * @var ?int
+     */
+    protected $variantId;
+
     public function __construct(
-        int $variantId = null,
-        string $sku = null
+        string $sku = null,
+        int $variantId = null
     ) {
-        $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->variantId = $variantId;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -56,23 +56,6 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductLegacySetSkuAction::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
-    }
-
-    /**
      * @return null|string
      */
     public function getSku()
@@ -89,13 +72,30 @@ final class ProductLegacySetSkuActionModel extends JsonObjectModel implements Pr
         return $this->sku;
     }
 
-    public function setVariantId(?int $variantId): void
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
     {
-        $this->variantId = $variantId;
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductLegacySetSkuAction::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
     }
 
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    public function setVariantId(?int $variantId): void
+    {
+        $this->variantId = $variantId;
     }
 }

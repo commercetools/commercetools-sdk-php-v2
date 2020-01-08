@@ -29,17 +29,22 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     /**
      * @var ?string
      */
-    protected $reason;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validityCheckTime;
+    protected $discountCode;
 
     /**
      * @var ?string
      */
-    protected $discountCode;
+    protected $reason;
+
+    /**
+     * @var ?string
+     */
+    protected $dicountCodeId;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $validFrom;
 
     /**
      * @var ?DateTimeImmutable
@@ -49,29 +54,24 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validFrom;
-
-    /**
-     * @var ?string
-     */
-    protected $dicountCodeId;
+    protected $validityCheckTime;
 
     public function __construct(
         string $message = null,
-        string $reason = null,
-        DateTimeImmutable $validityCheckTime = null,
         string $discountCode = null,
-        DateTimeImmutable $validUntil = null,
+        string $reason = null,
+        string $dicountCodeId = null,
         DateTimeImmutable $validFrom = null,
-        string $dicountCodeId = null
+        DateTimeImmutable $validUntil = null,
+        DateTimeImmutable $validityCheckTime = null
     ) {
         $this->message = $message;
-        $this->reason = $reason;
-        $this->validityCheckTime = $validityCheckTime;
         $this->discountCode = $discountCode;
-        $this->validUntil = $validUntil;
-        $this->validFrom = $validFrom;
+        $this->reason = $reason;
         $this->dicountCodeId = $dicountCodeId;
+        $this->validFrom = $validFrom;
+        $this->validUntil = $validUntil;
+        $this->validityCheckTime = $validityCheckTime;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
 
@@ -112,6 +112,23 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     /**
      * @return null|string
      */
+    public function getDiscountCode()
+    {
+        if (is_null($this->discountCode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_DISCOUNT_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->discountCode = (string) $data;
+        }
+
+        return $this->discountCode;
+    }
+
+    /**
+     * @return null|string
+     */
     public function getReason()
     {
         if (is_null($this->reason)) {
@@ -127,13 +144,30 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     }
 
     /**
+     * @return null|string
+     */
+    public function getDicountCodeId()
+    {
+        if (is_null($this->dicountCodeId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_DICOUNT_CODE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->dicountCodeId = (string) $data;
+        }
+
+        return $this->dicountCodeId;
+    }
+
+    /**
      * @return null|DateTimeImmutable
      */
-    public function getValidityCheckTime()
+    public function getValidFrom()
     {
-        if (is_null($this->validityCheckTime)) {
+        if (is_null($this->validFrom)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME);
+            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_VALID_FROM);
             if (is_null($data)) {
                 return null;
             }
@@ -141,27 +175,10 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
             if (false === $data) {
                 return null;
             }
-            $this->validityCheckTime = $data;
+            $this->validFrom = $data;
         }
 
-        return $this->validityCheckTime;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getDiscountCode()
-    {
-        if (is_null($this->discountCode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_DISCOUNT_CODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->discountCode = (string) $data;
-        }
-
-        return $this->discountCode;
+        return $this->validFrom;
     }
 
     /**
@@ -188,11 +205,11 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
     /**
      * @return null|DateTimeImmutable
      */
-    public function getValidFrom()
+    public function getValidityCheckTime()
     {
-        if (is_null($this->validFrom)) {
+        if (is_null($this->validityCheckTime)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_VALID_FROM);
+            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME);
             if (is_null($data)) {
                 return null;
             }
@@ -200,27 +217,10 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
             if (false === $data) {
                 return null;
             }
-            $this->validFrom = $data;
+            $this->validityCheckTime = $data;
         }
 
-        return $this->validFrom;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getDicountCodeId()
-    {
-        if (is_null($this->dicountCodeId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(DiscountCodeNonApplicableError::FIELD_DICOUNT_CODE_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->dicountCodeId = (string) $data;
-        }
-
-        return $this->dicountCodeId;
+        return $this->validityCheckTime;
     }
 
     public function setMessage(?string $message): void
@@ -228,29 +228,14 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         $this->message = $message;
     }
 
-    public function setReason(?string $reason): void
-    {
-        $this->reason = $reason;
-    }
-
-    public function setValidityCheckTime(?DateTimeImmutable $validityCheckTime): void
-    {
-        $this->validityCheckTime = $validityCheckTime;
-    }
-
     public function setDiscountCode(?string $discountCode): void
     {
         $this->discountCode = $discountCode;
     }
 
-    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    public function setReason(?string $reason): void
     {
-        $this->validUntil = $validUntil;
-    }
-
-    public function setValidFrom(?DateTimeImmutable $validFrom): void
-    {
-        $this->validFrom = $validFrom;
+        $this->reason = $reason;
     }
 
     public function setDicountCodeId(?string $dicountCodeId): void
@@ -258,19 +243,34 @@ final class DiscountCodeNonApplicableErrorModel extends JsonObjectModel implemen
         $this->dicountCodeId = $dicountCodeId;
     }
 
+    public function setValidFrom(?DateTimeImmutable $validFrom): void
+    {
+        $this->validFrom = $validFrom;
+    }
+
+    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    {
+        $this->validUntil = $validUntil;
+    }
+
+    public function setValidityCheckTime(?DateTimeImmutable $validityCheckTime): void
+    {
+        $this->validityCheckTime = $validityCheckTime;
+    }
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME]) && $data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME] instanceof \DateTimeImmutable) {
-            $data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME] = $data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[DiscountCodeNonApplicableError::FIELD_VALID_FROM]) && $data[DiscountCodeNonApplicableError::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
+            $data[DiscountCodeNonApplicableError::FIELD_VALID_FROM] = $data[DiscountCodeNonApplicableError::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         if (isset($data[DiscountCodeNonApplicableError::FIELD_VALID_UNTIL]) && $data[DiscountCodeNonApplicableError::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
             $data[DiscountCodeNonApplicableError::FIELD_VALID_UNTIL] = $data[DiscountCodeNonApplicableError::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[DiscountCodeNonApplicableError::FIELD_VALID_FROM]) && $data[DiscountCodeNonApplicableError::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
-            $data[DiscountCodeNonApplicableError::FIELD_VALID_FROM] = $data[DiscountCodeNonApplicableError::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME]) && $data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME] instanceof \DateTimeImmutable) {
+            $data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME] = $data[DiscountCodeNonApplicableError::FIELD_VALIDITY_CHECK_TIME]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

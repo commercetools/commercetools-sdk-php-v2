@@ -41,11 +41,15 @@ interface Extension extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -66,6 +70,9 @@ interface Extension extends LoggedResource
     public function getTriggers();
 
     /**
+     * <p>The maximum time the commercetools platform waits for a response from the extension.
+     * If not present, <code>2000</code> (2 seconds) is used.</p>.
+     *
      * @return null|int
      */
     public function getTimeoutInMs();

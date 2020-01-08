@@ -20,24 +20,9 @@ use Commercetools\Base\Builder;
 final class ReviewStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $newIncludedInStatistics;
-
-    /**
      * @var StateReference|?StateReferenceBuilder
      */
     private $oldState;
-
-    /**
-     * @var ?bool
-     */
-    private $force;
-
-    /**
-     * @var ?bool
-     */
-    private $oldIncludedInStatistics;
 
     /**
      * @var StateReference|?StateReferenceBuilder
@@ -45,17 +30,24 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     private $newState;
 
     /**
+     * @var ?bool
+     */
+    private $oldIncludedInStatistics;
+
+    /**
+     * @var ?bool
+     */
+    private $newIncludedInStatistics;
+
+    /**
      * @var Reference|?ReferenceBuilder
      */
     private $target;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getNewIncludedInStatistics()
-    {
-        return $this->newIncludedInStatistics;
-    }
+    private $force;
 
     /**
      * @return null|StateReference
@@ -63,22 +55,6 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     public function getOldState()
     {
         return $this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getForce()
-    {
-        return $this->force;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getOldIncludedInStatistics()
-    {
-        return $this->oldIncludedInStatistics;
     }
 
     /**
@@ -90,6 +66,22 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @return null|bool
+     */
+    public function getOldIncludedInStatistics()
+    {
+        return $this->oldIncludedInStatistics;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getNewIncludedInStatistics()
+    {
+        return $this->newIncludedInStatistics;
+    }
+
+    /**
      * @return null|Reference
      */
     public function getTarget()
@@ -98,13 +90,11 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withNewIncludedInStatistics(?bool $newIncludedInStatistics)
+    public function getForce()
     {
-        $this->newIncludedInStatistics = $newIncludedInStatistics;
-
-        return $this;
+        return $this->force;
     }
 
     /**
@@ -113,26 +103,6 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     public function withOldState(?StateReference $oldState)
     {
         $this->oldState = $oldState;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withForce(?bool $force)
-    {
-        $this->force = $force;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withOldIncludedInStatistics(?bool $oldIncludedInStatistics)
-    {
-        $this->oldIncludedInStatistics = $oldIncludedInStatistics;
 
         return $this;
     }
@@ -150,9 +120,39 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
+    public function withOldIncludedInStatistics(?bool $oldIncludedInStatistics)
+    {
+        $this->oldIncludedInStatistics = $oldIncludedInStatistics;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withNewIncludedInStatistics(?bool $newIncludedInStatistics)
+    {
+        $this->newIncludedInStatistics = $newIncludedInStatistics;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTarget(?Reference $target)
     {
         $this->target = $target;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withForce(?bool $force)
+    {
+        $this->force = $force;
 
         return $this;
     }
@@ -190,12 +190,12 @@ final class ReviewStateTransitionMessagePayloadBuilder implements Builder
     public function build(): ReviewStateTransitionMessagePayload
     {
         return new ReviewStateTransitionMessagePayloadModel(
-            $this->newIncludedInStatistics,
             ($this->oldState instanceof StateReferenceBuilder ? $this->oldState->build() : $this->oldState),
-            $this->force,
-            $this->oldIncludedInStatistics,
             ($this->newState instanceof StateReferenceBuilder ? $this->newState->build() : $this->newState),
-            ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target)
+            $this->oldIncludedInStatistics,
+            $this->newIncludedInStatistics,
+            ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target),
+            $this->force
         );
     }
 

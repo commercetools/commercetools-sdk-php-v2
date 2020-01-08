@@ -52,6 +52,9 @@ final class InventoryEntrySetSupplyChannelActionModel extends JsonObjectModel im
     }
 
     /**
+     * <p>If absent, the supply channel is removed.
+     * This action will fail if an entry with the combination of sku and supplyChannel already exists.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel()

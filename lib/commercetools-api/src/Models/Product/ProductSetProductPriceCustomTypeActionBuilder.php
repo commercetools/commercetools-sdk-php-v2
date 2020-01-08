@@ -20,14 +20,14 @@ use Commercetools\Base\Builder;
 final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $priceId;
+
+    /**
      * @var ?bool
      */
     private $staged;
-
-    /**
-     * @var FieldContainer|?FieldContainerBuilder
-     */
-    private $fields;
 
     /**
      * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
@@ -35,9 +35,17 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     private $type;
 
     /**
-     * @var ?string
+     * @var FieldContainer|?FieldContainerBuilder
      */
-    private $priceId;
+    private $fields;
+
+    /**
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        return $this->priceId;
+    }
 
     /**
      * @return null|bool
@@ -45,14 +53,6 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     public function getStaged()
     {
         return $this->staged;
-    }
-
-    /**
-     * @return null|FieldContainer
-     */
-    public function getFields()
-    {
-        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
@@ -64,11 +64,21 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|FieldContainer
      */
-    public function getPriceId()
+    public function getFields()
     {
-        return $this->priceId;
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPriceId(?string $priceId)
+    {
+        $this->priceId = $priceId;
+
+        return $this;
     }
 
     /**
@@ -77,16 +87,6 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFields(?FieldContainer $fields)
-    {
-        $this->fields = $fields;
 
         return $this;
     }
@@ -104,17 +104,7 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPriceId(?string $priceId)
-    {
-        $this->priceId = $priceId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
 
@@ -131,13 +121,23 @@ final class ProductSetProductPriceCustomTypeActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
+
     public function build(): ProductSetProductPriceCustomTypeAction
     {
         return new ProductSetProductPriceCustomTypeActionModel(
+            $this->priceId,
             $this->staged,
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields),
             ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            $this->priceId
+            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
         );
     }
 

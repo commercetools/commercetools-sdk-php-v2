@@ -16,11 +16,6 @@ use stdClass;
 final class ShippingRateModel extends JsonObjectModel implements ShippingRate
 {
     /**
-     * @var ?ShippingRatePriceTierCollection
-     */
-    protected $tiers;
-
-    /**
      * @var ?TypedMoney
      */
     protected $price;
@@ -35,33 +30,21 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
      */
     protected $isMatching;
 
+    /**
+     * @var ?ShippingRatePriceTierCollection
+     */
+    protected $tiers;
+
     public function __construct(
-        ShippingRatePriceTierCollection $tiers = null,
         TypedMoney $price = null,
         TypedMoney $freeAbove = null,
-        bool $isMatching = null
+        bool $isMatching = null,
+        ShippingRatePriceTierCollection $tiers = null
     ) {
-        $this->tiers = $tiers;
         $this->price = $price;
         $this->freeAbove = $freeAbove;
         $this->isMatching = $isMatching;
-    }
-
-    /**
-     * @return null|ShippingRatePriceTierCollection
-     */
-    public function getTiers()
-    {
-        if (is_null($this->tiers)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShippingRate::FIELD_TIERS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->tiers = ShippingRatePriceTierCollection::fromArray($data);
-        }
-
-        return $this->tiers;
+        $this->tiers = $tiers;
     }
 
     /**
@@ -83,6 +66,10 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     }
 
     /**
+     * <p>The shipping is free if the order total (the sum of line item prices) exceeds the <code>freeAbove</code> value.
+     * Note: <code>freeAbove</code> applies before any Cart or Product discounts, and can cause discounts to apply in invalid scenarios.
+     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>.
+     *
      * @return null|TypedMoney
      */
     public function getFreeAbove()
@@ -101,6 +88,8 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     }
 
     /**
+     * <p>Only appears in response to requests for shipping methods by cart or location to mark this shipping rate as one that matches the cart or location.</p>.
+     *
      * @return null|bool
      */
     public function getIsMatching()
@@ -117,9 +106,23 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
         return $this->isMatching;
     }
 
-    public function setTiers(?ShippingRatePriceTierCollection $tiers): void
+    /**
+     * <p>A list of shipping rate price tiers.</p>.
+     *
+     * @return null|ShippingRatePriceTierCollection
+     */
+    public function getTiers()
     {
-        $this->tiers = $tiers;
+        if (is_null($this->tiers)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShippingRate::FIELD_TIERS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tiers = ShippingRatePriceTierCollection::fromArray($data);
+        }
+
+        return $this->tiers;
     }
 
     public function setPrice(?TypedMoney $price): void
@@ -135,5 +138,10 @@ final class ShippingRateModel extends JsonObjectModel implements ShippingRate
     public function setIsMatching(?bool $isMatching): void
     {
         $this->isMatching = $isMatching;
+    }
+
+    public function setTiers(?ShippingRatePriceTierCollection $tiers): void
+    {
+        $this->tiers = $tiers;
     }
 }

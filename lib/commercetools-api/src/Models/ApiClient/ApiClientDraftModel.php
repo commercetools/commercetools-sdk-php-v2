@@ -13,9 +13,9 @@ use Commercetools\Base\JsonObjectModel;
 final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraft
 {
     /**
-     * @var ?int
+     * @var ?string
      */
-    protected $deleteDaysAfterCreation;
+    protected $name;
 
     /**
      * @var ?string
@@ -23,35 +23,35 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     protected $scope;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $name;
+    protected $deleteDaysAfterCreation;
 
     public function __construct(
-        int $deleteDaysAfterCreation = null,
+        string $name = null,
         string $scope = null,
-        string $name = null
+        int $deleteDaysAfterCreation = null
     ) {
-        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
-        $this->scope = $scope;
         $this->name = $name;
+        $this->scope = $scope;
+        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
     }
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getDeleteDaysAfterCreation()
+    public function getName()
     {
-        if (is_null($this->deleteDaysAfterCreation)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ApiClientDraft::FIELD_DELETE_DAYS_AFTER_CREATION);
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ApiClientDraft::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->deleteDaysAfterCreation = (int) $data;
+            $this->name = (string) $data;
         }
 
-        return $this->deleteDaysAfterCreation;
+        return $this->name;
     }
 
     /**
@@ -72,25 +72,27 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
     }
 
     /**
-     * @return null|string
+     * <p>If set, the client will be deleted after the specified amount of days.</p>.
+     *
+     * @return null|int
      */
-    public function getName()
+    public function getDeleteDaysAfterCreation()
     {
-        if (is_null($this->name)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ApiClientDraft::FIELD_NAME);
+        if (is_null($this->deleteDaysAfterCreation)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ApiClientDraft::FIELD_DELETE_DAYS_AFTER_CREATION);
             if (is_null($data)) {
                 return null;
             }
-            $this->name = (string) $data;
+            $this->deleteDaysAfterCreation = (int) $data;
         }
 
-        return $this->name;
+        return $this->deleteDaysAfterCreation;
     }
 
-    public function setDeleteDaysAfterCreation(?int $deleteDaysAfterCreation): void
+    public function setName(?string $name): void
     {
-        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
+        $this->name = $name;
     }
 
     public function setScope(?string $scope): void
@@ -98,8 +100,8 @@ final class ApiClientDraftModel extends JsonObjectModel implements ApiClientDraf
         $this->scope = $scope;
     }
 
-    public function setName(?string $name): void
+    public function setDeleteDaysAfterCreation(?int $deleteDaysAfterCreation): void
     {
-        $this->name = $name;
+        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
     }
 }

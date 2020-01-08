@@ -15,6 +15,8 @@ interface Suggestion extends JsonObject
     const FIELD_TEXT = 'text';
 
     /**
+     * <p>The suggested text.</p>.
+     *
      * @return null|string
      */
     public function getText();

@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class StateUpdateBuilder implements Builder
 {
     /**
-     * @var ?StateUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|StateUpdateActionCollection
+     * @var ?StateUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class StateUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|StateUpdateActionCollection
      */
-    public function withActions(?StateUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class StateUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?StateUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): StateUpdate
     {
         return new StateUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

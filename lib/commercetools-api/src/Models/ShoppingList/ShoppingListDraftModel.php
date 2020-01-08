@@ -20,19 +20,14 @@ use stdClass;
 final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingListDraft
 {
     /**
-     * @var ?ShoppingListLineItemDraftCollection
+     * @var ?CustomFieldsDraft
      */
-    protected $lineItems;
+    protected $custom;
 
     /**
-     * @var ?string
+     * @var ?CustomerResourceIdentifier
      */
-    protected $anonymousId;
-
-    /**
-     * @var ?TextLineItemDraftCollection
-     */
-    protected $textLineItems;
+    protected $customer;
 
     /**
      * @var ?int
@@ -40,9 +35,19 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     protected $deleteDaysAfterLastModification;
 
     /**
-     * @var ?CustomFieldsDraft
+     * @var ?LocalizedString
      */
-    protected $custom;
+    protected $description;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
+    /**
+     * @var ?ShoppingListLineItemDraftCollection
+     */
+    protected $lineItems;
 
     /**
      * @var ?LocalizedString
@@ -52,116 +57,45 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     /**
      * @var ?LocalizedString
      */
-    protected $description;
+    protected $slug;
 
     /**
-     * @var ?LocalizedString
+     * @var ?TextLineItemDraftCollection
      */
-    protected $slug;
+    protected $textLineItems;
 
     /**
      * @var ?string
      */
-    protected $key;
-
-    /**
-     * @var ?CustomerResourceIdentifier
-     */
-    protected $customer;
+    protected $anonymousId;
 
     public function __construct(
-        ShoppingListLineItemDraftCollection $lineItems = null,
-        string $anonymousId = null,
-        TextLineItemDraftCollection $textLineItems = null,
-        int $deleteDaysAfterLastModification = null,
         CustomFieldsDraft $custom = null,
-        LocalizedString $name = null,
+        CustomerResourceIdentifier $customer = null,
+        int $deleteDaysAfterLastModification = null,
         LocalizedString $description = null,
-        LocalizedString $slug = null,
         string $key = null,
-        CustomerResourceIdentifier $customer = null
+        ShoppingListLineItemDraftCollection $lineItems = null,
+        LocalizedString $name = null,
+        LocalizedString $slug = null,
+        TextLineItemDraftCollection $textLineItems = null,
+        string $anonymousId = null
     ) {
-        $this->lineItems = $lineItems;
-        $this->anonymousId = $anonymousId;
-        $this->textLineItems = $textLineItems;
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
         $this->custom = $custom;
-        $this->name = $name;
-        $this->description = $description;
-        $this->slug = $slug;
-        $this->key = $key;
         $this->customer = $customer;
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+        $this->description = $description;
+        $this->key = $key;
+        $this->lineItems = $lineItems;
+        $this->name = $name;
+        $this->slug = $slug;
+        $this->textLineItems = $textLineItems;
+        $this->anonymousId = $anonymousId;
     }
 
     /**
-     * @return null|ShoppingListLineItemDraftCollection
-     */
-    public function getLineItems()
-    {
-        if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItems = ShoppingListLineItemDraftCollection::fromArray($data);
-        }
-
-        return $this->lineItems;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAnonymousId()
-    {
-        if (is_null($this->anonymousId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_ANONYMOUS_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->anonymousId = (string) $data;
-        }
-
-        return $this->anonymousId;
-    }
-
-    /**
-     * @return null|TextLineItemDraftCollection
-     */
-    public function getTextLineItems()
-    {
-        if (is_null($this->textLineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_TEXT_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->textLineItems = TextLineItemDraftCollection::fromArray($data);
-        }
-
-        return $this->textLineItems;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getDeleteDaysAfterLastModification()
-    {
-        if (is_null($this->deleteDaysAfterLastModification)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->deleteDaysAfterLastModification = (int) $data;
-        }
-
-        return $this->deleteDaysAfterLastModification;
-    }
-
-    /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -180,21 +114,40 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-     * @return null|LocalizedString
+     * @return null|CustomerResourceIdentifier
      */
-    public function getName()
+    public function getCustomer()
     {
-        if (is_null($this->name)) {
+        if (is_null($this->customer)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_NAME);
+            $data = $this->raw(ShoppingListDraft::FIELD_CUSTOMER);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->name = LocalizedStringModel::of($data);
+            $this->customer = CustomerResourceIdentifierModel::of($data);
         }
 
-        return $this->name;
+        return $this->customer;
+    }
+
+    /**
+     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>.
+     *
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification()
+    {
+        if (is_null($this->deleteDaysAfterLastModification)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ShoppingListDraft::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deleteDaysAfterLastModification = (int) $data;
+        }
+
+        return $this->deleteDaysAfterLastModification;
     }
 
     /**
@@ -216,6 +169,64 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
+     * <p>User-specific unique identifier for the shopping list.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * @return null|ShoppingListLineItemDraftCollection
+     */
+    public function getLineItems()
+    {
+        if (is_null($this->lineItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShoppingListDraft::FIELD_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItems = ShoppingListLineItemDraftCollection::fromArray($data);
+        }
+
+        return $this->lineItems;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShoppingListDraft::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * <p>Human-readable identifiers usually used as deep-link URL to the related shopping list.
+     * Each slug is unique across a project, but a shopping list can have the same slug for different languages.
+     * The slug must match the pattern [a-zA-Z0-9_-]{2,256}.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getSlug()
@@ -234,58 +245,39 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
     }
 
     /**
-     * @return null|string
+     * @return null|TextLineItemDraftCollection
      */
-    public function getKey()
+    public function getTextLineItems()
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_KEY);
+        if (is_null($this->textLineItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShoppingListDraft::FIELD_TEXT_LINE_ITEMS);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+            $this->textLineItems = TextLineItemDraftCollection::fromArray($data);
         }
 
-        return $this->key;
+        return $this->textLineItems;
     }
 
     /**
-     * @return null|CustomerResourceIdentifier
+     * <p>Identifies shopping lists belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     *
+     * @return null|string
      */
-    public function getCustomer()
+    public function getAnonymousId()
     {
-        if (is_null($this->customer)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListDraft::FIELD_CUSTOMER);
+        if (is_null($this->anonymousId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListDraft::FIELD_ANONYMOUS_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->customer = CustomerResourceIdentifierModel::of($data);
+            $this->anonymousId = (string) $data;
         }
 
-        return $this->customer;
-    }
-
-    public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void
-    {
-        $this->lineItems = $lineItems;
-    }
-
-    public function setAnonymousId(?string $anonymousId): void
-    {
-        $this->anonymousId = $anonymousId;
-    }
-
-    public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void
-    {
-        $this->textLineItems = $textLineItems;
-    }
-
-    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
-    {
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+        return $this->anonymousId;
     }
 
     public function setCustom(?CustomFieldsDraft $custom): void
@@ -293,9 +285,14 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
         $this->custom = $custom;
     }
 
-    public function setName(?LocalizedString $name): void
+    public function setCustomer(?CustomerResourceIdentifier $customer): void
     {
-        $this->name = $name;
+        $this->customer = $customer;
+    }
+
+    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
+    {
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
 
     public function setDescription(?LocalizedString $description): void
@@ -303,18 +300,33 @@ final class ShoppingListDraftModel extends JsonObjectModel implements ShoppingLi
         $this->description = $description;
     }
 
-    public function setSlug(?LocalizedString $slug): void
-    {
-        $this->slug = $slug;
-    }
-
     public function setKey(?string $key): void
     {
         $this->key = $key;
     }
 
-    public function setCustomer(?CustomerResourceIdentifier $customer): void
+    public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void
     {
-        $this->customer = $customer;
+        $this->lineItems = $lineItems;
+    }
+
+    public function setName(?LocalizedString $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setSlug(?LocalizedString $slug): void
+    {
+        $this->slug = $slug;
+    }
+
+    public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void
+    {
+        $this->textLineItems = $textLineItems;
+    }
+
+    public function setAnonymousId(?string $anonymousId): void
+    {
+        $this->anonymousId = $anonymousId;
     }
 }

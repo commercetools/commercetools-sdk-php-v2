@@ -23,21 +23,21 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
     protected $type;
 
     /**
-     * @var ?LocalizedString
-     */
-    protected $label;
-
-    /**
      * @var ?string
      */
     protected $key;
 
+    /**
+     * @var ?LocalizedString
+     */
+    protected $label;
+
     public function __construct(
-        LocalizedString $label = null,
-        string $key = null
+        string $key = null,
+        LocalizedString $label = null
     ) {
-        $this->label = $label;
         $this->key = $key;
+        $this->label = $label;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,6 +59,23 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
     }
 
     /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ClassificationShippingRateInput::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
      * @return null|LocalizedString
      */
     public function getLabel()
@@ -76,30 +93,13 @@ final class ClassificationShippingRateInputModel extends JsonObjectModel impleme
         return $this->label;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ClassificationShippingRateInput::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        $this->key = $key;
     }
 
     public function setLabel(?LocalizedString $label): void
     {
         $this->label = $label;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 }

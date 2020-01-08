@@ -23,21 +23,21 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     protected $action;
 
     /**
-     * @var ?ShippingRateDraft
-     */
-    protected $shippingRate;
-
-    /**
      * @var ?ZoneResourceIdentifier
      */
     protected $zone;
 
+    /**
+     * @var ?ShippingRateDraft
+     */
+    protected $shippingRate;
+
     public function __construct(
-        ShippingRateDraft $shippingRate = null,
-        ZoneResourceIdentifier $zone = null
+        ZoneResourceIdentifier $zone = null,
+        ShippingRateDraft $shippingRate = null
     ) {
-        $this->shippingRate = $shippingRate;
         $this->zone = $zone;
+        $this->shippingRate = $shippingRate;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,24 +59,6 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
     }
 
     /**
-     * @return null|ShippingRateDraft
-     */
-    public function getShippingRate()
-    {
-        if (is_null($this->shippingRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingMethodAddShippingRateAction::FIELD_SHIPPING_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->shippingRate = ShippingRateDraftModel::of($data);
-        }
-
-        return $this->shippingRate;
-    }
-
-    /**
      * @return null|ZoneResourceIdentifier
      */
     public function getZone()
@@ -94,13 +76,31 @@ final class ShippingMethodAddShippingRateActionModel extends JsonObjectModel imp
         return $this->zone;
     }
 
-    public function setShippingRate(?ShippingRateDraft $shippingRate): void
+    /**
+     * @return null|ShippingRateDraft
+     */
+    public function getShippingRate()
     {
-        $this->shippingRate = $shippingRate;
+        if (is_null($this->shippingRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShippingMethodAddShippingRateAction::FIELD_SHIPPING_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingRate = ShippingRateDraftModel::of($data);
+        }
+
+        return $this->shippingRate;
     }
 
     public function setZone(?ZoneResourceIdentifier $zone): void
     {
         $this->zone = $zone;
+    }
+
+    public function setShippingRate(?ShippingRateDraft $shippingRate): void
+    {
+        $this->shippingRate = $shippingRate;
     }
 }

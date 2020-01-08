@@ -13,11 +13,6 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerCreateEmailTokenModel extends JsonObjectModel implements CustomerCreateEmailToken
 {
     /**
-     * @var ?int
-     */
-    protected $ttlMinutes;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -27,31 +22,19 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
      */
     protected $version;
 
+    /**
+     * @var ?int
+     */
+    protected $ttlMinutes;
+
     public function __construct(
-        int $ttlMinutes = null,
         string $id = null,
-        int $version = null
+        int $version = null,
+        int $ttlMinutes = null
     ) {
-        $this->ttlMinutes = $ttlMinutes;
         $this->id = $id;
         $this->version = $version;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getTtlMinutes()
-    {
-        if (is_null($this->ttlMinutes)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CustomerCreateEmailToken::FIELD_TTL_MINUTES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->ttlMinutes = (int) $data;
-        }
-
-        return $this->ttlMinutes;
+        $this->ttlMinutes = $ttlMinutes;
     }
 
     /**
@@ -88,9 +71,21 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
         return $this->version;
     }
 
-    public function setTtlMinutes(?int $ttlMinutes): void
+    /**
+     * @return null|int
+     */
+    public function getTtlMinutes()
     {
-        $this->ttlMinutes = $ttlMinutes;
+        if (is_null($this->ttlMinutes)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomerCreateEmailToken::FIELD_TTL_MINUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->ttlMinutes = (int) $data;
+        }
+
+        return $this->ttlMinutes;
     }
 
     public function setId(?string $id): void
@@ -101,5 +96,10 @@ final class CustomerCreateEmailTokenModel extends JsonObjectModel implements Cus
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setTtlMinutes(?int $ttlMinutes): void
+    {
+        $this->ttlMinutes = $ttlMinutes;
     }
 }

@@ -25,16 +25,6 @@ use DateTimeImmutable;
 final class ProductImageAddedMessageBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -45,14 +35,24 @@ final class ProductImageAddedMessageBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
 
     /**
      * @var ?int
@@ -65,6 +65,11 @@ final class ProductImageAddedMessageBuilder implements Builder
     private $resource;
 
     /**
+     * @var ?int
+     */
+    private $resourceVersion;
+
+    /**
      * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
@@ -72,7 +77,7 @@ final class ProductImageAddedMessageBuilder implements Builder
     /**
      * @var ?int
      */
-    private $resourceVersion;
+    private $variantId;
 
     /**
      * @var Image|?ImageBuilder
@@ -83,27 +88,6 @@ final class ProductImageAddedMessageBuilder implements Builder
      * @var ?bool
      */
     private $staged;
-
-    /**
-     * @var ?int
-     */
-    private $variantId;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
 
     /**
      * @return null|string
@@ -122,11 +106,19 @@ final class ProductImageAddedMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -135,6 +127,14 @@ final class ProductImageAddedMessageBuilder implements Builder
     public function getLastModifiedBy()
     {
         return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -154,6 +154,14 @@ final class ProductImageAddedMessageBuilder implements Builder
     }
 
     /**
+     * @return null|int
+     */
+    public function getResourceVersion()
+    {
+        return $this->resourceVersion;
+    }
+
+    /**
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -164,9 +172,9 @@ final class ProductImageAddedMessageBuilder implements Builder
     /**
      * @return null|int
      */
-    public function getResourceVersion()
+    public function getVariantId()
     {
-        return $this->resourceVersion;
+        return $this->variantId;
     }
 
     /**
@@ -183,34 +191,6 @@ final class ProductImageAddedMessageBuilder implements Builder
     public function getStaged()
     {
         return $this->staged;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        return $this->variantId;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
     }
 
     /**
@@ -236,9 +216,19 @@ final class ProductImageAddedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -249,6 +239,16 @@ final class ProductImageAddedMessageBuilder implements Builder
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -276,6 +276,16 @@ final class ProductImageAddedMessageBuilder implements Builder
     /**
      * @return $this
      */
+    public function withResourceVersion(?int $resourceVersion)
+    {
+        $this->resourceVersion = $resourceVersion;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
@@ -286,9 +296,9 @@ final class ProductImageAddedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceVersion(?int $resourceVersion)
+    public function withVariantId(?int $variantId)
     {
-        $this->resourceVersion = $resourceVersion;
+        $this->variantId = $variantId;
 
         return $this;
     }
@@ -316,9 +326,9 @@ final class ProductImageAddedMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariantId(?int $variantId)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->variantId = $variantId;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -329,16 +339,6 @@ final class ProductImageAddedMessageBuilder implements Builder
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
         $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
-    {
-        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -376,19 +376,19 @@ final class ProductImageAddedMessageBuilder implements Builder
     public function build(): ProductImageAddedMessage
     {
         return new ProductImageAddedMessageModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
+            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
+            $this->variantId,
             ($this->image instanceof ImageBuilder ? $this->image->build() : $this->image),
-            $this->staged,
-            $this->variantId
+            $this->staged
         );
     }
 

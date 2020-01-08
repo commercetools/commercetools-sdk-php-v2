@@ -16,11 +16,15 @@ interface CustomFieldsDraft extends JsonObject
     const FIELD_FIELDS = 'fields';
 
     /**
+     * <p>The <code>id</code> or the <code>key</code> of the type to use.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType();
 
     /**
+     * <p>A valid JSON object, based on the FieldDefinitions of the Type.</p>.
+     *
      * @return null|FieldContainer
      */
     public function getFields();

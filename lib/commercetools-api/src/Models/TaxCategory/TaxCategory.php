@@ -21,11 +21,15 @@ interface TaxCategory extends LoggedResource
     const FIELD_KEY = 'key';
 
     /**
+     * <p>The unique ID of the category.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the category.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
@@ -41,11 +45,15 @@ interface TaxCategory extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -61,11 +69,15 @@ interface TaxCategory extends LoggedResource
     public function getDescription();
 
     /**
+     * <p>The tax rates have unique IDs in the rates list</p>.
+     *
      * @return null|TaxRateCollection
      */
     public function getRates();
 
     /**
+     * <p>User-specific unique identifier for the category.</p>.
+     *
      * @return null|string
      */
     public function getKey();

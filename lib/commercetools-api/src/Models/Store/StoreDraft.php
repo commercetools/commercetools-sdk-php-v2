@@ -17,11 +17,17 @@ interface StoreDraft extends JsonObject
     const FIELD_NAME = 'name';
 
     /**
+     * <p>User-specific unique identifier for the store.
+     * The <code>key</code> is mandatory and immutable.
+     * It is used to reference the store.</p>.
+     *
      * @return null|string
      */
     public function getKey();
 
     /**
+     * <p>The name of the store</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName();

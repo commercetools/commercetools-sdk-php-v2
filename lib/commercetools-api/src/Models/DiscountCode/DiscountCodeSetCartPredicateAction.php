@@ -13,6 +13,8 @@ interface DiscountCodeSetCartPredicateAction extends DiscountCodeUpdateAction
     const FIELD_CART_PREDICATE = 'cartPredicate';
 
     /**
+     * <p>If the <code>cartPredicate</code> parameter is not included, the field will be emptied.</p>.
+     *
      * @return null|string
      */
     public function getCartPredicate();

@@ -23,21 +23,21 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     protected $action;
 
     /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?LocalizedString
      */
     protected $metaDescription;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        bool $staged = null,
-        LocalizedString $metaDescription = null
+        LocalizedString $metaDescription = null,
+        bool $staged = null
     ) {
-        $this->staged = $staged;
         $this->metaDescription = $metaDescription;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,23 +59,6 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetMetaDescriptionAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
-    }
-
-    /**
      * @return null|LocalizedString
      */
     public function getMetaDescription()
@@ -93,13 +76,30 @@ final class ProductSetMetaDescriptionActionModel extends JsonObjectModel impleme
         return $this->metaDescription;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->staged = $staged;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetMetaDescriptionAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

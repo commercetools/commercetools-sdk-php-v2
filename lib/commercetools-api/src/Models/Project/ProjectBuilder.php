@@ -19,46 +19,6 @@ use DateTimeImmutable;
 final class ProjectBuilder implements Builder
 {
     /**
-     * @var ExternalOAuth|?ExternalOAuthBuilder
-     */
-    private $externalOAuth;
-
-    /**
-     * @var ShippingRateInputType|?ShippingRateInputTypeBuilder
-     */
-    private $shippingRateInputType;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?array
-     */
-    private $languages;
-
-    /**
-     * @var ?string
-     */
-    private $name;
-
-    /**
-     * @var MessageConfiguration|?MessageConfigurationBuilder
-     */
-    private $messages;
-
-    /**
-     * @var ?array
-     */
-    private $countries;
-
-    /**
-     * @var ?string
-     */
-    private $trialUntil;
-
-    /**
      * @var ?int
      */
     private $version;
@@ -69,32 +29,98 @@ final class ProjectBuilder implements Builder
     private $key;
 
     /**
+     * @var ?string
+     */
+    private $name;
+
+    /**
+     * @var ?array
+     */
+    private $countries;
+
+    /**
      * @var ?array
      */
     private $currencies;
 
     /**
-     * @return null|ExternalOAuth
+     * @var ?array
      */
-    public function getExternalOAuth()
+    private $languages;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
+
+    /**
+     * @var ?string
+     */
+    private $trialUntil;
+
+    /**
+     * @var MessageConfiguration|?MessageConfigurationBuilder
+     */
+    private $messages;
+
+    /**
+     * @var ShippingRateInputType|?ShippingRateInputTypeBuilder
+     */
+    private $shippingRateInputType;
+
+    /**
+     * @var ExternalOAuth|?ExternalOAuthBuilder
+     */
+    private $externalOAuth;
+
+    /**
+     * <p>The current version of the project.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
     {
-        return $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth;
+        return $this->version;
     }
 
     /**
-     * @return null|ShippingRateInputType
+     * <p>The unique key of the project.</p>.
+     *
+     * @return null|string
      */
-    public function getShippingRateInputType()
+    public function getKey()
     {
-        return $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType;
+        return $this->key;
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>The name of the project.</p>.
+     *
+     * @return null|string
      */
-    public function getCreatedAt()
+    public function getName()
     {
-        return $this->createdAt;
+        return $this->name;
+    }
+
+    /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
+     * @return null|array
+     */
+    public function getCountries()
+    {
+        return $this->countries;
+    }
+
+    /**
+     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     *
+     * @return null|array
+     */
+    public function getCurrencies()
+    {
+        return $this->currencies;
     }
 
     /**
@@ -106,11 +132,21 @@ final class ProjectBuilder implements Builder
     }
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * <p>The time is in the format Year-Month <code>YYYY-MM</code>.</p>.
+     *
      * @return null|string
      */
-    public function getName()
+    public function getTrialUntil()
     {
-        return $this->name;
+        return $this->trialUntil;
     }
 
     /**
@@ -122,123 +158,19 @@ final class ProjectBuilder implements Builder
     }
 
     /**
-     * @return null|array
+     * @return null|ShippingRateInputType
      */
-    public function getCountries()
+    public function getShippingRateInputType()
     {
-        return $this->countries;
+        return $this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType;
     }
 
     /**
-     * @return null|string
+     * @return null|ExternalOAuth
      */
-    public function getTrialUntil()
+    public function getExternalOAuth()
     {
-        return $this->trialUntil;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-     * @return null|array
-     */
-    public function getCurrencies()
-    {
-        return $this->currencies;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExternalOAuth(?ExternalOAuth $externalOAuth)
-    {
-        $this->externalOAuth = $externalOAuth;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingRateInputType(?ShippingRateInputType $shippingRateInputType)
-    {
-        $this->shippingRateInputType = $shippingRateInputType;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLanguages(?array $languages)
-    {
-        $this->languages = $languages;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMessages(?MessageConfiguration $messages)
-    {
-        $this->messages = $messages;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCountries(?array $countries)
-    {
-        $this->countries = $countries;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTrialUntil(?string $trialUntil)
-    {
-        $this->trialUntil = $trialUntil;
-
-        return $this;
+        return $this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth;
     }
 
     /**
@@ -264,6 +196,26 @@ final class ProjectBuilder implements Builder
     /**
      * @return $this
      */
+    public function withName(?string $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCountries(?array $countries)
+    {
+        $this->countries = $countries;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withCurrencies(?array $currencies)
     {
         $this->currencies = $currencies;
@@ -274,9 +226,69 @@ final class ProjectBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalOAuthBuilder(?ExternalOAuthBuilder $externalOAuth)
+    public function withLanguages(?array $languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTrialUntil(?string $trialUntil)
+    {
+        $this->trialUntil = $trialUntil;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMessages(?MessageConfiguration $messages)
+    {
+        $this->messages = $messages;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingRateInputType(?ShippingRateInputType $shippingRateInputType)
+    {
+        $this->shippingRateInputType = $shippingRateInputType;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalOAuth(?ExternalOAuth $externalOAuth)
     {
         $this->externalOAuth = $externalOAuth;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMessagesBuilder(?MessageConfigurationBuilder $messages)
+    {
+        $this->messages = $messages;
 
         return $this;
     }
@@ -294,9 +306,9 @@ final class ProjectBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMessagesBuilder(?MessageConfigurationBuilder $messages)
+    public function withExternalOAuthBuilder(?ExternalOAuthBuilder $externalOAuth)
     {
-        $this->messages = $messages;
+        $this->externalOAuth = $externalOAuth;
 
         return $this;
     }
@@ -304,17 +316,17 @@ final class ProjectBuilder implements Builder
     public function build(): Project
     {
         return new ProjectModel(
-            ($this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth),
-            ($this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType),
-            $this->createdAt,
-            $this->languages,
-            $this->name,
-            ($this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages),
-            $this->countries,
-            $this->trialUntil,
             $this->version,
             $this->key,
-            $this->currencies
+            $this->name,
+            $this->countries,
+            $this->currencies,
+            $this->languages,
+            $this->createdAt,
+            $this->trialUntil,
+            ($this->messages instanceof MessageConfigurationBuilder ? $this->messages->build() : $this->messages),
+            ($this->shippingRateInputType instanceof ShippingRateInputTypeBuilder ? $this->shippingRateInputType->build() : $this->shippingRateInputType),
+            ($this->externalOAuth instanceof ExternalOAuthBuilder ? $this->externalOAuth->build() : $this->externalOAuth)
         );
     }
 

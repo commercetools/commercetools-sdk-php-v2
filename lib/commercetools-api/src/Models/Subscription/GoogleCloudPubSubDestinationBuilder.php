@@ -18,20 +18,12 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $topic;
+    private $projectId;
 
     /**
      * @var ?string
      */
-    private $projectId;
-
-    /**
-     * @return null|string
-     */
-    public function getTopic()
-    {
-        return $this->topic;
-    }
+    private $topic;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withTopic(?string $topic)
+    public function getTopic()
     {
-        $this->topic = $topic;
-
-        return $this;
+        return $this->topic;
     }
 
     /**
@@ -61,11 +51,21 @@ final class GoogleCloudPubSubDestinationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTopic(?string $topic)
+    {
+        $this->topic = $topic;
+
+        return $this;
+    }
+
     public function build(): GoogleCloudPubSubDestination
     {
         return new GoogleCloudPubSubDestinationModel(
-            $this->topic,
-            $this->projectId
+            $this->projectId,
+            $this->topic
         );
     }
 

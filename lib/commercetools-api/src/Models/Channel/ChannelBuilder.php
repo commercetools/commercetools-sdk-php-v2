@@ -31,16 +31,6 @@ use DateTimeImmutable;
 final class ChannelBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -51,9 +41,14 @@ final class ChannelBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -61,14 +56,14 @@ final class ChannelBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var Address|?AddressBuilder
+     * @var CreatedBy|?CreatedByBuilder
      */
-    private $address;
+    private $createdBy;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var ?string
      */
-    private $custom;
+    private $key;
 
     /**
      * @var ?array
@@ -78,17 +73,17 @@ final class ChannelBuilder implements Builder
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $description;
-
-    /**
-     * @var GeoJson|?GeoJsonBuilder
-     */
-    private $geoLocation;
+    private $name;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $name;
+    private $description;
+
+    /**
+     * @var Address|?AddressBuilder
+     */
+    private $address;
 
     /**
      * @var ReviewRatingStatistics|?ReviewRatingStatisticsBuilder
@@ -96,9 +91,32 @@ final class ChannelBuilder implements Builder
     private $reviewRatingStatistics;
 
     /**
-     * @var ?string
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    private $key;
+    private $custom;
+
+    /**
+     * @var GeoJson|?GeoJsonBuilder
+     */
+    private $geoLocation;
+
+    /**
+     * <p>The unique ID of the channel.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -117,30 +135,8 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -149,11 +145,75 @@ final class ChannelBuilder implements Builder
     }
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+    }
+
+    /**
+     * <p>Any arbitrary string key that uniquely identifies this channel within the project.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * <p>The roles of this channel.
+     * Each channel must have at least one role.</p>.
+     *
+     * @return null|array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * <p>A human-readable name of the channel.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
+
+    /**
+     * <p>A human-readable description of the channel.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
+    }
+
+    /**
+     * <p>The address where this channel is located (e.g.
+     * if the channel is a physical store).</p>.
+     *
      * @return null|Address
      */
     public function getAddress()
     {
         return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
+    }
+
+    /**
+     * <p>Statistics about the review ratings taken into account for this channel.</p>.
+     *
+     * @return null|ReviewRatingStatistics
+     */
+    public function getReviewRatingStatistics()
+    {
+        return $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics;
     }
 
     /**
@@ -165,71 +225,13 @@ final class ChannelBuilder implements Builder
     }
 
     /**
-     * @return null|array
-     */
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        return $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description;
-    }
-
-    /**
+     * <p>A GeoJSON geometry object encoding the geo location of the channel.</p>.
+     *
      * @return null|GeoJson
      */
     public function getGeoLocation()
     {
         return $this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|ReviewRatingStatistics
-     */
-    public function getReviewRatingStatistics()
-    {
-        return $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
     }
 
     /**
@@ -255,9 +257,19 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -275,69 +287,9 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAddress(?Address $address)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withRoles(?array $roles)
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDescription(?LocalizedString $description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withGeoLocation(?GeoJson $geoLocation)
-    {
-        $this->geoLocation = $geoLocation;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics)
-    {
-        $this->reviewRatingStatistics = $reviewRatingStatistics;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -355,9 +307,69 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withRoles(?array $roles)
     {
-        $this->createdBy = $createdBy;
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDescription(?LocalizedString $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAddress(?Address $address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics)
+    {
+        $this->reviewRatingStatistics = $reviewRatingStatistics;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withGeoLocation(?GeoJson $geoLocation)
+    {
+        $this->geoLocation = $geoLocation;
 
         return $this;
     }
@@ -375,39 +387,9 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAddressBuilder(?AddressBuilder $address)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withGeoLocationBuilder(?GeoJsonBuilder $geoLocation)
-    {
-        $this->geoLocation = $geoLocation;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -425,6 +407,26 @@ final class ChannelBuilder implements Builder
     /**
      * @return $this
      */
+    public function withDescriptionBuilder(?LocalizedStringBuilder $description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAddressBuilder(?AddressBuilder $address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withReviewRatingStatisticsBuilder(?ReviewRatingStatisticsBuilder $reviewRatingStatistics)
     {
         $this->reviewRatingStatistics = $reviewRatingStatistics;
@@ -432,23 +434,43 @@ final class ChannelBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withGeoLocationBuilder(?GeoJsonBuilder $geoLocation)
+    {
+        $this->geoLocation = $geoLocation;
+
+        return $this;
+    }
+
     public function build(): Channel
     {
         return new ChannelModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->key,
             $this->roles,
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
+            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
             ($this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics),
-            $this->key
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation)
         );
     }
 

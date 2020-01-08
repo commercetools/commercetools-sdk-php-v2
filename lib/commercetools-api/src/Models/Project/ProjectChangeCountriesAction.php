@@ -13,6 +13,8 @@ interface ProjectChangeCountriesAction extends ProjectUpdateAction
     const FIELD_COUNTRIES = 'countries';
 
     /**
+     * <p>A two-digit country code as per country code.</p>.
+     *
      * @return null|array
      */
     public function getCountries();

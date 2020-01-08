@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
-
-    /**
      * @var ?string
      */
     private $textLineItemId;
 
     /**
-     * @return null|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
+    private $name;
 
     /**
      * @return null|string
@@ -44,13 +36,11 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|LocalizedString
      */
-    public function withName(?LocalizedString $name)
+    public function getName()
     {
-        $this->name = $name;
-
-        return $this;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -59,6 +49,16 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
     public function withTextLineItemId(?string $textLineItemId)
     {
         $this->textLineItemId = $textLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class MyShoppingListChangeTextLineItemNameActionBuilder implements Builder
     public function build(): MyShoppingListChangeTextLineItemNameAction
     {
         return new MyShoppingListChangeTextLineItemNameActionModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->textLineItemId
+            $this->textLineItemId,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
         );
     }
 

@@ -20,11 +20,6 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     protected $action;
 
     /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -34,14 +29,19 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
      */
     protected $sku;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        bool $staged = null,
         int $variantId = null,
-        string $sku = null
+        string $sku = null,
+        bool $staged = null
     ) {
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -63,23 +63,6 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetSkuAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
-    }
-
-    /**
      * @return null|int
      */
     public function getVariantId()
@@ -97,6 +80,9 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     }
 
     /**
+     * <p>SKU must be unique.
+     * If left blank or set to <code>null</code>, the sku is unset/removed.</p>.
+     *
      * @return null|string
      */
     public function getSku()
@@ -113,9 +99,21 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
         return $this->sku;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->staged = $staged;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetSkuAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setVariantId(?int $variantId): void
@@ -126,5 +124,10 @@ final class ProductSetSkuActionModel extends JsonObjectModel implements ProductS
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

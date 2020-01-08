@@ -34,6 +34,8 @@ interface DiscountCode extends LoggedResource
     const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
+     * <p>The unique ID of the discount code.</p>.
+     *
      * @return null|string
      */
     public function getId();
@@ -54,11 +56,15 @@ interface DiscountCode extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -74,16 +80,24 @@ interface DiscountCode extends LoggedResource
     public function getDescription();
 
     /**
+     * <p>Unique identifier of this discount code.
+     * This value is added to the cart
+     * to enable the related cart discounts in the cart.</p>.
+     *
      * @return null|string
      */
     public function getCode();
 
     /**
+     * <p>The referenced matching cart discounts can be applied to the cart once the DiscountCode is added.</p>.
+     *
      * @return null|CartDiscountReferenceCollection
      */
     public function getCartDiscounts();
 
     /**
+     * <p>The discount code can only be applied to carts that match this predicate.</p>.
+     *
      * @return null|string
      */
     public function getCartPredicate();
@@ -94,16 +108,23 @@ interface DiscountCode extends LoggedResource
     public function getIsActive();
 
     /**
+     * <p>The platform will generate this array from the cart predicate.
+     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     *
      * @return null|ReferenceCollection
      */
     public function getReferences();
 
     /**
+     * <p>The discount code can only be applied <code>maxApplications</code> times.</p>.
+     *
      * @return null|int
      */
     public function getMaxApplications();
 
     /**
+     * <p>The discount code can only be applied <code>maxApplicationsPerCustomer</code> times per customer.</p>.
+     *
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer();
@@ -114,16 +135,24 @@ interface DiscountCode extends LoggedResource
     public function getCustom();
 
     /**
+     * <p>The groups to which this discount code belong.</p>.
+     *
      * @return null|array
      */
     public function getGroups();
 
     /**
+     * <p>The time from which the discount can be applied on a cart.
+     * Before that time the code is invalid.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+     * <p>The time until the discount can be applied on a cart.
+     * After that time the code is invalid.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();

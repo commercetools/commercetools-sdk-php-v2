@@ -18,12 +18,12 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * @var ?int
      */
-    private $centAmount;
+    private $fractionDigits;
 
     /**
      * @var ?int
      */
-    private $fractionDigits;
+    private $centAmount;
 
     /**
      * @var ?string
@@ -38,17 +38,17 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * @return null|int
      */
-    public function getCentAmount()
+    public function getFractionDigits()
     {
-        return $this->centAmount;
+        return $this->fractionDigits;
     }
 
     /**
      * @return null|int
      */
-    public function getFractionDigits()
+    public function getCentAmount()
     {
-        return $this->fractionDigits;
+        return $this->centAmount;
     }
 
     /**
@@ -72,9 +72,9 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCentAmount(?int $centAmount)
+    public function withFractionDigits(?int $fractionDigits)
     {
-        $this->centAmount = $centAmount;
+        $this->fractionDigits = $fractionDigits;
 
         return $this;
     }
@@ -82,9 +82,9 @@ final class HighPrecisionMoneyBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFractionDigits(?int $fractionDigits)
+    public function withCentAmount(?int $centAmount)
     {
-        $this->fractionDigits = $fractionDigits;
+        $this->centAmount = $centAmount;
 
         return $this;
     }
@@ -112,8 +112,8 @@ final class HighPrecisionMoneyBuilder implements Builder
     public function build(): HighPrecisionMoney
     {
         return new HighPrecisionMoneyModel(
-            $this->centAmount,
             $this->fractionDigits,
+            $this->centAmount,
             $this->currencyCode,
             $this->preciseAmount
         );

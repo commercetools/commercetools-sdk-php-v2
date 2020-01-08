@@ -21,11 +21,6 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     protected $sources;
 
     /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
      * @var ?LocalizedString
      */
     protected $name;
@@ -36,29 +31,34 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     protected $description;
 
     /**
-     * @var ?string
-     */
-    protected $key;
-
-    /**
      * @var ?array
      */
     protected $tags;
 
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?string
+     */
+    protected $key;
+
     public function __construct(
         AssetSourceCollection $sources = null,
-        CustomFieldsDraft $custom = null,
         LocalizedString $name = null,
         LocalizedString $description = null,
-        string $key = null,
-        array $tags = null
+        array $tags = null,
+        CustomFieldsDraft $custom = null,
+        string $key = null
     ) {
         $this->sources = $sources;
-        $this->custom = $custom;
         $this->name = $name;
         $this->description = $description;
-        $this->key = $key;
         $this->tags = $tags;
+        $this->custom = $custom;
+        $this->key = $key;
     }
 
     /**
@@ -76,24 +76,6 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
         }
 
         return $this->sources;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(AssetDraft::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
     }
 
     /**
@@ -133,23 +115,6 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(AssetDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
      * @return null|array
      */
     public function getTags()
@@ -166,14 +131,44 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
         return $this->tags;
     }
 
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(AssetDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(AssetDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
     public function setSources(?AssetSourceCollection $sources): void
     {
         $this->sources = $sources;
-    }
-
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
     }
 
     public function setName(?LocalizedString $name): void
@@ -186,13 +181,18 @@ final class AssetDraftModel extends JsonObjectModel implements AssetDraft
         $this->description = $description;
     }
 
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
-    }
-
     public function setTags(?array $tags): void
     {
         $this->tags = $tags;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 }

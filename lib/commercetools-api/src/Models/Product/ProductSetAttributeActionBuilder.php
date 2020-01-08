@@ -17,16 +17,6 @@ use Commercetools\Base\JsonObject;
 final class ProductSetAttributeActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $name;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -37,25 +27,19 @@ final class ProductSetAttributeActionBuilder implements Builder
     private $sku;
 
     /**
+     * @var ?string
+     */
+    private $name;
+
+    /**
      * @var ?JsonObject
      */
     private $value;
 
     /**
-     * @return null|string
+     * @var ?bool
      */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $staged;
 
     /**
      * @return null|int
@@ -74,6 +58,18 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * <p>If the attribute exists and the value is omitted or set to <code>null</code>, the attribute is removed.
+     * If the attribute exists and a value is provided, the new value is applied.
+     * If the attribute does not exist and a value is provided, it is added as a new attribute.</p>.
+     *
      * @return null|JsonObject
      */
     public function getValue()
@@ -82,23 +78,11 @@ final class ProductSetAttributeActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withName(?string $name)
+    public function getStaged()
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withStaged(?bool $staged)
-    {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->staged;
     }
 
     /**
@@ -124,6 +108,16 @@ final class ProductSetAttributeActionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withName(?string $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withValue(?JsonObject $value)
     {
         $this->value = $value;
@@ -131,14 +125,24 @@ final class ProductSetAttributeActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
     public function build(): ProductSetAttributeAction
     {
         return new ProductSetAttributeActionModel(
-            $this->name,
-            $this->staged,
             $this->variantId,
             $this->sku,
-            $this->value
+            $this->name,
+            $this->value,
+            $this->staged
         );
     }
 

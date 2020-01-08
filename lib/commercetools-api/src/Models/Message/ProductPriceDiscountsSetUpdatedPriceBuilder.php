@@ -18,6 +18,26 @@ use Commercetools\Base\Builder;
 final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
 {
     /**
+     * @var ?int
+     */
+    private $variantId;
+
+    /**
+     * @var ?string
+     */
+    private $variantKey;
+
+    /**
+     * @var ?string
+     */
+    private $sku;
+
+    /**
+     * @var ?string
+     */
+    private $priceId;
+
+    /**
      * @var DiscountedPrice|?DiscountedPriceBuilder
      */
     private $discounted;
@@ -28,24 +48,36 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     private $staged;
 
     /**
-     * @var ?int
+     * @return null|int
      */
-    private $variantId;
+    public function getVariantId()
+    {
+        return $this->variantId;
+    }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $priceId;
+    public function getVariantKey()
+    {
+        return $this->variantKey;
+    }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $sku;
+    public function getSku()
+    {
+        return $this->sku;
+    }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $variantKey;
+    public function getPriceId()
+    {
+        return $this->priceId;
+    }
 
     /**
      * @return null|DiscountedPrice
@@ -64,35 +96,43 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return $this
      */
-    public function getVariantId()
+    public function withVariantId(?int $variantId)
     {
-        return $this->variantId;
+        $this->variantId = $variantId;
+
+        return $this;
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getPriceId()
+    public function withVariantKey(?string $variantKey)
     {
-        return $this->priceId;
+        $this->variantKey = $variantKey;
+
+        return $this;
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getSku()
+    public function withSku(?string $sku)
     {
-        return $this->sku;
+        $this->sku = $sku;
+
+        return $this;
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getVariantKey()
+    public function withPriceId(?string $priceId)
     {
-        return $this->variantKey;
+        $this->priceId = $priceId;
+
+        return $this;
     }
 
     /**
@@ -118,46 +158,6 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariantId(?int $variantId)
-    {
-        $this->variantId = $variantId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPriceId(?string $priceId)
-    {
-        $this->priceId = $priceId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withVariantKey(?string $variantKey)
-    {
-        $this->variantKey = $variantKey;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
     {
         $this->discounted = $discounted;
@@ -168,12 +168,12 @@ final class ProductPriceDiscountsSetUpdatedPriceBuilder implements Builder
     public function build(): ProductPriceDiscountsSetUpdatedPrice
     {
         return new ProductPriceDiscountsSetUpdatedPriceModel(
-            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
-            $this->staged,
             $this->variantId,
-            $this->priceId,
+            $this->variantKey,
             $this->sku,
-            $this->variantKey
+            $this->priceId,
+            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
+            $this->staged
         );
     }
 

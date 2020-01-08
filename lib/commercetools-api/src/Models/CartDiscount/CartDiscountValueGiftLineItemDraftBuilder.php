@@ -25,14 +25,14 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     private $product;
 
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
-     */
-    private $supplyChannel;
-
-    /**
      * @var ?int
      */
     private $variantId;
+
+    /**
+     * @var ChannelReference|?ChannelReferenceBuilder
+     */
+    private $supplyChannel;
 
     /**
      * @var ChannelReference|?ChannelReferenceBuilder
@@ -48,19 +48,19 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     }
 
     /**
-     * @return null|ChannelReference
-     */
-    public function getSupplyChannel()
-    {
-        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
-    }
-
-    /**
      * @return null|int
      */
     public function getVariantId()
     {
         return $this->variantId;
+    }
+
+    /**
+     * @return null|ChannelReference
+     */
+    public function getSupplyChannel()
+    {
+        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
 
     /**
@@ -84,9 +84,9 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSupplyChannel(?ChannelReference $supplyChannel)
+    public function withVariantId(?int $variantId)
     {
-        $this->supplyChannel = $supplyChannel;
+        $this->variantId = $variantId;
 
         return $this;
     }
@@ -94,9 +94,9 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariantId(?int $variantId)
+    public function withSupplyChannel(?ChannelReference $supplyChannel)
     {
-        $this->variantId = $variantId;
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -145,8 +145,8 @@ final class CartDiscountValueGiftLineItemDraftBuilder implements Builder
     {
         return new CartDiscountValueGiftLineItemDraftModel(
             ($this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product),
-            ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
             $this->variantId,
+            ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
             ($this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel)
         );
     }

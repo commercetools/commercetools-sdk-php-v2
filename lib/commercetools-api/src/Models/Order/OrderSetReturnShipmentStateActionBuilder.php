@@ -18,20 +18,12 @@ final class OrderSetReturnShipmentStateActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $shipmentState;
+    private $returnItemId;
 
     /**
      * @var ?string
      */
-    private $returnItemId;
-
-    /**
-     * @return null|string
-     */
-    public function getShipmentState()
-    {
-        return $this->shipmentState;
-    }
+    private $shipmentState;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class OrderSetReturnShipmentStateActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withShipmentState(?string $shipmentState)
+    public function getShipmentState()
     {
-        $this->shipmentState = $shipmentState;
-
-        return $this;
+        return $this->shipmentState;
     }
 
     /**
@@ -61,11 +51,21 @@ final class OrderSetReturnShipmentStateActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withShipmentState(?string $shipmentState)
+    {
+        $this->shipmentState = $shipmentState;
+
+        return $this;
+    }
+
     public function build(): OrderSetReturnShipmentStateAction
     {
         return new OrderSetReturnShipmentStateActionModel(
-            $this->shipmentState,
-            $this->returnItemId
+            $this->returnItemId,
+            $this->shipmentState
         );
     }
 

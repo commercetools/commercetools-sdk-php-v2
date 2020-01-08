@@ -19,20 +19,12 @@ final class ProductDiscountSetValidFromAndUntilActionBuilder implements Builder
     /**
      * @var ?DateTimeImmutable
      */
-    private $validUntil;
+    private $validFrom;
 
     /**
      * @var ?DateTimeImmutable
      */
-    private $validFrom;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getValidUntil()
-    {
-        return $this->validUntil;
-    }
+    private $validUntil;
 
     /**
      * @return null|DateTimeImmutable
@@ -43,13 +35,14 @@ final class ProductDiscountSetValidFromAndUntilActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>The timeframe for which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     *
+     * @return null|DateTimeImmutable
      */
-    public function withValidUntil(?DateTimeImmutable $validUntil)
+    public function getValidUntil()
     {
-        $this->validUntil = $validUntil;
-
-        return $this;
+        return $this->validUntil;
     }
 
     /**
@@ -62,11 +55,21 @@ final class ProductDiscountSetValidFromAndUntilActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withValidUntil(?DateTimeImmutable $validUntil)
+    {
+        $this->validUntil = $validUntil;
+
+        return $this;
+    }
+
     public function build(): ProductDiscountSetValidFromAndUntilAction
     {
         return new ProductDiscountSetValidFromAndUntilActionModel(
-            $this->validUntil,
-            $this->validFrom
+            $this->validFrom,
+            $this->validUntil
         );
     }
 

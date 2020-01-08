@@ -18,37 +18,19 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
     /**
      * @var ?Money
      */
-    protected $totalPrice;
+    protected $price;
 
     /**
      * @var ?Money
      */
-    protected $price;
+    protected $totalPrice;
 
     public function __construct(
-        Money $totalPrice = null,
-        Money $price = null
+        Money $price = null,
+        Money $totalPrice = null
     ) {
-        $this->totalPrice = $totalPrice;
         $this->price = $price;
-    }
-
-    /**
-     * @return null|Money
-     */
-    public function getTotalPrice()
-    {
-        if (is_null($this->totalPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ExternalLineItemTotalPrice::FIELD_TOTAL_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->totalPrice = MoneyModel::of($data);
-        }
-
-        return $this->totalPrice;
+        $this->totalPrice = $totalPrice;
     }
 
     /**
@@ -69,13 +51,31 @@ final class ExternalLineItemTotalPriceModel extends JsonObjectModel implements E
         return $this->price;
     }
 
-    public function setTotalPrice(?Money $totalPrice): void
+    /**
+     * @return null|Money
+     */
+    public function getTotalPrice()
     {
-        $this->totalPrice = $totalPrice;
+        if (is_null($this->totalPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ExternalLineItemTotalPrice::FIELD_TOTAL_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalPrice = MoneyModel::of($data);
+        }
+
+        return $this->totalPrice;
     }
 
     public function setPrice(?Money $price): void
     {
         $this->price = $price;
+    }
+
+    public function setTotalPrice(?Money $totalPrice): void
+    {
+        $this->totalPrice = $totalPrice;
     }
 }

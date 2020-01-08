@@ -23,14 +23,14 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     private $deliveryId;
 
     /**
-     * @var TrackingData|?TrackingDataBuilder
-     */
-    private $trackingData;
-
-    /**
      * @var ?string
      */
     private $parcelId;
+
+    /**
+     * @var TrackingData|?TrackingDataBuilder
+     */
+    private $trackingData;
 
     /**
      * @return null|string
@@ -41,19 +41,19 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return null|TrackingData
-     */
-    public function getTrackingData()
-    {
-        return $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData;
-    }
-
-    /**
      * @return null|string
      */
     public function getParcelId()
     {
         return $this->parcelId;
+    }
+
+    /**
+     * @return null|TrackingData
+     */
+    public function getTrackingData()
+    {
+        return $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData;
     }
 
     /**
@@ -69,9 +69,9 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTrackingData(?TrackingData $trackingData)
+    public function withParcelId(?string $parcelId)
     {
-        $this->trackingData = $trackingData;
+        $this->parcelId = $parcelId;
 
         return $this;
     }
@@ -79,9 +79,9 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withParcelId(?string $parcelId)
+    public function withTrackingData(?TrackingData $trackingData)
     {
-        $this->parcelId = $parcelId;
+        $this->trackingData = $trackingData;
 
         return $this;
     }
@@ -100,8 +100,8 @@ final class ParcelTrackingDataUpdatedMessagePayloadBuilder implements Builder
     {
         return new ParcelTrackingDataUpdatedMessagePayloadModel(
             $this->deliveryId,
-            ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData),
-            $this->parcelId
+            $this->parcelId,
+            ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData)
         );
     }
 

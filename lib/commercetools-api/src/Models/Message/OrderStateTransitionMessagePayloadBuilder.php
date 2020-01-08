@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class OrderStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $force;
-
-    /**
      * @var StateReference|?StateReferenceBuilder
      */
     private $state;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getForce()
-    {
-        return $this->force;
-    }
+    private $force;
 
     /**
      * @return null|StateReference
@@ -44,13 +36,11 @@ final class OrderStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withForce(?bool $force)
+    public function getForce()
     {
-        $this->force = $force;
-
-        return $this;
+        return $this->force;
     }
 
     /**
@@ -59,6 +49,16 @@ final class OrderStateTransitionMessagePayloadBuilder implements Builder
     public function withState(?StateReference $state)
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withForce(?bool $force)
+    {
+        $this->force = $force;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class OrderStateTransitionMessagePayloadBuilder implements Builder
     public function build(): OrderStateTransitionMessagePayload
     {
         return new OrderStateTransitionMessagePayloadModel(
-            $this->force,
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state)
+            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
+            $this->force
         );
     }
 

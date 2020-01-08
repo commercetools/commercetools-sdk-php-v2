@@ -19,14 +19,9 @@ use DateTimeImmutable;
 final class OrderTransitionLineItemStateActionBuilder implements Builder
 {
     /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     * @var ?string
      */
-    private $toState;
-
-    /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
-     */
-    private $fromState;
+    private $lineItemId;
 
     /**
      * @var ?int
@@ -34,9 +29,14 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     private $quantity;
 
     /**
-     * @var ?string
+     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
      */
-    private $lineItemId;
+    private $fromState;
+
+    /**
+     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     */
+    private $toState;
 
     /**
      * @var ?DateTimeImmutable
@@ -44,19 +44,11 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     private $actualTransitionDate;
 
     /**
-     * @return null|StateResourceIdentifier
+     * @return null|string
      */
-    public function getToState()
+    public function getLineItemId()
     {
-        return $this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState;
-    }
-
-    /**
-     * @return null|StateResourceIdentifier
-     */
-    public function getFromState()
-    {
-        return $this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState;
+        return $this->lineItemId;
     }
 
     /**
@@ -68,11 +60,19 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|StateResourceIdentifier
      */
-    public function getLineItemId()
+    public function getFromState()
     {
-        return $this->lineItemId;
+        return $this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState;
+    }
+
+    /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getToState()
+    {
+        return $this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState;
     }
 
     /**
@@ -86,19 +86,9 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withToState(?StateResourceIdentifier $toState)
+    public function withLineItemId(?string $lineItemId)
     {
-        $this->toState = $toState;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFromState(?StateResourceIdentifier $fromState)
-    {
-        $this->fromState = $fromState;
+        $this->lineItemId = $lineItemId;
 
         return $this;
     }
@@ -116,9 +106,19 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLineItemId(?string $lineItemId)
+    public function withFromState(?StateResourceIdentifier $fromState)
     {
-        $this->lineItemId = $lineItemId;
+        $this->fromState = $fromState;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withToState(?StateResourceIdentifier $toState)
+    {
+        $this->toState = $toState;
 
         return $this;
     }
@@ -136,16 +136,6 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withToStateBuilder(?StateResourceIdentifierBuilder $toState)
-    {
-        $this->toState = $toState;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withFromStateBuilder(?StateResourceIdentifierBuilder $fromState)
     {
         $this->fromState = $fromState;
@@ -153,13 +143,23 @@ final class OrderTransitionLineItemStateActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withToStateBuilder(?StateResourceIdentifierBuilder $toState)
+    {
+        $this->toState = $toState;
+
+        return $this;
+    }
+
     public function build(): OrderTransitionLineItemStateAction
     {
         return new OrderTransitionLineItemStateActionModel(
-            ($this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState),
-            ($this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState),
-            $this->quantity,
             $this->lineItemId,
+            $this->quantity,
+            ($this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState),
+            ($this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState),
             $this->actualTransitionDate
         );
     }

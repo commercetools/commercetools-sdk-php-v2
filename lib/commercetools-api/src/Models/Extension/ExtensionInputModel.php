@@ -16,21 +16,38 @@ use stdClass;
 final class ExtensionInputModel extends JsonObjectModel implements ExtensionInput
 {
     /**
-     * @var ?Reference
-     */
-    protected $resource;
-
-    /**
      * @var ?string
      */
     protected $action;
 
+    /**
+     * @var ?Reference
+     */
+    protected $resource;
+
     public function __construct(
-        Reference $resource = null,
-        string $action = null
+        string $action = null,
+        Reference $resource = null
     ) {
-        $this->resource = $resource;
         $this->action = $action;
+        $this->resource = $resource;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAction()
+    {
+        if (is_null($this->action)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ExtensionInput::FIELD_ACTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->action = (string) $data;
+        }
+
+        return $this->action;
     }
 
     /**
@@ -51,30 +68,13 @@ final class ExtensionInputModel extends JsonObjectModel implements ExtensionInpu
         return $this->resource;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getAction()
+    public function setAction(?string $action): void
     {
-        if (is_null($this->action)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionInput::FIELD_ACTION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->action = (string) $data;
-        }
-
-        return $this->action;
+        $this->action = $action;
     }
 
     public function setResource(?Reference $resource): void
     {
         $this->resource = $resource;
-    }
-
-    public function setAction(?string $action): void
-    {
-        $this->action = $action;
     }
 }

@@ -22,11 +22,6 @@ final class ConcurrentModificationErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var ?JsonObject
-     */
-    private $conflictedResource;
-
-    /**
      * @var ?int
      */
     private $specifiedVersion;
@@ -37,6 +32,11 @@ final class ConcurrentModificationErrorBuilder implements Builder
     private $currentVersion;
 
     /**
+     * @var ?JsonObject
+     */
+    private $conflictedResource;
+
+    /**
      * <p>The error's description.</p>.
      *
      * @return null|string
@@ -44,16 +44,6 @@ final class ConcurrentModificationErrorBuilder implements Builder
     public function getMessage()
     {
         return $this->message;
-    }
-
-    /**
-     * <p>The conflicted resource.</p>.
-     *
-     * @return null|JsonObject
-     */
-    public function getConflictedResource()
-    {
-        return $this->conflictedResource;
     }
 
     /**
@@ -77,21 +67,21 @@ final class ConcurrentModificationErrorBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>The conflicted resource.</p>.
+     *
+     * @return null|JsonObject
      */
-    public function withMessage(?string $message)
+    public function getConflictedResource()
     {
-        $this->message = $message;
-
-        return $this;
+        return $this->conflictedResource;
     }
 
     /**
      * @return $this
      */
-    public function withConflictedResource(?JsonObject $conflictedResource)
+    public function withMessage(?string $message)
     {
-        $this->conflictedResource = $conflictedResource;
+        $this->message = $message;
 
         return $this;
     }
@@ -116,13 +106,23 @@ final class ConcurrentModificationErrorBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withConflictedResource(?JsonObject $conflictedResource)
+    {
+        $this->conflictedResource = $conflictedResource;
+
+        return $this;
+    }
+
     public function build(): ConcurrentModificationError
     {
         return new ConcurrentModificationErrorModel(
             $this->message,
-            $this->conflictedResource,
             $this->specifiedVersion,
-            $this->currentVersion
+            $this->currentVersion,
+            $this->conflictedResource
         );
     }
 

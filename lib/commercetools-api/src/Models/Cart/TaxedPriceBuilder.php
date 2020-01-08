@@ -18,9 +18,9 @@ use Commercetools\Base\Builder;
 final class TaxedPriceBuilder implements Builder
 {
     /**
-     * @var ?TaxPortionCollection
+     * @var TypedMoney|?TypedMoneyBuilder
      */
-    private $taxPortions;
+    private $totalNet;
 
     /**
      * @var TypedMoney|?TypedMoneyBuilder
@@ -28,16 +28,16 @@ final class TaxedPriceBuilder implements Builder
     private $totalGross;
 
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
+     * @var ?TaxPortionCollection
      */
-    private $totalNet;
+    private $taxPortions;
 
     /**
-     * @return null|TaxPortionCollection
+     * @return null|TypedMoney
      */
-    public function getTaxPortions()
+    public function getTotalNet()
     {
-        return $this->taxPortions;
+        return $this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet;
     }
 
     /**
@@ -49,19 +49,21 @@ final class TaxedPriceBuilder implements Builder
     }
 
     /**
-     * @return null|TypedMoney
+     * <p>TaxedPrice fields that can be used in query predicates: <code>totalNet</code>, <code>totalGross</code>.</p>.
+     *
+     * @return null|TaxPortionCollection
      */
-    public function getTotalNet()
+    public function getTaxPortions()
     {
-        return $this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet;
+        return $this->taxPortions;
     }
 
     /**
      * @return $this
      */
-    public function withTaxPortions(?TaxPortionCollection $taxPortions)
+    public function withTotalNet(?TypedMoney $totalNet)
     {
-        $this->taxPortions = $taxPortions;
+        $this->totalNet = $totalNet;
 
         return $this;
     }
@@ -79,7 +81,17 @@ final class TaxedPriceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalNet(?TypedMoney $totalNet)
+    public function withTaxPortions(?TaxPortionCollection $taxPortions)
+    {
+        $this->taxPortions = $taxPortions;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTotalNetBuilder(?TypedMoneyBuilder $totalNet)
     {
         $this->totalNet = $totalNet;
 
@@ -96,22 +108,12 @@ final class TaxedPriceBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withTotalNetBuilder(?TypedMoneyBuilder $totalNet)
-    {
-        $this->totalNet = $totalNet;
-
-        return $this;
-    }
-
     public function build(): TaxedPrice
     {
         return new TaxedPriceModel(
-            $this->taxPortions,
+            ($this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet),
             ($this->totalGross instanceof TypedMoneyBuilder ? $this->totalGross->build() : $this->totalGross),
-            ($this->totalNet instanceof TypedMoneyBuilder ? $this->totalNet->build() : $this->totalNet)
+            $this->taxPortions
         );
     }
 

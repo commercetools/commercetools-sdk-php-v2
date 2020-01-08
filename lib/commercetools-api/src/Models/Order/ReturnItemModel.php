@@ -20,17 +20,7 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     /**
      * @var ?string
      */
-    protected $shipmentState;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
+    protected $id;
 
     /**
      * @var ?int
@@ -40,12 +30,17 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     /**
      * @var ?string
      */
+    protected $type;
+
+    /**
+     * @var ?string
+     */
     protected $comment;
 
     /**
      * @var ?string
      */
-    protected $id;
+    protected $shipmentState;
 
     /**
      * @var ?string
@@ -53,9 +48,14 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     protected $paymentState;
 
     /**
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
-    protected $type;
+    protected $lastModifiedAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
 
     /**
      * @psalm-var array<string, class-string<ReturnItem> >
@@ -66,22 +66,90 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     ];
 
     public function __construct(
-        string $shipmentState = null,
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
+        string $id = null,
         int $quantity = null,
         string $comment = null,
-        string $id = null,
-        string $paymentState = null
+        string $shipmentState = null,
+        string $paymentState = null,
+        DateTimeImmutable $lastModifiedAt = null,
+        DateTimeImmutable $createdAt = null
     ) {
-        $this->shipmentState = $shipmentState;
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
+        $this->id = $id;
         $this->quantity = $quantity;
         $this->comment = $comment;
-        $this->id = $id;
+        $this->shipmentState = $shipmentState;
         $this->paymentState = $paymentState;
+        $this->lastModifiedAt = $lastModifiedAt;
+        $this->createdAt = $createdAt;
         $this->type = static::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReturnItem::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ReturnItem::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getType()
+    {
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReturnItem::FIELD_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->type = (string) $data;
+        }
+
+        return $this->type;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getComment()
+    {
+        if (is_null($this->comment)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReturnItem::FIELD_COMMENT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->comment = (string) $data;
+        }
+
+        return $this->comment;
     }
 
     /**
@@ -102,24 +170,20 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * @return null|string
      */
-    public function getCreatedAt()
+    public function getPaymentState()
     {
-        if (is_null($this->createdAt)) {
+        if (is_null($this->paymentState)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_CREATED_AT);
+            $data = $this->raw(ReturnItem::FIELD_PAYMENT_STATE);
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->createdAt = $data;
+            $this->paymentState = (string) $data;
         }
 
-        return $this->createdAt;
+        return $this->paymentState;
     }
 
     /**
@@ -144,103 +208,29 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
     }
 
     /**
-     * @return null|int
+     * @return null|DateTimeImmutable
      */
-    public function getQuantity()
+    public function getCreatedAt()
     {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ReturnItem::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getComment()
-    {
-        if (is_null($this->comment)) {
+        if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_COMMENT);
+            $data = $this->raw(ReturnItem::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
-            $this->comment = (string) $data;
-        }
-
-        return $this->comment;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_ID);
-            if (is_null($data)) {
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
                 return null;
             }
-            $this->id = (string) $data;
+            $this->createdAt = $data;
         }
 
-        return $this->id;
+        return $this->createdAt;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getPaymentState()
+    public function setId(?string $id): void
     {
-        if (is_null($this->paymentState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_PAYMENT_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->paymentState = (string) $data;
-        }
-
-        return $this->paymentState;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getType()
-    {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ReturnItem::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->type = (string) $data;
-        }
-
-        return $this->type;
-    }
-
-    public function setShipmentState(?string $shipmentState): void
-    {
-        $this->shipmentState = $shipmentState;
-    }
-
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        $this->id = $id;
     }
 
     public function setQuantity(?int $quantity): void
@@ -253,9 +243,9 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         $this->comment = $comment;
     }
 
-    public function setId(?string $id): void
+    public function setShipmentState(?string $shipmentState): void
     {
-        $this->id = $id;
+        $this->shipmentState = $shipmentState;
     }
 
     public function setPaymentState(?string $paymentState): void
@@ -263,15 +253,25 @@ final class ReturnItemModel extends JsonObjectModel implements ReturnItem
         $this->paymentState = $paymentState;
     }
 
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+    }
+
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[ReturnItem::FIELD_CREATED_AT]) && $data[ReturnItem::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[ReturnItem::FIELD_CREATED_AT] = $data[ReturnItem::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
-        }
-
         if (isset($data[ReturnItem::FIELD_LAST_MODIFIED_AT]) && $data[ReturnItem::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
             $data[ReturnItem::FIELD_LAST_MODIFIED_AT] = $data[ReturnItem::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[ReturnItem::FIELD_CREATED_AT]) && $data[ReturnItem::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[ReturnItem::FIELD_CREATED_AT] = $data[ReturnItem::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

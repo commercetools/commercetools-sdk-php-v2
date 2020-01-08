@@ -25,6 +25,11 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
     protected $projectKey;
 
     /**
+     * @var ?string
+     */
+    protected $notificationType;
+
+    /**
      * @var ?Reference
      */
     protected $resource;
@@ -33,11 +38,6 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
      * @var ?UserProvidedIdentifiers
      */
     protected $resourceUserProvidedIdentifiers;
-
-    /**
-     * @var ?string
-     */
-    protected $notificationType;
 
     /**
      * @psalm-var array<string, class-string<SubscriptionDelivery> >
@@ -78,6 +78,23 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
     }
 
     /**
+     * @return null|string
+     */
+    public function getNotificationType()
+    {
+        if (is_null($this->notificationType)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->notificationType = (string) $data;
+        }
+
+        return $this->notificationType;
+    }
+
+    /**
      * @return null|Reference
      */
     public function getResource()
@@ -111,23 +128,6 @@ final class SubscriptionDeliveryModel extends JsonObjectModel implements Subscri
         }
 
         return $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getNotificationType()
-    {
-        if (is_null($this->notificationType)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->notificationType = (string) $data;
-        }
-
-        return $this->notificationType;
     }
 
     public function setProjectKey(?string $projectKey): void

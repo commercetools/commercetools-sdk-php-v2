@@ -19,12 +19,17 @@ final class ReviewRatingStatisticsBuilder implements Builder
     /**
      * @var ?int
      */
+    private $averageRating;
+
+    /**
+     * @var ?int
+     */
     private $highestRating;
 
     /**
      * @var ?int
      */
-    private $averageRating;
+    private $lowestRating;
 
     /**
      * @var ?int
@@ -37,19 +42,9 @@ final class ReviewRatingStatisticsBuilder implements Builder
     private $ratingsDistribution;
 
     /**
-     * @var ?int
-     */
-    private $lowestRating;
-
-    /**
-     * @return null|int
-     */
-    public function getHighestRating()
-    {
-        return $this->highestRating;
-    }
-
-    /**
+     * <p>Average rating of one target
+     * This number is rounded with 5 decimals.</p>.
+     *
      * @return null|int
      */
     public function getAverageRating()
@@ -58,6 +53,28 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
+     * <p>Highest rating of one target</p>.
+     *
+     * @return null|int
+     */
+    public function getHighestRating()
+    {
+        return $this->highestRating;
+    }
+
+    /**
+     * <p>Lowest rating of one target</p>.
+     *
+     * @return null|int
+     */
+    public function getLowestRating()
+    {
+        return $this->lowestRating;
+    }
+
+    /**
+     * <p>Number of ratings taken into account</p>.
+     *
      * @return null|int
      */
     public function getCount()
@@ -66,6 +83,10 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
+     * <p>The full distribution of the ratings.
+     * The keys are the different ratings and the values are the count of reviews having this rating.
+     * Only the used ratings appear in this object.</p>.
+     *
      * @return null|JsonObject
      */
     public function getRatingsDistribution()
@@ -74,11 +95,13 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return $this
      */
-    public function getLowestRating()
+    public function withAverageRating(?int $averageRating)
     {
-        return $this->lowestRating;
+        $this->averageRating = $averageRating;
+
+        return $this;
     }
 
     /**
@@ -94,9 +117,9 @@ final class ReviewRatingStatisticsBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAverageRating(?int $averageRating)
+    public function withLowestRating(?int $lowestRating)
     {
-        $this->averageRating = $averageRating;
+        $this->lowestRating = $lowestRating;
 
         return $this;
     }
@@ -121,24 +144,14 @@ final class ReviewRatingStatisticsBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withLowestRating(?int $lowestRating)
-    {
-        $this->lowestRating = $lowestRating;
-
-        return $this;
-    }
-
     public function build(): ReviewRatingStatistics
     {
         return new ReviewRatingStatisticsModel(
-            $this->highestRating,
             $this->averageRating,
+            $this->highestRating,
+            $this->lowestRating,
             $this->count,
-            $this->ratingsDistribution,
-            $this->lowestRating
+            $this->ratingsDistribution
         );
     }
 

@@ -20,19 +20,9 @@ use stdClass;
 final class InventoryEntryDraftModel extends JsonObjectModel implements InventoryEntryDraft
 {
     /**
-     * @var ?DateTimeImmutable
+     * @var ?string
      */
-    protected $expectedDelivery;
-
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     * @var ?int
-     */
-    protected $quantityOnStock;
+    protected $sku;
 
     /**
      * @var ?ChannelResourceIdentifier
@@ -42,27 +32,106 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     /**
      * @var ?int
      */
+    protected $quantityOnStock;
+
+    /**
+     * @var ?int
+     */
     protected $restockableInDays;
 
     /**
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
-    protected $sku;
+    protected $expectedDelivery;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
 
     public function __construct(
-        DateTimeImmutable $expectedDelivery = null,
-        CustomFieldsDraft $custom = null,
-        int $quantityOnStock = null,
+        string $sku = null,
         ChannelResourceIdentifier $supplyChannel = null,
+        int $quantityOnStock = null,
         int $restockableInDays = null,
-        string $sku = null
+        DateTimeImmutable $expectedDelivery = null,
+        CustomFieldsDraft $custom = null
     ) {
+        $this->sku = $sku;
+        $this->supplyChannel = $supplyChannel;
+        $this->quantityOnStock = $quantityOnStock;
+        $this->restockableInDays = $restockableInDays;
         $this->expectedDelivery = $expectedDelivery;
         $this->custom = $custom;
-        $this->quantityOnStock = $quantityOnStock;
-        $this->supplyChannel = $supplyChannel;
-        $this->restockableInDays = $restockableInDays;
-        $this->sku = $sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(InventoryEntryDraft::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * @return null|ChannelResourceIdentifier
+     */
+    public function getSupplyChannel()
+    {
+        if (is_null($this->supplyChannel)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(InventoryEntryDraft::FIELD_SUPPLY_CHANNEL);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
+        }
+
+        return $this->supplyChannel;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuantityOnStock()
+    {
+        if (is_null($this->quantityOnStock)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(InventoryEntryDraft::FIELD_QUANTITY_ON_STOCK);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantityOnStock = (int) $data;
+        }
+
+        return $this->quantityOnStock;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getRestockableInDays()
+    {
+        if (is_null($this->restockableInDays)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(InventoryEntryDraft::FIELD_RESTOCKABLE_IN_DAYS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->restockableInDays = (int) $data;
+        }
+
+        return $this->restockableInDays;
     }
 
     /**
@@ -87,6 +156,8 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     }
 
     /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -104,73 +175,24 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
         return $this->custom;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getQuantityOnStock()
+    public function setSku(?string $sku): void
     {
-        if (is_null($this->quantityOnStock)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_QUANTITY_ON_STOCK);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantityOnStock = (int) $data;
-        }
-
-        return $this->quantityOnStock;
+        $this->sku = $sku;
     }
 
-    /**
-     * @return null|ChannelResourceIdentifier
-     */
-    public function getSupplyChannel()
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
     {
-        if (is_null($this->supplyChannel)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_SUPPLY_CHANNEL);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
-        }
-
-        return $this->supplyChannel;
+        $this->supplyChannel = $supplyChannel;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getRestockableInDays()
+    public function setQuantityOnStock(?int $quantityOnStock): void
     {
-        if (is_null($this->restockableInDays)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_RESTOCKABLE_IN_DAYS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->restockableInDays = (int) $data;
-        }
-
-        return $this->restockableInDays;
+        $this->quantityOnStock = $quantityOnStock;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getSku()
+    public function setRestockableInDays(?int $restockableInDays): void
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(InventoryEntryDraft::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
+        $this->restockableInDays = $restockableInDays;
     }
 
     public function setExpectedDelivery(?DateTimeImmutable $expectedDelivery): void
@@ -181,26 +203,6 @@ final class InventoryEntryDraftModel extends JsonObjectModel implements Inventor
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
-    }
-
-    public function setQuantityOnStock(?int $quantityOnStock): void
-    {
-        $this->quantityOnStock = $quantityOnStock;
-    }
-
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
-    {
-        $this->supplyChannel = $supplyChannel;
-    }
-
-    public function setRestockableInDays(?int $restockableInDays): void
-    {
-        $this->restockableInDays = $restockableInDays;
-    }
-
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
     }
 
     public function jsonSerialize()

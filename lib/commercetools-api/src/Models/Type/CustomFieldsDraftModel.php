@@ -14,42 +14,26 @@ use stdClass;
 final class CustomFieldsDraftModel extends JsonObjectModel implements CustomFieldsDraft
 {
     /**
-     * @var ?FieldContainer
-     */
-    protected $fields;
-
-    /**
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
-    public function __construct(
-        FieldContainer $fields = null,
-        TypeResourceIdentifier $type = null
-    ) {
-        $this->fields = $fields;
-        $this->type = $type;
-    }
-
     /**
-     * @return null|FieldContainer
+     * @var ?FieldContainer
      */
-    public function getFields()
-    {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomFieldsDraft::FIELD_FIELDS);
-            if (is_null($data)) {
-                return null;
-            }
+    protected $fields;
 
-            $this->fields = FieldContainerModel::of($data);
-        }
-
-        return $this->fields;
+    public function __construct(
+        TypeResourceIdentifier $type = null,
+        FieldContainer $fields = null
+    ) {
+        $this->type = $type;
+        $this->fields = $fields;
     }
 
     /**
+     * <p>The <code>id</code> or the <code>key</code> of the type to use.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -67,13 +51,33 @@ final class CustomFieldsDraftModel extends JsonObjectModel implements CustomFiel
         return $this->type;
     }
 
-    public function setFields(?FieldContainer $fields): void
+    /**
+     * <p>A valid JSON object, based on the FieldDefinitions of the Type.</p>.
+     *
+     * @return null|FieldContainer
+     */
+    public function getFields()
     {
-        $this->fields = $fields;
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomFieldsDraft::FIELD_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fields = FieldContainerModel::of($data);
+        }
+
+        return $this->fields;
     }
 
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
+    }
+
+    public function setFields(?FieldContainer $fields): void
+    {
+        $this->fields = $fields;
     }
 }

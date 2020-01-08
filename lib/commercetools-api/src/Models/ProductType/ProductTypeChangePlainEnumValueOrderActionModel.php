@@ -21,21 +21,21 @@ final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectMo
     protected $action;
 
     /**
-     * @var ?AttributePlainEnumValueCollection
-     */
-    protected $values;
-
-    /**
      * @var ?string
      */
     protected $attributeName;
 
+    /**
+     * @var ?AttributePlainEnumValueCollection
+     */
+    protected $values;
+
     public function __construct(
-        AttributePlainEnumValueCollection $values = null,
-        string $attributeName = null
+        string $attributeName = null,
+        AttributePlainEnumValueCollection $values = null
     ) {
-        $this->values = $values;
         $this->attributeName = $attributeName;
+        $this->values = $values;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -57,23 +57,6 @@ final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectMo
     }
 
     /**
-     * @return null|AttributePlainEnumValueCollection
-     */
-    public function getValues()
-    {
-        if (is_null($this->values)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductTypeChangePlainEnumValueOrderAction::FIELD_VALUES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->values = AttributePlainEnumValueCollection::fromArray($data);
-        }
-
-        return $this->values;
-    }
-
-    /**
      * @return null|string
      */
     public function getAttributeName()
@@ -90,13 +73,30 @@ final class ProductTypeChangePlainEnumValueOrderActionModel extends JsonObjectMo
         return $this->attributeName;
     }
 
-    public function setValues(?AttributePlainEnumValueCollection $values): void
+    /**
+     * @return null|AttributePlainEnumValueCollection
+     */
+    public function getValues()
     {
-        $this->values = $values;
+        if (is_null($this->values)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductTypeChangePlainEnumValueOrderAction::FIELD_VALUES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->values = AttributePlainEnumValueCollection::fromArray($data);
+        }
+
+        return $this->values;
     }
 
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
+    }
+
+    public function setValues(?AttributePlainEnumValueCollection $values): void
+    {
+        $this->values = $values;
     }
 }

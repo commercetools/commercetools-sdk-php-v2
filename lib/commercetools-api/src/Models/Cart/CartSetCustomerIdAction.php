@@ -13,6 +13,8 @@ interface CartSetCustomerIdAction extends CartUpdateAction
     const FIELD_CUSTOMER_ID = 'customerId';
 
     /**
+     * <p>If set, a customer with the given ID must exist in the project.</p>.
+     *
      * @return null|string
      */
     public function getCustomerId();

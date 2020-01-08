@@ -49,6 +49,8 @@ final class DiscountCodeSetMaxApplicationsActionModel extends JsonObjectModel im
     }
 
     /**
+     * <p>If the <code>maxApplications</code> parameter is not included, the field will be emptied.</p>.
+     *
      * @return null|int
      */
     public function getMaxApplications()

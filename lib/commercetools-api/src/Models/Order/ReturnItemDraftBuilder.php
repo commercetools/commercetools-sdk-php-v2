@@ -16,16 +16,6 @@ use Commercetools\Base\Builder;
 final class ReturnItemDraftBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $shipmentState;
-
-    /**
-     * @var ?string
-     */
-    private $customLineItemId;
-
-    /**
      * @var ?int
      */
     private $quantity;
@@ -38,23 +28,17 @@ final class ReturnItemDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $customLineItemId;
+
+    /**
+     * @var ?string
+     */
     private $comment;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getShipmentState()
-    {
-        return $this->shipmentState;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCustomLineItemId()
-    {
-        return $this->customLineItemId;
-    }
+    private $shipmentState;
 
     /**
      * @return null|int
@@ -75,29 +59,25 @@ final class ReturnItemDraftBuilder implements Builder
     /**
      * @return null|string
      */
+    public function getCustomLineItemId()
+    {
+        return $this->customLineItemId;
+    }
+
+    /**
+     * @return null|string
+     */
     public function getComment()
     {
         return $this->comment;
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withShipmentState(?string $shipmentState)
+    public function getShipmentState()
     {
-        $this->shipmentState = $shipmentState;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomLineItemId(?string $customLineItemId)
-    {
-        $this->customLineItemId = $customLineItemId;
-
-        return $this;
+        return $this->shipmentState;
     }
 
     /**
@@ -123,6 +103,16 @@ final class ReturnItemDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCustomLineItemId(?string $customLineItemId)
+    {
+        $this->customLineItemId = $customLineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withComment(?string $comment)
     {
         $this->comment = $comment;
@@ -130,14 +120,24 @@ final class ReturnItemDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withShipmentState(?string $shipmentState)
+    {
+        $this->shipmentState = $shipmentState;
+
+        return $this;
+    }
+
     public function build(): ReturnItemDraft
     {
         return new ReturnItemDraftModel(
-            $this->shipmentState,
-            $this->customLineItemId,
             $this->quantity,
             $this->lineItemId,
-            $this->comment
+            $this->customLineItemId,
+            $this->comment,
+            $this->shipmentState
         );
     }
 

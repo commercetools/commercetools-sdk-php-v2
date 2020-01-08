@@ -18,24 +18,20 @@ use Commercetools\Base\Builder;
 final class StoreDraftBuilder implements Builder
 {
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
-
-    /**
      * @var ?string
      */
     private $key;
 
     /**
-     * @return null|LocalizedString
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
+    private $name;
 
     /**
+     * <p>User-specific unique identifier for the store.
+     * The <code>key</code> is mandatory and immutable.
+     * It is used to reference the store.</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -44,13 +40,13 @@ final class StoreDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>The name of the store</p>.
+     *
+     * @return null|LocalizedString
      */
-    public function withName(?LocalizedString $name)
+    public function getName()
     {
-        $this->name = $name;
-
-        return $this;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -59,6 +55,16 @@ final class StoreDraftBuilder implements Builder
     public function withKey(?string $key)
     {
         $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -76,8 +82,8 @@ final class StoreDraftBuilder implements Builder
     public function build(): StoreDraft
     {
         return new StoreDraftModel(
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->key
+            $this->key,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
         );
     }
 

@@ -20,6 +20,16 @@ use stdClass;
 final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppingListDraft
 {
     /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
      * @var ?ShoppingListLineItemDraftCollection
      */
     protected $lineItems;
@@ -30,108 +40,29 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     protected $textLineItems;
 
     /**
-     * @var ?int
-     */
-    protected $deleteDaysAfterLastModification;
-
-    /**
      * @var ?CustomFieldsDraft
      */
     protected $custom;
 
     /**
-     * @var ?LocalizedString
+     * @var ?int
      */
-    protected $name;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
+    protected $deleteDaysAfterLastModification;
 
     public function __construct(
+        LocalizedString $name = null,
+        LocalizedString $description = null,
         ShoppingListLineItemDraftCollection $lineItems = null,
         TextLineItemDraftCollection $textLineItems = null,
-        int $deleteDaysAfterLastModification = null,
         CustomFieldsDraft $custom = null,
-        LocalizedString $name = null,
-        LocalizedString $description = null
+        int $deleteDaysAfterLastModification = null
     ) {
-        $this->lineItems = $lineItems;
-        $this->textLineItems = $textLineItems;
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-        $this->custom = $custom;
         $this->name = $name;
         $this->description = $description;
-    }
-
-    /**
-     * @return null|ShoppingListLineItemDraftCollection
-     */
-    public function getLineItems()
-    {
-        if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItems = ShoppingListLineItemDraftCollection::fromArray($data);
-        }
-
-        return $this->lineItems;
-    }
-
-    /**
-     * @return null|TextLineItemDraftCollection
-     */
-    public function getTextLineItems()
-    {
-        if (is_null($this->textLineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_TEXT_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->textLineItems = TextLineItemDraftCollection::fromArray($data);
-        }
-
-        return $this->textLineItems;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getDeleteDaysAfterLastModification()
-    {
-        if (is_null($this->deleteDaysAfterLastModification)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->deleteDaysAfterLastModification = (int) $data;
-        }
-
-        return $this->deleteDaysAfterLastModification;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyShoppingListDraft::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
+        $this->lineItems = $lineItems;
+        $this->textLineItems = $textLineItems;
+        $this->custom = $custom;
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
 
     /**
@@ -170,24 +101,77 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
         return $this->description;
     }
 
-    public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void
+    /**
+     * @return null|ShoppingListLineItemDraftCollection
+     */
+    public function getLineItems()
     {
-        $this->lineItems = $lineItems;
+        if (is_null($this->lineItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(MyShoppingListDraft::FIELD_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItems = ShoppingListLineItemDraftCollection::fromArray($data);
+        }
+
+        return $this->lineItems;
     }
 
-    public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void
+    /**
+     * @return null|TextLineItemDraftCollection
+     */
+    public function getTextLineItems()
     {
-        $this->textLineItems = $textLineItems;
+        if (is_null($this->textLineItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(MyShoppingListDraft::FIELD_TEXT_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->textLineItems = TextLineItemDraftCollection::fromArray($data);
+        }
+
+        return $this->textLineItems;
     }
 
-    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
     {
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(MyShoppingListDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
 
-    public function setCustom(?CustomFieldsDraft $custom): void
+    /**
+     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>.
+     *
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification()
     {
-        $this->custom = $custom;
+        if (is_null($this->deleteDaysAfterLastModification)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MyShoppingListDraft::FIELD_DELETE_DAYS_AFTER_LAST_MODIFICATION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->deleteDaysAfterLastModification = (int) $data;
+        }
+
+        return $this->deleteDaysAfterLastModification;
     }
 
     public function setName(?LocalizedString $name): void
@@ -198,5 +182,25 @@ final class MyShoppingListDraftModel extends JsonObjectModel implements MyShoppi
     public function setDescription(?LocalizedString $description): void
     {
         $this->description = $description;
+    }
+
+    public function setLineItems(?ShoppingListLineItemDraftCollection $lineItems): void
+    {
+        $this->lineItems = $lineItems;
+    }
+
+    public function setTextLineItems(?TextLineItemDraftCollection $textLineItems): void
+    {
+        $this->textLineItems = $textLineItems;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification): void
+    {
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
     }
 }

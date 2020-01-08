@@ -19,19 +19,24 @@ use DateTimeImmutable;
 final class ImportItemBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
+     * @var ?int
      */
-    private $createdAt;
+    private $version;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?string
      */
-    private $lastModifiedAt;
+    private $importSinkKey;
 
     /**
      * @var ?string
      */
     private $resourceKey;
+
+    /**
+     * @var ?string
+     */
+    private $state;
 
     /**
      * @var ?int
@@ -44,19 +49,19 @@ final class ImportItemBuilder implements Builder
     private $unresolvedReferences;
 
     /**
-     * @var ?string
+     * @var ?ErrorObjectCollection
      */
-    private $state;
+    private $errors;
 
     /**
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
-    private $importSinkKey;
+    private $createdAt;
 
     /**
-     * @var ?int
+     * @var ?DateTimeImmutable
      */
-    private $version;
+    private $lastModifiedAt;
 
     /**
      * @var ?DateTimeImmutable
@@ -64,28 +69,23 @@ final class ImportItemBuilder implements Builder
     private $expiresAt;
 
     /**
-     * @var ?ErrorObjectCollection
-     */
-    private $errors;
-
-    /**
-     * <p>When the import item was created.</p>.
+     * <p>The import item version.</p>.
      *
-     * @return null|DateTimeImmutable
+     * @return null|int
      */
-    public function getCreatedAt()
+    public function getVersion()
     {
-        return $this->createdAt;
+        return $this->version;
     }
 
     /**
-     * <p>When the import item was modified.</p>.
+     * <p>The key of the import sink.</p>.
      *
-     * @return null|DateTimeImmutable
+     * @return null|string
      */
-    public function getLastModifiedAt()
+    public function getImportSinkKey()
     {
-        return $this->lastModifiedAt;
+        return $this->importSinkKey;
     }
 
     /**
@@ -96,6 +96,16 @@ final class ImportItemBuilder implements Builder
     public function getResourceKey()
     {
         return $this->resourceKey;
+    }
+
+    /**
+     * <p>The status of the import resource.</p>.
+     *
+     * @return null|string
+     */
+    public function getState()
+    {
+        return $this->state;
     }
 
     /**
@@ -120,33 +130,34 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>The status of the import resource.</p>.
+     * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
+     * and this property contains the errors.</p>.
      *
-     * @return null|string
+     * @return null|ErrorObjectCollection
      */
-    public function getState()
+    public function getErrors()
     {
-        return $this->state;
+        return $this->errors;
     }
 
     /**
-     * <p>The key of the import sink.</p>.
+     * <p>When the import item was created.</p>.
      *
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
-    public function getImportSinkKey()
+    public function getCreatedAt()
     {
-        return $this->importSinkKey;
+        return $this->createdAt;
     }
 
     /**
-     * <p>The import item version.</p>.
+     * <p>When the import item was modified.</p>.
      *
-     * @return null|int
+     * @return null|DateTimeImmutable
      */
-    public function getVersion()
+    public function getLastModifiedAt()
     {
-        return $this->version;
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -160,22 +171,11 @@ final class ImportItemBuilder implements Builder
     }
 
     /**
-     * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
-     * and this property contains the errors.</p>.
-     *
-     * @return null|ErrorObjectCollection
-     */
-    public function getErrors()
-    {
-        return $this->errors;
-    }
-
-    /**
      * @return $this
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withVersion(?int $version)
     {
-        $this->createdAt = $createdAt;
+        $this->version = $version;
 
         return $this;
     }
@@ -183,9 +183,9 @@ final class ImportItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function withImportSinkKey(?string $importSinkKey)
     {
-        $this->lastModifiedAt = $lastModifiedAt;
+        $this->importSinkKey = $importSinkKey;
 
         return $this;
     }
@@ -196,6 +196,16 @@ final class ImportItemBuilder implements Builder
     public function withResourceKey(?string $resourceKey)
     {
         $this->resourceKey = $resourceKey;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withState(?string $state)
+    {
+        $this->state = $state;
 
         return $this;
     }
@@ -223,9 +233,9 @@ final class ImportItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withState(?string $state)
+    public function withErrors(?ErrorObjectCollection $errors)
     {
-        $this->state = $state;
+        $this->errors = $errors;
 
         return $this;
     }
@@ -233,9 +243,9 @@ final class ImportItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withImportSinkKey(?string $importSinkKey)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->importSinkKey = $importSinkKey;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -243,9 +253,9 @@ final class ImportItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVersion(?int $version)
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
     {
-        $this->version = $version;
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -260,29 +270,19 @@ final class ImportItemBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withErrors(?ErrorObjectCollection $errors)
-    {
-        $this->errors = $errors;
-
-        return $this;
-    }
-
     public function build(): ImportItem
     {
         return new ImportItemModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
+            $this->version,
+            $this->importSinkKey,
             $this->resourceKey,
+            $this->state,
             $this->retryCount,
             $this->unresolvedReferences,
-            $this->state,
-            $this->importSinkKey,
-            $this->version,
-            $this->expiresAt,
-            $this->errors
+            $this->errors,
+            $this->createdAt,
+            $this->lastModifiedAt,
+            $this->expiresAt
         );
     }
 

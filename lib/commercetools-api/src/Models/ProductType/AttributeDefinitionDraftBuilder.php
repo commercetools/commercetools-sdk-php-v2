@@ -18,6 +18,21 @@ use Commercetools\Base\Builder;
 final class AttributeDefinitionDraftBuilder implements Builder
 {
     /**
+     * @var AttributeType|?AttributeTypeBuilder
+     */
+    private $type;
+
+    /**
+     * @var ?string
+     */
+    private $name;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $label;
+
+    /**
      * @var ?bool
      */
     private $isRequired;
@@ -28,9 +43,9 @@ final class AttributeDefinitionDraftBuilder implements Builder
     private $attributeConstraint;
 
     /**
-     * @var ?string
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $name;
+    private $inputTip;
 
     /**
      * @var ?string
@@ -43,69 +58,8 @@ final class AttributeDefinitionDraftBuilder implements Builder
     private $isSearchable;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $label;
-
-    /**
-     * @var AttributeType|?AttributeTypeBuilder
-     */
-    private $type;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $inputTip;
-
-    /**
-     * @return null|bool
-     */
-    public function getIsRequired()
-    {
-        return $this->isRequired;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAttributeConstraint()
-    {
-        return $this->attributeConstraint;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getInputHint()
-    {
-        return $this->inputHint;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsSearchable()
-    {
-        return $this->isSearchable;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getLabel()
-    {
-        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
-    }
-
-    /**
+     * <p>Describes the type of the attribute.</p>.
+     *
      * @return null|AttributeType
      */
     public function getType()
@@ -114,11 +68,108 @@ final class AttributeDefinitionDraftBuilder implements Builder
     }
 
     /**
+     * <p>The unique name of the attribute used in the API.
+     * The name must be between two and 256 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>).
+     * When using the same <code>name</code> for an attribute in two or more product types all fields of the AttributeDefinition of this attribute need to be the same across the product types.</p>.
+     *
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * <p>A human-readable label for the attribute.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getLabel()
+    {
+        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
+    }
+
+    /**
+     * <p>Whether the attribute is required to have a value.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsRequired()
+    {
+        return $this->isRequired;
+    }
+
+    /**
+     * <p>Describes how an attribute or a set of attributes should be validated across all variants of a product.</p>.
+     *
+     * @return null|string
+     */
+    public function getAttributeConstraint()
+    {
+        return $this->attributeConstraint;
+    }
+
+    /**
+     * <p>Additional information about the attribute that aids content managers when setting product details.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getInputTip()
     {
         return $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip;
+    }
+
+    /**
+     * <p>Provides a visual representation type for this attribute.
+     * only relevant for text-based attribute types like TextType and LocalizableTextType.</p>.
+     *
+     * @return null|string
+     */
+    public function getInputHint()
+    {
+        return $this->inputHint;
+    }
+
+    /**
+     * <p>Whether the attribute's values should generally be enabled in product search.
+     * This determines whether the value is stored in products for matching terms in the context of full-text search queries and can be used in facets &amp; filters as part of product search queries.
+     * The exact features that are enabled/disabled with this flag depend on the concrete attribute type and are described there.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsSearchable()
+    {
+        return $this->isSearchable;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withType(?AttributeType $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?string $name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLabel(?LocalizedString $label)
+    {
+        $this->label = $label;
+
+        return $this;
     }
 
     /**
@@ -144,9 +195,9 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withInputTip(?LocalizedString $inputTip)
     {
-        $this->name = $name;
+        $this->inputTip = $inputTip;
 
         return $this;
     }
@@ -174,29 +225,9 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLabel(?LocalizedString $label)
-    {
-        $this->label = $label;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withType(?AttributeType $type)
+    public function withTypeBuilder(?AttributeTypeBuilder $type)
     {
         $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withInputTip(?LocalizedString $inputTip)
-    {
-        $this->inputTip = $inputTip;
 
         return $this;
     }
@@ -214,16 +245,6 @@ final class AttributeDefinitionDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTypeBuilder(?AttributeTypeBuilder $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withInputTipBuilder(?LocalizedStringBuilder $inputTip)
     {
         $this->inputTip = $inputTip;
@@ -234,14 +255,14 @@ final class AttributeDefinitionDraftBuilder implements Builder
     public function build(): AttributeDefinitionDraft
     {
         return new AttributeDefinitionDraftModel(
+            ($this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type),
+            $this->name,
+            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
             $this->isRequired,
             $this->attributeConstraint,
-            $this->name,
+            ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip),
             $this->inputHint,
-            $this->isSearchable,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
-            ($this->type instanceof AttributeTypeBuilder ? $this->type->build() : $this->type),
-            ($this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip)
+            $this->isSearchable
         );
     }
 

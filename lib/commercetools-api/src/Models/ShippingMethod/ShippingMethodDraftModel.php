@@ -16,19 +16,9 @@ use stdClass;
 final class ShippingMethodDraftModel extends JsonObjectModel implements ShippingMethodDraft
 {
     /**
-     * @var ?ZoneRateDraftCollection
-     */
-    protected $zoneRates;
-
-    /**
      * @var ?string
      */
-    protected $predicate;
-
-    /**
-     * @var ?bool
-     */
-    protected $isDefault;
+    protected $key;
 
     /**
      * @var ?string
@@ -41,82 +31,58 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     protected $description;
 
     /**
-     * @var ?string
-     */
-    protected $key;
-
-    /**
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
 
-    public function __construct(
-        ZoneRateDraftCollection $zoneRates = null,
-        string $predicate = null,
-        bool $isDefault = null,
-        string $name = null,
-        string $description = null,
-        string $key = null,
-        TaxCategoryResourceIdentifier $taxCategory = null
-    ) {
-        $this->zoneRates = $zoneRates;
-        $this->predicate = $predicate;
-        $this->isDefault = $isDefault;
-        $this->name = $name;
-        $this->description = $description;
-        $this->key = $key;
-        $this->taxCategory = $taxCategory;
-    }
+    /**
+     * @var ?ZoneRateDraftCollection
+     */
+    protected $zoneRates;
 
     /**
-     * @return null|ZoneRateDraftCollection
+     * @var ?bool
      */
-    public function getZoneRates()
-    {
-        if (is_null($this->zoneRates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_ZONE_RATES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->zoneRates = ZoneRateDraftCollection::fromArray($data);
-        }
+    protected $isDefault;
 
-        return $this->zoneRates;
+    /**
+     * @var ?string
+     */
+    protected $predicate;
+
+    public function __construct(
+        string $key = null,
+        string $name = null,
+        string $description = null,
+        TaxCategoryResourceIdentifier $taxCategory = null,
+        ZoneRateDraftCollection $zoneRates = null,
+        bool $isDefault = null,
+        string $predicate = null
+    ) {
+        $this->key = $key;
+        $this->name = $name;
+        $this->description = $description;
+        $this->taxCategory = $taxCategory;
+        $this->zoneRates = $zoneRates;
+        $this->isDefault = $isDefault;
+        $this->predicate = $predicate;
     }
 
     /**
      * @return null|string
      */
-    public function getPredicate()
+    public function getKey()
     {
-        if (is_null($this->predicate)) {
+        if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_PREDICATE);
+            $data = $this->raw(ShippingMethodDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->predicate = (string) $data;
+            $this->key = (string) $data;
         }
 
-        return $this->predicate;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsDefault()
-    {
-        if (is_null($this->isDefault)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_IS_DEFAULT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isDefault = (bool) $data;
-        }
-
-        return $this->isDefault;
+        return $this->key;
     }
 
     /**
@@ -154,23 +120,6 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethodDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
      * @return null|TaxCategoryResourceIdentifier
      */
     public function getTaxCategory()
@@ -188,19 +137,64 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         return $this->taxCategory;
     }
 
-    public function setZoneRates(?ZoneRateDraftCollection $zoneRates): void
+    /**
+     * @return null|ZoneRateDraftCollection
+     */
+    public function getZoneRates()
     {
-        $this->zoneRates = $zoneRates;
+        if (is_null($this->zoneRates)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShippingMethodDraft::FIELD_ZONE_RATES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->zoneRates = ZoneRateDraftCollection::fromArray($data);
+        }
+
+        return $this->zoneRates;
     }
 
-    public function setPredicate(?string $predicate): void
+    /**
+     * <p>If <code>true</code> the shipping method will be the default one in a project.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsDefault()
     {
-        $this->predicate = $predicate;
+        if (is_null($this->isDefault)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ShippingMethodDraft::FIELD_IS_DEFAULT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isDefault = (bool) $data;
+        }
+
+        return $this->isDefault;
     }
 
-    public function setIsDefault(?bool $isDefault): void
+    /**
+     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>.
+     *
+     * @return null|string
+     */
+    public function getPredicate()
     {
-        $this->isDefault = $isDefault;
+        if (is_null($this->predicate)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShippingMethodDraft::FIELD_PREDICATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->predicate = (string) $data;
+        }
+
+        return $this->predicate;
+    }
+
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
     }
 
     public function setName(?string $name): void
@@ -213,13 +207,23 @@ final class ShippingMethodDraftModel extends JsonObjectModel implements Shipping
         $this->description = $description;
     }
 
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
-    }
-
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
+    }
+
+    public function setZoneRates(?ZoneRateDraftCollection $zoneRates): void
+    {
+        $this->zoneRates = $zoneRates;
+    }
+
+    public function setIsDefault(?bool $isDefault): void
+    {
+        $this->isDefault = $isDefault;
+    }
+
+    public function setPredicate(?string $predicate): void
+    {
+        $this->predicate = $predicate;
     }
 }

@@ -15,7 +15,6 @@ use Commercetools\Api\Models\ProductType\ProductTypeReference;
 use Commercetools\Api\Models\Review\ReviewRatingStatistics;
 use Commercetools\Api\Models\State\StateReference;
 use Commercetools\Api\Models\TaxCategory\TaxCategoryReference;
-use DateTimeImmutable;
 
 interface ProductProjection extends BaseResource
 {
@@ -39,26 +38,22 @@ interface ProductProjection extends BaseResource
     const FIELD_REVIEW_RATING_STATISTICS = 'reviewRatingStatistics';
 
     /**
+     * <p>The unique ID of the Product.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the Product.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
 
     /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt();
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt();
-
-    /**
+     * <p>User-specific unique identifier of the Product.</p>.
+     *
      * @return null|string
      */
     public function getKey();
@@ -84,6 +79,8 @@ interface ProductProjection extends BaseResource
     public function getSlug();
 
     /**
+     * <p>References to categories the product is in.</p>.
+     *
      * @return null|CategoryReferenceCollection
      */
     public function getCategories();
@@ -144,6 +141,8 @@ interface ProductProjection extends BaseResource
     public function getState();
 
     /**
+     * <p>Statistics about the review ratings taken into account for this product.</p>.
+     *
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics();
@@ -151,10 +150,6 @@ interface ProductProjection extends BaseResource
     public function setId(?string $id): void;
 
     public function setVersion(?int $version): void;
-
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void;
-
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void;
 
     public function setKey(?string $key): void;
 

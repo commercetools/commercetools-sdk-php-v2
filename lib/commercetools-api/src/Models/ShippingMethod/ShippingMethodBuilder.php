@@ -23,16 +23,6 @@ use DateTimeImmutable;
 final class ShippingMethodBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -43,9 +33,14 @@ final class ShippingMethodBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -53,19 +48,14 @@ final class ShippingMethodBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var ?ZoneRateCollection
+     * @var CreatedBy|?CreatedByBuilder
      */
-    private $zoneRates;
+    private $createdBy;
 
     /**
      * @var ?string
      */
-    private $predicate;
-
-    /**
-     * @var ?bool
-     */
-    private $isDefault;
+    private $key;
 
     /**
      * @var ?string
@@ -78,14 +68,44 @@ final class ShippingMethodBuilder implements Builder
     private $description;
 
     /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
      * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
      */
     private $taxCategory;
+
+    /**
+     * @var ?ZoneRateCollection
+     */
+    private $zoneRates;
+
+    /**
+     * @var ?bool
+     */
+    private $isDefault;
+
+    /**
+     * @var ?string
+     */
+    private $predicate;
+
+    /**
+     * <p>The unique ID of the shipping method.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the shipping method.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -104,19 +124,11 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
 
     /**
@@ -128,35 +140,13 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
-    }
-
-    /**
-     * @return null|ZoneRateCollection
-     */
-    public function getZoneRates()
-    {
-        return $this->zoneRates;
-    }
-
-    /**
+     * <p>User-specific unique identifier for the shipping method.</p>.
+     *
      * @return null|string
      */
-    public function getPredicate()
+    public function getKey()
     {
-        return $this->predicate;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsDefault()
-    {
-        return $this->isDefault;
+        return $this->key;
     }
 
     /**
@@ -176,14 +166,6 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -192,23 +174,31 @@ final class ShippingMethodBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ZoneRateCollection
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getZoneRates()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->zoneRates;
     }
 
     /**
-     * @return $this
+     * <p>One shipping method in a project can be default.</p>.
+     *
+     * @return null|bool
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getIsDefault()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->isDefault;
+    }
 
-        return $this;
+    /**
+     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>.
+     *
+     * @return null|string
+     */
+    public function getPredicate()
+    {
+        return $this->predicate;
     }
 
     /**
@@ -234,9 +224,19 @@ final class ShippingMethodBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -254,9 +254,9 @@ final class ShippingMethodBuilder implements Builder
     /**
      * @return $this
      */
-    public function withZoneRates(?ZoneRateCollection $zoneRates)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->zoneRates = $zoneRates;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -264,19 +264,9 @@ final class ShippingMethodBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPredicate(?string $predicate)
+    public function withKey(?string $key)
     {
-        $this->predicate = $predicate;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withIsDefault(?bool $isDefault)
-    {
-        $this->isDefault = $isDefault;
+        $this->key = $key;
 
         return $this;
     }
@@ -304,16 +294,6 @@ final class ShippingMethodBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withTaxCategory(?TaxCategoryReference $taxCategory)
     {
         $this->taxCategory = $taxCategory;
@@ -324,9 +304,29 @@ final class ShippingMethodBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withZoneRates(?ZoneRateCollection $zoneRates)
     {
-        $this->createdBy = $createdBy;
+        $this->zoneRates = $zoneRates;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withIsDefault(?bool $isDefault)
+    {
+        $this->isDefault = $isDefault;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPredicate(?string $predicate)
+    {
+        $this->predicate = $predicate;
 
         return $this;
     }
@@ -344,6 +344,16 @@ final class ShippingMethodBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
     {
         $this->taxCategory = $taxCategory;
@@ -354,19 +364,19 @@ final class ShippingMethodBuilder implements Builder
     public function build(): ShippingMethod
     {
         return new ShippingMethodModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            $this->zoneRates,
-            $this->predicate,
-            $this->isDefault,
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->key,
             $this->name,
             $this->description,
-            $this->key,
-            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory)
+            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory),
+            $this->zoneRates,
+            $this->isDefault,
+            $this->predicate
         );
     }
 

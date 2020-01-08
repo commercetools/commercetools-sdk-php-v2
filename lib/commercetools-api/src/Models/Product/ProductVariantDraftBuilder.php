@@ -19,26 +19,6 @@ use Commercetools\Base\Builder;
 final class ProductVariantDraftBuilder implements Builder
 {
     /**
-     * @var ?ImageCollection
-     */
-    private $images;
-
-    /**
-     * @var ?AssetDraftCollection
-     */
-    private $assets;
-
-    /**
-     * @var ?AttributeCollection
-     */
-    private $attributes;
-
-    /**
-     * @var ?PriceDraftCollection
-     */
-    private $prices;
-
-    /**
      * @var ?string
      */
     private $sku;
@@ -49,36 +29,24 @@ final class ProductVariantDraftBuilder implements Builder
     private $key;
 
     /**
-     * @return null|ImageCollection
+     * @var ?PriceDraftCollection
      */
-    public function getImages()
-    {
-        return $this->images;
-    }
+    private $prices;
 
     /**
-     * @return null|AssetDraftCollection
+     * @var ?AttributeCollection
      */
-    public function getAssets()
-    {
-        return $this->assets;
-    }
+    private $attributes;
 
     /**
-     * @return null|AttributeCollection
+     * @var ?ImageCollection
      */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
+    private $images;
 
     /**
-     * @return null|PriceDraftCollection
+     * @var ?AssetDraftCollection
      */
-    public function getPrices()
-    {
-        return $this->prices;
-    }
+    private $assets;
 
     /**
      * @return null|string
@@ -97,43 +65,35 @@ final class ProductVariantDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|PriceDraftCollection
      */
-    public function withImages(?ImageCollection $images)
+    public function getPrices()
     {
-        $this->images = $images;
-
-        return $this;
+        return $this->prices;
     }
 
     /**
-     * @return $this
+     * @return null|AttributeCollection
      */
-    public function withAssets(?AssetDraftCollection $assets)
+    public function getAttributes()
     {
-        $this->assets = $assets;
-
-        return $this;
+        return $this->attributes;
     }
 
     /**
-     * @return $this
+     * @return null|ImageCollection
      */
-    public function withAttributes(?AttributeCollection $attributes)
+    public function getImages()
     {
-        $this->attributes = $attributes;
-
-        return $this;
+        return $this->images;
     }
 
     /**
-     * @return $this
+     * @return null|AssetDraftCollection
      */
-    public function withPrices(?PriceDraftCollection $prices)
+    public function getAssets()
     {
-        $this->prices = $prices;
-
-        return $this;
+        return $this->assets;
     }
 
     /**
@@ -156,15 +116,55 @@ final class ProductVariantDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withPrices(?PriceDraftCollection $prices)
+    {
+        $this->prices = $prices;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAttributes(?AttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withImages(?ImageCollection $images)
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssets(?AssetDraftCollection $assets)
+    {
+        $this->assets = $assets;
+
+        return $this;
+    }
+
     public function build(): ProductVariantDraft
     {
         return new ProductVariantDraftModel(
-            $this->images,
-            $this->assets,
-            $this->attributes,
-            $this->prices,
             $this->sku,
-            $this->key
+            $this->key,
+            $this->prices,
+            $this->attributes,
+            $this->images,
+            $this->assets
         );
     }
 

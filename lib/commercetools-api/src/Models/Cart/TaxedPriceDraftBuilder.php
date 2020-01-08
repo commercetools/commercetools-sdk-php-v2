@@ -18,9 +18,9 @@ use Commercetools\Base\Builder;
 final class TaxedPriceDraftBuilder implements Builder
 {
     /**
-     * @var ?TaxPortionDraftCollection
+     * @var TypedMoneyDraft|?TypedMoneyDraftBuilder
      */
-    private $taxPortions;
+    private $totalNet;
 
     /**
      * @var TypedMoneyDraft|?TypedMoneyDraftBuilder
@@ -28,16 +28,16 @@ final class TaxedPriceDraftBuilder implements Builder
     private $totalGross;
 
     /**
-     * @var TypedMoneyDraft|?TypedMoneyDraftBuilder
+     * @var ?TaxPortionDraftCollection
      */
-    private $totalNet;
+    private $taxPortions;
 
     /**
-     * @return null|TaxPortionDraftCollection
+     * @return null|TypedMoneyDraft
      */
-    public function getTaxPortions()
+    public function getTotalNet()
     {
-        return $this->taxPortions;
+        return $this->totalNet instanceof TypedMoneyDraftBuilder ? $this->totalNet->build() : $this->totalNet;
     }
 
     /**
@@ -49,19 +49,19 @@ final class TaxedPriceDraftBuilder implements Builder
     }
 
     /**
-     * @return null|TypedMoneyDraft
+     * @return null|TaxPortionDraftCollection
      */
-    public function getTotalNet()
+    public function getTaxPortions()
     {
-        return $this->totalNet instanceof TypedMoneyDraftBuilder ? $this->totalNet->build() : $this->totalNet;
+        return $this->taxPortions;
     }
 
     /**
      * @return $this
      */
-    public function withTaxPortions(?TaxPortionDraftCollection $taxPortions)
+    public function withTotalNet(?TypedMoneyDraft $totalNet)
     {
-        $this->taxPortions = $taxPortions;
+        $this->totalNet = $totalNet;
 
         return $this;
     }
@@ -79,7 +79,17 @@ final class TaxedPriceDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalNet(?TypedMoneyDraft $totalNet)
+    public function withTaxPortions(?TaxPortionDraftCollection $taxPortions)
+    {
+        $this->taxPortions = $taxPortions;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTotalNetBuilder(?TypedMoneyDraftBuilder $totalNet)
     {
         $this->totalNet = $totalNet;
 
@@ -96,22 +106,12 @@ final class TaxedPriceDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withTotalNetBuilder(?TypedMoneyDraftBuilder $totalNet)
-    {
-        $this->totalNet = $totalNet;
-
-        return $this;
-    }
-
     public function build(): TaxedPriceDraft
     {
         return new TaxedPriceDraftModel(
-            $this->taxPortions,
+            ($this->totalNet instanceof TypedMoneyDraftBuilder ? $this->totalNet->build() : $this->totalNet),
             ($this->totalGross instanceof TypedMoneyDraftBuilder ? $this->totalGross->build() : $this->totalGross),
-            ($this->totalNet instanceof TypedMoneyDraftBuilder ? $this->totalNet->build() : $this->totalNet)
+            $this->taxPortions
         );
     }
 

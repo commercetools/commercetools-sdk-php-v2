@@ -25,9 +25,9 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
     protected $action;
 
     /**
-     * @var ?FieldContainer
+     * @var ?string
      */
-    protected $fields;
+    protected $textLineItemId;
 
     /**
      * @var ?TypeResourceIdentifier
@@ -35,18 +35,18 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
     protected $type;
 
     /**
-     * @var ?string
+     * @var ?FieldContainer
      */
-    protected $textLineItemId;
+    protected $fields;
 
     public function __construct(
-        FieldContainer $fields = null,
+        string $textLineItemId = null,
         TypeResourceIdentifier $type = null,
-        string $textLineItemId = null
+        FieldContainer $fields = null
     ) {
-        $this->fields = $fields;
-        $this->type = $type;
         $this->textLineItemId = $textLineItemId;
+        $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -68,21 +68,20 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
     }
 
     /**
-     * @return null|FieldContainer
+     * @return null|string
      */
-    public function getFields()
+    public function getTextLineItemId()
     {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListSetTextLineItemCustomTypeAction::FIELD_FIELDS);
+        if (is_null($this->textLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListSetTextLineItemCustomTypeAction::FIELD_TEXT_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->fields = FieldContainerModel::of($data);
+            $this->textLineItemId = (string) $data;
         }
 
-        return $this->fields;
+        return $this->textLineItemId;
     }
 
     /**
@@ -104,25 +103,26 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
     }
 
     /**
-     * @return null|string
+     * @return null|FieldContainer
      */
-    public function getTextLineItemId()
+    public function getFields()
     {
-        if (is_null($this->textLineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListSetTextLineItemCustomTypeAction::FIELD_TEXT_LINE_ITEM_ID);
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShoppingListSetTextLineItemCustomTypeAction::FIELD_FIELDS);
             if (is_null($data)) {
                 return null;
             }
-            $this->textLineItemId = (string) $data;
+
+            $this->fields = FieldContainerModel::of($data);
         }
 
-        return $this->textLineItemId;
+        return $this->fields;
     }
 
-    public function setFields(?FieldContainer $fields): void
+    public function setTextLineItemId(?string $textLineItemId): void
     {
-        $this->fields = $fields;
+        $this->textLineItemId = $textLineItemId;
     }
 
     public function setType(?TypeResourceIdentifier $type): void
@@ -130,8 +130,8 @@ final class ShoppingListSetTextLineItemCustomTypeActionModel extends JsonObjectM
         $this->type = $type;
     }
 
-    public function setTextLineItemId(?string $textLineItemId): void
+    public function setFields(?FieldContainer $fields): void
     {
-        $this->textLineItemId = $textLineItemId;
+        $this->fields = $fields;
     }
 }

@@ -17,24 +17,9 @@ use DateTimeImmutable;
 final class ApiClientBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $deleteAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastUsedAt;
-
-    /**
      * @var ?string
      */
-    private $scope;
+    private $id;
 
     /**
      * @var ?string
@@ -44,43 +29,37 @@ final class ApiClientBuilder implements Builder
     /**
      * @var ?string
      */
-    private $secret;
+    private $scope;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastUsedAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $deleteAt;
 
     /**
      * @var ?string
      */
-    private $id;
+    private $secret;
 
     /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getDeleteAt()
-    {
-        return $this->deleteAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastUsedAt()
-    {
-        return $this->lastUsedAt;
-    }
-
-    /**
+     * <p>The unique ID of the API client.
+     * This is the OAuth2 <code>client_id</code> and can be used to obtain a token.</p>.
+     *
      * @return null|string
      */
-    public function getScope()
+    public function getId()
     {
-        return $this->scope;
+        return $this->id;
     }
 
     /**
@@ -92,6 +71,48 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
+     * <p>A whitespace separated list of the OAuth scopes.
+     * This is the OAuth2 <code>scope</code> and can be used to obtain a token.</p>.
+     *
+     * @return null|string
+     */
+    public function getScope()
+    {
+        return $this->scope;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * <p>The last day this API Client was used to obtain a token.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getLastUsedAt()
+    {
+        return $this->lastUsedAt;
+    }
+
+    /**
+     * <p>If set, the client will be deleted on (or shortly after) this point in time.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getDeleteAt()
+    {
+        return $this->deleteAt;
+    }
+
+    /**
+     * <p>The secret is only shown once in the response of creating the API Client.
+     * This is the OAuth2 <code>client_secret</code> and can be used to obtain a token.</p>.
+     *
      * @return null|string
      */
     public function getSecret()
@@ -100,49 +121,11 @@ final class ApiClientBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * @return $this
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function withId(?string $id)
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDeleteAt(?DateTimeImmutable $deleteAt)
-    {
-        $this->deleteAt = $deleteAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastUsedAt(?DateTimeImmutable $lastUsedAt)
-    {
-        $this->lastUsedAt = $lastUsedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withScope(?string $scope)
-    {
-        $this->scope = $scope;
+        $this->id = $id;
 
         return $this;
     }
@@ -160,9 +143,9 @@ final class ApiClientBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSecret(?string $secret)
+    public function withScope(?string $scope)
     {
-        $this->secret = $secret;
+        $this->scope = $scope;
 
         return $this;
     }
@@ -170,9 +153,39 @@ final class ApiClientBuilder implements Builder
     /**
      * @return $this
      */
-    public function withId(?string $id)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->id = $id;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastUsedAt(?DateTimeImmutable $lastUsedAt)
+    {
+        $this->lastUsedAt = $lastUsedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDeleteAt(?DateTimeImmutable $deleteAt)
+    {
+        $this->deleteAt = $deleteAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSecret(?string $secret)
+    {
+        $this->secret = $secret;
 
         return $this;
     }
@@ -180,13 +193,13 @@ final class ApiClientBuilder implements Builder
     public function build(): ApiClient
     {
         return new ApiClientModel(
-            $this->createdAt,
-            $this->deleteAt,
-            $this->lastUsedAt,
-            $this->scope,
+            $this->id,
             $this->name,
-            $this->secret,
-            $this->id
+            $this->scope,
+            $this->createdAt,
+            $this->lastUsedAt,
+            $this->deleteAt,
+            $this->secret
         );
     }
 

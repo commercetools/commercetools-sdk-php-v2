@@ -18,14 +18,14 @@ use Commercetools\Base\Builder;
 final class FieldDefinitionBuilder implements Builder
 {
     /**
-     * @var ?string
+     * @var FieldType|?FieldTypeBuilder
      */
-    private $name;
+    private $type;
 
     /**
      * @var ?string
      */
-    private $inputHint;
+    private $name;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -33,40 +33,18 @@ final class FieldDefinitionBuilder implements Builder
     private $label;
 
     /**
-     * @var FieldType|?FieldTypeBuilder
-     */
-    private $type;
-
-    /**
      * @var ?bool
      */
     private $required;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getName()
-    {
-        return $this->name;
-    }
+    private $inputHint;
 
     /**
-     * @return null|string
-     */
-    public function getInputHint()
-    {
-        return $this->inputHint;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getLabel()
-    {
-        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
-    }
-
-    /**
+     * <p>Describes the type of the field.</p>.
+     *
      * @return null|FieldType
      */
     public function getType()
@@ -75,6 +53,31 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>The name of the field.
+     * The name must be between two and 36 characters long and can contain the ASCII letters A to Z in lowercase or uppercase, digits, underscores (<code>_</code>) and the hyphen-minus (<code>-</code>).
+     * The name must be unique for a given resource type ID.
+     * In case there is a field with the same name in another type it has to have the same FieldType also.</p>.
+     *
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * <p>A human-readable label for the field.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getLabel()
+    {
+        return $this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label;
+    }
+
+    /**
+     * <p>Whether the field is required to have a value.</p>.
+     *
      * @return null|bool
      */
     public function getRequired()
@@ -83,11 +86,22 @@ final class FieldDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>Provides a visual representation type for this field.
+     * It is only relevant for string-based field types like StringType and LocalizedStringType.</p>.
+     *
+     * @return null|string
+     */
+    public function getInputHint()
+    {
+        return $this->inputHint;
+    }
+
+    /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withType(?FieldType $type)
     {
-        $this->name = $name;
+        $this->type = $type;
 
         return $this;
     }
@@ -95,9 +109,9 @@ final class FieldDefinitionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withInputHint(?string $inputHint)
+    public function withName(?string $name)
     {
-        $this->inputHint = $inputHint;
+        $this->name = $name;
 
         return $this;
     }
@@ -115,16 +129,6 @@ final class FieldDefinitionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withType(?FieldType $type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withRequired(?bool $required)
     {
         $this->required = $required;
@@ -135,9 +139,9 @@ final class FieldDefinitionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLabelBuilder(?LocalizedStringBuilder $label)
+    public function withInputHint(?string $inputHint)
     {
-        $this->label = $label;
+        $this->inputHint = $inputHint;
 
         return $this;
     }
@@ -152,14 +156,24 @@ final class FieldDefinitionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withLabelBuilder(?LocalizedStringBuilder $label)
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
     public function build(): FieldDefinition
     {
         return new FieldDefinitionModel(
-            $this->name,
-            $this->inputHint,
-            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
             ($this->type instanceof FieldTypeBuilder ? $this->type->build() : $this->type),
-            $this->required
+            $this->name,
+            ($this->label instanceof LocalizedStringBuilder ? $this->label->build() : $this->label),
+            $this->required,
+            $this->inputHint
         );
     }
 

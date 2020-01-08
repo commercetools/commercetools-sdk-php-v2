@@ -23,11 +23,6 @@ final class AssetDraftBuilder implements Builder
     private $sources;
 
     /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $name;
@@ -38,14 +33,19 @@ final class AssetDraftBuilder implements Builder
     private $description;
 
     /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
      * @var ?array
      */
     private $tags;
+
+    /**
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
+     * @var ?string
+     */
+    private $key;
 
     /**
      * @return null|AssetSourceCollection
@@ -53,14 +53,6 @@ final class AssetDraftBuilder implements Builder
     public function getSources()
     {
         return $this->sources;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -80,14 +72,6 @@ final class AssetDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
      * @return null|array
      */
     public function getTags()
@@ -96,21 +80,27 @@ final class AssetDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|CustomFieldsDraft
      */
-    public function withSources(?AssetSourceCollection $sources)
+    public function getCustom()
     {
-        $this->sources = $sources;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
 
-        return $this;
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
      * @return $this
      */
-    public function withCustom(?CustomFieldsDraft $custom)
+    public function withSources(?AssetSourceCollection $sources)
     {
-        $this->custom = $custom;
+        $this->sources = $sources;
 
         return $this;
     }
@@ -138,16 +128,6 @@ final class AssetDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withTags(?array $tags)
     {
         $this->tags = $tags;
@@ -158,9 +138,19 @@ final class AssetDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -185,15 +175,25 @@ final class AssetDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): AssetDraft
     {
         return new AssetDraftModel(
             $this->sources,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->key,
-            $this->tags
+            $this->tags,
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->key
         );
     }
 

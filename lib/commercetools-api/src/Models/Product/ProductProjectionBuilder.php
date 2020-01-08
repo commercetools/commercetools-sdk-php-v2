@@ -28,6 +28,16 @@ use DateTimeImmutable;
 final class ProductProjectionBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $id;
+
+    /**
+     * @var ?int
+     */
+    private $version;
+
+    /**
      * @var ?DateTimeImmutable
      */
     private $createdAt;
@@ -40,17 +50,17 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $id;
+    private $key;
 
     /**
-     * @var ?int
+     * @var ProductTypeReference|?ProductTypeReferenceBuilder
      */
-    private $version;
+    private $productType;
 
     /**
-     * @var SearchKeywords|?SearchKeywordsBuilder
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $searchKeywords;
+    private $name;
 
     /**
      * @var LocalizedString|?LocalizedStringBuilder
@@ -58,34 +68,14 @@ final class ProductProjectionBuilder implements Builder
     private $description;
 
     /**
-     * @var ?ProductVariantCollection
-     */
-    private $variants;
-
-    /**
-     * @var ?bool
-     */
-    private $published;
-
-    /**
-     * @var ?bool
-     */
-    private $hasStagedChanges;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $metaDescription;
+    private $slug;
 
     /**
-     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
+     * @var ?CategoryReferenceCollection
      */
-    private $taxCategory;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $metaKeywords;
+    private $categories;
 
     /**
      * @var CategoryOrderHints|?CategoryOrderHintsBuilder
@@ -100,12 +90,27 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $name;
+    private $metaDescription;
 
     /**
-     * @var StateReference|?StateReferenceBuilder
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    private $state;
+    private $metaKeywords;
+
+    /**
+     * @var SearchKeywords|?SearchKeywordsBuilder
+     */
+    private $searchKeywords;
+
+    /**
+     * @var ?bool
+     */
+    private $hasStagedChanges;
+
+    /**
+     * @var ?bool
+     */
+    private $published;
 
     /**
      * @var ProductVariant|?ProductVariantBuilder
@@ -113,9 +118,19 @@ final class ProductProjectionBuilder implements Builder
     private $masterVariant;
 
     /**
-     * @var ?CategoryReferenceCollection
+     * @var ?ProductVariantCollection
      */
-    private $categories;
+    private $variants;
+
+    /**
+     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
+     */
+    private $taxCategory;
+
+    /**
+     * @var StateReference|?StateReferenceBuilder
+     */
+    private $state;
 
     /**
      * @var ReviewRatingStatistics|?ReviewRatingStatisticsBuilder
@@ -123,19 +138,24 @@ final class ProductProjectionBuilder implements Builder
     private $reviewRatingStatistics;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * <p>The unique ID of the Product.</p>.
+     *
+     * @return null|string
      */
-    private $slug;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var ProductTypeReference|?ProductTypeReferenceBuilder
+     * <p>The current version of the Product.</p>.
+     *
+     * @return null|int
      */
-    private $productType;
-
-    /**
-     * @var ?string
-     */
-    private $key;
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -154,27 +174,29 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
+     * <p>User-specific unique identifier of the Product.</p>.
+     *
      * @return null|string
      */
-    public function getId()
+    public function getKey()
     {
-        return $this->id;
+        return $this->key;
     }
 
     /**
-     * @return null|int
+     * @return null|ProductTypeReference
      */
-    public function getVersion()
+    public function getProductType()
     {
-        return $this->version;
+        return $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType;
     }
 
     /**
-     * @return null|SearchKeywords
+     * @return null|LocalizedString
      */
-    public function getSearchKeywords()
+    public function getName()
     {
-        return $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -186,51 +208,21 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
-     * @return null|ProductVariantCollection
-     */
-    public function getVariants()
-    {
-        return $this->variants;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getPublished()
-    {
-        return $this->published;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getHasStagedChanges()
-    {
-        return $this->hasStagedChanges;
-    }
-
-    /**
      * @return null|LocalizedString
      */
-    public function getMetaDescription()
+    public function getSlug()
     {
-        return $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription;
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
     }
 
     /**
-     * @return null|TaxCategoryReference
+     * <p>References to categories the product is in.</p>.
+     *
+     * @return null|CategoryReferenceCollection
      */
-    public function getTaxCategory()
+    public function getCategories()
     {
-        return $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaKeywords()
-    {
-        return $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords;
+        return $this->categories;
     }
 
     /**
@@ -252,17 +244,41 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return null|LocalizedString
      */
-    public function getName()
+    public function getMetaDescription()
     {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+        return $this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription;
     }
 
     /**
-     * @return null|StateReference
+     * @return null|LocalizedString
      */
-    public function getState()
+    public function getMetaKeywords()
     {
-        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+        return $this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords;
+    }
+
+    /**
+     * @return null|SearchKeywords
+     */
+    public function getSearchKeywords()
+    {
+        return $this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getHasStagedChanges()
+    {
+        return $this->hasStagedChanges;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getPublished()
+    {
+        return $this->published;
     }
 
     /**
@@ -274,63 +290,37 @@ final class ProductProjectionBuilder implements Builder
     }
 
     /**
-     * @return null|CategoryReferenceCollection
+     * @return null|ProductVariantCollection
      */
-    public function getCategories()
+    public function getVariants()
     {
-        return $this->categories;
+        return $this->variants;
     }
 
     /**
+     * @return null|TaxCategoryReference
+     */
+    public function getTaxCategory()
+    {
+        return $this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
+    }
+
+    /**
+     * <p>Statistics about the review ratings taken into account for this product.</p>.
+     *
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics()
     {
         return $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getSlug()
-    {
-        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
-    }
-
-    /**
-     * @return null|ProductTypeReference
-     */
-    public function getProductType()
-    {
-        return $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
     }
 
     /**
@@ -356,9 +346,49 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSearchKeywords(?SearchKeywords $searchKeywords)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->searchKeywords = $searchKeywords;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withProductType(?ProductTypeReference $productType)
+    {
+        $this->productType = $productType;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -376,9 +406,9 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariants(?ProductVariantCollection $variants)
+    public function withSlug(?LocalizedString $slug)
     {
-        $this->variants = $variants;
+        $this->slug = $slug;
 
         return $this;
     }
@@ -386,49 +416,9 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPublished(?bool $published)
+    public function withCategories(?CategoryReferenceCollection $categories)
     {
-        $this->published = $published;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withHasStagedChanges(?bool $hasStagedChanges)
-    {
-        $this->hasStagedChanges = $hasStagedChanges;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaDescription(?LocalizedString $metaDescription)
-    {
-        $this->metaDescription = $metaDescription;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTaxCategory(?TaxCategoryReference $taxCategory)
-    {
-        $this->taxCategory = $taxCategory;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaKeywords(?LocalizedString $metaKeywords)
-    {
-        $this->metaKeywords = $metaKeywords;
+        $this->categories = $categories;
 
         return $this;
     }
@@ -456,9 +446,9 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withMetaDescription(?LocalizedString $metaDescription)
     {
-        $this->name = $name;
+        $this->metaDescription = $metaDescription;
 
         return $this;
     }
@@ -466,9 +456,39 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withState(?StateReference $state)
+    public function withMetaKeywords(?LocalizedString $metaKeywords)
     {
-        $this->state = $state;
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSearchKeywords(?SearchKeywords $searchKeywords)
+    {
+        $this->searchKeywords = $searchKeywords;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withHasStagedChanges(?bool $hasStagedChanges)
+    {
+        $this->hasStagedChanges = $hasStagedChanges;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPublished(?bool $published)
+    {
+        $this->published = $published;
 
         return $this;
     }
@@ -486,9 +506,29 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCategories(?CategoryReferenceCollection $categories)
+    public function withVariants(?ProductVariantCollection $variants)
     {
-        $this->categories = $categories;
+        $this->variants = $variants;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxCategory(?TaxCategoryReference $taxCategory)
+    {
+        $this->taxCategory = $taxCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withState(?StateReference $state)
+    {
+        $this->state = $state;
 
         return $this;
     }
@@ -506,17 +546,7 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSlug(?LocalizedString $slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withProductType(?ProductTypeReference $productType)
+    public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
     {
         $this->productType = $productType;
 
@@ -526,19 +556,9 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withNameBuilder(?LocalizedStringBuilder $name)
     {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSearchKeywordsBuilder(?SearchKeywordsBuilder $searchKeywords)
-    {
-        $this->searchKeywords = $searchKeywords;
+        $this->name = $name;
 
         return $this;
     }
@@ -556,29 +576,9 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
+    public function withSlugBuilder(?LocalizedStringBuilder $slug)
     {
-        $this->metaDescription = $metaDescription;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
-    {
-        $this->taxCategory = $taxCategory;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
-    {
-        $this->metaKeywords = $metaKeywords;
+        $this->slug = $slug;
 
         return $this;
     }
@@ -606,9 +606,9 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withMetaDescriptionBuilder(?LocalizedStringBuilder $metaDescription)
     {
-        $this->name = $name;
+        $this->metaDescription = $metaDescription;
 
         return $this;
     }
@@ -616,9 +616,19 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStateBuilder(?StateReferenceBuilder $state)
+    public function withMetaKeywordsBuilder(?LocalizedStringBuilder $metaKeywords)
     {
-        $this->state = $state;
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSearchKeywordsBuilder(?SearchKeywordsBuilder $searchKeywords)
+    {
+        $this->searchKeywords = $searchKeywords;
 
         return $this;
     }
@@ -636,6 +646,26 @@ final class ProductProjectionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
+    {
+        $this->taxCategory = $taxCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStateBuilder(?StateReferenceBuilder $state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withReviewRatingStatisticsBuilder(?ReviewRatingStatisticsBuilder $reviewRatingStatistics)
     {
         $this->reviewRatingStatistics = $reviewRatingStatistics;
@@ -643,51 +673,31 @@ final class ProductProjectionBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withSlugBuilder(?LocalizedStringBuilder $slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
-    {
-        $this->productType = $productType;
-
-        return $this;
-    }
-
     public function build(): ProductProjection
     {
         return new ProductProjectionModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords),
+            $this->createdAt,
+            $this->lastModifiedAt,
+            $this->key,
+            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType),
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->variants,
-            $this->published,
-            $this->hasStagedChanges,
-            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
-            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory),
-            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
+            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
+            $this->categories,
             ($this->categoryOrderHints instanceof CategoryOrderHintsBuilder ? $this->categoryOrderHints->build() : $this->categoryOrderHints),
             ($this->metaTitle instanceof LocalizedStringBuilder ? $this->metaTitle->build() : $this->metaTitle),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
+            ($this->metaDescription instanceof LocalizedStringBuilder ? $this->metaDescription->build() : $this->metaDescription),
+            ($this->metaKeywords instanceof LocalizedStringBuilder ? $this->metaKeywords->build() : $this->metaKeywords),
+            ($this->searchKeywords instanceof SearchKeywordsBuilder ? $this->searchKeywords->build() : $this->searchKeywords),
+            $this->hasStagedChanges,
+            $this->published,
             ($this->masterVariant instanceof ProductVariantBuilder ? $this->masterVariant->build() : $this->masterVariant),
-            $this->categories,
-            ($this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics),
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
-            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType),
-            $this->key
+            $this->variants,
+            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory),
+            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
+            ($this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics)
         );
     }
 

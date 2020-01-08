@@ -21,6 +21,8 @@ interface CategoryAddAssetAction extends CategoryUpdateAction
     public function getAsset();
 
     /**
+     * <p>When specified, the value might be <code>0</code> and should be lower than the total of the assets list.</p>.
+     *
      * @return null|int
      */
     public function getPosition();

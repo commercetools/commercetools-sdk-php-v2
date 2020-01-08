@@ -26,35 +26,35 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     protected $action;
 
     /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
-     * @var ?ExternalLineItemTotalPrice
-     */
-    protected $externalTotalPrice;
-
-    /**
      * @var ?string
      */
     protected $lineItemId;
+
+    /**
+     * @var ?int
+     */
+    protected $quantity;
 
     /**
      * @var ?Money
      */
     protected $externalPrice;
 
+    /**
+     * @var ?ExternalLineItemTotalPrice
+     */
+    protected $externalTotalPrice;
+
     public function __construct(
-        int $quantity = null,
-        ExternalLineItemTotalPrice $externalTotalPrice = null,
         string $lineItemId = null,
-        Money $externalPrice = null
+        int $quantity = null,
+        Money $externalPrice = null,
+        ExternalLineItemTotalPrice $externalTotalPrice = null
     ) {
-        $this->quantity = $quantity;
-        $this->externalTotalPrice = $externalTotalPrice;
         $this->lineItemId = $lineItemId;
+        $this->quantity = $quantity;
         $this->externalPrice = $externalPrice;
+        $this->externalTotalPrice = $externalTotalPrice;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -76,41 +76,6 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
     }
 
     /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(StagedOrderChangeLineItemQuantityAction::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|ExternalLineItemTotalPrice
-     */
-    public function getExternalTotalPrice()
-    {
-        if (is_null($this->externalTotalPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderChangeLineItemQuantityAction::FIELD_EXTERNAL_TOTAL_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTotalPrice = ExternalLineItemTotalPriceModel::of($data);
-        }
-
-        return $this->externalTotalPrice;
-    }
-
-    /**
      * @return null|string
      */
     public function getLineItemId()
@@ -125,6 +90,23 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
         }
 
         return $this->lineItemId;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(StagedOrderChangeLineItemQuantityAction::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
     /**
@@ -145,14 +127,22 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
         return $this->externalPrice;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * @return null|ExternalLineItemTotalPrice
+     */
+    public function getExternalTotalPrice()
     {
-        $this->quantity = $quantity;
-    }
+        if (is_null($this->externalTotalPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderChangeLineItemQuantityAction::FIELD_EXTERNAL_TOTAL_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
 
-    public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
-    {
-        $this->externalTotalPrice = $externalTotalPrice;
+            $this->externalTotalPrice = ExternalLineItemTotalPriceModel::of($data);
+        }
+
+        return $this->externalTotalPrice;
     }
 
     public function setLineItemId(?string $lineItemId): void
@@ -160,8 +150,18 @@ final class StagedOrderChangeLineItemQuantityActionModel extends JsonObjectModel
         $this->lineItemId = $lineItemId;
     }
 
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
     public function setExternalPrice(?Money $externalPrice): void
     {
         $this->externalPrice = $externalPrice;
+    }
+
+    public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
+    {
+        $this->externalTotalPrice = $externalTotalPrice;
     }
 }

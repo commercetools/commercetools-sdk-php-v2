@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ReviewUpdateBuilder implements Builder
 {
     /**
-     * @var ?ReviewUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|ReviewUpdateActionCollection
+     * @var ?ReviewUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class ReviewUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ReviewUpdateActionCollection
      */
-    public function withActions(?ReviewUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ReviewUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?ReviewUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): ReviewUpdate
     {
         return new ReviewUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

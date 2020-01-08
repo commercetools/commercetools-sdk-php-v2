@@ -14,38 +14,21 @@ use stdClass;
 final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategoryUpdate
 {
     /**
-     * @var ?TaxCategoryUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        TaxCategoryUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|TaxCategoryUpdateActionCollection
+     * @var ?TaxCategoryUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(TaxCategoryUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = TaxCategoryUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        TaxCategoryUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class TaxCategoryUpdateModel extends JsonObjectModel implements TaxCategor
         return $this->version;
     }
 
-    public function setActions(?TaxCategoryUpdateActionCollection $actions): void
+    /**
+     * @return null|TaxCategoryUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(TaxCategoryUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = TaxCategoryUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?TaxCategoryUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

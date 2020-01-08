@@ -18,20 +18,12 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $oldOrderState;
+    private $orderState;
 
     /**
      * @var ?string
      */
-    private $orderState;
-
-    /**
-     * @return null|string
-     */
-    public function getOldOrderState()
-    {
-        return $this->oldOrderState;
-    }
+    private $oldOrderState;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withOldOrderState(?string $oldOrderState)
+    public function getOldOrderState()
     {
-        $this->oldOrderState = $oldOrderState;
-
-        return $this;
+        return $this->oldOrderState;
     }
 
     /**
@@ -61,11 +51,21 @@ final class OrderStateChangedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withOldOrderState(?string $oldOrderState)
+    {
+        $this->oldOrderState = $oldOrderState;
+
+        return $this;
+    }
+
     public function build(): OrderStateChangedMessagePayload
     {
         return new OrderStateChangedMessagePayloadModel(
-            $this->oldOrderState,
-            $this->orderState
+            $this->orderState,
+            $this->oldOrderState
         );
     }
 

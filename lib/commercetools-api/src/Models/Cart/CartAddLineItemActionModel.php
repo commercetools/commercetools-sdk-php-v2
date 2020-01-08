@@ -27,31 +27,6 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     protected $action;
 
     /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-
-    /**
-     * @var ?ItemShippingDetailsDraft
-     */
-    protected $shippingDetails;
-
-    /**
-     * @var ?string
-     */
-    protected $productId;
-
-    /**
-     * @var ?ExternalLineItemTotalPrice
-     */
-    protected $externalTotalPrice;
-
-    /**
      * @var ?CustomFieldsDraft
      */
     protected $custom;
@@ -59,7 +34,17 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     /**
      * @var ?ChannelResourceIdentifier
      */
-    protected $supplyChannel;
+    protected $distributionChannel;
+
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
+    /**
+     * @var ?string
+     */
+    protected $productId;
 
     /**
      * @var ?int
@@ -72,39 +57,54 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     protected $sku;
 
     /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
      * @var ?ChannelResourceIdentifier
      */
-    protected $distributionChannel;
+    protected $supplyChannel;
 
     /**
      * @var ?Money
      */
     protected $externalPrice;
 
+    /**
+     * @var ?ExternalLineItemTotalPrice
+     */
+    protected $externalTotalPrice;
+
+    /**
+     * @var ?ItemShippingDetailsDraft
+     */
+    protected $shippingDetails;
+
     public function __construct(
-        int $quantity = null,
-        ExternalTaxRateDraft $externalTaxRate = null,
-        ItemShippingDetailsDraft $shippingDetails = null,
-        string $productId = null,
-        ExternalLineItemTotalPrice $externalTotalPrice = null,
         CustomFieldsDraft $custom = null,
-        ChannelResourceIdentifier $supplyChannel = null,
+        ChannelResourceIdentifier $distributionChannel = null,
+        ExternalTaxRateDraft $externalTaxRate = null,
+        string $productId = null,
         int $variantId = null,
         string $sku = null,
-        ChannelResourceIdentifier $distributionChannel = null,
-        Money $externalPrice = null
+        int $quantity = null,
+        ChannelResourceIdentifier $supplyChannel = null,
+        Money $externalPrice = null,
+        ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ItemShippingDetailsDraft $shippingDetails = null
     ) {
-        $this->quantity = $quantity;
-        $this->externalTaxRate = $externalTaxRate;
-        $this->shippingDetails = $shippingDetails;
-        $this->productId = $productId;
-        $this->externalTotalPrice = $externalTotalPrice;
         $this->custom = $custom;
-        $this->supplyChannel = $supplyChannel;
+        $this->distributionChannel = $distributionChannel;
+        $this->externalTaxRate = $externalTaxRate;
+        $this->productId = $productId;
         $this->variantId = $variantId;
         $this->sku = $sku;
-        $this->distributionChannel = $distributionChannel;
+        $this->quantity = $quantity;
+        $this->supplyChannel = $supplyChannel;
         $this->externalPrice = $externalPrice;
+        $this->externalTotalPrice = $externalTotalPrice;
+        $this->shippingDetails = $shippingDetails;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -123,94 +123,6 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CartAddLineItemAction::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        if (is_null($this->externalTaxRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddLineItemAction::FIELD_EXTERNAL_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-        }
-
-        return $this->externalTaxRate;
-    }
-
-    /**
-     * @return null|ItemShippingDetailsDraft
-     */
-    public function getShippingDetails()
-    {
-        if (is_null($this->shippingDetails)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddLineItemAction::FIELD_SHIPPING_DETAILS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
-        }
-
-        return $this->shippingDetails;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        if (is_null($this->productId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CartAddLineItemAction::FIELD_PRODUCT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->productId = (string) $data;
-        }
-
-        return $this->productId;
-    }
-
-    /**
-     * @return null|ExternalLineItemTotalPrice
-     */
-    public function getExternalTotalPrice()
-    {
-        if (is_null($this->externalTotalPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddLineItemAction::FIELD_EXTERNAL_TOTAL_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTotalPrice = ExternalLineItemTotalPriceModel::of($data);
-        }
-
-        return $this->externalTotalPrice;
     }
 
     /**
@@ -234,19 +146,54 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     /**
      * @return null|ChannelResourceIdentifier
      */
-    public function getSupplyChannel()
+    public function getDistributionChannel()
     {
-        if (is_null($this->supplyChannel)) {
+        if (is_null($this->distributionChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddLineItemAction::FIELD_SUPPLY_CHANNEL);
+            $data = $this->raw(CartAddLineItemAction::FIELD_DISTRIBUTION_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
+            $this->distributionChannel = ChannelResourceIdentifierModel::of($data);
         }
 
-        return $this->supplyChannel;
+        return $this->distributionChannel;
+    }
+
+    /**
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
+    {
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartAddLineItemAction::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getProductId()
+    {
+        if (is_null($this->productId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartAddLineItemAction::FIELD_PRODUCT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productId = (string) $data;
+        }
+
+        return $this->productId;
     }
 
     /**
@@ -284,21 +231,38 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
     }
 
     /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CartAddLineItemAction::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
+    }
+
+    /**
      * @return null|ChannelResourceIdentifier
      */
-    public function getDistributionChannel()
+    public function getSupplyChannel()
     {
-        if (is_null($this->distributionChannel)) {
+        if (is_null($this->supplyChannel)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddLineItemAction::FIELD_DISTRIBUTION_CHANNEL);
+            $data = $this->raw(CartAddLineItemAction::FIELD_SUPPLY_CHANNEL);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->distributionChannel = ChannelResourceIdentifierModel::of($data);
+            $this->supplyChannel = ChannelResourceIdentifierModel::of($data);
         }
 
-        return $this->distributionChannel;
+        return $this->supplyChannel;
     }
 
     /**
@@ -319,29 +283,40 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         return $this->externalPrice;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * @return null|ExternalLineItemTotalPrice
+     */
+    public function getExternalTotalPrice()
     {
-        $this->quantity = $quantity;
+        if (is_null($this->externalTotalPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartAddLineItemAction::FIELD_EXTERNAL_TOTAL_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTotalPrice = ExternalLineItemTotalPriceModel::of($data);
+        }
+
+        return $this->externalTotalPrice;
     }
 
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    /**
+     * @return null|ItemShippingDetailsDraft
+     */
+    public function getShippingDetails()
     {
-        $this->externalTaxRate = $externalTaxRate;
-    }
+        if (is_null($this->shippingDetails)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartAddLineItemAction::FIELD_SHIPPING_DETAILS);
+            if (is_null($data)) {
+                return null;
+            }
 
-    public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
-    {
-        $this->shippingDetails = $shippingDetails;
-    }
+            $this->shippingDetails = ItemShippingDetailsDraftModel::of($data);
+        }
 
-    public function setProductId(?string $productId): void
-    {
-        $this->productId = $productId;
-    }
-
-    public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
-    {
-        $this->externalTotalPrice = $externalTotalPrice;
+        return $this->shippingDetails;
     }
 
     public function setCustom(?CustomFieldsDraft $custom): void
@@ -349,9 +324,19 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         $this->custom = $custom;
     }
 
-    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
+    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
     {
-        $this->supplyChannel = $supplyChannel;
+        $this->distributionChannel = $distributionChannel;
+    }
+
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    {
+        $this->externalTaxRate = $externalTaxRate;
+    }
+
+    public function setProductId(?string $productId): void
+    {
+        $this->productId = $productId;
     }
 
     public function setVariantId(?int $variantId): void
@@ -364,13 +349,28 @@ final class CartAddLineItemActionModel extends JsonObjectModel implements CartAd
         $this->sku = $sku;
     }
 
-    public function setDistributionChannel(?ChannelResourceIdentifier $distributionChannel): void
+    public function setQuantity(?int $quantity): void
     {
-        $this->distributionChannel = $distributionChannel;
+        $this->quantity = $quantity;
+    }
+
+    public function setSupplyChannel(?ChannelResourceIdentifier $supplyChannel): void
+    {
+        $this->supplyChannel = $supplyChannel;
     }
 
     public function setExternalPrice(?Money $externalPrice): void
     {
         $this->externalPrice = $externalPrice;
+    }
+
+    public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
+    {
+        $this->externalTotalPrice = $externalTotalPrice;
+    }
+
+    public function setShippingDetails(?ItemShippingDetailsDraft $shippingDetails): void
+    {
+        $this->shippingDetails = $shippingDetails;
     }
 }

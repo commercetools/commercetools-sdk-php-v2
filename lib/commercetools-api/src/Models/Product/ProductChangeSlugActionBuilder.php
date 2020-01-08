@@ -18,14 +18,26 @@ use Commercetools\Base\Builder;
 final class ProductChangeSlugActionBuilder implements Builder
 {
     /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $slug;
+
+    /**
      * @var ?bool
      */
     private $staged;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * <p>Every slug must be unique across a project, but a product can have the same slug for different languages.
+     * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
+     * Maximum size is <code>256</code>.</p>.
+     *
+     * @return null|LocalizedString
      */
-    private $slug;
+    public function getSlug()
+    {
+        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+    }
 
     /**
      * @return null|bool
@@ -36,11 +48,13 @@ final class ProductChangeSlugActionBuilder implements Builder
     }
 
     /**
-     * @return null|LocalizedString
+     * @return $this
      */
-    public function getSlug()
+    public function withSlug(?LocalizedString $slug)
     {
-        return $this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug;
+        $this->slug = $slug;
+
+        return $this;
     }
 
     /**
@@ -49,16 +63,6 @@ final class ProductChangeSlugActionBuilder implements Builder
     public function withStaged(?bool $staged)
     {
         $this->staged = $staged;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSlug(?LocalizedString $slug)
-    {
-        $this->slug = $slug;
 
         return $this;
     }
@@ -76,8 +80,8 @@ final class ProductChangeSlugActionBuilder implements Builder
     public function build(): ProductChangeSlugAction
     {
         return new ProductChangeSlugActionModel(
-            $this->staged,
-            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug)
+            ($this->slug instanceof LocalizedStringBuilder ? $this->slug->build() : $this->slug),
+            $this->staged
         );
     }
 

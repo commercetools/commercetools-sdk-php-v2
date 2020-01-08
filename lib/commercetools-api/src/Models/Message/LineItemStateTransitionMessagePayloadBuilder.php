@@ -19,21 +19,6 @@ use DateTimeImmutable;
 final class LineItemStateTransitionMessagePayloadBuilder implements Builder
 {
     /**
-     * @var StateReference|?StateReferenceBuilder
-     */
-    private $toState;
-
-    /**
-     * @var StateReference|?StateReferenceBuilder
-     */
-    private $fromState;
-
-    /**
-     * @var ?int
-     */
-    private $quantity;
-
-    /**
      * @var ?string
      */
     private $lineItemId;
@@ -44,28 +29,19 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     private $transitionDate;
 
     /**
-     * @return null|StateReference
+     * @var ?int
      */
-    public function getToState()
-    {
-        return $this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState;
-    }
+    private $quantity;
 
     /**
-     * @return null|StateReference
+     * @var StateReference|?StateReferenceBuilder
      */
-    public function getFromState()
-    {
-        return $this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState;
-    }
+    private $fromState;
 
     /**
-     * @return null|int
+     * @var StateReference|?StateReferenceBuilder
      */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
+    private $toState;
 
     /**
      * @return null|string
@@ -84,33 +60,27 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withToState(?StateReference $toState)
+    public function getQuantity()
     {
-        $this->toState = $toState;
-
-        return $this;
+        return $this->quantity;
     }
 
     /**
-     * @return $this
+     * @return null|StateReference
      */
-    public function withFromState(?StateReference $fromState)
+    public function getFromState()
     {
-        $this->fromState = $fromState;
-
-        return $this;
+        return $this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState;
     }
 
     /**
-     * @return $this
+     * @return null|StateReference
      */
-    public function withQuantity(?int $quantity)
+    public function getToState()
     {
-        $this->quantity = $quantity;
-
-        return $this;
+        return $this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState;
     }
 
     /**
@@ -136,7 +106,27 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withToStateBuilder(?StateReferenceBuilder $toState)
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withFromState(?StateReference $fromState)
+    {
+        $this->fromState = $fromState;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withToState(?StateReference $toState)
     {
         $this->toState = $toState;
 
@@ -153,14 +143,24 @@ final class LineItemStateTransitionMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withToStateBuilder(?StateReferenceBuilder $toState)
+    {
+        $this->toState = $toState;
+
+        return $this;
+    }
+
     public function build(): LineItemStateTransitionMessagePayload
     {
         return new LineItemStateTransitionMessagePayloadModel(
-            ($this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState),
-            ($this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState),
-            $this->quantity,
             $this->lineItemId,
-            $this->transitionDate
+            $this->transitionDate,
+            $this->quantity,
+            ($this->fromState instanceof StateReferenceBuilder ? $this->fromState->build() : $this->fromState),
+            ($this->toState instanceof StateReferenceBuilder ? $this->toState->build() : $this->toState)
         );
     }
 

@@ -27,23 +27,23 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     protected $name;
 
     /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?JsonObject
      */
     protected $value;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
         string $name = null,
-        bool $staged = null,
-        JsonObject $value = null
+        JsonObject $value = null,
+        bool $staged = null
     ) {
         $this->name = $name;
-        $this->staged = $staged;
         $this->value = $value;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -82,23 +82,8 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
     }
 
     /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetAttributeInAllVariantsAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
-    }
-
-    /**
+     * <p>The same update behavior as for Set Attribute applies.</p>.
+     *
      * @return null|JsonObject
      */
     public function getValue()
@@ -115,18 +100,35 @@ final class ProductSetAttributeInAllVariantsActionModel extends JsonObjectModel 
         return $this->value;
     }
 
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetAttributeInAllVariantsAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
     public function setName(?string $name): void
     {
         $this->name = $name;
     }
 
-    public function setStaged(?bool $staged): void
-    {
-        $this->staged = $staged;
-    }
-
     public function setValue(?JsonObject $value): void
     {
         $this->value = $value;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

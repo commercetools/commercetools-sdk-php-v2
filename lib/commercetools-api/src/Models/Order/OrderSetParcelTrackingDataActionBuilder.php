@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class OrderSetParcelTrackingDataActionBuilder implements Builder
 {
     /**
-     * @var TrackingData|?TrackingDataBuilder
-     */
-    private $trackingData;
-
-    /**
      * @var ?string
      */
     private $parcelId;
 
     /**
-     * @return null|TrackingData
+     * @var TrackingData|?TrackingDataBuilder
      */
-    public function getTrackingData()
-    {
-        return $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData;
-    }
+    private $trackingData;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|TrackingData
      */
-    public function withTrackingData(?TrackingData $trackingData)
+    public function getTrackingData()
     {
-        $this->trackingData = $trackingData;
-
-        return $this;
+        return $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData;
     }
 
     /**
@@ -57,6 +47,16 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     public function withParcelId(?string $parcelId)
     {
         $this->parcelId = $parcelId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTrackingData(?TrackingData $trackingData)
+    {
+        $this->trackingData = $trackingData;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class OrderSetParcelTrackingDataActionBuilder implements Builder
     public function build(): OrderSetParcelTrackingDataAction
     {
         return new OrderSetParcelTrackingDataActionModel(
-            ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData),
-            $this->parcelId
+            $this->parcelId,
+            ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData)
         );
     }
 

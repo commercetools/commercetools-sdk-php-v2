@@ -22,12 +22,12 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     /**
      * @var ?string
      */
-    protected $accessKey;
+    protected $arn;
 
     /**
      * @var ?string
      */
-    protected $arn;
+    protected $accessKey;
 
     /**
      * @var ?string
@@ -35,12 +35,12 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     protected $accessSecret;
 
     public function __construct(
-        string $accessKey = null,
         string $arn = null,
+        string $accessKey = null,
         string $accessSecret = null
     ) {
-        $this->accessKey = $accessKey;
         $this->arn = $arn;
+        $this->accessKey = $accessKey;
         $this->accessSecret = $accessSecret;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
@@ -65,23 +65,6 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
     /**
      * @return null|string
      */
-    public function getAccessKey()
-    {
-        if (is_null($this->accessKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionAWSLambdaDestination::FIELD_ACCESS_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->accessKey = (string) $data;
-        }
-
-        return $this->accessKey;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getArn()
     {
         if (is_null($this->arn)) {
@@ -94,6 +77,23 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
         }
 
         return $this->arn;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAccessKey()
+    {
+        if (is_null($this->accessKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ExtensionAWSLambdaDestination::FIELD_ACCESS_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->accessKey = (string) $data;
+        }
+
+        return $this->accessKey;
     }
 
     /**
@@ -113,14 +113,14 @@ final class ExtensionAWSLambdaDestinationModel extends JsonObjectModel implement
         return $this->accessSecret;
     }
 
-    public function setAccessKey(?string $accessKey): void
-    {
-        $this->accessKey = $accessKey;
-    }
-
     public function setArn(?string $arn): void
     {
         $this->arn = $arn;
+    }
+
+    public function setAccessKey(?string $accessKey): void
+    {
+        $this->accessKey = $accessKey;
     }
 
     public function setAccessSecret(?string $accessSecret): void

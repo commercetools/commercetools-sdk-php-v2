@@ -52,6 +52,8 @@ final class PaymentSetMethodInfoNameActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>If not provided, the name is unset.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()

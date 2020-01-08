@@ -23,14 +23,14 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     private $assetId;
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
-
-    /**
      * @var ?string
      */
     private $assetKey;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
 
     /**
      * @return null|string
@@ -41,19 +41,19 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     }
 
     /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
      * @return null|string
      */
     public function getAssetKey()
     {
         return $this->assetKey;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -69,9 +69,9 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withAssetKey(?string $assetKey)
     {
-        $this->name = $name;
+        $this->assetKey = $assetKey;
 
         return $this;
     }
@@ -79,9 +79,9 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAssetKey(?string $assetKey)
+    public function withName(?LocalizedString $name)
     {
-        $this->assetKey = $assetKey;
+        $this->name = $name;
 
         return $this;
     }
@@ -100,8 +100,8 @@ final class CategoryChangeAssetNameActionBuilder implements Builder
     {
         return new CategoryChangeAssetNameActionModel(
             $this->assetId,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->assetKey
+            $this->assetKey,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
         );
     }
 

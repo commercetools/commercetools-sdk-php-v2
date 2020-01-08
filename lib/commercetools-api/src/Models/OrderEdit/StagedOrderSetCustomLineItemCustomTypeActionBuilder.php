@@ -25,14 +25,14 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
     private $customLineItemId;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
-     */
-    private $fields;
-
-    /**
      * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
      */
     private $type;
+
+    /**
+     * @var FieldContainer|?FieldContainerBuilder
+     */
+    private $fields;
 
     /**
      * @return null|string
@@ -40,14 +40,6 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
     public function getCustomLineItemId()
     {
         return $this->customLineItemId;
-    }
-
-    /**
-     * @return null|FieldContainer
-     */
-    public function getFields()
-    {
-        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
@@ -59,21 +51,19 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
     }
 
     /**
-     * @return $this
+     * @return null|FieldContainer
      */
-    public function withCustomLineItemId(?string $customLineItemId)
+    public function getFields()
     {
-        $this->customLineItemId = $customLineItemId;
-
-        return $this;
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
      * @return $this
      */
-    public function withFields(?FieldContainer $fields)
+    public function withCustomLineItemId(?string $customLineItemId)
     {
-        $this->fields = $fields;
+        $this->customLineItemId = $customLineItemId;
 
         return $this;
     }
@@ -91,7 +81,7 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
     /**
      * @return $this
      */
-    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
 
@@ -108,12 +98,22 @@ final class StagedOrderSetCustomLineItemCustomTypeActionBuilder implements Build
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
+
     public function build(): StagedOrderSetCustomLineItemCustomTypeAction
     {
         return new StagedOrderSetCustomLineItemCustomTypeActionModel(
             $this->customLineItemId,
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields),
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type)
+            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
+            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
         );
     }
 

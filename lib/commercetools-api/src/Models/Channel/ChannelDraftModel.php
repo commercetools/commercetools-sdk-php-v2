@@ -22,19 +22,9 @@ use stdClass;
 final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
 {
     /**
-     * @var ?Address
+     * @var ?string
      */
-    protected $address;
-
-    /**
-     * @var ?GeoJson
-     */
-    protected $geoLocation;
-
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
+    protected $key;
 
     /**
      * @var ?array
@@ -52,83 +42,58 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     protected $description;
 
     /**
-     * @var ?string
+     * @var ?Address
      */
-    protected $key;
+    protected $address;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?GeoJson
+     */
+    protected $geoLocation;
 
     public function __construct(
-        Address $address = null,
-        GeoJson $geoLocation = null,
-        CustomFieldsDraft $custom = null,
+        string $key = null,
         array $roles = null,
         LocalizedString $name = null,
         LocalizedString $description = null,
-        string $key = null
+        Address $address = null,
+        CustomFieldsDraft $custom = null,
+        GeoJson $geoLocation = null
     ) {
-        $this->address = $address;
-        $this->geoLocation = $geoLocation;
-        $this->custom = $custom;
+        $this->key = $key;
         $this->roles = $roles;
         $this->name = $name;
         $this->description = $description;
-        $this->key = $key;
+        $this->address = $address;
+        $this->custom = $custom;
+        $this->geoLocation = $geoLocation;
     }
 
     /**
-     * @return null|Address
+     * @return null|string
      */
-    public function getAddress()
+    public function getKey()
     {
-        if (is_null($this->address)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ChannelDraft::FIELD_ADDRESS);
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ChannelDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->address = AddressModel::of($data);
+            $this->key = (string) $data;
         }
 
-        return $this->address;
+        return $this->key;
     }
 
     /**
-     * @return null|GeoJson
-     */
-    public function getGeoLocation()
-    {
-        if (is_null($this->geoLocation)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ChannelDraft::FIELD_GEO_LOCATION);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = GeoJsonModel::resolveDiscriminatorClass($data);
-            $this->geoLocation = $className::of($data);
-        }
-
-        return $this->geoLocation;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ChannelDraft::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
+     * <p>If not specified, then channel will get InventorySupply role by default</p>.
+     *
      * @return null|array
      */
     public function getRoles()
@@ -182,35 +147,64 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
     }
 
     /**
-     * @return null|string
+     * @return null|Address
      */
-    public function getKey()
+    public function getAddress()
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ChannelDraft::FIELD_KEY);
+        if (is_null($this->address)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ChannelDraft::FIELD_ADDRESS);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+
+            $this->address = AddressModel::of($data);
         }
 
-        return $this->key;
+        return $this->address;
     }
 
-    public function setAddress(?Address $address): void
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
     {
-        $this->address = $address;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ChannelDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
 
-    public function setGeoLocation(?GeoJson $geoLocation): void
+    /**
+     * @return null|GeoJson
+     */
+    public function getGeoLocation()
     {
-        $this->geoLocation = $geoLocation;
+        if (is_null($this->geoLocation)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ChannelDraft::FIELD_GEO_LOCATION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->geoLocation = GeoJsonModel::of($data);
+        }
+
+        return $this->geoLocation;
     }
 
-    public function setCustom(?CustomFieldsDraft $custom): void
+    public function setKey(?string $key): void
     {
-        $this->custom = $custom;
+        $this->key = $key;
     }
 
     public function setRoles(?array $roles): void
@@ -228,8 +222,18 @@ final class ChannelDraftModel extends JsonObjectModel implements ChannelDraft
         $this->description = $description;
     }
 
-    public function setKey(?string $key): void
+    public function setAddress(?Address $address): void
     {
-        $this->key = $key;
+        $this->address = $address;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setGeoLocation(?GeoJson $geoLocation): void
+    {
+        $this->geoLocation = $geoLocation;
     }
 }

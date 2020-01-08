@@ -16,9 +16,9 @@ use Commercetools\Base\Builder;
 final class ParcelDraftBuilder implements Builder
 {
     /**
-     * @var ?DeliveryItemCollection
+     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
      */
-    private $items;
+    private $measurements;
 
     /**
      * @var TrackingData|?TrackingDataBuilder
@@ -26,16 +26,16 @@ final class ParcelDraftBuilder implements Builder
     private $trackingData;
 
     /**
-     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
+     * @var ?DeliveryItemCollection
      */
-    private $measurements;
+    private $items;
 
     /**
-     * @return null|DeliveryItemCollection
+     * @return null|ParcelMeasurements
      */
-    public function getItems()
+    public function getMeasurements()
     {
-        return $this->items;
+        return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
     }
 
     /**
@@ -47,19 +47,21 @@ final class ParcelDraftBuilder implements Builder
     }
 
     /**
-     * @return null|ParcelMeasurements
+     * <p>The delivery items contained in this parcel.</p>.
+     *
+     * @return null|DeliveryItemCollection
      */
-    public function getMeasurements()
+    public function getItems()
     {
-        return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
+        return $this->items;
     }
 
     /**
      * @return $this
      */
-    public function withItems(?DeliveryItemCollection $items)
+    public function withMeasurements(?ParcelMeasurements $measurements)
     {
-        $this->items = $items;
+        $this->measurements = $measurements;
 
         return $this;
     }
@@ -77,7 +79,17 @@ final class ParcelDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMeasurements(?ParcelMeasurements $measurements)
+    public function withItems(?DeliveryItemCollection $items)
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)
     {
         $this->measurements = $measurements;
 
@@ -94,22 +106,12 @@ final class ParcelDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withMeasurementsBuilder(?ParcelMeasurementsBuilder $measurements)
-    {
-        $this->measurements = $measurements;
-
-        return $this;
-    }
-
     public function build(): ParcelDraft
     {
         return new ParcelDraftModel(
-            $this->items,
+            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements),
             ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData),
-            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements)
+            $this->items
         );
     }
 

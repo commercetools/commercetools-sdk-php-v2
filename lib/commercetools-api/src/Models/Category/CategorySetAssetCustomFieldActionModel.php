@@ -29,6 +29,11 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     /**
      * @var ?string
      */
+    protected $assetKey;
+
+    /**
+     * @var ?string
+     */
     protected $name;
 
     /**
@@ -36,21 +41,16 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
      */
     protected $value;
 
-    /**
-     * @var ?string
-     */
-    protected $assetKey;
-
     public function __construct(
         string $assetId = null,
+        string $assetKey = null,
         string $name = null,
-        JsonObject $value = null,
-        string $assetKey = null
+        JsonObject $value = null
     ) {
         $this->assetId = $assetId;
+        $this->assetKey = $assetKey;
         $this->name = $name;
         $this->value = $value;
-        $this->assetKey = $assetKey;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -91,6 +91,23 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     /**
      * @return null|string
      */
+    public function getAssetKey()
+    {
+        if (is_null($this->assetKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategorySetAssetCustomFieldAction::FIELD_ASSET_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetKey = (string) $data;
+        }
+
+        return $this->assetKey;
+    }
+
+    /**
+     * @return null|string
+     */
     public function getName()
     {
         if (is_null($this->name)) {
@@ -122,26 +139,14 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
         return $this->value;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getAssetKey()
-    {
-        if (is_null($this->assetKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetCustomFieldAction::FIELD_ASSET_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assetKey = (string) $data;
-        }
-
-        return $this->assetKey;
-    }
-
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
+    }
+
+    public function setAssetKey(?string $assetKey): void
+    {
+        $this->assetKey = $assetKey;
     }
 
     public function setName(?string $name): void
@@ -152,10 +157,5 @@ final class CategorySetAssetCustomFieldActionModel extends JsonObjectModel imple
     public function setValue(?JsonObject $value): void
     {
         $this->value = $value;
-    }
-
-    public function setAssetKey(?string $assetKey): void
-    {
-        $this->assetKey = $assetKey;
     }
 }

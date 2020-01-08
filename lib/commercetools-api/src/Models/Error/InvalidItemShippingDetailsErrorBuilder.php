@@ -23,12 +23,12 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     /**
      * @var ?string
      */
-    private $itemId;
+    private $subject;
 
     /**
      * @var ?string
      */
-    private $subject;
+    private $itemId;
 
     /**
      * @return null|string
@@ -41,17 +41,17 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getItemId()
+    public function getSubject()
     {
-        return $this->itemId;
+        return $this->subject;
     }
 
     /**
      * @return null|string
      */
-    public function getSubject()
+    public function getItemId()
     {
-        return $this->subject;
+        return $this->itemId;
     }
 
     /**
@@ -67,9 +67,9 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withItemId(?string $itemId)
+    public function withSubject(?string $subject)
     {
-        $this->itemId = $itemId;
+        $this->subject = $subject;
 
         return $this;
     }
@@ -77,9 +77,9 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSubject(?string $subject)
+    public function withItemId(?string $itemId)
     {
-        $this->subject = $subject;
+        $this->itemId = $itemId;
 
         return $this;
     }
@@ -88,8 +88,8 @@ final class InvalidItemShippingDetailsErrorBuilder implements Builder
     {
         return new InvalidItemShippingDetailsErrorModel(
             $this->message,
-            $this->itemId,
-            $this->subject
+            $this->subject,
+            $this->itemId
         );
     }
 

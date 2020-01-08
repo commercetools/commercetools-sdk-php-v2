@@ -15,6 +15,11 @@ use DateTimeImmutable;
 final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
 {
     /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
@@ -30,34 +35,46 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     protected $customerId;
 
     /**
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
-    protected $id;
+    protected $expiresAt;
 
     /**
      * @var ?string
      */
     protected $value;
 
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $expiresAt;
-
     public function __construct(
+        string $id = null,
         DateTimeImmutable $createdAt = null,
         DateTimeImmutable $lastModifiedAt = null,
         string $customerId = null,
-        string $id = null,
-        string $value = null,
-        DateTimeImmutable $expiresAt = null
+        DateTimeImmutable $expiresAt = null,
+        string $value = null
     ) {
+        $this->id = $id;
         $this->createdAt = $createdAt;
         $this->lastModifiedAt = $lastModifiedAt;
         $this->customerId = $customerId;
-        $this->id = $id;
-        $this->value = $value;
         $this->expiresAt = $expiresAt;
+        $this->value = $value;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerToken::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
 
     /**
@@ -120,40 +137,6 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerToken::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getValue()
-    {
-        if (is_null($this->value)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerToken::FIELD_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->value = (string) $data;
-        }
-
-        return $this->value;
-    }
-
-    /**
      * @return null|DateTimeImmutable
      */
     public function getExpiresAt()
@@ -174,6 +157,28 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
         return $this->expiresAt;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getValue()
+    {
+        if (is_null($this->value)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerToken::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->value = (string) $data;
+        }
+
+        return $this->value;
+    }
+
+    public function setId(?string $id): void
+    {
+        $this->id = $id;
+    }
+
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
@@ -189,19 +194,14 @@ final class CustomerTokenModel extends JsonObjectModel implements CustomerToken
         $this->customerId = $customerId;
     }
 
-    public function setId(?string $id): void
+    public function setExpiresAt(?DateTimeImmutable $expiresAt): void
     {
-        $this->id = $id;
+        $this->expiresAt = $expiresAt;
     }
 
     public function setValue(?string $value): void
     {
         $this->value = $value;
-    }
-
-    public function setExpiresAt(?DateTimeImmutable $expiresAt): void
-    {
-        $this->expiresAt = $expiresAt;
     }
 
     public function jsonSerialize()

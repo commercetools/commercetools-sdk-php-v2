@@ -22,19 +22,19 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     /**
      * @var ?string
      */
-    protected $interactionId;
+    protected $transactionId;
 
     /**
      * @var ?string
      */
-    protected $transactionId;
+    protected $interactionId;
 
     public function __construct(
-        string $interactionId = null,
-        string $transactionId = null
+        string $transactionId = null,
+        string $interactionId = null
     ) {
-        $this->interactionId = $interactionId;
         $this->transactionId = $transactionId;
+        $this->interactionId = $interactionId;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,23 +58,6 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
     /**
      * @return null|string
      */
-    public function getInteractionId()
-    {
-        if (is_null($this->interactionId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentChangeTransactionInteractionIdAction::FIELD_INTERACTION_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->interactionId = (string) $data;
-        }
-
-        return $this->interactionId;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getTransactionId()
     {
         if (is_null($this->transactionId)) {
@@ -89,13 +72,30 @@ final class PaymentChangeTransactionInteractionIdActionModel extends JsonObjectM
         return $this->transactionId;
     }
 
-    public function setInteractionId(?string $interactionId): void
+    /**
+     * @return null|string
+     */
+    public function getInteractionId()
     {
-        $this->interactionId = $interactionId;
+        if (is_null($this->interactionId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentChangeTransactionInteractionIdAction::FIELD_INTERACTION_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->interactionId = (string) $data;
+        }
+
+        return $this->interactionId;
     }
 
     public function setTransactionId(?string $transactionId): void
     {
         $this->transactionId = $transactionId;
+    }
+
+    public function setInteractionId(?string $interactionId): void
+    {
+        $this->interactionId = $interactionId;
     }
 }

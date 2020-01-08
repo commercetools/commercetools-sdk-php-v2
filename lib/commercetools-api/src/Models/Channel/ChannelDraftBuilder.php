@@ -24,19 +24,9 @@ use Commercetools\Base\Builder;
 final class ChannelDraftBuilder implements Builder
 {
     /**
-     * @var Address|?AddressBuilder
+     * @var ?string
      */
-    private $address;
-
-    /**
-     * @var GeoJson|?GeoJsonBuilder
-     */
-    private $geoLocation;
-
-    /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
+    private $key;
 
     /**
      * @var ?array
@@ -54,35 +44,31 @@ final class ChannelDraftBuilder implements Builder
     private $description;
 
     /**
-     * @var ?string
+     * @var Address|?AddressBuilder
      */
-    private $key;
+    private $address;
 
     /**
-     * @return null|Address
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    public function getAddress()
+    private $custom;
+
+    /**
+     * @var GeoJson|?GeoJsonBuilder
+     */
+    private $geoLocation;
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
     {
-        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
+        return $this->key;
     }
 
     /**
-     * @return null|GeoJson
-     */
-    public function getGeoLocation()
-    {
-        return $this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
+     * <p>If not specified, then channel will get InventorySupply role by default</p>.
+     *
      * @return null|array
      */
     public function getRoles()
@@ -107,39 +93,37 @@ final class ChannelDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|Address
      */
-    public function getKey()
+    public function getAddress()
     {
-        return $this->key;
+        return $this->address instanceof AddressBuilder ? $this->address->build() : $this->address;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return null|GeoJson
+     */
+    public function getGeoLocation()
+    {
+        return $this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation;
     }
 
     /**
      * @return $this
      */
-    public function withAddress(?Address $address)
+    public function withKey(?string $key)
     {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withGeoLocation(?GeoJson $geoLocation)
-    {
-        $this->geoLocation = $geoLocation;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
+        $this->key = $key;
 
         return $this;
     }
@@ -177,17 +161,7 @@ final class ChannelDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAddressBuilder(?AddressBuilder $address)
+    public function withAddress(?Address $address)
     {
         $this->address = $address;
 
@@ -197,9 +171,9 @@ final class ChannelDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withGeoLocationBuilder(?GeoJsonBuilder $geoLocation)
+    public function withCustom(?CustomFieldsDraft $custom)
     {
-        $this->geoLocation = $geoLocation;
+        $this->custom = $custom;
 
         return $this;
     }
@@ -207,9 +181,9 @@ final class ChannelDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withGeoLocation(?GeoJson $geoLocation)
     {
-        $this->custom = $custom;
+        $this->geoLocation = $geoLocation;
 
         return $this;
     }
@@ -234,16 +208,46 @@ final class ChannelDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withAddressBuilder(?AddressBuilder $address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withGeoLocationBuilder(?GeoJsonBuilder $geoLocation)
+    {
+        $this->geoLocation = $geoLocation;
+
+        return $this;
+    }
+
     public function build(): ChannelDraft
     {
         return new ChannelDraftModel(
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation),
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->key,
             $this->roles,
             ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
             ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
-            $this->key
+            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            ($this->geoLocation instanceof GeoJsonBuilder ? $this->geoLocation->build() : $this->geoLocation)
         );
     }
 

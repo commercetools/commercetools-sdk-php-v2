@@ -31,6 +31,9 @@ interface Delivery extends JsonObject
     public function getCreatedAt();
 
     /**
+     * <p>Items which are shipped in this delivery regardless their distribution over several parcels.
+     * Can also be specified individually for each Parcel.</p>.
+     *
      * @return null|DeliveryItemCollection
      */
     public function getItems();

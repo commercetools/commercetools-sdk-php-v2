@@ -29,17 +29,17 @@ final class CartDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $country;
+    private $currency;
 
     /**
      * @var ?string
      */
-    private $anonymousId;
+    private $customerId;
 
     /**
-     * @var ShippingRateInputDraft|?ShippingRateInputDraftBuilder
+     * @var ?string
      */
-    private $shippingRateInput;
+    private $customerEmail;
 
     /**
      * @var CustomerGroupResourceIdentifier|?CustomerGroupResourceIdentifierBuilder
@@ -49,27 +49,7 @@ final class CartDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $origin;
-
-    /**
-     * @var ?int
-     */
-    private $deleteDaysAfterLastModification;
-
-    /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
-     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
-     */
-    private $shippingMethod;
-
-    /**
-     * @var ?string
-     */
-    private $taxCalculationMode;
+    private $anonymousId;
 
     /**
      * @var StoreResourceIdentifier|?StoreResourceIdentifierBuilder
@@ -79,37 +59,12 @@ final class CartDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $locale;
-
-    /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
-     */
-    private $externalTaxRateForShippingMethod;
+    private $country;
 
     /**
      * @var ?string
      */
     private $inventoryMode;
-
-    /**
-     * @var ?LineItemDraftCollection
-     */
-    private $lineItems;
-
-    /**
-     * @var ?string
-     */
-    private $taxRoundingMode;
-
-    /**
-     * @var ?CustomLineItemDraftCollection
-     */
-    private $customLineItems;
-
-    /**
-     * @var ?AddressCollection
-     */
-    private $itemShippingAddresses;
 
     /**
      * @var ?string
@@ -119,12 +74,22 @@ final class CartDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $customerEmail;
+    private $taxRoundingMode;
 
     /**
      * @var ?string
      */
-    private $customerId;
+    private $taxCalculationMode;
+
+    /**
+     * @var ?LineItemDraftCollection
+     */
+    private $lineItems;
+
+    /**
+     * @var ?CustomLineItemDraftCollection
+     */
+    private $customLineItems;
 
     /**
      * @var Address|?AddressBuilder
@@ -132,157 +97,68 @@ final class CartDraftBuilder implements Builder
     private $shippingAddress;
 
     /**
-     * @var ?string
-     */
-    private $currency;
-
-    /**
      * @var Address|?AddressBuilder
      */
     private $billingAddress;
 
     /**
+     * @var ShippingMethodResourceIdentifier|?ShippingMethodResourceIdentifierBuilder
+     */
+    private $shippingMethod;
+
+    /**
+     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
+     */
+    private $externalTaxRateForShippingMethod;
+
+    /**
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
+     */
+    private $custom;
+
+    /**
+     * @var ?string
+     */
+    private $locale;
+
+    /**
+     * @var ?int
+     */
+    private $deleteDaysAfterLastModification;
+
+    /**
+     * @var ?string
+     */
+    private $origin;
+
+    /**
+     * @var ShippingRateInputDraft|?ShippingRateInputDraftBuilder
+     */
+    private $shippingRateInput;
+
+    /**
+     * @var ?AddressCollection
+     */
+    private $itemShippingAddresses;
+
+    /**
+     * <p>A three-digit currency code as per <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
+     *
      * @return null|string
      */
-    public function getCountry()
+    public function getCurrency()
     {
-        return $this->country;
+        return $this->currency;
     }
 
     /**
+     * <p>Id of an existing Customer.</p>.
+     *
      * @return null|string
      */
-    public function getAnonymousId()
+    public function getCustomerId()
     {
-        return $this->anonymousId;
-    }
-
-    /**
-     * @return null|ShippingRateInputDraft
-     */
-    public function getShippingRateInput()
-    {
-        return $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput;
-    }
-
-    /**
-     * @return null|CustomerGroupResourceIdentifier
-     */
-    public function getCustomerGroup()
-    {
-        return $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getOrigin()
-    {
-        return $this->origin;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getDeleteDaysAfterLastModification()
-    {
-        return $this->deleteDaysAfterLastModification;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|ShippingMethodResourceIdentifier
-     */
-    public function getShippingMethod()
-    {
-        return $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTaxCalculationMode()
-    {
-        return $this->taxCalculationMode;
-    }
-
-    /**
-     * @return null|StoreResourceIdentifier
-     */
-    public function getStore()
-    {
-        return $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLocale()
-    {
-        return $this->locale;
-    }
-
-    /**
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRateForShippingMethod()
-    {
-        return $this->externalTaxRateForShippingMethod instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRateForShippingMethod->build() : $this->externalTaxRateForShippingMethod;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getInventoryMode()
-    {
-        return $this->inventoryMode;
-    }
-
-    /**
-     * @return null|LineItemDraftCollection
-     */
-    public function getLineItems()
-    {
-        return $this->lineItems;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTaxRoundingMode()
-    {
-        return $this->taxRoundingMode;
-    }
-
-    /**
-     * @return null|CustomLineItemDraftCollection
-     */
-    public function getCustomLineItems()
-    {
-        return $this->customLineItems;
-    }
-
-    /**
-     * @return null|AddressCollection
-     */
-    public function getItemShippingAddresses()
-    {
-        return $this->itemShippingAddresses;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTaxMode()
-    {
-        return $this->taxMode;
+        return $this->customerId;
     }
 
     /**
@@ -294,29 +170,111 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>Will be set automatically when the <code>customerId</code> is set and the customer is a member of a customer group.
+     * Can be set explicitly when no <code>customerId</code> is present.</p>.
+     *
+     * @return null|CustomerGroupResourceIdentifier
      */
-    public function getCustomerId()
+    public function getCustomerGroup()
     {
-        return $this->customerId;
+        return $this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup;
     }
 
     /**
+     * <p>Assigns the new cart to an anonymous session (the customer has not signed up/in yet).</p>.
+     *
+     * @return null|string
+     */
+    public function getAnonymousId()
+    {
+        return $this->anonymousId;
+    }
+
+    /**
+     * <p>Assigns the new cart to the store.
+     * The store assignment can not be modified.</p>.
+     *
+     * @return null|StoreResourceIdentifier
+     */
+    public function getStore()
+    {
+        return $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store;
+    }
+
+    /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * <p>Default inventory mode is <code>None</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        return $this->inventoryMode;
+    }
+
+    /**
+     * <p>The default tax mode is <code>Platform</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getTaxMode()
+    {
+        return $this->taxMode;
+    }
+
+    /**
+     * <p>The default tax rounding mode is <code>HalfEven</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getTaxRoundingMode()
+    {
+        return $this->taxRoundingMode;
+    }
+
+    /**
+     * <p>The default tax calculation mode is <code>LineItemLevel</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getTaxCalculationMode()
+    {
+        return $this->taxCalculationMode;
+    }
+
+    /**
+     * @return null|LineItemDraftCollection
+     */
+    public function getLineItems()
+    {
+        return $this->lineItems;
+    }
+
+    /**
+     * @return null|CustomLineItemDraftCollection
+     */
+    public function getCustomLineItems()
+    {
+        return $this->customLineItems;
+    }
+
+    /**
+     * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>.
+     *
      * @return null|Address
      */
     public function getShippingAddress()
     {
         return $this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress;
-    }
-
-    /**
-     * <p>The currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>.
-     *
-     * @return null|string
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
     }
 
     /**
@@ -328,191 +286,98 @@ final class CartDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ShippingMethodResourceIdentifier
      */
-    public function withCountry(?string $country)
+    public function getShippingMethod()
     {
-        $this->country = $country;
+        return $this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod;
+    }
 
-        return $this;
+    /**
+     * <p>An external tax rate can be set for the <code>shippingMethod</code> if the cart has the <code>External</code> TaxMode.</p>.
+     *
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRateForShippingMethod()
+    {
+        return $this->externalTaxRateForShippingMethod instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRateForShippingMethod->build() : $this->externalTaxRateForShippingMethod;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>Must be one of the languages supported for this project</p>.
+     *
+     * @return null|string
+     */
+    public function getLocale()
+    {
+        return $this->locale;
+    }
+
+    /**
+     * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.
+     * If a ChangeSubscription for carts exists, a <code>ResourceDeleted</code> notification will be sent.</p>.
+     *
+     * @return null|int
+     */
+    public function getDeleteDaysAfterLastModification()
+    {
+        return $this->deleteDaysAfterLastModification;
+    }
+
+    /**
+     * <p>The default origin is <code>Customer</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getOrigin()
+    {
+        return $this->origin;
+    }
+
+    /**
+     * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.
+     * Based on the definition of ShippingRateInputType.
+     * If CartClassification is defined, it must be ClassificationShippingRateInput.
+     * If CartScore is defined, it must be ScoreShippingRateInput.
+     * Otherwise it can not bet set.</p>.
+     *
+     * @return null|ShippingRateInputDraft
+     */
+    public function getShippingRateInput()
+    {
+        return $this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput;
+    }
+
+    /**
+     * <p>Contains addresses for carts with multiple shipping addresses.
+     * Each address must contain a key which is unique in this cart.
+     * Line items will use these keys to reference the addresses under their <code>shippingDetails</code>.
+     * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
+     * Only the cart's <code>shippingAddress</code> is used for this.</p>.
+     *
+     * @return null|AddressCollection
+     */
+    public function getItemShippingAddresses()
+    {
+        return $this->itemShippingAddresses;
     }
 
     /**
      * @return $this
      */
-    public function withAnonymousId(?string $anonymousId)
+    public function withCurrency(?string $currency)
     {
-        $this->anonymousId = $anonymousId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingRateInput(?ShippingRateInputDraft $shippingRateInput)
-    {
-        $this->shippingRateInput = $shippingRateInput;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
-    {
-        $this->customerGroup = $customerGroup;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withOrigin(?string $origin)
-    {
-        $this->origin = $origin;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
-    {
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFieldsDraft $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
-    {
-        $this->shippingMethod = $shippingMethod;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTaxCalculationMode(?string $taxCalculationMode)
-    {
-        $this->taxCalculationMode = $taxCalculationMode;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withStore(?StoreResourceIdentifier $store)
-    {
-        $this->store = $store;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLocale(?string $locale)
-    {
-        $this->locale = $locale;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod)
-    {
-        $this->externalTaxRateForShippingMethod = $externalTaxRateForShippingMethod;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withInventoryMode(?string $inventoryMode)
-    {
-        $this->inventoryMode = $inventoryMode;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLineItems(?LineItemDraftCollection $lineItems)
-    {
-        $this->lineItems = $lineItems;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTaxRoundingMode(?string $taxRoundingMode)
-    {
-        $this->taxRoundingMode = $taxRoundingMode;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomLineItems(?CustomLineItemDraftCollection $customLineItems)
-    {
-        $this->customLineItems = $customLineItems;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
-    {
-        $this->itemShippingAddresses = $itemShippingAddresses;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTaxMode(?string $taxMode)
-    {
-        $this->taxMode = $taxMode;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomerEmail(?string $customerEmail)
-    {
-        $this->customerEmail = $customerEmail;
+        $this->currency = $currency;
 
         return $this;
     }
@@ -530,9 +395,9 @@ final class CartDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingAddress(?Address $shippingAddress)
+    public function withCustomerEmail(?string $customerEmail)
     {
-        $this->shippingAddress = $shippingAddress;
+        $this->customerEmail = $customerEmail;
 
         return $this;
     }
@@ -540,9 +405,109 @@ final class CartDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCurrency(?string $currency)
+    public function withCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup)
     {
-        $this->currency = $currency;
+        $this->customerGroup = $customerGroup;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAnonymousId(?string $anonymousId)
+    {
+        $this->anonymousId = $anonymousId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStore(?StoreResourceIdentifier $store)
+    {
+        $this->store = $store;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCountry(?string $country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withInventoryMode(?string $inventoryMode)
+    {
+        $this->inventoryMode = $inventoryMode;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxMode(?string $taxMode)
+    {
+        $this->taxMode = $taxMode;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxRoundingMode(?string $taxRoundingMode)
+    {
+        $this->taxRoundingMode = $taxRoundingMode;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxCalculationMode(?string $taxCalculationMode)
+    {
+        $this->taxCalculationMode = $taxCalculationMode;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLineItems(?LineItemDraftCollection $lineItems)
+    {
+        $this->lineItems = $lineItems;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomLineItems(?CustomLineItemDraftCollection $customLineItems)
+    {
+        $this->customLineItems = $customLineItems;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingAddress(?Address $shippingAddress)
+    {
+        $this->shippingAddress = $shippingAddress;
 
         return $this;
     }
@@ -560,9 +525,79 @@ final class CartDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingRateInputBuilder(?ShippingRateInputDraftBuilder $shippingRateInput)
+    public function withShippingMethod(?ShippingMethodResourceIdentifier $shippingMethod)
+    {
+        $this->shippingMethod = $shippingMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalTaxRateForShippingMethod(?ExternalTaxRateDraft $externalTaxRateForShippingMethod)
+    {
+        $this->externalTaxRateForShippingMethod = $externalTaxRateForShippingMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLocale(?string $locale)
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
+    {
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withOrigin(?string $origin)
+    {
+        $this->origin = $origin;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingRateInput(?ShippingRateInputDraft $shippingRateInput)
     {
         $this->shippingRateInput = $shippingRateInput;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withItemShippingAddresses(?AddressCollection $itemShippingAddresses)
+    {
+        $this->itemShippingAddresses = $itemShippingAddresses;
 
         return $this;
     }
@@ -580,39 +615,9 @@ final class CartDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
-    {
-        $this->shippingMethod = $shippingMethod;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withStoreBuilder(?StoreResourceIdentifierBuilder $store)
     {
         $this->store = $store;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExternalTaxRateForShippingMethodBuilder(?ExternalTaxRateDraftBuilder $externalTaxRateForShippingMethod)
-    {
-        $this->externalTaxRateForShippingMethod = $externalTaxRateForShippingMethod;
 
         return $this;
     }
@@ -637,32 +642,72 @@ final class CartDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withShippingMethodBuilder(?ShippingMethodResourceIdentifierBuilder $shippingMethod)
+    {
+        $this->shippingMethod = $shippingMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalTaxRateForShippingMethodBuilder(?ExternalTaxRateDraftBuilder $externalTaxRateForShippingMethod)
+    {
+        $this->externalTaxRateForShippingMethod = $externalTaxRateForShippingMethod;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingRateInputBuilder(?ShippingRateInputDraftBuilder $shippingRateInput)
+    {
+        $this->shippingRateInput = $shippingRateInput;
+
+        return $this;
+    }
+
     public function build(): CartDraft
     {
         return new CartDraftModel(
-            $this->country,
-            $this->anonymousId,
-            ($this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput),
-            ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            $this->origin,
-            $this->deleteDaysAfterLastModification,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
-            $this->taxCalculationMode,
-            ($this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store),
-            $this->locale,
-            ($this->externalTaxRateForShippingMethod instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRateForShippingMethod->build() : $this->externalTaxRateForShippingMethod),
-            $this->inventoryMode,
-            $this->lineItems,
-            $this->taxRoundingMode,
-            $this->customLineItems,
-            $this->itemShippingAddresses,
-            $this->taxMode,
-            $this->customerEmail,
-            $this->customerId,
-            ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress),
             $this->currency,
-            ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress)
+            $this->customerId,
+            $this->customerEmail,
+            ($this->customerGroup instanceof CustomerGroupResourceIdentifierBuilder ? $this->customerGroup->build() : $this->customerGroup),
+            $this->anonymousId,
+            ($this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store),
+            $this->country,
+            $this->inventoryMode,
+            $this->taxMode,
+            $this->taxRoundingMode,
+            $this->taxCalculationMode,
+            $this->lineItems,
+            $this->customLineItems,
+            ($this->shippingAddress instanceof AddressBuilder ? $this->shippingAddress->build() : $this->shippingAddress),
+            ($this->billingAddress instanceof AddressBuilder ? $this->billingAddress->build() : $this->billingAddress),
+            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
+            ($this->externalTaxRateForShippingMethod instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRateForShippingMethod->build() : $this->externalTaxRateForShippingMethod),
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
+            $this->locale,
+            $this->deleteDaysAfterLastModification,
+            $this->origin,
+            ($this->shippingRateInput instanceof ShippingRateInputDraftBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput),
+            $this->itemShippingAddresses
         );
     }
 

@@ -22,6 +22,11 @@ use Commercetools\Base\Builder;
 final class MyPaymentDraftBuilder implements Builder
 {
     /**
+     * @var Money|?MoneyBuilder
+     */
+    private $amountPlanned;
+
+    /**
      * @var PaymentMethodInfo|?PaymentMethodInfoBuilder
      */
     private $paymentMethodInfo;
@@ -32,14 +37,20 @@ final class MyPaymentDraftBuilder implements Builder
     private $custom;
 
     /**
-     * @var Money|?MoneyBuilder
-     */
-    private $amountPlanned;
-
-    /**
      * @var MyTransactionDraft|?MyTransactionDraftBuilder
      */
     private $transaction;
+
+    /**
+     * <p>How much money this payment intends to receive from the customer.
+     * The value usually matches the cart or order gross total.</p>.
+     *
+     * @return null|Money
+     */
+    public function getAmountPlanned()
+    {
+        return $this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
+    }
 
     /**
      * @return null|PaymentMethodInfo
@@ -58,19 +69,24 @@ final class MyPaymentDraftBuilder implements Builder
     }
 
     /**
-     * @return null|Money
-     */
-    public function getAmountPlanned()
-    {
-        return $this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned;
-    }
-
-    /**
+     * <p>A list of financial transactions of the <code>Authorization</code> or <code>Charge</code>
+     * TransactionTypes.</p>.
+     *
      * @return null|MyTransactionDraft
      */
     public function getTransaction()
     {
         return $this->transaction instanceof MyTransactionDraftBuilder ? $this->transaction->build() : $this->transaction;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAmountPlanned(?Money $amountPlanned)
+    {
+        $this->amountPlanned = $amountPlanned;
+
+        return $this;
     }
 
     /**
@@ -96,9 +112,9 @@ final class MyPaymentDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmountPlanned(?Money $amountPlanned)
+    public function withTransaction(?MyTransactionDraft $transaction)
     {
-        $this->amountPlanned = $amountPlanned;
+        $this->transaction = $transaction;
 
         return $this;
     }
@@ -106,9 +122,9 @@ final class MyPaymentDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTransaction(?MyTransactionDraft $transaction)
+    public function withAmountPlannedBuilder(?MoneyBuilder $amountPlanned)
     {
-        $this->transaction = $transaction;
+        $this->amountPlanned = $amountPlanned;
 
         return $this;
     }
@@ -136,16 +152,6 @@ final class MyPaymentDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAmountPlannedBuilder(?MoneyBuilder $amountPlanned)
-    {
-        $this->amountPlanned = $amountPlanned;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withTransactionBuilder(?MyTransactionDraftBuilder $transaction)
     {
         $this->transaction = $transaction;
@@ -156,9 +162,9 @@ final class MyPaymentDraftBuilder implements Builder
     public function build(): MyPaymentDraft
     {
         return new MyPaymentDraftModel(
+            ($this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
             ($this->paymentMethodInfo instanceof PaymentMethodInfoBuilder ? $this->paymentMethodInfo->build() : $this->paymentMethodInfo),
             ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->amountPlanned instanceof MoneyBuilder ? $this->amountPlanned->build() : $this->amountPlanned),
             ($this->transaction instanceof MyTransactionDraftBuilder ? $this->transaction->build() : $this->transaction)
         );
     }

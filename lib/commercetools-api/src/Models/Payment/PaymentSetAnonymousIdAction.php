@@ -13,6 +13,9 @@ interface PaymentSetAnonymousIdAction extends PaymentUpdateAction
     const FIELD_ANONYMOUS_ID = 'anonymousId';
 
     /**
+     * <p>Anonymous ID of the anonymous customer that this payment belongs to.
+     * If this field is not set any existing <code>anonymousId</code> is removed.</p>.
+     *
      * @return null|string
      */
     public function getAnonymousId();

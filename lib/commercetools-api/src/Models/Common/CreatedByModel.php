@@ -18,11 +18,6 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
     /**
      * @var ?string
      */
-    protected $anonymousId;
-
-    /**
-     * @var ?string
-     */
     protected $clientId;
 
     /**
@@ -35,33 +30,21 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
      */
     protected $customer;
 
+    /**
+     * @var ?string
+     */
+    protected $anonymousId;
+
     public function __construct(
-        string $anonymousId = null,
         string $clientId = null,
         string $externalUserId = null,
-        CustomerReference $customer = null
+        CustomerReference $customer = null,
+        string $anonymousId = null
     ) {
-        $this->anonymousId = $anonymousId;
         $this->clientId = $clientId;
         $this->externalUserId = $externalUserId;
         $this->customer = $customer;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAnonymousId()
-    {
-        if (is_null($this->anonymousId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ClientLogging::FIELD_ANONYMOUS_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->anonymousId = (string) $data;
-        }
-
-        return $this->anonymousId;
+        $this->anonymousId = $anonymousId;
     }
 
     /**
@@ -116,9 +99,21 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
         return $this->customer;
     }
 
-    public function setAnonymousId(?string $anonymousId): void
+    /**
+     * @return null|string
+     */
+    public function getAnonymousId()
     {
-        $this->anonymousId = $anonymousId;
+        if (is_null($this->anonymousId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ClientLogging::FIELD_ANONYMOUS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->anonymousId = (string) $data;
+        }
+
+        return $this->anonymousId;
     }
 
     public function setClientId(?string $clientId): void
@@ -134,5 +129,10 @@ final class CreatedByModel extends JsonObjectModel implements CreatedBy
     public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
+    }
+
+    public function setAnonymousId(?string $anonymousId): void
+    {
+        $this->anonymousId = $anonymousId;
     }
 }

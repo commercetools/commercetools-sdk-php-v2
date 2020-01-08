@@ -13,38 +13,21 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerEmailVerifyModel extends JsonObjectModel implements CustomerEmailVerify
 {
     /**
-     * @var ?string
-     */
-    protected $tokenValue;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        string $tokenValue = null,
-        int $version = null
-    ) {
-        $this->tokenValue = $tokenValue;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getTokenValue()
-    {
-        if (is_null($this->tokenValue)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerEmailVerify::FIELD_TOKEN_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->tokenValue = (string) $data;
-        }
+    protected $tokenValue;
 
-        return $this->tokenValue;
+    public function __construct(
+        int $version = null,
+        string $tokenValue = null
+    ) {
+        $this->version = $version;
+        $this->tokenValue = $tokenValue;
     }
 
     /**
@@ -64,13 +47,30 @@ final class CustomerEmailVerifyModel extends JsonObjectModel implements Customer
         return $this->version;
     }
 
-    public function setTokenValue(?string $tokenValue): void
+    /**
+     * @return null|string
+     */
+    public function getTokenValue()
     {
-        $this->tokenValue = $tokenValue;
+        if (is_null($this->tokenValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerEmailVerify::FIELD_TOKEN_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tokenValue = (string) $data;
+        }
+
+        return $this->tokenValue;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setTokenValue(?string $tokenValue): void
+    {
+        $this->tokenValue = $tokenValue;
     }
 }

@@ -18,11 +18,6 @@ use DateTimeImmutable;
 final class StagedOrderAddReturnInfoActionBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $returnDate;
-
-    /**
      * @var ?string
      */
     private $returnTrackingId;
@@ -33,12 +28,9 @@ final class StagedOrderAddReturnInfoActionBuilder implements Builder
     private $items;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var ?DateTimeImmutable
      */
-    public function getReturnDate()
-    {
-        return $this->returnDate;
-    }
+    private $returnDate;
 
     /**
      * @return null|string
@@ -57,13 +49,11 @@ final class StagedOrderAddReturnInfoActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|DateTimeImmutable
      */
-    public function withReturnDate(?DateTimeImmutable $returnDate)
+    public function getReturnDate()
     {
-        $this->returnDate = $returnDate;
-
-        return $this;
+        return $this->returnDate;
     }
 
     /**
@@ -86,12 +76,22 @@ final class StagedOrderAddReturnInfoActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withReturnDate(?DateTimeImmutable $returnDate)
+    {
+        $this->returnDate = $returnDate;
+
+        return $this;
+    }
+
     public function build(): StagedOrderAddReturnInfoAction
     {
         return new StagedOrderAddReturnInfoActionModel(
-            $this->returnDate,
             $this->returnTrackingId,
-            $this->items
+            $this->items,
+            $this->returnDate
         );
     }
 

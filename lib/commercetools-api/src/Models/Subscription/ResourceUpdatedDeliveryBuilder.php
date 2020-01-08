@@ -36,9 +36,9 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?int
      */
-    private $modifiedAt;
+    private $version;
 
     /**
      * @var ?int
@@ -46,9 +46,9 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     private $oldVersion;
 
     /**
-     * @var ?int
+     * @var ?DateTimeImmutable
      */
-    private $version;
+    private $modifiedAt;
 
     /**
      * @return null|string
@@ -75,11 +75,11 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * @return null|int
      */
-    public function getModifiedAt()
+    public function getVersion()
     {
-        return $this->modifiedAt;
+        return $this->version;
     }
 
     /**
@@ -91,11 +91,11 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|DateTimeImmutable
      */
-    public function getVersion()
+    public function getModifiedAt()
     {
-        return $this->version;
+        return $this->modifiedAt;
     }
 
     /**
@@ -131,9 +131,9 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withModifiedAt(?DateTimeImmutable $modifiedAt)
+    public function withVersion(?int $version)
     {
-        $this->modifiedAt = $modifiedAt;
+        $this->version = $version;
 
         return $this;
     }
@@ -151,9 +151,9 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVersion(?int $version)
+    public function withModifiedAt(?DateTimeImmutable $modifiedAt)
     {
-        $this->version = $version;
+        $this->modifiedAt = $modifiedAt;
 
         return $this;
     }
@@ -184,9 +184,9 @@ final class ResourceUpdatedDeliveryBuilder implements Builder
             $this->projectKey,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            $this->modifiedAt,
+            $this->version,
             $this->oldVersion,
-            $this->version
+            $this->modifiedAt
         );
     }
 

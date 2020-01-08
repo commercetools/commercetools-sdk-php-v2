@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ProductTypeUpdateBuilder implements Builder
 {
     /**
-     * @var ?ProductTypeUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|ProductTypeUpdateActionCollection
+     * @var ?ProductTypeUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class ProductTypeUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ProductTypeUpdateActionCollection
      */
-    public function withActions(?ProductTypeUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ProductTypeUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?ProductTypeUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): ProductTypeUpdate
     {
         return new ProductTypeUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

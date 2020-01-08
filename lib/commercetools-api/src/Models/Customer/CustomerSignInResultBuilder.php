@@ -17,22 +17,14 @@ use Commercetools\Base\JsonObject;
 final class CustomerSignInResultBuilder implements Builder
 {
     /**
-     * @var ?JsonObject
-     */
-    private $cart;
-
-    /**
      * @var Customer|?CustomerBuilder
      */
     private $customer;
 
     /**
-     * @return null|JsonObject
+     * @var ?JsonObject
      */
-    public function getCart()
-    {
-        return $this->cart;
-    }
+    private $cart;
 
     /**
      * @return null|Customer
@@ -43,13 +35,14 @@ final class CustomerSignInResultBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>A cart that is associated to the customer.
+     * Empty if the customer does not have a cart yet.</p>.
+     *
+     * @return null|JsonObject
      */
-    public function withCart(?JsonObject $cart)
+    public function getCart()
     {
-        $this->cart = $cart;
-
-        return $this;
+        return $this->cart;
     }
 
     /**
@@ -58,6 +51,16 @@ final class CustomerSignInResultBuilder implements Builder
     public function withCustomer(?Customer $customer)
     {
         $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCart(?JsonObject $cart)
+    {
+        $this->cart = $cart;
 
         return $this;
     }
@@ -75,8 +78,8 @@ final class CustomerSignInResultBuilder implements Builder
     public function build(): CustomerSignInResult
     {
         return new CustomerSignInResultModel(
-            $this->cart,
-            ($this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer)
+            ($this->customer instanceof CustomerBuilder ? $this->customer->build() : $this->customer),
+            $this->cart
         );
     }
 

@@ -19,17 +19,7 @@ final class CustomLineItemReturnItemBuilder implements Builder
     /**
      * @var ?string
      */
-    private $shipmentState;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
+    private $id;
 
     /**
      * @var ?int
@@ -44,12 +34,22 @@ final class CustomLineItemReturnItemBuilder implements Builder
     /**
      * @var ?string
      */
-    private $id;
+    private $shipmentState;
 
     /**
      * @var ?string
      */
     private $paymentState;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $createdAt;
 
     /**
      * @var ?string
@@ -59,25 +59,9 @@ final class CustomLineItemReturnItemBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getShipmentState()
+    public function getId()
     {
-        return $this->shipmentState;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
+        return $this->id;
     }
 
     /**
@@ -99,9 +83,9 @@ final class CustomLineItemReturnItemBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getId()
+    public function getShipmentState()
     {
-        return $this->id;
+        return $this->shipmentState;
     }
 
     /**
@@ -110,6 +94,22 @@ final class CustomLineItemReturnItemBuilder implements Builder
     public function getPaymentState()
     {
         return $this->paymentState;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 
     /**
@@ -123,29 +123,9 @@ final class CustomLineItemReturnItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShipmentState(?string $shipmentState)
+    public function withId(?string $id)
     {
-        $this->shipmentState = $shipmentState;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        $this->id = $id;
 
         return $this;
     }
@@ -173,9 +153,9 @@ final class CustomLineItemReturnItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withId(?string $id)
+    public function withShipmentState(?string $shipmentState)
     {
-        $this->id = $id;
+        $this->shipmentState = $shipmentState;
 
         return $this;
     }
@@ -193,6 +173,26 @@ final class CustomLineItemReturnItemBuilder implements Builder
     /**
      * @return $this
      */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withCustomLineItemId(?string $customLineItemId)
     {
         $this->customLineItemId = $customLineItemId;
@@ -203,13 +203,13 @@ final class CustomLineItemReturnItemBuilder implements Builder
     public function build(): CustomLineItemReturnItem
     {
         return new CustomLineItemReturnItemModel(
-            $this->shipmentState,
-            $this->createdAt,
-            $this->lastModifiedAt,
+            $this->id,
             $this->quantity,
             $this->comment,
-            $this->id,
+            $this->shipmentState,
             $this->paymentState,
+            $this->lastModifiedAt,
+            $this->createdAt,
             $this->customLineItemId
         );
     }

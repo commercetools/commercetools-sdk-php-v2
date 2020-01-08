@@ -20,21 +20,6 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     protected $action;
 
     /**
-     * @var ?string
-     */
-    protected $imageUrl;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
-     * @var ?int
-     */
-    protected $position;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -44,18 +29,33 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
      */
     protected $sku;
 
+    /**
+     * @var ?string
+     */
+    protected $imageUrl;
+
+    /**
+     * @var ?int
+     */
+    protected $position;
+
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        string $imageUrl = null,
-        bool $staged = null,
-        int $position = null,
         int $variantId = null,
-        string $sku = null
+        string $sku = null,
+        string $imageUrl = null,
+        int $position = null,
+        bool $staged = null
     ) {
-        $this->imageUrl = $imageUrl;
-        $this->staged = $staged;
-        $this->position = $position;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->imageUrl = $imageUrl;
+        $this->position = $position;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -74,57 +74,6 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getImageUrl()
-    {
-        if (is_null($this->imageUrl)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_IMAGE_URL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->imageUrl = (string) $data;
-        }
-
-        return $this->imageUrl;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getPosition()
-    {
-        if (is_null($this->position)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_POSITION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->position = (int) $data;
-        }
-
-        return $this->position;
     }
 
     /**
@@ -161,19 +110,57 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
         return $this->sku;
     }
 
-    public function setImageUrl(?string $imageUrl): void
+    /**
+     * <p>The URL of the image</p>.
+     *
+     * @return null|string
+     */
+    public function getImageUrl()
     {
-        $this->imageUrl = $imageUrl;
+        if (is_null($this->imageUrl)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_IMAGE_URL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->imageUrl = (string) $data;
+        }
+
+        return $this->imageUrl;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|int
+     */
+    public function getPosition()
     {
-        $this->staged = $staged;
+        if (is_null($this->position)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_POSITION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->position = (int) $data;
+        }
+
+        return $this->position;
     }
 
-    public function setPosition(?int $position): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->position = $position;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductMoveImageToPositionAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setVariantId(?int $variantId): void
@@ -184,5 +171,20 @@ final class ProductMoveImageToPositionActionModel extends JsonObjectModel implem
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    public function setImageUrl(?string $imageUrl): void
+    {
+        $this->imageUrl = $imageUrl;
+    }
+
+    public function setPosition(?int $position): void
+    {
+        $this->position = $position;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

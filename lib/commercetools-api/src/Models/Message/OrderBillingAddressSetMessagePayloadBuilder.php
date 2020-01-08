@@ -20,20 +20,12 @@ final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
     /**
      * @var Address|?AddressBuilder
      */
-    private $oldAddress;
+    private $address;
 
     /**
      * @var Address|?AddressBuilder
      */
-    private $address;
-
-    /**
-     * @return null|Address
-     */
-    public function getOldAddress()
-    {
-        return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
-    }
+    private $oldAddress;
 
     /**
      * @return null|Address
@@ -44,13 +36,11 @@ final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Address
      */
-    public function withOldAddress(?Address $oldAddress)
+    public function getOldAddress()
     {
-        $this->oldAddress = $oldAddress;
-
-        return $this;
+        return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
     }
 
     /**
@@ -66,7 +56,7 @@ final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldAddressBuilder(?AddressBuilder $oldAddress)
+    public function withOldAddress(?Address $oldAddress)
     {
         $this->oldAddress = $oldAddress;
 
@@ -83,11 +73,21 @@ final class OrderBillingAddressSetMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withOldAddressBuilder(?AddressBuilder $oldAddress)
+    {
+        $this->oldAddress = $oldAddress;
+
+        return $this;
+    }
+
     public function build(): OrderBillingAddressSetMessagePayload
     {
         return new OrderBillingAddressSetMessagePayloadModel(
-            ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress),
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
+            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
+            ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress)
         );
     }
 

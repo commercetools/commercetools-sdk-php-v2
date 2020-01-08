@@ -19,7 +19,7 @@ final class ExternalTaxRateDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $country;
+    private $name;
 
     /**
      * @var ?int
@@ -27,14 +27,9 @@ final class ExternalTaxRateDraftBuilder implements Builder
     private $amount;
 
     /**
-     * @var ?bool
-     */
-    private $includedInPrice;
-
-    /**
      * @var ?string
      */
-    private $name;
+    private $country;
 
     /**
      * @var ?string
@@ -47,28 +42,9 @@ final class ExternalTaxRateDraftBuilder implements Builder
     private $subRates;
 
     /**
-     * @return null|string
+     * @var ?bool
      */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIncludedInPrice()
-    {
-        return $this->includedInPrice;
-    }
+    private $includedInPrice;
 
     /**
      * @return null|string
@@ -79,6 +55,31 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>Percentage in the range of [0..1].
+     * Must be supplied if no <code>subRates</code> are specified.
+     * If <code>subRates</code> are specified
+     * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>.
+     *
+     * @return null|int
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * <p>The state in the country</p>.
+     *
      * @return null|string
      */
     public function getState()
@@ -87,6 +88,10 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>For countries (e.g.
+     * the US) where the total tax is a combination of multiple taxes (e.g.
+     * state and local taxes).</p>.
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates()
@@ -95,11 +100,21 @@ final class ExternalTaxRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>The default value for <code>includedInPrice</code> is FALSE.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIncludedInPrice()
+    {
+        return $this->includedInPrice;
+    }
+
+    /**
      * @return $this
      */
-    public function withCountry(?string $country)
+    public function withName(?string $name)
     {
-        $this->country = $country;
+        $this->name = $name;
 
         return $this;
     }
@@ -117,19 +132,9 @@ final class ExternalTaxRateDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withIncludedInPrice(?bool $includedInPrice)
+    public function withCountry(?string $country)
     {
-        $this->includedInPrice = $includedInPrice;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?string $name)
-    {
-        $this->name = $name;
+        $this->country = $country;
 
         return $this;
     }
@@ -154,15 +159,25 @@ final class ExternalTaxRateDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withIncludedInPrice(?bool $includedInPrice)
+    {
+        $this->includedInPrice = $includedInPrice;
+
+        return $this;
+    }
+
     public function build(): ExternalTaxRateDraft
     {
         return new ExternalTaxRateDraftModel(
-            $this->country,
-            $this->amount,
-            $this->includedInPrice,
             $this->name,
+            $this->amount,
+            $this->country,
             $this->state,
-            $this->subRates
+            $this->subRates,
+            $this->includedInPrice
         );
     }
 

@@ -51,6 +51,8 @@ interface CustomObject extends LoggedResource
     public function getCreatedBy();
 
     /**
+     * <p>A namespace to group custom objects.</p>.
+     *
      * @return null|string
      */
     public function getContainer();

@@ -16,9 +16,9 @@ use stdClass;
 final class VariantValuesModel extends JsonObjectModel implements VariantValues
 {
     /**
-     * @var ?AttributeCollection
+     * @var ?string
      */
-    protected $attributes;
+    protected $sku;
 
     /**
      * @var ?PriceImportCollection
@@ -26,35 +26,35 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     protected $prices;
 
     /**
-     * @var ?string
+     * @var ?AttributeCollection
      */
-    protected $sku;
+    protected $attributes;
 
     public function __construct(
-        AttributeCollection $attributes = null,
+        string $sku = null,
         PriceImportCollection $prices = null,
-        string $sku = null
+        AttributeCollection $attributes = null
     ) {
-        $this->attributes = $attributes;
-        $this->prices = $prices;
         $this->sku = $sku;
+        $this->prices = $prices;
+        $this->attributes = $attributes;
     }
 
     /**
-     * @return null|AttributeCollection
+     * @return null|string
      */
-    public function getAttributes()
+    public function getSku()
     {
-        if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(VariantValues::FIELD_ATTRIBUTES);
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(VariantValues::FIELD_SKU);
             if (is_null($data)) {
                 return null;
             }
-            $this->attributes = AttributeCollection::fromArray($data);
+            $this->sku = (string) $data;
         }
 
-        return $this->attributes;
+        return $this->sku;
     }
 
     /**
@@ -75,25 +75,25 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
     }
 
     /**
-     * @return null|string
+     * @return null|AttributeCollection
      */
-    public function getSku()
+    public function getAttributes()
     {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(VariantValues::FIELD_SKU);
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(VariantValues::FIELD_ATTRIBUTES);
             if (is_null($data)) {
                 return null;
             }
-            $this->sku = (string) $data;
+            $this->attributes = AttributeCollection::fromArray($data);
         }
 
-        return $this->sku;
+        return $this->attributes;
     }
 
-    public function setAttributes(?AttributeCollection $attributes): void
+    public function setSku(?string $sku): void
     {
-        $this->attributes = $attributes;
+        $this->sku = $sku;
     }
 
     public function setPrices(?PriceImportCollection $prices): void
@@ -101,8 +101,8 @@ final class VariantValuesModel extends JsonObjectModel implements VariantValues
         $this->prices = $prices;
     }
 
-    public function setSku(?string $sku): void
+    public function setAttributes(?AttributeCollection $attributes): void
     {
-        $this->sku = $sku;
+        $this->attributes = $attributes;
     }
 }

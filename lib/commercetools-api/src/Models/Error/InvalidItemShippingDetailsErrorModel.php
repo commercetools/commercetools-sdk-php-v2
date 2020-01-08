@@ -27,21 +27,21 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     /**
      * @var ?string
      */
-    protected $itemId;
+    protected $subject;
 
     /**
      * @var ?string
      */
-    protected $subject;
+    protected $itemId;
 
     public function __construct(
         string $message = null,
-        string $itemId = null,
-        string $subject = null
+        string $subject = null,
+        string $itemId = null
     ) {
         $this->message = $message;
-        $this->itemId = $itemId;
         $this->subject = $subject;
+        $this->itemId = $itemId;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
 
@@ -82,23 +82,6 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
     /**
      * @return null|string
      */
-    public function getItemId()
-    {
-        if (is_null($this->itemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(InvalidItemShippingDetailsError::FIELD_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->itemId = (string) $data;
-        }
-
-        return $this->itemId;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getSubject()
     {
         if (is_null($this->subject)) {
@@ -113,18 +96,35 @@ final class InvalidItemShippingDetailsErrorModel extends JsonObjectModel impleme
         return $this->subject;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getItemId()
+    {
+        if (is_null($this->itemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(InvalidItemShippingDetailsError::FIELD_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->itemId = (string) $data;
+        }
+
+        return $this->itemId;
+    }
+
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
-    public function setItemId(?string $itemId): void
-    {
-        $this->itemId = $itemId;
-    }
-
     public function setSubject(?string $subject): void
     {
         $this->subject = $subject;
+    }
+
+    public function setItemId(?string $itemId): void
+    {
+        $this->itemId = $itemId;
     }
 }

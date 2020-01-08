@@ -36,9 +36,14 @@ final class MessageDeliveryBuilder implements Builder
     private $resourceUserProvidedIdentifiers;
 
     /**
+     * @var ?string
+     */
+    private $id;
+
+    /**
      * @var ?int
      */
-    private $sequenceNumber;
+    private $version;
 
     /**
      * @var ?DateTimeImmutable
@@ -53,22 +58,17 @@ final class MessageDeliveryBuilder implements Builder
     /**
      * @var ?int
      */
+    private $sequenceNumber;
+
+    /**
+     * @var ?int
+     */
     private $resourceVersion;
 
     /**
      * @var PayloadNotIncluded|?PayloadNotIncludedBuilder
      */
     private $payloadNotIncluded;
-
-    /**
-     * @var ?string
-     */
-    private $id;
-
-    /**
-     * @var ?int
-     */
-    private $version;
 
     /**
      * @return null|string
@@ -95,11 +95,19 @@ final class MessageDeliveryBuilder implements Builder
     }
 
     /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * @return null|int
      */
-    public function getSequenceNumber()
+    public function getVersion()
     {
-        return $this->sequenceNumber;
+        return $this->version;
     }
 
     /**
@@ -121,6 +129,14 @@ final class MessageDeliveryBuilder implements Builder
     /**
      * @return null|int
      */
+    public function getSequenceNumber()
+    {
+        return $this->sequenceNumber;
+    }
+
+    /**
+     * @return null|int
+     */
     public function getResourceVersion()
     {
         return $this->resourceVersion;
@@ -132,22 +148,6 @@ final class MessageDeliveryBuilder implements Builder
     public function getPayloadNotIncluded()
     {
         return $this->payloadNotIncluded instanceof PayloadNotIncludedBuilder ? $this->payloadNotIncluded->build() : $this->payloadNotIncluded;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
     }
 
     /**
@@ -183,9 +183,19 @@ final class MessageDeliveryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSequenceNumber(?int $sequenceNumber)
+    public function withId(?string $id)
     {
-        $this->sequenceNumber = $sequenceNumber;
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withVersion(?int $version)
+    {
+        $this->version = $version;
 
         return $this;
     }
@@ -213,6 +223,16 @@ final class MessageDeliveryBuilder implements Builder
     /**
      * @return $this
      */
+    public function withSequenceNumber(?int $sequenceNumber)
+    {
+        $this->sequenceNumber = $sequenceNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
@@ -226,26 +246,6 @@ final class MessageDeliveryBuilder implements Builder
     public function withPayloadNotIncluded(?PayloadNotIncluded $payloadNotIncluded)
     {
         $this->payloadNotIncluded = $payloadNotIncluded;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withId(?string $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withVersion(?int $version)
-    {
-        $this->version = $version;
 
         return $this;
     }
@@ -286,13 +286,13 @@ final class MessageDeliveryBuilder implements Builder
             $this->projectKey,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
             ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
-            $this->sequenceNumber,
+            $this->id,
+            $this->version,
             $this->createdAt,
             $this->lastModifiedAt,
+            $this->sequenceNumber,
             $this->resourceVersion,
-            ($this->payloadNotIncluded instanceof PayloadNotIncludedBuilder ? $this->payloadNotIncluded->build() : $this->payloadNotIncluded),
-            $this->id,
-            $this->version
+            ($this->payloadNotIncluded instanceof PayloadNotIncludedBuilder ? $this->payloadNotIncluded->build() : $this->payloadNotIncluded)
         );
     }
 

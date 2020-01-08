@@ -14,38 +14,21 @@ use stdClass;
 final class CustomerGroupUpdateModel extends JsonObjectModel implements CustomerGroupUpdate
 {
     /**
-     * @var ?CustomerGroupUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        CustomerGroupUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|CustomerGroupUpdateActionCollection
+     * @var ?CustomerGroupUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CustomerGroupUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = CustomerGroupUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        CustomerGroupUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class CustomerGroupUpdateModel extends JsonObjectModel implements Customer
         return $this->version;
     }
 
-    public function setActions(?CustomerGroupUpdateActionCollection $actions): void
+    /**
+     * @return null|CustomerGroupUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CustomerGroupUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = CustomerGroupUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?CustomerGroupUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

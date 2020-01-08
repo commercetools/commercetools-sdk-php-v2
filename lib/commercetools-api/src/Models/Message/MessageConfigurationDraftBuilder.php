@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class MessageConfigurationDraftBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $deleteDaysAfterCreation;
-
-    /**
      * @var ?bool
      */
     private $enabled;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getDeleteDaysAfterCreation()
-    {
-        return $this->deleteDaysAfterCreation;
-    }
+    private $deleteDaysAfterCreation;
 
     /**
      * @return null|bool
@@ -42,13 +34,11 @@ final class MessageConfigurationDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withDeleteDaysAfterCreation(?int $deleteDaysAfterCreation)
+    public function getDeleteDaysAfterCreation()
     {
-        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
-
-        return $this;
+        return $this->deleteDaysAfterCreation;
     }
 
     /**
@@ -61,11 +51,21 @@ final class MessageConfigurationDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withDeleteDaysAfterCreation(?int $deleteDaysAfterCreation)
+    {
+        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
+
+        return $this;
+    }
+
     public function build(): MessageConfigurationDraft
     {
         return new MessageConfigurationDraftModel(
-            $this->deleteDaysAfterCreation,
-            $this->enabled
+            $this->enabled,
+            $this->deleteDaysAfterCreation
         );
     }
 

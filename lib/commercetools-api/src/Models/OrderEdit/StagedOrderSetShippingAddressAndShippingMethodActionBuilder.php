@@ -22,11 +22,6 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implements Builder
 {
     /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
-     */
-    private $externalTaxRate;
-
-    /**
      * @var Address|?AddressBuilder
      */
     private $address;
@@ -37,12 +32,9 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
     private $shippingMethod;
 
     /**
-     * @return null|ExternalTaxRateDraft
+     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
-    public function getExternalTaxRate()
-    {
-        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
-    }
+    private $externalTaxRate;
 
     /**
      * @return null|Address
@@ -61,13 +53,11 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
     }
 
     /**
-     * @return $this
+     * @return null|ExternalTaxRateDraft
      */
-    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
+    public function getExternalTaxRate()
     {
-        $this->externalTaxRate = $externalTaxRate;
-
-        return $this;
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
     }
 
     /**
@@ -93,7 +83,7 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
     /**
      * @return $this
      */
-    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
         $this->externalTaxRate = $externalTaxRate;
 
@@ -120,12 +110,22 @@ final class StagedOrderSetShippingAddressAndShippingMethodActionBuilder implemen
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    {
+        $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
     public function build(): StagedOrderSetShippingAddressAndShippingMethodAction
     {
         return new StagedOrderSetShippingAddressAndShippingMethodActionModel(
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
             ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
-            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod)
+            ($this->shippingMethod instanceof ShippingMethodResourceIdentifierBuilder ? $this->shippingMethod->build() : $this->shippingMethod),
+            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate)
         );
     }
 

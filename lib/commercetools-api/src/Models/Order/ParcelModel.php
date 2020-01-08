@@ -16,19 +16,19 @@ use stdClass;
 final class ParcelModel extends JsonObjectModel implements Parcel
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
      * @var ?string
      */
     protected $id;
 
     /**
-     * @var ?DeliveryItemCollection
+     * @var ?DateTimeImmutable
      */
-    protected $items;
+    protected $createdAt;
+
+    /**
+     * @var ?ParcelMeasurements
+     */
+    protected $measurements;
 
     /**
      * @var ?TrackingData
@@ -36,22 +36,39 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     protected $trackingData;
 
     /**
-     * @var ?ParcelMeasurements
+     * @var ?DeliveryItemCollection
      */
-    protected $measurements;
+    protected $items;
 
     public function __construct(
-        DateTimeImmutable $createdAt = null,
         string $id = null,
-        DeliveryItemCollection $items = null,
+        DateTimeImmutable $createdAt = null,
+        ParcelMeasurements $measurements = null,
         TrackingData $trackingData = null,
-        ParcelMeasurements $measurements = null
+        DeliveryItemCollection $items = null
     ) {
-        $this->createdAt = $createdAt;
         $this->id = $id;
-        $this->items = $items;
-        $this->trackingData = $trackingData;
+        $this->createdAt = $createdAt;
         $this->measurements = $measurements;
+        $this->trackingData = $trackingData;
+        $this->items = $items;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Parcel::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
     }
 
     /**
@@ -76,37 +93,21 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
-     * @return null|string
+     * @return null|ParcelMeasurements
      */
-    public function getId()
+    public function getMeasurements()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Parcel::FIELD_ID);
+        if (is_null($this->measurements)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Parcel::FIELD_MEASUREMENTS);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->measurements = ParcelMeasurementsModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|DeliveryItemCollection
-     */
-    public function getItems()
-    {
-        if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Parcel::FIELD_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->items = DeliveryItemCollection::fromArray($data);
-        }
-
-        return $this->items;
+        return $this->measurements;
     }
 
     /**
@@ -128,26 +129,22 @@ final class ParcelModel extends JsonObjectModel implements Parcel
     }
 
     /**
-     * @return null|ParcelMeasurements
+     * <p>The delivery items contained in this parcel.</p>.
+     *
+     * @return null|DeliveryItemCollection
      */
-    public function getMeasurements()
+    public function getItems()
     {
-        if (is_null($this->measurements)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Parcel::FIELD_MEASUREMENTS);
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(Parcel::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->measurements = ParcelMeasurementsModel::of($data);
+            $this->items = DeliveryItemCollection::fromArray($data);
         }
 
-        return $this->measurements;
-    }
-
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
-    {
-        $this->createdAt = $createdAt;
+        return $this->items;
     }
 
     public function setId(?string $id): void
@@ -155,9 +152,14 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         $this->id = $id;
     }
 
-    public function setItems(?DeliveryItemCollection $items): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->items = $items;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setMeasurements(?ParcelMeasurements $measurements): void
+    {
+        $this->measurements = $measurements;
     }
 
     public function setTrackingData(?TrackingData $trackingData): void
@@ -165,9 +167,9 @@ final class ParcelModel extends JsonObjectModel implements Parcel
         $this->trackingData = $trackingData;
     }
 
-    public function setMeasurements(?ParcelMeasurements $measurements): void
+    public function setItems(?DeliveryItemCollection $items): void
     {
-        $this->measurements = $measurements;
+        $this->items = $items;
     }
 
     public function jsonSerialize()

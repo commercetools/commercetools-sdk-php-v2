@@ -23,9 +23,9 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     private $productId;
 
     /**
-     * @var QueryPrice|?QueryPriceBuilder
+     * @var ?int
      */
-    private $price;
+    private $variantId;
 
     /**
      * @var ?bool
@@ -33,9 +33,9 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     private $staged;
 
     /**
-     * @var ?int
+     * @var QueryPrice|?QueryPriceBuilder
      */
-    private $variantId;
+    private $price;
 
     /**
      * @return null|string
@@ -46,11 +46,11 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     }
 
     /**
-     * @return null|QueryPrice
+     * @return null|int
      */
-    public function getPrice()
+    public function getVariantId()
     {
-        return $this->price instanceof QueryPriceBuilder ? $this->price->build() : $this->price;
+        return $this->variantId;
     }
 
     /**
@@ -62,11 +62,11 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|QueryPrice
      */
-    public function getVariantId()
+    public function getPrice()
     {
-        return $this->variantId;
+        return $this->price instanceof QueryPriceBuilder ? $this->price->build() : $this->price;
     }
 
     /**
@@ -82,9 +82,9 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPrice(?QueryPrice $price)
+    public function withVariantId(?int $variantId)
     {
-        $this->price = $price;
+        $this->variantId = $variantId;
 
         return $this;
     }
@@ -102,9 +102,9 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariantId(?int $variantId)
+    public function withPrice(?QueryPrice $price)
     {
-        $this->variantId = $variantId;
+        $this->price = $price;
 
         return $this;
     }
@@ -123,9 +123,9 @@ final class ProductDiscountMatchQueryBuilder implements Builder
     {
         return new ProductDiscountMatchQueryModel(
             $this->productId,
-            ($this->price instanceof QueryPriceBuilder ? $this->price->build() : $this->price),
+            $this->variantId,
             $this->staged,
-            $this->variantId
+            ($this->price instanceof QueryPriceBuilder ? $this->price->build() : $this->price)
         );
     }
 

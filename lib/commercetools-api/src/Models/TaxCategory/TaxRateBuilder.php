@@ -18,7 +18,12 @@ final class TaxRateBuilder implements Builder
     /**
      * @var ?string
      */
-    private $country;
+    private $id;
+
+    /**
+     * @var ?string
+     */
+    private $name;
 
     /**
      * @var ?int
@@ -33,7 +38,7 @@ final class TaxRateBuilder implements Builder
     /**
      * @var ?string
      */
-    private $name;
+    private $country;
 
     /**
      * @var ?string
@@ -41,26 +46,34 @@ final class TaxRateBuilder implements Builder
     private $state;
 
     /**
-     * @var ?string
-     */
-    private $id;
-
-    /**
      * @var ?SubRateCollection
      */
     private $subRates;
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>The ID is always set if the tax rate is part of a TaxCategory.
+     * The external tax rates in a
+     * Cart do not contain an <code>id</code>.</p>.
      *
      * @return null|string
      */
-    public function getCountry()
+    public function getId()
     {
-        return $this->country;
+        return $this->id;
     }
 
     /**
+     * @return null|string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * <p>Percentage in the range of [0..1].
+     * The sum of the amounts of all <code>subRates</code>, if there are any.</p>.
+     *
      * @return null|int
      */
     public function getAmount()
@@ -77,14 +90,18 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
      * @return null|string
      */
-    public function getName()
+    public function getCountry()
     {
-        return $this->name;
+        return $this->country;
     }
 
     /**
+     * <p>The state in the country</p>.
+     *
      * @return null|string
      */
     public function getState()
@@ -93,14 +110,10 @@ final class TaxRateBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
+     * <p>For countries (e.g.
+     * the US) where the total tax is a combination of multiple taxes (e.g.
+     * state and local taxes).</p>.
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates()
@@ -111,9 +124,19 @@ final class TaxRateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCountry(?string $country)
+    public function withId(?string $id)
     {
-        $this->country = $country;
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?string $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -141,9 +164,9 @@ final class TaxRateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withCountry(?string $country)
     {
-        $this->name = $name;
+        $this->country = $country;
 
         return $this;
     }
@@ -161,16 +184,6 @@ final class TaxRateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withId(?string $id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withSubRates(?SubRateCollection $subRates)
     {
         $this->subRates = $subRates;
@@ -181,12 +194,12 @@ final class TaxRateBuilder implements Builder
     public function build(): TaxRate
     {
         return new TaxRateModel(
-            $this->country,
+            $this->id,
+            $this->name,
             $this->amount,
             $this->includedInPrice,
-            $this->name,
+            $this->country,
             $this->state,
-            $this->id,
             $this->subRates
         );
     }

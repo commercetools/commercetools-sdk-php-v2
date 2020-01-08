@@ -23,9 +23,9 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     protected $action;
 
     /**
-     * @var ?DiscountedPrice
+     * @var ?string
      */
-    protected $discounted;
+    protected $priceId;
 
     /**
      * @var ?bool
@@ -33,18 +33,18 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     protected $staged;
 
     /**
-     * @var ?string
+     * @var ?DiscountedPrice
      */
-    protected $priceId;
+    protected $discounted;
 
     public function __construct(
-        DiscountedPrice $discounted = null,
+        string $priceId = null,
         bool $staged = null,
-        string $priceId = null
+        DiscountedPrice $discounted = null
     ) {
-        $this->discounted = $discounted;
-        $this->staged = $staged;
         $this->priceId = $priceId;
+        $this->staged = $staged;
+        $this->discounted = $discounted;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -66,21 +66,20 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * @return null|DiscountedPrice
+     * @return null|string
      */
-    public function getDiscounted()
+    public function getPriceId()
     {
-        if (is_null($this->discounted)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductSetDiscountedPriceAction::FIELD_DISCOUNTED);
+        if (is_null($this->priceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetDiscountedPriceAction::FIELD_PRICE_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->discounted = DiscountedPriceModel::of($data);
+            $this->priceId = (string) $data;
         }
 
-        return $this->discounted;
+        return $this->priceId;
     }
 
     /**
@@ -101,25 +100,26 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * @return null|string
+     * @return null|DiscountedPrice
      */
-    public function getPriceId()
+    public function getDiscounted()
     {
-        if (is_null($this->priceId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetDiscountedPriceAction::FIELD_PRICE_ID);
+        if (is_null($this->discounted)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductSetDiscountedPriceAction::FIELD_DISCOUNTED);
             if (is_null($data)) {
                 return null;
             }
-            $this->priceId = (string) $data;
+
+            $this->discounted = DiscountedPriceModel::of($data);
         }
 
-        return $this->priceId;
+        return $this->discounted;
     }
 
-    public function setDiscounted(?DiscountedPrice $discounted): void
+    public function setPriceId(?string $priceId): void
     {
-        $this->discounted = $discounted;
+        $this->priceId = $priceId;
     }
 
     public function setStaged(?bool $staged): void
@@ -127,8 +127,8 @@ final class ProductSetDiscountedPriceActionModel extends JsonObjectModel impleme
         $this->staged = $staged;
     }
 
-    public function setPriceId(?string $priceId): void
+    public function setDiscounted(?DiscountedPrice $discounted): void
     {
-        $this->priceId = $priceId;
+        $this->discounted = $discounted;
     }
 }

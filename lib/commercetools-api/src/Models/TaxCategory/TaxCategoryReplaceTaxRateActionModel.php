@@ -21,21 +21,21 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     protected $action;
 
     /**
-     * @var ?TaxRateDraft
-     */
-    protected $taxRate;
-
-    /**
      * @var ?string
      */
     protected $taxRateId;
 
+    /**
+     * @var ?TaxRateDraft
+     */
+    protected $taxRate;
+
     public function __construct(
-        TaxRateDraft $taxRate = null,
-        string $taxRateId = null
+        string $taxRateId = null,
+        TaxRateDraft $taxRate = null
     ) {
-        $this->taxRate = $taxRate;
         $this->taxRateId = $taxRateId;
+        $this->taxRate = $taxRate;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -57,6 +57,23 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * @return null|string
+     */
+    public function getTaxRateId()
+    {
+        if (is_null($this->taxRateId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(TaxCategoryReplaceTaxRateAction::FIELD_TAX_RATE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxRateId = (string) $data;
+        }
+
+        return $this->taxRateId;
+    }
+
+    /**
      * @return null|TaxRateDraft
      */
     public function getTaxRate()
@@ -74,30 +91,13 @@ final class TaxCategoryReplaceTaxRateActionModel extends JsonObjectModel impleme
         return $this->taxRate;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getTaxRateId()
+    public function setTaxRateId(?string $taxRateId): void
     {
-        if (is_null($this->taxRateId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(TaxCategoryReplaceTaxRateAction::FIELD_TAX_RATE_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->taxRateId = (string) $data;
-        }
-
-        return $this->taxRateId;
+        $this->taxRateId = $taxRateId;
     }
 
     public function setTaxRate(?TaxRateDraft $taxRate): void
     {
         $this->taxRate = $taxRate;
-    }
-
-    public function setTaxRateId(?string $taxRateId): void
-    {
-        $this->taxRateId = $taxRateId;
     }
 }

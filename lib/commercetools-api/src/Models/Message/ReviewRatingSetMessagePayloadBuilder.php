@@ -23,14 +23,14 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     private $oldRating;
 
     /**
-     * @var ?bool
-     */
-    private $includedInStatistics;
-
-    /**
      * @var ?int
      */
     private $newRating;
+
+    /**
+     * @var ?bool
+     */
+    private $includedInStatistics;
 
     /**
      * @var Reference|?ReferenceBuilder
@@ -46,19 +46,19 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return null|bool
-     */
-    public function getIncludedInStatistics()
-    {
-        return $this->includedInStatistics;
-    }
-
-    /**
      * @return null|int
      */
     public function getNewRating()
     {
         return $this->newRating;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getIncludedInStatistics()
+    {
+        return $this->includedInStatistics;
     }
 
     /**
@@ -82,9 +82,9 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withIncludedInStatistics(?bool $includedInStatistics)
+    public function withNewRating(?int $newRating)
     {
-        $this->includedInStatistics = $includedInStatistics;
+        $this->newRating = $newRating;
 
         return $this;
     }
@@ -92,9 +92,9 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNewRating(?int $newRating)
+    public function withIncludedInStatistics(?bool $includedInStatistics)
     {
-        $this->newRating = $newRating;
+        $this->includedInStatistics = $includedInStatistics;
 
         return $this;
     }
@@ -123,8 +123,8 @@ final class ReviewRatingSetMessagePayloadBuilder implements Builder
     {
         return new ReviewRatingSetMessagePayloadModel(
             $this->oldRating,
-            $this->includedInStatistics,
             $this->newRating,
+            $this->includedInStatistics,
             ($this->target instanceof ReferenceBuilder ? $this->target->build() : $this->target)
         );
     }

@@ -18,6 +18,11 @@ final class CustomerResetPasswordBuilder implements Builder
     /**
      * @var ?string
      */
+    private $tokenValue;
+
+    /**
+     * @var ?string
+     */
     private $newPassword;
 
     /**
@@ -26,9 +31,12 @@ final class CustomerResetPasswordBuilder implements Builder
     private $version;
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $tokenValue;
+    public function getTokenValue()
+    {
+        return $this->tokenValue;
+    }
 
     /**
      * @return null|string
@@ -47,11 +55,13 @@ final class CustomerResetPasswordBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getTokenValue()
+    public function withTokenValue(?string $tokenValue)
     {
-        return $this->tokenValue;
+        $this->tokenValue = $tokenValue;
+
+        return $this;
     }
 
     /**
@@ -74,22 +84,12 @@ final class CustomerResetPasswordBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withTokenValue(?string $tokenValue)
-    {
-        $this->tokenValue = $tokenValue;
-
-        return $this;
-    }
-
     public function build(): CustomerResetPassword
     {
         return new CustomerResetPasswordModel(
+            $this->tokenValue,
             $this->newPassword,
-            $this->version,
-            $this->tokenValue
+            $this->version
         );
     }
 

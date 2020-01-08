@@ -16,39 +16,21 @@ use stdClass;
 final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPrice
 {
     /**
-     * @var ?ProductDiscountReference
-     */
-    protected $discount;
-
-    /**
      * @var ?Money
      */
     protected $value;
 
-    public function __construct(
-        ProductDiscountReference $discount = null,
-        Money $value = null
-    ) {
-        $this->discount = $discount;
-        $this->value = $value;
-    }
-
     /**
-     * @return null|ProductDiscountReference
+     * @var ?ProductDiscountReference
      */
-    public function getDiscount()
-    {
-        if (is_null($this->discount)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountedPrice::FIELD_DISCOUNT);
-            if (is_null($data)) {
-                return null;
-            }
+    protected $discount;
 
-            $this->discount = ProductDiscountReferenceModel::of($data);
-        }
-
-        return $this->discount;
+    public function __construct(
+        Money $value = null,
+        ProductDiscountReference $discount = null
+    ) {
+        $this->value = $value;
+        $this->discount = $discount;
     }
 
     /**
@@ -69,13 +51,31 @@ final class DiscountedPriceModel extends JsonObjectModel implements DiscountedPr
         return $this->value;
     }
 
-    public function setDiscount(?ProductDiscountReference $discount): void
+    /**
+     * @return null|ProductDiscountReference
+     */
+    public function getDiscount()
     {
-        $this->discount = $discount;
+        if (is_null($this->discount)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountedPrice::FIELD_DISCOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discount = ProductDiscountReferenceModel::of($data);
+        }
+
+        return $this->discount;
     }
 
     public function setValue(?Money $value): void
     {
         $this->value = $value;
+    }
+
+    public function setDiscount(?ProductDiscountReference $discount): void
+    {
+        $this->discount = $discount;
     }
 }

@@ -20,6 +20,11 @@ final class PaymentStatusBuilder implements Builder
     /**
      * @var ?string
      */
+    private $interfaceCode;
+
+    /**
+     * @var ?string
+     */
     private $interfaceText;
 
     /**
@@ -28,11 +33,18 @@ final class PaymentStatusBuilder implements Builder
     private $state;
 
     /**
-     * @var ?string
+     * <p>A code describing the current status returned by the interface that processes the payment.</p>.
+     *
+     * @return null|string
      */
-    private $interfaceCode;
+    public function getInterfaceCode()
+    {
+        return $this->interfaceCode;
+    }
 
     /**
+     * <p>A text describing the current status returned by the interface that processes the payment.</p>.
+     *
      * @return null|string
      */
     public function getInterfaceText()
@@ -49,11 +61,13 @@ final class PaymentStatusBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getInterfaceCode()
+    public function withInterfaceCode(?string $interfaceCode)
     {
-        return $this->interfaceCode;
+        $this->interfaceCode = $interfaceCode;
+
+        return $this;
     }
 
     /**
@@ -79,16 +93,6 @@ final class PaymentStatusBuilder implements Builder
     /**
      * @return $this
      */
-    public function withInterfaceCode(?string $interfaceCode)
-    {
-        $this->interfaceCode = $interfaceCode;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withStateBuilder(?StateReferenceBuilder $state)
     {
         $this->state = $state;
@@ -99,9 +103,9 @@ final class PaymentStatusBuilder implements Builder
     public function build(): PaymentStatus
     {
         return new PaymentStatusModel(
+            $this->interfaceCode,
             $this->interfaceText,
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
-            $this->interfaceCode
+            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state)
         );
     }
 

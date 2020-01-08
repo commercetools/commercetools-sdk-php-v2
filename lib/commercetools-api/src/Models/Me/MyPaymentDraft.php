@@ -21,6 +21,9 @@ interface MyPaymentDraft extends JsonObject
     const FIELD_TRANSACTION = 'transaction';
 
     /**
+     * <p>How much money this payment intends to receive from the customer.
+     * The value usually matches the cart or order gross total.</p>.
+     *
      * @return null|Money
      */
     public function getAmountPlanned();
@@ -36,6 +39,9 @@ interface MyPaymentDraft extends JsonObject
     public function getCustom();
 
     /**
+     * <p>A list of financial transactions of the <code>Authorization</code> or <code>Charge</code>
+     * TransactionTypes.</p>.
+     *
      * @return null|MyTransactionDraft
      */
     public function getTransaction();

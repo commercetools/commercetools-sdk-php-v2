@@ -22,16 +22,6 @@ use DateTimeImmutable;
 final class CustomObjectBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -42,9 +32,14 @@ final class CustomObjectBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -52,14 +47,14 @@ final class CustomObjectBuilder implements Builder
     private $lastModifiedBy;
 
     /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
      * @var ?string
      */
     private $container;
-
-    /**
-     * @var ?JsonObject
-     */
-    private $value;
 
     /**
      * @var ?string
@@ -67,20 +62,9 @@ final class CustomObjectBuilder implements Builder
     private $key;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var ?JsonObject
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $value;
 
     /**
      * @return null|string
@@ -99,11 +83,19 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -115,19 +107,21 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+    }
+
+    /**
+     * <p>A namespace to group custom objects.</p>.
+     *
      * @return null|string
      */
     public function getContainer()
     {
         return $this->container;
-    }
-
-    /**
-     * @return null|JsonObject
-     */
-    public function getValue()
-    {
-        return $this->value;
     }
 
     /**
@@ -139,23 +133,11 @@ final class CustomObjectBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|JsonObject
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getValue()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->value;
     }
 
     /**
@@ -181,9 +163,19 @@ final class CustomObjectBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -201,9 +193,9 @@ final class CustomObjectBuilder implements Builder
     /**
      * @return $this
      */
-    public function withContainer(?string $container)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->container = $container;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -211,9 +203,9 @@ final class CustomObjectBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withContainer(?string $container)
     {
-        $this->value = $value;
+        $this->container = $container;
 
         return $this;
     }
@@ -231,9 +223,9 @@ final class CustomObjectBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withValue(?JsonObject $value)
     {
-        $this->createdBy = $createdBy;
+        $this->value = $value;
 
         return $this;
     }
@@ -248,18 +240,28 @@ final class CustomObjectBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
     public function build(): CustomObject
     {
         return new CustomObjectModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->container,
-            $this->value,
-            $this->key
+            $this->key,
+            $this->value
         );
     }
 

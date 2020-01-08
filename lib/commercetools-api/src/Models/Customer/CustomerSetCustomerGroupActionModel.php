@@ -52,6 +52,8 @@ final class CustomerSetCustomerGroupActionModel extends JsonObjectModel implemen
     }
 
     /**
+     * <p>If not defined, the customer group is unset.</p>.
+     *
      * @return null|CustomerGroupResourceIdentifier
      */
     public function getCustomerGroup()

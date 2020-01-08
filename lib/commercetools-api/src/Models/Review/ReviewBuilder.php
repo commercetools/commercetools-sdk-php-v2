@@ -28,16 +28,6 @@ use DateTimeImmutable;
 final class ReviewBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -48,9 +38,14 @@ final class ReviewBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -58,19 +53,29 @@ final class ReviewBuilder implements Builder
     private $lastModifiedBy;
 
     /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
      * @var ?string
      */
     private $uniquenessValue;
 
     /**
-     * @var CustomFields|?CustomFieldsBuilder
+     * @var ?string
      */
-    private $custom;
+    private $locale;
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    private $rating;
+    private $authorName;
 
     /**
      * @var ?string
@@ -80,7 +85,7 @@ final class ReviewBuilder implements Builder
     /**
      * @var ?string
      */
-    private $locale;
+    private $text;
 
     /**
      * @var ?JsonObject
@@ -93,9 +98,9 @@ final class ReviewBuilder implements Builder
     private $includedInStatistics;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    private $authorName;
+    private $rating;
 
     /**
      * @var StateReference|?StateReferenceBuilder
@@ -103,19 +108,34 @@ final class ReviewBuilder implements Builder
     private $state;
 
     /**
-     * @var ?string
-     */
-    private $text;
-
-    /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
      * @var CustomerReference|?CustomerReferenceBuilder
      */
     private $customer;
+
+    /**
+     * @var CustomFields|?CustomFieldsBuilder
+     */
+    private $custom;
+
+    /**
+     * <p>The unique ID of the review.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the review.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -134,22 +154,18 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        return $this->id;
+        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
     }
 
     /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -158,11 +174,13 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * @return null|LastModifiedBy
+     * <p>User-specific unique identifier for the review.</p>.
+     *
+     * @return null|string
      */
-    public function getLastModifiedBy()
+    public function getKey()
     {
-        return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+        return $this->key;
     }
 
     /**
@@ -174,19 +192,19 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * @return null|CustomFields
+     * @return null|string
      */
-    public function getCustom()
+    public function getLocale()
     {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
+        return $this->locale;
     }
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getRating()
+    public function getAuthorName()
     {
-        return $this->rating;
+        return $this->authorName;
     }
 
     /**
@@ -200,12 +218,15 @@ final class ReviewBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getLocale()
+    public function getText()
     {
-        return $this->locale;
+        return $this->text;
     }
 
     /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel</p>.
+     *
      * @return null|JsonObject
      */
     public function getTarget()
@@ -214,6 +235,10 @@ final class ReviewBuilder implements Builder
     }
 
     /**
+     * <p>Indicates if this review is taken into account in the ratings statistics of the target.
+     * A review is per default used in the statistics, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.
+     * If the role of a State is modified after the calculation of this field, the calculation is not updated.</p>.
+     *
      * @return null|bool
      */
     public function getIncludedInStatistics()
@@ -222,11 +247,13 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>Number between -100 and 100 included.</p>.
+     *
+     * @return null|int
      */
-    public function getAuthorName()
+    public function getRating()
     {
-        return $this->authorName;
+        return $this->rating;
     }
 
     /**
@@ -238,22 +265,8 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getText()
-    {
-        return $this->text;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        return $this->key;
-    }
-
-    /**
+     * <p>The customer who created the review.</p>.
+     *
      * @return null|CustomerReference
      */
     public function getCustomer()
@@ -262,23 +275,11 @@ final class ReviewBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|CustomFields
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getCustom()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -304,9 +305,19 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -324,6 +335,26 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withUniquenessValue(?string $uniquenessValue)
     {
         $this->uniquenessValue = $uniquenessValue;
@@ -334,9 +365,9 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustom(?CustomFields $custom)
+    public function withLocale(?string $locale)
     {
-        $this->custom = $custom;
+        $this->locale = $locale;
 
         return $this;
     }
@@ -344,9 +375,9 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withRating(?int $rating)
+    public function withAuthorName(?string $authorName)
     {
-        $this->rating = $rating;
+        $this->authorName = $authorName;
 
         return $this;
     }
@@ -364,9 +395,9 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLocale(?string $locale)
+    public function withText(?string $text)
     {
-        $this->locale = $locale;
+        $this->text = $text;
 
         return $this;
     }
@@ -394,9 +425,9 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAuthorName(?string $authorName)
+    public function withRating(?int $rating)
     {
-        $this->authorName = $authorName;
+        $this->rating = $rating;
 
         return $this;
     }
@@ -414,26 +445,6 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withText(?string $text)
-    {
-        $this->text = $text;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCustomer(?CustomerReference $customer)
     {
         $this->customer = $customer;
@@ -444,9 +455,9 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withCustom(?CustomFields $custom)
     {
-        $this->createdBy = $createdBy;
+        $this->custom = $custom;
 
         return $this;
     }
@@ -464,9 +475,9 @@ final class ReviewBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
-        $this->custom = $custom;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -491,27 +502,37 @@ final class ReviewBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): Review
     {
         return new ReviewModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->key,
             $this->uniquenessValue,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            $this->rating,
-            $this->title,
             $this->locale,
+            $this->authorName,
+            $this->title,
+            $this->text,
             $this->target,
             $this->includedInStatistics,
-            $this->authorName,
+            $this->rating,
             ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
-            $this->text,
-            $this->key,
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)
+            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

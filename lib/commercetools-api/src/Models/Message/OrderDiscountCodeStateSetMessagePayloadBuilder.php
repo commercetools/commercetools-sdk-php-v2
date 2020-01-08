@@ -25,12 +25,12 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $oldState;
+    private $state;
 
     /**
      * @var ?string
      */
-    private $state;
+    private $oldState;
 
     /**
      * @return null|DiscountCodeReference
@@ -43,17 +43,17 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getOldState()
+    public function getState()
     {
-        return $this->oldState;
+        return $this->state;
     }
 
     /**
      * @return null|string
      */
-    public function getState()
+    public function getOldState()
     {
-        return $this->state;
+        return $this->oldState;
     }
 
     /**
@@ -69,9 +69,9 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldState(?string $oldState)
+    public function withState(?string $state)
     {
-        $this->oldState = $oldState;
+        $this->state = $state;
 
         return $this;
     }
@@ -79,9 +79,9 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withState(?string $state)
+    public function withOldState(?string $oldState)
     {
-        $this->state = $state;
+        $this->oldState = $oldState;
 
         return $this;
     }
@@ -100,8 +100,8 @@ final class OrderDiscountCodeStateSetMessagePayloadBuilder implements Builder
     {
         return new OrderDiscountCodeStateSetMessagePayloadModel(
             ($this->discountCode instanceof DiscountCodeReferenceBuilder ? $this->discountCode->build() : $this->discountCode),
-            $this->oldState,
-            $this->state
+            $this->state,
+            $this->oldState
         );
     }
 

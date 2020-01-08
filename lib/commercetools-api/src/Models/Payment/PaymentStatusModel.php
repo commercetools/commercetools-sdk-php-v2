@@ -18,6 +18,11 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     /**
      * @var ?string
      */
+    protected $interfaceCode;
+
+    /**
+     * @var ?string
+     */
     protected $interfaceText;
 
     /**
@@ -25,22 +30,38 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
      */
     protected $state;
 
-    /**
-     * @var ?string
-     */
-    protected $interfaceCode;
-
     public function __construct(
+        string $interfaceCode = null,
         string $interfaceText = null,
-        StateReference $state = null,
-        string $interfaceCode = null
+        StateReference $state = null
     ) {
+        $this->interfaceCode = $interfaceCode;
         $this->interfaceText = $interfaceText;
         $this->state = $state;
-        $this->interfaceCode = $interfaceCode;
     }
 
     /**
+     * <p>A code describing the current status returned by the interface that processes the payment.</p>.
+     *
+     * @return null|string
+     */
+    public function getInterfaceCode()
+    {
+        if (is_null($this->interfaceCode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentStatus::FIELD_INTERFACE_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->interfaceCode = (string) $data;
+        }
+
+        return $this->interfaceCode;
+    }
+
+    /**
+     * <p>A text describing the current status returned by the interface that processes the payment.</p>.
+     *
      * @return null|string
      */
     public function getInterfaceText()
@@ -75,21 +96,9 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
         return $this->state;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getInterfaceCode()
+    public function setInterfaceCode(?string $interfaceCode): void
     {
-        if (is_null($this->interfaceCode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentStatus::FIELD_INTERFACE_CODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->interfaceCode = (string) $data;
-        }
-
-        return $this->interfaceCode;
+        $this->interfaceCode = $interfaceCode;
     }
 
     public function setInterfaceText(?string $interfaceText): void
@@ -100,10 +109,5 @@ final class PaymentStatusModel extends JsonObjectModel implements PaymentStatus
     public function setState(?StateReference $state): void
     {
         $this->state = $state;
-    }
-
-    public function setInterfaceCode(?string $interfaceCode): void
-    {
-        $this->interfaceCode = $interfaceCode;
     }
 }

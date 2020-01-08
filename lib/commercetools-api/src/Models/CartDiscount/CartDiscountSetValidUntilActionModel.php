@@ -51,6 +51,8 @@ final class CartDiscountSetValidUntilActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil()

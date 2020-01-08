@@ -21,17 +21,7 @@ final class PagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
-    private $total;
-
-    /**
-     * @var ?int
-     */
-    private $offset;
-
-    /**
-     * @var ?JsonObject
-     */
-    private $meta;
+    private $limit;
 
     /**
      * @var ?int
@@ -41,7 +31,12 @@ final class PagedQueryResponseBuilder implements Builder
     /**
      * @var ?int
      */
-    private $limit;
+    private $total;
+
+    /**
+     * @var ?int
+     */
+    private $offset;
 
     /**
      * @var ?BaseResourceCollection
@@ -52,6 +47,27 @@ final class PagedQueryResponseBuilder implements Builder
      * @var FacetResults|?FacetResultsBuilder
      */
     private $facets;
+
+    /**
+     * @var ?JsonObject
+     */
+    private $meta;
+
+    /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
 
     /**
      * @return null|int
@@ -67,30 +83,6 @@ final class PagedQueryResponseBuilder implements Builder
     public function getOffset()
     {
         return $this->offset;
-    }
-
-    /**
-     * @return null|JsonObject
-     */
-    public function getMeta()
-    {
-        return $this->meta;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getLimit()
-    {
-        return $this->limit;
     }
 
     /**
@@ -110,31 +102,19 @@ final class PagedQueryResponseBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|JsonObject
      */
-    public function withTotal(?int $total)
+    public function getMeta()
     {
-        $this->total = $total;
-
-        return $this;
+        return $this->meta;
     }
 
     /**
      * @return $this
      */
-    public function withOffset(?int $offset)
+    public function withLimit(?int $limit)
     {
-        $this->offset = $offset;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withMeta(?JsonObject $meta)
-    {
-        $this->meta = $meta;
+        $this->limit = $limit;
 
         return $this;
     }
@@ -152,9 +132,19 @@ final class PagedQueryResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLimit(?int $limit)
+    public function withTotal(?int $total)
     {
-        $this->limit = $limit;
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withOffset(?int $offset)
+    {
+        $this->offset = $offset;
 
         return $this;
     }
@@ -182,6 +172,16 @@ final class PagedQueryResponseBuilder implements Builder
     /**
      * @return $this
      */
+    public function withMeta(?JsonObject $meta)
+    {
+        $this->meta = $meta;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withFacetsBuilder(?FacetResultsBuilder $facets)
     {
         $this->facets = $facets;
@@ -192,13 +192,13 @@ final class PagedQueryResponseBuilder implements Builder
     public function build(): PagedQueryResponse
     {
         return new PagedQueryResponseModel(
+            $this->limit,
+            $this->count,
             $this->total,
             $this->offset,
-            $this->meta,
-            $this->count,
-            $this->limit,
             $this->results,
-            ($this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets)
+            ($this->facets instanceof FacetResultsBuilder ? $this->facets->build() : $this->facets),
+            $this->meta
         );
     }
 

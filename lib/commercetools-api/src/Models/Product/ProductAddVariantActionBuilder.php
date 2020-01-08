@@ -19,14 +19,24 @@ use Commercetools\Base\Builder;
 final class ProductAddVariantActionBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $sku;
+
+    /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
+     * @var ?PriceDraftCollection
+     */
+    private $prices;
+
+    /**
      * @var ?ImageCollection
      */
     private $images;
-
-    /**
-     * @var ?AssetCollection
-     */
-    private $assets;
 
     /**
      * @var ?AttributeCollection
@@ -39,19 +49,33 @@ final class ProductAddVariantActionBuilder implements Builder
     private $staged;
 
     /**
-     * @var ?PriceDraftCollection
+     * @var ?AssetCollection
      */
-    private $prices;
+    private $assets;
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $sku;
+    public function getSku()
+    {
+        return $this->sku;
+    }
 
     /**
-     * @var ?string
+     * @return null|string
      */
-    private $key;
+    public function getKey()
+    {
+        return $this->key;
+    }
+
+    /**
+     * @return null|PriceDraftCollection
+     */
+    public function getPrices()
+    {
+        return $this->prices;
+    }
 
     /**
      * @return null|ImageCollection
@@ -59,14 +83,6 @@ final class ProductAddVariantActionBuilder implements Builder
     public function getImages()
     {
         return $this->images;
-    }
-
-    /**
-     * @return null|AssetCollection
-     */
-    public function getAssets()
-    {
-        return $this->assets;
     }
 
     /**
@@ -86,27 +102,41 @@ final class ProductAddVariantActionBuilder implements Builder
     }
 
     /**
-     * @return null|PriceDraftCollection
+     * @return null|AssetCollection
      */
-    public function getPrices()
+    public function getAssets()
     {
-        return $this->prices;
+        return $this->assets;
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getSku()
+    public function withSku(?string $sku)
     {
-        return $this->sku;
+        $this->sku = $sku;
+
+        return $this;
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getKey()
+    public function withKey(?string $key)
     {
-        return $this->key;
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPrices(?PriceDraftCollection $prices)
+    {
+        $this->prices = $prices;
+
+        return $this;
     }
 
     /**
@@ -115,16 +145,6 @@ final class ProductAddVariantActionBuilder implements Builder
     public function withImages(?ImageCollection $images)
     {
         $this->images = $images;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAssets(?AssetCollection $assets)
-    {
-        $this->assets = $assets;
 
         return $this;
     }
@@ -152,29 +172,9 @@ final class ProductAddVariantActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPrices(?PriceDraftCollection $prices)
+    public function withAssets(?AssetCollection $assets)
     {
-        $this->prices = $prices;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
+        $this->assets = $assets;
 
         return $this;
     }
@@ -182,13 +182,13 @@ final class ProductAddVariantActionBuilder implements Builder
     public function build(): ProductAddVariantAction
     {
         return new ProductAddVariantActionModel(
+            $this->sku,
+            $this->key,
+            $this->prices,
             $this->images,
-            $this->assets,
             $this->attributes,
             $this->staged,
-            $this->prices,
-            $this->sku,
-            $this->key
+            $this->assets
         );
     }
 

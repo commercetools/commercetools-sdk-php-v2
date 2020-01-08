@@ -16,11 +16,6 @@ use stdClass;
 final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRateDraft
 {
     /**
-     * @var ?ShippingRatePriceTierCollection
-     */
-    protected $tiers;
-
-    /**
      * @var ?Money
      */
     protected $price;
@@ -30,31 +25,19 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
      */
     protected $freeAbove;
 
+    /**
+     * @var ?ShippingRatePriceTierCollection
+     */
+    protected $tiers;
+
     public function __construct(
-        ShippingRatePriceTierCollection $tiers = null,
         Money $price = null,
-        Money $freeAbove = null
+        Money $freeAbove = null,
+        ShippingRatePriceTierCollection $tiers = null
     ) {
-        $this->tiers = $tiers;
         $this->price = $price;
         $this->freeAbove = $freeAbove;
-    }
-
-    /**
-     * @return null|ShippingRatePriceTierCollection
-     */
-    public function getTiers()
-    {
-        if (is_null($this->tiers)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShippingRateDraft::FIELD_TIERS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->tiers = ShippingRatePriceTierCollection::fromArray($data);
-        }
-
-        return $this->tiers;
+        $this->tiers = $tiers;
     }
 
     /**
@@ -76,6 +59,10 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     }
 
     /**
+     * <p>The shipping is free if the order total (the sum of line item prices) exceeds the freeAbove value.
+     * Note: <code>freeAbove</code> applies before any Cart or Product discounts, and can cause discounts to apply in invalid scenarios.
+     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>.
+     *
      * @return null|Money
      */
     public function getFreeAbove()
@@ -93,9 +80,23 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
         return $this->freeAbove;
     }
 
-    public function setTiers(?ShippingRatePriceTierCollection $tiers): void
+    /**
+     * <p>A list of shipping rate price tiers.</p>.
+     *
+     * @return null|ShippingRatePriceTierCollection
+     */
+    public function getTiers()
     {
-        $this->tiers = $tiers;
+        if (is_null($this->tiers)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShippingRateDraft::FIELD_TIERS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tiers = ShippingRatePriceTierCollection::fromArray($data);
+        }
+
+        return $this->tiers;
     }
 
     public function setPrice(?Money $price): void
@@ -106,5 +107,10 @@ final class ShippingRateDraftModel extends JsonObjectModel implements ShippingRa
     public function setFreeAbove(?Money $freeAbove): void
     {
         $this->freeAbove = $freeAbove;
+    }
+
+    public function setTiers(?ShippingRatePriceTierCollection $tiers): void
+    {
+        $this->tiers = $tiers;
     }
 }

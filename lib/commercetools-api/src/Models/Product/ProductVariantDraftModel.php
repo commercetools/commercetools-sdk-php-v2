@@ -17,26 +17,6 @@ use stdClass;
 final class ProductVariantDraftModel extends JsonObjectModel implements ProductVariantDraft
 {
     /**
-     * @var ?ImageCollection
-     */
-    protected $images;
-
-    /**
-     * @var ?AssetDraftCollection
-     */
-    protected $assets;
-
-    /**
-     * @var ?AttributeCollection
-     */
-    protected $attributes;
-
-    /**
-     * @var ?PriceDraftCollection
-     */
-    protected $prices;
-
-    /**
      * @var ?string
      */
     protected $sku;
@@ -46,88 +26,40 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
      */
     protected $key;
 
+    /**
+     * @var ?PriceDraftCollection
+     */
+    protected $prices;
+
+    /**
+     * @var ?AttributeCollection
+     */
+    protected $attributes;
+
+    /**
+     * @var ?ImageCollection
+     */
+    protected $images;
+
+    /**
+     * @var ?AssetDraftCollection
+     */
+    protected $assets;
+
     public function __construct(
-        ImageCollection $images = null,
-        AssetDraftCollection $assets = null,
-        AttributeCollection $attributes = null,
-        PriceDraftCollection $prices = null,
         string $sku = null,
-        string $key = null
+        string $key = null,
+        PriceDraftCollection $prices = null,
+        AttributeCollection $attributes = null,
+        ImageCollection $images = null,
+        AssetDraftCollection $assets = null
     ) {
-        $this->images = $images;
-        $this->assets = $assets;
-        $this->attributes = $attributes;
-        $this->prices = $prices;
         $this->sku = $sku;
         $this->key = $key;
-    }
-
-    /**
-     * @return null|ImageCollection
-     */
-    public function getImages()
-    {
-        if (is_null($this->images)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariantDraft::FIELD_IMAGES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->images = ImageCollection::fromArray($data);
-        }
-
-        return $this->images;
-    }
-
-    /**
-     * @return null|AssetDraftCollection
-     */
-    public function getAssets()
-    {
-        if (is_null($this->assets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariantDraft::FIELD_ASSETS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assets = AssetDraftCollection::fromArray($data);
-        }
-
-        return $this->assets;
-    }
-
-    /**
-     * @return null|AttributeCollection
-     */
-    public function getAttributes()
-    {
-        if (is_null($this->attributes)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariantDraft::FIELD_ATTRIBUTES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->attributes = AttributeCollection::fromArray($data);
-        }
-
-        return $this->attributes;
-    }
-
-    /**
-     * @return null|PriceDraftCollection
-     */
-    public function getPrices()
-    {
-        if (is_null($this->prices)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductVariantDraft::FIELD_PRICES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->prices = PriceDraftCollection::fromArray($data);
-        }
-
-        return $this->prices;
+        $this->prices = $prices;
+        $this->attributes = $attributes;
+        $this->images = $images;
+        $this->assets = $assets;
     }
 
     /**
@@ -164,24 +96,72 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
         return $this->key;
     }
 
-    public function setImages(?ImageCollection $images): void
+    /**
+     * @return null|PriceDraftCollection
+     */
+    public function getPrices()
     {
-        $this->images = $images;
+        if (is_null($this->prices)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_PRICES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->prices = PriceDraftCollection::fromArray($data);
+        }
+
+        return $this->prices;
     }
 
-    public function setAssets(?AssetDraftCollection $assets): void
+    /**
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
     {
-        $this->assets = $assets;
+        if (is_null($this->attributes)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_ATTRIBUTES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->attributes = AttributeCollection::fromArray($data);
+        }
+
+        return $this->attributes;
     }
 
-    public function setAttributes(?AttributeCollection $attributes): void
+    /**
+     * @return null|ImageCollection
+     */
+    public function getImages()
     {
-        $this->attributes = $attributes;
+        if (is_null($this->images)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_IMAGES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->images = ImageCollection::fromArray($data);
+        }
+
+        return $this->images;
     }
 
-    public function setPrices(?PriceDraftCollection $prices): void
+    /**
+     * @return null|AssetDraftCollection
+     */
+    public function getAssets()
     {
-        $this->prices = $prices;
+        if (is_null($this->assets)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductVariantDraft::FIELD_ASSETS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assets = AssetDraftCollection::fromArray($data);
+        }
+
+        return $this->assets;
     }
 
     public function setSku(?string $sku): void
@@ -192,5 +172,25 @@ final class ProductVariantDraftModel extends JsonObjectModel implements ProductV
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    public function setPrices(?PriceDraftCollection $prices): void
+    {
+        $this->prices = $prices;
+    }
+
+    public function setAttributes(?AttributeCollection $attributes): void
+    {
+        $this->attributes = $attributes;
+    }
+
+    public function setImages(?ImageCollection $images): void
+    {
+        $this->images = $images;
+    }
+
+    public function setAssets(?AssetDraftCollection $assets): void
+    {
+        $this->assets = $assets;
     }
 }

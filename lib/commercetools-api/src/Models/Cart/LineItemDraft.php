@@ -43,41 +43,62 @@ interface LineItemDraft extends JsonObject
     public function getSku();
 
     /**
+     * <p>The amount of a <code>LineItem</code>in the cart.
+     * Must be a positive integer.</p>.
+     *
      * @return null|int
      */
     public function getQuantity();
 
     /**
+     * <p>By providing supply channel information, you can unique identify
+     * inventory entries that should be reserved.
+     * The provided channel should have
+     * the InventorySupply role.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
 
     /**
+     * <p>The channel is used to select a ProductPrice.
+     * The provided channel should have the ProductDistribution role.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
 
     /**
+     * <p>An external tax rate can be set if the cart has the <code>External</code> TaxMode.</p>.
+     *
      * @return null|ExternalTaxRateDraft
      */
     public function getExternalTaxRate();
 
     /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+     * <p>Sets the line item <code>price</code> to the given value and sets the line item <code>priceMode</code> to <code>ExternalPrice</code> LineItemPriceMode.</p>.
+     *
      * @return null|Money
      */
     public function getExternalPrice();
 
     /**
+     * <p>Sets the line item <code>price</code> and <code>totalPrice</code> to the given values and sets the line item <code>priceMode</code> to <code>ExternalTotal</code> LineItemPriceMode.</p>.
+     *
      * @return null|ExternalLineItemTotalPrice
      */
     public function getExternalTotalPrice();
 
     /**
+     * <p>Container for line item specific address(es).</p>.
+     *
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();

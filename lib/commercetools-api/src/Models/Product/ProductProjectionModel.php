@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Product;
 
 use Commercetools\Api\Models\Category\CategoryReferenceCollection;
+use Commercetools\Api\Models\Common\BaseResource;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\ProductType\ProductTypeReference;
@@ -27,6 +28,16 @@ use stdClass;
 final class ProductProjectionModel extends JsonObjectModel implements ProductProjection
 {
     /**
+     * @var ?string
+     */
+    protected $id;
+
+    /**
+     * @var ?int
+     */
+    protected $version;
+
+    /**
      * @var ?DateTimeImmutable
      */
     protected $createdAt;
@@ -39,17 +50,17 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     /**
      * @var ?string
      */
-    protected $id;
+    protected $key;
 
     /**
-     * @var ?int
+     * @var ?ProductTypeReference
      */
-    protected $version;
+    protected $productType;
 
     /**
-     * @var ?SearchKeywords
+     * @var ?LocalizedString
      */
-    protected $searchKeywords;
+    protected $name;
 
     /**
      * @var ?LocalizedString
@@ -57,34 +68,14 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     protected $description;
 
     /**
-     * @var ?ProductVariantCollection
-     */
-    protected $variants;
-
-    /**
-     * @var ?bool
-     */
-    protected $published;
-
-    /**
-     * @var ?bool
-     */
-    protected $hasStagedChanges;
-
-    /**
      * @var ?LocalizedString
      */
-    protected $metaDescription;
+    protected $slug;
 
     /**
-     * @var ?TaxCategoryReference
+     * @var ?CategoryReferenceCollection
      */
-    protected $taxCategory;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaKeywords;
+    protected $categories;
 
     /**
      * @var ?CategoryOrderHints
@@ -99,12 +90,27 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     /**
      * @var ?LocalizedString
      */
-    protected $name;
+    protected $metaDescription;
 
     /**
-     * @var ?StateReference
+     * @var ?LocalizedString
      */
-    protected $state;
+    protected $metaKeywords;
+
+    /**
+     * @var ?SearchKeywords
+     */
+    protected $searchKeywords;
+
+    /**
+     * @var ?bool
+     */
+    protected $hasStagedChanges;
+
+    /**
+     * @var ?bool
+     */
+    protected $published;
 
     /**
      * @var ?ProductVariant
@@ -112,76 +118,109 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     protected $masterVariant;
 
     /**
-     * @var ?CategoryReferenceCollection
+     * @var ?ProductVariantCollection
      */
-    protected $categories;
+    protected $variants;
+
+    /**
+     * @var ?TaxCategoryReference
+     */
+    protected $taxCategory;
+
+    /**
+     * @var ?StateReference
+     */
+    protected $state;
 
     /**
      * @var ?ReviewRatingStatistics
      */
     protected $reviewRatingStatistics;
 
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
-
-    /**
-     * @var ?ProductTypeReference
-     */
-    protected $productType;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
-
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        SearchKeywords $searchKeywords = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
+        string $key = null,
+        ProductTypeReference $productType = null,
+        LocalizedString $name = null,
         LocalizedString $description = null,
-        ProductVariantCollection $variants = null,
-        bool $published = null,
-        bool $hasStagedChanges = null,
-        LocalizedString $metaDescription = null,
-        TaxCategoryReference $taxCategory = null,
-        LocalizedString $metaKeywords = null,
+        LocalizedString $slug = null,
+        CategoryReferenceCollection $categories = null,
         CategoryOrderHints $categoryOrderHints = null,
         LocalizedString $metaTitle = null,
-        LocalizedString $name = null,
-        StateReference $state = null,
+        LocalizedString $metaDescription = null,
+        LocalizedString $metaKeywords = null,
+        SearchKeywords $searchKeywords = null,
+        bool $hasStagedChanges = null,
+        bool $published = null,
         ProductVariant $masterVariant = null,
-        CategoryReferenceCollection $categories = null,
-        ReviewRatingStatistics $reviewRatingStatistics = null,
-        LocalizedString $slug = null,
-        ProductTypeReference $productType = null,
-        string $key = null
+        ProductVariantCollection $variants = null,
+        TaxCategoryReference $taxCategory = null,
+        StateReference $state = null,
+        ReviewRatingStatistics $reviewRatingStatistics = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->searchKeywords = $searchKeywords;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
+        $this->key = $key;
+        $this->productType = $productType;
+        $this->name = $name;
         $this->description = $description;
-        $this->variants = $variants;
-        $this->published = $published;
-        $this->hasStagedChanges = $hasStagedChanges;
-        $this->metaDescription = $metaDescription;
-        $this->taxCategory = $taxCategory;
-        $this->metaKeywords = $metaKeywords;
+        $this->slug = $slug;
+        $this->categories = $categories;
         $this->categoryOrderHints = $categoryOrderHints;
         $this->metaTitle = $metaTitle;
-        $this->name = $name;
-        $this->state = $state;
+        $this->metaDescription = $metaDescription;
+        $this->metaKeywords = $metaKeywords;
+        $this->searchKeywords = $searchKeywords;
+        $this->hasStagedChanges = $hasStagedChanges;
+        $this->published = $published;
         $this->masterVariant = $masterVariant;
-        $this->categories = $categories;
+        $this->variants = $variants;
+        $this->taxCategory = $taxCategory;
+        $this->state = $state;
         $this->reviewRatingStatistics = $reviewRatingStatistics;
-        $this->slug = $slug;
-        $this->productType = $productType;
-        $this->key = $key;
+    }
+
+    /**
+     * <p>The unique ID of the Product.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductProjection::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the Product.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductProjection::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -191,7 +230,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->createdAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductProjection::FIELD_CREATED_AT);
+            $data = $this->raw(BaseResource::FIELD_CREATED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -212,7 +251,7 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     {
         if (is_null($this->lastModifiedAt)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductProjection::FIELD_LAST_MODIFIED_AT);
+            $data = $this->raw(BaseResource::FIELD_LAST_MODIFIED_AT);
             if (is_null($data)) {
                 return null;
             }
@@ -227,55 +266,58 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
+     * <p>User-specific unique identifier of the Product.</p>.
+     *
      * @return null|string
      */
-    public function getId()
+    public function getKey()
     {
-        if (is_null($this->id)) {
+        if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductProjection::FIELD_ID);
+            $data = $this->raw(ProductProjection::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+            $this->key = (string) $data;
         }
 
-        return $this->id;
+        return $this->key;
     }
 
     /**
-     * @return null|int
+     * @return null|ProductTypeReference
      */
-    public function getVersion()
+    public function getProductType()
     {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductProjection::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
-     * @return null|SearchKeywords
-     */
-    public function getSearchKeywords()
-    {
-        if (is_null($this->searchKeywords)) {
+        if (is_null($this->productType)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_SEARCH_KEYWORDS);
+            $data = $this->raw(ProductProjection::FIELD_PRODUCT_TYPE);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->searchKeywords = SearchKeywordsModel::of($data);
+            $this->productType = ProductTypeReferenceModel::of($data);
         }
 
-        return $this->searchKeywords;
+        return $this->productType;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductProjection::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
     }
 
     /**
@@ -297,108 +339,40 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * @return null|ProductVariantCollection
+     * @return null|LocalizedString
      */
-    public function getVariants()
+    public function getSlug()
     {
-        if (is_null($this->variants)) {
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductProjection::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
+    }
+
+    /**
+     * <p>References to categories the product is in.</p>.
+     *
+     * @return null|CategoryReferenceCollection
+     */
+    public function getCategories()
+    {
+        if (is_null($this->categories)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductProjection::FIELD_VARIANTS);
+            $data = $this->raw(ProductProjection::FIELD_CATEGORIES);
             if (is_null($data)) {
                 return null;
             }
-            $this->variants = ProductVariantCollection::fromArray($data);
+            $this->categories = CategoryReferenceCollection::fromArray($data);
         }
 
-        return $this->variants;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getPublished()
-    {
-        if (is_null($this->published)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductProjection::FIELD_PUBLISHED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->published = (bool) $data;
-        }
-
-        return $this->published;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getHasStagedChanges()
-    {
-        if (is_null($this->hasStagedChanges)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductProjection::FIELD_HAS_STAGED_CHANGES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->hasStagedChanges = (bool) $data;
-        }
-
-        return $this->hasStagedChanges;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaDescription()
-    {
-        if (is_null($this->metaDescription)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_META_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->metaDescription = LocalizedStringModel::of($data);
-        }
-
-        return $this->metaDescription;
-    }
-
-    /**
-     * @return null|TaxCategoryReference
-     */
-    public function getTaxCategory()
-    {
-        if (is_null($this->taxCategory)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_TAX_CATEGORY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->taxCategory = TaxCategoryReferenceModel::of($data);
-        }
-
-        return $this->taxCategory;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaKeywords()
-    {
-        if (is_null($this->metaKeywords)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_META_KEYWORDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->metaKeywords = LocalizedStringModel::of($data);
-        }
-
-        return $this->metaKeywords;
+        return $this->categories;
     }
 
     /**
@@ -440,37 +414,89 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     /**
      * @return null|LocalizedString
      */
-    public function getName()
+    public function getMetaDescription()
     {
-        if (is_null($this->name)) {
+        if (is_null($this->metaDescription)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_NAME);
+            $data = $this->raw(ProductProjection::FIELD_META_DESCRIPTION);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->name = LocalizedStringModel::of($data);
+            $this->metaDescription = LocalizedStringModel::of($data);
         }
 
-        return $this->name;
+        return $this->metaDescription;
     }
 
     /**
-     * @return null|StateReference
+     * @return null|LocalizedString
      */
-    public function getState()
+    public function getMetaKeywords()
     {
-        if (is_null($this->state)) {
+        if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_STATE);
+            $data = $this->raw(ProductProjection::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->state = StateReferenceModel::of($data);
+            $this->metaKeywords = LocalizedStringModel::of($data);
         }
 
-        return $this->state;
+        return $this->metaKeywords;
+    }
+
+    /**
+     * @return null|SearchKeywords
+     */
+    public function getSearchKeywords()
+    {
+        if (is_null($this->searchKeywords)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductProjection::FIELD_SEARCH_KEYWORDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->searchKeywords = SearchKeywordsModel::of($data);
+        }
+
+        return $this->searchKeywords;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getHasStagedChanges()
+    {
+        if (is_null($this->hasStagedChanges)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductProjection::FIELD_HAS_STAGED_CHANGES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->hasStagedChanges = (bool) $data;
+        }
+
+        return $this->hasStagedChanges;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getPublished()
+    {
+        if (is_null($this->published)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductProjection::FIELD_PUBLISHED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->published = (bool) $data;
+        }
+
+        return $this->published;
     }
 
     /**
@@ -492,23 +518,61 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
     }
 
     /**
-     * @return null|CategoryReferenceCollection
+     * @return null|ProductVariantCollection
      */
-    public function getCategories()
+    public function getVariants()
     {
-        if (is_null($this->categories)) {
+        if (is_null($this->variants)) {
             /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductProjection::FIELD_CATEGORIES);
+            $data = $this->raw(ProductProjection::FIELD_VARIANTS);
             if (is_null($data)) {
                 return null;
             }
-            $this->categories = CategoryReferenceCollection::fromArray($data);
+            $this->variants = ProductVariantCollection::fromArray($data);
         }
 
-        return $this->categories;
+        return $this->variants;
     }
 
     /**
+     * @return null|TaxCategoryReference
+     */
+    public function getTaxCategory()
+    {
+        if (is_null($this->taxCategory)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductProjection::FIELD_TAX_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxCategory = TaxCategoryReferenceModel::of($data);
+        }
+
+        return $this->taxCategory;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductProjection::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateReferenceModel::of($data);
+        }
+
+        return $this->state;
+    }
+
+    /**
+     * <p>Statistics about the review ratings taken into account for this product.</p>.
+     *
      * @return null|ReviewRatingStatistics
      */
     public function getReviewRatingStatistics()
@@ -526,57 +590,14 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         return $this->reviewRatingStatistics;
     }
 
-    /**
-     * @return null|LocalizedString
-     */
-    public function getSlug()
+    public function setId(?string $id): void
     {
-        if (is_null($this->slug)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_SLUG);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->slug = LocalizedStringModel::of($data);
-        }
-
-        return $this->slug;
+        $this->id = $id;
     }
 
-    /**
-     * @return null|ProductTypeReference
-     */
-    public function getProductType()
+    public function setVersion(?int $version): void
     {
-        if (is_null($this->productType)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductProjection::FIELD_PRODUCT_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->productType = ProductTypeReferenceModel::of($data);
-        }
-
-        return $this->productType;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductProjection::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -589,19 +610,19 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
-    public function setId(?string $id): void
+    public function setKey(?string $key): void
     {
-        $this->id = $id;
+        $this->key = $key;
     }
 
-    public function setVersion(?int $version): void
+    public function setProductType(?ProductTypeReference $productType): void
     {
-        $this->version = $version;
+        $this->productType = $productType;
     }
 
-    public function setSearchKeywords(?SearchKeywords $searchKeywords): void
+    public function setName(?LocalizedString $name): void
     {
-        $this->searchKeywords = $searchKeywords;
+        $this->name = $name;
     }
 
     public function setDescription(?LocalizedString $description): void
@@ -609,34 +630,14 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         $this->description = $description;
     }
 
-    public function setVariants(?ProductVariantCollection $variants): void
+    public function setSlug(?LocalizedString $slug): void
     {
-        $this->variants = $variants;
+        $this->slug = $slug;
     }
 
-    public function setPublished(?bool $published): void
+    public function setCategories(?CategoryReferenceCollection $categories): void
     {
-        $this->published = $published;
-    }
-
-    public function setHasStagedChanges(?bool $hasStagedChanges): void
-    {
-        $this->hasStagedChanges = $hasStagedChanges;
-    }
-
-    public function setMetaDescription(?LocalizedString $metaDescription): void
-    {
-        $this->metaDescription = $metaDescription;
-    }
-
-    public function setTaxCategory(?TaxCategoryReference $taxCategory): void
-    {
-        $this->taxCategory = $taxCategory;
-    }
-
-    public function setMetaKeywords(?LocalizedString $metaKeywords): void
-    {
-        $this->metaKeywords = $metaKeywords;
+        $this->categories = $categories;
     }
 
     public function setCategoryOrderHints(?CategoryOrderHints $categoryOrderHints): void
@@ -649,14 +650,29 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         $this->metaTitle = $metaTitle;
     }
 
-    public function setName(?LocalizedString $name): void
+    public function setMetaDescription(?LocalizedString $metaDescription): void
     {
-        $this->name = $name;
+        $this->metaDescription = $metaDescription;
     }
 
-    public function setState(?StateReference $state): void
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
-        $this->state = $state;
+        $this->metaKeywords = $metaKeywords;
+    }
+
+    public function setSearchKeywords(?SearchKeywords $searchKeywords): void
+    {
+        $this->searchKeywords = $searchKeywords;
+    }
+
+    public function setHasStagedChanges(?bool $hasStagedChanges): void
+    {
+        $this->hasStagedChanges = $hasStagedChanges;
+    }
+
+    public function setPublished(?bool $published): void
+    {
+        $this->published = $published;
     }
 
     public function setMasterVariant(?ProductVariant $masterVariant): void
@@ -664,9 +680,19 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         $this->masterVariant = $masterVariant;
     }
 
-    public function setCategories(?CategoryReferenceCollection $categories): void
+    public function setVariants(?ProductVariantCollection $variants): void
     {
-        $this->categories = $categories;
+        $this->variants = $variants;
+    }
+
+    public function setTaxCategory(?TaxCategoryReference $taxCategory): void
+    {
+        $this->taxCategory = $taxCategory;
+    }
+
+    public function setState(?StateReference $state): void
+    {
+        $this->state = $state;
     }
 
     public function setReviewRatingStatistics(?ReviewRatingStatistics $reviewRatingStatistics): void
@@ -674,30 +700,15 @@ final class ProductProjectionModel extends JsonObjectModel implements ProductPro
         $this->reviewRatingStatistics = $reviewRatingStatistics;
     }
 
-    public function setSlug(?LocalizedString $slug): void
-    {
-        $this->slug = $slug;
-    }
-
-    public function setProductType(?ProductTypeReference $productType): void
-    {
-        $this->productType = $productType;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
-    }
-
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[ProductProjection::FIELD_CREATED_AT]) && $data[ProductProjection::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
-            $data[ProductProjection::FIELD_CREATED_AT] = $data[ProductProjection::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[BaseResource::FIELD_CREATED_AT]) && $data[BaseResource::FIELD_CREATED_AT] instanceof \DateTimeImmutable) {
+            $data[BaseResource::FIELD_CREATED_AT] = $data[BaseResource::FIELD_CREATED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
-        if (isset($data[ProductProjection::FIELD_LAST_MODIFIED_AT]) && $data[ProductProjection::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
-            $data[ProductProjection::FIELD_LAST_MODIFIED_AT] = $data[ProductProjection::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        if (isset($data[BaseResource::FIELD_LAST_MODIFIED_AT]) && $data[BaseResource::FIELD_LAST_MODIFIED_AT] instanceof \DateTimeImmutable) {
+            $data[BaseResource::FIELD_LAST_MODIFIED_AT] = $data[BaseResource::FIELD_LAST_MODIFIED_AT]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

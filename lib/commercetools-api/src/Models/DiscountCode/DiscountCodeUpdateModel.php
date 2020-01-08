@@ -14,38 +14,21 @@ use stdClass;
 final class DiscountCodeUpdateModel extends JsonObjectModel implements DiscountCodeUpdate
 {
     /**
-     * @var ?DiscountCodeUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        DiscountCodeUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|DiscountCodeUpdateActionCollection
+     * @var ?DiscountCodeUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(DiscountCodeUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = DiscountCodeUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        DiscountCodeUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class DiscountCodeUpdateModel extends JsonObjectModel implements DiscountC
         return $this->version;
     }
 
-    public function setActions(?DiscountCodeUpdateActionCollection $actions): void
+    /**
+     * @return null|DiscountCodeUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(DiscountCodeUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = DiscountCodeUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?DiscountCodeUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

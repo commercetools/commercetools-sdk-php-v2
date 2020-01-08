@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class DiscountedLineItemPriceBuilder implements Builder
 {
     /**
-     * @var ?DiscountedLineItemPortionCollection
-     */
-    private $includedDiscounts;
-
-    /**
      * @var TypedMoney|?TypedMoneyBuilder
      */
     private $value;
 
     /**
-     * @return null|DiscountedLineItemPortionCollection
+     * @var ?DiscountedLineItemPortionCollection
      */
-    public function getIncludedDiscounts()
-    {
-        return $this->includedDiscounts;
-    }
+    private $includedDiscounts;
 
     /**
      * @return null|TypedMoney
@@ -44,13 +36,11 @@ final class DiscountedLineItemPriceBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|DiscountedLineItemPortionCollection
      */
-    public function withIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts)
+    public function getIncludedDiscounts()
     {
-        $this->includedDiscounts = $includedDiscounts;
-
-        return $this;
+        return $this->includedDiscounts;
     }
 
     /**
@@ -59,6 +49,16 @@ final class DiscountedLineItemPriceBuilder implements Builder
     public function withValue(?TypedMoney $value)
     {
         $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withIncludedDiscounts(?DiscountedLineItemPortionCollection $includedDiscounts)
+    {
+        $this->includedDiscounts = $includedDiscounts;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class DiscountedLineItemPriceBuilder implements Builder
     public function build(): DiscountedLineItemPrice
     {
         return new DiscountedLineItemPriceModel(
-            $this->includedDiscounts,
-            ($this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value)
+            ($this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value),
+            $this->includedDiscounts
         );
     }
 

@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class CustomerCreatePasswordResetTokenBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $ttlMinutes;
-
-    /**
      * @var ?string
      */
     private $email;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getTtlMinutes()
-    {
-        return $this->ttlMinutes;
-    }
+    private $ttlMinutes;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withTtlMinutes(?int $ttlMinutes)
+    public function getTtlMinutes()
     {
-        $this->ttlMinutes = $ttlMinutes;
-
-        return $this;
+        return $this->ttlMinutes;
     }
 
     /**
@@ -61,11 +51,21 @@ final class CustomerCreatePasswordResetTokenBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTtlMinutes(?int $ttlMinutes)
+    {
+        $this->ttlMinutes = $ttlMinutes;
+
+        return $this;
+    }
+
     public function build(): CustomerCreatePasswordResetToken
     {
         return new CustomerCreatePasswordResetTokenModel(
-            $this->ttlMinutes,
-            $this->email
+            $this->email,
+            $this->ttlMinutes
         );
     }
 

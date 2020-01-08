@@ -21,6 +21,8 @@ final class PaymentSetMethodInfoMethodActionBuilder implements Builder
     private $method;
 
     /**
+     * <p>If not provided, the method is unset.</p>.
+     *
      * @return null|string
      */
     public function getMethod()

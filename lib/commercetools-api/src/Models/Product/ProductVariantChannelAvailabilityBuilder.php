@@ -16,9 +16,9 @@ use Commercetools\Base\Builder;
 final class ProductVariantChannelAvailabilityBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?bool
      */
-    private $availableQuantity;
+    private $isOnStock;
 
     /**
      * @var ?int
@@ -26,16 +26,16 @@ final class ProductVariantChannelAvailabilityBuilder implements Builder
     private $restockableInDays;
 
     /**
-     * @var ?bool
+     * @var ?int
      */
-    private $isOnStock;
+    private $availableQuantity;
 
     /**
-     * @return null|int
+     * @return null|bool
      */
-    public function getAvailableQuantity()
+    public function getIsOnStock()
     {
-        return $this->availableQuantity;
+        return $this->isOnStock;
     }
 
     /**
@@ -47,19 +47,19 @@ final class ProductVariantChannelAvailabilityBuilder implements Builder
     }
 
     /**
-     * @return null|bool
+     * @return null|int
      */
-    public function getIsOnStock()
+    public function getAvailableQuantity()
     {
-        return $this->isOnStock;
+        return $this->availableQuantity;
     }
 
     /**
      * @return $this
      */
-    public function withAvailableQuantity(?int $availableQuantity)
+    public function withIsOnStock(?bool $isOnStock)
     {
-        $this->availableQuantity = $availableQuantity;
+        $this->isOnStock = $isOnStock;
 
         return $this;
     }
@@ -77,9 +77,9 @@ final class ProductVariantChannelAvailabilityBuilder implements Builder
     /**
      * @return $this
      */
-    public function withIsOnStock(?bool $isOnStock)
+    public function withAvailableQuantity(?int $availableQuantity)
     {
-        $this->isOnStock = $isOnStock;
+        $this->availableQuantity = $availableQuantity;
 
         return $this;
     }
@@ -87,9 +87,9 @@ final class ProductVariantChannelAvailabilityBuilder implements Builder
     public function build(): ProductVariantChannelAvailability
     {
         return new ProductVariantChannelAvailabilityModel(
-            $this->availableQuantity,
+            $this->isOnStock,
             $this->restockableInDays,
-            $this->isOnStock
+            $this->availableQuantity
         );
     }
 

@@ -27,6 +27,11 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     /**
      * @var ?string
      */
+    protected $taxCategoryId;
+
+    /**
+     * @var ?string
+     */
     protected $country;
 
     /**
@@ -34,21 +39,16 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
      */
     protected $state;
 
-    /**
-     * @var ?string
-     */
-    protected $taxCategoryId;
-
     public function __construct(
         string $message = null,
+        string $taxCategoryId = null,
         string $country = null,
-        string $state = null,
-        string $taxCategoryId = null
+        string $state = null
     ) {
         $this->message = $message;
+        $this->taxCategoryId = $taxCategoryId;
         $this->country = $country;
         $this->state = $state;
-        $this->taxCategoryId = $taxCategoryId;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
 
@@ -89,6 +89,23 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     /**
      * @return null|string
      */
+    public function getTaxCategoryId()
+    {
+        if (is_null($this->taxCategoryId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MissingTaxRateForCountryError::FIELD_TAX_CATEGORY_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxCategoryId = (string) $data;
+        }
+
+        return $this->taxCategoryId;
+    }
+
+    /**
+     * @return null|string
+     */
     public function getCountry()
     {
         if (is_null($this->country)) {
@@ -120,26 +137,14 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
         return $this->state;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getTaxCategoryId()
-    {
-        if (is_null($this->taxCategoryId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MissingTaxRateForCountryError::FIELD_TAX_CATEGORY_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->taxCategoryId = (string) $data;
-        }
-
-        return $this->taxCategoryId;
-    }
-
     public function setMessage(?string $message): void
     {
         $this->message = $message;
+    }
+
+    public function setTaxCategoryId(?string $taxCategoryId): void
+    {
+        $this->taxCategoryId = $taxCategoryId;
     }
 
     public function setCountry(?string $country): void
@@ -150,10 +155,5 @@ final class MissingTaxRateForCountryErrorModel extends JsonObjectModel implement
     public function setState(?string $state): void
     {
         $this->state = $state;
-    }
-
-    public function setTaxCategoryId(?string $taxCategoryId): void
-    {
-        $this->taxCategoryId = $taxCategoryId;
     }
 }

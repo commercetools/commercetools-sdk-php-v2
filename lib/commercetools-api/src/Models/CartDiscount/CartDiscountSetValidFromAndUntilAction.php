@@ -16,11 +16,15 @@ interface CartDiscountSetValidFromAndUntilAction extends CartDiscountUpdateActio
     const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+     * <p>If absent, the field with the value is removed in case a value was set before.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();

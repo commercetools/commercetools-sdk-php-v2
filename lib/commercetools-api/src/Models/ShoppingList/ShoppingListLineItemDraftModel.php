@@ -23,9 +23,14 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     protected $addedAt;
 
     /**
-     * @var ?int
+     * @var ?CustomFieldsDraft
      */
-    protected $quantity;
+    protected $custom;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
 
     /**
      * @var ?string
@@ -33,34 +38,29 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     protected $productId;
 
     /**
-     * @var ?CustomFieldsDraft
+     * @var ?int
      */
-    protected $custom;
+    protected $quantity;
 
     /**
      * @var ?int
      */
     protected $variantId;
 
-    /**
-     * @var ?string
-     */
-    protected $sku;
-
     public function __construct(
         DateTimeImmutable $addedAt = null,
-        int $quantity = null,
-        string $productId = null,
         CustomFieldsDraft $custom = null,
-        int $variantId = null,
-        string $sku = null
+        string $sku = null,
+        string $productId = null,
+        int $quantity = null,
+        int $variantId = null
     ) {
         $this->addedAt = $addedAt;
-        $this->quantity = $quantity;
-        $this->productId = $productId;
         $this->custom = $custom;
-        $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->productId = $productId;
+        $this->quantity = $quantity;
+        $this->variantId = $variantId;
     }
 
     /**
@@ -85,20 +85,38 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
-     * @return null|int
+     * @return null|CustomFieldsDraft
      */
-    public function getQuantity()
+    public function getCustom()
     {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListLineItemDraft::FIELD_QUANTITY);
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShoppingListLineItemDraft::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
-        return $this->quantity;
+        return $this->custom;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListLineItemDraft::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
     }
 
     /**
@@ -119,21 +137,20 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
     }
 
     /**
-     * @return null|CustomFieldsDraft
+     * @return null|int
      */
-    public function getCustom()
+    public function getQuantity()
     {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListLineItemDraft::FIELD_CUSTOM);
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ShoppingListLineItemDraft::FIELD_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
+            $this->quantity = (int) $data;
         }
 
-        return $this->custom;
+        return $this->quantity;
     }
 
     /**
@@ -153,36 +170,9 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
         return $this->variantId;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getSku()
-    {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListLineItemDraft::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
-    }
-
     public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
-    }
-
-    public function setQuantity(?int $quantity): void
-    {
-        $this->quantity = $quantity;
-    }
-
-    public function setProductId(?string $productId): void
-    {
-        $this->productId = $productId;
     }
 
     public function setCustom(?CustomFieldsDraft $custom): void
@@ -190,14 +180,24 @@ final class ShoppingListLineItemDraftModel extends JsonObjectModel implements Sh
         $this->custom = $custom;
     }
 
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
-    }
-
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    public function setProductId(?string $productId): void
+    {
+        $this->productId = $productId;
+    }
+
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+    public function setVariantId(?int $variantId): void
+    {
+        $this->variantId = $variantId;
     }
 
     public function jsonSerialize()

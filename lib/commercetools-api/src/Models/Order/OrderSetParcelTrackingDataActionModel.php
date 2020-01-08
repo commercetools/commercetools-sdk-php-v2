@@ -21,21 +21,21 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
     protected $action;
 
     /**
-     * @var ?TrackingData
-     */
-    protected $trackingData;
-
-    /**
      * @var ?string
      */
     protected $parcelId;
 
+    /**
+     * @var ?TrackingData
+     */
+    protected $trackingData;
+
     public function __construct(
-        TrackingData $trackingData = null,
-        string $parcelId = null
+        string $parcelId = null,
+        TrackingData $trackingData = null
     ) {
-        $this->trackingData = $trackingData;
         $this->parcelId = $parcelId;
+        $this->trackingData = $trackingData;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -57,6 +57,23 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
     }
 
     /**
+     * @return null|string
+     */
+    public function getParcelId()
+    {
+        if (is_null($this->parcelId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderSetParcelTrackingDataAction::FIELD_PARCEL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->parcelId = (string) $data;
+        }
+
+        return $this->parcelId;
+    }
+
+    /**
      * @return null|TrackingData
      */
     public function getTrackingData()
@@ -74,30 +91,13 @@ final class OrderSetParcelTrackingDataActionModel extends JsonObjectModel implem
         return $this->trackingData;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getParcelId()
+    public function setParcelId(?string $parcelId): void
     {
-        if (is_null($this->parcelId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderSetParcelTrackingDataAction::FIELD_PARCEL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->parcelId = (string) $data;
-        }
-
-        return $this->parcelId;
+        $this->parcelId = $parcelId;
     }
 
     public function setTrackingData(?TrackingData $trackingData): void
     {
         $this->trackingData = $trackingData;
-    }
-
-    public function setParcelId(?string $parcelId): void
-    {
-        $this->parcelId = $parcelId;
     }
 }

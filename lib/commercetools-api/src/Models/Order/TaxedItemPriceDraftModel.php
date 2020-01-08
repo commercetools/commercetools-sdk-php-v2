@@ -18,37 +18,19 @@ final class TaxedItemPriceDraftModel extends JsonObjectModel implements TaxedIte
     /**
      * @var ?Money
      */
-    protected $totalGross;
+    protected $totalNet;
 
     /**
      * @var ?Money
      */
-    protected $totalNet;
+    protected $totalGross;
 
     public function __construct(
-        Money $totalGross = null,
-        Money $totalNet = null
+        Money $totalNet = null,
+        Money $totalGross = null
     ) {
-        $this->totalGross = $totalGross;
         $this->totalNet = $totalNet;
-    }
-
-    /**
-     * @return null|Money
-     */
-    public function getTotalGross()
-    {
-        if (is_null($this->totalGross)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxedItemPriceDraft::FIELD_TOTAL_GROSS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->totalGross = MoneyModel::of($data);
-        }
-
-        return $this->totalGross;
+        $this->totalGross = $totalGross;
     }
 
     /**
@@ -69,13 +51,31 @@ final class TaxedItemPriceDraftModel extends JsonObjectModel implements TaxedIte
         return $this->totalNet;
     }
 
-    public function setTotalGross(?Money $totalGross): void
+    /**
+     * @return null|Money
+     */
+    public function getTotalGross()
     {
-        $this->totalGross = $totalGross;
+        if (is_null($this->totalGross)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TaxedItemPriceDraft::FIELD_TOTAL_GROSS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalGross = MoneyModel::of($data);
+        }
+
+        return $this->totalGross;
     }
 
     public function setTotalNet(?Money $totalNet): void
     {
         $this->totalNet = $totalNet;
+    }
+
+    public function setTotalGross(?Money $totalGross): void
+    {
+        $this->totalGross = $totalGross;
     }
 }

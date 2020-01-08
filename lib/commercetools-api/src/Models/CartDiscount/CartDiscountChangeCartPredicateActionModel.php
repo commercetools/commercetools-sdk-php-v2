@@ -49,6 +49,8 @@ final class CartDiscountChangeCartPredicateActionModel extends JsonObjectModel i
     }
 
     /**
+     * <p>A valid Cart predicate.</p>.
+     *
      * @return null|string
      */
     public function getCartPredicate()

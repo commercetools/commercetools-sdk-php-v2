@@ -18,11 +18,15 @@ interface CustomObjectDraft extends JsonObject
     const FIELD_VERSION = 'version';
 
     /**
+     * <p>A namespace to group custom objects.</p>.
+     *
      * @return null|string
      */
     public function getContainer();
 
     /**
+     * <p>A user-defined key that is unique within the given container.</p>.
+     *
      * @return null|string
      */
     public function getKey();

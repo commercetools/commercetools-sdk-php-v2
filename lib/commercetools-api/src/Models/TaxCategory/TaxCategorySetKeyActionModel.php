@@ -49,6 +49,8 @@ final class TaxCategorySetKeyActionModel extends JsonObjectModel implements TaxC
     }
 
     /**
+     * <p>If <code>key</code> is absent or <code>null</code>, it is removed if it exists.</p>.
+     *
      * @return null|string
      */
     public function getKey()

@@ -23,54 +23,9 @@ use Commercetools\Base\Builder;
 final class ProductVariantBuilder implements Builder
 {
     /**
-     * @var ScopedPrice|?ScopedPriceBuilder
-     */
-    private $scopedPrice;
-
-    /**
-     * @var ?ImageCollection
-     */
-    private $images;
-
-    /**
-     * @var ?AssetCollection
-     */
-    private $assets;
-
-    /**
-     * @var ?bool
-     */
-    private $isMatchingVariant;
-
-    /**
-     * @var Price|?PriceBuilder
-     */
-    private $price;
-
-    /**
-     * @var ?bool
-     */
-    private $scopedPriceDiscounted;
-
-    /**
-     * @var ?AttributeCollection
-     */
-    private $attributes;
-
-    /**
-     * @var ProductVariantAvailability|?ProductVariantAvailabilityBuilder
-     */
-    private $availability;
-
-    /**
      * @var ?int
      */
     private $id;
-
-    /**
-     * @var ?PriceCollection
-     */
-    private $prices;
 
     /**
      * @var ?string
@@ -83,68 +38,49 @@ final class ProductVariantBuilder implements Builder
     private $key;
 
     /**
-     * @return null|ScopedPrice
+     * @var ?PriceCollection
      */
-    public function getScopedPrice()
-    {
-        return $this->scopedPrice instanceof ScopedPriceBuilder ? $this->scopedPrice->build() : $this->scopedPrice;
-    }
+    private $prices;
 
     /**
-     * @return null|ImageCollection
+     * @var ?AttributeCollection
      */
-    public function getImages()
-    {
-        return $this->images;
-    }
+    private $attributes;
 
     /**
-     * @return null|AssetCollection
+     * @var Price|?PriceBuilder
      */
-    public function getAssets()
-    {
-        return $this->assets;
-    }
+    private $price;
 
     /**
-     * @return null|bool
+     * @var ?ImageCollection
      */
-    public function getIsMatchingVariant()
-    {
-        return $this->isMatchingVariant;
-    }
+    private $images;
 
     /**
-     * @return null|Price
+     * @var ?AssetCollection
      */
-    public function getPrice()
-    {
-        return $this->price instanceof PriceBuilder ? $this->price->build() : $this->price;
-    }
+    private $assets;
 
     /**
-     * @return null|bool
+     * @var ProductVariantAvailability|?ProductVariantAvailabilityBuilder
      */
-    public function getScopedPriceDiscounted()
-    {
-        return $this->scopedPriceDiscounted;
-    }
+    private $availability;
 
     /**
-     * @return null|AttributeCollection
+     * @var ?bool
      */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
+    private $isMatchingVariant;
 
     /**
-     * @return null|ProductVariantAvailability
+     * @var ScopedPrice|?ScopedPriceBuilder
      */
-    public function getAvailability()
-    {
-        return $this->availability instanceof ProductVariantAvailabilityBuilder ? $this->availability->build() : $this->availability;
-    }
+    private $scopedPrice;
+
+    /**
+     * @var ?bool
+     */
+    private $scopedPriceDiscounted;
 
     /**
      * @return null|int
@@ -152,14 +88,6 @@ final class ProductVariantBuilder implements Builder
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @return null|PriceCollection
-     */
-    public function getPrices()
-    {
-        return $this->prices;
     }
 
     /**
@@ -179,83 +107,75 @@ final class ProductVariantBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|PriceCollection
      */
-    public function withScopedPrice(?ScopedPrice $scopedPrice)
+    public function getPrices()
     {
-        $this->scopedPrice = $scopedPrice;
-
-        return $this;
+        return $this->prices;
     }
 
     /**
-     * @return $this
+     * @return null|AttributeCollection
      */
-    public function withImages(?ImageCollection $images)
+    public function getAttributes()
     {
-        $this->images = $images;
-
-        return $this;
+        return $this->attributes;
     }
 
     /**
-     * @return $this
+     * @return null|Price
      */
-    public function withAssets(?AssetCollection $assets)
+    public function getPrice()
     {
-        $this->assets = $assets;
-
-        return $this;
+        return $this->price instanceof PriceBuilder ? $this->price->build() : $this->price;
     }
 
     /**
-     * @return $this
+     * @return null|ImageCollection
      */
-    public function withIsMatchingVariant(?bool $isMatchingVariant)
+    public function getImages()
     {
-        $this->isMatchingVariant = $isMatchingVariant;
-
-        return $this;
+        return $this->images;
     }
 
     /**
-     * @return $this
+     * @return null|AssetCollection
      */
-    public function withPrice(?Price $price)
+    public function getAssets()
     {
-        $this->price = $price;
-
-        return $this;
+        return $this->assets;
     }
 
     /**
-     * @return $this
+     * @return null|ProductVariantAvailability
      */
-    public function withScopedPriceDiscounted(?bool $scopedPriceDiscounted)
+    public function getAvailability()
     {
-        $this->scopedPriceDiscounted = $scopedPriceDiscounted;
-
-        return $this;
+        return $this->availability instanceof ProductVariantAvailabilityBuilder ? $this->availability->build() : $this->availability;
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withAttributes(?AttributeCollection $attributes)
+    public function getIsMatchingVariant()
     {
-        $this->attributes = $attributes;
-
-        return $this;
+        return $this->isMatchingVariant;
     }
 
     /**
-     * @return $this
+     * @return null|ScopedPrice
      */
-    public function withAvailability(?ProductVariantAvailability $availability)
+    public function getScopedPrice()
     {
-        $this->availability = $availability;
+        return $this->scopedPrice instanceof ScopedPriceBuilder ? $this->scopedPrice->build() : $this->scopedPrice;
+    }
 
-        return $this;
+    /**
+     * @return null|bool
+     */
+    public function getScopedPriceDiscounted()
+    {
+        return $this->scopedPriceDiscounted;
     }
 
     /**
@@ -264,16 +184,6 @@ final class ProductVariantBuilder implements Builder
     public function withId(?int $id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPrices(?PriceCollection $prices)
-    {
-        $this->prices = $prices;
 
         return $this;
     }
@@ -301,9 +211,89 @@ final class ProductVariantBuilder implements Builder
     /**
      * @return $this
      */
-    public function withScopedPriceBuilder(?ScopedPriceBuilder $scopedPrice)
+    public function withPrices(?PriceCollection $prices)
+    {
+        $this->prices = $prices;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAttributes(?AttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPrice(?Price $price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withImages(?ImageCollection $images)
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssets(?AssetCollection $assets)
+    {
+        $this->assets = $assets;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAvailability(?ProductVariantAvailability $availability)
+    {
+        $this->availability = $availability;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withIsMatchingVariant(?bool $isMatchingVariant)
+    {
+        $this->isMatchingVariant = $isMatchingVariant;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withScopedPrice(?ScopedPrice $scopedPrice)
     {
         $this->scopedPrice = $scopedPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withScopedPriceDiscounted(?bool $scopedPriceDiscounted)
+    {
+        $this->scopedPriceDiscounted = $scopedPriceDiscounted;
 
         return $this;
     }
@@ -328,21 +318,31 @@ final class ProductVariantBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withScopedPriceBuilder(?ScopedPriceBuilder $scopedPrice)
+    {
+        $this->scopedPrice = $scopedPrice;
+
+        return $this;
+    }
+
     public function build(): ProductVariant
     {
         return new ProductVariantModel(
-            ($this->scopedPrice instanceof ScopedPriceBuilder ? $this->scopedPrice->build() : $this->scopedPrice),
+            $this->id,
+            $this->sku,
+            $this->key,
+            $this->prices,
+            $this->attributes,
+            ($this->price instanceof PriceBuilder ? $this->price->build() : $this->price),
             $this->images,
             $this->assets,
-            $this->isMatchingVariant,
-            ($this->price instanceof PriceBuilder ? $this->price->build() : $this->price),
-            $this->scopedPriceDiscounted,
-            $this->attributes,
             ($this->availability instanceof ProductVariantAvailabilityBuilder ? $this->availability->build() : $this->availability),
-            $this->id,
-            $this->prices,
-            $this->sku,
-            $this->key
+            $this->isMatchingVariant,
+            ($this->scopedPrice instanceof ScopedPriceBuilder ? $this->scopedPrice->build() : $this->scopedPrice),
+            $this->scopedPriceDiscounted
         );
     }
 

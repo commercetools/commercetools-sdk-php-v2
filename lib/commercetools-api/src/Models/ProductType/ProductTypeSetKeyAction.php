@@ -13,6 +13,8 @@ interface ProductTypeSetKeyAction extends ProductTypeUpdateAction
     const FIELD_KEY = 'key';
 
     /**
+     * <p>If <code>key</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     *
      * @return null|string
      */
     public function getKey();

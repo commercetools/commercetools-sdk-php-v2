@@ -15,6 +15,8 @@ interface PaymentSetMethodInfoNameAction extends PaymentUpdateAction
     const FIELD_NAME = 'name';
 
     /**
+     * <p>If not provided, the name is unset.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName();

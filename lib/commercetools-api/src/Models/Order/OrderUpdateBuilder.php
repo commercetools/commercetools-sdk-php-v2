@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class OrderUpdateBuilder implements Builder
 {
     /**
-     * @var ?OrderUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|OrderUpdateActionCollection
+     * @var ?OrderUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class OrderUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|OrderUpdateActionCollection
      */
-    public function withActions(?OrderUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class OrderUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?OrderUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): OrderUpdate
     {
         return new OrderUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

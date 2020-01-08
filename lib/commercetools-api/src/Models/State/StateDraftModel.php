@@ -16,14 +16,14 @@ use stdClass;
 final class StateDraftModel extends JsonObjectModel implements StateDraft
 {
     /**
-     * @var ?bool
+     * @var ?string
      */
-    protected $initial;
+    protected $key;
 
     /**
-     * @var ?array
+     * @var ?string
      */
-    protected $roles;
+    protected $type;
 
     /**
      * @var ?LocalizedString
@@ -36,70 +36,70 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     protected $description;
 
     /**
+     * @var ?bool
+     */
+    protected $initial;
+
+    /**
+     * @var ?array
+     */
+    protected $roles;
+
+    /**
      * @var ?StateResourceIdentifierCollection
      */
     protected $transitions;
 
-    /**
-     * @var ?string
-     */
-    protected $type;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
-
     public function __construct(
-        bool $initial = null,
-        array $roles = null,
+        string $key = null,
+        string $type = null,
         LocalizedString $name = null,
         LocalizedString $description = null,
-        StateResourceIdentifierCollection $transitions = null,
-        string $type = null,
-        string $key = null
+        bool $initial = null,
+        array $roles = null,
+        StateResourceIdentifierCollection $transitions = null
     ) {
-        $this->initial = $initial;
-        $this->roles = $roles;
+        $this->key = $key;
+        $this->type = $type;
         $this->name = $name;
         $this->description = $description;
+        $this->initial = $initial;
+        $this->roles = $roles;
         $this->transitions = $transitions;
-        $this->type = $type;
-        $this->key = $key;
     }
 
     /**
-     * @return null|bool
+     * @return null|string
      */
-    public function getInitial()
+    public function getKey()
     {
-        if (is_null($this->initial)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(StateDraft::FIELD_INITIAL);
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StateDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->initial = (bool) $data;
+            $this->key = (string) $data;
         }
 
-        return $this->initial;
+        return $this->key;
     }
 
     /**
-     * @return null|array
+     * @return null|string
      */
-    public function getRoles()
+    public function getType()
     {
-        if (is_null($this->roles)) {
-            /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(StateDraft::FIELD_ROLES);
+        if (is_null($this->type)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StateDraft::FIELD_TYPE);
             if (is_null($data)) {
                 return null;
             }
-            $this->roles = $data;
+            $this->type = (string) $data;
         }
 
-        return $this->roles;
+        return $this->type;
     }
 
     /**
@@ -139,6 +139,40 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
     }
 
     /**
+     * @return null|bool
+     */
+    public function getInitial()
+    {
+        if (is_null($this->initial)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(StateDraft::FIELD_INITIAL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->initial = (bool) $data;
+        }
+
+        return $this->initial;
+    }
+
+    /**
+     * @return null|array
+     */
+    public function getRoles()
+    {
+        if (is_null($this->roles)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(StateDraft::FIELD_ROLES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->roles = $data;
+        }
+
+        return $this->roles;
+    }
+
+    /**
      * @return null|StateResourceIdentifierCollection
      */
     public function getTransitions()
@@ -155,48 +189,14 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
         return $this->transitions;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getType()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->type)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(StateDraft::FIELD_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->type = (string) $data;
-        }
-
-        return $this->type;
+        $this->key = $key;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setType(?string $type): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(StateDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    public function setInitial(?bool $initial): void
-    {
-        $this->initial = $initial;
-    }
-
-    public function setRoles(?array $roles): void
-    {
-        $this->roles = $roles;
+        $this->type = $type;
     }
 
     public function setName(?LocalizedString $name): void
@@ -209,18 +209,18 @@ final class StateDraftModel extends JsonObjectModel implements StateDraft
         $this->description = $description;
     }
 
+    public function setInitial(?bool $initial): void
+    {
+        $this->initial = $initial;
+    }
+
+    public function setRoles(?array $roles): void
+    {
+        $this->roles = $roles;
+    }
+
     public function setTransitions(?StateResourceIdentifierCollection $transitions): void
     {
         $this->transitions = $transitions;
-    }
-
-    public function setType(?string $type): void
-    {
-        $this->type = $type;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 }

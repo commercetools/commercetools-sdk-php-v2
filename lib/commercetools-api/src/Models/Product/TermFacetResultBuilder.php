@@ -16,21 +16,6 @@ use Commercetools\Base\Builder;
 final class TermFacetResultBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $other;
-
-    /**
-     * @var ?int
-     */
-    private $total;
-
-    /**
-     * @var ?FacetResultTermCollection
-     */
-    private $terms;
-
-    /**
      * @var ?string
      */
     private $dataType;
@@ -41,28 +26,19 @@ final class TermFacetResultBuilder implements Builder
     private $missing;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getOther()
-    {
-        return $this->other;
-    }
+    private $total;
 
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getTotal()
-    {
-        return $this->total;
-    }
+    private $other;
 
     /**
-     * @return null|FacetResultTermCollection
+     * @var ?FacetResultTermCollection
      */
-    public function getTerms()
-    {
-        return $this->terms;
-    }
+    private $terms;
 
     /**
      * @return null|string
@@ -81,33 +57,27 @@ final class TermFacetResultBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withOther(?int $other)
+    public function getTotal()
     {
-        $this->other = $other;
-
-        return $this;
+        return $this->total;
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withTotal(?int $total)
+    public function getOther()
     {
-        $this->total = $total;
-
-        return $this;
+        return $this->other;
     }
 
     /**
-     * @return $this
+     * @return null|FacetResultTermCollection
      */
-    public function withTerms(?FacetResultTermCollection $terms)
+    public function getTerms()
     {
-        $this->terms = $terms;
-
-        return $this;
+        return $this->terms;
     }
 
     /**
@@ -130,14 +100,44 @@ final class TermFacetResultBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTotal(?int $total)
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withOther(?int $other)
+    {
+        $this->other = $other;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTerms(?FacetResultTermCollection $terms)
+    {
+        $this->terms = $terms;
+
+        return $this;
+    }
+
     public function build(): TermFacetResult
     {
         return new TermFacetResultModel(
-            $this->other,
-            $this->total,
-            $this->terms,
             $this->dataType,
-            $this->missing
+            $this->missing,
+            $this->total,
+            $this->other,
+            $this->terms
         );
     }
 

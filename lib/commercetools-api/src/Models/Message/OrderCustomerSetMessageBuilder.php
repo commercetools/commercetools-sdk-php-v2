@@ -27,16 +27,6 @@ use DateTimeImmutable;
 final class OrderCustomerSetMessageBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -47,14 +37,24 @@ final class OrderCustomerSetMessageBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
 
     /**
      * @var ?int
@@ -67,19 +67,19 @@ final class OrderCustomerSetMessageBuilder implements Builder
     private $resource;
 
     /**
-     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
-     */
-    private $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     private $resourceVersion;
 
     /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
+     * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
-    private $oldCustomerGroup;
+    private $resourceUserProvidedIdentifiers;
+
+    /**
+     * @var CustomerReference|?CustomerReferenceBuilder
+     */
+    private $customer;
 
     /**
      * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
@@ -92,25 +92,9 @@ final class OrderCustomerSetMessageBuilder implements Builder
     private $oldCustomer;
 
     /**
-     * @var CustomerReference|?CustomerReferenceBuilder
+     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
-    private $customer;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $oldCustomerGroup;
 
     /**
      * @return null|string
@@ -129,11 +113,19 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -142,6 +134,14 @@ final class OrderCustomerSetMessageBuilder implements Builder
     public function getLastModifiedBy()
     {
         return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -161,14 +161,6 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -177,11 +169,19 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CustomerGroupReference
+     * @return null|UserProvidedIdentifiers
      */
-    public function getOldCustomerGroup()
+    public function getResourceUserProvidedIdentifiers()
     {
-        return $this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup;
+        return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @return null|CustomerReference
+     */
+    public function getCustomer()
+    {
+        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
     }
 
     /**
@@ -201,31 +201,11 @@ final class OrderCustomerSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CustomerReference
+     * @return null|CustomerGroupReference
      */
-    public function getCustomer()
+    public function getOldCustomerGroup()
     {
-        return $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup;
     }
 
     /**
@@ -251,9 +231,19 @@ final class OrderCustomerSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -264,6 +254,16 @@ final class OrderCustomerSetMessageBuilder implements Builder
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -291,16 +291,6 @@ final class OrderCustomerSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
-    {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withResourceVersion(?int $resourceVersion)
     {
         $this->resourceVersion = $resourceVersion;
@@ -311,9 +301,19 @@ final class OrderCustomerSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup)
+    public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
-        $this->oldCustomerGroup = $oldCustomerGroup;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomer(?CustomerReference $customer)
+    {
+        $this->customer = $customer;
 
         return $this;
     }
@@ -341,19 +341,9 @@ final class OrderCustomerSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomer(?CustomerReference $customer)
+    public function withOldCustomerGroup(?CustomerGroupReference $oldCustomerGroup)
     {
-        $this->customer = $customer;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
-    {
-        $this->createdBy = $createdBy;
+        $this->oldCustomerGroup = $oldCustomerGroup;
 
         return $this;
     }
@@ -364,6 +354,16 @@ final class OrderCustomerSetMessageBuilder implements Builder
     public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -391,9 +391,9 @@ final class OrderCustomerSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldCustomerGroupBuilder(?CustomerGroupReferenceBuilder $oldCustomerGroup)
+    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
     {
-        $this->oldCustomerGroup = $oldCustomerGroup;
+        $this->customer = $customer;
 
         return $this;
     }
@@ -421,9 +421,9 @@ final class OrderCustomerSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
+    public function withOldCustomerGroupBuilder(?CustomerGroupReferenceBuilder $oldCustomerGroup)
     {
-        $this->customer = $customer;
+        $this->oldCustomerGroup = $oldCustomerGroup;
 
         return $this;
     }
@@ -431,20 +431,20 @@ final class OrderCustomerSetMessageBuilder implements Builder
     public function build(): OrderCustomerSetMessage
     {
         return new OrderCustomerSetMessageModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup),
+            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
+            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
             ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
             ($this->oldCustomer instanceof CustomerReferenceBuilder ? $this->oldCustomer->build() : $this->oldCustomer),
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)
+            ($this->oldCustomerGroup instanceof CustomerGroupReferenceBuilder ? $this->oldCustomerGroup->build() : $this->oldCustomerGroup)
         );
     }
 

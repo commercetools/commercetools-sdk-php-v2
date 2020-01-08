@@ -40,21 +40,32 @@ interface MyLineItemDraft extends JsonObject
     public function getQuantity();
 
     /**
+     * <p>By providing supply channel information, you can unique identify
+     * inventory entries that should be reserved.
+     * The provided channel should have the InventorySupply role.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getSupplyChannel();
 
     /**
+     * <p>The channel is used to select a ProductPrice.
+     * The provided channel should have the ProductDistribution role.</p>.
+     *
      * @return null|ChannelResourceIdentifier
      */
     public function getDistributionChannel();
 
     /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+     * <p>Container for line item specific address(es).</p>.
+     *
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetails();

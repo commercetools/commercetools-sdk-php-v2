@@ -25,6 +25,11 @@ interface TaxRateDraft extends JsonObject
     public function getName();
 
     /**
+     * <p>Percentage in the range of [0..1].
+     * Must be supplied if no <code>subRates</code> are specified.
+     * If <code>subRates</code> are specified
+     * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>.
+     *
      * @return null|int
      */
     public function getAmount();
@@ -42,11 +47,17 @@ interface TaxRateDraft extends JsonObject
     public function getCountry();
 
     /**
+     * <p>The state in the country</p>.
+     *
      * @return null|string
      */
     public function getState();
 
     /**
+     * <p>For countries (e.g.
+     * the US) where the total tax is a combination of multiple taxes (e.g.
+     * state and local taxes).</p>.
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates();

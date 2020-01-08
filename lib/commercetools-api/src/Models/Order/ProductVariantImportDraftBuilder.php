@@ -19,24 +19,9 @@ use Commercetools\Base\Builder;
 final class ProductVariantImportDraftBuilder implements Builder
 {
     /**
-     * @var ?ImageCollection
-     */
-    private $images;
-
-    /**
-     * @var ?AttributeCollection
-     */
-    private $attributes;
-
-    /**
      * @var ?int
      */
     private $id;
-
-    /**
-     * @var ?PriceDraftCollection
-     */
-    private $prices;
 
     /**
      * @var ?string
@@ -44,22 +29,25 @@ final class ProductVariantImportDraftBuilder implements Builder
     private $sku;
 
     /**
-     * @return null|ImageCollection
+     * @var ?PriceDraftCollection
      */
-    public function getImages()
-    {
-        return $this->images;
-    }
+    private $prices;
 
     /**
-     * @return null|AttributeCollection
+     * @var ?AttributeCollection
      */
-    public function getAttributes()
-    {
-        return $this->attributes;
-    }
+    private $attributes;
 
     /**
+     * @var ?ImageCollection
+     */
+    private $images;
+
+    /**
+     * <p>The sequential ID of the variant within the product.
+     * The variant with provided ID should exist in some existing product, so you also need to specify the productId if this property is set,
+     * or alternatively you can just specify SKU of the product variant.</p>.
+     *
      * @return null|int
      */
     public function getId()
@@ -68,14 +56,8 @@ final class ProductVariantImportDraftBuilder implements Builder
     }
 
     /**
-     * @return null|PriceDraftCollection
-     */
-    public function getPrices()
-    {
-        return $this->prices;
-    }
-
-    /**
+     * <p>The SKU of the existing variant.</p>.
+     *
      * @return null|string
      */
     public function getSku()
@@ -84,23 +66,37 @@ final class ProductVariantImportDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>The prices of the variant.
+     * The prices should not contain two prices for the same price scope (same currency, country and customer group).
+     * If this property is defined, then it will override the <code>prices</code> property from the original product variant, otherwise <code>prices</code> property from the original product variant would be copied in the resulting order.</p>.
+     *
+     * @return null|PriceDraftCollection
      */
-    public function withImages(?ImageCollection $images)
+    public function getPrices()
     {
-        $this->images = $images;
-
-        return $this;
+        return $this->prices;
     }
 
     /**
-     * @return $this
+     * <p>If this property is defined, then it will override the <code>attributes</code> property from the original
+     * product variant, otherwise <code>attributes</code> property from the original product variant would be copied in the resulting order.</p>.
+     *
+     * @return null|AttributeCollection
      */
-    public function withAttributes(?AttributeCollection $attributes)
+    public function getAttributes()
     {
-        $this->attributes = $attributes;
+        return $this->attributes;
+    }
 
-        return $this;
+    /**
+     * <p>If this property is defined, then it will override the <code>images</code> property from the original
+     * product variant, otherwise <code>images</code> property from the original product variant would be copied in the resulting order.</p>.
+     *
+     * @return null|ImageCollection
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 
     /**
@@ -109,6 +105,16 @@ final class ProductVariantImportDraftBuilder implements Builder
     public function withId(?int $id)
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
 
         return $this;
     }
@@ -126,9 +132,19 @@ final class ProductVariantImportDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSku(?string $sku)
+    public function withAttributes(?AttributeCollection $attributes)
     {
-        $this->sku = $sku;
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withImages(?ImageCollection $images)
+    {
+        $this->images = $images;
 
         return $this;
     }
@@ -136,11 +152,11 @@ final class ProductVariantImportDraftBuilder implements Builder
     public function build(): ProductVariantImportDraft
     {
         return new ProductVariantImportDraftModel(
-            $this->images,
-            $this->attributes,
             $this->id,
+            $this->sku,
             $this->prices,
-            $this->sku
+            $this->attributes,
+            $this->images
         );
     }
 

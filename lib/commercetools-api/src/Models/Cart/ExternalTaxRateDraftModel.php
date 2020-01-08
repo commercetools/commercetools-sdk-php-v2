@@ -17,7 +17,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     /**
      * @var ?string
      */
-    protected $country;
+    protected $name;
 
     /**
      * @var ?int
@@ -25,14 +25,9 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     protected $amount;
 
     /**
-     * @var ?bool
-     */
-    protected $includedInPrice;
-
-    /**
      * @var ?string
      */
-    protected $name;
+    protected $country;
 
     /**
      * @var ?string
@@ -44,71 +39,25 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
      */
     protected $subRates;
 
+    /**
+     * @var ?bool
+     */
+    protected $includedInPrice;
+
     public function __construct(
-        string $country = null,
-        int $amount = null,
-        bool $includedInPrice = null,
         string $name = null,
+        int $amount = null,
+        string $country = null,
         string $state = null,
-        SubRateCollection $subRates = null
+        SubRateCollection $subRates = null,
+        bool $includedInPrice = null
     ) {
-        $this->country = $country;
-        $this->amount = $amount;
-        $this->includedInPrice = $includedInPrice;
         $this->name = $name;
+        $this->amount = $amount;
+        $this->country = $country;
         $this->state = $state;
         $this->subRates = $subRates;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCountry()
-    {
-        if (is_null($this->country)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ExternalTaxRateDraft::FIELD_COUNTRY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->country = (string) $data;
-        }
-
-        return $this->country;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getAmount()
-    {
-        if (is_null($this->amount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ExternalTaxRateDraft::FIELD_AMOUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->amount = (int) $data;
-        }
-
-        return $this->amount;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIncludedInPrice()
-    {
-        if (is_null($this->includedInPrice)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ExternalTaxRateDraft::FIELD_INCLUDED_IN_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->includedInPrice = (bool) $data;
-        }
-
-        return $this->includedInPrice;
+        $this->includedInPrice = $includedInPrice;
     }
 
     /**
@@ -129,6 +78,49 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
+     * <p>Percentage in the range of [0..1].
+     * Must be supplied if no <code>subRates</code> are specified.
+     * If <code>subRates</code> are specified
+     * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>.
+     *
+     * @return null|int
+     */
+    public function getAmount()
+    {
+        if (is_null($this->amount)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ExternalTaxRateDraft::FIELD_AMOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->amount = (int) $data;
+        }
+
+        return $this->amount;
+    }
+
+    /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        if (is_null($this->country)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ExternalTaxRateDraft::FIELD_COUNTRY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->country = (string) $data;
+        }
+
+        return $this->country;
+    }
+
+    /**
+     * <p>The state in the country</p>.
+     *
      * @return null|string
      */
     public function getState()
@@ -146,6 +138,10 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     }
 
     /**
+     * <p>For countries (e.g.
+     * the US) where the total tax is a combination of multiple taxes (e.g.
+     * state and local taxes).</p>.
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates()
@@ -162,9 +158,28 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
         return $this->subRates;
     }
 
-    public function setCountry(?string $country): void
+    /**
+     * <p>The default value for <code>includedInPrice</code> is FALSE.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIncludedInPrice()
     {
-        $this->country = $country;
+        if (is_null($this->includedInPrice)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ExternalTaxRateDraft::FIELD_INCLUDED_IN_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->includedInPrice = (bool) $data;
+        }
+
+        return $this->includedInPrice;
+    }
+
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
     }
 
     public function setAmount(?int $amount): void
@@ -172,14 +187,9 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
         $this->amount = $amount;
     }
 
-    public function setIncludedInPrice(?bool $includedInPrice): void
+    public function setCountry(?string $country): void
     {
-        $this->includedInPrice = $includedInPrice;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
+        $this->country = $country;
     }
 
     public function setState(?string $state): void
@@ -190,5 +200,10 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     public function setSubRates(?SubRateCollection $subRates): void
     {
         $this->subRates = $subRates;
+    }
+
+    public function setIncludedInPrice(?bool $includedInPrice): void
+    {
+        $this->includedInPrice = $includedInPrice;
     }
 }

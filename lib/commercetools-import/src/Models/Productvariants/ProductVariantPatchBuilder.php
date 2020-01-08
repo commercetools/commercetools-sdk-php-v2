@@ -20,32 +20,19 @@ use Commercetools\Import\Models\Common\ProductVariantKeyReferenceBuilder;
 final class ProductVariantPatchBuilder implements Builder
 {
     /**
-     * @var ProductKeyReference|?ProductKeyReferenceBuilder
-     */
-    private $product;
-
-    /**
      * @var ProductVariantKeyReference|?ProductVariantKeyReferenceBuilder
      */
     private $productVariant;
 
     /**
+     * @var ProductKeyReference|?ProductKeyReferenceBuilder
+     */
+    private $product;
+
+    /**
      * @var Attributes|?AttributesBuilder
      */
     private $attributes;
-
-    /**
-     * <p>The product in which the patched product variant resides. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
-     *
-     * @return null|ProductKeyReference
-     */
-    public function getProduct()
-    {
-        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
-    }
 
     /**
      * <p>The product variant to which this patch is applied.</p>
@@ -58,6 +45,19 @@ final class ProductVariantPatchBuilder implements Builder
     public function getProductVariant()
     {
         return $this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant;
+    }
+
+    /**
+     * <p>The product in which the patched product variant resides. Maps to <code>ProductVariant.product</code>.</p>
+     * <p>The product referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|ProductKeyReference
+     */
+    public function getProduct()
+    {
+        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
     }
 
     /**
@@ -76,9 +76,9 @@ final class ProductVariantPatchBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProduct(?ProductKeyReference $product)
+    public function withProductVariant(?ProductVariantKeyReference $productVariant)
     {
-        $this->product = $product;
+        $this->productVariant = $productVariant;
 
         return $this;
     }
@@ -86,9 +86,9 @@ final class ProductVariantPatchBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductVariant(?ProductVariantKeyReference $productVariant)
+    public function withProduct(?ProductKeyReference $product)
     {
-        $this->productVariant = $productVariant;
+        $this->product = $product;
 
         return $this;
     }
@@ -106,9 +106,9 @@ final class ProductVariantPatchBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductBuilder(?ProductKeyReferenceBuilder $product)
+    public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
     {
-        $this->product = $product;
+        $this->productVariant = $productVariant;
 
         return $this;
     }
@@ -116,9 +116,9 @@ final class ProductVariantPatchBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductVariantBuilder(?ProductVariantKeyReferenceBuilder $productVariant)
+    public function withProductBuilder(?ProductKeyReferenceBuilder $product)
     {
-        $this->productVariant = $productVariant;
+        $this->product = $product;
 
         return $this;
     }
@@ -136,8 +136,8 @@ final class ProductVariantPatchBuilder implements Builder
     public function build(): ProductVariantPatch
     {
         return new ProductVariantPatchModel(
-            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product),
             ($this->productVariant instanceof ProductVariantKeyReferenceBuilder ? $this->productVariant->build() : $this->productVariant),
+            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product),
             ($this->attributes instanceof AttributesBuilder ? $this->attributes->build() : $this->attributes)
         );
     }

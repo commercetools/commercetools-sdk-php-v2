@@ -16,21 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductMoveImageToPositionActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $imageUrl;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
-     * @var ?int
-     */
-    private $position;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -41,28 +26,19 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     private $sku;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getImageUrl()
-    {
-        return $this->imageUrl;
-    }
+    private $imageUrl;
 
     /**
-     * @return null|bool
+     * @var ?int
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $position;
 
     /**
-     * @return null|int
+     * @var ?bool
      */
-    public function getPosition()
-    {
-        return $this->position;
-    }
+    private $staged;
 
     /**
      * @return null|int
@@ -81,33 +57,29 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>The URL of the image</p>.
+     *
+     * @return null|string
      */
-    public function withImageUrl(?string $imageUrl)
+    public function getImageUrl()
     {
-        $this->imageUrl = $imageUrl;
-
-        return $this;
+        return $this->imageUrl;
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withStaged(?bool $staged)
+    public function getPosition()
     {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->position;
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withPosition(?int $position)
+    public function getStaged()
     {
-        $this->position = $position;
-
-        return $this;
+        return $this->staged;
     }
 
     /**
@@ -130,14 +102,44 @@ final class ProductMoveImageToPositionActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withImageUrl(?string $imageUrl)
+    {
+        $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPosition(?int $position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
     public function build(): ProductMoveImageToPositionAction
     {
         return new ProductMoveImageToPositionActionModel(
-            $this->imageUrl,
-            $this->staged,
-            $this->position,
             $this->variantId,
-            $this->sku
+            $this->sku,
+            $this->imageUrl,
+            $this->position,
+            $this->staged
         );
     }
 

@@ -21,6 +21,8 @@ final class ShippingMethodSetKeyActionBuilder implements Builder
     private $key;
 
     /**
+     * <p>If <code>key</code> is absent or <code>null</code>, it is removed if it exists.</p>.
+     *
      * @return null|string
      */
     public function getKey()

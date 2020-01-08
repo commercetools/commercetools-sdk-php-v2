@@ -23,21 +23,21 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
     protected $action;
 
     /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-
-    /**
      * @var ?string
      */
     protected $textLineItemId;
 
+    /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
     public function __construct(
-        LocalizedString $name = null,
-        string $textLineItemId = null
+        string $textLineItemId = null,
+        LocalizedString $name = null
     ) {
-        $this->name = $name;
         $this->textLineItemId = $textLineItemId;
+        $this->name = $name;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -59,6 +59,23 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
     }
 
     /**
+     * @return null|string
+     */
+    public function getTextLineItemId()
+    {
+        if (is_null($this->textLineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyShoppingListChangeTextLineItemNameAction::FIELD_TEXT_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->textLineItemId = (string) $data;
+        }
+
+        return $this->textLineItemId;
+    }
+
+    /**
      * @return null|LocalizedString
      */
     public function getName()
@@ -76,30 +93,13 @@ final class MyShoppingListChangeTextLineItemNameActionModel extends JsonObjectMo
         return $this->name;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getTextLineItemId()
+    public function setTextLineItemId(?string $textLineItemId): void
     {
-        if (is_null($this->textLineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyShoppingListChangeTextLineItemNameAction::FIELD_TEXT_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->textLineItemId = (string) $data;
-        }
-
-        return $this->textLineItemId;
+        $this->textLineItemId = $textLineItemId;
     }
 
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
-    }
-
-    public function setTextLineItemId(?string $textLineItemId): void
-    {
-        $this->textLineItemId = $textLineItemId;
     }
 }

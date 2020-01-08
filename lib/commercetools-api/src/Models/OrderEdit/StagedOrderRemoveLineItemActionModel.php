@@ -28,9 +28,19 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     protected $action;
 
     /**
+     * @var ?string
+     */
+    protected $lineItemId;
+
+    /**
      * @var ?int
      */
     protected $quantity;
+
+    /**
+     * @var ?Money
+     */
+    protected $externalPrice;
 
     /**
      * @var ?ExternalLineItemTotalPrice
@@ -38,32 +48,22 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     protected $externalTotalPrice;
 
     /**
-     * @var ?string
-     */
-    protected $lineItemId;
-
-    /**
      * @var ?ItemShippingDetailsDraft
      */
     protected $shippingDetailsToRemove;
 
-    /**
-     * @var ?Money
-     */
-    protected $externalPrice;
-
     public function __construct(
-        int $quantity = null,
-        ExternalLineItemTotalPrice $externalTotalPrice = null,
         string $lineItemId = null,
-        ItemShippingDetailsDraft $shippingDetailsToRemove = null,
-        Money $externalPrice = null
+        int $quantity = null,
+        Money $externalPrice = null,
+        ExternalLineItemTotalPrice $externalTotalPrice = null,
+        ItemShippingDetailsDraft $shippingDetailsToRemove = null
     ) {
-        $this->quantity = $quantity;
-        $this->externalTotalPrice = $externalTotalPrice;
         $this->lineItemId = $lineItemId;
-        $this->shippingDetailsToRemove = $shippingDetailsToRemove;
+        $this->quantity = $quantity;
         $this->externalPrice = $externalPrice;
+        $this->externalTotalPrice = $externalTotalPrice;
+        $this->shippingDetailsToRemove = $shippingDetailsToRemove;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -85,6 +85,23 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(StagedOrderRemoveLineItemAction::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
+    }
+
+    /**
      * @return null|int
      */
     public function getQuantity()
@@ -99,6 +116,24 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
         }
 
         return $this->quantity;
+    }
+
+    /**
+     * @return null|Money
+     */
+    public function getExternalPrice()
+    {
+        if (is_null($this->externalPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(StagedOrderRemoveLineItemAction::FIELD_EXTERNAL_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalPrice = MoneyModel::of($data);
+        }
+
+        return $this->externalPrice;
     }
 
     /**
@@ -120,23 +155,6 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * @return null|string
-     */
-    public function getLineItemId()
-    {
-        if (is_null($this->lineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(StagedOrderRemoveLineItemAction::FIELD_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItemId = (string) $data;
-        }
-
-        return $this->lineItemId;
-    }
-
-    /**
      * @return null|ItemShippingDetailsDraft
      */
     public function getShippingDetailsToRemove()
@@ -154,22 +172,9 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
         return $this->shippingDetailsToRemove;
     }
 
-    /**
-     * @return null|Money
-     */
-    public function getExternalPrice()
+    public function setLineItemId(?string $lineItemId): void
     {
-        if (is_null($this->externalPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(StagedOrderRemoveLineItemAction::FIELD_EXTERNAL_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalPrice = MoneyModel::of($data);
-        }
-
-        return $this->externalPrice;
+        $this->lineItemId = $lineItemId;
     }
 
     public function setQuantity(?int $quantity): void
@@ -177,23 +182,18 @@ final class StagedOrderRemoveLineItemActionModel extends JsonObjectModel impleme
         $this->quantity = $quantity;
     }
 
+    public function setExternalPrice(?Money $externalPrice): void
+    {
+        $this->externalPrice = $externalPrice;
+    }
+
     public function setExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice): void
     {
         $this->externalTotalPrice = $externalTotalPrice;
     }
 
-    public function setLineItemId(?string $lineItemId): void
-    {
-        $this->lineItemId = $lineItemId;
-    }
-
     public function setShippingDetailsToRemove(?ItemShippingDetailsDraft $shippingDetailsToRemove): void
     {
         $this->shippingDetailsToRemove = $shippingDetailsToRemove;
-    }
-
-    public function setExternalPrice(?Money $externalPrice): void
-    {
-        $this->externalPrice = $externalPrice;
     }
 }

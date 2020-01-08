@@ -25,19 +25,19 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     /**
      * @var ?Address
      */
-    protected $oldAddress;
+    protected $address;
 
     /**
      * @var ?Address
      */
-    protected $address;
+    protected $oldAddress;
 
     public function __construct(
-        Address $oldAddress = null,
-        Address $address = null
+        Address $address = null,
+        Address $oldAddress = null
     ) {
-        $this->oldAddress = $oldAddress;
         $this->address = $address;
+        $this->oldAddress = $oldAddress;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -61,24 +61,6 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
     /**
      * @return null|Address
      */
-    public function getOldAddress()
-    {
-        if (is_null($this->oldAddress)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderBillingAddressSetMessagePayload::FIELD_OLD_ADDRESS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->oldAddress = AddressModel::of($data);
-        }
-
-        return $this->oldAddress;
-    }
-
-    /**
-     * @return null|Address
-     */
     public function getAddress()
     {
         if (is_null($this->address)) {
@@ -94,13 +76,31 @@ final class OrderBillingAddressSetMessagePayloadModel extends JsonObjectModel im
         return $this->address;
     }
 
-    public function setOldAddress(?Address $oldAddress): void
+    /**
+     * @return null|Address
+     */
+    public function getOldAddress()
     {
-        $this->oldAddress = $oldAddress;
+        if (is_null($this->oldAddress)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderBillingAddressSetMessagePayload::FIELD_OLD_ADDRESS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->oldAddress = AddressModel::of($data);
+        }
+
+        return $this->oldAddress;
     }
 
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
+    }
+
+    public function setOldAddress(?Address $oldAddress): void
+    {
+        $this->oldAddress = $oldAddress;
     }
 }

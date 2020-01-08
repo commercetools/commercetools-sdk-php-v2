@@ -20,21 +20,21 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
     protected $action;
 
     /**
-     * @var ?array
-     */
-    protected $keys;
-
-    /**
      * @var ?string
      */
     protected $attributeName;
 
+    /**
+     * @var ?array
+     */
+    protected $keys;
+
     public function __construct(
-        array $keys = null,
-        string $attributeName = null
+        string $attributeName = null,
+        array $keys = null
     ) {
-        $this->keys = $keys;
         $this->attributeName = $attributeName;
+        $this->keys = $keys;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -56,23 +56,6 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
     }
 
     /**
-     * @return null|array
-     */
-    public function getKeys()
-    {
-        if (is_null($this->keys)) {
-            /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(ProductTypeRemoveEnumValuesAction::FIELD_KEYS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->keys = $data;
-        }
-
-        return $this->keys;
-    }
-
-    /**
      * @return null|string
      */
     public function getAttributeName()
@@ -89,13 +72,30 @@ final class ProductTypeRemoveEnumValuesActionModel extends JsonObjectModel imple
         return $this->attributeName;
     }
 
-    public function setKeys(?array $keys): void
+    /**
+     * @return null|array
+     */
+    public function getKeys()
     {
-        $this->keys = $keys;
+        if (is_null($this->keys)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(ProductTypeRemoveEnumValuesAction::FIELD_KEYS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->keys = $data;
+        }
+
+        return $this->keys;
     }
 
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
+    }
+
+    public function setKeys(?array $keys): void
+    {
+        $this->keys = $keys;
     }
 }

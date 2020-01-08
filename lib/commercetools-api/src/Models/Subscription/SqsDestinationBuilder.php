@@ -23,6 +23,11 @@ final class SqsDestinationBuilder implements Builder
     /**
      * @var ?string
      */
+    private $accessSecret;
+
+    /**
+     * @var ?string
+     */
     private $queueUrl;
 
     /**
@@ -31,16 +36,19 @@ final class SqsDestinationBuilder implements Builder
     private $region;
 
     /**
-     * @var ?string
-     */
-    private $accessSecret;
-
-    /**
      * @return null|string
      */
     public function getAccessKey()
     {
         return $this->accessKey;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAccessSecret()
+    {
+        return $this->accessSecret;
     }
 
     /**
@@ -60,19 +68,21 @@ final class SqsDestinationBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getAccessSecret()
-    {
-        return $this->accessSecret;
-    }
-
-    /**
      * @return $this
      */
     public function withAccessKey(?string $accessKey)
     {
         $this->accessKey = $accessKey;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAccessSecret(?string $accessSecret)
+    {
+        $this->accessSecret = $accessSecret;
 
         return $this;
     }
@@ -97,23 +107,13 @@ final class SqsDestinationBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withAccessSecret(?string $accessSecret)
-    {
-        $this->accessSecret = $accessSecret;
-
-        return $this;
-    }
-
     public function build(): SqsDestination
     {
         return new SqsDestinationModel(
             $this->accessKey,
+            $this->accessSecret,
             $this->queueUrl,
-            $this->region,
-            $this->accessSecret
+            $this->region
         );
     }
 

@@ -23,6 +23,8 @@ final class DiscountCodeSetNameActionBuilder implements Builder
     private $name;
 
     /**
+     * <p>If the <code>name</code> parameter is not included, the field will be emptied.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()

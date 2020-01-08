@@ -24,7 +24,7 @@ final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel
     /**
      * @var ?string
      */
-    protected $name;
+    protected $priceId;
 
     /**
      * @var ?bool
@@ -34,7 +34,7 @@ final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel
     /**
      * @var ?string
      */
-    protected $priceId;
+    protected $name;
 
     /**
      * @var ?JsonObject
@@ -42,14 +42,14 @@ final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel
     protected $value;
 
     public function __construct(
-        string $name = null,
-        bool $staged = null,
         string $priceId = null,
+        bool $staged = null,
+        string $name = null,
         JsonObject $value = null
     ) {
-        $this->name = $name;
-        $this->staged = $staged;
         $this->priceId = $priceId;
+        $this->staged = $staged;
+        $this->name = $name;
         $this->value = $value;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
@@ -74,18 +74,18 @@ final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel
     /**
      * @return null|string
      */
-    public function getName()
+    public function getPriceId()
     {
-        if (is_null($this->name)) {
+        if (is_null($this->priceId)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetProductPriceCustomFieldAction::FIELD_NAME);
+            $data = $this->raw(ProductSetProductPriceCustomFieldAction::FIELD_PRICE_ID);
             if (is_null($data)) {
                 return null;
             }
-            $this->name = (string) $data;
+            $this->priceId = (string) $data;
         }
 
-        return $this->name;
+        return $this->priceId;
     }
 
     /**
@@ -108,18 +108,18 @@ final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel
     /**
      * @return null|string
      */
-    public function getPriceId()
+    public function getName()
     {
-        if (is_null($this->priceId)) {
+        if (is_null($this->name)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetProductPriceCustomFieldAction::FIELD_PRICE_ID);
+            $data = $this->raw(ProductSetProductPriceCustomFieldAction::FIELD_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->priceId = (string) $data;
+            $this->name = (string) $data;
         }
 
-        return $this->priceId;
+        return $this->name;
     }
 
     /**
@@ -139,9 +139,9 @@ final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel
         return $this->value;
     }
 
-    public function setName(?string $name): void
+    public function setPriceId(?string $priceId): void
     {
-        $this->name = $name;
+        $this->priceId = $priceId;
     }
 
     public function setStaged(?bool $staged): void
@@ -149,9 +149,9 @@ final class ProductSetProductPriceCustomFieldActionModel extends JsonObjectModel
         $this->staged = $staged;
     }
 
-    public function setPriceId(?string $priceId): void
+    public function setName(?string $name): void
     {
-        $this->priceId = $priceId;
+        $this->name = $name;
     }
 
     public function setValue(?JsonObject $value): void

@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class CategoryUpdateBuilder implements Builder
 {
     /**
-     * @var ?CategoryUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|CategoryUpdateActionCollection
+     * @var ?CategoryUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class CategoryUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|CategoryUpdateActionCollection
      */
-    public function withActions(?CategoryUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class CategoryUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?CategoryUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): CategoryUpdate
     {
         return new CategoryUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

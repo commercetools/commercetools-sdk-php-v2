@@ -18,7 +18,7 @@ final class TaxRateDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $country;
+    private $name;
 
     /**
      * @var ?int
@@ -33,7 +33,7 @@ final class TaxRateDraftBuilder implements Builder
     /**
      * @var ?string
      */
-    private $name;
+    private $country;
 
     /**
      * @var ?string
@@ -46,16 +46,19 @@ final class TaxRateDraftBuilder implements Builder
     private $subRates;
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
-     *
      * @return null|string
      */
-    public function getCountry()
+    public function getName()
     {
-        return $this->country;
+        return $this->name;
     }
 
     /**
+     * <p>Percentage in the range of [0..1].
+     * Must be supplied if no <code>subRates</code> are specified.
+     * If <code>subRates</code> are specified
+     * then the <code>amount</code> can be omitted or it must be the sum of the amounts of all <code>subRates</code>.</p>.
+     *
      * @return null|int
      */
     public function getAmount()
@@ -72,14 +75,18 @@ final class TaxRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
      * @return null|string
      */
-    public function getName()
+    public function getCountry()
     {
-        return $this->name;
+        return $this->country;
     }
 
     /**
+     * <p>The state in the country</p>.
+     *
      * @return null|string
      */
     public function getState()
@@ -88,6 +95,10 @@ final class TaxRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>For countries (e.g.
+     * the US) where the total tax is a combination of multiple taxes (e.g.
+     * state and local taxes).</p>.
+     *
      * @return null|SubRateCollection
      */
     public function getSubRates()
@@ -98,9 +109,9 @@ final class TaxRateDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCountry(?string $country)
+    public function withName(?string $name)
     {
-        $this->country = $country;
+        $this->name = $name;
 
         return $this;
     }
@@ -128,9 +139,9 @@ final class TaxRateDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withCountry(?string $country)
     {
-        $this->name = $name;
+        $this->country = $country;
 
         return $this;
     }
@@ -158,10 +169,10 @@ final class TaxRateDraftBuilder implements Builder
     public function build(): TaxRateDraft
     {
         return new TaxRateDraftModel(
-            $this->country,
+            $this->name,
             $this->amount,
             $this->includedInPrice,
-            $this->name,
+            $this->country,
             $this->state,
             $this->subRates
         );

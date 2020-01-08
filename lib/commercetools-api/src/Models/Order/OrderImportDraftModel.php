@@ -32,72 +32,17 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     /**
      * @var ?string
      */
-    protected $shipmentState;
-
-    /**
-     * @var ?string
-     */
-    protected $country;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $completedAt;
-
-    /**
-     * @var ?string
-     */
     protected $orderNumber;
 
     /**
-     * @var ?Money
+     * @var ?string
      */
-    protected $totalPrice;
-
-    /**
-     * @var ?CustomerGroupResourceIdentifier
-     */
-    protected $customerGroup;
-
-    /**
-     * @var ?TaxedPriceDraft
-     */
-    protected $taxedPrice;
+    protected $customerId;
 
     /**
      * @var ?string
      */
-    protected $origin;
-
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     * @var ?ShippingInfoImportDraft
-     */
-    protected $shippingInfo;
-
-    /**
-     * @var ?StoreResourceIdentifier
-     */
-    protected $store;
-
-    /**
-     * @var ?string
-     */
-    protected $inventoryMode;
-
-    /**
-     * @var ?string
-     */
-    protected $orderState;
-
-    /**
-     * @var ?string
-     */
-    protected $taxRoundingMode;
+    protected $customerEmail;
 
     /**
      * @var ?LineItemImportDraftCollection
@@ -110,19 +55,14 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $customLineItems;
 
     /**
-     * @var ?AddressCollection
+     * @var ?Money
      */
-    protected $itemShippingAddresses;
+    protected $totalPrice;
 
     /**
-     * @var ?string
+     * @var ?TaxedPriceDraft
      */
-    protected $customerEmail;
-
-    /**
-     * @var ?string
-     */
-    protected $customerId;
+    protected $taxedPrice;
 
     /**
      * @var ?Address
@@ -135,114 +75,123 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     protected $billingAddress;
 
     /**
+     * @var ?CustomerGroupResourceIdentifier
+     */
+    protected $customerGroup;
+
+    /**
+     * @var ?string
+     */
+    protected $country;
+
+    /**
+     * @var ?string
+     */
+    protected $orderState;
+
+    /**
+     * @var ?string
+     */
+    protected $shipmentState;
+
+    /**
      * @var ?string
      */
     protected $paymentState;
 
+    /**
+     * @var ?ShippingInfoImportDraft
+     */
+    protected $shippingInfo;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $completedAt;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?string
+     */
+    protected $inventoryMode;
+
+    /**
+     * @var ?string
+     */
+    protected $taxRoundingMode;
+
+    /**
+     * @var ?AddressCollection
+     */
+    protected $itemShippingAddresses;
+
+    /**
+     * @var ?StoreResourceIdentifier
+     */
+    protected $store;
+
+    /**
+     * @var ?string
+     */
+    protected $origin;
+
     public function __construct(
-        string $shipmentState = null,
-        string $country = null,
-        DateTimeImmutable $completedAt = null,
         string $orderNumber = null,
-        Money $totalPrice = null,
-        CustomerGroupResourceIdentifier $customerGroup = null,
-        TaxedPriceDraft $taxedPrice = null,
-        string $origin = null,
-        CustomFieldsDraft $custom = null,
-        ShippingInfoImportDraft $shippingInfo = null,
-        StoreResourceIdentifier $store = null,
-        string $inventoryMode = null,
-        string $orderState = null,
-        string $taxRoundingMode = null,
+        string $customerId = null,
+        string $customerEmail = null,
         LineItemImportDraftCollection $lineItems = null,
         CustomLineItemDraftCollection $customLineItems = null,
-        AddressCollection $itemShippingAddresses = null,
-        string $customerEmail = null,
-        string $customerId = null,
+        Money $totalPrice = null,
+        TaxedPriceDraft $taxedPrice = null,
         Address $shippingAddress = null,
         Address $billingAddress = null,
-        string $paymentState = null
+        CustomerGroupResourceIdentifier $customerGroup = null,
+        string $country = null,
+        string $orderState = null,
+        string $shipmentState = null,
+        string $paymentState = null,
+        ShippingInfoImportDraft $shippingInfo = null,
+        DateTimeImmutable $completedAt = null,
+        CustomFieldsDraft $custom = null,
+        string $inventoryMode = null,
+        string $taxRoundingMode = null,
+        AddressCollection $itemShippingAddresses = null,
+        StoreResourceIdentifier $store = null,
+        string $origin = null
     ) {
-        $this->shipmentState = $shipmentState;
-        $this->country = $country;
-        $this->completedAt = $completedAt;
         $this->orderNumber = $orderNumber;
-        $this->totalPrice = $totalPrice;
-        $this->customerGroup = $customerGroup;
-        $this->taxedPrice = $taxedPrice;
-        $this->origin = $origin;
-        $this->custom = $custom;
-        $this->shippingInfo = $shippingInfo;
-        $this->store = $store;
-        $this->inventoryMode = $inventoryMode;
-        $this->orderState = $orderState;
-        $this->taxRoundingMode = $taxRoundingMode;
+        $this->customerId = $customerId;
+        $this->customerEmail = $customerEmail;
         $this->lineItems = $lineItems;
         $this->customLineItems = $customLineItems;
-        $this->itemShippingAddresses = $itemShippingAddresses;
-        $this->customerEmail = $customerEmail;
-        $this->customerId = $customerId;
+        $this->totalPrice = $totalPrice;
+        $this->taxedPrice = $taxedPrice;
         $this->shippingAddress = $shippingAddress;
         $this->billingAddress = $billingAddress;
+        $this->customerGroup = $customerGroup;
+        $this->country = $country;
+        $this->orderState = $orderState;
+        $this->shipmentState = $shipmentState;
         $this->paymentState = $paymentState;
+        $this->shippingInfo = $shippingInfo;
+        $this->completedAt = $completedAt;
+        $this->custom = $custom;
+        $this->inventoryMode = $inventoryMode;
+        $this->taxRoundingMode = $taxRoundingMode;
+        $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->store = $store;
+        $this->origin = $origin;
     }
 
     /**
-     * @return null|string
-     */
-    public function getShipmentState()
-    {
-        if (is_null($this->shipmentState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_SHIPMENT_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->shipmentState = (string) $data;
-        }
-
-        return $this->shipmentState;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCountry()
-    {
-        if (is_null($this->country)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_COUNTRY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->country = (string) $data;
-        }
-
-        return $this->country;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCompletedAt()
-    {
-        if (is_null($this->completedAt)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_COMPLETED_AT);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->completedAt = $data;
-        }
-
-        return $this->completedAt;
-    }
-
-    /**
+     * <p>String that unique identifies an order.
+     * It can be used to create more human-readable (in contrast to ID) identifier for the order.
+     * It should be unique within a project.</p>.
+     *
      * @return null|string
      */
     public function getOrderNumber()
@@ -257,6 +206,82 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         }
 
         return $this->orderNumber;
+    }
+
+    /**
+     * <p>If given the customer with that ID must exist in the project.</p>.
+     *
+     * @return null|string
+     */
+    public function getCustomerId()
+    {
+        if (is_null($this->customerId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_CUSTOMER_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerId = (string) $data;
+        }
+
+        return $this->customerId;
+    }
+
+    /**
+     * <p>The customer email can be used when no check against existing Customers is desired during order import.</p>.
+     *
+     * @return null|string
+     */
+    public function getCustomerEmail()
+    {
+        if (is_null($this->customerEmail)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_CUSTOMER_EMAIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customerEmail = (string) $data;
+        }
+
+        return $this->customerEmail;
+    }
+
+    /**
+     * <p>If not given <code>customLineItems</code> must not be empty.</p>.
+     *
+     * @return null|LineItemImportDraftCollection
+     */
+    public function getLineItems()
+    {
+        if (is_null($this->lineItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderImportDraft::FIELD_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItems = LineItemImportDraftCollection::fromArray($data);
+        }
+
+        return $this->lineItems;
+    }
+
+    /**
+     * <p>If not given <code>lineItems</code> must not be empty.</p>.
+     *
+     * @return null|CustomLineItemDraftCollection
+     */
+    public function getCustomLineItems()
+    {
+        if (is_null($this->customLineItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderImportDraft::FIELD_CUSTOM_LINE_ITEMS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->customLineItems = CustomLineItemDraftCollection::fromArray($data);
+        }
+
+        return $this->customLineItems;
     }
 
     /**
@@ -278,24 +303,9 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
-     * @return null|CustomerGroupResourceIdentifier
-     */
-    public function getCustomerGroup()
-    {
-        if (is_null($this->customerGroup)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOMER_GROUP);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->customerGroup = CustomerGroupResourceIdentifierModel::of($data);
-        }
-
-        return $this->customerGroup;
-    }
-
-    /**
+     * <p>Order Import does not support calculation of taxes.
+     * When setting the draft the taxedPrice is to be provided.</p>.
+     *
      * @return null|TaxedPriceDraft
      */
     public function getTaxedPrice()
@@ -311,213 +321,6 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         }
 
         return $this->taxedPrice;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getOrigin()
-    {
-        if (is_null($this->origin)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_ORIGIN);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->origin = (string) $data;
-        }
-
-        return $this->origin;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * @return null|ShippingInfoImportDraft
-     */
-    public function getShippingInfo()
-    {
-        if (is_null($this->shippingInfo)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_SHIPPING_INFO);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->shippingInfo = ShippingInfoImportDraftModel::of($data);
-        }
-
-        return $this->shippingInfo;
-    }
-
-    /**
-     * @return null|StoreResourceIdentifier
-     */
-    public function getStore()
-    {
-        if (is_null($this->store)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderImportDraft::FIELD_STORE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->store = StoreResourceIdentifierModel::of($data);
-        }
-
-        return $this->store;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getInventoryMode()
-    {
-        if (is_null($this->inventoryMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_INVENTORY_MODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->inventoryMode = (string) $data;
-        }
-
-        return $this->inventoryMode;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getOrderState()
-    {
-        if (is_null($this->orderState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_ORDER_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->orderState = (string) $data;
-        }
-
-        return $this->orderState;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTaxRoundingMode()
-    {
-        if (is_null($this->taxRoundingMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_TAX_ROUNDING_MODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->taxRoundingMode = (string) $data;
-        }
-
-        return $this->taxRoundingMode;
-    }
-
-    /**
-     * @return null|LineItemImportDraftCollection
-     */
-    public function getLineItems()
-    {
-        if (is_null($this->lineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderImportDraft::FIELD_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItems = LineItemImportDraftCollection::fromArray($data);
-        }
-
-        return $this->lineItems;
-    }
-
-    /**
-     * @return null|CustomLineItemDraftCollection
-     */
-    public function getCustomLineItems()
-    {
-        if (is_null($this->customLineItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOM_LINE_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customLineItems = CustomLineItemDraftCollection::fromArray($data);
-        }
-
-        return $this->customLineItems;
-    }
-
-    /**
-     * @return null|AddressCollection
-     */
-    public function getItemShippingAddresses()
-    {
-        if (is_null($this->itemShippingAddresses)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderImportDraft::FIELD_ITEM_SHIPPING_ADDRESSES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->itemShippingAddresses = AddressCollection::fromArray($data);
-        }
-
-        return $this->itemShippingAddresses;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCustomerEmail()
-    {
-        if (is_null($this->customerEmail)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOMER_EMAIL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customerEmail = (string) $data;
-        }
-
-        return $this->customerEmail;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCustomerId()
-    {
-        if (is_null($this->customerId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderImportDraft::FIELD_CUSTOMER_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->customerId = (string) $data;
-        }
-
-        return $this->customerId;
     }
 
     /**
@@ -557,6 +360,83 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
     }
 
     /**
+     * <p>Set when the customer is set and the customer is a member of a customer group.
+     * Used for product variant price selection.</p>.
+     *
+     * @return null|CustomerGroupResourceIdentifier
+     */
+    public function getCustomerGroup()
+    {
+        if (is_null($this->customerGroup)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderImportDraft::FIELD_CUSTOMER_GROUP);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customerGroup = CustomerGroupResourceIdentifierModel::of($data);
+        }
+
+        return $this->customerGroup;
+    }
+
+    /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
+     * Used for product variant price selection.</p>.
+     *
+     * @return null|string
+     */
+    public function getCountry()
+    {
+        if (is_null($this->country)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_COUNTRY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->country = (string) $data;
+        }
+
+        return $this->country;
+    }
+
+    /**
+     * <p>If not given the <code>Open</code> state will be assigned by default.</p>.
+     *
+     * @return null|string
+     */
+    public function getOrderState()
+    {
+        if (is_null($this->orderState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_ORDER_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->orderState = (string) $data;
+        }
+
+        return $this->orderState;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getShipmentState()
+    {
+        if (is_null($this->shipmentState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_SHIPMENT_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shipmentState = (string) $data;
+        }
+
+        return $this->shipmentState;
+    }
+
+    /**
      * @return null|string
      */
     public function getPaymentState()
@@ -573,19 +453,159 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         return $this->paymentState;
     }
 
-    public function setShipmentState(?string $shipmentState): void
+    /**
+     * <p>Set if the ShippingMethod is set.</p>.
+     *
+     * @return null|ShippingInfoImportDraft
+     */
+    public function getShippingInfo()
     {
-        $this->shipmentState = $shipmentState;
+        if (is_null($this->shippingInfo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderImportDraft::FIELD_SHIPPING_INFO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shippingInfo = ShippingInfoImportDraftModel::of($data);
+        }
+
+        return $this->shippingInfo;
     }
 
-    public function setCountry(?string $country): void
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getCompletedAt()
     {
-        $this->country = $country;
+        if (is_null($this->completedAt)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_COMPLETED_AT);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->completedAt = $data;
+        }
+
+        return $this->completedAt;
     }
 
-    public function setCompletedAt(?DateTimeImmutable $completedAt): void
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
     {
-        $this->completedAt = $completedAt;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderImportDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
+     * <p>If not given the mode <code>None</code> will be assigned by default.</p>.
+     *
+     * @return null|string
+     */
+    public function getInventoryMode()
+    {
+        if (is_null($this->inventoryMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_INVENTORY_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->inventoryMode = (string) $data;
+        }
+
+        return $this->inventoryMode;
+    }
+
+    /**
+     * <p>If not given the tax rounding mode <code>HalfEven</code> will be assigned by default.</p>.
+     *
+     * @return null|string
+     */
+    public function getTaxRoundingMode()
+    {
+        if (is_null($this->taxRoundingMode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_TAX_ROUNDING_MODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxRoundingMode = (string) $data;
+        }
+
+        return $this->taxRoundingMode;
+    }
+
+    /**
+     * <p>Contains addresses for orders with multiple shipping addresses.</p>.
+     *
+     * @return null|AddressCollection
+     */
+    public function getItemShippingAddresses()
+    {
+        if (is_null($this->itemShippingAddresses)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderImportDraft::FIELD_ITEM_SHIPPING_ADDRESSES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->itemShippingAddresses = AddressCollection::fromArray($data);
+        }
+
+        return $this->itemShippingAddresses;
+    }
+
+    /**
+     * @return null|StoreResourceIdentifier
+     */
+    public function getStore()
+    {
+        if (is_null($this->store)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderImportDraft::FIELD_STORE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->store = StoreResourceIdentifierModel::of($data);
+        }
+
+        return $this->store;
+    }
+
+    /**
+     * <p>The default origin is <code>Customer</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getOrigin()
+    {
+        if (is_null($this->origin)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderImportDraft::FIELD_ORIGIN);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->origin = (string) $data;
+        }
+
+        return $this->origin;
     }
 
     public function setOrderNumber(?string $orderNumber): void
@@ -593,54 +613,14 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->orderNumber = $orderNumber;
     }
 
-    public function setTotalPrice(?Money $totalPrice): void
+    public function setCustomerId(?string $customerId): void
     {
-        $this->totalPrice = $totalPrice;
+        $this->customerId = $customerId;
     }
 
-    public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
+    public function setCustomerEmail(?string $customerEmail): void
     {
-        $this->customerGroup = $customerGroup;
-    }
-
-    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void
-    {
-        $this->taxedPrice = $taxedPrice;
-    }
-
-    public function setOrigin(?string $origin): void
-    {
-        $this->origin = $origin;
-    }
-
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    public function setShippingInfo(?ShippingInfoImportDraft $shippingInfo): void
-    {
-        $this->shippingInfo = $shippingInfo;
-    }
-
-    public function setStore(?StoreResourceIdentifier $store): void
-    {
-        $this->store = $store;
-    }
-
-    public function setInventoryMode(?string $inventoryMode): void
-    {
-        $this->inventoryMode = $inventoryMode;
-    }
-
-    public function setOrderState(?string $orderState): void
-    {
-        $this->orderState = $orderState;
-    }
-
-    public function setTaxRoundingMode(?string $taxRoundingMode): void
-    {
-        $this->taxRoundingMode = $taxRoundingMode;
+        $this->customerEmail = $customerEmail;
     }
 
     public function setLineItems(?LineItemImportDraftCollection $lineItems): void
@@ -653,19 +633,14 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->customLineItems = $customLineItems;
     }
 
-    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
+    public function setTotalPrice(?Money $totalPrice): void
     {
-        $this->itemShippingAddresses = $itemShippingAddresses;
+        $this->totalPrice = $totalPrice;
     }
 
-    public function setCustomerEmail(?string $customerEmail): void
+    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void
     {
-        $this->customerEmail = $customerEmail;
-    }
-
-    public function setCustomerId(?string $customerId): void
-    {
-        $this->customerId = $customerId;
+        $this->taxedPrice = $taxedPrice;
     }
 
     public function setShippingAddress(?Address $shippingAddress): void
@@ -678,9 +653,69 @@ final class OrderImportDraftModel extends JsonObjectModel implements OrderImport
         $this->billingAddress = $billingAddress;
     }
 
+    public function setCustomerGroup(?CustomerGroupResourceIdentifier $customerGroup): void
+    {
+        $this->customerGroup = $customerGroup;
+    }
+
+    public function setCountry(?string $country): void
+    {
+        $this->country = $country;
+    }
+
+    public function setOrderState(?string $orderState): void
+    {
+        $this->orderState = $orderState;
+    }
+
+    public function setShipmentState(?string $shipmentState): void
+    {
+        $this->shipmentState = $shipmentState;
+    }
+
     public function setPaymentState(?string $paymentState): void
     {
         $this->paymentState = $paymentState;
+    }
+
+    public function setShippingInfo(?ShippingInfoImportDraft $shippingInfo): void
+    {
+        $this->shippingInfo = $shippingInfo;
+    }
+
+    public function setCompletedAt(?DateTimeImmutable $completedAt): void
+    {
+        $this->completedAt = $completedAt;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setInventoryMode(?string $inventoryMode): void
+    {
+        $this->inventoryMode = $inventoryMode;
+    }
+
+    public function setTaxRoundingMode(?string $taxRoundingMode): void
+    {
+        $this->taxRoundingMode = $taxRoundingMode;
+    }
+
+    public function setItemShippingAddresses(?AddressCollection $itemShippingAddresses): void
+    {
+        $this->itemShippingAddresses = $itemShippingAddresses;
+    }
+
+    public function setStore(?StoreResourceIdentifier $store): void
+    {
+        $this->store = $store;
+    }
+
+    public function setOrigin(?string $origin): void
+    {
+        $this->origin = $origin;
     }
 
     public function jsonSerialize()

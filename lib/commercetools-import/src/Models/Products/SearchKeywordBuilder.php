@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class SearchKeywordBuilder implements Builder
 {
     /**
-     * @var SuggestTokenizer|?SuggestTokenizerBuilder
-     */
-    private $suggestTokenizer;
-
-    /**
      * @var ?string
      */
     private $text;
 
     /**
-     * @return null|SuggestTokenizer
+     * @var SuggestTokenizer|?SuggestTokenizerBuilder
      */
-    public function getSuggestTokenizer()
-    {
-        return $this->suggestTokenizer instanceof SuggestTokenizerBuilder ? $this->suggestTokenizer->build() : $this->suggestTokenizer;
-    }
+    private $suggestTokenizer;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|SuggestTokenizer
      */
-    public function withSuggestTokenizer(?SuggestTokenizer $suggestTokenizer)
+    public function getSuggestTokenizer()
     {
-        $this->suggestTokenizer = $suggestTokenizer;
-
-        return $this;
+        return $this->suggestTokenizer instanceof SuggestTokenizerBuilder ? $this->suggestTokenizer->build() : $this->suggestTokenizer;
     }
 
     /**
@@ -57,6 +47,16 @@ final class SearchKeywordBuilder implements Builder
     public function withText(?string $text)
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSuggestTokenizer(?SuggestTokenizer $suggestTokenizer)
+    {
+        $this->suggestTokenizer = $suggestTokenizer;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class SearchKeywordBuilder implements Builder
     public function build(): SearchKeyword
     {
         return new SearchKeywordModel(
-            ($this->suggestTokenizer instanceof SuggestTokenizerBuilder ? $this->suggestTokenizer->build() : $this->suggestTokenizer),
-            $this->text
+            $this->text,
+            ($this->suggestTokenizer instanceof SuggestTokenizerBuilder ? $this->suggestTokenizer->build() : $this->suggestTokenizer)
         );
     }
 

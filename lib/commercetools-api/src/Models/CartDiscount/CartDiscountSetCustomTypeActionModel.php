@@ -24,21 +24,21 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
     protected $action;
 
     /**
-     * @var ?JsonObject
-     */
-    protected $fields;
-
-    /**
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
+    /**
+     * @var ?JsonObject
+     */
+    protected $fields;
+
     public function __construct(
-        JsonObject $fields = null,
-        TypeResourceIdentifier $type = null
+        TypeResourceIdentifier $type = null,
+        JsonObject $fields = null
     ) {
-        $this->fields = $fields;
         $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -60,23 +60,8 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
     }
 
     /**
-     * @return null|JsonObject
-     */
-    public function getFields()
-    {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountSetCustomTypeAction::FIELD_FIELDS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->fields = JsonObjectModel::of($data);
-        }
-
-        return $this->fields;
-    }
-
-    /**
+     * <p>If absent, the custom type and any existing CustomFields are removed.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -94,13 +79,33 @@ final class CartDiscountSetCustomTypeActionModel extends JsonObjectModel impleme
         return $this->type;
     }
 
-    public function setFields(?JsonObject $fields): void
+    /**
+     * <p>A valid JSON object, based on the FieldDefinitions of the Type.
+     * Sets the custom fields to this value.</p>.
+     *
+     * @return null|JsonObject
+     */
+    public function getFields()
     {
-        $this->fields = $fields;
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDiscountSetCustomTypeAction::FIELD_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fields = JsonObjectModel::of($data);
+        }
+
+        return $this->fields;
     }
 
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
+    }
+
+    public function setFields(?JsonObject $fields): void
+    {
+        $this->fields = $fields;
     }
 }

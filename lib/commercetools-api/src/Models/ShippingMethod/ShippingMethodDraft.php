@@ -47,11 +47,15 @@ interface ShippingMethodDraft extends JsonObject
     public function getZoneRates();
 
     /**
+     * <p>If <code>true</code> the shipping method will be the default one in a project.</p>.
+     *
      * @return null|bool
      */
     public function getIsDefault();
 
     /**
+     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>.
+     *
      * @return null|string
      */
     public function getPredicate();

@@ -16,24 +16,19 @@ use Commercetools\Base\Builder;
 final class ItemShippingDetailsBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $valid;
-
-    /**
      * @var ?ItemShippingTargetCollection
      */
     private $targets;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getValid()
-    {
-        return $this->valid;
-    }
+    private $valid;
 
     /**
+     * <p>Used to map what sub-quantity should be shipped to which address.
+     * Duplicate address keys are not allowed.</p>.
+     *
      * @return null|ItemShippingTargetCollection
      */
     public function getTargets()
@@ -42,13 +37,15 @@ final class ItemShippingDetailsBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p><code>true</code> if the quantity of the (custom) line item is equal to the sum of the sub-quantities in <code>targets</code>, <code>false</code> otherwise.
+     * A cart cannot be ordered when the value is <code>false</code>.
+     * The error InvalidItemShippingDetails will be triggered.</p>.
+     *
+     * @return null|bool
      */
-    public function withValid(?bool $valid)
+    public function getValid()
     {
-        $this->valid = $valid;
-
-        return $this;
+        return $this->valid;
     }
 
     /**
@@ -61,11 +58,21 @@ final class ItemShippingDetailsBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withValid(?bool $valid)
+    {
+        $this->valid = $valid;
+
+        return $this;
+    }
+
     public function build(): ItemShippingDetails
     {
         return new ItemShippingDetailsModel(
-            $this->valid,
-            $this->targets
+            $this->targets,
+            $this->valid
         );
     }
 

@@ -23,6 +23,11 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     /**
      * @var ?string
      */
+    private $taxCategoryId;
+
+    /**
+     * @var ?string
+     */
     private $country;
 
     /**
@@ -31,16 +36,19 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     private $state;
 
     /**
-     * @var ?string
-     */
-    private $taxCategoryId;
-
-    /**
      * @return null|string
      */
     public function getMessage()
     {
         return $this->message;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTaxCategoryId()
+    {
+        return $this->taxCategoryId;
     }
 
     /**
@@ -60,19 +68,21 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getTaxCategoryId()
-    {
-        return $this->taxCategoryId;
-    }
-
-    /**
      * @return $this
      */
     public function withMessage(?string $message)
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxCategoryId(?string $taxCategoryId)
+    {
+        $this->taxCategoryId = $taxCategoryId;
 
         return $this;
     }
@@ -97,23 +107,13 @@ final class MissingTaxRateForCountryErrorBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withTaxCategoryId(?string $taxCategoryId)
-    {
-        $this->taxCategoryId = $taxCategoryId;
-
-        return $this;
-    }
-
     public function build(): MissingTaxRateForCountryError
     {
         return new MissingTaxRateForCountryErrorModel(
             $this->message,
+            $this->taxCategoryId,
             $this->country,
-            $this->state,
-            $this->taxCategoryId
+            $this->state
         );
     }
 

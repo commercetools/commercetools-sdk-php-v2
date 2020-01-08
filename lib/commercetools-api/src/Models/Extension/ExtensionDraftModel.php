@@ -14,9 +14,9 @@ use stdClass;
 final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraft
 {
     /**
-     * @var ?int
+     * @var ?string
      */
-    protected $timeoutInMs;
+    protected $key;
 
     /**
      * @var ?ExtensionDestination
@@ -29,40 +29,44 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     protected $triggers;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $key;
+    protected $timeoutInMs;
 
     public function __construct(
-        int $timeoutInMs = null,
+        string $key = null,
         ExtensionDestination $destination = null,
         ExtensionTriggerCollection $triggers = null,
-        string $key = null
+        int $timeoutInMs = null
     ) {
-        $this->timeoutInMs = $timeoutInMs;
+        $this->key = $key;
         $this->destination = $destination;
         $this->triggers = $triggers;
-        $this->key = $key;
+        $this->timeoutInMs = $timeoutInMs;
     }
 
     /**
-     * @return null|int
+     * <p>User-specific unique identifier for the extension</p>.
+     *
+     * @return null|string
      */
-    public function getTimeoutInMs()
+    public function getKey()
     {
-        if (is_null($this->timeoutInMs)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ExtensionDraft::FIELD_TIMEOUT_IN_MS);
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ExtensionDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->timeoutInMs = (int) $data;
+            $this->key = (string) $data;
         }
 
-        return $this->timeoutInMs;
+        return $this->key;
     }
 
     /**
+     * <p>Details where the extension can be reached</p>.
+     *
      * @return null|ExtensionDestination
      */
     public function getDestination()
@@ -81,6 +85,8 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     }
 
     /**
+     * <p>Describes what triggers the extension</p>.
+     *
      * @return null|ExtensionTriggerCollection
      */
     public function getTriggers()
@@ -98,25 +104,30 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
     }
 
     /**
-     * @return null|string
+     * <p>The maximum time the commercetools platform waits for a response from the extension.
+     * The maximum value is 2000 ms (2 seconds).
+     * This limit can be increased per project after we review the performance impact.
+     * Please contact Support via the <a href="https://support.commercetools.com">Support Portal</a> and provide the region, project key and use case.</p>.
+     *
+     * @return null|int
      */
-    public function getKey()
+    public function getTimeoutInMs()
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ExtensionDraft::FIELD_KEY);
+        if (is_null($this->timeoutInMs)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ExtensionDraft::FIELD_TIMEOUT_IN_MS);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+            $this->timeoutInMs = (int) $data;
         }
 
-        return $this->key;
+        return $this->timeoutInMs;
     }
 
-    public function setTimeoutInMs(?int $timeoutInMs): void
+    public function setKey(?string $key): void
     {
-        $this->timeoutInMs = $timeoutInMs;
+        $this->key = $key;
     }
 
     public function setDestination(?ExtensionDestination $destination): void
@@ -129,8 +140,8 @@ final class ExtensionDraftModel extends JsonObjectModel implements ExtensionDraf
         $this->triggers = $triggers;
     }
 
-    public function setKey(?string $key): void
+    public function setTimeoutInMs(?int $timeoutInMs): void
     {
-        $this->key = $key;
+        $this->timeoutInMs = $timeoutInMs;
     }
 }

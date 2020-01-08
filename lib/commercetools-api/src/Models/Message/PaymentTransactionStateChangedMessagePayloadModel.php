@@ -22,19 +22,19 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
     /**
      * @var ?string
      */
-    protected $state;
+    protected $transactionId;
 
     /**
      * @var ?string
      */
-    protected $transactionId;
+    protected $state;
 
     public function __construct(
-        string $state = null,
-        string $transactionId = null
+        string $transactionId = null,
+        string $state = null
     ) {
-        $this->state = $state;
         $this->transactionId = $transactionId;
+        $this->state = $state;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,23 +58,6 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
     /**
      * @return null|string
      */
-    public function getState()
-    {
-        if (is_null($this->state)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentTransactionStateChangedMessagePayload::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->state = (string) $data;
-        }
-
-        return $this->state;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getTransactionId()
     {
         if (is_null($this->transactionId)) {
@@ -89,13 +72,30 @@ final class PaymentTransactionStateChangedMessagePayloadModel extends JsonObject
         return $this->transactionId;
     }
 
-    public function setState(?string $state): void
+    /**
+     * @return null|string
+     */
+    public function getState()
     {
-        $this->state = $state;
+        if (is_null($this->state)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentTransactionStateChangedMessagePayload::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = (string) $data;
+        }
+
+        return $this->state;
     }
 
     public function setTransactionId(?string $transactionId): void
     {
         $this->transactionId = $transactionId;
+    }
+
+    public function setState(?string $state): void
+    {
+        $this->state = $state;
     }
 }

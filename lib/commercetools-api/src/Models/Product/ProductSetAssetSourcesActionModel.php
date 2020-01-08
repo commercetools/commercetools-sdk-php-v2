@@ -22,21 +22,6 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     protected $action;
 
     /**
-     * @var ?AssetSourceCollection
-     */
-    protected $sources;
-
-    /**
-     * @var ?string
-     */
-    protected $assetId;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -47,24 +32,39 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     protected $sku;
 
     /**
+     * @var ?bool
+     */
+    protected $staged;
+
+    /**
+     * @var ?string
+     */
+    protected $assetId;
+
+    /**
      * @var ?string
      */
     protected $assetKey;
 
+    /**
+     * @var ?AssetSourceCollection
+     */
+    protected $sources;
+
     public function __construct(
-        AssetSourceCollection $sources = null,
-        string $assetId = null,
-        bool $staged = null,
         int $variantId = null,
         string $sku = null,
-        string $assetKey = null
+        bool $staged = null,
+        string $assetId = null,
+        string $assetKey = null,
+        AssetSourceCollection $sources = null
     ) {
-        $this->sources = $sources;
-        $this->assetId = $assetId;
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->staged = $staged;
+        $this->assetId = $assetId;
         $this->assetKey = $assetKey;
+        $this->sources = $sources;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -83,57 +83,6 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|AssetSourceCollection
-     */
-    public function getSources()
-    {
-        if (is_null($this->sources)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductSetAssetSourcesAction::FIELD_SOURCES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sources = AssetSourceCollection::fromArray($data);
-        }
-
-        return $this->sources;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAssetId()
-    {
-        if (is_null($this->assetId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetSourcesAction::FIELD_ASSET_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assetId = (string) $data;
-        }
-
-        return $this->assetId;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetAssetSourcesAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
     }
 
     /**
@@ -171,6 +120,40 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
     }
 
     /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetAssetSourcesAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        if (is_null($this->assetId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetAssetSourcesAction::FIELD_ASSET_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetId = (string) $data;
+        }
+
+        return $this->assetId;
+    }
+
+    /**
      * @return null|string
      */
     public function getAssetKey()
@@ -187,19 +170,21 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
         return $this->assetKey;
     }
 
-    public function setSources(?AssetSourceCollection $sources): void
+    /**
+     * @return null|AssetSourceCollection
+     */
+    public function getSources()
     {
-        $this->sources = $sources;
-    }
+        if (is_null($this->sources)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductSetAssetSourcesAction::FIELD_SOURCES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sources = AssetSourceCollection::fromArray($data);
+        }
 
-    public function setAssetId(?string $assetId): void
-    {
-        $this->assetId = $assetId;
-    }
-
-    public function setStaged(?bool $staged): void
-    {
-        $this->staged = $staged;
+        return $this->sources;
     }
 
     public function setVariantId(?int $variantId): void
@@ -212,8 +197,23 @@ final class ProductSetAssetSourcesActionModel extends JsonObjectModel implements
         $this->sku = $sku;
     }
 
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
+    }
+
+    public function setAssetId(?string $assetId): void
+    {
+        $this->assetId = $assetId;
+    }
+
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
+    }
+
+    public function setSources(?AssetSourceCollection $sources): void
+    {
+        $this->sources = $sources;
     }
 }

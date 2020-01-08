@@ -13,38 +13,21 @@ use Commercetools\Base\JsonObjectModel;
 final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
 {
     /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
      * @var ?string
      */
     protected $id;
 
-    public function __construct(
-        int $quantity = null,
-        string $id = null
-    ) {
-        $this->quantity = $quantity;
-        $this->id = $id;
-    }
-
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(DeliveryItem::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
+    protected $quantity;
 
-        return $this->quantity;
+    public function __construct(
+        string $id = null,
+        int $quantity = null
+    ) {
+        $this->id = $id;
+        $this->quantity = $quantity;
     }
 
     /**
@@ -64,13 +47,30 @@ final class DeliveryItemModel extends JsonObjectModel implements DeliveryItem
         return $this->id;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
     {
-        $this->quantity = $quantity;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(DeliveryItem::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
     public function setId(?string $id): void
     {
         $this->id = $id;
+    }
+
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
     }
 }

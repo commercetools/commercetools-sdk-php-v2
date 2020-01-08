@@ -23,6 +23,11 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     protected $type;
 
     /**
+     * @var ?int
+     */
+    protected $variantId;
+
+    /**
      * @var ?Image
      */
     protected $image;
@@ -32,19 +37,14 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
      */
     protected $staged;
 
-    /**
-     * @var ?int
-     */
-    protected $variantId;
-
     public function __construct(
+        int $variantId = null,
         Image $image = null,
-        bool $staged = null,
-        int $variantId = null
+        bool $staged = null
     ) {
+        $this->variantId = $variantId;
         $this->image = $image;
         $this->staged = $staged;
-        $this->variantId = $variantId;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -63,6 +63,23 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
         }
 
         return $this->type;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductImageAddedMessagePayload::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
     }
 
     /**
@@ -100,21 +117,9 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
         return $this->staged;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
+    public function setVariantId(?int $variantId): void
     {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductImageAddedMessagePayload::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
+        $this->variantId = $variantId;
     }
 
     public function setImage(?Image $image): void
@@ -125,10 +130,5 @@ final class ProductImageAddedMessagePayloadModel extends JsonObjectModel impleme
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
-    }
-
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
     }
 }

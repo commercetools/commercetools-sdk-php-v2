@@ -21,9 +21,9 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     protected $productId;
 
     /**
-     * @var ?QueryPrice
+     * @var ?int
      */
-    protected $price;
+    protected $variantId;
 
     /**
      * @var ?bool
@@ -31,20 +31,20 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     protected $staged;
 
     /**
-     * @var ?int
+     * @var ?QueryPrice
      */
-    protected $variantId;
+    protected $price;
 
     public function __construct(
         string $productId = null,
-        QueryPrice $price = null,
+        int $variantId = null,
         bool $staged = null,
-        int $variantId = null
+        QueryPrice $price = null
     ) {
         $this->productId = $productId;
-        $this->price = $price;
-        $this->staged = $staged;
         $this->variantId = $variantId;
+        $this->staged = $staged;
+        $this->price = $price;
     }
 
     /**
@@ -65,21 +65,20 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * @return null|QueryPrice
+     * @return null|int
      */
-    public function getPrice()
+    public function getVariantId()
     {
-        if (is_null($this->price)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ProductDiscountMatchQuery::FIELD_PRICE);
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductDiscountMatchQuery::FIELD_VARIANT_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->price = QueryPriceModel::of($data);
+            $this->variantId = (int) $data;
         }
 
-        return $this->price;
+        return $this->variantId;
     }
 
     /**
@@ -100,20 +99,21 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
     }
 
     /**
-     * @return null|int
+     * @return null|QueryPrice
      */
-    public function getVariantId()
+    public function getPrice()
     {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductDiscountMatchQuery::FIELD_VARIANT_ID);
+        if (is_null($this->price)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ProductDiscountMatchQuery::FIELD_PRICE);
             if (is_null($data)) {
                 return null;
             }
-            $this->variantId = (int) $data;
+
+            $this->price = QueryPriceModel::of($data);
         }
 
-        return $this->variantId;
+        return $this->price;
     }
 
     public function setProductId(?string $productId): void
@@ -121,9 +121,9 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
         $this->productId = $productId;
     }
 
-    public function setPrice(?QueryPrice $price): void
+    public function setVariantId(?int $variantId): void
     {
-        $this->price = $price;
+        $this->variantId = $variantId;
     }
 
     public function setStaged(?bool $staged): void
@@ -131,8 +131,8 @@ final class ProductDiscountMatchQueryModel extends JsonObjectModel implements Pr
         $this->staged = $staged;
     }
 
-    public function setVariantId(?int $variantId): void
+    public function setPrice(?QueryPrice $price): void
     {
-        $this->variantId = $variantId;
+        $this->price = $price;
     }
 }

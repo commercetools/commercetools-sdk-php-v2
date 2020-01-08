@@ -20,21 +20,21 @@ final class ShoppingListChangeTextLineItemQuantityActionModel extends JsonObject
     protected $action;
 
     /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
      * @var ?string
      */
     protected $textLineItemId;
 
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
     public function __construct(
-        int $quantity = null,
-        string $textLineItemId = null
+        string $textLineItemId = null,
+        int $quantity = null
     ) {
-        $this->quantity = $quantity;
         $this->textLineItemId = $textLineItemId;
+        $this->quantity = $quantity;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -56,23 +56,6 @@ final class ShoppingListChangeTextLineItemQuantityActionModel extends JsonObject
     }
 
     /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListChangeTextLineItemQuantityAction::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
      * @return null|string
      */
     public function getTextLineItemId()
@@ -89,13 +72,30 @@ final class ShoppingListChangeTextLineItemQuantityActionModel extends JsonObject
         return $this->textLineItemId;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
     {
-        $this->quantity = $quantity;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ShoppingListChangeTextLineItemQuantityAction::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
     public function setTextLineItemId(?string $textLineItemId): void
     {
         $this->textLineItemId = $textLineItemId;
+    }
+
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
     }
 }

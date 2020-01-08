@@ -20,19 +20,14 @@ use Commercetools\Base\Builder;
 final class CartSetCustomShippingMethodActionBuilder implements Builder
 {
     /**
-     * @var ShippingRateDraft|?ShippingRateDraftBuilder
-     */
-    private $shippingRate;
-
-    /**
-     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
-     */
-    private $externalTaxRate;
-
-    /**
      * @var ?string
      */
     private $shippingMethodName;
+
+    /**
+     * @var ShippingRateDraft|?ShippingRateDraftBuilder
+     */
+    private $shippingRate;
 
     /**
      * @var TaxCategoryResourceIdentifier|?TaxCategoryResourceIdentifierBuilder
@@ -40,20 +35,9 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     private $taxCategory;
 
     /**
-     * @return null|ShippingRateDraft
+     * @var ExternalTaxRateDraft|?ExternalTaxRateDraftBuilder
      */
-    public function getShippingRate()
-    {
-        return $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate;
-    }
-
-    /**
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
-    }
+    private $externalTaxRate;
 
     /**
      * @return null|string
@@ -61,6 +45,14 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     public function getShippingMethodName()
     {
         return $this->shippingMethodName;
+    }
+
+    /**
+     * @return null|ShippingRateDraft
+     */
+    public function getShippingRate()
+    {
+        return $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate;
     }
 
     /**
@@ -72,23 +64,11 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ExternalTaxRateDraft
      */
-    public function withShippingRate(?ShippingRateDraft $shippingRate)
+    public function getExternalTaxRate()
     {
-        $this->shippingRate = $shippingRate;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
-    {
-        $this->externalTaxRate = $externalTaxRate;
-
-        return $this;
+        return $this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate;
     }
 
     /**
@@ -97,6 +77,16 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     public function withShippingMethodName(?string $shippingMethodName)
     {
         $this->shippingMethodName = $shippingMethodName;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingRate(?ShippingRateDraft $shippingRate)
+    {
+        $this->shippingRate = $shippingRate;
 
         return $this;
     }
@@ -114,9 +104,9 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)
+    public function withExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate)
     {
-        $this->shippingRate = $shippingRate;
+        $this->externalTaxRate = $externalTaxRate;
 
         return $this;
     }
@@ -124,9 +114,9 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)
     {
-        $this->externalTaxRate = $externalTaxRate;
+        $this->shippingRate = $shippingRate;
 
         return $this;
     }
@@ -141,13 +131,23 @@ final class CartSetCustomShippingMethodActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withExternalTaxRateBuilder(?ExternalTaxRateDraftBuilder $externalTaxRate)
+    {
+        $this->externalTaxRate = $externalTaxRate;
+
+        return $this;
+    }
+
     public function build(): CartSetCustomShippingMethodAction
     {
         return new CartSetCustomShippingMethodActionModel(
-            ($this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate),
-            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate),
             $this->shippingMethodName,
-            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory)
+            ($this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate),
+            ($this->taxCategory instanceof TaxCategoryResourceIdentifierBuilder ? $this->taxCategory->build() : $this->taxCategory),
+            ($this->externalTaxRate instanceof ExternalTaxRateDraftBuilder ? $this->externalTaxRate->build() : $this->externalTaxRate)
         );
     }
 

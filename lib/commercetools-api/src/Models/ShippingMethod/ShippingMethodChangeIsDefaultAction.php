@@ -13,6 +13,8 @@ interface ShippingMethodChangeIsDefaultAction extends ShippingMethodUpdateAction
     const FIELD_IS_DEFAULT = 'isDefault';
 
     /**
+     * <p>Only one ShippingMethod in a project can be default.</p>.
+     *
      * @return null|bool
      */
     public function getIsDefault();

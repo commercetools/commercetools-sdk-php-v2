@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductChangeMasterVariantActionBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -31,12 +26,9 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     private $sku;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $staged;
 
     /**
      * @return null|int
@@ -55,13 +47,11 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withStaged(?bool $staged)
+    public function getStaged()
     {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->staged;
     }
 
     /**
@@ -84,12 +74,22 @@ final class ProductChangeMasterVariantActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
     public function build(): ProductChangeMasterVariantAction
     {
         return new ProductChangeMasterVariantActionModel(
-            $this->staged,
             $this->variantId,
-            $this->sku
+            $this->sku,
+            $this->staged
         );
     }
 

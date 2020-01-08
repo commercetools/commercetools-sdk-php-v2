@@ -16,16 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductChangeAssetOrderActionBuilder implements Builder
 {
     /**
-     * @var ?array
-     */
-    private $assetOrder;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -36,20 +26,14 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
     private $sku;
 
     /**
-     * @return null|array
+     * @var ?bool
      */
-    public function getAssetOrder()
-    {
-        return $this->assetOrder;
-    }
+    private $staged;
 
     /**
-     * @return null|bool
+     * @var ?array
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $assetOrder;
 
     /**
      * @return null|int
@@ -68,23 +52,19 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withAssetOrder(?array $assetOrder)
+    public function getStaged()
     {
-        $this->assetOrder = $assetOrder;
-
-        return $this;
+        return $this->staged;
     }
 
     /**
-     * @return $this
+     * @return null|array
      */
-    public function withStaged(?bool $staged)
+    public function getAssetOrder()
     {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->assetOrder;
     }
 
     /**
@@ -107,13 +87,33 @@ final class ProductChangeAssetOrderActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssetOrder(?array $assetOrder)
+    {
+        $this->assetOrder = $assetOrder;
+
+        return $this;
+    }
+
     public function build(): ProductChangeAssetOrderAction
     {
         return new ProductChangeAssetOrderActionModel(
-            $this->assetOrder,
-            $this->staged,
             $this->variantId,
-            $this->sku
+            $this->sku,
+            $this->staged,
+            $this->assetOrder
         );
     }
 

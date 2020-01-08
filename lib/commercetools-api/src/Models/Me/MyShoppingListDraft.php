@@ -44,11 +44,15 @@ interface MyShoppingListDraft extends JsonObject
     public function getTextLineItems();
 
     /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();
 
     /**
+     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>.
+     *
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();

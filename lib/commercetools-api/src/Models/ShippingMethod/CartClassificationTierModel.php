@@ -23,6 +23,11 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     protected $type;
 
     /**
+     * @var ?string
+     */
+    protected $value;
+
+    /**
      * @var ?Money
      */
     protected $price;
@@ -32,19 +37,14 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
      */
     protected $isMatching;
 
-    /**
-     * @var ?string
-     */
-    protected $value;
-
     public function __construct(
+        string $value = null,
         Money $price = null,
-        bool $isMatching = null,
-        string $value = null
+        bool $isMatching = null
     ) {
+        $this->value = $value;
         $this->price = $price;
         $this->isMatching = $isMatching;
-        $this->value = $value;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -63,6 +63,23 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
         }
 
         return $this->type;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getValue()
+    {
+        if (is_null($this->value)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartClassificationTier::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->value = (string) $data;
+        }
+
+        return $this->value;
     }
 
     /**
@@ -100,21 +117,9 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
         return $this->isMatching;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getValue()
+    public function setValue(?string $value): void
     {
-        if (is_null($this->value)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CartClassificationTier::FIELD_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->value = (string) $data;
-        }
-
-        return $this->value;
+        $this->value = $value;
     }
 
     public function setPrice(?Money $price): void
@@ -125,10 +130,5 @@ final class CartClassificationTierModel extends JsonObjectModel implements CartC
     public function setIsMatching(?bool $isMatching): void
     {
         $this->isMatching = $isMatching;
-    }
-
-    public function setValue(?string $value): void
-    {
-        $this->value = $value;
     }
 }

@@ -18,20 +18,12 @@ final class AzureEventGridDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $accessKey;
+    private $uri;
 
     /**
      * @var ?string
      */
-    private $uri;
-
-    /**
-     * @return null|string
-     */
-    public function getAccessKey()
-    {
-        return $this->accessKey;
-    }
+    private $accessKey;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class AzureEventGridDestinationBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withAccessKey(?string $accessKey)
+    public function getAccessKey()
     {
-        $this->accessKey = $accessKey;
-
-        return $this;
+        return $this->accessKey;
     }
 
     /**
@@ -61,11 +51,21 @@ final class AzureEventGridDestinationBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withAccessKey(?string $accessKey)
+    {
+        $this->accessKey = $accessKey;
+
+        return $this;
+    }
+
     public function build(): AzureEventGridDestination
     {
         return new AzureEventGridDestinationModel(
-            $this->accessKey,
-            $this->uri
+            $this->uri,
+            $this->accessKey
         );
     }
 

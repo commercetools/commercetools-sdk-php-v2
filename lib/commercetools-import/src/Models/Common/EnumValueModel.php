@@ -15,36 +15,19 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
     /**
      * @var ?string
      */
-    protected $label;
+    protected $key;
 
     /**
      * @var ?string
      */
-    protected $key;
+    protected $label;
 
     public function __construct(
-        string $label = null,
-        string $key = null
+        string $key = null,
+        string $label = null
     ) {
-        $this->label = $label;
         $this->key = $key;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLabel()
-    {
-        if (is_null($this->label)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(EnumValue::FIELD_LABEL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->label = (string) $data;
-        }
-
-        return $this->label;
+        $this->label = $label;
     }
 
     /**
@@ -64,13 +47,30 @@ final class EnumValueModel extends JsonObjectModel implements EnumValue
         return $this->key;
     }
 
-    public function setLabel(?string $label): void
+    /**
+     * @return null|string
+     */
+    public function getLabel()
     {
-        $this->label = $label;
+        if (is_null($this->label)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(EnumValue::FIELD_LABEL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->label = (string) $data;
+        }
+
+        return $this->label;
     }
 
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    public function setLabel(?string $label): void
+    {
+        $this->label = $label;
     }
 }

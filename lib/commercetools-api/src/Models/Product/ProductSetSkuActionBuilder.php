@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductSetSkuActionBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -31,12 +26,9 @@ final class ProductSetSkuActionBuilder implements Builder
     private $sku;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $staged;
 
     /**
      * @return null|int
@@ -47,6 +39,9 @@ final class ProductSetSkuActionBuilder implements Builder
     }
 
     /**
+     * <p>SKU must be unique.
+     * If left blank or set to <code>null</code>, the sku is unset/removed.</p>.
+     *
      * @return null|string
      */
     public function getSku()
@@ -55,13 +50,11 @@ final class ProductSetSkuActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withStaged(?bool $staged)
+    public function getStaged()
     {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->staged;
     }
 
     /**
@@ -84,12 +77,22 @@ final class ProductSetSkuActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
     public function build(): ProductSetSkuAction
     {
         return new ProductSetSkuActionModel(
-            $this->staged,
             $this->variantId,
-            $this->sku
+            $this->sku,
+            $this->staged
         );
     }
 

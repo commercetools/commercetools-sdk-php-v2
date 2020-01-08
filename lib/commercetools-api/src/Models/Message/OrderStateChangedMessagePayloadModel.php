@@ -22,19 +22,19 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     /**
      * @var ?string
      */
-    protected $oldOrderState;
+    protected $orderState;
 
     /**
      * @var ?string
      */
-    protected $orderState;
+    protected $oldOrderState;
 
     public function __construct(
-        string $oldOrderState = null,
-        string $orderState = null
+        string $orderState = null,
+        string $oldOrderState = null
     ) {
-        $this->oldOrderState = $oldOrderState;
         $this->orderState = $orderState;
+        $this->oldOrderState = $oldOrderState;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,23 +58,6 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
     /**
      * @return null|string
      */
-    public function getOldOrderState()
-    {
-        if (is_null($this->oldOrderState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderStateChangedMessagePayload::FIELD_OLD_ORDER_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldOrderState = (string) $data;
-        }
-
-        return $this->oldOrderState;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getOrderState()
     {
         if (is_null($this->orderState)) {
@@ -89,13 +72,30 @@ final class OrderStateChangedMessagePayloadModel extends JsonObjectModel impleme
         return $this->orderState;
     }
 
-    public function setOldOrderState(?string $oldOrderState): void
+    /**
+     * @return null|string
+     */
+    public function getOldOrderState()
     {
-        $this->oldOrderState = $oldOrderState;
+        if (is_null($this->oldOrderState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderStateChangedMessagePayload::FIELD_OLD_ORDER_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldOrderState = (string) $data;
+        }
+
+        return $this->oldOrderState;
     }
 
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;
+    }
+
+    public function setOldOrderState(?string $oldOrderState): void
+    {
+        $this->oldOrderState = $oldOrderState;
     }
 }

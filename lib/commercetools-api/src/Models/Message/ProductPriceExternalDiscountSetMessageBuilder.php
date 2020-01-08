@@ -25,16 +25,6 @@ use DateTimeImmutable;
 final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -45,14 +35,24 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
      */
     private $lastModifiedBy;
+
+    /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
 
     /**
      * @var ?int
@@ -65,6 +65,11 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     private $resource;
 
     /**
+     * @var ?int
+     */
+    private $resourceVersion;
+
+    /**
      * @var UserProvidedIdentifiers|?UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
@@ -72,7 +77,22 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     /**
      * @var ?int
      */
-    private $resourceVersion;
+    private $variantId;
+
+    /**
+     * @var ?string
+     */
+    private $variantKey;
+
+    /**
+     * @var ?string
+     */
+    private $sku;
+
+    /**
+     * @var ?string
+     */
+    private $priceId;
 
     /**
      * @var DiscountedPrice|?DiscountedPriceBuilder
@@ -83,42 +103,6 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
      * @var ?bool
      */
     private $staged;
-
-    /**
-     * @var ?int
-     */
-    private $variantId;
-
-    /**
-     * @var ?string
-     */
-    private $priceId;
-
-    /**
-     * @var ?string
-     */
-    private $sku;
-
-    /**
-     * @var ?string
-     */
-    private $variantKey;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
 
     /**
      * @return null|string
@@ -137,11 +121,19 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -150,6 +142,14 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     public function getLastModifiedBy()
     {
         return $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy;
+    }
+
+    /**
+     * @return null|CreatedBy
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -169,6 +169,14 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     }
 
     /**
+     * @return null|int
+     */
+    public function getResourceVersion()
+    {
+        return $this->resourceVersion;
+    }
+
+    /**
      * @return null|UserProvidedIdentifiers
      */
     public function getResourceUserProvidedIdentifiers()
@@ -179,9 +187,33 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     /**
      * @return null|int
      */
-    public function getResourceVersion()
+    public function getVariantId()
     {
-        return $this->resourceVersion;
+        return $this->variantId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getVariantKey()
+    {
+        return $this->variantKey;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        return $this->priceId;
     }
 
     /**
@@ -198,58 +230,6 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     public function getStaged()
     {
         return $this->staged;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        return $this->variantId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPriceId()
-    {
-        return $this->priceId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSku()
-    {
-        return $this->sku;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getVariantKey()
-    {
-        return $this->variantKey;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
     }
 
     /**
@@ -275,9 +255,19 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -288,6 +278,16 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     public function withLastModifiedBy(?LastModifiedBy $lastModifiedBy)
     {
         $this->lastModifiedBy = $lastModifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -315,6 +315,16 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
+    public function withResourceVersion(?int $resourceVersion)
+    {
+        $this->resourceVersion = $resourceVersion;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers)
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
@@ -325,9 +335,39 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResourceVersion(?int $resourceVersion)
+    public function withVariantId(?int $variantId)
     {
-        $this->resourceVersion = $resourceVersion;
+        $this->variantId = $variantId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withVariantKey(?string $variantKey)
+    {
+        $this->variantKey = $variantKey;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPriceId(?string $priceId)
+    {
+        $this->priceId = $priceId;
 
         return $this;
     }
@@ -355,39 +395,9 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariantId(?int $variantId)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->variantId = $variantId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPriceId(?string $priceId)
-    {
-        $this->priceId = $priceId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withVariantKey(?string $variantKey)
-    {
-        $this->variantKey = $variantKey;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -398,16 +408,6 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
         $this->createdBy = $createdBy;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
-    {
-        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -445,22 +445,22 @@ final class ProductPriceExternalDiscountSetMessageBuilder implements Builder
     public function build(): ProductPriceExternalDiscountSetMessage
     {
         return new ProductPriceExternalDiscountSetMessageModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->sequenceNumber,
             ($this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource),
-            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->resourceVersion,
-            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
-            $this->staged,
+            ($this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers),
             $this->variantId,
-            $this->priceId,
+            $this->variantKey,
             $this->sku,
-            $this->variantKey
+            $this->priceId,
+            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
+            $this->staged
         );
     }
 

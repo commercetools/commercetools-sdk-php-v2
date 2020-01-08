@@ -19,24 +19,18 @@ use Commercetools\Base\JsonObject;
 final class CartDiscountSetCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var ?JsonObject
-     */
-    private $fields;
-
-    /**
      * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
      */
     private $type;
 
     /**
-     * @return null|JsonObject
+     * @var ?JsonObject
      */
-    public function getFields()
-    {
-        return $this->fields;
-    }
+    private $fields;
 
     /**
+     * <p>If absent, the custom type and any existing CustomFields are removed.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -45,13 +39,14 @@ final class CartDiscountSetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>A valid JSON object, based on the FieldDefinitions of the Type.
+     * Sets the custom fields to this value.</p>.
+     *
+     * @return null|JsonObject
      */
-    public function withFields(?JsonObject $fields)
+    public function getFields()
     {
-        $this->fields = $fields;
-
-        return $this;
+        return $this->fields;
     }
 
     /**
@@ -60,6 +55,16 @@ final class CartDiscountSetCustomTypeActionBuilder implements Builder
     public function withType(?TypeResourceIdentifier $type)
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withFields(?JsonObject $fields)
+    {
+        $this->fields = $fields;
 
         return $this;
     }
@@ -77,8 +82,8 @@ final class CartDiscountSetCustomTypeActionBuilder implements Builder
     public function build(): CartDiscountSetCustomTypeAction
     {
         return new CartDiscountSetCustomTypeActionModel(
-            $this->fields,
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type)
+            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
+            $this->fields
         );
     }
 

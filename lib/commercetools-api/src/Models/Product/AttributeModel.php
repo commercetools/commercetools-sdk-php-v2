@@ -50,6 +50,8 @@ final class AttributeModel extends JsonObjectModel implements Attribute
     }
 
     /**
+     * <p>A valid JSON value, based on an AttributeDefinition.</p>.
+     *
      * @return null|JsonObject
      */
     public function getValue()

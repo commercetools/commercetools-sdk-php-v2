@@ -18,6 +18,11 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     /**
      * @var ?string
      */
+    protected $key;
+
+    /**
+     * @var ?string
+     */
     protected $groupName;
 
     /**
@@ -25,19 +30,33 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
      */
     protected $custom;
 
-    /**
-     * @var ?string
-     */
-    protected $key;
-
     public function __construct(
+        string $key = null,
         string $groupName = null,
-        CustomFields $custom = null,
-        string $key = null
+        CustomFields $custom = null
     ) {
+        $this->key = $key;
         $this->groupName = $groupName;
         $this->custom = $custom;
-        $this->key = $key;
+    }
+
+    /**
+     * <p>User-specific unique identifier for the customer group.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerGroupDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -75,21 +94,9 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
         return $this->custom;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerGroupDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        $this->key = $key;
     }
 
     public function setGroupName(?string $groupName): void
@@ -100,10 +107,5 @@ final class CustomerGroupDraftModel extends JsonObjectModel implements CustomerG
     public function setCustom(?CustomFields $custom): void
     {
         $this->custom = $custom;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
     }
 }

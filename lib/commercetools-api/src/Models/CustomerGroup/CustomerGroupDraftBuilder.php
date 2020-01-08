@@ -20,6 +20,11 @@ final class CustomerGroupDraftBuilder implements Builder
     /**
      * @var ?string
      */
+    private $key;
+
+    /**
+     * @var ?string
+     */
     private $groupName;
 
     /**
@@ -28,9 +33,14 @@ final class CustomerGroupDraftBuilder implements Builder
     private $custom;
 
     /**
-     * @var ?string
+     * <p>User-specific unique identifier for the customer group.</p>.
+     *
+     * @return null|string
      */
-    private $key;
+    public function getKey()
+    {
+        return $this->key;
+    }
 
     /**
      * @return null|string
@@ -49,11 +59,13 @@ final class CustomerGroupDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return $this
      */
-    public function getKey()
+    public function withKey(?string $key)
     {
-        return $this->key;
+        $this->key = $key;
+
+        return $this;
     }
 
     /**
@@ -79,16 +91,6 @@ final class CustomerGroupDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
         $this->custom = $custom;
@@ -99,9 +101,9 @@ final class CustomerGroupDraftBuilder implements Builder
     public function build(): CustomerGroupDraft
     {
         return new CustomerGroupDraftModel(
+            $this->key,
             $this->groupName,
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            $this->key
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

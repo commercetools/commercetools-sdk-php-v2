@@ -17,22 +17,14 @@ use Commercetools\Base\JsonObject;
 final class SearchKeywordBuilder implements Builder
 {
     /**
-     * @var ?JsonObject
-     */
-    private $suggestTokenizer;
-
-    /**
      * @var ?string
      */
     private $text;
 
     /**
-     * @return null|JsonObject
+     * @var ?JsonObject
      */
-    public function getSuggestTokenizer()
-    {
-        return $this->suggestTokenizer;
-    }
+    private $suggestTokenizer;
 
     /**
      * @return null|string
@@ -43,13 +35,11 @@ final class SearchKeywordBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|JsonObject
      */
-    public function withSuggestTokenizer(?JsonObject $suggestTokenizer)
+    public function getSuggestTokenizer()
     {
-        $this->suggestTokenizer = $suggestTokenizer;
-
-        return $this;
+        return $this->suggestTokenizer;
     }
 
     /**
@@ -62,11 +52,21 @@ final class SearchKeywordBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withSuggestTokenizer(?JsonObject $suggestTokenizer)
+    {
+        $this->suggestTokenizer = $suggestTokenizer;
+
+        return $this;
+    }
+
     public function build(): SearchKeyword
     {
         return new SearchKeywordModel(
-            $this->suggestTokenizer,
-            $this->text
+            $this->text,
+            $this->suggestTokenizer
         );
     }
 

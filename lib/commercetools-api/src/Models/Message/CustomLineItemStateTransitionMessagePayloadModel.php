@@ -25,19 +25,14 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
     protected $type;
 
     /**
-     * @var ?StateReference
-     */
-    protected $toState;
-
-    /**
-     * @var ?StateReference
-     */
-    protected $fromState;
-
-    /**
      * @var ?string
      */
     protected $customLineItemId;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $transitionDate;
 
     /**
      * @var ?int
@@ -45,22 +40,27 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
     protected $quantity;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?StateReference
      */
-    protected $transitionDate;
+    protected $fromState;
+
+    /**
+     * @var ?StateReference
+     */
+    protected $toState;
 
     public function __construct(
-        StateReference $toState = null,
-        StateReference $fromState = null,
         string $customLineItemId = null,
+        DateTimeImmutable $transitionDate = null,
         int $quantity = null,
-        DateTimeImmutable $transitionDate = null
+        StateReference $fromState = null,
+        StateReference $toState = null
     ) {
-        $this->toState = $toState;
-        $this->fromState = $fromState;
         $this->customLineItemId = $customLineItemId;
-        $this->quantity = $quantity;
         $this->transitionDate = $transitionDate;
+        $this->quantity = $quantity;
+        $this->fromState = $fromState;
+        $this->toState = $toState;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -82,42 +82,6 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
     }
 
     /**
-     * @return null|StateReference
-     */
-    public function getToState()
-    {
-        if (is_null($this->toState)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItemStateTransitionMessagePayload::FIELD_TO_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->toState = StateReferenceModel::of($data);
-        }
-
-        return $this->toState;
-    }
-
-    /**
-     * @return null|StateReference
-     */
-    public function getFromState()
-    {
-        if (is_null($this->fromState)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItemStateTransitionMessagePayload::FIELD_FROM_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->fromState = StateReferenceModel::of($data);
-        }
-
-        return $this->fromState;
-    }
-
-    /**
      * @return null|string
      */
     public function getCustomLineItemId()
@@ -132,23 +96,6 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
         }
 
         return $this->customLineItemId;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CustomLineItemStateTransitionMessagePayload::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
     }
 
     /**
@@ -172,14 +119,57 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
         return $this->transitionDate;
     }
 
-    public function setToState(?StateReference $toState): void
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
     {
-        $this->toState = $toState;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomLineItemStateTransitionMessagePayload::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
-    public function setFromState(?StateReference $fromState): void
+    /**
+     * @return null|StateReference
+     */
+    public function getFromState()
     {
-        $this->fromState = $fromState;
+        if (is_null($this->fromState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItemStateTransitionMessagePayload::FIELD_FROM_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fromState = StateReferenceModel::of($data);
+        }
+
+        return $this->fromState;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getToState()
+    {
+        if (is_null($this->toState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItemStateTransitionMessagePayload::FIELD_TO_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->toState = StateReferenceModel::of($data);
+        }
+
+        return $this->toState;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void
@@ -187,14 +177,24 @@ final class CustomLineItemStateTransitionMessagePayloadModel extends JsonObjectM
         $this->customLineItemId = $customLineItemId;
     }
 
+    public function setTransitionDate(?DateTimeImmutable $transitionDate): void
+    {
+        $this->transitionDate = $transitionDate;
+    }
+
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
-    public function setTransitionDate(?DateTimeImmutable $transitionDate): void
+    public function setFromState(?StateReference $fromState): void
     {
-        $this->transitionDate = $transitionDate;
+        $this->fromState = $fromState;
+    }
+
+    public function setToState(?StateReference $toState): void
+    {
+        $this->toState = $toState;
     }
 
     public function jsonSerialize()

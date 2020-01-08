@@ -33,9 +33,79 @@ use Commercetools\Base\Builder;
 final class LineItemBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $id;
+
+    /**
+     * @var ?string
+     */
+    private $productId;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $name;
+
+    /**
+     * @var LocalizedString|?LocalizedStringBuilder
+     */
+    private $productSlug;
+
+    /**
+     * @var ProductTypeReference|?ProductTypeReferenceBuilder
+     */
+    private $productType;
+
+    /**
+     * @var ProductVariant|?ProductVariantBuilder
+     */
+    private $variant;
+
+    /**
+     * @var Price|?PriceBuilder
+     */
+    private $price;
+
+    /**
+     * @var TaxedItemPrice|?TaxedItemPriceBuilder
+     */
+    private $taxedPrice;
+
+    /**
+     * @var TypedMoney|?TypedMoneyBuilder
+     */
+    private $totalPrice;
+
+    /**
      * @var ?int
      */
     private $quantity;
+
+    /**
+     * @var ?ItemStateCollection
+     */
+    private $state;
+
+    /**
+     * @var TaxRate|?TaxRateBuilder
+     */
+    private $taxRate;
+
+    /**
+     * @var ChannelReference|?ChannelReferenceBuilder
+     */
+    private $supplyChannel;
+
+    /**
+     * @var ChannelReference|?ChannelReferenceBuilder
+     */
+    private $distributionChannel;
+
+    /**
+     * @var ?DiscountedLineItemPriceForQuantityCollection
+     */
+    private $discountedPricePerQuantity;
 
     /**
      * @var ?string
@@ -45,17 +115,7 @@ final class LineItemBuilder implements Builder
     /**
      * @var ?string
      */
-    private $productId;
-
-    /**
-     * @var TypedMoney|?TypedMoneyBuilder
-     */
-    private $totalPrice;
-
-    /**
-     * @var TaxedItemPrice|?TaxedItemPriceBuilder
-     */
-    private $taxedPrice;
+    private $lineItemMode;
 
     /**
      * @var CustomFields|?CustomFieldsBuilder
@@ -63,76 +123,163 @@ final class LineItemBuilder implements Builder
     private $custom;
 
     /**
-     * @var ?DiscountedLineItemPriceForQuantityCollection
-     */
-    private $discountedPricePerQuantity;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $productSlug;
-
-    /**
-     * @var TaxRate|?TaxRateBuilder
-     */
-    private $taxRate;
-
-    /**
      * @var ItemShippingDetails|?ItemShippingDetailsBuilder
      */
     private $shippingDetails;
 
     /**
-     * @var Price|?PriceBuilder
+     * <p>The unique ID of this LineItem.</p>.
+     *
+     * @return null|string
      */
-    private $price;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var ProductVariant|?ProductVariantBuilder
+     * @return null|string
      */
-    private $variant;
+    public function getProductId()
+    {
+        return $this->productId;
+    }
 
     /**
-     * @var LocalizedString|?LocalizedStringBuilder
+     * <p>The product name.</p>.
+     *
+     * @return null|LocalizedString
      */
-    private $name;
+    public function getName()
+    {
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
+    }
 
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
+     * <p>The slug of a product is inserted on the fly.
+     * It is always up-to-date and can therefore be used to link to the product detail page of the product.
+     * It is empty if the product has been deleted.
+     * The slug is also empty if the cart or order is retrieved via Reference Expansion or is a snapshot in a Message.</p>.
+     *
+     * @return null|LocalizedString
      */
-    private $supplyChannel;
+    public function getProductSlug()
+    {
+        return $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug;
+    }
 
     /**
-     * @var ?ItemStateCollection
+     * @return null|ProductTypeReference
      */
-    private $state;
+    public function getProductType()
+    {
+        return $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType;
+    }
 
     /**
-     * @var ?string
+     * <p>The variant data is saved when the variant is added to the cart, and not updated automatically.
+     * It can manually be updated with the Recalculate update action.</p>.
+     *
+     * @return null|ProductVariant
      */
-    private $id;
+    public function getVariant()
+    {
+        return $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant;
+    }
 
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
+     * <p>The price of a line item is selected from the prices array of the product variant.
+     * If the <code>variant</code> field hasn't been updated, the price may not correspond to a price in <code>variant.prices</code>.</p>.
+     *
+     * @return null|Price
      */
-    private $distributionChannel;
+    public function getPrice()
+    {
+        return $this->price instanceof PriceBuilder ? $this->price->build() : $this->price;
+    }
 
     /**
-     * @var ?string
+     * <p>Set once the <code>taxRate</code> is set.</p>.
+     *
+     * @return null|TaxedItemPrice
      */
-    private $lineItemMode;
+    public function getTaxedPrice()
+    {
+        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
+    }
 
     /**
-     * @var ProductTypeReference|?ProductTypeReferenceBuilder
+     * <p>The total price of this line item.
+     * If the line item is discounted, then the <code>totalPrice</code> is the DiscountedLineItemPriceForQuantity multiplied by <code>quantity</code>.
+     * Otherwise the total price is the product price multiplied by the <code>quantity</code>.
+     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>.
+     *
+     * @return null|TypedMoney
      */
-    private $productType;
+    public function getTotalPrice()
+    {
+        return $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
+    }
 
     /**
+     * <p>The amount of a LineItem in the cart.
+     * Must be a positive integer.</p>.
+     *
      * @return null|int
      */
     public function getQuantity()
     {
         return $this->quantity;
+    }
+
+    /**
+     * @return null|ItemStateCollection
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
+     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>.
+     *
+     * @return null|TaxRate
+     */
+    public function getTaxRate()
+    {
+        return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
+    }
+
+    /**
+     * <p>The supply channel identifies the inventory entries that should be reserved.
+     * The channel has
+     * the role InventorySupply.</p>.
+     *
+     * @return null|ChannelReference
+     */
+    public function getSupplyChannel()
+    {
+        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
+    }
+
+    /**
+     * <p>The distribution channel is used to select a ProductPrice.
+     * The channel has the role ProductDistribution.</p>.
+     *
+     * @return null|ChannelReference
+     */
+    public function getDistributionChannel()
+    {
+        return $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
+    }
+
+    /**
+     * @return null|DiscountedLineItemPriceForQuantityCollection
+     */
+    public function getDiscountedPricePerQuantity()
+    {
+        return $this->discountedPricePerQuantity;
     }
 
     /**
@@ -146,25 +293,9 @@ final class LineItemBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getProductId()
+    public function getLineItemMode()
     {
-        return $this->productId;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getTotalPrice()
-    {
-        return $this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice;
-    }
-
-    /**
-     * @return null|TaxedItemPrice
-     */
-    public function getTaxedPrice()
-    {
-        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
+        return $this->lineItemMode;
     }
 
     /**
@@ -176,30 +307,8 @@ final class LineItemBuilder implements Builder
     }
 
     /**
-     * @return null|DiscountedLineItemPriceForQuantityCollection
-     */
-    public function getDiscountedPricePerQuantity()
-    {
-        return $this->discountedPricePerQuantity;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getProductSlug()
-    {
-        return $this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug;
-    }
-
-    /**
-     * @return null|TaxRate
-     */
-    public function getTaxRate()
-    {
-        return $this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate;
-    }
-
-    /**
+     * <p>Container for line item specific address(es).</p>.
+     *
      * @return null|ItemShippingDetails
      */
     public function getShippingDetails()
@@ -208,93 +317,11 @@ final class LineItemBuilder implements Builder
     }
 
     /**
-     * @return null|Price
-     */
-    public function getPrice()
-    {
-        return $this->price instanceof PriceBuilder ? $this->price->build() : $this->price;
-    }
-
-    /**
-     * @return null|ProductVariant
-     */
-    public function getVariant()
-    {
-        return $this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|ChannelReference
-     */
-    public function getSupplyChannel()
-    {
-        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
-    }
-
-    /**
-     * @return null|ItemStateCollection
-     */
-    public function getState()
-    {
-        return $this->state;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|ChannelReference
-     */
-    public function getDistributionChannel()
-    {
-        return $this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLineItemMode()
-    {
-        return $this->lineItemMode;
-    }
-
-    /**
-     * @return null|ProductTypeReference
-     */
-    public function getProductType()
-    {
-        return $this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType;
-    }
-
-    /**
      * @return $this
      */
-    public function withQuantity(?int $quantity)
+    public function withId(?string $id)
     {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPriceMode(?string $priceMode)
-    {
-        $this->priceMode = $priceMode;
+        $this->id = $id;
 
         return $this;
     }
@@ -312,39 +339,9 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTotalPrice(?TypedMoney $totalPrice)
+    public function withName(?LocalizedString $name)
     {
-        $this->totalPrice = $totalPrice;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
-    {
-        $this->taxedPrice = $taxedPrice;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustom(?CustomFields $custom)
-    {
-        $this->custom = $custom;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
-    {
-        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->name = $name;
 
         return $this;
     }
@@ -362,29 +359,9 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxRate(?TaxRate $taxRate)
+    public function withProductType(?ProductTypeReference $productType)
     {
-        $this->taxRate = $taxRate;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingDetails(?ItemShippingDetails $shippingDetails)
-    {
-        $this->shippingDetails = $shippingDetails;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPrice(?Price $price)
-    {
-        $this->price = $price;
+        $this->productType = $productType;
 
         return $this;
     }
@@ -402,9 +379,9 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?LocalizedString $name)
+    public function withPrice(?Price $price)
     {
-        $this->name = $name;
+        $this->price = $price;
 
         return $this;
     }
@@ -412,9 +389,29 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withSupplyChannel(?ChannelReference $supplyChannel)
+    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
     {
-        $this->supplyChannel = $supplyChannel;
+        $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTotalPrice(?TypedMoney $totalPrice)
+    {
+        $this->totalPrice = $totalPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }
@@ -432,9 +429,19 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withId(?string $id)
+    public function withTaxRate(?TaxRate $taxRate)
     {
-        $this->id = $id;
+        $this->taxRate = $taxRate;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSupplyChannel(?ChannelReference $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -452,6 +459,26 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
+    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
+    {
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withPriceMode(?string $priceMode)
+    {
+        $this->priceMode = $priceMode;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withLineItemMode(?string $lineItemMode)
     {
         $this->lineItemMode = $lineItemMode;
@@ -462,39 +489,29 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductType(?ProductTypeReference $productType)
-    {
-        $this->productType = $productType;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
-    {
-        $this->totalPrice = $totalPrice;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
-    {
-        $this->taxedPrice = $taxedPrice;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withCustom(?CustomFields $custom)
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingDetails(?ItemShippingDetails $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withNameBuilder(?LocalizedStringBuilder $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -512,29 +529,9 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
+    public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
     {
-        $this->taxRate = $taxRate;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withShippingDetailsBuilder(?ItemShippingDetailsBuilder $shippingDetails)
-    {
-        $this->shippingDetails = $shippingDetails;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withPriceBuilder(?PriceBuilder $price)
-    {
-        $this->price = $price;
+        $this->productType = $productType;
 
         return $this;
     }
@@ -552,9 +549,39 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withNameBuilder(?LocalizedStringBuilder $name)
+    public function withPriceBuilder(?PriceBuilder $price)
     {
-        $this->name = $name;
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxedPriceBuilder(?TaxedItemPriceBuilder $taxedPrice)
+    {
+        $this->taxedPrice = $taxedPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTotalPriceBuilder(?TypedMoneyBuilder $totalPrice)
+    {
+        $this->totalPrice = $totalPrice;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxRateBuilder(?TaxRateBuilder $taxRate)
+    {
+        $this->taxRate = $taxRate;
 
         return $this;
     }
@@ -582,9 +609,19 @@ final class LineItemBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
     {
-        $this->productType = $productType;
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withShippingDetailsBuilder(?ItemShippingDetailsBuilder $shippingDetails)
+    {
+        $this->shippingDetails = $shippingDetails;
 
         return $this;
     }
@@ -592,25 +629,25 @@ final class LineItemBuilder implements Builder
     public function build(): LineItem
     {
         return new LineItemModel(
-            $this->quantity,
-            $this->priceMode,
-            $this->productId,
-            ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
-            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            $this->discountedPricePerQuantity,
-            ($this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug),
-            ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate),
-            ($this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails),
-            ($this->price instanceof PriceBuilder ? $this->price->build() : $this->price),
-            ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
-            $this->state,
             $this->id,
+            $this->productId,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            ($this->productSlug instanceof LocalizedStringBuilder ? $this->productSlug->build() : $this->productSlug),
+            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType),
+            ($this->variant instanceof ProductVariantBuilder ? $this->variant->build() : $this->variant),
+            ($this->price instanceof PriceBuilder ? $this->price->build() : $this->price),
+            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
+            ($this->totalPrice instanceof TypedMoneyBuilder ? $this->totalPrice->build() : $this->totalPrice),
+            $this->quantity,
+            $this->state,
+            ($this->taxRate instanceof TaxRateBuilder ? $this->taxRate->build() : $this->taxRate),
+            ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
             ($this->distributionChannel instanceof ChannelReferenceBuilder ? $this->distributionChannel->build() : $this->distributionChannel),
+            $this->discountedPricePerQuantity,
+            $this->priceMode,
             $this->lineItemMode,
-            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType)
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
+            ($this->shippingDetails instanceof ItemShippingDetailsBuilder ? $this->shippingDetails->build() : $this->shippingDetails)
         );
     }
 

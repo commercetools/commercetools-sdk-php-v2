@@ -25,39 +25,9 @@ use stdClass;
 final class CustomLineItemModel extends JsonObjectModel implements CustomLineItem
 {
     /**
-     * @var ?TaxRate
+     * @var ?string
      */
-    protected $taxRate;
-
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
-     * @var ?ItemShippingDetails
-     */
-    protected $shippingDetails;
-
-    /**
-     * @var ?TypedMoney
-     */
-    protected $money;
-
-    /**
-     * @var ?TypedMoney
-     */
-    protected $totalPrice;
-
-    /**
-     * @var ?TaxedItemPrice
-     */
-    protected $taxedPrice;
-
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
+    protected $id;
 
     /**
      * @var ?LocalizedString
@@ -65,19 +35,19 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     protected $name;
 
     /**
-     * @var ?ItemStateCollection
+     * @var ?TypedMoney
      */
-    protected $state;
+    protected $money;
 
     /**
-     * @var ?string
+     * @var ?TaxedItemPrice
      */
-    protected $id;
+    protected $taxedPrice;
 
     /**
-     * @var ?DiscountedLineItemPriceForQuantityCollection
+     * @var ?TypedMoney
      */
-    protected $discountedPricePerQuantity;
+    protected $totalPrice;
 
     /**
      * @var ?string
@@ -85,41 +55,251 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     protected $slug;
 
     /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?ItemStateCollection
+     */
+    protected $state;
+
+    /**
      * @var ?TaxCategoryReference
      */
     protected $taxCategory;
 
+    /**
+     * @var ?TaxRate
+     */
+    protected $taxRate;
+
+    /**
+     * @var ?DiscountedLineItemPriceForQuantityCollection
+     */
+    protected $discountedPricePerQuantity;
+
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
+    /**
+     * @var ?ItemShippingDetails
+     */
+    protected $shippingDetails;
+
     public function __construct(
-        TaxRate $taxRate = null,
-        int $quantity = null,
-        ItemShippingDetails $shippingDetails = null,
-        TypedMoney $money = null,
-        TypedMoney $totalPrice = null,
-        TaxedItemPrice $taxedPrice = null,
-        CustomFields $custom = null,
-        LocalizedString $name = null,
-        ItemStateCollection $state = null,
         string $id = null,
-        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
+        LocalizedString $name = null,
+        TypedMoney $money = null,
+        TaxedItemPrice $taxedPrice = null,
+        TypedMoney $totalPrice = null,
         string $slug = null,
-        TaxCategoryReference $taxCategory = null
+        int $quantity = null,
+        ItemStateCollection $state = null,
+        TaxCategoryReference $taxCategory = null,
+        TaxRate $taxRate = null,
+        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
+        CustomFields $custom = null,
+        ItemShippingDetails $shippingDetails = null
     ) {
-        $this->taxRate = $taxRate;
-        $this->quantity = $quantity;
-        $this->shippingDetails = $shippingDetails;
-        $this->money = $money;
-        $this->totalPrice = $totalPrice;
-        $this->taxedPrice = $taxedPrice;
-        $this->custom = $custom;
-        $this->name = $name;
-        $this->state = $state;
         $this->id = $id;
-        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->name = $name;
+        $this->money = $money;
+        $this->taxedPrice = $taxedPrice;
+        $this->totalPrice = $totalPrice;
         $this->slug = $slug;
+        $this->quantity = $quantity;
+        $this->state = $state;
         $this->taxCategory = $taxCategory;
+        $this->taxRate = $taxRate;
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->custom = $custom;
+        $this->shippingDetails = $shippingDetails;
     }
 
     /**
+     * <p>The unique ID of this CustomLineItem.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomLineItem::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * <p>The name of this CustomLineItem.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * <p>The cost to add to the cart.
+     * The amount can be negative.</p>.
+     *
+     * @return null|TypedMoney
+     */
+    public function getMoney()
+    {
+        if (is_null($this->money)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_MONEY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->money = TypedMoneyModel::of($data);
+        }
+
+        return $this->money;
+    }
+
+    /**
+     * <p>Set once the <code>taxRate</code> is set.</p>.
+     *
+     * @return null|TaxedItemPrice
+     */
+    public function getTaxedPrice()
+    {
+        if (is_null($this->taxedPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_TAXED_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxedPrice = TaxedItemPriceModel::of($data);
+        }
+
+        return $this->taxedPrice;
+    }
+
+    /**
+     * <p>The total price of this custom line item.
+     * If custom line item is discounted, then the <code>totalPrice</code> would be the discounted custom line item price multiplied by <code>quantity</code>.
+     * Otherwise a total price is just a <code>money</code> multiplied by the <code>quantity</code>.
+     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>.
+     *
+     * @return null|TypedMoney
+     */
+    public function getTotalPrice()
+    {
+        if (is_null($this->totalPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_TOTAL_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->totalPrice = TypedMoneyModel::of($data);
+        }
+
+        return $this->totalPrice;
+    }
+
+    /**
+     * <p>A unique String in the cart to identify this CustomLineItem.</p>.
+     *
+     * @return null|string
+     */
+    public function getSlug()
+    {
+        if (is_null($this->slug)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomLineItem::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->slug = (string) $data;
+        }
+
+        return $this->slug;
+    }
+
+    /**
+     * <p>The amount of a CustomLineItem in the cart.
+     * Must be a positive integer.</p>.
+     *
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomLineItem::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
+    }
+
+    /**
+     * @return null|ItemStateCollection
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CustomLineItem::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = ItemStateCollection::fromArray($data);
+        }
+
+        return $this->state;
+    }
+
+    /**
+     * @return null|TaxCategoryReference
+     */
+    public function getTaxCategory()
+    {
+        if (is_null($this->taxCategory)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItem::FIELD_TAX_CATEGORY);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxCategory = TaxCategoryReferenceModel::of($data);
+        }
+
+        return $this->taxCategory;
+    }
+
+    /**
+     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
+     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>.
+     *
      * @return null|TaxRate
      */
     public function getTaxRate()
@@ -138,92 +318,20 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * @return null|int
+     * @return null|DiscountedLineItemPriceForQuantityCollection
      */
-    public function getQuantity()
+    public function getDiscountedPricePerQuantity()
     {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CustomLineItem::FIELD_QUANTITY);
+        if (is_null($this->discountedPricePerQuantity)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CustomLineItem::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
         }
 
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|ItemShippingDetails
-     */
-    public function getShippingDetails()
-    {
-        if (is_null($this->shippingDetails)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_SHIPPING_DETAILS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->shippingDetails = ItemShippingDetailsModel::of($data);
-        }
-
-        return $this->shippingDetails;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getMoney()
-    {
-        if (is_null($this->money)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_MONEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->money = $className::of($data);
-        }
-
-        return $this->money;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getTotalPrice()
-    {
-        if (is_null($this->totalPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_TOTAL_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->totalPrice = $className::of($data);
-        }
-
-        return $this->totalPrice;
-    }
-
-    /**
-     * @return null|TaxedItemPrice
-     */
-    public function getTaxedPrice()
-    {
-        if (is_null($this->taxedPrice)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_TAXED_PRICE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->taxedPrice = TaxedItemPriceModel::of($data);
-        }
-
-        return $this->taxedPrice;
+        return $this->discountedPricePerQuantity;
     }
 
     /**
@@ -245,152 +353,25 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
     }
 
     /**
-     * @return null|LocalizedString
+     * <p>Container for custom line item specific address(es).
+     * CustomLineItem fields that can be used in query predicates: <code>slug</code>, <code>name</code>, <code>quantity</code>,
+     * <code>money</code>, <code>state</code>, <code>discountedPricePerQuantity</code>.</p>.
+     *
+     * @return null|ItemShippingDetails
      */
-    public function getName()
+    public function getShippingDetails()
     {
-        if (is_null($this->name)) {
+        if (is_null($this->shippingDetails)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_NAME);
+            $data = $this->raw(CustomLineItem::FIELD_SHIPPING_DETAILS);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->name = LocalizedStringModel::of($data);
+            $this->shippingDetails = ItemShippingDetailsModel::of($data);
         }
 
-        return $this->name;
-    }
-
-    /**
-     * @return null|ItemStateCollection
-     */
-    public function getState()
-    {
-        if (is_null($this->state)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CustomLineItem::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->state = ItemStateCollection::fromArray($data);
-        }
-
-        return $this->state;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomLineItem::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
-     * @return null|DiscountedLineItemPriceForQuantityCollection
-     */
-    public function getDiscountedPricePerQuantity()
-    {
-        if (is_null($this->discountedPricePerQuantity)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CustomLineItem::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
-        }
-
-        return $this->discountedPricePerQuantity;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSlug()
-    {
-        if (is_null($this->slug)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomLineItem::FIELD_SLUG);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->slug = (string) $data;
-        }
-
-        return $this->slug;
-    }
-
-    /**
-     * @return null|TaxCategoryReference
-     */
-    public function getTaxCategory()
-    {
-        if (is_null($this->taxCategory)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItem::FIELD_TAX_CATEGORY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->taxCategory = TaxCategoryReferenceModel::of($data);
-        }
-
-        return $this->taxCategory;
-    }
-
-    public function setTaxRate(?TaxRate $taxRate): void
-    {
-        $this->taxRate = $taxRate;
-    }
-
-    public function setQuantity(?int $quantity): void
-    {
-        $this->quantity = $quantity;
-    }
-
-    public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
-    {
-        $this->shippingDetails = $shippingDetails;
-    }
-
-    public function setMoney(?TypedMoney $money): void
-    {
-        $this->money = $money;
-    }
-
-    public function setTotalPrice(?TypedMoney $totalPrice): void
-    {
-        $this->totalPrice = $totalPrice;
-    }
-
-    public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
-    {
-        $this->taxedPrice = $taxedPrice;
-    }
-
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function setState(?ItemStateCollection $state): void
-    {
-        $this->state = $state;
+        return $this->shippingDetails;
     }
 
     public function setId(?string $id): void
@@ -398,9 +379,24 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         $this->id = $id;
     }
 
-    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
+    public function setName(?LocalizedString $name): void
     {
-        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->name = $name;
+    }
+
+    public function setMoney(?TypedMoney $money): void
+    {
+        $this->money = $money;
+    }
+
+    public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
+    {
+        $this->taxedPrice = $taxedPrice;
+    }
+
+    public function setTotalPrice(?TypedMoney $totalPrice): void
+    {
+        $this->totalPrice = $totalPrice;
     }
 
     public function setSlug(?string $slug): void
@@ -408,8 +404,38 @@ final class CustomLineItemModel extends JsonObjectModel implements CustomLineIte
         $this->slug = $slug;
     }
 
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+    public function setState(?ItemStateCollection $state): void
+    {
+        $this->state = $state;
+    }
+
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
+    }
+
+    public function setTaxRate(?TaxRate $taxRate): void
+    {
+        $this->taxRate = $taxRate;
+    }
+
+    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
+    {
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+    }
+
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setShippingDetails(?ItemShippingDetails $shippingDetails): void
+    {
+        $this->shippingDetails = $shippingDetails;
     }
 }

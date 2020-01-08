@@ -33,36 +33,55 @@ interface CustomLineItem extends JsonObject
     const FIELD_SHIPPING_DETAILS = 'shippingDetails';
 
     /**
+     * <p>The unique ID of this CustomLineItem.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The name of this CustomLineItem.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName();
 
     /**
+     * <p>The cost to add to the cart.
+     * The amount can be negative.</p>.
+     *
      * @return null|TypedMoney
      */
     public function getMoney();
 
     /**
+     * <p>Set once the <code>taxRate</code> is set.</p>.
+     *
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice();
 
     /**
+     * <p>The total price of this custom line item.
+     * If custom line item is discounted, then the <code>totalPrice</code> would be the discounted custom line item price multiplied by <code>quantity</code>.
+     * Otherwise a total price is just a <code>money</code> multiplied by the <code>quantity</code>.
+     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property.</p>.
+     *
      * @return null|TypedMoney
      */
     public function getTotalPrice();
 
     /**
+     * <p>A unique String in the cart to identify this CustomLineItem.</p>.
+     *
      * @return null|string
      */
     public function getSlug();
 
     /**
+     * <p>The amount of a CustomLineItem in the cart.
+     * Must be a positive integer.</p>.
+     *
      * @return null|int
      */
     public function getQuantity();
@@ -78,6 +97,9 @@ interface CustomLineItem extends JsonObject
     public function getTaxCategory();
 
     /**
+     * <p>Will be set automatically in the <code>Platform</code> TaxMode once the shipping address is set is set.
+     * For the <code>External</code> tax mode the tax rate has to be set explicitly with the ExternalTaxRateDraft.</p>.
+     *
      * @return null|TaxRate
      */
     public function getTaxRate();
@@ -93,6 +115,10 @@ interface CustomLineItem extends JsonObject
     public function getCustom();
 
     /**
+     * <p>Container for custom line item specific address(es).
+     * CustomLineItem fields that can be used in query predicates: <code>slug</code>, <code>name</code>, <code>quantity</code>,
+     * <code>money</code>, <code>state</code>, <code>discountedPricePerQuantity</code>.</p>.
+     *
      * @return null|ItemShippingDetails
      */
     public function getShippingDetails();

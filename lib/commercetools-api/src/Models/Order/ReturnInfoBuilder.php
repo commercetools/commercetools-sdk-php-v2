@@ -17,9 +17,9 @@ use DateTimeImmutable;
 final class ReturnInfoBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
+     * @var ?ReturnItemCollection
      */
-    private $returnDate;
+    private $items;
 
     /**
      * @var ?string
@@ -27,25 +27,9 @@ final class ReturnInfoBuilder implements Builder
     private $returnTrackingId;
 
     /**
-     * @var ?ReturnItemCollection
+     * @var ?DateTimeImmutable
      */
-    private $items;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getReturnDate()
-    {
-        return $this->returnDate;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getReturnTrackingId()
-    {
-        return $this->returnTrackingId;
-    }
+    private $returnDate;
 
     /**
      * @return null|ReturnItemCollection
@@ -56,11 +40,29 @@ final class ReturnInfoBuilder implements Builder
     }
 
     /**
+     * <p>Identifies, which return tracking ID is connected to this particular return.</p>.
+     *
+     * @return null|string
+     */
+    public function getReturnTrackingId()
+    {
+        return $this->returnTrackingId;
+    }
+
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getReturnDate()
+    {
+        return $this->returnDate;
+    }
+
+    /**
      * @return $this
      */
-    public function withReturnDate(?DateTimeImmutable $returnDate)
+    public function withItems(?ReturnItemCollection $items)
     {
-        $this->returnDate = $returnDate;
+        $this->items = $items;
 
         return $this;
     }
@@ -78,9 +80,9 @@ final class ReturnInfoBuilder implements Builder
     /**
      * @return $this
      */
-    public function withItems(?ReturnItemCollection $items)
+    public function withReturnDate(?DateTimeImmutable $returnDate)
     {
-        $this->items = $items;
+        $this->returnDate = $returnDate;
 
         return $this;
     }
@@ -88,9 +90,9 @@ final class ReturnInfoBuilder implements Builder
     public function build(): ReturnInfo
     {
         return new ReturnInfoModel(
-            $this->returnDate,
+            $this->items,
             $this->returnTrackingId,
-            $this->items
+            $this->returnDate
         );
     }
 

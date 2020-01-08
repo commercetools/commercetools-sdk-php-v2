@@ -14,38 +14,21 @@ use stdClass;
 final class InventoryEntryUpdateModel extends JsonObjectModel implements InventoryEntryUpdate
 {
     /**
-     * @var ?InventoryEntryUpdateActionCollection
-     */
-    protected $actions;
-
-    /**
      * @var ?int
      */
     protected $version;
 
-    public function __construct(
-        InventoryEntryUpdateActionCollection $actions = null,
-        int $version = null
-    ) {
-        $this->actions = $actions;
-        $this->version = $version;
-    }
-
     /**
-     * @return null|InventoryEntryUpdateActionCollection
+     * @var ?InventoryEntryUpdateActionCollection
      */
-    public function getActions()
-    {
-        if (is_null($this->actions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(InventoryEntryUpdate::FIELD_ACTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->actions = InventoryEntryUpdateActionCollection::fromArray($data);
-        }
+    protected $actions;
 
-        return $this->actions;
+    public function __construct(
+        int $version = null,
+        InventoryEntryUpdateActionCollection $actions = null
+    ) {
+        $this->version = $version;
+        $this->actions = $actions;
     }
 
     /**
@@ -65,13 +48,30 @@ final class InventoryEntryUpdateModel extends JsonObjectModel implements Invento
         return $this->version;
     }
 
-    public function setActions(?InventoryEntryUpdateActionCollection $actions): void
+    /**
+     * @return null|InventoryEntryUpdateActionCollection
+     */
+    public function getActions()
     {
-        $this->actions = $actions;
+        if (is_null($this->actions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(InventoryEntryUpdate::FIELD_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->actions = InventoryEntryUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->actions;
     }
 
     public function setVersion(?int $version): void
     {
         $this->version = $version;
+    }
+
+    public function setActions(?InventoryEntryUpdateActionCollection $actions): void
+    {
+        $this->actions = $actions;
     }
 }

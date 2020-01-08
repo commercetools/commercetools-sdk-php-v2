@@ -13,14 +13,9 @@ use Commercetools\Base\JsonObjectModel;
 final class CustomerSigninModel extends JsonObjectModel implements CustomerSignin
 {
     /**
-     * @var ?bool
-     */
-    protected $updateProductData;
-
-    /**
      * @var ?string
      */
-    protected $anonymousId;
+    protected $email;
 
     /**
      * @var ?string
@@ -30,66 +25,54 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     /**
      * @var ?string
      */
-    protected $anonymousCartSignInMode;
-
-    /**
-     * @var ?string
-     */
     protected $anonymousCartId;
 
     /**
      * @var ?string
      */
-    protected $email;
-
-    public function __construct(
-        bool $updateProductData = null,
-        string $anonymousId = null,
-        string $password = null,
-        string $anonymousCartSignInMode = null,
-        string $anonymousCartId = null,
-        string $email = null
-    ) {
-        $this->updateProductData = $updateProductData;
-        $this->anonymousId = $anonymousId;
-        $this->password = $password;
-        $this->anonymousCartSignInMode = $anonymousCartSignInMode;
-        $this->anonymousCartId = $anonymousCartId;
-        $this->email = $email;
-    }
+    protected $anonymousCartSignInMode;
 
     /**
-     * @return null|bool
+     * @var ?string
      */
-    public function getUpdateProductData()
-    {
-        if (is_null($this->updateProductData)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(CustomerSignin::FIELD_UPDATE_PRODUCT_DATA);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->updateProductData = (bool) $data;
-        }
+    protected $anonymousId;
 
-        return $this->updateProductData;
+    /**
+     * @var ?bool
+     */
+    protected $updateProductData;
+
+    public function __construct(
+        string $email = null,
+        string $password = null,
+        string $anonymousCartId = null,
+        string $anonymousCartSignInMode = null,
+        string $anonymousId = null,
+        bool $updateProductData = null
+    ) {
+        $this->email = $email;
+        $this->password = $password;
+        $this->anonymousCartId = $anonymousCartId;
+        $this->anonymousCartSignInMode = $anonymousCartSignInMode;
+        $this->anonymousId = $anonymousId;
+        $this->updateProductData = $updateProductData;
     }
 
     /**
      * @return null|string
      */
-    public function getAnonymousId()
+    public function getEmail()
     {
-        if (is_null($this->anonymousId)) {
+        if (is_null($this->email)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSignin::FIELD_ANONYMOUS_ID);
+            $data = $this->raw(CustomerSignin::FIELD_EMAIL);
             if (is_null($data)) {
                 return null;
             }
-            $this->anonymousId = (string) $data;
+            $this->email = (string) $data;
         }
 
-        return $this->anonymousId;
+        return $this->email;
     }
 
     /**
@@ -112,23 +95,6 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     /**
      * @return null|string
      */
-    public function getAnonymousCartSignInMode()
-    {
-        if (is_null($this->anonymousCartSignInMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSignin::FIELD_ANONYMOUS_CART_SIGN_IN_MODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->anonymousCartSignInMode = (string) $data;
-        }
-
-        return $this->anonymousCartSignInMode;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getAnonymousCartId()
     {
         if (is_null($this->anonymousCartId)) {
@@ -146,28 +112,57 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
     /**
      * @return null|string
      */
-    public function getEmail()
+    public function getAnonymousCartSignInMode()
     {
-        if (is_null($this->email)) {
+        if (is_null($this->anonymousCartSignInMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerSignin::FIELD_EMAIL);
+            $data = $this->raw(CustomerSignin::FIELD_ANONYMOUS_CART_SIGN_IN_MODE);
             if (is_null($data)) {
                 return null;
             }
-            $this->email = (string) $data;
+            $this->anonymousCartSignInMode = (string) $data;
         }
 
-        return $this->email;
+        return $this->anonymousCartSignInMode;
     }
 
-    public function setUpdateProductData(?bool $updateProductData): void
+    /**
+     * @return null|string
+     */
+    public function getAnonymousId()
     {
-        $this->updateProductData = $updateProductData;
+        if (is_null($this->anonymousId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerSignin::FIELD_ANONYMOUS_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->anonymousId = (string) $data;
+        }
+
+        return $this->anonymousId;
     }
 
-    public function setAnonymousId(?string $anonymousId): void
+    /**
+     * @return null|bool
+     */
+    public function getUpdateProductData()
     {
-        $this->anonymousId = $anonymousId;
+        if (is_null($this->updateProductData)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(CustomerSignin::FIELD_UPDATE_PRODUCT_DATA);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->updateProductData = (bool) $data;
+        }
+
+        return $this->updateProductData;
+    }
+
+    public function setEmail(?string $email): void
+    {
+        $this->email = $email;
     }
 
     public function setPassword(?string $password): void
@@ -175,18 +170,23 @@ final class CustomerSigninModel extends JsonObjectModel implements CustomerSigni
         $this->password = $password;
     }
 
-    public function setAnonymousCartSignInMode(?string $anonymousCartSignInMode): void
-    {
-        $this->anonymousCartSignInMode = $anonymousCartSignInMode;
-    }
-
     public function setAnonymousCartId(?string $anonymousCartId): void
     {
         $this->anonymousCartId = $anonymousCartId;
     }
 
-    public function setEmail(?string $email): void
+    public function setAnonymousCartSignInMode(?string $anonymousCartSignInMode): void
     {
-        $this->email = $email;
+        $this->anonymousCartSignInMode = $anonymousCartSignInMode;
+    }
+
+    public function setAnonymousId(?string $anonymousId): void
+    {
+        $this->anonymousId = $anonymousId;
+    }
+
+    public function setUpdateProductData(?bool $updateProductData): void
+    {
+        $this->updateProductData = $updateProductData;
     }
 }

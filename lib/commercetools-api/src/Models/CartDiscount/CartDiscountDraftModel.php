@@ -20,54 +20,19 @@ use stdClass;
 final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscountDraft
 {
     /**
-     * @var ?bool
-     */
-    protected $requiresDiscountCode;
-
-    /**
-     * @var ?string
-     */
-    protected $cartPredicate;
-
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
-
-    /**
-     * @var ?string
-     */
-    protected $stackingMode;
-
-    /**
-     * @var ?string
-     */
-    protected $sortOrder;
-
-    /**
      * @var ?LocalizedString
      */
     protected $name;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?string
      */
-    protected $validUntil;
+    protected $key;
 
     /**
      * @var ?LocalizedString
      */
     protected $description;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $validFrom;
-
-    /**
-     * @var ?bool
-     */
-    protected $isActive;
 
     /**
      * @var ?CartDiscountValueDraft
@@ -77,130 +42,76 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     /**
      * @var ?string
      */
-    protected $key;
+    protected $cartPredicate;
 
     /**
      * @var ?CartDiscountTarget
      */
     protected $target;
 
+    /**
+     * @var ?string
+     */
+    protected $sortOrder;
+
+    /**
+     * @var ?bool
+     */
+    protected $isActive;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $validFrom;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $validUntil;
+
+    /**
+     * @var ?bool
+     */
+    protected $requiresDiscountCode;
+
+    /**
+     * @var ?string
+     */
+    protected $stackingMode;
+
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
     public function __construct(
-        bool $requiresDiscountCode = null,
-        string $cartPredicate = null,
-        CustomFields $custom = null,
-        string $stackingMode = null,
-        string $sortOrder = null,
         LocalizedString $name = null,
-        DateTimeImmutable $validUntil = null,
-        LocalizedString $description = null,
-        DateTimeImmutable $validFrom = null,
-        bool $isActive = null,
-        CartDiscountValueDraft $value = null,
         string $key = null,
-        CartDiscountTarget $target = null
+        LocalizedString $description = null,
+        CartDiscountValueDraft $value = null,
+        string $cartPredicate = null,
+        CartDiscountTarget $target = null,
+        string $sortOrder = null,
+        bool $isActive = null,
+        DateTimeImmutable $validFrom = null,
+        DateTimeImmutable $validUntil = null,
+        bool $requiresDiscountCode = null,
+        string $stackingMode = null,
+        CustomFields $custom = null
     ) {
-        $this->requiresDiscountCode = $requiresDiscountCode;
-        $this->cartPredicate = $cartPredicate;
-        $this->custom = $custom;
-        $this->stackingMode = $stackingMode;
-        $this->sortOrder = $sortOrder;
         $this->name = $name;
-        $this->validUntil = $validUntil;
-        $this->description = $description;
-        $this->validFrom = $validFrom;
-        $this->isActive = $isActive;
-        $this->value = $value;
         $this->key = $key;
+        $this->description = $description;
+        $this->value = $value;
+        $this->cartPredicate = $cartPredicate;
         $this->target = $target;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getRequiresDiscountCode()
-    {
-        if (is_null($this->requiresDiscountCode)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_REQUIRES_DISCOUNT_CODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->requiresDiscountCode = (bool) $data;
-        }
-
-        return $this->requiresDiscountCode;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getCartPredicate()
-    {
-        if (is_null($this->cartPredicate)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_CART_PREDICATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->cartPredicate = (string) $data;
-        }
-
-        return $this->cartPredicate;
-    }
-
-    /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * <p>Specifies whether the application of this discount causes the following discounts to be ignored.
-     * Defaults to Stacking.</p>.
-     *
-     * @return null|string
-     */
-    public function getStackingMode()
-    {
-        if (is_null($this->stackingMode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_STACKING_MODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->stackingMode = (string) $data;
-        }
-
-        return $this->stackingMode;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSortOrder()
-    {
-        if (is_null($this->sortOrder)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_SORT_ORDER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sortOrder = (string) $data;
-        }
-
-        return $this->sortOrder;
+        $this->sortOrder = $sortOrder;
+        $this->isActive = $isActive;
+        $this->validFrom = $validFrom;
+        $this->validUntil = $validUntil;
+        $this->requiresDiscountCode = $requiresDiscountCode;
+        $this->stackingMode = $stackingMode;
+        $this->custom = $custom;
     }
 
     /**
@@ -222,24 +133,24 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
-     * @return null|DateTimeImmutable
+     * <p>User-specific unique identifier for a cart discount.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction.</p>.
+     *
+     * @return null|string
      */
-    public function getValidUntil()
+    public function getKey()
     {
-        if (is_null($this->validUntil)) {
+        if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_VALID_UNTIL);
+            $data = $this->raw(CartDiscountDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->validUntil = $data;
+            $this->key = (string) $data;
         }
 
-        return $this->validUntil;
+        return $this->key;
     }
 
     /**
@@ -258,6 +169,104 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         }
 
         return $this->description;
+    }
+
+    /**
+     * @return null|CartDiscountValueDraft
+     */
+    public function getValue()
+    {
+        if (is_null($this->value)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDiscountDraft::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->value = CartDiscountValueDraftModel::of($data);
+        }
+
+        return $this->value;
+    }
+
+    /**
+     * <p>A valid Cart predicate.</p>.
+     *
+     * @return null|string
+     */
+    public function getCartPredicate()
+    {
+        if (is_null($this->cartPredicate)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDiscountDraft::FIELD_CART_PREDICATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->cartPredicate = (string) $data;
+        }
+
+        return $this->cartPredicate;
+    }
+
+    /**
+     * <p>Must not be set when the <code>value</code> has type <code>giftLineItem</code>, otherwise a CartDiscountTarget must be set.</p>.
+     *
+     * @return null|CartDiscountTarget
+     */
+    public function getTarget()
+    {
+        if (is_null($this->target)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartDiscountDraft::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->target = CartDiscountTargetModel::of($data);
+        }
+
+        return $this->target;
+    }
+
+    /**
+     * <p>The string must contain a number between 0 and 1.
+     * A discount with greater sort order is prioritized higher than a discount with lower sort order.
+     * The sort order must be unambiguous among all cart discounts.</p>.
+     *
+     * @return null|string
+     */
+    public function getSortOrder()
+    {
+        if (is_null($this->sortOrder)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDiscountDraft::FIELD_SORT_ORDER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sortOrder = (string) $data;
+        }
+
+        return $this->sortOrder;
+    }
+
+    /**
+     * <p>Only active discount can be applied to the cart.
+     * Defaults to <code>true</code>.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsActive()
+    {
+        if (is_null($this->isActive)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(CartDiscountDraft::FIELD_IS_ACTIVE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isActive = (bool) $data;
+        }
+
+        return $this->isActive;
     }
 
     /**
@@ -282,98 +291,82 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
     }
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
+    {
+        if (is_null($this->validUntil)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CartDiscountDraft::FIELD_VALID_UNTIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validUntil = $data;
+        }
+
+        return $this->validUntil;
+    }
+
+    /**
+     * <p>States whether the discount can only be used in a connection with a DiscountCode.
+     * Defaults to <code>false</code>.</p>.
+     *
      * @return null|bool
      */
-    public function getIsActive()
+    public function getRequiresDiscountCode()
     {
-        if (is_null($this->isActive)) {
+        if (is_null($this->requiresDiscountCode)) {
             /** @psalm-var ?bool $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_IS_ACTIVE);
+            $data = $this->raw(CartDiscountDraft::FIELD_REQUIRES_DISCOUNT_CODE);
             if (is_null($data)) {
                 return null;
             }
-            $this->isActive = (bool) $data;
+            $this->requiresDiscountCode = (bool) $data;
         }
 
-        return $this->isActive;
+        return $this->requiresDiscountCode;
     }
 
     /**
-     * @return null|CartDiscountValueDraft
-     */
-    public function getValue()
-    {
-        if (is_null($this->value)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = CartDiscountValueDraftModel::resolveDiscriminatorClass($data);
-            $this->value = $className::of($data);
-        }
-
-        return $this->value;
-    }
-
-    /**
+     * <p>Specifies whether the application of this discount causes the following discounts to be ignored.
+     * Defaults to Stacking.</p>.
+     *
      * @return null|string
      */
-    public function getKey()
+    public function getStackingMode()
     {
-        if (is_null($this->key)) {
+        if (is_null($this->stackingMode)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_KEY);
+            $data = $this->raw(CartDiscountDraft::FIELD_STACKING_MODE);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+            $this->stackingMode = (string) $data;
         }
 
-        return $this->key;
+        return $this->stackingMode;
     }
 
     /**
-     * @return null|CartDiscountTarget
+     * @return null|CustomFields
      */
-    public function getTarget()
+    public function getCustom()
     {
-        if (is_null($this->target)) {
+        if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartDiscountDraft::FIELD_TARGET);
+            $data = $this->raw(CartDiscountDraft::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
-            $className = CartDiscountTargetModel::resolveDiscriminatorClass($data);
-            $this->target = $className::of($data);
+
+            $this->custom = CustomFieldsModel::of($data);
         }
 
-        return $this->target;
-    }
-
-    public function setRequiresDiscountCode(?bool $requiresDiscountCode): void
-    {
-        $this->requiresDiscountCode = $requiresDiscountCode;
-    }
-
-    public function setCartPredicate(?string $cartPredicate): void
-    {
-        $this->cartPredicate = $cartPredicate;
-    }
-
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    public function setStackingMode(?string $stackingMode): void
-    {
-        $this->stackingMode = $stackingMode;
-    }
-
-    public function setSortOrder(?string $sortOrder): void
-    {
-        $this->sortOrder = $sortOrder;
+        return $this->custom;
     }
 
     public function setName(?LocalizedString $name): void
@@ -381,9 +374,9 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         $this->name = $name;
     }
 
-    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    public function setKey(?string $key): void
     {
-        $this->validUntil = $validUntil;
+        $this->key = $key;
     }
 
     public function setDescription(?LocalizedString $description): void
@@ -391,24 +384,14 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         $this->description = $description;
     }
 
-    public function setValidFrom(?DateTimeImmutable $validFrom): void
-    {
-        $this->validFrom = $validFrom;
-    }
-
-    public function setIsActive(?bool $isActive): void
-    {
-        $this->isActive = $isActive;
-    }
-
     public function setValue(?CartDiscountValueDraft $value): void
     {
         $this->value = $value;
     }
 
-    public function setKey(?string $key): void
+    public function setCartPredicate(?string $cartPredicate): void
     {
-        $this->key = $key;
+        $this->cartPredicate = $cartPredicate;
     }
 
     public function setTarget(?CartDiscountTarget $target): void
@@ -416,15 +399,50 @@ final class CartDiscountDraftModel extends JsonObjectModel implements CartDiscou
         $this->target = $target;
     }
 
+    public function setSortOrder(?string $sortOrder): void
+    {
+        $this->sortOrder = $sortOrder;
+    }
+
+    public function setIsActive(?bool $isActive): void
+    {
+        $this->isActive = $isActive;
+    }
+
+    public function setValidFrom(?DateTimeImmutable $validFrom): void
+    {
+        $this->validFrom = $validFrom;
+    }
+
+    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    {
+        $this->validUntil = $validUntil;
+    }
+
+    public function setRequiresDiscountCode(?bool $requiresDiscountCode): void
+    {
+        $this->requiresDiscountCode = $requiresDiscountCode;
+    }
+
+    public function setStackingMode(?string $stackingMode): void
+    {
+        $this->stackingMode = $stackingMode;
+    }
+
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
+    }
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[CartDiscountDraft::FIELD_VALID_UNTIL]) && $data[CartDiscountDraft::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
-            $data[CartDiscountDraft::FIELD_VALID_UNTIL] = $data[CartDiscountDraft::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
-        }
-
         if (isset($data[CartDiscountDraft::FIELD_VALID_FROM]) && $data[CartDiscountDraft::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
             $data[CartDiscountDraft::FIELD_VALID_FROM] = $data[CartDiscountDraft::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[CartDiscountDraft::FIELD_VALID_UNTIL]) && $data[CartDiscountDraft::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
+            $data[CartDiscountDraft::FIELD_VALID_UNTIL] = $data[CartDiscountDraft::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

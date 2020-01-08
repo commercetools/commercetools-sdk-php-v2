@@ -23,11 +23,6 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     protected $action;
 
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $returnDate;
-
-    /**
      * @var ?string
      */
     protected $returnTrackingId;
@@ -37,14 +32,19 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
      */
     protected $items;
 
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $returnDate;
+
     public function __construct(
-        DateTimeImmutable $returnDate = null,
         string $returnTrackingId = null,
-        ReturnItemDraftCollection $items = null
+        ReturnItemDraftCollection $items = null,
+        DateTimeImmutable $returnDate = null
     ) {
-        $this->returnDate = $returnDate;
         $this->returnTrackingId = $returnTrackingId;
         $this->items = $items;
+        $this->returnDate = $returnDate;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -63,27 +63,6 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getReturnDate()
-    {
-        if (is_null($this->returnDate)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderAddReturnInfoAction::FIELD_RETURN_DATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->returnDate = $data;
-        }
-
-        return $this->returnDate;
     }
 
     /**
@@ -120,9 +99,25 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
         return $this->items;
     }
 
-    public function setReturnDate(?DateTimeImmutable $returnDate): void
+    /**
+     * @return null|DateTimeImmutable
+     */
+    public function getReturnDate()
     {
-        $this->returnDate = $returnDate;
+        if (is_null($this->returnDate)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderAddReturnInfoAction::FIELD_RETURN_DATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->returnDate = $data;
+        }
+
+        return $this->returnDate;
     }
 
     public function setReturnTrackingId(?string $returnTrackingId): void
@@ -133,6 +128,11 @@ final class OrderAddReturnInfoActionModel extends JsonObjectModel implements Ord
     public function setItems(?ReturnItemDraftCollection $items): void
     {
         $this->items = $items;
+    }
+
+    public function setReturnDate(?DateTimeImmutable $returnDate): void
+    {
+        $this->returnDate = $returnDate;
     }
 
     public function jsonSerialize()

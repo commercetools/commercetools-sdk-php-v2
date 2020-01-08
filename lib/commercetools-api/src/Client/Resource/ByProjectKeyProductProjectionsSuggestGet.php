@@ -129,13 +129,12 @@ class ByProjectKeyProductProjectionsSuggestGet extends ApiRequest
     }
 
     /**
-     * @psalm-param scalar $locale
+     * @psalm-param string $locale
      * @psalm-param scalar $searchKeywords
      *
-     * @param mixed $locale
      * @param mixed $searchKeywords
      */
-    public function withSearchKeywords($locale, $searchKeywords): ByProjectKeyProductProjectionsSuggestGet
+    public function withSearchKeywords(string $locale, $searchKeywords): ByProjectKeyProductProjectionsSuggestGet
     {
         return $this->withQueryParam(sprintf('searchKeywords.%s', $locale), $searchKeywords);
     }

@@ -24,16 +24,6 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     const DISCRIMINATOR_VALUE = 'OrderStateChanged';
 
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -44,14 +34,24 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
 
     /**
      * @var ?int
@@ -64,11 +64,6 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     protected $resource;
 
     /**
-     * @var ?UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     protected $resourceVersion;
@@ -79,42 +74,81 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     protected $type;
 
     /**
-     * @var ?string
+     * @var ?UserProvidedIdentifiers
      */
-    protected $oldOrderState;
+    protected $resourceUserProvidedIdentifiers;
 
     /**
      * @var ?string
      */
     protected $orderState;
 
+    /**
+     * @var ?string
+     */
+    protected $oldOrderState;
+
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
+        CreatedBy $createdBy = null,
         int $sequenceNumber = null,
         Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        string $oldOrderState = null,
-        string $orderState = null
+        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        string $orderState = null,
+        string $oldOrderState = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
         $this->sequenceNumber = $sequenceNumber;
         $this->resource = $resource;
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->oldOrderState = $oldOrderState;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->orderState = $orderState;
+        $this->oldOrderState = $oldOrderState;
         $this->type = static::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Message::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Message::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -160,37 +194,21 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -209,24 +227,6 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
         }
 
         return $this->createdBy;
-    }
-
-    /**
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
-        }
-
-        return $this->lastModifiedBy;
     }
 
     /**
@@ -265,24 +265,6 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        if (is_null($this->resourceUserProvidedIdentifiers)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
-        }
-
-        return $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -317,20 +299,21 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
     }
 
     /**
-     * @return null|string
+     * @return null|UserProvidedIdentifiers
      */
-    public function getOldOrderState()
+    public function getResourceUserProvidedIdentifiers()
     {
-        if (is_null($this->oldOrderState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderStateChangedMessage::FIELD_OLD_ORDER_STATE);
+        if (is_null($this->resourceUserProvidedIdentifiers)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
             if (is_null($data)) {
                 return null;
             }
-            $this->oldOrderState = (string) $data;
+
+            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
         }
 
-        return $this->oldOrderState;
+        return $this->resourceUserProvidedIdentifiers;
     }
 
     /**
@@ -350,14 +333,21 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
         return $this->orderState;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    /**
+     * @return null|string
+     */
+    public function getOldOrderState()
     {
-        $this->createdAt = $createdAt;
-    }
+        if (is_null($this->oldOrderState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderStateChangedMessage::FIELD_OLD_ORDER_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldOrderState = (string) $data;
+        }
 
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->oldOrderState;
     }
 
     public function setId(?string $id): void
@@ -370,14 +360,24 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
+    }
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
     }
 
     public function setSequenceNumber(?int $sequenceNumber): void
@@ -390,24 +390,24 @@ final class OrderStateChangedMessageModel extends JsonObjectModel implements Ord
         $this->resource = $resource;
     }
 
-    public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
-    {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
     }
 
-    public function setOldOrderState(?string $oldOrderState): void
+    public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
-        $this->oldOrderState = $oldOrderState;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;
+    }
+
+    public function setOldOrderState(?string $oldOrderState): void
+    {
+        $this->oldOrderState = $oldOrderState;
     }
 
     public function jsonSerialize()

@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class ShippingMethodRemoveShippingRateActionBuilder implements Builder
 {
     /**
-     * @var ShippingRateDraft|?ShippingRateDraftBuilder
-     */
-    private $shippingRate;
-
-    /**
      * @var ZoneResourceIdentifier|?ZoneResourceIdentifierBuilder
      */
     private $zone;
 
     /**
-     * @return null|ShippingRateDraft
+     * @var ShippingRateDraft|?ShippingRateDraftBuilder
      */
-    public function getShippingRate()
-    {
-        return $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate;
-    }
+    private $shippingRate;
 
     /**
      * @return null|ZoneResourceIdentifier
@@ -44,13 +36,11 @@ final class ShippingMethodRemoveShippingRateActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ShippingRateDraft
      */
-    public function withShippingRate(?ShippingRateDraft $shippingRate)
+    public function getShippingRate()
     {
-        $this->shippingRate = $shippingRate;
-
-        return $this;
+        return $this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate;
     }
 
     /**
@@ -66,7 +56,7 @@ final class ShippingMethodRemoveShippingRateActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)
+    public function withShippingRate(?ShippingRateDraft $shippingRate)
     {
         $this->shippingRate = $shippingRate;
 
@@ -83,11 +73,21 @@ final class ShippingMethodRemoveShippingRateActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withShippingRateBuilder(?ShippingRateDraftBuilder $shippingRate)
+    {
+        $this->shippingRate = $shippingRate;
+
+        return $this;
+    }
+
     public function build(): ShippingMethodRemoveShippingRateAction
     {
         return new ShippingMethodRemoveShippingRateActionModel(
-            ($this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate),
-            ($this->zone instanceof ZoneResourceIdentifierBuilder ? $this->zone->build() : $this->zone)
+            ($this->zone instanceof ZoneResourceIdentifierBuilder ? $this->zone->build() : $this->zone),
+            ($this->shippingRate instanceof ShippingRateDraftBuilder ? $this->shippingRate->build() : $this->shippingRate)
         );
     }
 

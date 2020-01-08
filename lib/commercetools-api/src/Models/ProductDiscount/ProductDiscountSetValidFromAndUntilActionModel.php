@@ -24,19 +24,19 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validUntil;
+    protected $validFrom;
 
     /**
      * @var ?DateTimeImmutable
      */
-    protected $validFrom;
+    protected $validUntil;
 
     public function __construct(
-        DateTimeImmutable $validUntil = null,
-        DateTimeImmutable $validFrom = null
+        DateTimeImmutable $validFrom = null,
+        DateTimeImmutable $validUntil = null
     ) {
-        $this->validUntil = $validUntil;
         $this->validFrom = $validFrom;
+        $this->validUntil = $validUntil;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -60,27 +60,6 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
     /**
      * @return null|DateTimeImmutable
      */
-    public function getValidUntil()
-    {
-        if (is_null($this->validUntil)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL);
-            if (is_null($data)) {
-                return null;
-            }
-            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
-            if (false === $data) {
-                return null;
-            }
-            $this->validUntil = $data;
-        }
-
-        return $this->validUntil;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
     public function getValidFrom()
     {
         if (is_null($this->validFrom)) {
@@ -99,9 +78,28 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
         return $this->validFrom;
     }
 
-    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    /**
+     * <p>The timeframe for which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     *
+     * @return null|DateTimeImmutable
+     */
+    public function getValidUntil()
     {
-        $this->validUntil = $validUntil;
+        if (is_null($this->validUntil)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $data = DateTimeImmutable::createFromFormat(MapperFactory::DATETIME_FORMAT, $data);
+            if (false === $data) {
+                return null;
+            }
+            $this->validUntil = $data;
+        }
+
+        return $this->validUntil;
     }
 
     public function setValidFrom(?DateTimeImmutable $validFrom): void
@@ -109,15 +107,20 @@ final class ProductDiscountSetValidFromAndUntilActionModel extends JsonObjectMod
         $this->validFrom = $validFrom;
     }
 
+    public function setValidUntil(?DateTimeImmutable $validUntil): void
+    {
+        $this->validUntil = $validUntil;
+    }
+
     public function jsonSerialize()
     {
         $data = $this->toArray();
-        if (isset($data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]) && $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
-            $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] = $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
-        }
-
         if (isset($data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_FROM]) && $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_FROM] instanceof \DateTimeImmutable) {
             $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_FROM] = $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_FROM]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
+        }
+
+        if (isset($data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]) && $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] instanceof \DateTimeImmutable) {
+            $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL] = $data[ProductDiscountSetValidFromAndUntilAction::FIELD_VALID_UNTIL]->setTimeZone(new \DateTimeZone('UTC'))->format('c');
         }
 
         return (object) $data;

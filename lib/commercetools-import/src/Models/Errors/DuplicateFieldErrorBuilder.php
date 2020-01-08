@@ -22,14 +22,14 @@ final class DuplicateFieldErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var ?JsonObject
-     */
-    private $duplicateValue;
-
-    /**
      * @var ?string
      */
     private $field;
+
+    /**
+     * @var ?JsonObject
+     */
+    private $duplicateValue;
 
     /**
      * <p>The error's description.</p>.
@@ -42,16 +42,6 @@ final class DuplicateFieldErrorBuilder implements Builder
     }
 
     /**
-     * <p>The offending duplicate value.</p>.
-     *
-     * @return null|JsonObject
-     */
-    public function getDuplicateValue()
-    {
-        return $this->duplicateValue;
-    }
-
-    /**
      * <p>The name of the field.</p>.
      *
      * @return null|string
@@ -59,6 +49,16 @@ final class DuplicateFieldErrorBuilder implements Builder
     public function getField()
     {
         return $this->field;
+    }
+
+    /**
+     * <p>The offending duplicate value.</p>.
+     *
+     * @return null|JsonObject
+     */
+    public function getDuplicateValue()
+    {
+        return $this->duplicateValue;
     }
 
     /**
@@ -74,9 +74,9 @@ final class DuplicateFieldErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDuplicateValue(?JsonObject $duplicateValue)
+    public function withField(?string $field)
     {
-        $this->duplicateValue = $duplicateValue;
+        $this->field = $field;
 
         return $this;
     }
@@ -84,9 +84,9 @@ final class DuplicateFieldErrorBuilder implements Builder
     /**
      * @return $this
      */
-    public function withField(?string $field)
+    public function withDuplicateValue(?JsonObject $duplicateValue)
     {
-        $this->field = $field;
+        $this->duplicateValue = $duplicateValue;
 
         return $this;
     }
@@ -95,8 +95,8 @@ final class DuplicateFieldErrorBuilder implements Builder
     {
         return new DuplicateFieldErrorModel(
             $this->message,
-            $this->duplicateValue,
-            $this->field
+            $this->field,
+            $this->duplicateValue
         );
     }
 

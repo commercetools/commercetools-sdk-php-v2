@@ -22,21 +22,6 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     protected $action;
 
     /**
-     * @var ?string
-     */
-    protected $assetId;
-
-    /**
-     * @var ?string
-     */
-    protected $name;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -47,31 +32,46 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     protected $sku;
 
     /**
-     * @var ?JsonObject
+     * @var ?bool
      */
-    protected $value;
+    protected $staged;
+
+    /**
+     * @var ?string
+     */
+    protected $assetId;
 
     /**
      * @var ?string
      */
     protected $assetKey;
 
+    /**
+     * @var ?string
+     */
+    protected $name;
+
+    /**
+     * @var ?JsonObject
+     */
+    protected $value;
+
     public function __construct(
-        string $assetId = null,
-        string $name = null,
-        bool $staged = null,
         int $variantId = null,
         string $sku = null,
-        JsonObject $value = null,
-        string $assetKey = null
+        bool $staged = null,
+        string $assetId = null,
+        string $assetKey = null,
+        string $name = null,
+        JsonObject $value = null
     ) {
-        $this->assetId = $assetId;
-        $this->name = $name;
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
-        $this->value = $value;
+        $this->staged = $staged;
+        $this->assetId = $assetId;
         $this->assetKey = $assetKey;
+        $this->name = $name;
+        $this->value = $value;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -90,57 +90,6 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAssetId()
-    {
-        if (is_null($this->assetId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetCustomFieldAction::FIELD_ASSET_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assetId = (string) $data;
-        }
-
-        return $this->assetId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetCustomFieldAction::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->name = (string) $data;
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetAssetCustomFieldAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
     }
 
     /**
@@ -178,20 +127,37 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|bool
      */
-    public function getValue()
+    public function getStaged()
     {
-        if (is_null($this->value)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(ProductSetAssetCustomFieldAction::FIELD_VALUE);
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetAssetCustomFieldAction::FIELD_STAGED);
             if (is_null($data)) {
                 return null;
             }
-            $this->value = JsonObjectModel::of($data);
+            $this->staged = (bool) $data;
         }
 
-        return $this->value;
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        if (is_null($this->assetId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetAssetCustomFieldAction::FIELD_ASSET_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetId = (string) $data;
+        }
+
+        return $this->assetId;
     }
 
     /**
@@ -211,19 +177,38 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
         return $this->assetKey;
     }
 
-    public function setAssetId(?string $assetId): void
+    /**
+     * @return null|string
+     */
+    public function getName()
     {
-        $this->assetId = $assetId;
+        if (is_null($this->name)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetAssetCustomFieldAction::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->name = (string) $data;
+        }
+
+        return $this->name;
     }
 
-    public function setName(?string $name): void
+    /**
+     * @return null|JsonObject
+     */
+    public function getValue()
     {
-        $this->name = $name;
-    }
+        if (is_null($this->value)) {
+            /** @psalm-var ?stdClass $data */
+            $data = $this->raw(ProductSetAssetCustomFieldAction::FIELD_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->value = JsonObjectModel::of($data);
+        }
 
-    public function setStaged(?bool $staged): void
-    {
-        $this->staged = $staged;
+        return $this->value;
     }
 
     public function setVariantId(?int $variantId): void
@@ -236,13 +221,28 @@ final class ProductSetAssetCustomFieldActionModel extends JsonObjectModel implem
         $this->sku = $sku;
     }
 
-    public function setValue(?JsonObject $value): void
+    public function setStaged(?bool $staged): void
     {
-        $this->value = $value;
+        $this->staged = $staged;
+    }
+
+    public function setAssetId(?string $assetId): void
+    {
+        $this->assetId = $assetId;
     }
 
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
+    }
+
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setValue(?JsonObject $value): void
+    {
+        $this->value = $value;
     }
 }

@@ -22,11 +22,6 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     /**
      * @var ?string
      */
-    protected $newKey;
-
-    /**
-     * @var ?string
-     */
     protected $attributeName;
 
     /**
@@ -34,14 +29,19 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
      */
     protected $key;
 
+    /**
+     * @var ?string
+     */
+    protected $newKey;
+
     public function __construct(
-        string $newKey = null,
         string $attributeName = null,
-        string $key = null
+        string $key = null,
+        string $newKey = null
     ) {
-        $this->newKey = $newKey;
         $this->attributeName = $attributeName;
         $this->key = $key;
+        $this->newKey = $newKey;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -60,23 +60,6 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getNewKey()
-    {
-        if (is_null($this->newKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductTypeChangeEnumKeyAction::FIELD_NEW_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->newKey = (string) $data;
-        }
-
-        return $this->newKey;
     }
 
     /**
@@ -113,9 +96,21 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
         return $this->key;
     }
 
-    public function setNewKey(?string $newKey): void
+    /**
+     * @return null|string
+     */
+    public function getNewKey()
     {
-        $this->newKey = $newKey;
+        if (is_null($this->newKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductTypeChangeEnumKeyAction::FIELD_NEW_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->newKey = (string) $data;
+        }
+
+        return $this->newKey;
     }
 
     public function setAttributeName(?string $attributeName): void
@@ -126,5 +121,10 @@ final class ProductTypeChangeEnumKeyActionModel extends JsonObjectModel implemen
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    public function setNewKey(?string $newKey): void
+    {
+        $this->newKey = $newKey;
     }
 }

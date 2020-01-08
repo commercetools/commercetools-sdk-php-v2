@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class DeliveryAddressSetMessagePayloadBuilder implements Builder
 {
     /**
-     * @var Address|?AddressBuilder
-     */
-    private $oldAddress;
-
-    /**
      * @var ?string
      */
     private $deliveryId;
@@ -33,12 +28,9 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     private $address;
 
     /**
-     * @return null|Address
+     * @var Address|?AddressBuilder
      */
-    public function getOldAddress()
-    {
-        return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
-    }
+    private $oldAddress;
 
     /**
      * @return null|string
@@ -57,13 +49,11 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|Address
      */
-    public function withOldAddress(?Address $oldAddress)
+    public function getOldAddress()
     {
-        $this->oldAddress = $oldAddress;
-
-        return $this;
+        return $this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress;
     }
 
     /**
@@ -89,7 +79,7 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withOldAddressBuilder(?AddressBuilder $oldAddress)
+    public function withOldAddress(?Address $oldAddress)
     {
         $this->oldAddress = $oldAddress;
 
@@ -106,12 +96,22 @@ final class DeliveryAddressSetMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withOldAddressBuilder(?AddressBuilder $oldAddress)
+    {
+        $this->oldAddress = $oldAddress;
+
+        return $this;
+    }
+
     public function build(): DeliveryAddressSetMessagePayload
     {
         return new DeliveryAddressSetMessagePayloadModel(
-            ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress),
             $this->deliveryId,
-            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address)
+            ($this->address instanceof AddressBuilder ? $this->address->build() : $this->address),
+            ($this->oldAddress instanceof AddressBuilder ? $this->oldAddress->build() : $this->oldAddress)
         );
     }
 

@@ -24,9 +24,9 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     private $assetId;
 
     /**
-     * @var ?JsonObject
+     * @var ?string
      */
-    private $fields;
+    private $assetKey;
 
     /**
      * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
@@ -34,9 +34,9 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     private $type;
 
     /**
-     * @var ?string
+     * @var ?JsonObject
      */
-    private $assetKey;
+    private $fields;
 
     /**
      * @return null|string
@@ -47,14 +47,17 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|string
      */
-    public function getFields()
+    public function getAssetKey()
     {
-        return $this->fields;
+        return $this->assetKey;
     }
 
     /**
+     * <p>If set, the custom type is set to this new value.
+     * If absent, the custom type and any existing custom fields are removed.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -63,11 +66,13 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>If set, the custom fields are set to this new value.</p>.
+     *
+     * @return null|JsonObject
      */
-    public function getAssetKey()
+    public function getFields()
     {
-        return $this->assetKey;
+        return $this->fields;
     }
 
     /**
@@ -83,9 +88,9 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFields(?JsonObject $fields)
+    public function withAssetKey(?string $assetKey)
     {
-        $this->fields = $fields;
+        $this->assetKey = $assetKey;
 
         return $this;
     }
@@ -103,9 +108,9 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAssetKey(?string $assetKey)
+    public function withFields(?JsonObject $fields)
     {
-        $this->assetKey = $assetKey;
+        $this->fields = $fields;
 
         return $this;
     }
@@ -124,9 +129,9 @@ final class CategorySetAssetCustomTypeActionBuilder implements Builder
     {
         return new CategorySetAssetCustomTypeActionModel(
             $this->assetId,
-            $this->fields,
+            $this->assetKey,
             ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            $this->assetKey
+            $this->fields
         );
     }
 

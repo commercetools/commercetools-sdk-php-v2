@@ -25,34 +25,29 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     protected $key;
 
     /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
      * @var ?CategoryKeyReference
      */
     protected $parent;
 
     /**
-     * @var ?AssetCollection
-     */
-    protected $assets;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaKeywords;
-
-    /**
      * @var ?string
      */
     protected $orderHint;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaTitle;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
 
     /**
      * @var ?string
@@ -62,7 +57,7 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * @var ?LocalizedString
      */
-    protected $description;
+    protected $metaTitle;
 
     /**
      * @var ?LocalizedString
@@ -72,32 +67,37 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     /**
      * @var ?LocalizedString
      */
-    protected $slug;
+    protected $metaKeywords;
+
+    /**
+     * @var ?AssetCollection
+     */
+    protected $assets;
 
     public function __construct(
         string $key = null,
-        CategoryKeyReference $parent = null,
-        AssetCollection $assets = null,
-        LocalizedString $metaKeywords = null,
-        string $orderHint = null,
-        LocalizedString $metaTitle = null,
         LocalizedString $name = null,
-        string $externalId = null,
+        LocalizedString $slug = null,
         LocalizedString $description = null,
+        CategoryKeyReference $parent = null,
+        string $orderHint = null,
+        string $externalId = null,
+        LocalizedString $metaTitle = null,
         LocalizedString $metaDescription = null,
-        LocalizedString $slug = null
+        LocalizedString $metaKeywords = null,
+        AssetCollection $assets = null
     ) {
         $this->key = $key;
-        $this->parent = $parent;
-        $this->assets = $assets;
-        $this->metaKeywords = $metaKeywords;
-        $this->orderHint = $orderHint;
-        $this->metaTitle = $metaTitle;
         $this->name = $name;
-        $this->externalId = $externalId;
-        $this->description = $description;
-        $this->metaDescription = $metaDescription;
         $this->slug = $slug;
+        $this->description = $description;
+        $this->parent = $parent;
+        $this->orderHint = $orderHint;
+        $this->externalId = $externalId;
+        $this->metaTitle = $metaTitle;
+        $this->metaDescription = $metaDescription;
+        $this->metaKeywords = $metaKeywords;
+        $this->assets = $assets;
     }
 
     /**
@@ -115,6 +115,67 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         }
 
         return $this->key;
+    }
+
+    /**
+     * <p>Maps to <code>Category.name</code>.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryImport::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * <p>Maps to <code>Category.slug</code>.
+     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryImport::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
+    }
+
+    /**
+     * <p>Maps to <code>Category.description</code>.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryImport::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
     }
 
     /**
@@ -141,45 +202,6 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
-     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>.
-     *
-     * @return null|AssetCollection
-     */
-    public function getAssets()
-    {
-        if (is_null($this->assets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CategoryImport::FIELD_ASSETS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assets = AssetCollection::fromArray($data);
-        }
-
-        return $this->assets;
-    }
-
-    /**
-     * <p>Maps to <code>Category.metaKeywords</code>.</p>.
-     *
-     * @return null|LocalizedString
-     */
-    public function getMetaKeywords()
-    {
-        if (is_null($this->metaKeywords)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryImport::FIELD_META_KEYWORDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->metaKeywords = LocalizedStringModel::of($data);
-        }
-
-        return $this->metaKeywords;
-    }
-
-    /**
      * <p>Maps to <code>Category.orderHint</code>.</p>.
      *
      * @return null|string
@@ -196,6 +218,25 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         }
 
         return $this->orderHint;
+    }
+
+    /**
+     * <p>Maps to <code>Category.externalId</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getExternalId()
+    {
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategoryImport::FIELD_EXTERNAL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalId = (string) $data;
+        }
+
+        return $this->externalId;
     }
 
     /**
@@ -219,65 +260,6 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
-     * <p>Maps to <code>Category.name</code>.</p>.
-     *
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryImport::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * <p>Maps to <code>Category.externalId</code>.</p>.
-     *
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        if (is_null($this->externalId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryImport::FIELD_EXTERNAL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->externalId = (string) $data;
-        }
-
-        return $this->externalId;
-    }
-
-    /**
-     * <p>Maps to <code>Category.description</code>.</p>.
-     *
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        if (is_null($this->description)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryImport::FIELD_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->description = LocalizedStringModel::of($data);
-        }
-
-        return $this->description;
-    }
-
-    /**
      * <p>Maps to <code>Category.metaDescription</code>.</p>.
      *
      * @return null|LocalizedString
@@ -298,24 +280,42 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
     }
 
     /**
-     * <p>Maps to <code>Category.slug</code>.
-     * Must match the pattern <code>[-a-zA-Z0-9_]{2,256}</code>.</p>.
+     * <p>Maps to <code>Category.metaKeywords</code>.</p>.
      *
      * @return null|LocalizedString
      */
-    public function getSlug()
+    public function getMetaKeywords()
     {
-        if (is_null($this->slug)) {
+        if (is_null($this->metaKeywords)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryImport::FIELD_SLUG);
+            $data = $this->raw(CategoryImport::FIELD_META_KEYWORDS);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->slug = LocalizedStringModel::of($data);
+            $this->metaKeywords = LocalizedStringModel::of($data);
         }
 
-        return $this->slug;
+        return $this->metaKeywords;
+    }
+
+    /**
+     * <p>TODO – https://github.com/commercetools/commercetools-importer/issues/697</p>.
+     *
+     * @return null|AssetCollection
+     */
+    public function getAssets()
+    {
+        if (is_null($this->assets)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CategoryImport::FIELD_ASSETS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assets = AssetCollection::fromArray($data);
+        }
+
+        return $this->assets;
     }
 
     public function setKey(?string $key): void
@@ -323,39 +323,14 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         $this->key = $key;
     }
 
-    public function setParent(?CategoryKeyReference $parent): void
-    {
-        $this->parent = $parent;
-    }
-
-    public function setAssets(?AssetCollection $assets): void
-    {
-        $this->assets = $assets;
-    }
-
-    public function setMetaKeywords(?LocalizedString $metaKeywords): void
-    {
-        $this->metaKeywords = $metaKeywords;
-    }
-
-    public function setOrderHint(?string $orderHint): void
-    {
-        $this->orderHint = $orderHint;
-    }
-
-    public function setMetaTitle(?LocalizedString $metaTitle): void
-    {
-        $this->metaTitle = $metaTitle;
-    }
-
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
-    public function setExternalId(?string $externalId): void
+    public function setSlug(?LocalizedString $slug): void
     {
-        $this->externalId = $externalId;
+        $this->slug = $slug;
     }
 
     public function setDescription(?LocalizedString $description): void
@@ -363,13 +338,38 @@ final class CategoryImportModel extends JsonObjectModel implements CategoryImpor
         $this->description = $description;
     }
 
+    public function setParent(?CategoryKeyReference $parent): void
+    {
+        $this->parent = $parent;
+    }
+
+    public function setOrderHint(?string $orderHint): void
+    {
+        $this->orderHint = $orderHint;
+    }
+
+    public function setExternalId(?string $externalId): void
+    {
+        $this->externalId = $externalId;
+    }
+
+    public function setMetaTitle(?LocalizedString $metaTitle): void
+    {
+        $this->metaTitle = $metaTitle;
+    }
+
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
-    public function setSlug(?LocalizedString $slug): void
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
     {
-        $this->slug = $slug;
+        $this->metaKeywords = $metaKeywords;
+    }
+
+    public function setAssets(?AssetCollection $assets): void
+    {
+        $this->assets = $assets;
     }
 }

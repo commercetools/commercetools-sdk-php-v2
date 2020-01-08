@@ -21,6 +21,8 @@ final class ProjectChangeCurrenciesActionBuilder implements Builder
     private $currencies;
 
     /**
+     * <p>A three-digit currency code as per currency code.</p>.
+     *
      * @return null|array
      */
     public function getCurrencies()

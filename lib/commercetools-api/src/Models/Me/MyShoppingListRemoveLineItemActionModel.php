@@ -20,21 +20,21 @@ final class MyShoppingListRemoveLineItemActionModel extends JsonObjectModel impl
     protected $action;
 
     /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
      * @var ?string
      */
     protected $lineItemId;
 
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
     public function __construct(
-        int $quantity = null,
-        string $lineItemId = null
+        string $lineItemId = null,
+        int $quantity = null
     ) {
-        $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
+        $this->quantity = $quantity;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -56,23 +56,6 @@ final class MyShoppingListRemoveLineItemActionModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MyShoppingListRemoveLineItemAction::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
      * @return null|string
      */
     public function getLineItemId()
@@ -89,13 +72,30 @@ final class MyShoppingListRemoveLineItemActionModel extends JsonObjectModel impl
         return $this->lineItemId;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
     {
-        $this->quantity = $quantity;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MyShoppingListRemoveLineItemAction::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
     public function setLineItemId(?string $lineItemId): void
     {
         $this->lineItemId = $lineItemId;
+    }
+
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
     }
 }

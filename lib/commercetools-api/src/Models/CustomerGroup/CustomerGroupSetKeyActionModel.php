@@ -49,6 +49,8 @@ final class CustomerGroupSetKeyActionModel extends JsonObjectModel implements Cu
     }
 
     /**
+     * <p>User-specific unique identifier for the customer group.</p>.
+     *
      * @return null|string
      */
     public function getKey()

@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class DiscountCodeUpdateBuilder implements Builder
 {
     /**
-     * @var ?DiscountCodeUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|DiscountCodeUpdateActionCollection
+     * @var ?DiscountCodeUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class DiscountCodeUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|DiscountCodeUpdateActionCollection
      */
-    public function withActions(?DiscountCodeUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class DiscountCodeUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?DiscountCodeUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): DiscountCodeUpdate
     {
         return new DiscountCodeUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

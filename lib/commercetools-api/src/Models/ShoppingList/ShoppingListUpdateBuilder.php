@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ShoppingListUpdateBuilder implements Builder
 {
     /**
-     * @var ?ShoppingListUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|ShoppingListUpdateActionCollection
+     * @var ?ShoppingListUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class ShoppingListUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ShoppingListUpdateActionCollection
      */
-    public function withActions(?ShoppingListUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ShoppingListUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?ShoppingListUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): ShoppingListUpdate
     {
         return new ShoppingListUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

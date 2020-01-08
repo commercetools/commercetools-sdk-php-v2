@@ -49,6 +49,8 @@ final class DiscountCodeSetCartPredicateActionModel extends JsonObjectModel impl
     }
 
     /**
+     * <p>If the <code>cartPredicate</code> parameter is not included, the field will be emptied.</p>.
+     *
      * @return null|string
      */
     public function getCartPredicate()

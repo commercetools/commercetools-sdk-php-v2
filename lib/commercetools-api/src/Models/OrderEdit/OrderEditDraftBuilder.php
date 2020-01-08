@@ -21,14 +21,19 @@ use Commercetools\Base\Builder;
 final class OrderEditDraftBuilder implements Builder
 {
     /**
-     * @var ?bool
+     * @var ?string
      */
-    private $dryRun;
+    private $key;
 
     /**
      * @var OrderReference|?OrderReferenceBuilder
      */
     private $resource;
+
+    /**
+     * @var ?StagedOrderUpdateActionCollection
+     */
+    private $stagedActions;
 
     /**
      * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
@@ -41,56 +46,13 @@ final class OrderEditDraftBuilder implements Builder
     private $comment;
 
     /**
-     * @var ?StagedOrderUpdateActionCollection
+     * @var ?bool
      */
-    private $stagedActions;
+    private $dryRun;
 
     /**
-     * @var ?string
-     */
-    private $key;
-
-    /**
-     * @return null|bool
-     */
-    public function getDryRun()
-    {
-        return $this->dryRun;
-    }
-
-    /**
-     * @return null|OrderReference
-     */
-    public function getResource()
-    {
-        return $this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getComment()
-    {
-        return $this->comment;
-    }
-
-    /**
-     * @return null|StagedOrderUpdateActionCollection
-     */
-    public function getStagedActions()
-    {
-        return $this->stagedActions;
-    }
-
-    /**
+     * <p>Unique identifier for this edit.</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -99,11 +61,61 @@ final class OrderEditDraftBuilder implements Builder
     }
 
     /**
+     * <p>The order to be updated with this edit.</p>.
+     *
+     * @return null|OrderReference
+     */
+    public function getResource()
+    {
+        return $this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource;
+    }
+
+    /**
+     * <p>The actions to apply to <code>resource</code>.</p>.
+     *
+     * @return null|StagedOrderUpdateActionCollection
+     */
+    public function getStagedActions()
+    {
+        return $this->stagedActions;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * <p>This field can be used to add additional textual information regarding the edit.</p>.
+     *
+     * @return null|string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * <p>When set to <code>true</code> the edit is applied on the Order without persisting it.</p>.
+     *
+     * @return null|bool
+     */
+    public function getDryRun()
+    {
+        return $this->dryRun;
+    }
+
+    /**
      * @return $this
      */
-    public function withDryRun(?bool $dryRun)
+    public function withKey(?string $key)
     {
-        $this->dryRun = $dryRun;
+        $this->key = $key;
 
         return $this;
     }
@@ -114,6 +126,16 @@ final class OrderEditDraftBuilder implements Builder
     public function withResource(?OrderReference $resource)
     {
         $this->resource = $resource;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStagedActions(?StagedOrderUpdateActionCollection $stagedActions)
+    {
+        $this->stagedActions = $stagedActions;
 
         return $this;
     }
@@ -141,19 +163,9 @@ final class OrderEditDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStagedActions(?StagedOrderUpdateActionCollection $stagedActions)
+    public function withDryRun(?bool $dryRun)
     {
-        $this->stagedActions = $stagedActions;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
+        $this->dryRun = $dryRun;
 
         return $this;
     }
@@ -181,12 +193,12 @@ final class OrderEditDraftBuilder implements Builder
     public function build(): OrderEditDraft
     {
         return new OrderEditDraftModel(
-            $this->dryRun,
+            $this->key,
             ($this->resource instanceof OrderReferenceBuilder ? $this->resource->build() : $this->resource),
+            $this->stagedActions,
             ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
             $this->comment,
-            $this->stagedActions,
-            $this->key
+            $this->dryRun
         );
     }
 

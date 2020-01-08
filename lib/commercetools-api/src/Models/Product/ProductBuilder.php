@@ -29,16 +29,6 @@ use DateTimeImmutable;
 final class ProductBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -49,9 +39,14 @@ final class ProductBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -59,9 +54,29 @@ final class ProductBuilder implements Builder
     private $lastModifiedBy;
 
     /**
+     * @var CreatedBy|?CreatedByBuilder
+     */
+    private $createdBy;
+
+    /**
+     * @var ?string
+     */
+    private $key;
+
+    /**
+     * @var ProductTypeReference|?ProductTypeReferenceBuilder
+     */
+    private $productType;
+
+    /**
      * @var ProductCatalogData|?ProductCatalogDataBuilder
      */
     private $masterData;
+
+    /**
+     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
+     */
+    private $taxCategory;
 
     /**
      * @var StateReference|?StateReferenceBuilder
@@ -74,19 +89,24 @@ final class ProductBuilder implements Builder
     private $reviewRatingStatistics;
 
     /**
-     * @var ProductTypeReference|?ProductTypeReferenceBuilder
+     * <p>The unique ID of the product.</p>.
+     *
+     * @return null|string
      */
-    private $productType;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var ?string
+     * <p>The current version of the product.</p>.
+     *
+     * @return null|int
      */
-    private $key;
-
-    /**
-     * @var TaxCategoryReference|?TaxCategoryReferenceBuilder
-     */
-    private $taxCategory;
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return null|DateTimeImmutable
@@ -105,30 +125,8 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * @return null|CreatedBy
-     */
-    public function getCreatedBy()
-    {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
-    }
-
-    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -137,27 +135,24 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * @return null|ProductCatalogData
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getMasterData()
+    public function getCreatedBy()
     {
-        return $this->masterData instanceof ProductCatalogDataBuilder ? $this->masterData->build() : $this->masterData;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
-     * @return null|StateReference
+     * <p>User-specific unique identifier for the product.
+     * <em>Product keys are different from product variant keys.</em></p>.
+     *
+     * @return null|string
      */
-    public function getState()
+    public function getKey()
     {
-        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
-    }
-
-    /**
-     * @return null|ReviewRatingStatistics
-     */
-    public function getReviewRatingStatistics()
-    {
-        return $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics;
+        return $this->key;
     }
 
     /**
@@ -169,11 +164,13 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>The product data in the master catalog.</p>.
+     *
+     * @return null|ProductCatalogData
      */
-    public function getKey()
+    public function getMasterData()
     {
-        return $this->key;
+        return $this->masterData instanceof ProductCatalogDataBuilder ? $this->masterData->build() : $this->masterData;
     }
 
     /**
@@ -185,23 +182,21 @@ final class ProductBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|StateReference
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getState()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state;
     }
 
     /**
-     * @return $this
+     * <p>Statistics about the review ratings taken into account for this product.</p>.
+     *
+     * @return null|ReviewRatingStatistics
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getReviewRatingStatistics()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics;
     }
 
     /**
@@ -227,9 +222,19 @@ final class ProductBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -247,9 +252,49 @@ final class ProductBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedBy(?CreatedBy $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withProductType(?ProductTypeReference $productType)
+    {
+        $this->productType = $productType;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withMasterData(?ProductCatalogData $masterData)
     {
         $this->masterData = $masterData;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxCategory(?TaxCategoryReference $taxCategory)
+    {
+        $this->taxCategory = $taxCategory;
 
         return $this;
     }
@@ -277,29 +322,9 @@ final class ProductBuilder implements Builder
     /**
      * @return $this
      */
-    public function withProductType(?ProductTypeReference $productType)
+    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
     {
-        $this->productType = $productType;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withKey(?string $key)
-    {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTaxCategory(?TaxCategoryReference $taxCategory)
-    {
-        $this->taxCategory = $taxCategory;
+        $this->lastModifiedBy = $lastModifiedBy;
 
         return $this;
     }
@@ -317,9 +342,9 @@ final class ProductBuilder implements Builder
     /**
      * @return $this
      */
-    public function withLastModifiedByBuilder(?LastModifiedByBuilder $lastModifiedBy)
+    public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
     {
-        $this->lastModifiedBy = $lastModifiedBy;
+        $this->productType = $productType;
 
         return $this;
     }
@@ -330,6 +355,16 @@ final class ProductBuilder implements Builder
     public function withMasterDataBuilder(?ProductCatalogDataBuilder $masterData)
     {
         $this->masterData = $masterData;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
+    {
+        $this->taxCategory = $taxCategory;
 
         return $this;
     }
@@ -354,41 +389,21 @@ final class ProductBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withProductTypeBuilder(?ProductTypeReferenceBuilder $productType)
-    {
-        $this->productType = $productType;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTaxCategoryBuilder(?TaxCategoryReferenceBuilder $taxCategory)
-    {
-        $this->taxCategory = $taxCategory;
-
-        return $this;
-    }
-
     public function build(): Product
     {
         return new ProductModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->masterData instanceof ProductCatalogDataBuilder ? $this->masterData->build() : $this->masterData),
-            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
-            ($this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics),
-            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->key,
-            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory)
+            ($this->productType instanceof ProductTypeReferenceBuilder ? $this->productType->build() : $this->productType),
+            ($this->masterData instanceof ProductCatalogDataBuilder ? $this->masterData->build() : $this->masterData),
+            ($this->taxCategory instanceof TaxCategoryReferenceBuilder ? $this->taxCategory->build() : $this->taxCategory),
+            ($this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state),
+            ($this->reviewRatingStatistics instanceof ReviewRatingStatisticsBuilder ? $this->reviewRatingStatistics->build() : $this->reviewRatingStatistics)
         );
     }
 

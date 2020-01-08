@@ -18,6 +18,10 @@ interface ZoneDraft extends JsonObject
     const FIELD_LOCATIONS = 'locations';
 
     /**
+     * <p>User-specific unique identifier for a zone.
+     * Must be unique across a project.
+     * The field can be reset using the Set Key UpdateAction.</p>.
+     *
      * @return null|string
      */
     public function getKey();

@@ -15,11 +15,6 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     /**
      * @var ?string
      */
-    protected $newPassword;
-
-    /**
-     * @var ?string
-     */
     protected $id;
 
     /**
@@ -32,33 +27,21 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
      */
     protected $currentPassword;
 
+    /**
+     * @var ?string
+     */
+    protected $newPassword;
+
     public function __construct(
-        string $newPassword = null,
         string $id = null,
         int $version = null,
-        string $currentPassword = null
+        string $currentPassword = null,
+        string $newPassword = null
     ) {
-        $this->newPassword = $newPassword;
         $this->id = $id;
         $this->version = $version;
         $this->currentPassword = $currentPassword;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getNewPassword()
-    {
-        if (is_null($this->newPassword)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerChangePassword::FIELD_NEW_PASSWORD);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->newPassword = (string) $data;
-        }
-
-        return $this->newPassword;
+        $this->newPassword = $newPassword;
     }
 
     /**
@@ -112,9 +95,21 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
         return $this->currentPassword;
     }
 
-    public function setNewPassword(?string $newPassword): void
+    /**
+     * @return null|string
+     */
+    public function getNewPassword()
     {
-        $this->newPassword = $newPassword;
+        if (is_null($this->newPassword)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerChangePassword::FIELD_NEW_PASSWORD);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->newPassword = (string) $data;
+        }
+
+        return $this->newPassword;
     }
 
     public function setId(?string $id): void
@@ -130,5 +125,10 @@ final class CustomerChangePasswordModel extends JsonObjectModel implements Custo
     public function setCurrentPassword(?string $currentPassword): void
     {
         $this->currentPassword = $currentPassword;
+    }
+
+    public function setNewPassword(?string $newPassword): void
+    {
+        $this->newPassword = $newPassword;
     }
 }

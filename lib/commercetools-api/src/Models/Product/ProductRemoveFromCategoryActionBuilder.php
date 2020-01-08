@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class ProductRemoveFromCategoryActionBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var CategoryResourceIdentifier|?CategoryResourceIdentifierBuilder
      */
     private $category;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $staged;
 
     /**
      * @return null|CategoryResourceIdentifier
@@ -44,13 +36,11 @@ final class ProductRemoveFromCategoryActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withStaged(?bool $staged)
+    public function getStaged()
     {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->staged;
     }
 
     /**
@@ -59,6 +49,16 @@ final class ProductRemoveFromCategoryActionBuilder implements Builder
     public function withCategory(?CategoryResourceIdentifier $category)
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class ProductRemoveFromCategoryActionBuilder implements Builder
     public function build(): ProductRemoveFromCategoryAction
     {
         return new ProductRemoveFromCategoryActionModel(
-            $this->staged,
-            ($this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category)
+            ($this->category instanceof CategoryResourceIdentifierBuilder ? $this->category->build() : $this->category),
+            $this->staged
         );
     }
 

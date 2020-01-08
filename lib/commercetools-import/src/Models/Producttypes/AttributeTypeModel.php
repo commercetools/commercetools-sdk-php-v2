@@ -37,7 +37,6 @@ final class AttributeTypeModel extends JsonObjectModel implements AttributeType
         'set' => AttributeSetTypeModel::class,
         'text' => AttributeTextTypeModel::class,
         'time' => AttributeTimeTypeModel::class,
-        'null' => AttributeTypeModel::class,
     ];
 
     public function __construct(

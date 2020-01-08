@@ -24,6 +24,11 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     /**
      * @var ?string
      */
+    private $assetKey;
+
+    /**
+     * @var ?string
+     */
     private $name;
 
     /**
@@ -32,16 +37,19 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     private $value;
 
     /**
-     * @var ?string
-     */
-    private $assetKey;
-
-    /**
      * @return null|string
      */
     public function getAssetId()
     {
         return $this->assetId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetKey()
+    {
+        return $this->assetKey;
     }
 
     /**
@@ -61,19 +69,21 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getAssetKey()
-    {
-        return $this->assetKey;
-    }
-
-    /**
      * @return $this
      */
     public function withAssetId(?string $assetId)
     {
         $this->assetId = $assetId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssetKey(?string $assetKey)
+    {
+        $this->assetKey = $assetKey;
 
         return $this;
     }
@@ -98,23 +108,13 @@ final class CategorySetAssetCustomFieldActionBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withAssetKey(?string $assetKey)
-    {
-        $this->assetKey = $assetKey;
-
-        return $this;
-    }
-
     public function build(): CategorySetAssetCustomFieldAction
     {
         return new CategorySetAssetCustomFieldActionModel(
             $this->assetId,
+            $this->assetKey,
             $this->name,
-            $this->value,
-            $this->assetKey
+            $this->value
         );
     }
 

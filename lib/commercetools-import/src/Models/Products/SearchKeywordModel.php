@@ -14,21 +14,38 @@ use stdClass;
 final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
 {
     /**
-     * @var ?SuggestTokenizer
-     */
-    protected $suggestTokenizer;
-
-    /**
      * @var ?string
      */
     protected $text;
 
+    /**
+     * @var ?SuggestTokenizer
+     */
+    protected $suggestTokenizer;
+
     public function __construct(
-        SuggestTokenizer $suggestTokenizer = null,
-        string $text = null
+        string $text = null,
+        SuggestTokenizer $suggestTokenizer = null
     ) {
-        $this->suggestTokenizer = $suggestTokenizer;
         $this->text = $text;
+        $this->suggestTokenizer = $suggestTokenizer;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getText()
+    {
+        if (is_null($this->text)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SearchKeyword::FIELD_TEXT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->text = (string) $data;
+        }
+
+        return $this->text;
     }
 
     /**
@@ -49,30 +66,13 @@ final class SearchKeywordModel extends JsonObjectModel implements SearchKeyword
         return $this->suggestTokenizer;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getText()
+    public function setText(?string $text): void
     {
-        if (is_null($this->text)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(SearchKeyword::FIELD_TEXT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->text = (string) $data;
-        }
-
-        return $this->text;
+        $this->text = $text;
     }
 
     public function setSuggestTokenizer(?SuggestTokenizer $suggestTokenizer): void
     {
         $this->suggestTokenizer = $suggestTokenizer;
-    }
-
-    public function setText(?string $text): void
-    {
-        $this->text = $text;
     }
 }

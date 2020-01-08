@@ -25,32 +25,7 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     /**
      * @var ?string
      */
-    protected $anonymousId;
-
-    /**
-     * @var ?PaymentMethodInfo
-     */
-    protected $paymentMethodInfo;
-
-    /**
-     * @var ?CustomFields
-     */
-    protected $custom;
-
-    /**
-     * @var ?TypedMoney
-     */
-    protected $amountPlanned;
-
-    /**
-     * @var ?string
-     */
     protected $id;
-
-    /**
-     * @var ?TransactionCollection
-     */
-    protected $transactions;
 
     /**
      * @var ?int
@@ -62,27 +37,108 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
      */
     protected $customer;
 
+    /**
+     * @var ?string
+     */
+    protected $anonymousId;
+
+    /**
+     * @var ?TypedMoney
+     */
+    protected $amountPlanned;
+
+    /**
+     * @var ?PaymentMethodInfo
+     */
+    protected $paymentMethodInfo;
+
+    /**
+     * @var ?TransactionCollection
+     */
+    protected $transactions;
+
+    /**
+     * @var ?CustomFields
+     */
+    protected $custom;
+
     public function __construct(
-        string $anonymousId = null,
-        PaymentMethodInfo $paymentMethodInfo = null,
-        CustomFields $custom = null,
-        TypedMoney $amountPlanned = null,
         string $id = null,
-        TransactionCollection $transactions = null,
         int $version = null,
-        CustomerReference $customer = null
+        CustomerReference $customer = null,
+        string $anonymousId = null,
+        TypedMoney $amountPlanned = null,
+        PaymentMethodInfo $paymentMethodInfo = null,
+        TransactionCollection $transactions = null,
+        CustomFields $custom = null
     ) {
-        $this->anonymousId = $anonymousId;
-        $this->paymentMethodInfo = $paymentMethodInfo;
-        $this->custom = $custom;
-        $this->amountPlanned = $amountPlanned;
         $this->id = $id;
-        $this->transactions = $transactions;
         $this->version = $version;
         $this->customer = $customer;
+        $this->anonymousId = $anonymousId;
+        $this->amountPlanned = $amountPlanned;
+        $this->paymentMethodInfo = $paymentMethodInfo;
+        $this->transactions = $transactions;
+        $this->custom = $custom;
     }
 
     /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(MyPayment::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MyPayment::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
+    }
+
+    /**
+     * <p>A reference to the customer this payment belongs to.</p>.
+     *
+     * @return null|CustomerReference
+     */
+    public function getCustomer()
+    {
+        if (is_null($this->customer)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(MyPayment::FIELD_CUSTOMER);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->customer = CustomerReferenceModel::of($data);
+        }
+
+        return $this->customer;
+    }
+
+    /**
+     * <p>Identifies payments belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     *
      * @return null|string
      */
     public function getAnonymousId()
@@ -97,6 +153,27 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
         }
 
         return $this->anonymousId;
+    }
+
+    /**
+     * <p>How much money this payment intends to receive from the customer.
+     * The value usually matches the cart or order gross total.</p>.
+     *
+     * @return null|TypedMoney
+     */
+    public function getAmountPlanned()
+    {
+        if (is_null($this->amountPlanned)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(MyPayment::FIELD_AMOUNT_PLANNED);
+            if (is_null($data)) {
+                return null;
+            }
+            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
+            $this->amountPlanned = $className::of($data);
+        }
+
+        return $this->amountPlanned;
     }
 
     /**
@@ -118,59 +195,9 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * @return null|CustomFields
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPayment::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmountPlanned()
-    {
-        if (is_null($this->amountPlanned)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPayment::FIELD_AMOUNT_PLANNED);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->amountPlanned = $className::of($data);
-        }
-
-        return $this->amountPlanned;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(MyPayment::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
-    }
-
-    /**
+     * <p>A list of financial transactions of different TransactionTypes
+     * with different TransactionStates.</p>.
+     *
      * @return null|TransactionCollection
      */
     public function getTransactions()
@@ -188,68 +215,26 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     }
 
     /**
-     * @return null|int
+     * @return null|CustomFields
      */
-    public function getVersion()
+    public function getCustom()
     {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MyPayment::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
-     * @return null|CustomerReference
-     */
-    public function getCustomer()
-    {
-        if (is_null($this->customer)) {
+        if (is_null($this->custom)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPayment::FIELD_CUSTOMER);
+            $data = $this->raw(MyPayment::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->customer = CustomerReferenceModel::of($data);
+            $this->custom = CustomFieldsModel::of($data);
         }
 
-        return $this->customer;
-    }
-
-    public function setAnonymousId(?string $anonymousId): void
-    {
-        $this->anonymousId = $anonymousId;
-    }
-
-    public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
-    {
-        $this->paymentMethodInfo = $paymentMethodInfo;
-    }
-
-    public function setCustom(?CustomFields $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    public function setAmountPlanned(?TypedMoney $amountPlanned): void
-    {
-        $this->amountPlanned = $amountPlanned;
+        return $this->custom;
     }
 
     public function setId(?string $id): void
     {
         $this->id = $id;
-    }
-
-    public function setTransactions(?TransactionCollection $transactions): void
-    {
-        $this->transactions = $transactions;
     }
 
     public function setVersion(?int $version): void
@@ -260,5 +245,30 @@ final class MyPaymentModel extends JsonObjectModel implements MyPayment
     public function setCustomer(?CustomerReference $customer): void
     {
         $this->customer = $customer;
+    }
+
+    public function setAnonymousId(?string $anonymousId): void
+    {
+        $this->anonymousId = $anonymousId;
+    }
+
+    public function setAmountPlanned(?TypedMoney $amountPlanned): void
+    {
+        $this->amountPlanned = $amountPlanned;
+    }
+
+    public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
+    {
+        $this->paymentMethodInfo = $paymentMethodInfo;
+    }
+
+    public function setTransactions(?TransactionCollection $transactions): void
+    {
+        $this->transactions = $transactions;
+    }
+
+    public function setCustom(?CustomFields $custom): void
+    {
+        $this->custom = $custom;
     }
 }

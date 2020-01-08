@@ -78,21 +78,31 @@ interface MyCustomerDraft extends JsonObject
     public function getVatId();
 
     /**
+     * <p>Sets the ID of each address to be unique in the addresses list.</p>.
+     *
      * @return null|AddressCollection
      */
     public function getAddresses();
 
     /**
+     * <p>The index of the address in the addresses array.
+     * The <code>defaultShippingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     *
      * @return null|int
      */
     public function getDefaultShippingAddress();
 
     /**
+     * <p>The index of the address in the addresses array.
+     * The <code>defaultBillingAddressId</code> of the customer will be set to the ID of that address.</p>.
+     *
      * @return null|int
      */
     public function getDefaultBillingAddress();
 
     /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFields
      */
     public function getCustom();

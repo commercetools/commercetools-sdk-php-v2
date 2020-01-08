@@ -49,6 +49,8 @@ final class ReviewSetTextActionModel extends JsonObjectModel implements ReviewSe
     }
 
     /**
+     * <p>If <code>text</code> is absent or <code>null</code>, this field will be removed if it exists.</p>.
+     *
      * @return null|string
      */
     public function getText()

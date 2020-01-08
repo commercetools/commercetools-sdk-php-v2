@@ -18,20 +18,12 @@ final class ProductTypeChangeAttributeNameActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $newAttributeName;
+    private $attributeName;
 
     /**
      * @var ?string
      */
-    private $attributeName;
-
-    /**
-     * @return null|string
-     */
-    public function getNewAttributeName()
-    {
-        return $this->newAttributeName;
-    }
+    private $newAttributeName;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class ProductTypeChangeAttributeNameActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withNewAttributeName(?string $newAttributeName)
+    public function getNewAttributeName()
     {
-        $this->newAttributeName = $newAttributeName;
-
-        return $this;
+        return $this->newAttributeName;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ProductTypeChangeAttributeNameActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withNewAttributeName(?string $newAttributeName)
+    {
+        $this->newAttributeName = $newAttributeName;
+
+        return $this;
+    }
+
     public function build(): ProductTypeChangeAttributeNameAction
     {
         return new ProductTypeChangeAttributeNameActionModel(
-            $this->newAttributeName,
-            $this->attributeName
+            $this->attributeName,
+            $this->newAttributeName
         );
     }
 

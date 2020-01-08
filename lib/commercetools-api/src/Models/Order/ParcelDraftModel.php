@@ -14,9 +14,9 @@ use stdClass;
 final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
 {
     /**
-     * @var ?DeliveryItemCollection
+     * @var ?ParcelMeasurements
      */
-    protected $items;
+    protected $measurements;
 
     /**
      * @var ?TrackingData
@@ -24,35 +24,36 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     protected $trackingData;
 
     /**
-     * @var ?ParcelMeasurements
+     * @var ?DeliveryItemCollection
      */
-    protected $measurements;
+    protected $items;
 
     public function __construct(
-        DeliveryItemCollection $items = null,
+        ParcelMeasurements $measurements = null,
         TrackingData $trackingData = null,
-        ParcelMeasurements $measurements = null
+        DeliveryItemCollection $items = null
     ) {
-        $this->items = $items;
-        $this->trackingData = $trackingData;
         $this->measurements = $measurements;
+        $this->trackingData = $trackingData;
+        $this->items = $items;
     }
 
     /**
-     * @return null|DeliveryItemCollection
+     * @return null|ParcelMeasurements
      */
-    public function getItems()
+    public function getMeasurements()
     {
-        if (is_null($this->items)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ParcelDraft::FIELD_ITEMS);
+        if (is_null($this->measurements)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ParcelDraft::FIELD_MEASUREMENTS);
             if (is_null($data)) {
                 return null;
             }
-            $this->items = DeliveryItemCollection::fromArray($data);
+
+            $this->measurements = ParcelMeasurementsModel::of($data);
         }
 
-        return $this->items;
+        return $this->measurements;
     }
 
     /**
@@ -74,26 +75,27 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
     }
 
     /**
-     * @return null|ParcelMeasurements
+     * <p>The delivery items contained in this parcel.</p>.
+     *
+     * @return null|DeliveryItemCollection
      */
-    public function getMeasurements()
+    public function getItems()
     {
-        if (is_null($this->measurements)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ParcelDraft::FIELD_MEASUREMENTS);
+        if (is_null($this->items)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ParcelDraft::FIELD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->measurements = ParcelMeasurementsModel::of($data);
+            $this->items = DeliveryItemCollection::fromArray($data);
         }
 
-        return $this->measurements;
+        return $this->items;
     }
 
-    public function setItems(?DeliveryItemCollection $items): void
+    public function setMeasurements(?ParcelMeasurements $measurements): void
     {
-        $this->items = $items;
+        $this->measurements = $measurements;
     }
 
     public function setTrackingData(?TrackingData $trackingData): void
@@ -101,8 +103,8 @@ final class ParcelDraftModel extends JsonObjectModel implements ParcelDraft
         $this->trackingData = $trackingData;
     }
 
-    public function setMeasurements(?ParcelMeasurements $measurements): void
+    public function setItems(?DeliveryItemCollection $items): void
     {
-        $this->measurements = $measurements;
+        $this->items = $items;
     }
 }

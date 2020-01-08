@@ -16,11 +16,6 @@ use Commercetools\Base\Builder;
 final class TaxCategoryDraftBuilder implements Builder
 {
     /**
-     * @var ?TaxRateDraftCollection
-     */
-    private $rates;
-
-    /**
      * @var ?string
      */
     private $name;
@@ -31,17 +26,14 @@ final class TaxCategoryDraftBuilder implements Builder
     private $description;
 
     /**
+     * @var ?TaxRateDraftCollection
+     */
+    private $rates;
+
+    /**
      * @var ?string
      */
     private $key;
-
-    /**
-     * @return null|TaxRateDraftCollection
-     */
-    public function getRates()
-    {
-        return $this->rates;
-    }
 
     /**
      * @return null|string
@@ -60,21 +52,19 @@ final class TaxCategoryDraftBuilder implements Builder
     }
 
     /**
+     * @return null|TaxRateDraftCollection
+     */
+    public function getRates()
+    {
+        return $this->rates;
+    }
+
+    /**
      * @return null|string
      */
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withRates(?TaxRateDraftCollection $rates)
-    {
-        $this->rates = $rates;
-
-        return $this;
     }
 
     /**
@@ -100,6 +90,16 @@ final class TaxCategoryDraftBuilder implements Builder
     /**
      * @return $this
      */
+    public function withRates(?TaxRateDraftCollection $rates)
+    {
+        $this->rates = $rates;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withKey(?string $key)
     {
         $this->key = $key;
@@ -110,9 +110,9 @@ final class TaxCategoryDraftBuilder implements Builder
     public function build(): TaxCategoryDraft
     {
         return new TaxCategoryDraftModel(
-            $this->rates,
             $this->name,
             $this->description,
+            $this->rates,
             $this->key
         );
     }

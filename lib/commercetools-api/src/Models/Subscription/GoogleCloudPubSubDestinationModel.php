@@ -22,19 +22,19 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     /**
      * @var ?string
      */
-    protected $topic;
+    protected $projectId;
 
     /**
      * @var ?string
      */
-    protected $projectId;
+    protected $topic;
 
     public function __construct(
-        string $topic = null,
-        string $projectId = null
+        string $projectId = null,
+        string $topic = null
     ) {
-        $this->topic = $topic;
         $this->projectId = $projectId;
+        $this->topic = $topic;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,23 +58,6 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
     /**
      * @return null|string
      */
-    public function getTopic()
-    {
-        if (is_null($this->topic)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(GoogleCloudPubSubDestination::FIELD_TOPIC);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->topic = (string) $data;
-        }
-
-        return $this->topic;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getProjectId()
     {
         if (is_null($this->projectId)) {
@@ -89,13 +72,30 @@ final class GoogleCloudPubSubDestinationModel extends JsonObjectModel implements
         return $this->projectId;
     }
 
-    public function setTopic(?string $topic): void
+    /**
+     * @return null|string
+     */
+    public function getTopic()
     {
-        $this->topic = $topic;
+        if (is_null($this->topic)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(GoogleCloudPubSubDestination::FIELD_TOPIC);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->topic = (string) $data;
+        }
+
+        return $this->topic;
     }
 
     public function setProjectId(?string $projectId): void
     {
         $this->projectId = $projectId;
+    }
+
+    public function setTopic(?string $topic): void
+    {
+        $this->topic = $topic;
     }
 }

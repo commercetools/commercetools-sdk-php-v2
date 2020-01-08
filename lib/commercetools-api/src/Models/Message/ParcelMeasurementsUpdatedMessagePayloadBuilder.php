@@ -23,14 +23,14 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     private $deliveryId;
 
     /**
-     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
-     */
-    private $measurements;
-
-    /**
      * @var ?string
      */
     private $parcelId;
+
+    /**
+     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
+     */
+    private $measurements;
 
     /**
      * @return null|string
@@ -41,19 +41,19 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return null|ParcelMeasurements
-     */
-    public function getMeasurements()
-    {
-        return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
-    }
-
-    /**
      * @return null|string
      */
     public function getParcelId()
     {
         return $this->parcelId;
+    }
+
+    /**
+     * @return null|ParcelMeasurements
+     */
+    public function getMeasurements()
+    {
+        return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
     }
 
     /**
@@ -69,9 +69,9 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMeasurements(?ParcelMeasurements $measurements)
+    public function withParcelId(?string $parcelId)
     {
-        $this->measurements = $measurements;
+        $this->parcelId = $parcelId;
 
         return $this;
     }
@@ -79,9 +79,9 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withParcelId(?string $parcelId)
+    public function withMeasurements(?ParcelMeasurements $measurements)
     {
-        $this->parcelId = $parcelId;
+        $this->measurements = $measurements;
 
         return $this;
     }
@@ -100,8 +100,8 @@ final class ParcelMeasurementsUpdatedMessagePayloadBuilder implements Builder
     {
         return new ParcelMeasurementsUpdatedMessagePayloadModel(
             $this->deliveryId,
-            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements),
-            $this->parcelId
+            $this->parcelId,
+            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements)
         );
     }
 

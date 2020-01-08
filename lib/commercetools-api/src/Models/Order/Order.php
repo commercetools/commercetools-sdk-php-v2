@@ -67,11 +67,15 @@ interface Order extends LoggedResource
     const FIELD_REFUSED_GIFTS = 'refusedGifts';
 
     /**
+     * <p>The unique ID of the order.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the order.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
@@ -87,21 +91,32 @@ interface Order extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
 
     /**
+     * <p>This field will only be present if it was set for Order Import</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getCompletedAt();
 
     /**
+     * <p>String that uniquely identifies an order.
+     * It can be used to create more human-readable (in contrast to ID) identifier for the order.
+     * It should be unique across a project.
+     * Once it's set it cannot be changed.</p>.
+     *
      * @return null|string
      */
     public function getOrderNumber();
@@ -117,6 +132,8 @@ interface Order extends LoggedResource
     public function getCustomerEmail();
 
     /**
+     * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     *
      * @return null|string
      */
     public function getAnonymousId();
@@ -142,6 +159,8 @@ interface Order extends LoggedResource
     public function getTotalPrice();
 
     /**
+     * <p>The taxes are calculated based on the shipping address.</p>.
+     *
      * @return null|TaxedPrice
      */
     public function getTaxedPrice();
@@ -162,26 +181,38 @@ interface Order extends LoggedResource
     public function getTaxMode();
 
     /**
+     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rouding.</p>.
+     *
      * @return null|string
      */
     public function getTaxRoundingMode();
 
     /**
+     * <p>Set when the customer is set and the customer is a member of a customer group.
+     * Used for product variant price selection.</p>.
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
 
     /**
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
+     * Used for product variant price selection.</p>.
+     *
      * @return null|string
      */
     public function getCountry();
 
     /**
+     * <p>One of the four predefined OrderStates.</p>.
+     *
      * @return null|string
      */
     public function getOrderState();
 
     /**
+     * <p>This reference can point to a state in a custom workflow.</p>.
+     *
      * @return null|StateReference
      */
     public function getState();
@@ -197,6 +228,8 @@ interface Order extends LoggedResource
     public function getPaymentState();
 
     /**
+     * <p>Set if the ShippingMethod is set.</p>.
+     *
      * @return null|ShippingInfo
      */
     public function getShippingInfo();
@@ -217,11 +250,17 @@ interface Order extends LoggedResource
     public function getDiscountCodes();
 
     /**
+     * <p>The sequence number of the last order message produced by changes to this order.
+     * <code>0</code> means, that no messages were created yet.</p>.
+     *
      * @return null|int
      */
     public function getLastMessageSequenceNumber();
 
     /**
+     * <p>Set when this order was created from a cart.
+     * The cart will have the state <code>Ordered</code>.</p>.
+     *
      * @return null|CartReference
      */
     public function getCart();
@@ -252,21 +291,29 @@ interface Order extends LoggedResource
     public function getOrigin();
 
     /**
+     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with LineItemLevel (horizontally) or UnitPriceLevel (vertically) calculation mode.</p>.
+     *
      * @return null|string
      */
     public function getTaxCalculationMode();
 
     /**
+     * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>.
+     *
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput();
 
     /**
+     * <p>Contains addresses for orders with multiple shipping addresses.</p>.
+     *
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses();
 
     /**
+     * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from this order.</p>.
+     *
      * @return null|CartDiscountReferenceCollection
      */
     public function getRefusedGifts();

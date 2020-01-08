@@ -22,11 +22,6 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     protected $action;
 
     /**
-     * @var ?AssetSourceCollection
-     */
-    protected $sources;
-
-    /**
      * @var ?string
      */
     protected $assetId;
@@ -36,14 +31,19 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
      */
     protected $assetKey;
 
+    /**
+     * @var ?AssetSourceCollection
+     */
+    protected $sources;
+
     public function __construct(
-        AssetSourceCollection $sources = null,
         string $assetId = null,
-        string $assetKey = null
+        string $assetKey = null,
+        AssetSourceCollection $sources = null
     ) {
-        $this->sources = $sources;
         $this->assetId = $assetId;
         $this->assetKey = $assetKey;
+        $this->sources = $sources;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -62,23 +62,6 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|AssetSourceCollection
-     */
-    public function getSources()
-    {
-        if (is_null($this->sources)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CategorySetAssetSourcesAction::FIELD_SOURCES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sources = AssetSourceCollection::fromArray($data);
-        }
-
-        return $this->sources;
     }
 
     /**
@@ -115,9 +98,21 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
         return $this->assetKey;
     }
 
-    public function setSources(?AssetSourceCollection $sources): void
+    /**
+     * @return null|AssetSourceCollection
+     */
+    public function getSources()
     {
-        $this->sources = $sources;
+        if (is_null($this->sources)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CategorySetAssetSourcesAction::FIELD_SOURCES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sources = AssetSourceCollection::fromArray($data);
+        }
+
+        return $this->sources;
     }
 
     public function setAssetId(?string $assetId): void
@@ -128,5 +123,10 @@ final class CategorySetAssetSourcesActionModel extends JsonObjectModel implement
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
+    }
+
+    public function setSources(?AssetSourceCollection $sources): void
+    {
+        $this->sources = $sources;
     }
 }

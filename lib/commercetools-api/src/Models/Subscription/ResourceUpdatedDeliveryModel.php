@@ -27,6 +27,11 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     protected $projectKey;
 
     /**
+     * @var ?string
+     */
+    protected $notificationType;
+
+    /**
      * @var ?Reference
      */
     protected $resource;
@@ -37,14 +42,9 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     protected $resourceUserProvidedIdentifiers;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    protected $notificationType;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $modifiedAt;
+    protected $version;
 
     /**
      * @var ?int
@@ -52,24 +52,24 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     protected $oldVersion;
 
     /**
-     * @var ?int
+     * @var ?DateTimeImmutable
      */
-    protected $version;
+    protected $modifiedAt;
 
     public function __construct(
         string $projectKey = null,
         Reference $resource = null,
         UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
-        DateTimeImmutable $modifiedAt = null,
+        int $version = null,
         int $oldVersion = null,
-        int $version = null
+        DateTimeImmutable $modifiedAt = null
     ) {
         $this->projectKey = $projectKey;
         $this->resource = $resource;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-        $this->modifiedAt = $modifiedAt;
-        $this->oldVersion = $oldVersion;
         $this->version = $version;
+        $this->oldVersion = $oldVersion;
+        $this->modifiedAt = $modifiedAt;
         $this->notificationType = static::DISCRIMINATOR_VALUE;
     }
 
@@ -88,6 +88,23 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
         }
 
         return $this->projectKey;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getNotificationType()
+    {
+        if (is_null($this->notificationType)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->notificationType = (string) $data;
+        }
+
+        return $this->notificationType;
     }
 
     /**
@@ -127,20 +144,37 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
     }
 
     /**
-     * @return null|string
+     * @return null|int
      */
-    public function getNotificationType()
+    public function getVersion()
     {
-        if (is_null($this->notificationType)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(SubscriptionDelivery::FIELD_NOTIFICATION_TYPE);
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ResourceUpdatedDelivery::FIELD_VERSION);
             if (is_null($data)) {
                 return null;
             }
-            $this->notificationType = (string) $data;
+            $this->version = (int) $data;
         }
 
-        return $this->notificationType;
+        return $this->version;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getOldVersion()
+    {
+        if (is_null($this->oldVersion)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ResourceUpdatedDelivery::FIELD_OLD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldVersion = (int) $data;
+        }
+
+        return $this->oldVersion;
     }
 
     /**
@@ -164,40 +198,6 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
         return $this->modifiedAt;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getOldVersion()
-    {
-        if (is_null($this->oldVersion)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ResourceUpdatedDelivery::FIELD_OLD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldVersion = (int) $data;
-        }
-
-        return $this->oldVersion;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ResourceUpdatedDelivery::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
     public function setProjectKey(?string $projectKey): void
     {
         $this->projectKey = $projectKey;
@@ -213,9 +213,9 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
-    public function setModifiedAt(?DateTimeImmutable $modifiedAt): void
+    public function setVersion(?int $version): void
     {
-        $this->modifiedAt = $modifiedAt;
+        $this->version = $version;
     }
 
     public function setOldVersion(?int $oldVersion): void
@@ -223,9 +223,9 @@ final class ResourceUpdatedDeliveryModel extends JsonObjectModel implements Reso
         $this->oldVersion = $oldVersion;
     }
 
-    public function setVersion(?int $version): void
+    public function setModifiedAt(?DateTimeImmutable $modifiedAt): void
     {
-        $this->version = $version;
+        $this->modifiedAt = $modifiedAt;
     }
 
     public function jsonSerialize()

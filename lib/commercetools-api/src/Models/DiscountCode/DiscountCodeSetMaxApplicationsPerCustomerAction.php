@@ -13,6 +13,8 @@ interface DiscountCodeSetMaxApplicationsPerCustomerAction extends DiscountCodeUp
     const FIELD_MAX_APPLICATIONS_PER_CUSTOMER = 'maxApplicationsPerCustomer';
 
     /**
+     * <p>If the <code>maxApplicationsPerCustomer</code> parameter is not included, the field will be emptied.</p>.
+     *
      * @return null|int
      */
     public function getMaxApplicationsPerCustomer();

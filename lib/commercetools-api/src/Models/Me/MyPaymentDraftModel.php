@@ -20,6 +20,11 @@ use stdClass;
 final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraft
 {
     /**
+     * @var ?Money
+     */
+    protected $amountPlanned;
+
+    /**
      * @var ?PaymentMethodInfo
      */
     protected $paymentMethodInfo;
@@ -30,25 +35,41 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     protected $custom;
 
     /**
-     * @var ?Money
-     */
-    protected $amountPlanned;
-
-    /**
      * @var ?MyTransactionDraft
      */
     protected $transaction;
 
     public function __construct(
+        Money $amountPlanned = null,
         PaymentMethodInfo $paymentMethodInfo = null,
         CustomFieldsDraft $custom = null,
-        Money $amountPlanned = null,
         MyTransactionDraft $transaction = null
     ) {
+        $this->amountPlanned = $amountPlanned;
         $this->paymentMethodInfo = $paymentMethodInfo;
         $this->custom = $custom;
-        $this->amountPlanned = $amountPlanned;
         $this->transaction = $transaction;
+    }
+
+    /**
+     * <p>How much money this payment intends to receive from the customer.
+     * The value usually matches the cart or order gross total.</p>.
+     *
+     * @return null|Money
+     */
+    public function getAmountPlanned()
+    {
+        if (is_null($this->amountPlanned)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(MyPaymentDraft::FIELD_AMOUNT_PLANNED);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->amountPlanned = MoneyModel::of($data);
+        }
+
+        return $this->amountPlanned;
     }
 
     /**
@@ -88,24 +109,9 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     }
 
     /**
-     * @return null|Money
-     */
-    public function getAmountPlanned()
-    {
-        if (is_null($this->amountPlanned)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(MyPaymentDraft::FIELD_AMOUNT_PLANNED);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->amountPlanned = MoneyModel::of($data);
-        }
-
-        return $this->amountPlanned;
-    }
-
-    /**
+     * <p>A list of financial transactions of the <code>Authorization</code> or <code>Charge</code>
+     * TransactionTypes.</p>.
+     *
      * @return null|MyTransactionDraft
      */
     public function getTransaction()
@@ -123,6 +129,11 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
         return $this->transaction;
     }
 
+    public function setAmountPlanned(?Money $amountPlanned): void
+    {
+        $this->amountPlanned = $amountPlanned;
+    }
+
     public function setPaymentMethodInfo(?PaymentMethodInfo $paymentMethodInfo): void
     {
         $this->paymentMethodInfo = $paymentMethodInfo;
@@ -131,11 +142,6 @@ final class MyPaymentDraftModel extends JsonObjectModel implements MyPaymentDraf
     public function setCustom(?CustomFieldsDraft $custom): void
     {
         $this->custom = $custom;
-    }
-
-    public function setAmountPlanned(?Money $amountPlanned): void
-    {
-        $this->amountPlanned = $amountPlanned;
     }
 
     public function setTransaction(?MyTransactionDraft $transaction): void

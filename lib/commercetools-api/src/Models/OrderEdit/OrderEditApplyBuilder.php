@@ -18,20 +18,12 @@ final class OrderEditApplyBuilder implements Builder
     /**
      * @var ?int
      */
-    private $resourceVersion;
+    private $editVersion;
 
     /**
      * @var ?int
      */
-    private $editVersion;
-
-    /**
-     * @return null|int
-     */
-    public function getResourceVersion()
-    {
-        return $this->resourceVersion;
-    }
+    private $resourceVersion;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class OrderEditApplyBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|int
      */
-    public function withResourceVersion(?int $resourceVersion)
+    public function getResourceVersion()
     {
-        $this->resourceVersion = $resourceVersion;
-
-        return $this;
+        return $this->resourceVersion;
     }
 
     /**
@@ -61,11 +51,21 @@ final class OrderEditApplyBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withResourceVersion(?int $resourceVersion)
+    {
+        $this->resourceVersion = $resourceVersion;
+
+        return $this;
+    }
+
     public function build(): OrderEditApply
     {
         return new OrderEditApplyModel(
-            $this->resourceVersion,
-            $this->editVersion
+            $this->editVersion,
+            $this->resourceVersion
         );
     }
 

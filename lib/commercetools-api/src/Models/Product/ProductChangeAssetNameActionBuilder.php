@@ -18,21 +18,6 @@ use Commercetools\Base\Builder;
 final class ProductChangeAssetNameActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $assetId;
-
-    /**
-     * @var LocalizedString|?LocalizedStringBuilder
-     */
-    private $name;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -43,33 +28,24 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     private $sku;
 
     /**
+     * @var ?bool
+     */
+    private $staged;
+
+    /**
+     * @var ?string
+     */
+    private $assetId;
+
+    /**
      * @var ?string
      */
     private $assetKey;
 
     /**
-     * @return null|string
+     * @var LocalizedString|?LocalizedStringBuilder
      */
-    public function getAssetId()
-    {
-        return $this->assetId;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $name;
 
     /**
      * @return null|int
@@ -88,6 +64,22 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     }
 
     /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        return $this->assetId;
+    }
+
+    /**
      * @return null|string
      */
     public function getAssetKey()
@@ -96,33 +88,11 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|LocalizedString
      */
-    public function withAssetId(?string $assetId)
+    public function getName()
     {
-        $this->assetId = $assetId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withName(?LocalizedString $name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withStaged(?bool $staged)
-    {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name;
     }
 
     /**
@@ -148,9 +118,39 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssetId(?string $assetId)
+    {
+        $this->assetId = $assetId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAssetKey(?string $assetKey)
     {
         $this->assetKey = $assetKey;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withName(?LocalizedString $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
@@ -168,12 +168,12 @@ final class ProductChangeAssetNameActionBuilder implements Builder
     public function build(): ProductChangeAssetNameAction
     {
         return new ProductChangeAssetNameActionModel(
-            $this->assetId,
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            $this->staged,
             $this->variantId,
             $this->sku,
-            $this->assetKey
+            $this->staged,
+            $this->assetId,
+            $this->assetKey,
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name)
         );
     }
 

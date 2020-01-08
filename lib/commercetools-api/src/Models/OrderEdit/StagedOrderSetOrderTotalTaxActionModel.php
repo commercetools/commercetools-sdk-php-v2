@@ -25,21 +25,21 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     protected $action;
 
     /**
-     * @var ?TaxPortionDraftCollection
-     */
-    protected $externalTaxPortions;
-
-    /**
      * @var ?Money
      */
     protected $externalTotalGross;
 
+    /**
+     * @var ?TaxPortionDraftCollection
+     */
+    protected $externalTaxPortions;
+
     public function __construct(
-        TaxPortionDraftCollection $externalTaxPortions = null,
-        Money $externalTotalGross = null
+        Money $externalTotalGross = null,
+        TaxPortionDraftCollection $externalTaxPortions = null
     ) {
-        $this->externalTaxPortions = $externalTaxPortions;
         $this->externalTotalGross = $externalTotalGross;
+        $this->externalTaxPortions = $externalTaxPortions;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -61,23 +61,6 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
     }
 
     /**
-     * @return null|TaxPortionDraftCollection
-     */
-    public function getExternalTaxPortions()
-    {
-        if (is_null($this->externalTaxPortions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(StagedOrderSetOrderTotalTaxAction::FIELD_EXTERNAL_TAX_PORTIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->externalTaxPortions = TaxPortionDraftCollection::fromArray($data);
-        }
-
-        return $this->externalTaxPortions;
-    }
-
-    /**
      * @return null|Money
      */
     public function getExternalTotalGross()
@@ -95,13 +78,30 @@ final class StagedOrderSetOrderTotalTaxActionModel extends JsonObjectModel imple
         return $this->externalTotalGross;
     }
 
-    public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void
+    /**
+     * @return null|TaxPortionDraftCollection
+     */
+    public function getExternalTaxPortions()
     {
-        $this->externalTaxPortions = $externalTaxPortions;
+        if (is_null($this->externalTaxPortions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(StagedOrderSetOrderTotalTaxAction::FIELD_EXTERNAL_TAX_PORTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalTaxPortions = TaxPortionDraftCollection::fromArray($data);
+        }
+
+        return $this->externalTaxPortions;
     }
 
     public function setExternalTotalGross(?Money $externalTotalGross): void
     {
         $this->externalTotalGross = $externalTotalGross;
+    }
+
+    public function setExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions): void
+    {
+        $this->externalTaxPortions = $externalTaxPortions;
     }
 }

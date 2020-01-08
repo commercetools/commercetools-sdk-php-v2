@@ -19,14 +19,19 @@ use stdClass;
 final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraft
 {
     /**
-     * @var ?bool
+     * @var ?string
      */
-    protected $dryRun;
+    protected $key;
 
     /**
      * @var ?OrderReference
      */
     protected $resource;
+
+    /**
+     * @var ?StagedOrderUpdateActionCollection
+     */
+    protected $stagedActions;
 
     /**
      * @var ?CustomFieldsDraft
@@ -39,49 +44,48 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     protected $comment;
 
     /**
-     * @var ?StagedOrderUpdateActionCollection
+     * @var ?bool
      */
-    protected $stagedActions;
-
-    /**
-     * @var ?string
-     */
-    protected $key;
+    protected $dryRun;
 
     public function __construct(
-        bool $dryRun = null,
+        string $key = null,
         OrderReference $resource = null,
+        StagedOrderUpdateActionCollection $stagedActions = null,
         CustomFieldsDraft $custom = null,
         string $comment = null,
-        StagedOrderUpdateActionCollection $stagedActions = null,
-        string $key = null
+        bool $dryRun = null
     ) {
-        $this->dryRun = $dryRun;
+        $this->key = $key;
         $this->resource = $resource;
+        $this->stagedActions = $stagedActions;
         $this->custom = $custom;
         $this->comment = $comment;
-        $this->stagedActions = $stagedActions;
-        $this->key = $key;
+        $this->dryRun = $dryRun;
     }
 
     /**
-     * @return null|bool
+     * <p>Unique identifier for this edit.</p>.
+     *
+     * @return null|string
      */
-    public function getDryRun()
+    public function getKey()
     {
-        if (is_null($this->dryRun)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(OrderEditDraft::FIELD_DRY_RUN);
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderEditDraft::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->dryRun = (bool) $data;
+            $this->key = (string) $data;
         }
 
-        return $this->dryRun;
+        return $this->key;
     }
 
     /**
+     * <p>The order to be updated with this edit.</p>.
+     *
      * @return null|OrderReference
      */
     public function getResource()
@@ -100,6 +104,27 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     }
 
     /**
+     * <p>The actions to apply to <code>resource</code>.</p>.
+     *
+     * @return null|StagedOrderUpdateActionCollection
+     */
+    public function getStagedActions()
+    {
+        if (is_null($this->stagedActions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderEditDraft::FIELD_STAGED_ACTIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stagedActions = StagedOrderUpdateActionCollection::fromArray($data);
+        }
+
+        return $this->stagedActions;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom()
@@ -118,6 +143,8 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     }
 
     /**
+     * <p>This field can be used to add additional textual information regarding the edit.</p>.
+     *
      * @return null|string
      */
     public function getComment()
@@ -135,47 +162,37 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
     }
 
     /**
-     * @return null|StagedOrderUpdateActionCollection
+     * <p>When set to <code>true</code> the edit is applied on the Order without persisting it.</p>.
+     *
+     * @return null|bool
      */
-    public function getStagedActions()
+    public function getDryRun()
     {
-        if (is_null($this->stagedActions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderEditDraft::FIELD_STAGED_ACTIONS);
+        if (is_null($this->dryRun)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(OrderEditDraft::FIELD_DRY_RUN);
             if (is_null($data)) {
                 return null;
             }
-            $this->stagedActions = StagedOrderUpdateActionCollection::fromArray($data);
+            $this->dryRun = (bool) $data;
         }
 
-        return $this->stagedActions;
+        return $this->dryRun;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getKey()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderEditDraft::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    public function setDryRun(?bool $dryRun): void
-    {
-        $this->dryRun = $dryRun;
+        $this->key = $key;
     }
 
     public function setResource(?OrderReference $resource): void
     {
         $this->resource = $resource;
+    }
+
+    public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void
+    {
+        $this->stagedActions = $stagedActions;
     }
 
     public function setCustom(?CustomFieldsDraft $custom): void
@@ -188,13 +205,8 @@ final class OrderEditDraftModel extends JsonObjectModel implements OrderEditDraf
         $this->comment = $comment;
     }
 
-    public function setStagedActions(?StagedOrderUpdateActionCollection $stagedActions): void
+    public function setDryRun(?bool $dryRun): void
     {
-        $this->stagedActions = $stagedActions;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
+        $this->dryRun = $dryRun;
     }
 }

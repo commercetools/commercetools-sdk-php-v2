@@ -22,19 +22,19 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     /**
      * @var ?string
      */
-    protected $oldEmail;
+    protected $email;
 
     /**
      * @var ?string
      */
-    protected $email;
+    protected $oldEmail;
 
     public function __construct(
-        string $oldEmail = null,
-        string $email = null
+        string $email = null,
+        string $oldEmail = null
     ) {
-        $this->oldEmail = $oldEmail;
         $this->email = $email;
+        $this->oldEmail = $oldEmail;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -58,23 +58,6 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
     /**
      * @return null|string
      */
-    public function getOldEmail()
-    {
-        if (is_null($this->oldEmail)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderCustomerEmailSetMessagePayload::FIELD_OLD_EMAIL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldEmail = (string) $data;
-        }
-
-        return $this->oldEmail;
-    }
-
-    /**
-     * @return null|string
-     */
     public function getEmail()
     {
         if (is_null($this->email)) {
@@ -89,13 +72,30 @@ final class OrderCustomerEmailSetMessagePayloadModel extends JsonObjectModel imp
         return $this->email;
     }
 
-    public function setOldEmail(?string $oldEmail): void
+    /**
+     * @return null|string
+     */
+    public function getOldEmail()
     {
-        $this->oldEmail = $oldEmail;
+        if (is_null($this->oldEmail)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderCustomerEmailSetMessagePayload::FIELD_OLD_EMAIL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldEmail = (string) $data;
+        }
+
+        return $this->oldEmail;
     }
 
     public function setEmail(?string $email): void
     {
         $this->email = $email;
+    }
+
+    public function setOldEmail(?string $oldEmail): void
+    {
+        $this->oldEmail = $oldEmail;
     }
 }

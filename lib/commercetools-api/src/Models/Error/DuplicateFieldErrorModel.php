@@ -29,9 +29,9 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     protected $message;
 
     /**
-     * @var ?Reference
+     * @var ?string
      */
-    protected $conflictingResource;
+    protected $field;
 
     /**
      * @var ?JsonObject
@@ -39,20 +39,20 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     protected $duplicateValue;
 
     /**
-     * @var ?string
+     * @var ?Reference
      */
-    protected $field;
+    protected $conflictingResource;
 
     public function __construct(
         string $message = null,
-        Reference $conflictingResource = null,
+        string $field = null,
         JsonObject $duplicateValue = null,
-        string $field = null
+        Reference $conflictingResource = null
     ) {
         $this->message = $message;
-        $this->conflictingResource = $conflictingResource;
-        $this->duplicateValue = $duplicateValue;
         $this->field = $field;
+        $this->duplicateValue = $duplicateValue;
+        $this->conflictingResource = $conflictingResource;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
 
@@ -91,21 +91,20 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
-     * @return null|Reference
+     * @return null|string
      */
-    public function getConflictingResource()
+    public function getField()
     {
-        if (is_null($this->conflictingResource)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DuplicateFieldError::FIELD_CONFLICTING_RESOURCE);
+        if (is_null($this->field)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(DuplicateFieldError::FIELD_FIELD);
             if (is_null($data)) {
                 return null;
             }
-            $className = ReferenceModel::resolveDiscriminatorClass($data);
-            $this->conflictingResource = $className::of($data);
+            $this->field = (string) $data;
         }
 
-        return $this->conflictingResource;
+        return $this->field;
     }
 
     /**
@@ -126,20 +125,21 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
-     * @return null|string
+     * @return null|Reference
      */
-    public function getField()
+    public function getConflictingResource()
     {
-        if (is_null($this->field)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(DuplicateFieldError::FIELD_FIELD);
+        if (is_null($this->conflictingResource)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DuplicateFieldError::FIELD_CONFLICTING_RESOURCE);
             if (is_null($data)) {
                 return null;
             }
-            $this->field = (string) $data;
+            $className = ReferenceModel::resolveDiscriminatorClass($data);
+            $this->conflictingResource = $className::of($data);
         }
 
-        return $this->field;
+        return $this->conflictingResource;
     }
 
     public function setMessage(?string $message): void
@@ -147,9 +147,9 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
         $this->message = $message;
     }
 
-    public function setConflictingResource(?Reference $conflictingResource): void
+    public function setField(?string $field): void
     {
-        $this->conflictingResource = $conflictingResource;
+        $this->field = $field;
     }
 
     public function setDuplicateValue(?JsonObject $duplicateValue): void
@@ -157,8 +157,8 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
         $this->duplicateValue = $duplicateValue;
     }
 
-    public function setField(?string $field): void
+    public function setConflictingResource(?Reference $conflictingResource): void
     {
-        $this->field = $field;
+        $this->conflictingResource = $conflictingResource;
     }
 }

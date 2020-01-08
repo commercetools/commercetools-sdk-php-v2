@@ -16,9 +16,9 @@ use stdClass;
 final class TaxPortionModel extends JsonObjectModel implements TaxPortion
 {
     /**
-     * @var ?TypedMoney
+     * @var ?string
      */
-    protected $amount;
+    protected $name;
 
     /**
      * @var ?int
@@ -26,53 +26,18 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
     protected $rate;
 
     /**
-     * @var ?string
+     * @var ?TypedMoney
      */
-    protected $name;
+    protected $amount;
 
     public function __construct(
-        TypedMoney $amount = null,
+        string $name = null,
         int $rate = null,
-        string $name = null
+        TypedMoney $amount = null
     ) {
-        $this->amount = $amount;
-        $this->rate = $rate;
         $this->name = $name;
-    }
-
-    /**
-     * @return null|TypedMoney
-     */
-    public function getAmount()
-    {
-        if (is_null($this->amount)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(TaxPortion::FIELD_AMOUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->amount = $className::of($data);
-        }
-
-        return $this->amount;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getRate()
-    {
-        if (is_null($this->rate)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(TaxPortion::FIELD_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->rate = (int) $data;
-        }
-
-        return $this->rate;
+        $this->rate = $rate;
+        $this->amount = $amount;
     }
 
     /**
@@ -92,9 +57,46 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
         return $this->name;
     }
 
-    public function setAmount(?TypedMoney $amount): void
+    /**
+     * <p>A number in the range [0..1]</p>.
+     *
+     * @return null|int
+     */
+    public function getRate()
     {
-        $this->amount = $amount;
+        if (is_null($this->rate)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(TaxPortion::FIELD_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->rate = (int) $data;
+        }
+
+        return $this->rate;
+    }
+
+    /**
+     * @return null|TypedMoney
+     */
+    public function getAmount()
+    {
+        if (is_null($this->amount)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(TaxPortion::FIELD_AMOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->amount = TypedMoneyModel::of($data);
+        }
+
+        return $this->amount;
+    }
+
+    public function setName(?string $name): void
+    {
+        $this->name = $name;
     }
 
     public function setRate(?int $rate): void
@@ -102,8 +104,8 @@ final class TaxPortionModel extends JsonObjectModel implements TaxPortion
         $this->rate = $rate;
     }
 
-    public function setName(?string $name): void
+    public function setAmount(?TypedMoney $amount): void
     {
-        $this->name = $name;
+        $this->amount = $amount;
     }
 }

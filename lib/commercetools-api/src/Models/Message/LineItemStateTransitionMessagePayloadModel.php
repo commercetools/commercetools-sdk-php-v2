@@ -25,21 +25,6 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     protected $type;
 
     /**
-     * @var ?StateReference
-     */
-    protected $toState;
-
-    /**
-     * @var ?StateReference
-     */
-    protected $fromState;
-
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
      * @var ?string
      */
     protected $lineItemId;
@@ -49,18 +34,33 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
      */
     protected $transitionDate;
 
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?StateReference
+     */
+    protected $fromState;
+
+    /**
+     * @var ?StateReference
+     */
+    protected $toState;
+
     public function __construct(
-        StateReference $toState = null,
-        StateReference $fromState = null,
-        int $quantity = null,
         string $lineItemId = null,
-        DateTimeImmutable $transitionDate = null
+        DateTimeImmutable $transitionDate = null,
+        int $quantity = null,
+        StateReference $fromState = null,
+        StateReference $toState = null
     ) {
-        $this->toState = $toState;
-        $this->fromState = $fromState;
-        $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
         $this->transitionDate = $transitionDate;
+        $this->quantity = $quantity;
+        $this->fromState = $fromState;
+        $this->toState = $toState;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -79,59 +79,6 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
         }
 
         return $this->type;
-    }
-
-    /**
-     * @return null|StateReference
-     */
-    public function getToState()
-    {
-        if (is_null($this->toState)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_TO_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->toState = StateReferenceModel::of($data);
-        }
-
-        return $this->toState;
-    }
-
-    /**
-     * @return null|StateReference
-     */
-    public function getFromState()
-    {
-        if (is_null($this->fromState)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_FROM_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->fromState = StateReferenceModel::of($data);
-        }
-
-        return $this->fromState;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
     }
 
     /**
@@ -172,19 +119,57 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
         return $this->transitionDate;
     }
 
-    public function setToState(?StateReference $toState): void
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
     {
-        $this->toState = $toState;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
-    public function setFromState(?StateReference $fromState): void
+    /**
+     * @return null|StateReference
+     */
+    public function getFromState()
     {
-        $this->fromState = $fromState;
+        if (is_null($this->fromState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_FROM_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fromState = StateReferenceModel::of($data);
+        }
+
+        return $this->fromState;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * @return null|StateReference
+     */
+    public function getToState()
     {
-        $this->quantity = $quantity;
+        if (is_null($this->toState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(LineItemStateTransitionMessagePayload::FIELD_TO_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->toState = StateReferenceModel::of($data);
+        }
+
+        return $this->toState;
     }
 
     public function setLineItemId(?string $lineItemId): void
@@ -195,6 +180,21 @@ final class LineItemStateTransitionMessagePayloadModel extends JsonObjectModel i
     public function setTransitionDate(?DateTimeImmutable $transitionDate): void
     {
         $this->transitionDate = $transitionDate;
+    }
+
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+    public function setFromState(?StateReference $fromState): void
+    {
+        $this->fromState = $fromState;
+    }
+
+    public function setToState(?StateReference $toState): void
+    {
+        $this->toState = $toState;
     }
 
     public function jsonSerialize()

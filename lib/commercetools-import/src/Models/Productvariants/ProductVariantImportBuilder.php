@@ -25,9 +25,19 @@ final class ProductVariantImportBuilder implements Builder
     private $key;
 
     /**
-     * @var ProductKeyReference|?ProductKeyReferenceBuilder
+     * @var ?string
      */
-    private $product;
+    private $sku;
+
+    /**
+     * @var ?bool
+     */
+    private $isMasterVariant;
+
+    /**
+     * @var ?AttributeCollection
+     */
+    private $attributes;
 
     /**
      * @var ?ImageCollection
@@ -40,19 +50,9 @@ final class ProductVariantImportBuilder implements Builder
     private $assets;
 
     /**
-     * @var ?AttributeCollection
+     * @var ProductKeyReference|?ProductKeyReferenceBuilder
      */
-    private $attributes;
-
-    /**
-     * @var ?string
-     */
-    private $sku;
-
-    /**
-     * @var ?bool
-     */
-    private $isMasterVariant;
+    private $product;
 
     /**
      * @return null|string
@@ -60,52 +60,6 @@ final class ProductVariantImportBuilder implements Builder
     public function getKey()
     {
         return $this->key;
-    }
-
-    /**
-     * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
-     * <p>The product referenced
-     * must already exist in the commercetools project, or the
-     * import item state is set to <code>Unresolved</code>.</p>.
-     *
-     * @return null|ProductKeyReference
-     */
-    public function getProduct()
-    {
-        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
-    }
-
-    /**
-     * <p>Maps to <code>ProductVariant.images</code>.</p>.
-     *
-     * @return null|ImageCollection
-     */
-    public function getImages()
-    {
-        return $this->images;
-    }
-
-    /**
-     * <p>Maps to <code>ProductVariant.assets</code>.</p>.
-     *
-     * @return null|AssetCollection
-     */
-    public function getAssets()
-    {
-        return $this->assets;
-    }
-
-    /**
-     * <p>Maps to <code>ProductVariant.attributes</code>.</p>
-     * <p>Each attribute referenced must be defined
-     * in an already existing product type in the commercetools project, or the import
-     * item state is set to <code>Unresolved</code>.</p>.
-     *
-     * @return null|AttributeCollection
-     */
-    public function getAttributes()
-    {
-        return $this->attributes;
     }
 
     /**
@@ -129,51 +83,57 @@ final class ProductVariantImportBuilder implements Builder
     }
 
     /**
+     * <p>Maps to <code>ProductVariant.attributes</code>.</p>
+     * <p>Each attribute referenced must be defined
+     * in an already existing product type in the commercetools project, or the import
+     * item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|AttributeCollection
+     */
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * <p>Maps to <code>ProductVariant.images</code>.</p>.
+     *
+     * @return null|ImageCollection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * <p>Maps to <code>ProductVariant.assets</code>.</p>.
+     *
+     * @return null|AssetCollection
+     */
+    public function getAssets()
+    {
+        return $this->assets;
+    }
+
+    /**
+     * <p>The product in which this product variant is contained. Maps to <code>ProductVariant.product</code>.</p>
+     * <p>The product referenced
+     * must already exist in the commercetools project, or the
+     * import item state is set to <code>Unresolved</code>.</p>.
+     *
+     * @return null|ProductKeyReference
+     */
+    public function getProduct()
+    {
+        return $this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product;
+    }
+
+    /**
      * @return $this
      */
     public function withKey(?string $key)
     {
         $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withProduct(?ProductKeyReference $product)
-    {
-        $this->product = $product;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withImages(?ImageCollection $images)
-    {
-        $this->images = $images;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAssets(?AssetCollection $assets)
-    {
-        $this->assets = $assets;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAttributes(?AttributeCollection $attributes)
-    {
-        $this->attributes = $attributes;
 
         return $this;
     }
@@ -201,6 +161,46 @@ final class ProductVariantImportBuilder implements Builder
     /**
      * @return $this
      */
+    public function withAttributes(?AttributeCollection $attributes)
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withImages(?ImageCollection $images)
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssets(?AssetCollection $assets)
+    {
+        $this->assets = $assets;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withProduct(?ProductKeyReference $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withProductBuilder(?ProductKeyReferenceBuilder $product)
     {
         $this->product = $product;
@@ -212,12 +212,12 @@ final class ProductVariantImportBuilder implements Builder
     {
         return new ProductVariantImportModel(
             $this->key,
-            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product),
+            $this->sku,
+            $this->isMasterVariant,
+            $this->attributes,
             $this->images,
             $this->assets,
-            $this->attributes,
-            $this->sku,
-            $this->isMasterVariant
+            ($this->product instanceof ProductKeyReferenceBuilder ? $this->product->build() : $this->product)
         );
     }
 

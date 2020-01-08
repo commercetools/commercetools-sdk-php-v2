@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class PriceTierBuilder implements Builder
 {
     /**
-     * @var TypedMoney|?TypedMoneyBuilder
-     */
-    private $value;
-
-    /**
      * @var ?int
      */
     private $minimumQuantity;
 
     /**
-     * @return null|TypedMoney
+     * @var TypedMoney|?TypedMoneyBuilder
      */
-    public function getValue()
-    {
-        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
-    }
+    private $value;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class PriceTierBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|TypedMoney
      */
-    public function withValue(?TypedMoney $value)
+    public function getValue()
     {
-        $this->value = $value;
-
-        return $this;
+        return $this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value;
     }
 
     /**
@@ -57,6 +47,16 @@ final class PriceTierBuilder implements Builder
     public function withMinimumQuantity(?int $minimumQuantity)
     {
         $this->minimumQuantity = $minimumQuantity;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValue(?TypedMoney $value)
+    {
+        $this->value = $value;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class PriceTierBuilder implements Builder
     public function build(): PriceTier
     {
         return new PriceTierModel(
-            ($this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value),
-            $this->minimumQuantity
+            $this->minimumQuantity,
+            ($this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value)
         );
     }
 

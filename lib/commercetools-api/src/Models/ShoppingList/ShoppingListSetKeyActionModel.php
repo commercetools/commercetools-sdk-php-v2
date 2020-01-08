@@ -49,6 +49,8 @@ final class ShoppingListSetKeyActionModel extends JsonObjectModel implements Sho
     }
 
     /**
+     * <p>User-specific unique identifier for the shopping list.</p>.
+     *
      * @return null|string
      */
     public function getKey()

@@ -22,26 +22,6 @@ use Commercetools\Base\Builder;
 final class MyShoppingListDraftBuilder implements Builder
 {
     /**
-     * @var ?ShoppingListLineItemDraftCollection
-     */
-    private $lineItems;
-
-    /**
-     * @var ?TextLineItemDraftCollection
-     */
-    private $textLineItems;
-
-    /**
-     * @var ?int
-     */
-    private $deleteDaysAfterLastModification;
-
-    /**
-     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
-     */
-    private $custom;
-
-    /**
      * @var LocalizedString|?LocalizedStringBuilder
      */
     private $name;
@@ -52,36 +32,24 @@ final class MyShoppingListDraftBuilder implements Builder
     private $description;
 
     /**
-     * @return null|ShoppingListLineItemDraftCollection
+     * @var ?ShoppingListLineItemDraftCollection
      */
-    public function getLineItems()
-    {
-        return $this->lineItems;
-    }
+    private $lineItems;
 
     /**
-     * @return null|TextLineItemDraftCollection
+     * @var ?TextLineItemDraftCollection
      */
-    public function getTextLineItems()
-    {
-        return $this->textLineItems;
-    }
+    private $textLineItems;
 
     /**
-     * @return null|int
+     * @var CustomFieldsDraft|?CustomFieldsDraftBuilder
      */
-    public function getDeleteDaysAfterLastModification()
-    {
-        return $this->deleteDaysAfterLastModification;
-    }
+    private $custom;
 
     /**
-     * @return null|CustomFieldsDraft
+     * @var ?int
      */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
+    private $deleteDaysAfterLastModification;
 
     /**
      * @return null|LocalizedString
@@ -100,43 +68,39 @@ final class MyShoppingListDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ShoppingListLineItemDraftCollection
      */
-    public function withLineItems(?ShoppingListLineItemDraftCollection $lineItems)
+    public function getLineItems()
     {
-        $this->lineItems = $lineItems;
-
-        return $this;
+        return $this->lineItems;
     }
 
     /**
-     * @return $this
+     * @return null|TextLineItemDraftCollection
      */
-    public function withTextLineItems(?TextLineItemDraftCollection $textLineItems)
+    public function getTextLineItems()
     {
-        $this->textLineItems = $textLineItems;
-
-        return $this;
+        return $this->textLineItems;
     }
 
     /**
-     * @return $this
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
      */
-    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
+    public function getCustom()
     {
-        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
-     * @return $this
+     * <p>The shopping list will be deleted automatically if it hasn't been modified for the specified amount of days.</p>.
+     *
+     * @return null|int
      */
-    public function withCustom(?CustomFieldsDraft $custom)
+    public function getDeleteDaysAfterLastModification()
     {
-        $this->custom = $custom;
-
-        return $this;
+        return $this->deleteDaysAfterLastModification;
     }
 
     /**
@@ -162,9 +126,39 @@ final class MyShoppingListDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    public function withLineItems(?ShoppingListLineItemDraftCollection $lineItems)
+    {
+        $this->lineItems = $lineItems;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTextLineItems(?TextLineItemDraftCollection $textLineItems)
+    {
+        $this->textLineItems = $textLineItems;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFieldsDraft $custom)
     {
         $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDeleteDaysAfterLastModification(?int $deleteDaysAfterLastModification)
+    {
+        $this->deleteDaysAfterLastModification = $deleteDaysAfterLastModification;
 
         return $this;
     }
@@ -189,15 +183,25 @@ final class MyShoppingListDraftBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsDraftBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): MyShoppingListDraft
     {
         return new MyShoppingListDraftModel(
+            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
+            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description),
             $this->lineItems,
             $this->textLineItems,
-            $this->deleteDaysAfterLastModification,
             ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            ($this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name),
-            ($this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description)
+            $this->deleteDaysAfterLastModification
         );
     }
 

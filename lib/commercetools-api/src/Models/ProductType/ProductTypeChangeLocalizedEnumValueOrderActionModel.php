@@ -21,21 +21,21 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
     protected $action;
 
     /**
-     * @var ?AttributeLocalizedEnumValueCollection
-     */
-    protected $values;
-
-    /**
      * @var ?string
      */
     protected $attributeName;
 
+    /**
+     * @var ?AttributeLocalizedEnumValueCollection
+     */
+    protected $values;
+
     public function __construct(
-        AttributeLocalizedEnumValueCollection $values = null,
-        string $attributeName = null
+        string $attributeName = null,
+        AttributeLocalizedEnumValueCollection $values = null
     ) {
-        $this->values = $values;
         $this->attributeName = $attributeName;
+        $this->values = $values;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -57,23 +57,6 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
     }
 
     /**
-     * @return null|AttributeLocalizedEnumValueCollection
-     */
-    public function getValues()
-    {
-        if (is_null($this->values)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ProductTypeChangeLocalizedEnumValueOrderAction::FIELD_VALUES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->values = AttributeLocalizedEnumValueCollection::fromArray($data);
-        }
-
-        return $this->values;
-    }
-
-    /**
      * @return null|string
      */
     public function getAttributeName()
@@ -90,13 +73,30 @@ final class ProductTypeChangeLocalizedEnumValueOrderActionModel extends JsonObje
         return $this->attributeName;
     }
 
-    public function setValues(?AttributeLocalizedEnumValueCollection $values): void
+    /**
+     * @return null|AttributeLocalizedEnumValueCollection
+     */
+    public function getValues()
     {
-        $this->values = $values;
+        if (is_null($this->values)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ProductTypeChangeLocalizedEnumValueOrderAction::FIELD_VALUES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->values = AttributeLocalizedEnumValueCollection::fromArray($data);
+        }
+
+        return $this->values;
     }
 
     public function setAttributeName(?string $attributeName): void
     {
         $this->attributeName = $attributeName;
+    }
+
+    public function setValues(?AttributeLocalizedEnumValueCollection $values): void
+    {
+        $this->values = $values;
     }
 }

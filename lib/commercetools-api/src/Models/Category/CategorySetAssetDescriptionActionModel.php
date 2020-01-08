@@ -28,23 +28,23 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     protected $assetId;
 
     /**
-     * @var ?LocalizedString
-     */
-    protected $description;
-
-    /**
      * @var ?string
      */
     protected $assetKey;
 
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
     public function __construct(
         string $assetId = null,
-        LocalizedString $description = null,
-        string $assetKey = null
+        string $assetKey = null,
+        LocalizedString $description = null
     ) {
         $this->assetId = $assetId;
-        $this->description = $description;
         $this->assetKey = $assetKey;
+        $this->description = $description;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -83,6 +83,23 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
     }
 
     /**
+     * @return null|string
+     */
+    public function getAssetKey()
+    {
+        if (is_null($this->assetKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategorySetAssetDescriptionAction::FIELD_ASSET_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetKey = (string) $data;
+        }
+
+        return $this->assetKey;
+    }
+
+    /**
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -100,35 +117,18 @@ final class CategorySetAssetDescriptionActionModel extends JsonObjectModel imple
         return $this->description;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getAssetKey()
-    {
-        if (is_null($this->assetKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CategorySetAssetDescriptionAction::FIELD_ASSET_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assetKey = (string) $data;
-        }
-
-        return $this->assetKey;
-    }
-
     public function setAssetId(?string $assetId): void
     {
         $this->assetId = $assetId;
     }
 
-    public function setDescription(?LocalizedString $description): void
-    {
-        $this->description = $description;
-    }
-
     public function setAssetKey(?string $assetKey): void
     {
         $this->assetKey = $assetKey;
+    }
+
+    public function setDescription(?LocalizedString $description): void
+    {
+        $this->description = $description;
     }
 }

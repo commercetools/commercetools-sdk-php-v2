@@ -21,6 +21,26 @@ use DateTimeImmutable;
 final class InventoryEntryDraftBuilder implements Builder
 {
     /**
+     * @var ?string
+     */
+    private $sku;
+
+    /**
+     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
+     */
+    private $supplyChannel;
+
+    /**
+     * @var ?int
+     */
+    private $quantityOnStock;
+
+    /**
+     * @var ?int
+     */
+    private $restockableInDays;
+
+    /**
      * @var ?DateTimeImmutable
      */
     private $expectedDelivery;
@@ -31,47 +51,11 @@ final class InventoryEntryDraftBuilder implements Builder
     private $custom;
 
     /**
-     * @var ?int
+     * @return null|string
      */
-    private $quantityOnStock;
-
-    /**
-     * @var ChannelResourceIdentifier|?ChannelResourceIdentifierBuilder
-     */
-    private $supplyChannel;
-
-    /**
-     * @var ?int
-     */
-    private $restockableInDays;
-
-    /**
-     * @var ?string
-     */
-    private $sku;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getExpectedDelivery()
+    public function getSku()
     {
-        return $this->expectedDelivery;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantityOnStock()
-    {
-        return $this->quantityOnStock;
+        return $this->sku;
     }
 
     /**
@@ -85,17 +69,75 @@ final class InventoryEntryDraftBuilder implements Builder
     /**
      * @return null|int
      */
+    public function getQuantityOnStock()
+    {
+        return $this->quantityOnStock;
+    }
+
+    /**
+     * @return null|int
+     */
     public function getRestockableInDays()
     {
         return $this->restockableInDays;
     }
 
     /**
-     * @return null|string
+     * @return null|DateTimeImmutable
      */
-    public function getSku()
+    public function getExpectedDelivery()
     {
-        return $this->sku;
+        return $this->expectedDelivery;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        return $this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withQuantityOnStock(?int $quantityOnStock)
+    {
+        $this->quantityOnStock = $quantityOnStock;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withRestockableInDays(?int $restockableInDays)
+    {
+        $this->restockableInDays = $restockableInDays;
+
+        return $this;
     }
 
     /**
@@ -121,39 +163,9 @@ final class InventoryEntryDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withQuantityOnStock(?int $quantityOnStock)
-    {
-        $this->quantityOnStock = $quantityOnStock;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSupplyChannel(?ChannelResourceIdentifier $supplyChannel)
+    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
     {
         $this->supplyChannel = $supplyChannel;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withRestockableInDays(?int $restockableInDays)
-    {
-        $this->restockableInDays = $restockableInDays;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
 
         return $this;
     }
@@ -168,25 +180,15 @@ final class InventoryEntryDraftBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withSupplyChannelBuilder(?ChannelResourceIdentifierBuilder $supplyChannel)
-    {
-        $this->supplyChannel = $supplyChannel;
-
-        return $this;
-    }
-
     public function build(): InventoryEntryDraft
     {
         return new InventoryEntryDraftModel(
-            $this->expectedDelivery,
-            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom),
-            $this->quantityOnStock,
+            $this->sku,
             ($this->supplyChannel instanceof ChannelResourceIdentifierBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
+            $this->quantityOnStock,
             $this->restockableInDays,
-            $this->sku
+            $this->expectedDelivery,
+            ($this->custom instanceof CustomFieldsDraftBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

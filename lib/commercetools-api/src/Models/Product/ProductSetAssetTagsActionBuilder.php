@@ -16,16 +16,6 @@ use Commercetools\Base\Builder;
 final class ProductSetAssetTagsActionBuilder implements Builder
 {
     /**
-     * @var ?string
-     */
-    private $assetId;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -36,6 +26,16 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     private $sku;
 
     /**
+     * @var ?bool
+     */
+    private $staged;
+
+    /**
+     * @var ?string
+     */
+    private $assetId;
+
+    /**
      * @var ?string
      */
     private $assetKey;
@@ -44,22 +44,6 @@ final class ProductSetAssetTagsActionBuilder implements Builder
      * @var ?array
      */
     private $tags;
-
-    /**
-     * @return null|string
-     */
-    public function getAssetId()
-    {
-        return $this->assetId;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
 
     /**
      * @return null|int
@@ -75,6 +59,22 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     public function getSku()
     {
         return $this->sku;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        return $this->assetId;
     }
 
     /**
@@ -96,9 +96,19 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAssetId(?string $assetId)
+    public function withVariantId(?int $variantId)
     {
-        $this->assetId = $assetId;
+        $this->variantId = $variantId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSku(?string $sku)
+    {
+        $this->sku = $sku;
 
         return $this;
     }
@@ -116,19 +126,9 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVariantId(?int $variantId)
+    public function withAssetId(?string $assetId)
     {
-        $this->variantId = $variantId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withSku(?string $sku)
-    {
-        $this->sku = $sku;
+        $this->assetId = $assetId;
 
         return $this;
     }
@@ -156,10 +156,10 @@ final class ProductSetAssetTagsActionBuilder implements Builder
     public function build(): ProductSetAssetTagsAction
     {
         return new ProductSetAssetTagsActionModel(
-            $this->assetId,
-            $this->staged,
             $this->variantId,
             $this->sku,
+            $this->staged,
+            $this->assetId,
             $this->assetKey,
             $this->tags
         );

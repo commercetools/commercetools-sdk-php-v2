@@ -16,9 +16,9 @@ use Commercetools\Base\Builder;
 final class OrderEditUpdateBuilder implements Builder
 {
     /**
-     * @var ?bool
+     * @var ?int
      */
-    private $dryRun;
+    private $version;
 
     /**
      * @var ?OrderEditUpdateActionCollection
@@ -26,16 +26,16 @@ final class OrderEditUpdateBuilder implements Builder
     private $actions;
 
     /**
-     * @var ?int
+     * @var ?bool
      */
-    private $version;
+    private $dryRun;
 
     /**
-     * @return null|bool
+     * @return null|int
      */
-    public function getDryRun()
+    public function getVersion()
     {
-        return $this->dryRun;
+        return $this->version;
     }
 
     /**
@@ -47,19 +47,19 @@ final class OrderEditUpdateBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return null|bool
      */
-    public function getVersion()
+    public function getDryRun()
     {
-        return $this->version;
+        return $this->dryRun;
     }
 
     /**
      * @return $this
      */
-    public function withDryRun(?bool $dryRun)
+    public function withVersion(?int $version)
     {
-        $this->dryRun = $dryRun;
+        $this->version = $version;
 
         return $this;
     }
@@ -77,9 +77,9 @@ final class OrderEditUpdateBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVersion(?int $version)
+    public function withDryRun(?bool $dryRun)
     {
-        $this->version = $version;
+        $this->dryRun = $dryRun;
 
         return $this;
     }
@@ -87,9 +87,9 @@ final class OrderEditUpdateBuilder implements Builder
     public function build(): OrderEditUpdate
     {
         return new OrderEditUpdateModel(
-            $this->dryRun,
+            $this->version,
             $this->actions,
-            $this->version
+            $this->dryRun
         );
     }
 

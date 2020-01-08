@@ -25,24 +25,9 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     protected $type;
 
     /**
-     * @var ?bool
-     */
-    protected $newIncludedInStatistics;
-
-    /**
      * @var ?StateReference
      */
     protected $oldState;
-
-    /**
-     * @var ?bool
-     */
-    protected $force;
-
-    /**
-     * @var ?bool
-     */
-    protected $oldIncludedInStatistics;
 
     /**
      * @var ?StateReference
@@ -50,24 +35,39 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     protected $newState;
 
     /**
+     * @var ?bool
+     */
+    protected $oldIncludedInStatistics;
+
+    /**
+     * @var ?bool
+     */
+    protected $newIncludedInStatistics;
+
+    /**
      * @var ?Reference
      */
     protected $target;
 
+    /**
+     * @var ?bool
+     */
+    protected $force;
+
     public function __construct(
-        bool $newIncludedInStatistics = null,
         StateReference $oldState = null,
-        bool $force = null,
-        bool $oldIncludedInStatistics = null,
         StateReference $newState = null,
-        Reference $target = null
+        bool $oldIncludedInStatistics = null,
+        bool $newIncludedInStatistics = null,
+        Reference $target = null,
+        bool $force = null
     ) {
-        $this->newIncludedInStatistics = $newIncludedInStatistics;
         $this->oldState = $oldState;
-        $this->force = $force;
-        $this->oldIncludedInStatistics = $oldIncludedInStatistics;
         $this->newState = $newState;
+        $this->oldIncludedInStatistics = $oldIncludedInStatistics;
+        $this->newIncludedInStatistics = $newIncludedInStatistics;
         $this->target = $target;
+        $this->force = $force;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -89,23 +89,6 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
-     * @return null|bool
-     */
-    public function getNewIncludedInStatistics()
-    {
-        if (is_null($this->newIncludedInStatistics)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_NEW_INCLUDED_IN_STATISTICS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->newIncludedInStatistics = (bool) $data;
-        }
-
-        return $this->newIncludedInStatistics;
-    }
-
-    /**
      * @return null|StateReference
      */
     public function getOldState()
@@ -121,40 +104,6 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
         }
 
         return $this->oldState;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getForce()
-    {
-        if (is_null($this->force)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_FORCE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->force = (bool) $data;
-        }
-
-        return $this->force;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getOldIncludedInStatistics()
-    {
-        if (is_null($this->oldIncludedInStatistics)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_OLD_INCLUDED_IN_STATISTICS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldIncludedInStatistics = (bool) $data;
-        }
-
-        return $this->oldIncludedInStatistics;
     }
 
     /**
@@ -176,6 +125,40 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
     }
 
     /**
+     * @return null|bool
+     */
+    public function getOldIncludedInStatistics()
+    {
+        if (is_null($this->oldIncludedInStatistics)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_OLD_INCLUDED_IN_STATISTICS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->oldIncludedInStatistics = (bool) $data;
+        }
+
+        return $this->oldIncludedInStatistics;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getNewIncludedInStatistics()
+    {
+        if (is_null($this->newIncludedInStatistics)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_NEW_INCLUDED_IN_STATISTICS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->newIncludedInStatistics = (bool) $data;
+        }
+
+        return $this->newIncludedInStatistics;
+    }
+
+    /**
      * @return null|Reference
      */
     public function getTarget()
@@ -193,9 +176,21 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
         return $this->target;
     }
 
-    public function setNewIncludedInStatistics(?bool $newIncludedInStatistics): void
+    /**
+     * @return null|bool
+     */
+    public function getForce()
     {
-        $this->newIncludedInStatistics = $newIncludedInStatistics;
+        if (is_null($this->force)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ReviewStateTransitionMessagePayload::FIELD_FORCE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->force = (bool) $data;
+        }
+
+        return $this->force;
     }
 
     public function setOldState(?StateReference $oldState): void
@@ -203,9 +198,9 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
         $this->oldState = $oldState;
     }
 
-    public function setForce(?bool $force): void
+    public function setNewState(?StateReference $newState): void
     {
-        $this->force = $force;
+        $this->newState = $newState;
     }
 
     public function setOldIncludedInStatistics(?bool $oldIncludedInStatistics): void
@@ -213,13 +208,18 @@ final class ReviewStateTransitionMessagePayloadModel extends JsonObjectModel imp
         $this->oldIncludedInStatistics = $oldIncludedInStatistics;
     }
 
-    public function setNewState(?StateReference $newState): void
+    public function setNewIncludedInStatistics(?bool $newIncludedInStatistics): void
     {
-        $this->newState = $newState;
+        $this->newIncludedInStatistics = $newIncludedInStatistics;
     }
 
     public function setTarget(?Reference $target): void
     {
         $this->target = $target;
+    }
+
+    public function setForce(?bool $force): void
+    {
+        $this->force = $force;
     }
 }

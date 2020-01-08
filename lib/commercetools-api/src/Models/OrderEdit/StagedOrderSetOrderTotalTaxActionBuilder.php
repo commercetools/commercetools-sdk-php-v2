@@ -19,22 +19,14 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
 {
     /**
-     * @var ?TaxPortionDraftCollection
-     */
-    private $externalTaxPortions;
-
-    /**
      * @var Money|?MoneyBuilder
      */
     private $externalTotalGross;
 
     /**
-     * @return null|TaxPortionDraftCollection
+     * @var ?TaxPortionDraftCollection
      */
-    public function getExternalTaxPortions()
-    {
-        return $this->externalTaxPortions;
-    }
+    private $externalTaxPortions;
 
     /**
      * @return null|Money
@@ -45,13 +37,11 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|TaxPortionDraftCollection
      */
-    public function withExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions)
+    public function getExternalTaxPortions()
     {
-        $this->externalTaxPortions = $externalTaxPortions;
-
-        return $this;
+        return $this->externalTaxPortions;
     }
 
     /**
@@ -60,6 +50,16 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     public function withExternalTotalGross(?Money $externalTotalGross)
     {
         $this->externalTotalGross = $externalTotalGross;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withExternalTaxPortions(?TaxPortionDraftCollection $externalTaxPortions)
+    {
+        $this->externalTaxPortions = $externalTaxPortions;
 
         return $this;
     }
@@ -77,8 +77,8 @@ final class StagedOrderSetOrderTotalTaxActionBuilder implements Builder
     public function build(): StagedOrderSetOrderTotalTaxAction
     {
         return new StagedOrderSetOrderTotalTaxActionModel(
-            $this->externalTaxPortions,
-            ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross)
+            ($this->externalTotalGross instanceof MoneyBuilder ? $this->externalTotalGross->build() : $this->externalTotalGross),
+            $this->externalTaxPortions
         );
     }
 

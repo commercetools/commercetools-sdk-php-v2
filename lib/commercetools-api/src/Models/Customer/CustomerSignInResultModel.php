@@ -15,38 +15,21 @@ use stdClass;
 final class CustomerSignInResultModel extends JsonObjectModel implements CustomerSignInResult
 {
     /**
-     * @var ?JsonObject
-     */
-    protected $cart;
-
-    /**
      * @var ?Customer
      */
     protected $customer;
 
-    public function __construct(
-        JsonObject $cart = null,
-        Customer $customer = null
-    ) {
-        $this->cart = $cart;
-        $this->customer = $customer;
-    }
-
     /**
-     * @return null|JsonObject
+     * @var ?JsonObject
      */
-    public function getCart()
-    {
-        if (is_null($this->cart)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomerSignInResult::FIELD_CART);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->cart = JsonObjectModel::of($data);
-        }
+    protected $cart;
 
-        return $this->cart;
+    public function __construct(
+        Customer $customer = null,
+        JsonObject $cart = null
+    ) {
+        $this->customer = $customer;
+        $this->cart = $cart;
     }
 
     /**
@@ -67,13 +50,33 @@ final class CustomerSignInResultModel extends JsonObjectModel implements Custome
         return $this->customer;
     }
 
-    public function setCart(?JsonObject $cart): void
+    /**
+     * <p>A cart that is associated to the customer.
+     * Empty if the customer does not have a cart yet.</p>.
+     *
+     * @return null|JsonObject
+     */
+    public function getCart()
     {
-        $this->cart = $cart;
+        if (is_null($this->cart)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomerSignInResult::FIELD_CART);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->cart = JsonObjectModel::of($data);
+        }
+
+        return $this->cart;
     }
 
     public function setCustomer(?Customer $customer): void
     {
         $this->customer = $customer;
+    }
+
+    public function setCart(?JsonObject $cart): void
+    {
+        $this->cart = $cart;
     }
 }

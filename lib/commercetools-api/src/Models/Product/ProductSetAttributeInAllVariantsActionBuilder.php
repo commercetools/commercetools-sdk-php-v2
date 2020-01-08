@@ -22,14 +22,14 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     private $name;
 
     /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?JsonObject
      */
     private $value;
+
+    /**
+     * @var ?bool
+     */
+    private $staged;
 
     /**
      * @return null|string
@@ -40,19 +40,21 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     }
 
     /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
-
-    /**
+     * <p>The same update behavior as for Set Attribute applies.</p>.
+     *
      * @return null|JsonObject
      */
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
     }
 
     /**
@@ -68,9 +70,9 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStaged(?bool $staged)
+    public function withValue(?JsonObject $value)
     {
-        $this->staged = $staged;
+        $this->value = $value;
 
         return $this;
     }
@@ -78,9 +80,9 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withValue(?JsonObject $value)
+    public function withStaged(?bool $staged)
     {
-        $this->value = $value;
+        $this->staged = $staged;
 
         return $this;
     }
@@ -89,8 +91,8 @@ final class ProductSetAttributeInAllVariantsActionBuilder implements Builder
     {
         return new ProductSetAttributeInAllVariantsActionModel(
             $this->name,
-            $this->staged,
-            $this->value
+            $this->value,
+            $this->staged
         );
     }
 

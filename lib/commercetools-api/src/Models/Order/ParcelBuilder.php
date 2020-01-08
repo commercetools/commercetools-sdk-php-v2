@@ -17,24 +17,14 @@ use DateTimeImmutable;
 final class ParcelBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
      * @var ?string
      */
     private $id;
 
     /**
-     * @var ?DeliveryItemCollection
+     * @var ?DateTimeImmutable
      */
-    private $items;
-
-    /**
-     * @var TrackingData|?TrackingDataBuilder
-     */
-    private $trackingData;
+    private $createdAt;
 
     /**
      * @var ParcelMeasurements|?ParcelMeasurementsBuilder
@@ -42,12 +32,14 @@ final class ParcelBuilder implements Builder
     private $measurements;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var TrackingData|?TrackingDataBuilder
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
+    private $trackingData;
+
+    /**
+     * @var ?DeliveryItemCollection
+     */
+    private $items;
 
     /**
      * @return null|string
@@ -58,19 +50,11 @@ final class ParcelBuilder implements Builder
     }
 
     /**
-     * @return null|DeliveryItemCollection
+     * @return null|DateTimeImmutable
      */
-    public function getItems()
+    public function getCreatedAt()
     {
-        return $this->items;
-    }
-
-    /**
-     * @return null|TrackingData
-     */
-    public function getTrackingData()
-    {
-        return $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData;
+        return $this->createdAt;
     }
 
     /**
@@ -82,13 +66,21 @@ final class ParcelBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|TrackingData
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getTrackingData()
     {
-        $this->createdAt = $createdAt;
+        return $this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData;
+    }
 
-        return $this;
+    /**
+     * <p>The delivery items contained in this parcel.</p>.
+     *
+     * @return null|DeliveryItemCollection
+     */
+    public function getItems()
+    {
+        return $this->items;
     }
 
     /**
@@ -104,19 +96,9 @@ final class ParcelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withItems(?DeliveryItemCollection $items)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->items = $items;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTrackingData(?TrackingData $trackingData)
-    {
-        $this->trackingData = $trackingData;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -134,9 +116,19 @@ final class ParcelBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTrackingDataBuilder(?TrackingDataBuilder $trackingData)
+    public function withTrackingData(?TrackingData $trackingData)
     {
         $this->trackingData = $trackingData;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withItems(?DeliveryItemCollection $items)
+    {
+        $this->items = $items;
 
         return $this;
     }
@@ -151,14 +143,24 @@ final class ParcelBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withTrackingDataBuilder(?TrackingDataBuilder $trackingData)
+    {
+        $this->trackingData = $trackingData;
+
+        return $this;
+    }
+
     public function build(): Parcel
     {
         return new ParcelModel(
-            $this->createdAt,
             $this->id,
-            $this->items,
+            $this->createdAt,
+            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements),
             ($this->trackingData instanceof TrackingDataBuilder ? $this->trackingData->build() : $this->trackingData),
-            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements)
+            $this->items
         );
     }
 

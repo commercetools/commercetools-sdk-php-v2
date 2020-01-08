@@ -18,6 +18,11 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
     /**
      * @var ?string
      */
+    protected $interfaceCode;
+
+    /**
+     * @var ?string
+     */
     protected $interfaceText;
 
     /**
@@ -25,19 +30,31 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
      */
     protected $state;
 
-    /**
-     * @var ?string
-     */
-    protected $interfaceCode;
-
     public function __construct(
+        string $interfaceCode = null,
         string $interfaceText = null,
-        StateResourceIdentifier $state = null,
-        string $interfaceCode = null
+        StateResourceIdentifier $state = null
     ) {
+        $this->interfaceCode = $interfaceCode;
         $this->interfaceText = $interfaceText;
         $this->state = $state;
-        $this->interfaceCode = $interfaceCode;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getInterfaceCode()
+    {
+        if (is_null($this->interfaceCode)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentStatusDraft::FIELD_INTERFACE_CODE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->interfaceCode = (string) $data;
+        }
+
+        return $this->interfaceCode;
     }
 
     /**
@@ -75,21 +92,9 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
         return $this->state;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getInterfaceCode()
+    public function setInterfaceCode(?string $interfaceCode): void
     {
-        if (is_null($this->interfaceCode)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentStatusDraft::FIELD_INTERFACE_CODE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->interfaceCode = (string) $data;
-        }
-
-        return $this->interfaceCode;
+        $this->interfaceCode = $interfaceCode;
     }
 
     public function setInterfaceText(?string $interfaceText): void
@@ -100,10 +105,5 @@ final class PaymentStatusDraftModel extends JsonObjectModel implements PaymentSt
     public function setState(?StateResourceIdentifier $state): void
     {
         $this->state = $state;
-    }
-
-    public function setInterfaceCode(?string $interfaceCode): void
-    {
-        $this->interfaceCode = $interfaceCode;
     }
 }

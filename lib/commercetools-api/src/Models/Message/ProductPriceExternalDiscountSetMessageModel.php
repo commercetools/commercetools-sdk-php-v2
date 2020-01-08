@@ -26,16 +26,6 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
     const DISCRIMINATOR_VALUE = 'ProductPriceExternalDiscountSet';
 
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -46,14 +36,24 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
 
     /**
      * @var ?int
@@ -66,11 +66,6 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
     protected $resource;
 
     /**
-     * @var ?UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     protected $resourceVersion;
@@ -79,6 +74,31 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
      * @var ?string
      */
     protected $type;
+
+    /**
+     * @var ?UserProvidedIdentifiers
+     */
+    protected $resourceUserProvidedIdentifiers;
+
+    /**
+     * @var ?int
+     */
+    protected $variantId;
+
+    /**
+     * @var ?string
+     */
+    protected $variantKey;
+
+    /**
+     * @var ?string
+     */
+    protected $sku;
+
+    /**
+     * @var ?string
+     */
+    protected $priceId;
 
     /**
      * @var ?DiscountedPrice
@@ -90,61 +110,75 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
      */
     protected $staged;
 
-    /**
-     * @var ?int
-     */
-    protected $variantId;
-
-    /**
-     * @var ?string
-     */
-    protected $priceId;
-
-    /**
-     * @var ?string
-     */
-    protected $sku;
-
-    /**
-     * @var ?string
-     */
-    protected $variantKey;
-
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
+        CreatedBy $createdBy = null,
         int $sequenceNumber = null,
         Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        DiscountedPrice $discounted = null,
-        bool $staged = null,
+        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $variantId = null,
-        string $priceId = null,
+        string $variantKey = null,
         string $sku = null,
-        string $variantKey = null
+        string $priceId = null,
+        DiscountedPrice $discounted = null,
+        bool $staged = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
         $this->sequenceNumber = $sequenceNumber;
         $this->resource = $resource;
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->variantId = $variantId;
+        $this->variantKey = $variantKey;
+        $this->sku = $sku;
+        $this->priceId = $priceId;
         $this->discounted = $discounted;
         $this->staged = $staged;
-        $this->variantId = $variantId;
-        $this->priceId = $priceId;
-        $this->sku = $sku;
-        $this->variantKey = $variantKey;
         $this->type = static::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Message::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Message::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -190,37 +224,21 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -239,24 +257,6 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
         }
 
         return $this->createdBy;
-    }
-
-    /**
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
-        }
-
-        return $this->lastModifiedBy;
     }
 
     /**
@@ -295,24 +295,6 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        if (is_null($this->resourceUserProvidedIdentifiers)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
-        }
-
-        return $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -344,6 +326,92 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
         }
 
         return $this->type;
+    }
+
+    /**
+     * @return null|UserProvidedIdentifiers
+     */
+    public function getResourceUserProvidedIdentifiers()
+    {
+        if (is_null($this->resourceUserProvidedIdentifiers)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
+        }
+
+        return $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ProductPriceExternalDiscountSetMessage::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getVariantKey()
+    {
+        if (is_null($this->variantKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductPriceExternalDiscountSetMessage::FIELD_VARIANT_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantKey = (string) $data;
+        }
+
+        return $this->variantKey;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSku()
+    {
+        if (is_null($this->sku)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductPriceExternalDiscountSetMessage::FIELD_SKU);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->sku = (string) $data;
+        }
+
+        return $this->sku;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPriceId()
+    {
+        if (is_null($this->priceId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductPriceExternalDiscountSetMessage::FIELD_PRICE_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->priceId = (string) $data;
+        }
+
+        return $this->priceId;
     }
 
     /**
@@ -381,72 +449,14 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
         return $this->staged;
     }
 
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
+    public function setId(?string $id): void
     {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ProductPriceExternalDiscountSetMessage::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
+        $this->id = $id;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getPriceId()
+    public function setVersion(?int $version): void
     {
-        if (is_null($this->priceId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPriceExternalDiscountSetMessage::FIELD_PRICE_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->priceId = (string) $data;
-        }
-
-        return $this->priceId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getSku()
-    {
-        if (is_null($this->sku)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPriceExternalDiscountSetMessage::FIELD_SKU);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->sku = (string) $data;
-        }
-
-        return $this->sku;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getVariantKey()
-    {
-        if (is_null($this->variantKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductPriceExternalDiscountSetMessage::FIELD_VARIANT_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantKey = (string) $data;
-        }
-
-        return $this->variantKey;
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -459,24 +469,14 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
         $this->lastModifiedAt = $lastModifiedAt;
     }
 
-    public function setId(?string $id): void
+    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
-        $this->id = $id;
-    }
-
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
+        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setCreatedBy(?CreatedBy $createdBy): void
     {
         $this->createdBy = $createdBy;
-    }
-
-    public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
-    {
-        $this->lastModifiedBy = $lastModifiedBy;
     }
 
     public function setSequenceNumber(?int $sequenceNumber): void
@@ -489,14 +489,34 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
         $this->resource = $resource;
     }
 
+    public function setResourceVersion(?int $resourceVersion): void
+    {
+        $this->resourceVersion = $resourceVersion;
+    }
+
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
-    public function setResourceVersion(?int $resourceVersion): void
+    public function setVariantId(?int $variantId): void
     {
-        $this->resourceVersion = $resourceVersion;
+        $this->variantId = $variantId;
+    }
+
+    public function setVariantKey(?string $variantKey): void
+    {
+        $this->variantKey = $variantKey;
+    }
+
+    public function setSku(?string $sku): void
+    {
+        $this->sku = $sku;
+    }
+
+    public function setPriceId(?string $priceId): void
+    {
+        $this->priceId = $priceId;
     }
 
     public function setDiscounted(?DiscountedPrice $discounted): void
@@ -507,26 +527,6 @@ final class ProductPriceExternalDiscountSetMessageModel extends JsonObjectModel 
     public function setStaged(?bool $staged): void
     {
         $this->staged = $staged;
-    }
-
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
-    }
-
-    public function setPriceId(?string $priceId): void
-    {
-        $this->priceId = $priceId;
-    }
-
-    public function setSku(?string $sku): void
-    {
-        $this->sku = $sku;
-    }
-
-    public function setVariantKey(?string $variantKey): void
-    {
-        $this->variantKey = $variantKey;
     }
 
     public function jsonSerialize()

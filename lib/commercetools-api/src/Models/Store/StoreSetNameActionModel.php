@@ -52,6 +52,8 @@ final class StoreSetNameActionModel extends JsonObjectModel implements StoreSetN
     }
 
     /**
+     * <p>The updated name of the store</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()

@@ -18,12 +18,12 @@ final class ExtensionAWSLambdaDestinationBuilder implements Builder
     /**
      * @var ?string
      */
-    private $accessKey;
+    private $arn;
 
     /**
      * @var ?string
      */
-    private $arn;
+    private $accessKey;
 
     /**
      * @var ?string
@@ -33,17 +33,17 @@ final class ExtensionAWSLambdaDestinationBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getAccessKey()
+    public function getArn()
     {
-        return $this->accessKey;
+        return $this->arn;
     }
 
     /**
      * @return null|string
      */
-    public function getArn()
+    public function getAccessKey()
     {
-        return $this->arn;
+        return $this->accessKey;
     }
 
     /**
@@ -57,9 +57,9 @@ final class ExtensionAWSLambdaDestinationBuilder implements Builder
     /**
      * @return $this
      */
-    public function withAccessKey(?string $accessKey)
+    public function withArn(?string $arn)
     {
-        $this->accessKey = $accessKey;
+        $this->arn = $arn;
 
         return $this;
     }
@@ -67,9 +67,9 @@ final class ExtensionAWSLambdaDestinationBuilder implements Builder
     /**
      * @return $this
      */
-    public function withArn(?string $arn)
+    public function withAccessKey(?string $accessKey)
     {
-        $this->arn = $arn;
+        $this->accessKey = $accessKey;
 
         return $this;
     }
@@ -87,8 +87,8 @@ final class ExtensionAWSLambdaDestinationBuilder implements Builder
     public function build(): ExtensionAWSLambdaDestination
     {
         return new ExtensionAWSLambdaDestinationModel(
-            $this->accessKey,
             $this->arn,
+            $this->accessKey,
             $this->accessSecret
         );
     }

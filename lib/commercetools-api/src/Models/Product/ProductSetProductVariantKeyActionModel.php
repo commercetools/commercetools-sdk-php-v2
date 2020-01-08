@@ -20,11 +20,6 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     protected $action;
 
     /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -39,16 +34,21 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
      */
     protected $key;
 
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        bool $staged = null,
         int $variantId = null,
         string $sku = null,
-        string $key = null
+        string $key = null,
+        bool $staged = null
     ) {
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
         $this->key = $key;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -67,23 +67,6 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetProductVariantKeyAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
     }
 
     /**
@@ -121,6 +104,8 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     }
 
     /**
+     * <p>If left blank or set to <code>null</code>, the key is unset/removed.</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -137,9 +122,21 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
         return $this->key;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->staged = $staged;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetProductVariantKeyAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setVariantId(?int $variantId): void
@@ -155,5 +152,10 @@ final class ProductSetProductVariantKeyActionModel extends JsonObjectModel imple
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

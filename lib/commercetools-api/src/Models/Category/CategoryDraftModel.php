@@ -19,39 +19,29 @@ use stdClass;
 final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
 {
     /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $slug;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
      * @var ?CategoryResourceIdentifier
      */
     protected $parent;
 
     /**
-     * @var ?AssetDraftCollection
-     */
-    protected $assets;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaKeywords;
-
-    /**
      * @var ?string
      */
     protected $orderHint;
-
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $metaTitle;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
 
     /**
      * @var ?string
@@ -61,7 +51,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * @var ?LocalizedString
      */
-    protected $description;
+    protected $metaTitle;
 
     /**
      * @var ?LocalizedString
@@ -69,44 +59,116 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     protected $metaDescription;
 
     /**
+     * @var ?LocalizedString
+     */
+    protected $metaKeywords;
+
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?AssetDraftCollection
+     */
+    protected $assets;
+
+    /**
      * @var ?string
      */
     protected $key;
 
-    /**
-     * @var ?LocalizedString
-     */
-    protected $slug;
-
     public function __construct(
-        CategoryResourceIdentifier $parent = null,
-        AssetDraftCollection $assets = null,
-        LocalizedString $metaKeywords = null,
-        string $orderHint = null,
-        CustomFieldsDraft $custom = null,
-        LocalizedString $metaTitle = null,
         LocalizedString $name = null,
-        string $externalId = null,
+        LocalizedString $slug = null,
         LocalizedString $description = null,
+        CategoryResourceIdentifier $parent = null,
+        string $orderHint = null,
+        string $externalId = null,
+        LocalizedString $metaTitle = null,
         LocalizedString $metaDescription = null,
-        string $key = null,
-        LocalizedString $slug = null
+        LocalizedString $metaKeywords = null,
+        CustomFieldsDraft $custom = null,
+        AssetDraftCollection $assets = null,
+        string $key = null
     ) {
-        $this->parent = $parent;
-        $this->assets = $assets;
-        $this->metaKeywords = $metaKeywords;
-        $this->orderHint = $orderHint;
-        $this->custom = $custom;
-        $this->metaTitle = $metaTitle;
         $this->name = $name;
-        $this->externalId = $externalId;
-        $this->description = $description;
-        $this->metaDescription = $metaDescription;
-        $this->key = $key;
         $this->slug = $slug;
+        $this->description = $description;
+        $this->parent = $parent;
+        $this->orderHint = $orderHint;
+        $this->externalId = $externalId;
+        $this->metaTitle = $metaTitle;
+        $this->metaDescription = $metaDescription;
+        $this->metaKeywords = $metaKeywords;
+        $this->custom = $custom;
+        $this->assets = $assets;
+        $this->key = $key;
     }
 
     /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * <p>human-readable identifier usually used as deep-link URL to the related category.
+     * Allowed are alphabetic, numeric, underscore (<code>_</code>) and hyphen (<code>-</code>) characters.
+     * Maximum size is 256.
+     * <strong>Must be unique across a project!</strong> The same category can have the same slug for different languages.</p>.
+     *
+     * @return null|LocalizedString
+     */
+    public function getSlug()
+    {
+        if (is_null($this->slug)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_SLUG);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->slug = LocalizedStringModel::of($data);
+        }
+
+        return $this->slug;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getDescription()
+    {
+        if (is_null($this->description)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_DESCRIPTION);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->description = LocalizedStringModel::of($data);
+        }
+
+        return $this->description;
+    }
+
+    /**
+     * <p>A category that is the parent of this category in the category tree.
+     * The parent can be set by its ID or by its key.</p>.
+     *
      * @return null|CategoryResourceIdentifier
      */
     public function getParent()
@@ -125,41 +187,9 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     }
 
     /**
-     * @return null|AssetDraftCollection
-     */
-    public function getAssets()
-    {
-        if (is_null($this->assets)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(CategoryDraft::FIELD_ASSETS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assets = AssetDraftCollection::fromArray($data);
-        }
-
-        return $this->assets;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getMetaKeywords()
-    {
-        if (is_null($this->metaKeywords)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_META_KEYWORDS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->metaKeywords = LocalizedStringModel::of($data);
-        }
-
-        return $this->metaKeywords;
-    }
-
-    /**
+     * <p>An attribute as base for a custom category order in one level.
+     * A random value will be assigned by API if not set.</p>.
+     *
      * @return null|string
      */
     public function getOrderHint()
@@ -177,21 +207,20 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     }
 
     /**
-     * @return null|CustomFieldsDraft
+     * @return null|string
      */
-    public function getCustom()
+    public function getExternalId()
     {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_CUSTOM);
+        if (is_null($this->externalId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CategoryDraft::FIELD_EXTERNAL_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
+            $this->externalId = (string) $data;
         }
 
-        return $this->custom;
+        return $this->externalId;
     }
 
     /**
@@ -215,59 +244,6 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     /**
      * @return null|LocalizedString
      */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getExternalId()
-    {
-        if (is_null($this->externalId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CategoryDraft::FIELD_EXTERNAL_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->externalId = (string) $data;
-        }
-
-        return $this->externalId;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getDescription()
-    {
-        if (is_null($this->description)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_DESCRIPTION);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->description = LocalizedStringModel::of($data);
-        }
-
-        return $this->description;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
     public function getMetaDescription()
     {
         if (is_null($this->metaDescription)) {
@@ -284,6 +260,64 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     }
 
     /**
+     * @return null|LocalizedString
+     */
+    public function getMetaKeywords()
+    {
+        if (is_null($this->metaKeywords)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_META_KEYWORDS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->metaKeywords = LocalizedStringModel::of($data);
+        }
+
+        return $this->metaKeywords;
+    }
+
+    /**
+     * <p>The custom fields.</p>.
+     *
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
+    {
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CategoryDraft::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
+    }
+
+    /**
+     * @return null|AssetDraftCollection
+     */
+    public function getAssets()
+    {
+        if (is_null($this->assets)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(CategoryDraft::FIELD_ASSETS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assets = AssetDraftCollection::fromArray($data);
+        }
+
+        return $this->assets;
+    }
+
+    /**
+     * <p>User-defined unique identifier for the category.
+     * Keys can only contain alphanumeric characters (<code>a-Z, 0-9</code>), underscores and hyphens (<code>-, _</code>) and be between 2 and 256 characters.</p>.
+     *
      * @return null|string
      */
     public function getKey()
@@ -300,62 +334,14 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
         return $this->key;
     }
 
-    /**
-     * @return null|LocalizedString
-     */
-    public function getSlug()
-    {
-        if (is_null($this->slug)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CategoryDraft::FIELD_SLUG);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->slug = LocalizedStringModel::of($data);
-        }
-
-        return $this->slug;
-    }
-
-    public function setParent(?CategoryResourceIdentifier $parent): void
-    {
-        $this->parent = $parent;
-    }
-
-    public function setAssets(?AssetDraftCollection $assets): void
-    {
-        $this->assets = $assets;
-    }
-
-    public function setMetaKeywords(?LocalizedString $metaKeywords): void
-    {
-        $this->metaKeywords = $metaKeywords;
-    }
-
-    public function setOrderHint(?string $orderHint): void
-    {
-        $this->orderHint = $orderHint;
-    }
-
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    public function setMetaTitle(?LocalizedString $metaTitle): void
-    {
-        $this->metaTitle = $metaTitle;
-    }
-
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
     }
 
-    public function setExternalId(?string $externalId): void
+    public function setSlug(?LocalizedString $slug): void
     {
-        $this->externalId = $externalId;
+        $this->slug = $slug;
     }
 
     public function setDescription(?LocalizedString $description): void
@@ -363,18 +349,48 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
         $this->description = $description;
     }
 
+    public function setParent(?CategoryResourceIdentifier $parent): void
+    {
+        $this->parent = $parent;
+    }
+
+    public function setOrderHint(?string $orderHint): void
+    {
+        $this->orderHint = $orderHint;
+    }
+
+    public function setExternalId(?string $externalId): void
+    {
+        $this->externalId = $externalId;
+    }
+
+    public function setMetaTitle(?LocalizedString $metaTitle): void
+    {
+        $this->metaTitle = $metaTitle;
+    }
+
     public function setMetaDescription(?LocalizedString $metaDescription): void
     {
         $this->metaDescription = $metaDescription;
     }
 
+    public function setMetaKeywords(?LocalizedString $metaKeywords): void
+    {
+        $this->metaKeywords = $metaKeywords;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setAssets(?AssetDraftCollection $assets): void
+    {
+        $this->assets = $assets;
+    }
+
     public function setKey(?string $key): void
     {
         $this->key = $key;
-    }
-
-    public function setSlug(?LocalizedString $slug): void
-    {
-        $this->slug = $slug;
     }
 }

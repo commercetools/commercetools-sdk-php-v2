@@ -18,19 +18,14 @@ use Commercetools\Base\Builder;
 final class CartChangeLineItemQuantityActionBuilder implements Builder
 {
     /**
-     * @var ?int
-     */
-    private $quantity;
-
-    /**
-     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
-     */
-    private $externalTotalPrice;
-
-    /**
      * @var ?string
      */
     private $lineItemId;
+
+    /**
+     * @var ?int
+     */
+    private $quantity;
 
     /**
      * @var Money|?MoneyBuilder
@@ -38,20 +33,9 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
     private $externalPrice;
 
     /**
-     * @return null|int
+     * @var ExternalLineItemTotalPrice|?ExternalLineItemTotalPriceBuilder
      */
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|ExternalLineItemTotalPrice
-     */
-    public function getExternalTotalPrice()
-    {
-        return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
-    }
+    private $externalTotalPrice;
 
     /**
      * @return null|string
@@ -59,6 +43,14 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
     }
 
     /**
@@ -70,23 +62,11 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ExternalLineItemTotalPrice
      */
-    public function withQuantity(?int $quantity)
+    public function getExternalTotalPrice()
     {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
-    {
-        $this->externalTotalPrice = $externalTotalPrice;
-
-        return $this;
+        return $this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice;
     }
 
     /**
@@ -95,6 +75,16 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
     public function withLineItemId(?string $lineItemId)
     {
         $this->lineItemId = $lineItemId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withQuantity(?int $quantity)
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }
@@ -112,7 +102,7 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
+    public function withExternalTotalPrice(?ExternalLineItemTotalPrice $externalTotalPrice)
     {
         $this->externalTotalPrice = $externalTotalPrice;
 
@@ -129,13 +119,23 @@ final class CartChangeLineItemQuantityActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withExternalTotalPriceBuilder(?ExternalLineItemTotalPriceBuilder $externalTotalPrice)
+    {
+        $this->externalTotalPrice = $externalTotalPrice;
+
+        return $this;
+    }
+
     public function build(): CartChangeLineItemQuantityAction
     {
         return new CartChangeLineItemQuantityActionModel(
-            $this->quantity,
-            ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice),
             $this->lineItemId,
-            ($this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice)
+            $this->quantity,
+            ($this->externalPrice instanceof MoneyBuilder ? $this->externalPrice->build() : $this->externalPrice),
+            ($this->externalTotalPrice instanceof ExternalLineItemTotalPriceBuilder ? $this->externalTotalPrice->build() : $this->externalTotalPrice)
         );
     }
 

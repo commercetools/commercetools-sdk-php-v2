@@ -24,12 +24,12 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     /**
      * @var ?string
      */
-    protected $deliveryId;
+    protected $parcelId;
 
     /**
-     * @var ?DeliveryItemCollection
+     * @var ?string
      */
-    protected $oldItems;
+    protected $deliveryId;
 
     /**
      * @var ?DeliveryItemCollection
@@ -37,20 +37,20 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     protected $items;
 
     /**
-     * @var ?string
+     * @var ?DeliveryItemCollection
      */
-    protected $parcelId;
+    protected $oldItems;
 
     public function __construct(
+        string $parcelId = null,
         string $deliveryId = null,
-        DeliveryItemCollection $oldItems = null,
         DeliveryItemCollection $items = null,
-        string $parcelId = null
+        DeliveryItemCollection $oldItems = null
     ) {
-        $this->deliveryId = $deliveryId;
-        $this->oldItems = $oldItems;
-        $this->items = $items;
         $this->parcelId = $parcelId;
+        $this->deliveryId = $deliveryId;
+        $this->items = $items;
+        $this->oldItems = $oldItems;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -74,6 +74,23 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     /**
      * @return null|string
      */
+    public function getParcelId()
+    {
+        if (is_null($this->parcelId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ParcelItemsUpdatedMessagePayload::FIELD_PARCEL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->parcelId = (string) $data;
+        }
+
+        return $this->parcelId;
+    }
+
+    /**
+     * @return null|string
+     */
     public function getDeliveryId()
     {
         if (is_null($this->deliveryId)) {
@@ -86,23 +103,6 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
         }
 
         return $this->deliveryId;
-    }
-
-    /**
-     * @return null|DeliveryItemCollection
-     */
-    public function getOldItems()
-    {
-        if (is_null($this->oldItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ParcelItemsUpdatedMessagePayload::FIELD_OLD_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldItems = DeliveryItemCollection::fromArray($data);
-        }
-
-        return $this->oldItems;
     }
 
     /**
@@ -123,20 +123,25 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
-     * @return null|string
+     * @return null|DeliveryItemCollection
      */
-    public function getParcelId()
+    public function getOldItems()
     {
-        if (is_null($this->parcelId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ParcelItemsUpdatedMessagePayload::FIELD_PARCEL_ID);
+        if (is_null($this->oldItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ParcelItemsUpdatedMessagePayload::FIELD_OLD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
-            $this->parcelId = (string) $data;
+            $this->oldItems = DeliveryItemCollection::fromArray($data);
         }
 
-        return $this->parcelId;
+        return $this->oldItems;
+    }
+
+    public function setParcelId(?string $parcelId): void
+    {
+        $this->parcelId = $parcelId;
     }
 
     public function setDeliveryId(?string $deliveryId): void
@@ -144,18 +149,13 @@ final class ParcelItemsUpdatedMessagePayloadModel extends JsonObjectModel implem
         $this->deliveryId = $deliveryId;
     }
 
-    public function setOldItems(?DeliveryItemCollection $oldItems): void
-    {
-        $this->oldItems = $oldItems;
-    }
-
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
 
-    public function setParcelId(?string $parcelId): void
+    public function setOldItems(?DeliveryItemCollection $oldItems): void
     {
-        $this->parcelId = $parcelId;
+        $this->oldItems = $oldItems;
     }
 }

@@ -20,11 +20,6 @@ final class ClientLoggingBuilder implements Builder
     /**
      * @var ?string
      */
-    private $anonymousId;
-
-    /**
-     * @var ?string
-     */
     private $clientId;
 
     /**
@@ -38,12 +33,9 @@ final class ClientLoggingBuilder implements Builder
     private $customer;
 
     /**
-     * @return null|string
+     * @var ?string
      */
-    public function getAnonymousId()
-    {
-        return $this->anonymousId;
-    }
+    private $anonymousId;
 
     /**
      * @return null|string
@@ -70,13 +62,11 @@ final class ClientLoggingBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withAnonymousId(?string $anonymousId)
+    public function getAnonymousId()
     {
-        $this->anonymousId = $anonymousId;
-
-        return $this;
+        return $this->anonymousId;
     }
 
     /**
@@ -112,6 +102,16 @@ final class ClientLoggingBuilder implements Builder
     /**
      * @return $this
      */
+    public function withAnonymousId(?string $anonymousId)
+    {
+        $this->anonymousId = $anonymousId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withCustomerBuilder(?CustomerReferenceBuilder $customer)
     {
         $this->customer = $customer;
@@ -122,10 +122,10 @@ final class ClientLoggingBuilder implements Builder
     public function build(): ClientLogging
     {
         return new ClientLoggingModel(
-            $this->anonymousId,
             $this->clientId,
             $this->externalUserId,
-            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer)
+            ($this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer),
+            $this->anonymousId
         );
     }
 

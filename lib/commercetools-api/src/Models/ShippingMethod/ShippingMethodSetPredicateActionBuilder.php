@@ -21,6 +21,9 @@ final class ShippingMethodSetPredicateActionBuilder implements Builder
     private $predicate;
 
     /**
+     * <p>A valid Cart predicate.
+     * If <code>predicate</code> is absent or <code>null</code>, it is removed if it exists.</p>.
+     *
      * @return null|string
      */
     public function getPredicate()

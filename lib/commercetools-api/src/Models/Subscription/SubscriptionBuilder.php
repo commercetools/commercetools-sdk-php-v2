@@ -21,16 +21,6 @@ use DateTimeImmutable;
 final class SubscriptionBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -41,9 +31,14 @@ final class SubscriptionBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -51,14 +46,9 @@ final class SubscriptionBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var DeliveryFormat|?DeliveryFormatBuilder
+     * @var CreatedBy|?CreatedByBuilder
      */
-    private $format;
-
-    /**
-     * @var Destination|?DestinationBuilder
-     */
-    private $destination;
+    private $createdBy;
 
     /**
      * @var ?ChangeSubscriptionCollection
@@ -66,9 +56,9 @@ final class SubscriptionBuilder implements Builder
     private $changes;
 
     /**
-     * @var ?MessageSubscriptionCollection
+     * @var Destination|?DestinationBuilder
      */
-    private $messages;
+    private $destination;
 
     /**
      * @var ?string
@@ -76,25 +66,19 @@ final class SubscriptionBuilder implements Builder
     private $key;
 
     /**
+     * @var ?MessageSubscriptionCollection
+     */
+    private $messages;
+
+    /**
+     * @var DeliveryFormat|?DeliveryFormatBuilder
+     */
+    private $format;
+
+    /**
      * @var ?string
      */
     private $status;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
 
     /**
      * @return null|string
@@ -113,14 +97,24 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
     }
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -129,19 +123,13 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * @return null|DeliveryFormat
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getFormat()
+    public function getCreatedBy()
     {
-        return $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format;
-    }
-
-    /**
-     * @return null|Destination
-     */
-    public function getDestination()
-    {
-        return $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
     }
 
     /**
@@ -153,11 +141,11 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
-     * @return null|MessageSubscriptionCollection
+     * @return null|Destination
      */
-    public function getMessages()
+    public function getDestination()
     {
-        return $this->messages;
+        return $this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination;
     }
 
     /**
@@ -169,31 +157,27 @@ final class SubscriptionBuilder implements Builder
     }
 
     /**
+     * @return null|MessageSubscriptionCollection
+     */
+    public function getMessages()
+    {
+        return $this->messages;
+    }
+
+    /**
+     * @return null|DeliveryFormat
+     */
+    public function getFormat()
+    {
+        return $this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format;
+    }
+
+    /**
      * @return null|string
      */
     public function getStatus()
     {
         return $this->status;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
     }
 
     /**
@@ -219,9 +203,19 @@ final class SubscriptionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -239,19 +233,9 @@ final class SubscriptionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFormat(?DeliveryFormat $format)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->format = $format;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withDestination(?Destination $destination)
-    {
-        $this->destination = $destination;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -269,9 +253,9 @@ final class SubscriptionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withMessages(?MessageSubscriptionCollection $messages)
+    public function withDestination(?Destination $destination)
     {
-        $this->messages = $messages;
+        $this->destination = $destination;
 
         return $this;
     }
@@ -289,9 +273,9 @@ final class SubscriptionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStatus(?string $status)
+    public function withMessages(?MessageSubscriptionCollection $messages)
     {
-        $this->status = $status;
+        $this->messages = $messages;
 
         return $this;
     }
@@ -299,9 +283,19 @@ final class SubscriptionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    public function withFormat(?DeliveryFormat $format)
     {
-        $this->createdBy = $createdBy;
+        $this->format = $format;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withStatus(?string $status)
+    {
+        $this->status = $status;
 
         return $this;
     }
@@ -319,9 +313,9 @@ final class SubscriptionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFormatBuilder(?DeliveryFormatBuilder $format)
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
     {
-        $this->format = $format;
+        $this->createdBy = $createdBy;
 
         return $this;
     }
@@ -336,20 +330,30 @@ final class SubscriptionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withFormatBuilder(?DeliveryFormatBuilder $format)
+    {
+        $this->format = $format;
+
+        return $this;
+    }
+
     public function build(): Subscription
     {
         return new SubscriptionModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            ($this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format),
-            ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination),
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
             $this->changes,
-            $this->messages,
+            ($this->destination instanceof DestinationBuilder ? $this->destination->build() : $this->destination),
             $this->key,
+            $this->messages,
+            ($this->format instanceof DeliveryFormatBuilder ? $this->format->build() : $this->format),
             $this->status
         );
     }

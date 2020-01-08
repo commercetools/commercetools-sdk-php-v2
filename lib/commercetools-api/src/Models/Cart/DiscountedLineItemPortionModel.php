@@ -18,39 +18,21 @@ use stdClass;
 final class DiscountedLineItemPortionModel extends JsonObjectModel implements DiscountedLineItemPortion
 {
     /**
-     * @var ?TypedMoney
-     */
-    protected $discountedAmount;
-
-    /**
      * @var ?CartDiscountReference
      */
     protected $discount;
 
-    public function __construct(
-        TypedMoney $discountedAmount = null,
-        CartDiscountReference $discount = null
-    ) {
-        $this->discountedAmount = $discountedAmount;
-        $this->discount = $discount;
-    }
-
     /**
-     * @return null|TypedMoney
+     * @var ?TypedMoney
      */
-    public function getDiscountedAmount()
-    {
-        if (is_null($this->discountedAmount)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DiscountedLineItemPortion::FIELD_DISCOUNTED_AMOUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $className = TypedMoneyModel::resolveDiscriminatorClass($data);
-            $this->discountedAmount = $className::of($data);
-        }
+    protected $discountedAmount;
 
-        return $this->discountedAmount;
+    public function __construct(
+        CartDiscountReference $discount = null,
+        TypedMoney $discountedAmount = null
+    ) {
+        $this->discount = $discount;
+        $this->discountedAmount = $discountedAmount;
     }
 
     /**
@@ -71,13 +53,31 @@ final class DiscountedLineItemPortionModel extends JsonObjectModel implements Di
         return $this->discount;
     }
 
-    public function setDiscountedAmount(?TypedMoney $discountedAmount): void
+    /**
+     * @return null|TypedMoney
+     */
+    public function getDiscountedAmount()
     {
-        $this->discountedAmount = $discountedAmount;
+        if (is_null($this->discountedAmount)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DiscountedLineItemPortion::FIELD_DISCOUNTED_AMOUNT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->discountedAmount = TypedMoneyModel::of($data);
+        }
+
+        return $this->discountedAmount;
     }
 
     public function setDiscount(?CartDiscountReference $discount): void
     {
         $this->discount = $discount;
+    }
+
+    public function setDiscountedAmount(?TypedMoney $discountedAmount): void
+    {
+        $this->discountedAmount = $discountedAmount;
     }
 }

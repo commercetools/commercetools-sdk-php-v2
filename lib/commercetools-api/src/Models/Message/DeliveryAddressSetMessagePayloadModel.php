@@ -23,11 +23,6 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     protected $type;
 
     /**
-     * @var ?Address
-     */
-    protected $oldAddress;
-
-    /**
      * @var ?string
      */
     protected $deliveryId;
@@ -37,14 +32,19 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
      */
     protected $address;
 
+    /**
+     * @var ?Address
+     */
+    protected $oldAddress;
+
     public function __construct(
-        Address $oldAddress = null,
         string $deliveryId = null,
-        Address $address = null
+        Address $address = null,
+        Address $oldAddress = null
     ) {
-        $this->oldAddress = $oldAddress;
         $this->deliveryId = $deliveryId;
         $this->address = $address;
+        $this->oldAddress = $oldAddress;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -63,24 +63,6 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
         }
 
         return $this->type;
-    }
-
-    /**
-     * @return null|Address
-     */
-    public function getOldAddress()
-    {
-        if (is_null($this->oldAddress)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(DeliveryAddressSetMessagePayload::FIELD_OLD_ADDRESS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->oldAddress = AddressModel::of($data);
-        }
-
-        return $this->oldAddress;
     }
 
     /**
@@ -118,9 +100,22 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
         return $this->address;
     }
 
-    public function setOldAddress(?Address $oldAddress): void
+    /**
+     * @return null|Address
+     */
+    public function getOldAddress()
     {
-        $this->oldAddress = $oldAddress;
+        if (is_null($this->oldAddress)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(DeliveryAddressSetMessagePayload::FIELD_OLD_ADDRESS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->oldAddress = AddressModel::of($data);
+        }
+
+        return $this->oldAddress;
     }
 
     public function setDeliveryId(?string $deliveryId): void
@@ -131,5 +126,10 @@ final class DeliveryAddressSetMessagePayloadModel extends JsonObjectModel implem
     public function setAddress(?Address $address): void
     {
         $this->address = $address;
+    }
+
+    public function setOldAddress(?Address $oldAddress): void
+    {
+        $this->oldAddress = $oldAddress;
     }
 }

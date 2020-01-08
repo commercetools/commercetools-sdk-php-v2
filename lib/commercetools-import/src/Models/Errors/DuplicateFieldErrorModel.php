@@ -27,23 +27,23 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     protected $message;
 
     /**
-     * @var ?JsonObject
-     */
-    protected $duplicateValue;
-
-    /**
      * @var ?string
      */
     protected $field;
 
+    /**
+     * @var ?JsonObject
+     */
+    protected $duplicateValue;
+
     public function __construct(
         string $message = null,
-        JsonObject $duplicateValue = null,
-        string $field = null
+        string $field = null,
+        JsonObject $duplicateValue = null
     ) {
         $this->message = $message;
-        $this->duplicateValue = $duplicateValue;
         $this->field = $field;
+        $this->duplicateValue = $duplicateValue;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
 
@@ -84,25 +84,6 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
     }
 
     /**
-     * <p>The offending duplicate value.</p>.
-     *
-     * @return null|JsonObject
-     */
-    public function getDuplicateValue()
-    {
-        if (is_null($this->duplicateValue)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(DuplicateFieldError::FIELD_DUPLICATE_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->duplicateValue = JsonObjectModel::of($data);
-        }
-
-        return $this->duplicateValue;
-    }
-
-    /**
      * <p>The name of the field.</p>.
      *
      * @return null|string
@@ -121,18 +102,37 @@ final class DuplicateFieldErrorModel extends JsonObjectModel implements Duplicat
         return $this->field;
     }
 
+    /**
+     * <p>The offending duplicate value.</p>.
+     *
+     * @return null|JsonObject
+     */
+    public function getDuplicateValue()
+    {
+        if (is_null($this->duplicateValue)) {
+            /** @psalm-var ?stdClass $data */
+            $data = $this->raw(DuplicateFieldError::FIELD_DUPLICATE_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->duplicateValue = JsonObjectModel::of($data);
+        }
+
+        return $this->duplicateValue;
+    }
+
     public function setMessage(?string $message): void
     {
         $this->message = $message;
     }
 
-    public function setDuplicateValue(?JsonObject $duplicateValue): void
-    {
-        $this->duplicateValue = $duplicateValue;
-    }
-
     public function setField(?string $field): void
     {
         $this->field = $field;
+    }
+
+    public function setDuplicateValue(?JsonObject $duplicateValue): void
+    {
+        $this->duplicateValue = $duplicateValue;
     }
 }

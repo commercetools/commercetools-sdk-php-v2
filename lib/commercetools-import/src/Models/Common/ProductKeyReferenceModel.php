@@ -17,18 +17,35 @@ final class ProductKeyReferenceModel extends JsonObjectModel implements ProductK
     /**
      * @var ?string
      */
-    protected $typeId;
+    protected $key;
 
     /**
      * @var ?string
      */
-    protected $key;
+    protected $typeId;
 
     public function __construct(
         string $key = null
     ) {
         $this->key = $key;
         $this->typeId = static::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(KeyReference::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
     }
 
     /**
@@ -48,23 +65,6 @@ final class ProductKeyReferenceModel extends JsonObjectModel implements ProductK
         }
 
         return $this->typeId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(KeyReference::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
     }
 
     public function setKey(?string $key): void

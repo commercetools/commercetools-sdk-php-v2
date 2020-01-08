@@ -18,27 +18,7 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     /**
      * @var ?string
      */
-    protected $shipmentState;
-
-    /**
-     * @var ?string
-     */
-    protected $orderNumber;
-
-    /**
-     * @var ?StateResourceIdentifier
-     */
-    protected $state;
-
-    /**
-     * @var ?string
-     */
     protected $id;
-
-    /**
-     * @var ?string
-     */
-    protected $paymentState;
 
     /**
      * @var ?int
@@ -48,79 +28,49 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     /**
      * @var ?string
      */
+    protected $orderNumber;
+
+    /**
+     * @var ?string
+     */
+    protected $paymentState;
+
+    /**
+     * @var ?string
+     */
+    protected $shipmentState;
+
+    /**
+     * @var ?string
+     */
     protected $orderState;
 
+    /**
+     * @var ?StateResourceIdentifier
+     */
+    protected $state;
+
     public function __construct(
-        string $shipmentState = null,
-        string $orderNumber = null,
-        StateResourceIdentifier $state = null,
         string $id = null,
-        string $paymentState = null,
         int $version = null,
-        string $orderState = null
+        string $orderNumber = null,
+        string $paymentState = null,
+        string $shipmentState = null,
+        string $orderState = null,
+        StateResourceIdentifier $state = null
     ) {
-        $this->shipmentState = $shipmentState;
-        $this->orderNumber = $orderNumber;
-        $this->state = $state;
         $this->id = $id;
-        $this->paymentState = $paymentState;
         $this->version = $version;
+        $this->orderNumber = $orderNumber;
+        $this->paymentState = $paymentState;
+        $this->shipmentState = $shipmentState;
         $this->orderState = $orderState;
+        $this->state = $state;
     }
 
     /**
-     * @return null|string
-     */
-    public function getShipmentState()
-    {
-        if (is_null($this->shipmentState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_SHIPMENT_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->shipmentState = (string) $data;
-        }
-
-        return $this->shipmentState;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getOrderNumber()
-    {
-        if (is_null($this->orderNumber)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_ORDER_NUMBER);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->orderNumber = (string) $data;
-        }
-
-        return $this->orderNumber;
-    }
-
-    /**
-     * @return null|StateResourceIdentifier
-     */
-    public function getState()
-    {
-        if (is_null($this->state)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->state = StateResourceIdentifierModel::of($data);
-        }
-
-        return $this->state;
-    }
-
-    /**
+     * <p>The unique id of the cart from which an order is created.</p>.
+     *
      * @return null|string
      */
     public function getId()
@@ -135,23 +85,6 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         }
 
         return $this->id;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPaymentState()
-    {
-        if (is_null($this->paymentState)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderFromCartDraft::FIELD_PAYMENT_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->paymentState = (string) $data;
-        }
-
-        return $this->paymentState;
     }
 
     /**
@@ -172,6 +105,65 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
     }
 
     /**
+     * <p>String that uniquely identifies an order.
+     * It can be used to create more human-readable (in contrast to ID) identifier for the order.
+     * It should be unique across a project.
+     * Once it's set it cannot be changed.
+     * For easier use on Get, Update and Delete actions we suggest assigning order numbers that match the regular expression <code>[a-z0-9_-]{2,36}</code>.</p>.
+     *
+     * @return null|string
+     */
+    public function getOrderNumber()
+    {
+        if (is_null($this->orderNumber)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderFromCartDraft::FIELD_ORDER_NUMBER);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->orderNumber = (string) $data;
+        }
+
+        return $this->orderNumber;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPaymentState()
+    {
+        if (is_null($this->paymentState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderFromCartDraft::FIELD_PAYMENT_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->paymentState = (string) $data;
+        }
+
+        return $this->paymentState;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getShipmentState()
+    {
+        if (is_null($this->shipmentState)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderFromCartDraft::FIELD_SHIPMENT_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shipmentState = (string) $data;
+        }
+
+        return $this->shipmentState;
+    }
+
+    /**
+     * <p>Order will be created with <code>Open</code> status by default.</p>.
+     *
      * @return null|string
      */
     public function getOrderState()
@@ -188,19 +180,22 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         return $this->orderState;
     }
 
-    public function setShipmentState(?string $shipmentState): void
+    /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getState()
     {
-        $this->shipmentState = $shipmentState;
-    }
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderFromCartDraft::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
 
-    public function setOrderNumber(?string $orderNumber): void
-    {
-        $this->orderNumber = $orderNumber;
-    }
+            $this->state = StateResourceIdentifierModel::of($data);
+        }
 
-    public function setState(?StateResourceIdentifier $state): void
-    {
-        $this->state = $state;
+        return $this->state;
     }
 
     public function setId(?string $id): void
@@ -208,18 +203,33 @@ final class OrderFromCartDraftModel extends JsonObjectModel implements OrderFrom
         $this->id = $id;
     }
 
-    public function setPaymentState(?string $paymentState): void
-    {
-        $this->paymentState = $paymentState;
-    }
-
     public function setVersion(?int $version): void
     {
         $this->version = $version;
     }
 
+    public function setOrderNumber(?string $orderNumber): void
+    {
+        $this->orderNumber = $orderNumber;
+    }
+
+    public function setPaymentState(?string $paymentState): void
+    {
+        $this->paymentState = $paymentState;
+    }
+
+    public function setShipmentState(?string $shipmentState): void
+    {
+        $this->shipmentState = $shipmentState;
+    }
+
     public function setOrderState(?string $orderState): void
     {
         $this->orderState = $orderState;
+    }
+
+    public function setState(?StateResourceIdentifier $state): void
+    {
+        $this->state = $state;
     }
 }

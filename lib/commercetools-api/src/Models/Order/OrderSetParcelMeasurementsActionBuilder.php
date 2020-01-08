@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class OrderSetParcelMeasurementsActionBuilder implements Builder
 {
     /**
-     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
-     */
-    private $measurements;
-
-    /**
      * @var ?string
      */
     private $parcelId;
 
     /**
-     * @return null|ParcelMeasurements
+     * @var ParcelMeasurements|?ParcelMeasurementsBuilder
      */
-    public function getMeasurements()
-    {
-        return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
-    }
+    private $measurements;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ParcelMeasurements
      */
-    public function withMeasurements(?ParcelMeasurements $measurements)
+    public function getMeasurements()
     {
-        $this->measurements = $measurements;
-
-        return $this;
+        return $this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements;
     }
 
     /**
@@ -57,6 +47,16 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
     public function withParcelId(?string $parcelId)
     {
         $this->parcelId = $parcelId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withMeasurements(?ParcelMeasurements $measurements)
+    {
+        $this->measurements = $measurements;
 
         return $this;
     }
@@ -74,8 +74,8 @@ final class OrderSetParcelMeasurementsActionBuilder implements Builder
     public function build(): OrderSetParcelMeasurementsAction
     {
         return new OrderSetParcelMeasurementsActionModel(
-            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements),
-            $this->parcelId
+            $this->parcelId,
+            ($this->measurements instanceof ParcelMeasurementsBuilder ? $this->measurements->build() : $this->measurements)
         );
     }
 

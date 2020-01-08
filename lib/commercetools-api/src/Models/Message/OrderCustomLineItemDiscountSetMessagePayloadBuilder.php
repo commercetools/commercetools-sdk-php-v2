@@ -24,14 +24,14 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     private $customLineItemId;
 
     /**
-     * @var TaxedItemPrice|?TaxedItemPriceBuilder
-     */
-    private $taxedPrice;
-
-    /**
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     private $discountedPricePerQuantity;
+
+    /**
+     * @var TaxedItemPrice|?TaxedItemPriceBuilder
+     */
+    private $taxedPrice;
 
     /**
      * @return null|string
@@ -42,19 +42,19 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     }
 
     /**
-     * @return null|TaxedItemPrice
-     */
-    public function getTaxedPrice()
-    {
-        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
-    }
-
-    /**
      * @return null|DiscountedLineItemPriceForQuantityCollection
      */
     public function getDiscountedPricePerQuantity()
     {
         return $this->discountedPricePerQuantity;
+    }
+
+    /**
+     * @return null|TaxedItemPrice
+     */
+    public function getTaxedPrice()
+    {
+        return $this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice;
     }
 
     /**
@@ -70,9 +70,9 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     /**
      * @return $this
      */
-    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
+    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
     {
-        $this->taxedPrice = $taxedPrice;
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
 
         return $this;
     }
@@ -80,9 +80,9 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     /**
      * @return $this
      */
-    public function withDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity)
+    public function withTaxedPrice(?TaxedItemPrice $taxedPrice)
     {
-        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->taxedPrice = $taxedPrice;
 
         return $this;
     }
@@ -101,8 +101,8 @@ final class OrderCustomLineItemDiscountSetMessagePayloadBuilder implements Build
     {
         return new OrderCustomLineItemDiscountSetMessagePayloadModel(
             $this->customLineItemId,
-            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice),
-            $this->discountedPricePerQuantity
+            $this->discountedPricePerQuantity,
+            ($this->taxedPrice instanceof TaxedItemPriceBuilder ? $this->taxedPrice->build() : $this->taxedPrice)
         );
     }
 

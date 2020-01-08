@@ -24,21 +24,21 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
     protected $action;
 
     /**
-     * @var ?JsonObject
-     */
-    protected $fields;
-
-    /**
      * @var ?TypeResourceIdentifier
      */
     protected $type;
 
+    /**
+     * @var ?JsonObject
+     */
+    protected $fields;
+
     public function __construct(
-        JsonObject $fields = null,
-        TypeResourceIdentifier $type = null
+        TypeResourceIdentifier $type = null,
+        JsonObject $fields = null
     ) {
-        $this->fields = $fields;
         $this->type = $type;
+        $this->fields = $fields;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -60,23 +60,9 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
     }
 
     /**
-     * @return null|JsonObject
-     */
-    public function getFields()
-    {
-        if (is_null($this->fields)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderEditSetCustomTypeAction::FIELD_FIELDS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->fields = JsonObjectModel::of($data);
-        }
-
-        return $this->fields;
-    }
-
-    /**
+     * <p>If set, the custom type is set to this new value.
+     * If absent, the custom type and any existing custom fields are removed.</p>.
+     *
      * @return null|TypeResourceIdentifier
      */
     public function getType()
@@ -94,13 +80,32 @@ final class OrderEditSetCustomTypeActionModel extends JsonObjectModel implements
         return $this->type;
     }
 
-    public function setFields(?JsonObject $fields): void
+    /**
+     * <p>If set, the custom fields are set to this new value.</p>.
+     *
+     * @return null|JsonObject
+     */
+    public function getFields()
     {
-        $this->fields = $fields;
+        if (is_null($this->fields)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderEditSetCustomTypeAction::FIELD_FIELDS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fields = JsonObjectModel::of($data);
+        }
+
+        return $this->fields;
     }
 
     public function setType(?TypeResourceIdentifier $type): void
     {
         $this->type = $type;
+    }
+
+    public function setFields(?JsonObject $fields): void
+    {
+        $this->fields = $fields;
     }
 }

@@ -16,12 +16,7 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     /**
      * @var ?int
      */
-    protected $total;
-
-    /**
-     * @var ?int
-     */
-    protected $offset;
+    protected $limit;
 
     /**
      * @var ?int
@@ -31,7 +26,12 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     /**
      * @var ?int
      */
-    protected $limit;
+    protected $total;
+
+    /**
+     * @var ?int
+     */
+    protected $offset;
 
     /**
      * @var ?MessageCollection
@@ -39,17 +39,51 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     protected $results;
 
     public function __construct(
+        int $limit = null,
+        int $count = null,
         int $total = null,
         int $offset = null,
-        int $count = null,
-        int $limit = null,
         MessageCollection $results = null
     ) {
+        $this->limit = $limit;
+        $this->count = $count;
         $this->total = $total;
         $this->offset = $offset;
-        $this->count = $count;
-        $this->limit = $limit;
         $this->results = $results;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getLimit()
+    {
+        if (is_null($this->limit)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MessagePagedQueryResponse::FIELD_LIMIT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->limit = (int) $data;
+        }
+
+        return $this->limit;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        if (is_null($this->count)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(MessagePagedQueryResponse::FIELD_COUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->count = (int) $data;
+        }
+
+        return $this->count;
     }
 
     /**
@@ -87,40 +121,6 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     }
 
     /**
-     * @return null|int
-     */
-    public function getCount()
-    {
-        if (is_null($this->count)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MessagePagedQueryResponse::FIELD_COUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->count = (int) $data;
-        }
-
-        return $this->count;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getLimit()
-    {
-        if (is_null($this->limit)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(MessagePagedQueryResponse::FIELD_LIMIT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->limit = (int) $data;
-        }
-
-        return $this->limit;
-    }
-
-    /**
      * @return null|MessageCollection
      */
     public function getResults()
@@ -137,6 +137,16 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
         return $this->results;
     }
 
+    public function setLimit(?int $limit): void
+    {
+        $this->limit = $limit;
+    }
+
+    public function setCount(?int $count): void
+    {
+        $this->count = $count;
+    }
+
     public function setTotal(?int $total): void
     {
         $this->total = $total;
@@ -145,16 +155,6 @@ final class MessagePagedQueryResponseModel extends JsonObjectModel implements Me
     public function setOffset(?int $offset): void
     {
         $this->offset = $offset;
-    }
-
-    public function setCount(?int $count): void
-    {
-        $this->count = $count;
-    }
-
-    public function setLimit(?int $limit): void
-    {
-        $this->limit = $limit;
     }
 
     public function setResults(?MessageCollection $results): void

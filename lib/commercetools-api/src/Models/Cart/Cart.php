@@ -52,11 +52,15 @@ interface Cart extends LoggedResource
     const FIELD_ITEM_SHIPPING_ADDRESSES = 'itemShippingAddresses';
 
     /**
+     * <p>The unique ID of the cart.</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the cart.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
@@ -72,11 +76,15 @@ interface Cart extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -92,6 +100,8 @@ interface Cart extends LoggedResource
     public function getCustomerEmail();
 
     /**
+     * <p>Identifies carts and orders belonging to an anonymous session (the customer has not signed up/in yet).</p>.
+     *
      * @return null|string
      */
     public function getAnonymousId();
@@ -112,11 +122,18 @@ interface Cart extends LoggedResource
     public function getCustomLineItems();
 
     /**
+     * <p>The sum of all <code>totalPrice</code> fields of the <code>lineItems</code> and <code>customLineItems</code>, as well as the <code>price</code> field of <code>shippingInfo</code> (if it exists).
+     * <code>totalPrice</code> may or may not include the taxes: it depends on the taxRate.includedInPrice property of each price.</p>.
+     *
      * @return null|TypedMoney
      */
     public function getTotalPrice();
 
     /**
+     * <p>Not set until the shipping address is set.
+     * Will be set automatically in the <code>Platform</code> TaxMode.
+     * For the <code>External</code> tax mode it will be set  as soon as the external tax rates for all line items, custom line items, and shipping in the cart are set.</p>.
+     *
      * @return null|TaxedPrice
      */
     public function getTaxedPrice();
@@ -127,6 +144,8 @@ interface Cart extends LoggedResource
     public function getCartState();
 
     /**
+     * <p>The shipping address is used to determine the eligible shipping methods and rates as well as the tax rate of the line items.</p>.
+     *
      * @return null|Address
      */
     public function getShippingAddress();
@@ -147,28 +166,39 @@ interface Cart extends LoggedResource
     public function getTaxMode();
 
     /**
+     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for rounding.</p>.
+     *
      * @return null|string
      */
     public function getTaxRoundingMode();
 
     /**
+     * <p>When calculating taxes for <code>taxedPrice</code>, the selected mode is used for calculating the price with <code>LineItemLevel</code> (horizontally) or <code>UnitPriceLevel</code> (vertically) calculation mode.</p>.
+     *
      * @return null|string
      */
     public function getTaxCalculationMode();
 
     /**
+     * <p>Set automatically when the customer is set and the customer is a member of a customer group.
+     * Used for product variant
+     * price selection.</p>.
+     *
      * @return null|CustomerGroupReference
      */
     public function getCustomerGroup();
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.
+     * Used for product variant price selection.</p>.
      *
      * @return null|string
      */
     public function getCountry();
 
     /**
+     * <p>Set automatically once the ShippingMethod is set.</p>.
+     *
      * @return null|ShippingInfo
      */
     public function getShippingInfo();
@@ -194,26 +224,40 @@ interface Cart extends LoggedResource
     public function getLocale();
 
     /**
+     * <p>The cart will be deleted automatically if it hasn't been modified for the specified amount of days and it is in the <code>Active</code> CartState.</p>.
+     *
      * @return null|int
      */
     public function getDeleteDaysAfterLastModification();
 
     /**
+     * <p>Automatically filled when a line item with LineItemMode <code>GiftLineItem</code> is removed from the cart.</p>.
+     *
      * @return null|CartDiscountReferenceCollection
      */
     public function getRefusedGifts();
 
     /**
+     * <p>The origin field indicates how this cart was created.
+     * The value <code>Customer</code> indicates, that the cart was created by the customer.</p>.
+     *
      * @return null|string
      */
     public function getOrigin();
 
     /**
+     * <p>The shippingRateInput is used as an input to select a ShippingRatePriceTier.</p>.
+     *
      * @return null|ShippingRateInput
      */
     public function getShippingRateInput();
 
     /**
+     * <p>Contains addresses for carts with multiple shipping addresses.
+     * Line items reference these addresses under their <code>shippingDetails</code>.
+     * The addresses captured here are not used to determine eligible shipping methods or the applicable tax rate.
+     * Only the cart's <code>shippingAddress</code> is used for this.</p>.
+     *
      * @return null|AddressCollection
      */
     public function getItemShippingAddresses();

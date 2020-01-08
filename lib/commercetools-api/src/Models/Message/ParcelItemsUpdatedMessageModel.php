@@ -25,16 +25,6 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     const DISCRIMINATOR_VALUE = 'ParcelItemsUpdated';
 
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -45,14 +35,24 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
 
     /**
      * @var ?int
@@ -65,11 +65,6 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     protected $resource;
 
     /**
-     * @var ?UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     protected $resourceVersion;
@@ -80,6 +75,16 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     protected $type;
 
     /**
+     * @var ?UserProvidedIdentifiers
+     */
+    protected $resourceUserProvidedIdentifiers;
+
+    /**
+     * @var ?string
+     */
+    protected $parcelId;
+
+    /**
      * @var ?string
      */
     protected $deliveryId;
@@ -87,49 +92,78 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     /**
      * @var ?DeliveryItemCollection
      */
-    protected $oldItems;
+    protected $items;
 
     /**
      * @var ?DeliveryItemCollection
      */
-    protected $items;
-
-    /**
-     * @var ?string
-     */
-    protected $parcelId;
+    protected $oldItems;
 
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
+        CreatedBy $createdBy = null,
         int $sequenceNumber = null,
         Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
+        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        string $parcelId = null,
         string $deliveryId = null,
-        DeliveryItemCollection $oldItems = null,
         DeliveryItemCollection $items = null,
-        string $parcelId = null
+        DeliveryItemCollection $oldItems = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
         $this->sequenceNumber = $sequenceNumber;
         $this->resource = $resource;
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->deliveryId = $deliveryId;
-        $this->oldItems = $oldItems;
-        $this->items = $items;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->parcelId = $parcelId;
+        $this->deliveryId = $deliveryId;
+        $this->items = $items;
+        $this->oldItems = $oldItems;
         $this->type = static::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Message::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Message::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -175,37 +209,21 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -224,24 +242,6 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
         }
 
         return $this->createdBy;
-    }
-
-    /**
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
-        }
-
-        return $this->lastModifiedBy;
     }
 
     /**
@@ -280,24 +280,6 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        if (is_null($this->resourceUserProvidedIdentifiers)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
-        }
-
-        return $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -332,6 +314,41 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     }
 
     /**
+     * @return null|UserProvidedIdentifiers
+     */
+    public function getResourceUserProvidedIdentifiers()
+    {
+        if (is_null($this->resourceUserProvidedIdentifiers)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
+        }
+
+        return $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getParcelId()
+    {
+        if (is_null($this->parcelId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ParcelItemsUpdatedMessage::FIELD_PARCEL_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->parcelId = (string) $data;
+        }
+
+        return $this->parcelId;
+    }
+
+    /**
      * @return null|string
      */
     public function getDeliveryId()
@@ -346,23 +363,6 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
         }
 
         return $this->deliveryId;
-    }
-
-    /**
-     * @return null|DeliveryItemCollection
-     */
-    public function getOldItems()
-    {
-        if (is_null($this->oldItems)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ParcelItemsUpdatedMessage::FIELD_OLD_ITEMS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->oldItems = DeliveryItemCollection::fromArray($data);
-        }
-
-        return $this->oldItems;
     }
 
     /**
@@ -383,30 +383,20 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
     }
 
     /**
-     * @return null|string
+     * @return null|DeliveryItemCollection
      */
-    public function getParcelId()
+    public function getOldItems()
     {
-        if (is_null($this->parcelId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ParcelItemsUpdatedMessage::FIELD_PARCEL_ID);
+        if (is_null($this->oldItems)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ParcelItemsUpdatedMessage::FIELD_OLD_ITEMS);
             if (is_null($data)) {
                 return null;
             }
-            $this->parcelId = (string) $data;
+            $this->oldItems = DeliveryItemCollection::fromArray($data);
         }
 
-        return $this->parcelId;
-    }
-
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->oldItems;
     }
 
     public function setId(?string $id): void
@@ -419,14 +409,24 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
+    }
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
     }
 
     public function setSequenceNumber(?int $sequenceNumber): void
@@ -439,14 +439,19 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
         $this->resource = $resource;
     }
 
+    public function setResourceVersion(?int $resourceVersion): void
+    {
+        $this->resourceVersion = $resourceVersion;
+    }
+
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
-    public function setResourceVersion(?int $resourceVersion): void
+    public function setParcelId(?string $parcelId): void
     {
-        $this->resourceVersion = $resourceVersion;
+        $this->parcelId = $parcelId;
     }
 
     public function setDeliveryId(?string $deliveryId): void
@@ -454,19 +459,14 @@ final class ParcelItemsUpdatedMessageModel extends JsonObjectModel implements Pa
         $this->deliveryId = $deliveryId;
     }
 
-    public function setOldItems(?DeliveryItemCollection $oldItems): void
-    {
-        $this->oldItems = $oldItems;
-    }
-
     public function setItems(?DeliveryItemCollection $items): void
     {
         $this->items = $items;
     }
 
-    public function setParcelId(?string $parcelId): void
+    public function setOldItems(?DeliveryItemCollection $oldItems): void
     {
-        $this->parcelId = $parcelId;
+        $this->oldItems = $oldItems;
     }
 
     public function jsonSerialize()

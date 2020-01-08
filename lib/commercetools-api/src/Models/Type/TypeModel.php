@@ -22,16 +22,6 @@ use stdClass;
 final class TypeModel extends JsonObjectModel implements Type
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -42,9 +32,14 @@ final class TypeModel extends JsonObjectModel implements Type
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -52,19 +47,9 @@ final class TypeModel extends JsonObjectModel implements Type
     protected $lastModifiedBy;
 
     /**
-     * @var ?LocalizedString
+     * @var ?CreatedBy
      */
-    protected $name;
-
-    /**
-     * @var ?FieldDefinitionCollection
-     */
-    protected $fieldDefinitions;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $description;
+    protected $createdBy;
 
     /**
      * @var ?string
@@ -72,34 +57,87 @@ final class TypeModel extends JsonObjectModel implements Type
     protected $key;
 
     /**
+     * @var ?LocalizedString
+     */
+    protected $name;
+
+    /**
+     * @var ?LocalizedString
+     */
+    protected $description;
+
+    /**
      * @var ?array
      */
     protected $resourceTypeIds;
 
+    /**
+     * @var ?FieldDefinitionCollection
+     */
+    protected $fieldDefinitions;
+
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        LocalizedString $name = null,
-        FieldDefinitionCollection $fieldDefinitions = null,
-        LocalizedString $description = null,
+        CreatedBy $createdBy = null,
         string $key = null,
-        array $resourceTypeIds = null
+        LocalizedString $name = null,
+        LocalizedString $description = null,
+        array $resourceTypeIds = null,
+        FieldDefinitionCollection $fieldDefinitions = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->name = $name;
-        $this->fieldDefinitions = $fieldDefinitions;
-        $this->description = $description;
+        $this->createdBy = $createdBy;
         $this->key = $key;
+        $this->name = $name;
+        $this->description = $description;
         $this->resourceTypeIds = $resourceTypeIds;
+        $this->fieldDefinitions = $fieldDefinitions;
+    }
+
+    /**
+     * <p>The unique ID of the type.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Type::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the type.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Type::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -145,40 +183,28 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * @return null|string
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Type::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Type::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
+        return $this->lastModifiedBy;
     }
 
     /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Type::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy()
@@ -197,21 +223,23 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * @return null|LastModifiedBy
+     * <p>Identifier for the type (max.
+     * 256 characters).</p>.
+     *
+     * @return null|string
      */
-    public function getLastModifiedBy()
+    public function getKey()
     {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Type::FIELD_LAST_MODIFIED_BY);
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Type::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
+            $this->key = (string) $data;
         }
 
-        return $this->lastModifiedBy;
+        return $this->key;
     }
 
     /**
@@ -233,23 +261,6 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * @return null|FieldDefinitionCollection
-     */
-    public function getFieldDefinitions()
-    {
-        if (is_null($this->fieldDefinitions)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(Type::FIELD_FIELD_DEFINITIONS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->fieldDefinitions = FieldDefinitionCollection::fromArray($data);
-        }
-
-        return $this->fieldDefinitions;
-    }
-
-    /**
      * @return null|LocalizedString
      */
     public function getDescription()
@@ -268,23 +279,8 @@ final class TypeModel extends JsonObjectModel implements Type
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Type::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
+     * <p>Defines for which resource(s) the type is valid.</p>.
+     *
      * @return null|array
      */
     public function getResourceTypeIds()
@@ -301,14 +297,21 @@ final class TypeModel extends JsonObjectModel implements Type
         return $this->resourceTypeIds;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    /**
+     * @return null|FieldDefinitionCollection
+     */
+    public function getFieldDefinitions()
     {
-        $this->createdAt = $createdAt;
-    }
+        if (is_null($this->fieldDefinitions)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(Type::FIELD_FIELD_DEFINITIONS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->fieldDefinitions = FieldDefinitionCollection::fromArray($data);
+        }
 
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        return $this->fieldDefinitions;
     }
 
     public function setId(?string $id): void
@@ -321,9 +324,14 @@ final class TypeModel extends JsonObjectModel implements Type
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
@@ -331,19 +339,9 @@ final class TypeModel extends JsonObjectModel implements Type
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
-    public function setName(?LocalizedString $name): void
+    public function setCreatedBy(?CreatedBy $createdBy): void
     {
-        $this->name = $name;
-    }
-
-    public function setFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions): void
-    {
-        $this->fieldDefinitions = $fieldDefinitions;
-    }
-
-    public function setDescription(?LocalizedString $description): void
-    {
-        $this->description = $description;
+        $this->createdBy = $createdBy;
     }
 
     public function setKey(?string $key): void
@@ -351,9 +349,24 @@ final class TypeModel extends JsonObjectModel implements Type
         $this->key = $key;
     }
 
+    public function setName(?LocalizedString $name): void
+    {
+        $this->name = $name;
+    }
+
+    public function setDescription(?LocalizedString $description): void
+    {
+        $this->description = $description;
+    }
+
     public function setResourceTypeIds(?array $resourceTypeIds): void
     {
         $this->resourceTypeIds = $resourceTypeIds;
+    }
+
+    public function setFieldDefinitions(?FieldDefinitionCollection $fieldDefinitions): void
+    {
+        $this->fieldDefinitions = $fieldDefinitions;
     }
 
     public function jsonSerialize()

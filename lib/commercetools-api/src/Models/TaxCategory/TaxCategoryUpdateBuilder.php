@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class TaxCategoryUpdateBuilder implements Builder
 {
     /**
-     * @var ?TaxCategoryUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|TaxCategoryUpdateActionCollection
+     * @var ?TaxCategoryUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class TaxCategoryUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|TaxCategoryUpdateActionCollection
      */
-    public function withActions(?TaxCategoryUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class TaxCategoryUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?TaxCategoryUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): TaxCategoryUpdate
     {
         return new TaxCategoryUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

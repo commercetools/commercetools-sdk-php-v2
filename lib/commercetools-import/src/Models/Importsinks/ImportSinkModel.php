@@ -15,21 +15,6 @@ use DateTimeImmutable;
 final class ImportSinkModel extends JsonObjectModel implements ImportSink
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
-     * @var ?int
-     */
-    protected $version;
-
-    /**
      * @var ?string
      */
     protected $key;
@@ -39,18 +24,91 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
      */
     protected $resourceType;
 
+    /**
+     * @var ?int
+     */
+    protected $version;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
+
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
-        int $version = null,
         string $key = null,
-        string $resourceType = null
+        string $resourceType = null,
+        int $version = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
-        $this->version = $version;
         $this->key = $key;
         $this->resourceType = $resourceType;
+        $this->version = $version;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
+    }
+
+    /**
+     * <p>The unique key of the import sink.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ImportSink::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>The type of import resource sent to this import sink.
+     * You can only send one resource type per import sink.</p>.
+     *
+     * @return null|string
+     */
+    public function getResourceType()
+    {
+        if (is_null($this->resourceType)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ImportSink::FIELD_RESOURCE_TYPE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->resourceType = (string) $data;
+        }
+
+        return $this->resourceType;
+    }
+
+    /**
+     * <p>The version of this resource.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ImportSink::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -99,62 +157,19 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
         return $this->lastModifiedAt;
     }
 
-    /**
-     * <p>The version of this resource.</p>.
-     *
-     * @return null|int
-     */
-    public function getVersion()
+    public function setKey(?string $key): void
     {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImportSink::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        $this->key = $key;
     }
 
-    /**
-     * <p>The unique key of the import sink.</p>.
-     *
-     * @return null|string
-     */
-    public function getKey()
+    public function setResourceType(?string $resourceType): void
     {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ImportSink::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
+        $this->resourceType = $resourceType;
     }
 
-    /**
-     * <p>The type of import resource sent to this import sink.
-     * You can only send one resource type per import sink.</p>.
-     *
-     * @return null|string
-     */
-    public function getResourceType()
+    public function setVersion(?int $version): void
     {
-        if (is_null($this->resourceType)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ImportSink::FIELD_RESOURCE_TYPE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->resourceType = (string) $data;
-        }
-
-        return $this->resourceType;
+        $this->version = $version;
     }
 
     public function setCreatedAt(?DateTimeImmutable $createdAt): void
@@ -165,21 +180,6 @@ final class ImportSinkModel extends JsonObjectModel implements ImportSink
     public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
         $this->lastModifiedAt = $lastModifiedAt;
-    }
-
-    public function setVersion(?int $version): void
-    {
-        $this->version = $version;
-    }
-
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
-    }
-
-    public function setResourceType(?string $resourceType): void
-    {
-        $this->resourceType = $resourceType;
     }
 
     public function jsonSerialize()

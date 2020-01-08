@@ -29,11 +29,15 @@ interface ProductDiscount extends LoggedResource
     const FIELD_VALID_UNTIL = 'validUntil';
 
     /**
+     * <p>The unique ID of the product discount</p>.
+     *
      * @return null|string
      */
     public function getId();
 
     /**
+     * <p>The current version of the product discount.</p>.
+     *
      * @return null|int
      */
     public function getVersion();
@@ -49,11 +53,15 @@ interface ProductDiscount extends LoggedResource
     public function getLastModifiedAt();
 
     /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy();
 
     /**
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|CreatedBy
      */
     public function getCreatedBy();
@@ -64,6 +72,9 @@ interface ProductDiscount extends LoggedResource
     public function getName();
 
     /**
+     * <p>User-specific unique identifier for a product discount.
+     * Must be unique across a project.</p>.
+     *
      * @return null|string
      */
     public function getKey();
@@ -79,31 +90,48 @@ interface ProductDiscount extends LoggedResource
     public function getValue();
 
     /**
+     * <p>A valid ProductDiscount Predicate.</p>.
+     *
      * @return null|string
      */
     public function getPredicate();
 
     /**
+     * <p>The string contains a number between 0 and 1.
+     * A discount with greater sortOrder is prioritized higher than a discount with lower sortOrder.
+     * A sortOrder must be unambiguous.</p>.
+     *
      * @return null|string
      */
     public function getSortOrder();
 
     /**
+     * <p>Only active discount will be applied to product prices.</p>.
+     *
      * @return null|bool
      */
     public function getIsActive();
 
     /**
+     * <p>The platform will generate this array from the predicate.
+     * It contains the references of all the resources that are addressed in the predicate.</p>.
+     *
      * @return null|ReferenceCollection
      */
     public function getReferences();
 
     /**
+     * <p>The time from which the discount should be effective.
+     * Please take Eventual Consistency into account for calculated product discount values.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidFrom();
 
     /**
+     * <p>The time from which the discount should be ineffective.
+     * Please take Eventual Consistency into account for calculated undiscounted values.</p>.
+     *
      * @return null|DateTimeImmutable
      */
     public function getValidUntil();

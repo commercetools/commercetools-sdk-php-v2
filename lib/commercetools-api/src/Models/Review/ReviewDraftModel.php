@@ -23,37 +23,12 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * @var ?string
      */
+    protected $key;
+
+    /**
+     * @var ?string
+     */
     protected $uniquenessValue;
-
-    /**
-     * @var ?string
-     */
-    protected $authorName;
-
-    /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
-     * @var ?int
-     */
-    protected $rating;
-
-    /**
-     * @var ?StateResourceIdentifier
-     */
-    protected $state;
-
-    /**
-     * @var ?string
-     */
-    protected $text;
-
-    /**
-     * @var ?string
-     */
-    protected $title;
 
     /**
      * @var ?string
@@ -63,7 +38,32 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * @var ?string
      */
-    protected $key;
+    protected $authorName;
+
+    /**
+     * @var ?string
+     */
+    protected $title;
+
+    /**
+     * @var ?string
+     */
+    protected $text;
+
+    /**
+     * @var ?JsonObject
+     */
+    protected $target;
+
+    /**
+     * @var ?StateResourceIdentifier
+     */
+    protected $state;
+
+    /**
+     * @var ?int
+     */
+    protected $rating;
 
     /**
      * @var ?CustomerResourceIdentifier
@@ -71,37 +71,59 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     protected $customer;
 
     /**
-     * @var ?JsonObject
+     * @var ?CustomFieldsDraft
      */
-    protected $target;
+    protected $custom;
 
     public function __construct(
-        string $uniquenessValue = null,
-        string $authorName = null,
-        CustomFieldsDraft $custom = null,
-        int $rating = null,
-        StateResourceIdentifier $state = null,
-        string $text = null,
-        string $title = null,
-        string $locale = null,
         string $key = null,
+        string $uniquenessValue = null,
+        string $locale = null,
+        string $authorName = null,
+        string $title = null,
+        string $text = null,
+        JsonObject $target = null,
+        StateResourceIdentifier $state = null,
+        int $rating = null,
         CustomerResourceIdentifier $customer = null,
-        JsonObject $target = null
+        CustomFieldsDraft $custom = null
     ) {
-        $this->uniquenessValue = $uniquenessValue;
-        $this->authorName = $authorName;
-        $this->custom = $custom;
-        $this->rating = $rating;
-        $this->state = $state;
-        $this->text = $text;
-        $this->title = $title;
-        $this->locale = $locale;
         $this->key = $key;
-        $this->customer = $customer;
+        $this->uniquenessValue = $uniquenessValue;
+        $this->locale = $locale;
+        $this->authorName = $authorName;
+        $this->title = $title;
+        $this->text = $text;
         $this->target = $target;
+        $this->state = $state;
+        $this->rating = $rating;
+        $this->customer = $customer;
+        $this->custom = $custom;
     }
 
     /**
+     * <p>User-specific unique identifier for the review.</p>.
+     *
+     * @return null|string
+     */
+    public function getKey()
+    {
+        if (is_null($this->key)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReviewDraft::FIELD_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->key = (string) $data;
+        }
+
+        return $this->key;
+    }
+
+    /**
+     * <p>If set, this value must be unique among reviews.
+     * For example, if you want to have only one review per customer and per product, you can set the value to <code>customer's id</code> + <code>product's id</code>.</p>.
+     *
      * @return null|string
      */
     public function getUniquenessValue()
@@ -116,110 +138,6 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
         }
 
         return $this->uniquenessValue;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAuthorName()
-    {
-        if (is_null($this->authorName)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_AUTHOR_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->authorName = (string) $data;
-        }
-
-        return $this->authorName;
-    }
-
-    /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewDraft::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getRating()
-    {
-        if (is_null($this->rating)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ReviewDraft::FIELD_RATING);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->rating = (int) $data;
-        }
-
-        return $this->rating;
-    }
-
-    /**
-     * @return null|StateResourceIdentifier
-     */
-    public function getState()
-    {
-        if (is_null($this->state)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ReviewDraft::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->state = StateResourceIdentifierModel::of($data);
-        }
-
-        return $this->state;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getText()
-    {
-        if (is_null($this->text)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_TEXT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->text = (string) $data;
-        }
-
-        return $this->text;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getTitle()
-    {
-        if (is_null($this->title)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_TITLE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->title = (string) $data;
-        }
-
-        return $this->title;
     }
 
     /**
@@ -242,21 +160,117 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     /**
      * @return null|string
      */
-    public function getKey()
+    public function getAuthorName()
     {
-        if (is_null($this->key)) {
+        if (is_null($this->authorName)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ReviewDraft::FIELD_KEY);
+            $data = $this->raw(ReviewDraft::FIELD_AUTHOR_NAME);
             if (is_null($data)) {
                 return null;
             }
-            $this->key = (string) $data;
+            $this->authorName = (string) $data;
         }
 
-        return $this->key;
+        return $this->authorName;
     }
 
     /**
+     * @return null|string
+     */
+    public function getTitle()
+    {
+        if (is_null($this->title)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReviewDraft::FIELD_TITLE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->title = (string) $data;
+        }
+
+        return $this->title;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getText()
+    {
+        if (is_null($this->text)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ReviewDraft::FIELD_TEXT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->text = (string) $data;
+        }
+
+        return $this->text;
+    }
+
+    /**
+     * <p>Identifies the target of the review.
+     * Can be a Product or a Channel</p>.
+     *
+     * @return null|JsonObject
+     */
+    public function getTarget()
+    {
+        if (is_null($this->target)) {
+            /** @psalm-var ?stdClass $data */
+            $data = $this->raw(ReviewDraft::FIELD_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->target = JsonObjectModel::of($data);
+        }
+
+        return $this->target;
+    }
+
+    /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ReviewDraft::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->state = StateResourceIdentifierModel::of($data);
+        }
+
+        return $this->state;
+    }
+
+    /**
+     * <p>Number between -100 and 100 included.
+     * Rating of the targeted object, like a product.
+     * This rating can represent the number of stars, or a percentage, or a like (+1)/dislike (-1)
+     * A rating is used in the ratings statistics of the targeted object, unless the review is in a state that does not have the role <code>ReviewIncludedInStatistics</code>.</p>.
+     *
+     * @return null|int
+     */
+    public function getRating()
+    {
+        if (is_null($this->rating)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ReviewDraft::FIELD_RATING);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->rating = (int) $data;
+        }
+
+        return $this->rating;
+    }
+
+    /**
+     * <p>The customer who created the review.</p>.
+     *
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer()
@@ -275,60 +289,21 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
     }
 
     /**
-     * @return null|JsonObject
+     * @return null|CustomFieldsDraft
      */
-    public function getTarget()
+    public function getCustom()
     {
-        if (is_null($this->target)) {
-            /** @psalm-var ?stdClass $data */
-            $data = $this->raw(ReviewDraft::FIELD_TARGET);
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ReviewDraft::FIELD_CUSTOM);
             if (is_null($data)) {
                 return null;
             }
-            $this->target = JsonObjectModel::of($data);
+
+            $this->custom = CustomFieldsDraftModel::of($data);
         }
 
-        return $this->target;
-    }
-
-    public function setUniquenessValue(?string $uniquenessValue): void
-    {
-        $this->uniquenessValue = $uniquenessValue;
-    }
-
-    public function setAuthorName(?string $authorName): void
-    {
-        $this->authorName = $authorName;
-    }
-
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
-    }
-
-    public function setRating(?int $rating): void
-    {
-        $this->rating = $rating;
-    }
-
-    public function setState(?StateResourceIdentifier $state): void
-    {
-        $this->state = $state;
-    }
-
-    public function setText(?string $text): void
-    {
-        $this->text = $text;
-    }
-
-    public function setTitle(?string $title): void
-    {
-        $this->title = $title;
-    }
-
-    public function setLocale(?string $locale): void
-    {
-        $this->locale = $locale;
+        return $this->custom;
     }
 
     public function setKey(?string $key): void
@@ -336,13 +311,53 @@ final class ReviewDraftModel extends JsonObjectModel implements ReviewDraft
         $this->key = $key;
     }
 
-    public function setCustomer(?CustomerResourceIdentifier $customer): void
+    public function setUniquenessValue(?string $uniquenessValue): void
     {
-        $this->customer = $customer;
+        $this->uniquenessValue = $uniquenessValue;
+    }
+
+    public function setLocale(?string $locale): void
+    {
+        $this->locale = $locale;
+    }
+
+    public function setAuthorName(?string $authorName): void
+    {
+        $this->authorName = $authorName;
+    }
+
+    public function setTitle(?string $title): void
+    {
+        $this->title = $title;
+    }
+
+    public function setText(?string $text): void
+    {
+        $this->text = $text;
     }
 
     public function setTarget(?JsonObject $target): void
     {
         $this->target = $target;
+    }
+
+    public function setState(?StateResourceIdentifier $state): void
+    {
+        $this->state = $state;
+    }
+
+    public function setRating(?int $rating): void
+    {
+        $this->rating = $rating;
+    }
+
+    public function setCustomer(?CustomerResourceIdentifier $customer): void
+    {
+        $this->customer = $customer;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
     }
 }

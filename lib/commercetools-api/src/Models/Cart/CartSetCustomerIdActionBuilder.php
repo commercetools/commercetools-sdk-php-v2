@@ -21,6 +21,8 @@ final class CartSetCustomerIdActionBuilder implements Builder
     private $customerId;
 
     /**
+     * <p>If set, a customer with the given ID must exist in the project.</p>.
+     *
      * @return null|string
      */
     public function getCustomerId()

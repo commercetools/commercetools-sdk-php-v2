@@ -29,34 +29,14 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     protected $addedAt;
 
     /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
-     * @var ?string
-     */
-    protected $productId;
-
-    /**
      * @var ?CustomFields
      */
     protected $custom;
 
     /**
-     * @var ?ProductVariant
+     * @var ?DateTimeImmutable
      */
-    protected $variant;
-
-    /**
-     * @var ?LocalizedString
-     */
-    protected $name;
-
-    /**
-     * @var ?int
-     */
-    protected $variantId;
+    protected $deactivatedAt;
 
     /**
      * @var ?string
@@ -64,9 +44,14 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     protected $id;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?LocalizedString
      */
-    protected $deactivatedAt;
+    protected $name;
+
+    /**
+     * @var ?string
+     */
+    protected $productId;
 
     /**
      * @var ?LocalizedString
@@ -78,30 +63,45 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
      */
     protected $productType;
 
+    /**
+     * @var ?int
+     */
+    protected $quantity;
+
+    /**
+     * @var ?ProductVariant
+     */
+    protected $variant;
+
+    /**
+     * @var ?int
+     */
+    protected $variantId;
+
     public function __construct(
         DateTimeImmutable $addedAt = null,
-        int $quantity = null,
-        string $productId = null,
         CustomFields $custom = null,
-        ProductVariant $variant = null,
-        LocalizedString $name = null,
-        int $variantId = null,
-        string $id = null,
         DateTimeImmutable $deactivatedAt = null,
+        string $id = null,
+        LocalizedString $name = null,
+        string $productId = null,
         LocalizedString $productSlug = null,
-        ProductTypeReference $productType = null
+        ProductTypeReference $productType = null,
+        int $quantity = null,
+        ProductVariant $variant = null,
+        int $variantId = null
     ) {
         $this->addedAt = $addedAt;
-        $this->quantity = $quantity;
-        $this->productId = $productId;
         $this->custom = $custom;
-        $this->variant = $variant;
-        $this->name = $name;
-        $this->variantId = $variantId;
-        $this->id = $id;
         $this->deactivatedAt = $deactivatedAt;
+        $this->id = $id;
+        $this->name = $name;
+        $this->productId = $productId;
         $this->productSlug = $productSlug;
         $this->productType = $productType;
+        $this->quantity = $quantity;
+        $this->variant = $variant;
+        $this->variantId = $variantId;
     }
 
     /**
@@ -126,40 +126,6 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     }
 
     /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListLineItem::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        if (is_null($this->productId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListLineItem::FIELD_PRODUCT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->productId = (string) $data;
-        }
-
-        return $this->productId;
-    }
-
-    /**
      * @return null|CustomFields
      */
     public function getCustom()
@@ -175,76 +141,6 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         }
 
         return $this->custom;
-    }
-
-    /**
-     * @return null|ProductVariant
-     */
-    public function getVariant()
-    {
-        if (is_null($this->variant)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListLineItem::FIELD_VARIANT);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->variant = ProductVariantModel::of($data);
-        }
-
-        return $this->variant;
-    }
-
-    /**
-     * @return null|LocalizedString
-     */
-    public function getName()
-    {
-        if (is_null($this->name)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShoppingListLineItem::FIELD_NAME);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->name = LocalizedStringModel::of($data);
-        }
-
-        return $this->name;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVariantId()
-    {
-        if (is_null($this->variantId)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ShoppingListLineItem::FIELD_VARIANT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->variantId = (int) $data;
-        }
-
-        return $this->variantId;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getId()
-    {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ShoppingListLineItem::FIELD_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->id = (string) $data;
-        }
-
-        return $this->id;
     }
 
     /**
@@ -266,6 +162,58 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         }
 
         return $this->deactivatedAt;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListLineItem::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|LocalizedString
+     */
+    public function getName()
+    {
+        if (is_null($this->name)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShoppingListLineItem::FIELD_NAME);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->name = LocalizedStringModel::of($data);
+        }
+
+        return $this->name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getProductId()
+    {
+        if (is_null($this->productId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShoppingListLineItem::FIELD_PRODUCT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->productId = (string) $data;
+        }
+
+        return $this->productId;
     }
 
     /**
@@ -304,19 +252,61 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         return $this->productType;
     }
 
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ShoppingListLineItem::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
+    }
+
+    /**
+     * @return null|ProductVariant
+     */
+    public function getVariant()
+    {
+        if (is_null($this->variant)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShoppingListLineItem::FIELD_VARIANT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->variant = ProductVariantModel::of($data);
+        }
+
+        return $this->variant;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVariantId()
+    {
+        if (is_null($this->variantId)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ShoppingListLineItem::FIELD_VARIANT_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->variantId = (int) $data;
+        }
+
+        return $this->variantId;
+    }
+
     public function setAddedAt(?DateTimeImmutable $addedAt): void
     {
         $this->addedAt = $addedAt;
-    }
-
-    public function setQuantity(?int $quantity): void
-    {
-        $this->quantity = $quantity;
-    }
-
-    public function setProductId(?string $productId): void
-    {
-        $this->productId = $productId;
     }
 
     public function setCustom(?CustomFields $custom): void
@@ -324,19 +314,9 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         $this->custom = $custom;
     }
 
-    public function setVariant(?ProductVariant $variant): void
+    public function setDeactivatedAt(?DateTimeImmutable $deactivatedAt): void
     {
-        $this->variant = $variant;
-    }
-
-    public function setName(?LocalizedString $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function setVariantId(?int $variantId): void
-    {
-        $this->variantId = $variantId;
+        $this->deactivatedAt = $deactivatedAt;
     }
 
     public function setId(?string $id): void
@@ -344,9 +324,14 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
         $this->id = $id;
     }
 
-    public function setDeactivatedAt(?DateTimeImmutable $deactivatedAt): void
+    public function setName(?LocalizedString $name): void
     {
-        $this->deactivatedAt = $deactivatedAt;
+        $this->name = $name;
+    }
+
+    public function setProductId(?string $productId): void
+    {
+        $this->productId = $productId;
     }
 
     public function setProductSlug(?LocalizedString $productSlug): void
@@ -357,6 +342,21 @@ final class ShoppingListLineItemModel extends JsonObjectModel implements Shoppin
     public function setProductType(?ProductTypeReference $productType): void
     {
         $this->productType = $productType;
+    }
+
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
+    }
+
+    public function setVariant(?ProductVariant $variant): void
+    {
+        $this->variant = $variant;
+    }
+
+    public function setVariantId(?int $variantId): void
+    {
+        $this->variantId = $variantId;
     }
 
     public function jsonSerialize()

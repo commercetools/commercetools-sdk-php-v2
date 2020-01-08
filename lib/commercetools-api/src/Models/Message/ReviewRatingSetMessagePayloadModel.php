@@ -28,14 +28,14 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     protected $oldRating;
 
     /**
-     * @var ?bool
-     */
-    protected $includedInStatistics;
-
-    /**
      * @var ?int
      */
     protected $newRating;
+
+    /**
+     * @var ?bool
+     */
+    protected $includedInStatistics;
 
     /**
      * @var ?Reference
@@ -44,13 +44,13 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
 
     public function __construct(
         int $oldRating = null,
-        bool $includedInStatistics = null,
         int $newRating = null,
+        bool $includedInStatistics = null,
         Reference $target = null
     ) {
         $this->oldRating = $oldRating;
-        $this->includedInStatistics = $includedInStatistics;
         $this->newRating = $newRating;
+        $this->includedInStatistics = $includedInStatistics;
         $this->target = $target;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
@@ -90,23 +90,6 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
     }
 
     /**
-     * @return null|bool
-     */
-    public function getIncludedInStatistics()
-    {
-        if (is_null($this->includedInStatistics)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_INCLUDED_IN_STATISTICS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->includedInStatistics = (bool) $data;
-        }
-
-        return $this->includedInStatistics;
-    }
-
-    /**
      * @return null|int
      */
     public function getNewRating()
@@ -121,6 +104,23 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
         }
 
         return $this->newRating;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function getIncludedInStatistics()
+    {
+        if (is_null($this->includedInStatistics)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ReviewRatingSetMessagePayload::FIELD_INCLUDED_IN_STATISTICS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->includedInStatistics = (bool) $data;
+        }
+
+        return $this->includedInStatistics;
     }
 
     /**
@@ -146,14 +146,14 @@ final class ReviewRatingSetMessagePayloadModel extends JsonObjectModel implement
         $this->oldRating = $oldRating;
     }
 
-    public function setIncludedInStatistics(?bool $includedInStatistics): void
-    {
-        $this->includedInStatistics = $includedInStatistics;
-    }
-
     public function setNewRating(?int $newRating): void
     {
         $this->newRating = $newRating;
+    }
+
+    public function setIncludedInStatistics(?bool $includedInStatistics): void
+    {
+        $this->includedInStatistics = $includedInStatistics;
     }
 
     public function setTarget(?Reference $target): void

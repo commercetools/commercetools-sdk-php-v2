@@ -9,11 +9,11 @@ declare(strict_types=1);
 namespace Commercetools\Base;
 
 /**
- * @template T
+ * @template TScalar
  */
 abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSerializable, \IteratorAggregate
 {
-    /** @psalm-var ?array<int, T|scalar> */
+    /** @psalm-var ?array<int, TScalar|scalar> */
     private $data;
     /** @var array<string, array<string, int>> */
     private $indexes = [];
@@ -21,7 +21,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     private $iterator;
 
     /**
-     * @psalm-param ?array<int, T|scalar> $data
+     * @psalm-param ?array<int, TScalar|scalar> $data
      */
     public function __construct(array $data = null)
     {
@@ -43,6 +43,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
+     * @template T
      * @psalm-param array<int, T|scalar> $data
      *
      * @return static
@@ -53,7 +54,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
-     * @psalm-param T|scalar $value
+     * @psalm-param TScalar|scalar $value
      *
      * @param $value
      *
@@ -65,7 +66,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
-     * @psalm-return ?T
+     * @psalm-return ?TScalar
      */
     public function at(int $index)
     {
@@ -86,11 +87,11 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
-     * @return ?T
+     * @return ?TScalar
      */
     public function current()
     {
-        /** @psalm-var ?T $current  */
+        /** @psalm-var ?TScalar $current  */
         return $this->iterator->current();
     }
 
@@ -134,7 +135,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     /**
      * @param int $offset
      *
-     * @return ?T
+     * @return ?TScalar
      */
     public function offsetGet($offset)
     {
@@ -143,7 +144,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
 
     /**
      * @param int $offset
-     * @psalm-param T|scalar $value
+     * @psalm-param TScalar|scalar $value
      *
      * @param mixed $value
      */
@@ -173,7 +174,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
-     * @psalm-return T|scalar|null
+     * @psalm-return TScalar|scalar|null
      */
     final protected function get(int $index)
     {
@@ -185,7 +186,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
-     * @psalm-param T|scalar $data
+     * @psalm-param TScalar|scalar $data
      *
      * @param mixed $data
      */
@@ -199,7 +200,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
-     * @psalm-param T|scalar $value
+     * @psalm-param TScalar|scalar $value
      *
      * @param $value
      *
@@ -214,7 +215,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
-     * @psalm-return callable(int): ?T
+     * @psalm-return callable(int): ?TScalar
      */
     abstract protected function mapper();
 
@@ -224,7 +225,7 @@ abstract class MapperScalarSequence implements Collection, \ArrayAccess, \JsonSe
     }
 
     /**
-     * @psalm-return ?T
+     * @psalm-return ?TScalar
      */
     final protected function valueByKey(string $field, string $key)
     {

@@ -20,16 +20,6 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     protected $action;
 
     /**
-     * @var ?string
-     */
-    protected $assetId;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -38,6 +28,16 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
      * @var ?string
      */
     protected $sku;
+
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
+    /**
+     * @var ?string
+     */
+    protected $assetId;
 
     /**
      * @var ?string
@@ -50,17 +50,17 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     protected $tags;
 
     public function __construct(
-        string $assetId = null,
-        bool $staged = null,
         int $variantId = null,
         string $sku = null,
+        bool $staged = null,
+        string $assetId = null,
         string $assetKey = null,
         array $tags = null
     ) {
-        $this->assetId = $assetId;
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->staged = $staged;
+        $this->assetId = $assetId;
         $this->assetKey = $assetKey;
         $this->tags = $tags;
         $this->action = static::DISCRIMINATOR_VALUE;
@@ -81,40 +81,6 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAssetId()
-    {
-        if (is_null($this->assetId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductSetAssetTagsAction::FIELD_ASSET_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->assetId = (string) $data;
-        }
-
-        return $this->assetId;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductSetAssetTagsAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
     }
 
     /**
@@ -152,6 +118,40 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     }
 
     /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductSetAssetTagsAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        if (is_null($this->assetId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductSetAssetTagsAction::FIELD_ASSET_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->assetId = (string) $data;
+        }
+
+        return $this->assetId;
+    }
+
+    /**
      * @return null|string
      */
     public function getAssetKey()
@@ -185,16 +185,6 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
         return $this->tags;
     }
 
-    public function setAssetId(?string $assetId): void
-    {
-        $this->assetId = $assetId;
-    }
-
-    public function setStaged(?bool $staged): void
-    {
-        $this->staged = $staged;
-    }
-
     public function setVariantId(?int $variantId): void
     {
         $this->variantId = $variantId;
@@ -203,6 +193,16 @@ final class ProductSetAssetTagsActionModel extends JsonObjectModel implements Pr
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
+    }
+
+    public function setAssetId(?string $assetId): void
+    {
+        $this->assetId = $assetId;
     }
 
     public function setAssetKey(?string $assetKey): void

@@ -23,41 +23,6 @@ use DateTimeImmutable;
 final class ScopedPriceBuilder implements Builder
 {
     /**
-     * @var DiscountedPrice|?DiscountedPriceBuilder
-     */
-    private $discounted;
-
-    /**
-     * @var ?string
-     */
-    private $country;
-
-    /**
-     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
-     */
-    private $customerGroup;
-
-    /**
-     * @var CustomFields|?CustomFieldsBuilder
-     */
-    private $custom;
-
-    /**
-     * @var ChannelReference|?ChannelReferenceBuilder
-     */
-    private $channel;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $validUntil;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $validFrom;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -73,62 +38,39 @@ final class ScopedPriceBuilder implements Builder
     private $currentValue;
 
     /**
-     * @return null|DiscountedPrice
+     * @var ?string
      */
-    public function getDiscounted()
-    {
-        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
-    }
+    private $country;
 
     /**
-     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
-     *
-     * @return null|string
+     * @var CustomerGroupReference|?CustomerGroupReferenceBuilder
      */
-    public function getCountry()
-    {
-        return $this->country;
-    }
+    private $customerGroup;
 
     /**
-     * @return null|CustomerGroupReference
+     * @var ChannelReference|?ChannelReferenceBuilder
      */
-    public function getCustomerGroup()
-    {
-        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
-    }
+    private $channel;
 
     /**
-     * @return null|CustomFields
+     * @var ?DateTimeImmutable
      */
-    public function getCustom()
-    {
-        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
-    }
+    private $validFrom;
 
     /**
-     * @return null|ChannelReference
+     * @var ?DateTimeImmutable
      */
-    public function getChannel()
-    {
-        return $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel;
-    }
+    private $validUntil;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var DiscountedPrice|?DiscountedPriceBuilder
      */
-    public function getValidUntil()
-    {
-        return $this->validUntil;
-    }
+    private $discounted;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var CustomFields|?CustomFieldsBuilder
      */
-    public function getValidFrom()
-    {
-        return $this->validFrom;
-    }
+    private $custom;
 
     /**
      * @return null|string
@@ -155,73 +97,61 @@ final class ScopedPriceBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>A two-digit country code as per <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>.</p>.
+     *
+     * @return null|string
      */
-    public function withDiscounted(?DiscountedPrice $discounted)
+    public function getCountry()
     {
-        $this->discounted = $discounted;
-
-        return $this;
+        return $this->country;
     }
 
     /**
-     * @return $this
+     * @return null|CustomerGroupReference
      */
-    public function withCountry(?string $country)
+    public function getCustomerGroup()
     {
-        $this->country = $country;
-
-        return $this;
+        return $this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup;
     }
 
     /**
-     * @return $this
+     * @return null|ChannelReference
      */
-    public function withCustomerGroup(?CustomerGroupReference $customerGroup)
+    public function getChannel()
     {
-        $this->customerGroup = $customerGroup;
-
-        return $this;
+        return $this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel;
     }
 
     /**
-     * @return $this
+     * @return null|DateTimeImmutable
      */
-    public function withCustom(?CustomFields $custom)
+    public function getValidFrom()
     {
-        $this->custom = $custom;
-
-        return $this;
+        return $this->validFrom;
     }
 
     /**
-     * @return $this
+     * @return null|DateTimeImmutable
      */
-    public function withChannel(?ChannelReference $channel)
+    public function getValidUntil()
     {
-        $this->channel = $channel;
-
-        return $this;
+        return $this->validUntil;
     }
 
     /**
-     * @return $this
+     * @return null|DiscountedPrice
      */
-    public function withValidUntil(?DateTimeImmutable $validUntil)
+    public function getDiscounted()
     {
-        $this->validUntil = $validUntil;
-
-        return $this;
+        return $this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted;
     }
 
     /**
-     * @return $this
+     * @return null|CustomFields
      */
-    public function withValidFrom(?DateTimeImmutable $validFrom)
+    public function getCustom()
     {
-        $this->validFrom = $validFrom;
-
-        return $this;
+        return $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom;
     }
 
     /**
@@ -257,9 +187,9 @@ final class ScopedPriceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    public function withCountry(?string $country)
     {
-        $this->discounted = $discounted;
+        $this->country = $country;
 
         return $this;
     }
@@ -267,7 +197,7 @@ final class ScopedPriceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
+    public function withCustomerGroup(?CustomerGroupReference $customerGroup)
     {
         $this->customerGroup = $customerGroup;
 
@@ -277,9 +207,9 @@ final class ScopedPriceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    public function withChannel(?ChannelReference $channel)
     {
-        $this->custom = $custom;
+        $this->channel = $channel;
 
         return $this;
     }
@@ -287,9 +217,39 @@ final class ScopedPriceBuilder implements Builder
     /**
      * @return $this
      */
-    public function withChannelBuilder(?ChannelReferenceBuilder $channel)
+    public function withValidFrom(?DateTimeImmutable $validFrom)
     {
-        $this->channel = $channel;
+        $this->validFrom = $validFrom;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withValidUntil(?DateTimeImmutable $validUntil)
+    {
+        $this->validUntil = $validUntil;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDiscounted(?DiscountedPrice $discounted)
+    {
+        $this->discounted = $discounted;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustom(?CustomFields $custom)
+    {
+        $this->custom = $custom;
 
         return $this;
     }
@@ -314,19 +274,59 @@ final class ScopedPriceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCustomerGroupBuilder(?CustomerGroupReferenceBuilder $customerGroup)
+    {
+        $this->customerGroup = $customerGroup;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withChannelBuilder(?ChannelReferenceBuilder $channel)
+    {
+        $this->channel = $channel;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withDiscountedBuilder(?DiscountedPriceBuilder $discounted)
+    {
+        $this->discounted = $discounted;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCustomBuilder(?CustomFieldsBuilder $custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
     public function build(): ScopedPrice
     {
         return new ScopedPriceModel(
-            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
-            $this->country,
-            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
-            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom),
-            ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel),
-            $this->validUntil,
-            $this->validFrom,
             $this->id,
             ($this->value instanceof TypedMoneyBuilder ? $this->value->build() : $this->value),
-            ($this->currentValue instanceof TypedMoneyBuilder ? $this->currentValue->build() : $this->currentValue)
+            ($this->currentValue instanceof TypedMoneyBuilder ? $this->currentValue->build() : $this->currentValue),
+            $this->country,
+            ($this->customerGroup instanceof CustomerGroupReferenceBuilder ? $this->customerGroup->build() : $this->customerGroup),
+            ($this->channel instanceof ChannelReferenceBuilder ? $this->channel->build() : $this->channel),
+            $this->validFrom,
+            $this->validUntil,
+            ($this->discounted instanceof DiscountedPriceBuilder ? $this->discounted->build() : $this->discounted),
+            ($this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom)
         );
     }
 

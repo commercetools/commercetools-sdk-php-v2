@@ -30,6 +30,8 @@ interface ChannelDraft extends JsonObject
     public function getKey();
 
     /**
+     * <p>If not specified, then channel will get InventorySupply role by default</p>.
+     *
      * @return null|array
      */
     public function getRoles();
@@ -50,6 +52,8 @@ interface ChannelDraft extends JsonObject
     public function getAddress();
 
     /**
+     * <p>The custom fields.</p>.
+     *
      * @return null|CustomFieldsDraft
      */
     public function getCustom();

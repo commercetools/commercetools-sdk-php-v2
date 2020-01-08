@@ -18,20 +18,12 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     /**
      * @var ?string
      */
-    private $oldEmail;
+    private $email;
 
     /**
      * @var ?string
      */
-    private $email;
-
-    /**
-     * @return null|string
-     */
-    public function getOldEmail()
-    {
-        return $this->oldEmail;
-    }
+    private $oldEmail;
 
     /**
      * @return null|string
@@ -42,13 +34,11 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|string
      */
-    public function withOldEmail(?string $oldEmail)
+    public function getOldEmail()
     {
-        $this->oldEmail = $oldEmail;
-
-        return $this;
+        return $this->oldEmail;
     }
 
     /**
@@ -61,11 +51,21 @@ final class OrderCustomerEmailSetMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withOldEmail(?string $oldEmail)
+    {
+        $this->oldEmail = $oldEmail;
+
+        return $this;
+    }
+
     public function build(): OrderCustomerEmailSetMessagePayload
     {
         return new OrderCustomerEmailSetMessagePayloadModel(
-            $this->oldEmail,
-            $this->email
+            $this->email,
+            $this->oldEmail
         );
     }
 

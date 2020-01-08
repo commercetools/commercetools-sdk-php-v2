@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class OrderTransitionStateActionBuilder implements Builder
 {
     /**
-     * @var ?bool
-     */
-    private $force;
-
-    /**
      * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
      */
     private $state;
 
     /**
-     * @return null|bool
+     * @var ?bool
      */
-    public function getForce()
-    {
-        return $this->force;
-    }
+    private $force;
 
     /**
      * @return null|StateResourceIdentifier
@@ -44,13 +36,11 @@ final class OrderTransitionStateActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|bool
      */
-    public function withForce(?bool $force)
+    public function getForce()
     {
-        $this->force = $force;
-
-        return $this;
+        return $this->force;
     }
 
     /**
@@ -59,6 +49,16 @@ final class OrderTransitionStateActionBuilder implements Builder
     public function withState(?StateResourceIdentifier $state)
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withForce(?bool $force)
+    {
+        $this->force = $force;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class OrderTransitionStateActionBuilder implements Builder
     public function build(): OrderTransitionStateAction
     {
         return new OrderTransitionStateActionModel(
-            $this->force,
-            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state)
+            ($this->state instanceof StateResourceIdentifierBuilder ? $this->state->build() : $this->state),
+            $this->force
         );
     }
 

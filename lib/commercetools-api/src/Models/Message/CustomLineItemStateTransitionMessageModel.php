@@ -26,16 +26,6 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     const DISCRIMINATOR_VALUE = 'CustomLineItemStateTransition';
 
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -46,14 +36,24 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
      */
     protected $lastModifiedBy;
+
+    /**
+     * @var ?CreatedBy
+     */
+    protected $createdBy;
 
     /**
      * @var ?int
@@ -66,11 +66,6 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     protected $resource;
 
     /**
-     * @var ?UserProvidedIdentifiers
-     */
-    protected $resourceUserProvidedIdentifiers;
-
-    /**
      * @var ?int
      */
     protected $resourceVersion;
@@ -81,14 +76,9 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     protected $type;
 
     /**
-     * @var ?StateReference
+     * @var ?UserProvidedIdentifiers
      */
-    protected $toState;
-
-    /**
-     * @var ?StateReference
-     */
-    protected $fromState;
+    protected $resourceUserProvidedIdentifiers;
 
     /**
      * @var ?string
@@ -96,48 +86,92 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     protected $customLineItemId;
 
     /**
+     * @var ?DateTimeImmutable
+     */
+    protected $transitionDate;
+
+    /**
      * @var ?int
      */
     protected $quantity;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?StateReference
      */
-    protected $transitionDate;
+    protected $fromState;
+
+    /**
+     * @var ?StateReference
+     */
+    protected $toState;
 
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
+        CreatedBy $createdBy = null,
         int $sequenceNumber = null,
         Reference $resource = null,
-        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         int $resourceVersion = null,
-        StateReference $toState = null,
-        StateReference $fromState = null,
+        UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
         string $customLineItemId = null,
+        DateTimeImmutable $transitionDate = null,
         int $quantity = null,
-        DateTimeImmutable $transitionDate = null
+        StateReference $fromState = null,
+        StateReference $toState = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
+        $this->createdBy = $createdBy;
         $this->sequenceNumber = $sequenceNumber;
         $this->resource = $resource;
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->resourceVersion = $resourceVersion;
-        $this->toState = $toState;
-        $this->fromState = $fromState;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
         $this->customLineItemId = $customLineItemId;
-        $this->quantity = $quantity;
         $this->transitionDate = $transitionDate;
+        $this->quantity = $quantity;
+        $this->fromState = $fromState;
+        $this->toState = $toState;
         $this->type = static::DISCRIMINATOR_VALUE;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Message::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(Message::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -183,37 +217,21 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Message::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(Message::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -232,24 +250,6 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         }
 
         return $this->createdBy;
-    }
-
-    /**
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_LAST_MODIFIED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
-        }
-
-        return $this->lastModifiedBy;
     }
 
     /**
@@ -288,24 +288,6 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     }
 
     /**
-     * @return null|UserProvidedIdentifiers
-     */
-    public function getResourceUserProvidedIdentifiers()
-    {
-        if (is_null($this->resourceUserProvidedIdentifiers)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
-        }
-
-        return $this->resourceUserProvidedIdentifiers;
-    }
-
-    /**
      * @return null|int
      */
     public function getResourceVersion()
@@ -340,39 +322,21 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
     }
 
     /**
-     * @return null|StateReference
+     * @return null|UserProvidedIdentifiers
      */
-    public function getToState()
+    public function getResourceUserProvidedIdentifiers()
     {
-        if (is_null($this->toState)) {
+        if (is_null($this->resourceUserProvidedIdentifiers)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItemStateTransitionMessage::FIELD_TO_STATE);
+            $data = $this->raw(Message::FIELD_RESOURCE_USER_PROVIDED_IDENTIFIERS);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->toState = StateReferenceModel::of($data);
+            $this->resourceUserProvidedIdentifiers = UserProvidedIdentifiersModel::of($data);
         }
 
-        return $this->toState;
-    }
-
-    /**
-     * @return null|StateReference
-     */
-    public function getFromState()
-    {
-        if (is_null($this->fromState)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CustomLineItemStateTransitionMessage::FIELD_FROM_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->fromState = StateReferenceModel::of($data);
-        }
-
-        return $this->fromState;
+        return $this->resourceUserProvidedIdentifiers;
     }
 
     /**
@@ -390,23 +354,6 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         }
 
         return $this->customLineItemId;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CustomLineItemStateTransitionMessage::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
     }
 
     /**
@@ -430,14 +377,57 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         return $this->transitionDate;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
     {
-        $this->createdAt = $createdAt;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CustomLineItemStateTransitionMessage::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    /**
+     * @return null|StateReference
+     */
+    public function getFromState()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
+        if (is_null($this->fromState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItemStateTransitionMessage::FIELD_FROM_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fromState = StateReferenceModel::of($data);
+        }
+
+        return $this->fromState;
+    }
+
+    /**
+     * @return null|StateReference
+     */
+    public function getToState()
+    {
+        if (is_null($this->toState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CustomLineItemStateTransitionMessage::FIELD_TO_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->toState = StateReferenceModel::of($data);
+        }
+
+        return $this->toState;
     }
 
     public function setId(?string $id): void
@@ -450,14 +440,24 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
     {
         $this->lastModifiedBy = $lastModifiedBy;
+    }
+
+    public function setCreatedBy(?CreatedBy $createdBy): void
+    {
+        $this->createdBy = $createdBy;
     }
 
     public function setSequenceNumber(?int $sequenceNumber): void
@@ -470,24 +470,14 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         $this->resource = $resource;
     }
 
-    public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
-    {
-        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
-    }
-
     public function setResourceVersion(?int $resourceVersion): void
     {
         $this->resourceVersion = $resourceVersion;
     }
 
-    public function setToState(?StateReference $toState): void
+    public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
-        $this->toState = $toState;
-    }
-
-    public function setFromState(?StateReference $fromState): void
-    {
-        $this->fromState = $fromState;
+        $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
     }
 
     public function setCustomLineItemId(?string $customLineItemId): void
@@ -495,14 +485,24 @@ final class CustomLineItemStateTransitionMessageModel extends JsonObjectModel im
         $this->customLineItemId = $customLineItemId;
     }
 
+    public function setTransitionDate(?DateTimeImmutable $transitionDate): void
+    {
+        $this->transitionDate = $transitionDate;
+    }
+
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
     }
 
-    public function setTransitionDate(?DateTimeImmutable $transitionDate): void
+    public function setFromState(?StateReference $fromState): void
     {
-        $this->transitionDate = $transitionDate;
+        $this->fromState = $fromState;
+    }
+
+    public function setToState(?StateReference $toState): void
+    {
+        $this->toState = $toState;
     }
 
     public function jsonSerialize()

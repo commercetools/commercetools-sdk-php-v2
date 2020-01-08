@@ -20,9 +20,9 @@ use Commercetools\Base\Builder;
 final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builder
 {
     /**
-     * @var FieldContainer|?FieldContainerBuilder
+     * @var ?string
      */
-    private $fields;
+    private $textLineItemId;
 
     /**
      * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
@@ -30,16 +30,16 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     private $type;
 
     /**
-     * @var ?string
+     * @var FieldContainer|?FieldContainerBuilder
      */
-    private $textLineItemId;
+    private $fields;
 
     /**
-     * @return null|FieldContainer
+     * @return null|string
      */
-    public function getFields()
+    public function getTextLineItemId()
     {
-        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
+        return $this->textLineItemId;
     }
 
     /**
@@ -51,19 +51,19 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     }
 
     /**
-     * @return null|string
+     * @return null|FieldContainer
      */
-    public function getTextLineItemId()
+    public function getFields()
     {
-        return $this->textLineItemId;
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
      * @return $this
      */
-    public function withFields(?FieldContainer $fields)
+    public function withTextLineItemId(?string $textLineItemId)
     {
-        $this->fields = $fields;
+        $this->textLineItemId = $textLineItemId;
 
         return $this;
     }
@@ -81,17 +81,7 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
     /**
      * @return $this
      */
-    public function withTextLineItemId(?string $textLineItemId)
-    {
-        $this->textLineItemId = $textLineItemId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
 
@@ -108,12 +98,22 @@ final class ShoppingListSetTextLineItemCustomTypeActionBuilder implements Builde
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
+
     public function build(): ShoppingListSetTextLineItemCustomTypeAction
     {
         return new ShoppingListSetTextLineItemCustomTypeActionModel(
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields),
+            $this->textLineItemId,
             ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
-            $this->textLineItemId
+            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
         );
     }
 

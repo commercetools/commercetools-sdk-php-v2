@@ -18,19 +18,24 @@ use stdClass;
 final class ImportItemModel extends JsonObjectModel implements ImportItem
 {
     /**
-     * @var ?DateTimeImmutable
+     * @var ?int
      */
-    protected $createdAt;
+    protected $version;
 
     /**
-     * @var ?DateTimeImmutable
+     * @var ?string
      */
-    protected $lastModifiedAt;
+    protected $importSinkKey;
 
     /**
      * @var ?string
      */
     protected $resourceKey;
+
+    /**
+     * @var ?string
+     */
+    protected $state;
 
     /**
      * @var ?int
@@ -43,52 +48,182 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     protected $unresolvedReferences;
 
     /**
-     * @var ?string
+     * @var ?ErrorObjectCollection
      */
-    protected $state;
+    protected $errors;
 
     /**
-     * @var ?string
+     * @var ?DateTimeImmutable
      */
-    protected $importSinkKey;
+    protected $createdAt;
 
     /**
-     * @var ?int
+     * @var ?DateTimeImmutable
      */
-    protected $version;
+    protected $lastModifiedAt;
 
     /**
      * @var ?DateTimeImmutable
      */
     protected $expiresAt;
 
-    /**
-     * @var ?ErrorObjectCollection
-     */
-    protected $errors;
-
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
+        int $version = null,
+        string $importSinkKey = null,
         string $resourceKey = null,
+        string $state = null,
         int $retryCount = null,
         KeyReferenceCollection $unresolvedReferences = null,
-        string $state = null,
-        string $importSinkKey = null,
-        int $version = null,
-        DateTimeImmutable $expiresAt = null,
-        ErrorObjectCollection $errors = null
+        ErrorObjectCollection $errors = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
+        DateTimeImmutable $expiresAt = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
+        $this->version = $version;
+        $this->importSinkKey = $importSinkKey;
         $this->resourceKey = $resourceKey;
+        $this->state = $state;
         $this->retryCount = $retryCount;
         $this->unresolvedReferences = $unresolvedReferences;
-        $this->state = $state;
-        $this->importSinkKey = $importSinkKey;
-        $this->version = $version;
-        $this->expiresAt = $expiresAt;
         $this->errors = $errors;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
+        $this->expiresAt = $expiresAt;
+    }
+
+    /**
+     * <p>The import item version.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ImportItem::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
+    }
+
+    /**
+     * <p>The key of the import sink.</p>.
+     *
+     * @return null|string
+     */
+    public function getImportSinkKey()
+    {
+        if (is_null($this->importSinkKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ImportItem::FIELD_IMPORT_SINK_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->importSinkKey = (string) $data;
+        }
+
+        return $this->importSinkKey;
+    }
+
+    /**
+     * <p>The key of the import resource.</p>.
+     *
+     * @return null|string
+     */
+    public function getResourceKey()
+    {
+        if (is_null($this->resourceKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ImportItem::FIELD_RESOURCE_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->resourceKey = (string) $data;
+        }
+
+        return $this->resourceKey;
+    }
+
+    /**
+     * <p>The status of the import resource.</p>.
+     *
+     * @return null|string
+     */
+    public function getState()
+    {
+        if (is_null($this->state)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ImportItem::FIELD_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->state = (string) $data;
+        }
+
+        return $this->state;
+    }
+
+    /**
+     * <p>The number of request retries for processing the import resource.</p>.
+     *
+     * @return null|int
+     */
+    public function getRetryCount()
+    {
+        if (is_null($this->retryCount)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ImportItem::FIELD_RETRY_COUNT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->retryCount = (int) $data;
+        }
+
+        return $this->retryCount;
+    }
+
+    /**
+     * <p>If an import resource has unresolved references, the state is set to <code>Unresolved</code>
+     * and this property contains the unresolved references.</p>.
+     *
+     * @return null|KeyReferenceCollection
+     */
+    public function getUnresolvedReferences()
+    {
+        if (is_null($this->unresolvedReferences)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ImportItem::FIELD_UNRESOLVED_REFERENCES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->unresolvedReferences = KeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->unresolvedReferences;
+    }
+
+    /**
+     * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
+     * and this property contains the errors.</p>.
+     *
+     * @return null|ErrorObjectCollection
+     */
+    public function getErrors()
+    {
+        if (is_null($this->errors)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ImportItem::FIELD_ERRORS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->errors = ErrorObjectCollection::fromArray($data);
+        }
+
+        return $this->errors;
     }
 
     /**
@@ -138,121 +273,6 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
     }
 
     /**
-     * <p>The key of the import resource.</p>.
-     *
-     * @return null|string
-     */
-    public function getResourceKey()
-    {
-        if (is_null($this->resourceKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ImportItem::FIELD_RESOURCE_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->resourceKey = (string) $data;
-        }
-
-        return $this->resourceKey;
-    }
-
-    /**
-     * <p>The number of request retries for processing the import resource.</p>.
-     *
-     * @return null|int
-     */
-    public function getRetryCount()
-    {
-        if (is_null($this->retryCount)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImportItem::FIELD_RETRY_COUNT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->retryCount = (int) $data;
-        }
-
-        return $this->retryCount;
-    }
-
-    /**
-     * <p>If an import resource has unresolved references, the state is set to <code>Unresolved</code>
-     * and this property contains the unresolved references.</p>.
-     *
-     * @return null|KeyReferenceCollection
-     */
-    public function getUnresolvedReferences()
-    {
-        if (is_null($this->unresolvedReferences)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ImportItem::FIELD_UNRESOLVED_REFERENCES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->unresolvedReferences = KeyReferenceCollection::fromArray($data);
-        }
-
-        return $this->unresolvedReferences;
-    }
-
-    /**
-     * <p>The status of the import resource.</p>.
-     *
-     * @return null|string
-     */
-    public function getState()
-    {
-        if (is_null($this->state)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ImportItem::FIELD_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->state = (string) $data;
-        }
-
-        return $this->state;
-    }
-
-    /**
-     * <p>The key of the import sink.</p>.
-     *
-     * @return null|string
-     */
-    public function getImportSinkKey()
-    {
-        if (is_null($this->importSinkKey)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ImportItem::FIELD_IMPORT_SINK_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->importSinkKey = (string) $data;
-        }
-
-        return $this->importSinkKey;
-    }
-
-    /**
-     * <p>The import item version.</p>.
-     *
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ImportItem::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
-    }
-
-    /**
      * <p>When the import item expires.</p>.
      *
      * @return null|DateTimeImmutable
@@ -275,39 +295,24 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
         return $this->expiresAt;
     }
 
-    /**
-     * <p>If an import resource does not import correctly, the state is set to <code>Rejected</code> or <code>ValidationFailed</code>
-     * and this property contains the errors.</p>.
-     *
-     * @return null|ErrorObjectCollection
-     */
-    public function getErrors()
+    public function setVersion(?int $version): void
     {
-        if (is_null($this->errors)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ImportItem::FIELD_ERRORS);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->errors = ErrorObjectCollection::fromArray($data);
-        }
-
-        return $this->errors;
+        $this->version = $version;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    public function setImportSinkKey(?string $importSinkKey): void
     {
-        $this->createdAt = $createdAt;
-    }
-
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
+        $this->importSinkKey = $importSinkKey;
     }
 
     public function setResourceKey(?string $resourceKey): void
     {
         $this->resourceKey = $resourceKey;
+    }
+
+    public function setState(?string $state): void
+    {
+        $this->state = $state;
     }
 
     public function setRetryCount(?int $retryCount): void
@@ -320,29 +325,24 @@ final class ImportItemModel extends JsonObjectModel implements ImportItem
         $this->unresolvedReferences = $unresolvedReferences;
     }
 
-    public function setState(?string $state): void
+    public function setErrors(?ErrorObjectCollection $errors): void
     {
-        $this->state = $state;
+        $this->errors = $errors;
     }
 
-    public function setImportSinkKey(?string $importSinkKey): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->importSinkKey = $importSinkKey;
+        $this->createdAt = $createdAt;
     }
 
-    public function setVersion(?int $version): void
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
     {
-        $this->version = $version;
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setExpiresAt(?DateTimeImmutable $expiresAt): void
     {
         $this->expiresAt = $expiresAt;
-    }
-
-    public function setErrors(?ErrorObjectCollection $errors): void
-    {
-        $this->errors = $errors;
     }
 
     public function jsonSerialize()

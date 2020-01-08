@@ -13,41 +13,26 @@ use Commercetools\Base\JsonObjectModel;
 final class ItemShippingTargetModel extends JsonObjectModel implements ItemShippingTarget
 {
     /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
      * @var ?string
      */
     protected $addressKey;
 
-    public function __construct(
-        int $quantity = null,
-        string $addressKey = null
-    ) {
-        $this->quantity = $quantity;
-        $this->addressKey = $addressKey;
-    }
-
     /**
-     * @return null|int
+     * @var ?int
      */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ItemShippingTarget::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
+    protected $quantity;
 
-        return $this->quantity;
+    public function __construct(
+        string $addressKey = null,
+        int $quantity = null
+    ) {
+        $this->addressKey = $addressKey;
+        $this->quantity = $quantity;
     }
 
     /**
+     * <p>The key of the address in the cart's <code>itemShippingAddresses</code></p>.
+     *
      * @return null|string
      */
     public function getAddressKey()
@@ -64,13 +49,34 @@ final class ItemShippingTargetModel extends JsonObjectModel implements ItemShipp
         return $this->addressKey;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * <p>The quantity of items that should go to the address with the specified <code>addressKey</code>.
+     * Only positive values are allowed.
+     * Using <code>0</code> as quantity is also possible in a draft object, but the element will not be present in the resulting ItemShippingDetails.</p>.
+     *
+     * @return null|int
+     */
+    public function getQuantity()
     {
-        $this->quantity = $quantity;
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ItemShippingTarget::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
     public function setAddressKey(?string $addressKey): void
     {
         $this->addressKey = $addressKey;
+    }
+
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
     }
 }

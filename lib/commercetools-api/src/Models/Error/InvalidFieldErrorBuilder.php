@@ -22,11 +22,6 @@ final class InvalidFieldErrorBuilder implements Builder
     private $message;
 
     /**
-     * @var ?array
-     */
-    private $allowedValues;
-
-    /**
      * @var ?string
      */
     private $field;
@@ -37,19 +32,16 @@ final class InvalidFieldErrorBuilder implements Builder
     private $invalidValue;
 
     /**
+     * @var ?array
+     */
+    private $allowedValues;
+
+    /**
      * @return null|string
      */
     public function getMessage()
     {
         return $this->message;
-    }
-
-    /**
-     * @return null|array
-     */
-    public function getAllowedValues()
-    {
-        return $this->allowedValues;
     }
 
     /**
@@ -69,21 +61,19 @@ final class InvalidFieldErrorBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|array
      */
-    public function withMessage(?string $message)
+    public function getAllowedValues()
     {
-        $this->message = $message;
-
-        return $this;
+        return $this->allowedValues;
     }
 
     /**
      * @return $this
      */
-    public function withAllowedValues(?array $allowedValues)
+    public function withMessage(?string $message)
     {
-        $this->allowedValues = $allowedValues;
+        $this->message = $message;
 
         return $this;
     }
@@ -108,13 +98,23 @@ final class InvalidFieldErrorBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withAllowedValues(?array $allowedValues)
+    {
+        $this->allowedValues = $allowedValues;
+
+        return $this;
+    }
+
     public function build(): InvalidFieldError
     {
         return new InvalidFieldErrorModel(
             $this->message,
-            $this->allowedValues,
             $this->field,
-            $this->invalidValue
+            $this->invalidValue,
+            $this->allowedValues
         );
     }
 

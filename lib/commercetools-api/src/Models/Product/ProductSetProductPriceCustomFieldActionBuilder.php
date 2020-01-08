@@ -19,7 +19,7 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $name;
+    private $priceId;
 
     /**
      * @var ?bool
@@ -29,7 +29,7 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     /**
      * @var ?string
      */
-    private $priceId;
+    private $name;
 
     /**
      * @var ?JsonObject
@@ -39,9 +39,9 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getName()
+    public function getPriceId()
     {
-        return $this->name;
+        return $this->priceId;
     }
 
     /**
@@ -55,9 +55,9 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     /**
      * @return null|string
      */
-    public function getPriceId()
+    public function getName()
     {
-        return $this->priceId;
+        return $this->name;
     }
 
     /**
@@ -71,9 +71,9 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withPriceId(?string $priceId)
     {
-        $this->name = $name;
+        $this->priceId = $priceId;
 
         return $this;
     }
@@ -91,9 +91,9 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withPriceId(?string $priceId)
+    public function withName(?string $name)
     {
-        $this->priceId = $priceId;
+        $this->name = $name;
 
         return $this;
     }
@@ -111,9 +111,9 @@ final class ProductSetProductPriceCustomFieldActionBuilder implements Builder
     public function build(): ProductSetProductPriceCustomFieldAction
     {
         return new ProductSetProductPriceCustomFieldActionModel(
-            $this->name,
-            $this->staged,
             $this->priceId,
+            $this->staged,
+            $this->name,
             $this->value
         );
     }

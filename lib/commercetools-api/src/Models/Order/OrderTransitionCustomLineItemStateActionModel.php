@@ -25,16 +25,6 @@ final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectMode
     protected $action;
 
     /**
-     * @var ?StateResourceIdentifier
-     */
-    protected $toState;
-
-    /**
-     * @var ?StateResourceIdentifier
-     */
-    protected $fromState;
-
-    /**
      * @var ?string
      */
     protected $customLineItemId;
@@ -45,21 +35,31 @@ final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectMode
     protected $quantity;
 
     /**
+     * @var ?StateResourceIdentifier
+     */
+    protected $fromState;
+
+    /**
+     * @var ?StateResourceIdentifier
+     */
+    protected $toState;
+
+    /**
      * @var ?DateTimeImmutable
      */
     protected $actualTransitionDate;
 
     public function __construct(
-        StateResourceIdentifier $toState = null,
-        StateResourceIdentifier $fromState = null,
         string $customLineItemId = null,
         int $quantity = null,
+        StateResourceIdentifier $fromState = null,
+        StateResourceIdentifier $toState = null,
         DateTimeImmutable $actualTransitionDate = null
     ) {
-        $this->toState = $toState;
-        $this->fromState = $fromState;
         $this->customLineItemId = $customLineItemId;
         $this->quantity = $quantity;
+        $this->fromState = $fromState;
+        $this->toState = $toState;
         $this->actualTransitionDate = $actualTransitionDate;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
@@ -79,42 +79,6 @@ final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectMode
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|StateResourceIdentifier
-     */
-    public function getToState()
-    {
-        if (is_null($this->toState)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderTransitionCustomLineItemStateAction::FIELD_TO_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->toState = StateResourceIdentifierModel::of($data);
-        }
-
-        return $this->toState;
-    }
-
-    /**
-     * @return null|StateResourceIdentifier
-     */
-    public function getFromState()
-    {
-        if (is_null($this->fromState)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderTransitionCustomLineItemStateAction::FIELD_FROM_STATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->fromState = StateResourceIdentifierModel::of($data);
-        }
-
-        return $this->fromState;
     }
 
     /**
@@ -152,6 +116,42 @@ final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectMode
     }
 
     /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getFromState()
+    {
+        if (is_null($this->fromState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderTransitionCustomLineItemStateAction::FIELD_FROM_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->fromState = StateResourceIdentifierModel::of($data);
+        }
+
+        return $this->fromState;
+    }
+
+    /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getToState()
+    {
+        if (is_null($this->toState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderTransitionCustomLineItemStateAction::FIELD_TO_STATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->toState = StateResourceIdentifierModel::of($data);
+        }
+
+        return $this->toState;
+    }
+
+    /**
      * @return null|DateTimeImmutable
      */
     public function getActualTransitionDate()
@@ -172,16 +172,6 @@ final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectMode
         return $this->actualTransitionDate;
     }
 
-    public function setToState(?StateResourceIdentifier $toState): void
-    {
-        $this->toState = $toState;
-    }
-
-    public function setFromState(?StateResourceIdentifier $fromState): void
-    {
-        $this->fromState = $fromState;
-    }
-
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
@@ -190,6 +180,16 @@ final class OrderTransitionCustomLineItemStateActionModel extends JsonObjectMode
     public function setQuantity(?int $quantity): void
     {
         $this->quantity = $quantity;
+    }
+
+    public function setFromState(?StateResourceIdentifier $fromState): void
+    {
+        $this->fromState = $fromState;
+    }
+
+    public function setToState(?StateResourceIdentifier $toState): void
+    {
+        $this->toState = $toState;
     }
 
     public function setActualTransitionDate(?DateTimeImmutable $actualTransitionDate): void

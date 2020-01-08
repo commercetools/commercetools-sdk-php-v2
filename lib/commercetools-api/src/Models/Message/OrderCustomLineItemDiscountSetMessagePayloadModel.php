@@ -29,23 +29,23 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     protected $customLineItemId;
 
     /**
-     * @var ?TaxedItemPrice
-     */
-    protected $taxedPrice;
-
-    /**
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
+    /**
+     * @var ?TaxedItemPrice
+     */
+    protected $taxedPrice;
+
     public function __construct(
         string $customLineItemId = null,
-        TaxedItemPrice $taxedPrice = null,
-        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null
+        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
+        TaxedItemPrice $taxedPrice = null
     ) {
         $this->customLineItemId = $customLineItemId;
-        $this->taxedPrice = $taxedPrice;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->taxedPrice = $taxedPrice;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -84,6 +84,23 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
     }
 
     /**
+     * @return null|DiscountedLineItemPriceForQuantityCollection
+     */
+    public function getDiscountedPricePerQuantity()
+    {
+        if (is_null($this->discountedPricePerQuantity)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderCustomLineItemDiscountSetMessagePayload::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
+        }
+
+        return $this->discountedPricePerQuantity;
+    }
+
+    /**
      * @return null|TaxedItemPrice
      */
     public function getTaxedPrice()
@@ -101,35 +118,18 @@ final class OrderCustomLineItemDiscountSetMessagePayloadModel extends JsonObject
         return $this->taxedPrice;
     }
 
-    /**
-     * @return null|DiscountedLineItemPriceForQuantityCollection
-     */
-    public function getDiscountedPricePerQuantity()
-    {
-        if (is_null($this->discountedPricePerQuantity)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderCustomLineItemDiscountSetMessagePayload::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
-        }
-
-        return $this->discountedPricePerQuantity;
-    }
-
     public function setCustomLineItemId(?string $customLineItemId): void
     {
         $this->customLineItemId = $customLineItemId;
     }
 
-    public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
-    {
-        $this->taxedPrice = $taxedPrice;
-    }
-
     public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
     {
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+    }
+
+    public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
+    {
+        $this->taxedPrice = $taxedPrice;
     }
 }

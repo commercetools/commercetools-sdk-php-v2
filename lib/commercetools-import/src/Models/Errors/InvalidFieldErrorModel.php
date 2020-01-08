@@ -27,11 +27,6 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     protected $message;
 
     /**
-     * @var ?array
-     */
-    protected $allowedValues;
-
-    /**
      * @var ?string
      */
     protected $field;
@@ -41,16 +36,21 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
      */
     protected $invalidValue;
 
+    /**
+     * @var ?array
+     */
+    protected $allowedValues;
+
     public function __construct(
         string $message = null,
-        array $allowedValues = null,
         string $field = null,
-        JsonObject $invalidValue = null
+        JsonObject $invalidValue = null,
+        array $allowedValues = null
     ) {
         $this->message = $message;
-        $this->allowedValues = $allowedValues;
         $this->field = $field;
         $this->invalidValue = $invalidValue;
+        $this->allowedValues = $allowedValues;
         $this->code = static::DISCRIMINATOR_VALUE;
     }
 
@@ -91,25 +91,6 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     }
 
     /**
-     * <p>A fixed set of allowed values for the field, if any.</p>.
-     *
-     * @return null|array
-     */
-    public function getAllowedValues()
-    {
-        if (is_null($this->allowedValues)) {
-            /** @psalm-var ?array<int, mixed> $data */
-            $data = $this->raw(InvalidFieldError::FIELD_ALLOWED_VALUES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->allowedValues = $data;
-        }
-
-        return $this->allowedValues;
-    }
-
-    /**
      * <p>The name of the field.</p>.
      *
      * @return null|string
@@ -147,14 +128,28 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
         return $this->invalidValue;
     }
 
+    /**
+     * <p>A fixed set of allowed values for the field, if any.</p>.
+     *
+     * @return null|array
+     */
+    public function getAllowedValues()
+    {
+        if (is_null($this->allowedValues)) {
+            /** @psalm-var ?array<int, mixed> $data */
+            $data = $this->raw(InvalidFieldError::FIELD_ALLOWED_VALUES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->allowedValues = $data;
+        }
+
+        return $this->allowedValues;
+    }
+
     public function setMessage(?string $message): void
     {
         $this->message = $message;
-    }
-
-    public function setAllowedValues(?array $allowedValues): void
-    {
-        $this->allowedValues = $allowedValues;
     }
 
     public function setField(?string $field): void
@@ -165,5 +160,10 @@ final class InvalidFieldErrorModel extends JsonObjectModel implements InvalidFie
     public function setInvalidValue(?JsonObject $invalidValue): void
     {
         $this->invalidValue = $invalidValue;
+    }
+
+    public function setAllowedValues(?array $allowedValues): void
+    {
+        $this->allowedValues = $allowedValues;
     }
 }

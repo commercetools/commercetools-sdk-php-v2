@@ -22,16 +22,6 @@ use stdClass;
 final class ShippingMethodModel extends JsonObjectModel implements ShippingMethod
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    protected $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    protected $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     protected $id;
@@ -42,9 +32,14 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     protected $version;
 
     /**
-     * @var ?CreatedBy
+     * @var ?DateTimeImmutable
      */
-    protected $createdBy;
+    protected $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    protected $lastModifiedAt;
 
     /**
      * @var ?LastModifiedBy
@@ -52,19 +47,14 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     protected $lastModifiedBy;
 
     /**
-     * @var ?ZoneRateCollection
+     * @var ?CreatedBy
      */
-    protected $zoneRates;
+    protected $createdBy;
 
     /**
      * @var ?string
      */
-    protected $predicate;
-
-    /**
-     * @var ?bool
-     */
-    protected $isDefault;
+    protected $key;
 
     /**
      * @var ?string
@@ -77,43 +67,91 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     protected $description;
 
     /**
-     * @var ?string
-     */
-    protected $key;
-
-    /**
      * @var ?TaxCategoryReference
      */
     protected $taxCategory;
 
+    /**
+     * @var ?ZoneRateCollection
+     */
+    protected $zoneRates;
+
+    /**
+     * @var ?bool
+     */
+    protected $isDefault;
+
+    /**
+     * @var ?string
+     */
+    protected $predicate;
+
     public function __construct(
-        DateTimeImmutable $createdAt = null,
-        DateTimeImmutable $lastModifiedAt = null,
         string $id = null,
         int $version = null,
-        CreatedBy $createdBy = null,
+        DateTimeImmutable $createdAt = null,
+        DateTimeImmutable $lastModifiedAt = null,
         LastModifiedBy $lastModifiedBy = null,
-        ZoneRateCollection $zoneRates = null,
-        string $predicate = null,
-        bool $isDefault = null,
+        CreatedBy $createdBy = null,
+        string $key = null,
         string $name = null,
         string $description = null,
-        string $key = null,
-        TaxCategoryReference $taxCategory = null
+        TaxCategoryReference $taxCategory = null,
+        ZoneRateCollection $zoneRates = null,
+        bool $isDefault = null,
+        string $predicate = null
     ) {
-        $this->createdAt = $createdAt;
-        $this->lastModifiedAt = $lastModifiedAt;
         $this->id = $id;
         $this->version = $version;
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+        $this->lastModifiedAt = $lastModifiedAt;
         $this->lastModifiedBy = $lastModifiedBy;
-        $this->zoneRates = $zoneRates;
-        $this->predicate = $predicate;
-        $this->isDefault = $isDefault;
+        $this->createdBy = $createdBy;
+        $this->key = $key;
         $this->name = $name;
         $this->description = $description;
-        $this->key = $key;
         $this->taxCategory = $taxCategory;
+        $this->zoneRates = $zoneRates;
+        $this->isDefault = $isDefault;
+        $this->predicate = $predicate;
+    }
+
+    /**
+     * <p>The unique ID of the shipping method.</p>.
+     *
+     * @return null|string
+     */
+    public function getId()
+    {
+        if (is_null($this->id)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShippingMethod::FIELD_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->id = (string) $data;
+        }
+
+        return $this->id;
+    }
+
+    /**
+     * <p>The current version of the shipping method.</p>.
+     *
+     * @return null|int
+     */
+    public function getVersion()
+    {
+        if (is_null($this->version)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(ShippingMethod::FIELD_VERSION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->version = (int) $data;
+        }
+
+        return $this->version;
     }
 
     /**
@@ -159,37 +197,21 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
     /**
-     * @return null|string
+     * @return null|LastModifiedBy
      */
-    public function getId()
+    public function getLastModifiedBy()
     {
-        if (is_null($this->id)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethod::FIELD_ID);
+        if (is_null($this->lastModifiedBy)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(ShippingMethod::FIELD_LAST_MODIFIED_BY);
             if (is_null($data)) {
                 return null;
             }
-            $this->id = (string) $data;
+
+            $this->lastModifiedBy = LastModifiedByModel::of($data);
         }
 
-        return $this->id;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getVersion()
-    {
-        if (is_null($this->version)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(ShippingMethod::FIELD_VERSION);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->version = (int) $data;
-        }
-
-        return $this->version;
+        return $this->lastModifiedBy;
     }
 
     /**
@@ -211,72 +233,22 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
     /**
-     * @return null|LastModifiedBy
-     */
-    public function getLastModifiedBy()
-    {
-        if (is_null($this->lastModifiedBy)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(ShippingMethod::FIELD_LAST_MODIFIED_BY);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->lastModifiedBy = LastModifiedByModel::of($data);
-        }
-
-        return $this->lastModifiedBy;
-    }
-
-    /**
-     * @return null|ZoneRateCollection
-     */
-    public function getZoneRates()
-    {
-        if (is_null($this->zoneRates)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(ShippingMethod::FIELD_ZONE_RATES);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->zoneRates = ZoneRateCollection::fromArray($data);
-        }
-
-        return $this->zoneRates;
-    }
-
-    /**
+     * <p>User-specific unique identifier for the shipping method.</p>.
+     *
      * @return null|string
      */
-    public function getPredicate()
+    public function getKey()
     {
-        if (is_null($this->predicate)) {
+        if (is_null($this->key)) {
             /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethod::FIELD_PREDICATE);
+            $data = $this->raw(ShippingMethod::FIELD_KEY);
             if (is_null($data)) {
                 return null;
             }
-            $this->predicate = (string) $data;
+            $this->key = (string) $data;
         }
 
-        return $this->predicate;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getIsDefault()
-    {
-        if (is_null($this->isDefault)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ShippingMethod::FIELD_IS_DEFAULT);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->isDefault = (bool) $data;
-        }
-
-        return $this->isDefault;
+        return $this->key;
     }
 
     /**
@@ -314,23 +286,6 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
     }
 
     /**
-     * @return null|string
-     */
-    public function getKey()
-    {
-        if (is_null($this->key)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ShippingMethod::FIELD_KEY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->key = (string) $data;
-        }
-
-        return $this->key;
-    }
-
-    /**
      * @return null|TaxCategoryReference
      */
     public function getTaxCategory()
@@ -348,14 +303,59 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         return $this->taxCategory;
     }
 
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    /**
+     * @return null|ZoneRateCollection
+     */
+    public function getZoneRates()
     {
-        $this->createdAt = $createdAt;
+        if (is_null($this->zoneRates)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(ShippingMethod::FIELD_ZONE_RATES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->zoneRates = ZoneRateCollection::fromArray($data);
+        }
+
+        return $this->zoneRates;
     }
 
-    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    /**
+     * <p>One shipping method in a project can be default.</p>.
+     *
+     * @return null|bool
+     */
+    public function getIsDefault()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
+        if (is_null($this->isDefault)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ShippingMethod::FIELD_IS_DEFAULT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isDefault = (bool) $data;
+        }
+
+        return $this->isDefault;
+    }
+
+    /**
+     * <p>A Cart predicate which can be used to more precisely select a shipping method for a cart.</p>.
+     *
+     * @return null|string
+     */
+    public function getPredicate()
+    {
+        if (is_null($this->predicate)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ShippingMethod::FIELD_PREDICATE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->predicate = (string) $data;
+        }
+
+        return $this->predicate;
     }
 
     public function setId(?string $id): void
@@ -368,9 +368,14 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->version = $version;
     }
 
-    public function setCreatedBy(?CreatedBy $createdBy): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+    }
+
+    public function setLastModifiedAt(?DateTimeImmutable $lastModifiedAt): void
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
     }
 
     public function setLastModifiedBy(?LastModifiedBy $lastModifiedBy): void
@@ -378,19 +383,14 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->lastModifiedBy = $lastModifiedBy;
     }
 
-    public function setZoneRates(?ZoneRateCollection $zoneRates): void
+    public function setCreatedBy(?CreatedBy $createdBy): void
     {
-        $this->zoneRates = $zoneRates;
+        $this->createdBy = $createdBy;
     }
 
-    public function setPredicate(?string $predicate): void
+    public function setKey(?string $key): void
     {
-        $this->predicate = $predicate;
-    }
-
-    public function setIsDefault(?bool $isDefault): void
-    {
-        $this->isDefault = $isDefault;
+        $this->key = $key;
     }
 
     public function setName(?string $name): void
@@ -403,14 +403,24 @@ final class ShippingMethodModel extends JsonObjectModel implements ShippingMetho
         $this->description = $description;
     }
 
-    public function setKey(?string $key): void
-    {
-        $this->key = $key;
-    }
-
     public function setTaxCategory(?TaxCategoryReference $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
+    }
+
+    public function setZoneRates(?ZoneRateCollection $zoneRates): void
+    {
+        $this->zoneRates = $zoneRates;
+    }
+
+    public function setIsDefault(?bool $isDefault): void
+    {
+        $this->isDefault = $isDefault;
+    }
+
+    public function setPredicate(?string $predicate): void
+    {
+        $this->predicate = $predicate;
     }
 
     public function jsonSerialize()

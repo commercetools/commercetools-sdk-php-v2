@@ -49,6 +49,8 @@ final class CustomerSetVatIdActionModel extends JsonObjectModel implements Custo
     }
 
     /**
+     * <p>If not defined, the vat Id is unset.</p>.
+     *
      * @return null|string
      */
     public function getVatId()

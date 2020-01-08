@@ -18,11 +18,6 @@ use Commercetools\Base\Builder;
 final class ShippingRateDraftBuilder implements Builder
 {
     /**
-     * @var ?ShippingRatePriceTierCollection
-     */
-    private $tiers;
-
-    /**
      * @var Money|?MoneyBuilder
      */
     private $price;
@@ -33,12 +28,9 @@ final class ShippingRateDraftBuilder implements Builder
     private $freeAbove;
 
     /**
-     * @return null|ShippingRatePriceTierCollection
+     * @var ?ShippingRatePriceTierCollection
      */
-    public function getTiers()
-    {
-        return $this->tiers;
-    }
+    private $tiers;
 
     /**
      * @return null|Money
@@ -49,6 +41,10 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
+     * <p>The shipping is free if the order total (the sum of line item prices) exceeds the freeAbove value.
+     * Note: <code>freeAbove</code> applies before any Cart or Product discounts, and can cause discounts to apply in invalid scenarios.
+     * Use a Cart Discount to set the shipping price to 0 to avoid providing free shipping in invalid discount scenarios.</p>.
+     *
      * @return null|Money
      */
     public function getFreeAbove()
@@ -57,13 +53,13 @@ final class ShippingRateDraftBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * <p>A list of shipping rate price tiers.</p>.
+     *
+     * @return null|ShippingRatePriceTierCollection
      */
-    public function withTiers(?ShippingRatePriceTierCollection $tiers)
+    public function getTiers()
     {
-        $this->tiers = $tiers;
-
-        return $this;
+        return $this->tiers;
     }
 
     /**
@@ -82,6 +78,16 @@ final class ShippingRateDraftBuilder implements Builder
     public function withFreeAbove(?Money $freeAbove)
     {
         $this->freeAbove = $freeAbove;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withTiers(?ShippingRatePriceTierCollection $tiers)
+    {
+        $this->tiers = $tiers;
 
         return $this;
     }
@@ -109,9 +115,9 @@ final class ShippingRateDraftBuilder implements Builder
     public function build(): ShippingRateDraft
     {
         return new ShippingRateDraftModel(
-            $this->tiers,
             ($this->price instanceof MoneyBuilder ? $this->price->build() : $this->price),
-            ($this->freeAbove instanceof MoneyBuilder ? $this->freeAbove->build() : $this->freeAbove)
+            ($this->freeAbove instanceof MoneyBuilder ? $this->freeAbove->build() : $this->freeAbove),
+            $this->tiers
         );
     }
 

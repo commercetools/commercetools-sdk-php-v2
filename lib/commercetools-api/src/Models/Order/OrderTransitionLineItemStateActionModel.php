@@ -25,14 +25,9 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     protected $action;
 
     /**
-     * @var ?StateResourceIdentifier
+     * @var ?string
      */
-    protected $toState;
-
-    /**
-     * @var ?StateResourceIdentifier
-     */
-    protected $fromState;
+    protected $lineItemId;
 
     /**
      * @var ?int
@@ -40,9 +35,14 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     protected $quantity;
 
     /**
-     * @var ?string
+     * @var ?StateResourceIdentifier
      */
-    protected $lineItemId;
+    protected $fromState;
+
+    /**
+     * @var ?StateResourceIdentifier
+     */
+    protected $toState;
 
     /**
      * @var ?DateTimeImmutable
@@ -50,16 +50,16 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     protected $actualTransitionDate;
 
     public function __construct(
-        StateResourceIdentifier $toState = null,
-        StateResourceIdentifier $fromState = null,
-        int $quantity = null,
         string $lineItemId = null,
+        int $quantity = null,
+        StateResourceIdentifier $fromState = null,
+        StateResourceIdentifier $toState = null,
         DateTimeImmutable $actualTransitionDate = null
     ) {
-        $this->toState = $toState;
-        $this->fromState = $fromState;
-        $this->quantity = $quantity;
         $this->lineItemId = $lineItemId;
+        $this->quantity = $quantity;
+        $this->fromState = $fromState;
+        $this->toState = $toState;
         $this->actualTransitionDate = $actualTransitionDate;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
@@ -82,21 +82,37 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|StateResourceIdentifier
+     * @return null|string
      */
-    public function getToState()
+    public function getLineItemId()
     {
-        if (is_null($this->toState)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_TO_STATE);
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_LINE_ITEM_ID);
             if (is_null($data)) {
                 return null;
             }
-
-            $this->toState = StateResourceIdentifierModel::of($data);
+            $this->lineItemId = (string) $data;
         }
 
-        return $this->toState;
+        return $this->lineItemId;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
     /**
@@ -118,37 +134,21 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
     }
 
     /**
-     * @return null|int
+     * @return null|StateResourceIdentifier
      */
-    public function getQuantity()
+    public function getToState()
     {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_QUANTITY);
+        if (is_null($this->toState)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_TO_STATE);
             if (is_null($data)) {
                 return null;
             }
-            $this->quantity = (int) $data;
+
+            $this->toState = StateResourceIdentifierModel::of($data);
         }
 
-        return $this->quantity;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLineItemId()
-    {
-        if (is_null($this->lineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderTransitionLineItemStateAction::FIELD_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItemId = (string) $data;
-        }
-
-        return $this->lineItemId;
+        return $this->toState;
     }
 
     /**
@@ -172,14 +172,9 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
         return $this->actualTransitionDate;
     }
 
-    public function setToState(?StateResourceIdentifier $toState): void
+    public function setLineItemId(?string $lineItemId): void
     {
-        $this->toState = $toState;
-    }
-
-    public function setFromState(?StateResourceIdentifier $fromState): void
-    {
-        $this->fromState = $fromState;
+        $this->lineItemId = $lineItemId;
     }
 
     public function setQuantity(?int $quantity): void
@@ -187,9 +182,14 @@ final class OrderTransitionLineItemStateActionModel extends JsonObjectModel impl
         $this->quantity = $quantity;
     }
 
-    public function setLineItemId(?string $lineItemId): void
+    public function setFromState(?StateResourceIdentifier $fromState): void
     {
-        $this->lineItemId = $lineItemId;
+        $this->fromState = $fromState;
+    }
+
+    public function setToState(?StateResourceIdentifier $toState): void
+    {
+        $this->toState = $toState;
     }
 
     public function setActualTransitionDate(?DateTimeImmutable $actualTransitionDate): void

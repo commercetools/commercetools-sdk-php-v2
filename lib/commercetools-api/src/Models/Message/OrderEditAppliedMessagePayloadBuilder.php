@@ -20,22 +20,14 @@ use Commercetools\Base\Builder;
 final class OrderEditAppliedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var OrderEditApplied|?OrderEditAppliedBuilder
-     */
-    private $result;
-
-    /**
      * @var OrderEditReference|?OrderEditReferenceBuilder
      */
     private $edit;
 
     /**
-     * @return null|OrderEditApplied
+     * @var OrderEditApplied|?OrderEditAppliedBuilder
      */
-    public function getResult()
-    {
-        return $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result;
-    }
+    private $result;
 
     /**
      * @return null|OrderEditReference
@@ -46,13 +38,11 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|OrderEditApplied
      */
-    public function withResult(?OrderEditApplied $result)
+    public function getResult()
     {
-        $this->result = $result;
-
-        return $this;
+        return $this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result;
     }
 
     /**
@@ -68,7 +58,7 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
     /**
      * @return $this
      */
-    public function withResultBuilder(?OrderEditAppliedBuilder $result)
+    public function withResult(?OrderEditApplied $result)
     {
         $this->result = $result;
 
@@ -85,11 +75,21 @@ final class OrderEditAppliedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withResultBuilder(?OrderEditAppliedBuilder $result)
+    {
+        $this->result = $result;
+
+        return $this;
+    }
+
     public function build(): OrderEditAppliedMessagePayload
     {
         return new OrderEditAppliedMessagePayloadModel(
-            ($this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result),
-            ($this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit)
+            ($this->edit instanceof OrderEditReferenceBuilder ? $this->edit->build() : $this->edit),
+            ($this->result instanceof OrderEditAppliedBuilder ? $this->result->build() : $this->result)
         );
     }
 

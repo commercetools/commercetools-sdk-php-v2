@@ -25,14 +25,14 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     private $lineItemId;
 
     /**
-     * @var FieldContainer|?FieldContainerBuilder
-     */
-    private $fields;
-
-    /**
      * @var TypeResourceIdentifier|?TypeResourceIdentifierBuilder
      */
     private $type;
+
+    /**
+     * @var FieldContainer|?FieldContainerBuilder
+     */
+    private $fields;
 
     /**
      * @return null|string
@@ -40,14 +40,6 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     public function getLineItemId()
     {
         return $this->lineItemId;
-    }
-
-    /**
-     * @return null|FieldContainer
-     */
-    public function getFields()
-    {
-        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
@@ -59,21 +51,19 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|FieldContainer
      */
-    public function withLineItemId(?string $lineItemId)
+    public function getFields()
     {
-        $this->lineItemId = $lineItemId;
-
-        return $this;
+        return $this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields;
     }
 
     /**
      * @return $this
      */
-    public function withFields(?FieldContainer $fields)
+    public function withLineItemId(?string $lineItemId)
     {
-        $this->fields = $fields;
+        $this->lineItemId = $lineItemId;
 
         return $this;
     }
@@ -91,7 +81,7 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    public function withFields(?FieldContainer $fields)
     {
         $this->fields = $fields;
 
@@ -108,12 +98,22 @@ final class ShoppingListSetLineItemCustomTypeActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withFieldsBuilder(?FieldContainerBuilder $fields)
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
+
     public function build(): ShoppingListSetLineItemCustomTypeAction
     {
         return new ShoppingListSetLineItemCustomTypeActionModel(
             $this->lineItemId,
-            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields),
-            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type)
+            ($this->type instanceof TypeResourceIdentifierBuilder ? $this->type->build() : $this->type),
+            ($this->fields instanceof FieldContainerBuilder ? $this->fields->build() : $this->fields)
         );
     }
 

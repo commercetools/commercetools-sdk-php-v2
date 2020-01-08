@@ -26,35 +26,35 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     protected $type;
 
     /**
-     * @var ?Money
-     */
-    protected $totalPrice;
-
-    /**
      * @var ?string
      */
     protected $lineItemId;
-
-    /**
-     * @var ?TaxedItemPrice
-     */
-    protected $taxedPrice;
 
     /**
      * @var ?DiscountedLineItemPriceForQuantityCollection
      */
     protected $discountedPricePerQuantity;
 
+    /**
+     * @var ?Money
+     */
+    protected $totalPrice;
+
+    /**
+     * @var ?TaxedItemPrice
+     */
+    protected $taxedPrice;
+
     public function __construct(
-        Money $totalPrice = null,
         string $lineItemId = null,
-        TaxedItemPrice $taxedPrice = null,
-        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null
+        DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity = null,
+        Money $totalPrice = null,
+        TaxedItemPrice $taxedPrice = null
     ) {
-        $this->totalPrice = $totalPrice;
         $this->lineItemId = $lineItemId;
-        $this->taxedPrice = $taxedPrice;
         $this->discountedPricePerQuantity = $discountedPricePerQuantity;
+        $this->totalPrice = $totalPrice;
+        $this->taxedPrice = $taxedPrice;
         $this->type = static::DISCRIMINATOR_VALUE;
     }
 
@@ -76,6 +76,40 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
     }
 
     /**
+     * @return null|string
+     */
+    public function getLineItemId()
+    {
+        if (is_null($this->lineItemId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(OrderLineItemDiscountSetMessagePayload::FIELD_LINE_ITEM_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->lineItemId = (string) $data;
+        }
+
+        return $this->lineItemId;
+    }
+
+    /**
+     * @return null|DiscountedLineItemPriceForQuantityCollection
+     */
+    public function getDiscountedPricePerQuantity()
+    {
+        if (is_null($this->discountedPricePerQuantity)) {
+            /** @psalm-var ?array<int, stdClass> $data */
+            $data = $this->raw(OrderLineItemDiscountSetMessagePayload::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
+        }
+
+        return $this->discountedPricePerQuantity;
+    }
+
+    /**
      * @return null|Money
      */
     public function getTotalPrice()
@@ -91,23 +125,6 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
         }
 
         return $this->totalPrice;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLineItemId()
-    {
-        if (is_null($this->lineItemId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(OrderLineItemDiscountSetMessagePayload::FIELD_LINE_ITEM_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->lineItemId = (string) $data;
-        }
-
-        return $this->lineItemId;
     }
 
     /**
@@ -128,21 +145,14 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
         return $this->taxedPrice;
     }
 
-    /**
-     * @return null|DiscountedLineItemPriceForQuantityCollection
-     */
-    public function getDiscountedPricePerQuantity()
+    public function setLineItemId(?string $lineItemId): void
     {
-        if (is_null($this->discountedPricePerQuantity)) {
-            /** @psalm-var ?array<int, stdClass> $data */
-            $data = $this->raw(OrderLineItemDiscountSetMessagePayload::FIELD_DISCOUNTED_PRICE_PER_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->discountedPricePerQuantity = DiscountedLineItemPriceForQuantityCollection::fromArray($data);
-        }
+        $this->lineItemId = $lineItemId;
+    }
 
-        return $this->discountedPricePerQuantity;
+    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
+    {
+        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
     }
 
     public function setTotalPrice(?Money $totalPrice): void
@@ -150,18 +160,8 @@ final class OrderLineItemDiscountSetMessagePayloadModel extends JsonObjectModel 
         $this->totalPrice = $totalPrice;
     }
 
-    public function setLineItemId(?string $lineItemId): void
-    {
-        $this->lineItemId = $lineItemId;
-    }
-
     public function setTaxedPrice(?TaxedItemPrice $taxedPrice): void
     {
         $this->taxedPrice = $taxedPrice;
-    }
-
-    public function setDiscountedPricePerQuantity(?DiscountedLineItemPriceForQuantityCollection $discountedPricePerQuantity): void
-    {
-        $this->discountedPricePerQuantity = $discountedPricePerQuantity;
     }
 }

@@ -18,6 +18,11 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     /**
      * @var ?string
      */
+    protected $paymentInterface;
+
+    /**
+     * @var ?string
+     */
     protected $method;
 
     /**
@@ -25,22 +30,42 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
      */
     protected $name;
 
-    /**
-     * @var ?string
-     */
-    protected $paymentInterface;
-
     public function __construct(
+        string $paymentInterface = null,
         string $method = null,
-        LocalizedString $name = null,
-        string $paymentInterface = null
+        LocalizedString $name = null
     ) {
+        $this->paymentInterface = $paymentInterface;
         $this->method = $method;
         $this->name = $name;
-        $this->paymentInterface = $paymentInterface;
     }
 
     /**
+     * <p>The interface that handles the payment (usually a PSP).
+     * Cannot be changed once it has been set.
+     * The combination of Payment<code>interfaceId</code> and this field must be unique.</p>.
+     *
+     * @return null|string
+     */
+    public function getPaymentInterface()
+    {
+        if (is_null($this->paymentInterface)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(PaymentMethodInfo::FIELD_PAYMENT_INTERFACE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->paymentInterface = (string) $data;
+        }
+
+        return $this->paymentInterface;
+    }
+
+    /**
+     * <p>The payment method that is used, e.g.
+     * e.g.
+     * a conventional string representing Credit Card, Cash Advance etc.</p>.
+     *
      * @return null|string
      */
     public function getMethod()
@@ -58,6 +83,9 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     }
 
     /**
+     * <p>A human-readable, localized name for the payment method, e.g.
+     * 'Credit Card'.</p>.
+     *
      * @return null|LocalizedString
      */
     public function getName()
@@ -75,21 +103,9 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
         return $this->name;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getPaymentInterface()
+    public function setPaymentInterface(?string $paymentInterface): void
     {
-        if (is_null($this->paymentInterface)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(PaymentMethodInfo::FIELD_PAYMENT_INTERFACE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->paymentInterface = (string) $data;
-        }
-
-        return $this->paymentInterface;
+        $this->paymentInterface = $paymentInterface;
     }
 
     public function setMethod(?string $method): void
@@ -100,10 +116,5 @@ final class PaymentMethodInfoModel extends JsonObjectModel implements PaymentMet
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
-    }
-
-    public function setPaymentInterface(?string $paymentInterface): void
-    {
-        $this->paymentInterface = $paymentInterface;
     }
 }

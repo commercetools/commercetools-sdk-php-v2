@@ -21,16 +21,6 @@ use DateTimeImmutable;
 final class ExtensionBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -41,9 +31,14 @@ final class ExtensionBuilder implements Builder
     private $version;
 
     /**
-     * @var CreatedBy|?CreatedByBuilder
+     * @var ?DateTimeImmutable
      */
-    private $createdBy;
+    private $createdAt;
+
+    /**
+     * @var ?DateTimeImmutable
+     */
+    private $lastModifiedAt;
 
     /**
      * @var LastModifiedBy|?LastModifiedByBuilder
@@ -51,9 +46,14 @@ final class ExtensionBuilder implements Builder
     private $lastModifiedBy;
 
     /**
-     * @var ?int
+     * @var CreatedBy|?CreatedByBuilder
      */
-    private $timeoutInMs;
+    private $createdBy;
+
+    /**
+     * @var ?string
+     */
+    private $key;
 
     /**
      * @var ExtensionDestination|?ExtensionDestinationBuilder
@@ -66,25 +66,9 @@ final class ExtensionBuilder implements Builder
     private $triggers;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    private $key;
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @return null|DateTimeImmutable
-     */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $timeoutInMs;
 
     /**
      * @return null|string
@@ -103,14 +87,24 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
-     * @return null|CreatedBy
+     * @return null|DateTimeImmutable
      */
-    public function getCreatedBy()
+    public function getCreatedAt()
     {
-        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+        return $this->createdAt;
     }
 
     /**
+     * @return null|DateTimeImmutable
+     */
+    public function getLastModifiedAt()
+    {
+        return $this->lastModifiedAt;
+    }
+
+    /**
+     * <p>Present on resources updated after 1/02/2019 except for events not tracked.</p>.
+     *
      * @return null|LastModifiedBy
      */
     public function getLastModifiedBy()
@@ -119,11 +113,21 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * <p>Present on resources created after 1/02/2019 except for events not tracked.</p>.
+     *
+     * @return null|CreatedBy
      */
-    public function getTimeoutInMs()
+    public function getCreatedBy()
     {
-        return $this->timeoutInMs;
+        return $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getKey()
+    {
+        return $this->key;
     }
 
     /**
@@ -143,31 +147,14 @@ final class ExtensionBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>The maximum time the commercetools platform waits for a response from the extension.
+     * If not present, <code>2000</code> (2 seconds) is used.</p>.
+     *
+     * @return null|int
      */
-    public function getKey()
+    public function getTimeoutInMs()
     {
-        return $this->key;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
-    {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->timeoutInMs;
     }
 
     /**
@@ -193,9 +180,19 @@ final class ExtensionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withCreatedBy(?CreatedBy $createdBy)
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
     {
-        $this->createdBy = $createdBy;
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
 
         return $this;
     }
@@ -213,9 +210,19 @@ final class ExtensionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withTimeoutInMs(?int $timeoutInMs)
+    public function withCreatedBy(?CreatedBy $createdBy)
     {
-        $this->timeoutInMs = $timeoutInMs;
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withKey(?string $key)
+    {
+        $this->key = $key;
 
         return $this;
     }
@@ -243,19 +250,9 @@ final class ExtensionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withTimeoutInMs(?int $timeoutInMs)
     {
-        $this->key = $key;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
-    {
-        $this->createdBy = $createdBy;
+        $this->timeoutInMs = $timeoutInMs;
 
         return $this;
     }
@@ -273,6 +270,16 @@ final class ExtensionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withCreatedByBuilder(?CreatedByBuilder $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withDestinationBuilder(?ExtensionDestinationBuilder $destination)
     {
         $this->destination = $destination;
@@ -283,16 +290,16 @@ final class ExtensionBuilder implements Builder
     public function build(): Extension
     {
         return new ExtensionModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
             $this->version,
-            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->createdAt,
+            $this->lastModifiedAt,
             ($this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy),
-            $this->timeoutInMs,
+            ($this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy),
+            $this->key,
             ($this->destination instanceof ExtensionDestinationBuilder ? $this->destination->build() : $this->destination),
             $this->triggers,
-            $this->key
+            $this->timeoutInMs
         );
     }
 

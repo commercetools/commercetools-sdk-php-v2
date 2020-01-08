@@ -19,16 +19,6 @@ use DateTimeImmutable;
 final class OrderTransitionCustomLineItemStateActionBuilder implements Builder
 {
     /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
-     */
-    private $toState;
-
-    /**
-     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
-     */
-    private $fromState;
-
-    /**
      * @var ?string
      */
     private $customLineItemId;
@@ -39,25 +29,19 @@ final class OrderTransitionCustomLineItemStateActionBuilder implements Builder
     private $quantity;
 
     /**
+     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     */
+    private $fromState;
+
+    /**
+     * @var StateResourceIdentifier|?StateResourceIdentifierBuilder
+     */
+    private $toState;
+
+    /**
      * @var ?DateTimeImmutable
      */
     private $actualTransitionDate;
-
-    /**
-     * @return null|StateResourceIdentifier
-     */
-    public function getToState()
-    {
-        return $this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState;
-    }
-
-    /**
-     * @return null|StateResourceIdentifier
-     */
-    public function getFromState()
-    {
-        return $this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState;
-    }
 
     /**
      * @return null|string
@@ -76,31 +60,27 @@ final class OrderTransitionCustomLineItemStateActionBuilder implements Builder
     }
 
     /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getFromState()
+    {
+        return $this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState;
+    }
+
+    /**
+     * @return null|StateResourceIdentifier
+     */
+    public function getToState()
+    {
+        return $this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState;
+    }
+
+    /**
      * @return null|DateTimeImmutable
      */
     public function getActualTransitionDate()
     {
         return $this->actualTransitionDate;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withToState(?StateResourceIdentifier $toState)
-    {
-        $this->toState = $toState;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFromState(?StateResourceIdentifier $fromState)
-    {
-        $this->fromState = $fromState;
-
-        return $this;
     }
 
     /**
@@ -126,9 +106,9 @@ final class OrderTransitionCustomLineItemStateActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withActualTransitionDate(?DateTimeImmutable $actualTransitionDate)
+    public function withFromState(?StateResourceIdentifier $fromState)
     {
-        $this->actualTransitionDate = $actualTransitionDate;
+        $this->fromState = $fromState;
 
         return $this;
     }
@@ -136,9 +116,19 @@ final class OrderTransitionCustomLineItemStateActionBuilder implements Builder
     /**
      * @return $this
      */
-    public function withToStateBuilder(?StateResourceIdentifierBuilder $toState)
+    public function withToState(?StateResourceIdentifier $toState)
     {
         $this->toState = $toState;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withActualTransitionDate(?DateTimeImmutable $actualTransitionDate)
+    {
+        $this->actualTransitionDate = $actualTransitionDate;
 
         return $this;
     }
@@ -153,13 +143,23 @@ final class OrderTransitionCustomLineItemStateActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withToStateBuilder(?StateResourceIdentifierBuilder $toState)
+    {
+        $this->toState = $toState;
+
+        return $this;
+    }
+
     public function build(): OrderTransitionCustomLineItemStateAction
     {
         return new OrderTransitionCustomLineItemStateActionModel(
-            ($this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState),
-            ($this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState),
             $this->customLineItemId,
             $this->quantity,
+            ($this->fromState instanceof StateResourceIdentifierBuilder ? $this->fromState->build() : $this->fromState),
+            ($this->toState instanceof StateResourceIdentifierBuilder ? $this->toState->build() : $this->toState),
             $this->actualTransitionDate
         );
     }

@@ -17,21 +17,6 @@ use Commercetools\Base\Builder;
 final class ProductSetAssetSourcesActionBuilder implements Builder
 {
     /**
-     * @var ?AssetSourceCollection
-     */
-    private $sources;
-
-    /**
-     * @var ?string
-     */
-    private $assetId;
-
-    /**
-     * @var ?bool
-     */
-    private $staged;
-
-    /**
      * @var ?int
      */
     private $variantId;
@@ -42,33 +27,24 @@ final class ProductSetAssetSourcesActionBuilder implements Builder
     private $sku;
 
     /**
+     * @var ?bool
+     */
+    private $staged;
+
+    /**
+     * @var ?string
+     */
+    private $assetId;
+
+    /**
      * @var ?string
      */
     private $assetKey;
 
     /**
-     * @return null|AssetSourceCollection
+     * @var ?AssetSourceCollection
      */
-    public function getSources()
-    {
-        return $this->sources;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getAssetId()
-    {
-        return $this->assetId;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        return $this->staged;
-    }
+    private $sources;
 
     /**
      * @return null|int
@@ -87,6 +63,22 @@ final class ProductSetAssetSourcesActionBuilder implements Builder
     }
 
     /**
+     * @return null|bool
+     */
+    public function getStaged()
+    {
+        return $this->staged;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAssetId()
+    {
+        return $this->assetId;
+    }
+
+    /**
      * @return null|string
      */
     public function getAssetKey()
@@ -95,33 +87,11 @@ final class ProductSetAssetSourcesActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|AssetSourceCollection
      */
-    public function withSources(?AssetSourceCollection $sources)
+    public function getSources()
     {
-        $this->sources = $sources;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withAssetId(?string $assetId)
-    {
-        $this->assetId = $assetId;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withStaged(?bool $staged)
-    {
-        $this->staged = $staged;
-
-        return $this;
+        return $this->sources;
     }
 
     /**
@@ -147,6 +117,26 @@ final class ProductSetAssetSourcesActionBuilder implements Builder
     /**
      * @return $this
      */
+    public function withStaged(?bool $staged)
+    {
+        $this->staged = $staged;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withAssetId(?string $assetId)
+    {
+        $this->assetId = $assetId;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
     public function withAssetKey(?string $assetKey)
     {
         $this->assetKey = $assetKey;
@@ -154,15 +144,25 @@ final class ProductSetAssetSourcesActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withSources(?AssetSourceCollection $sources)
+    {
+        $this->sources = $sources;
+
+        return $this;
+    }
+
     public function build(): ProductSetAssetSourcesAction
     {
         return new ProductSetAssetSourcesActionModel(
-            $this->sources,
-            $this->assetId,
-            $this->staged,
             $this->variantId,
             $this->sku,
-            $this->assetKey
+            $this->staged,
+            $this->assetId,
+            $this->assetKey,
+            $this->sources
         );
     }
 

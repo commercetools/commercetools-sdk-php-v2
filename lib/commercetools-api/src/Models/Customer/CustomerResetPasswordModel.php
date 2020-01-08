@@ -15,6 +15,11 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     /**
      * @var ?string
      */
+    protected $tokenValue;
+
+    /**
+     * @var ?string
+     */
     protected $newPassword;
 
     /**
@@ -22,19 +27,31 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
      */
     protected $version;
 
-    /**
-     * @var ?string
-     */
-    protected $tokenValue;
-
     public function __construct(
+        string $tokenValue = null,
         string $newPassword = null,
-        int $version = null,
-        string $tokenValue = null
+        int $version = null
     ) {
+        $this->tokenValue = $tokenValue;
         $this->newPassword = $newPassword;
         $this->version = $version;
-        $this->tokenValue = $tokenValue;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getTokenValue()
+    {
+        if (is_null($this->tokenValue)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(CustomerResetPassword::FIELD_TOKEN_VALUE);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->tokenValue = (string) $data;
+        }
+
+        return $this->tokenValue;
     }
 
     /**
@@ -71,21 +88,9 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
         return $this->version;
     }
 
-    /**
-     * @return null|string
-     */
-    public function getTokenValue()
+    public function setTokenValue(?string $tokenValue): void
     {
-        if (is_null($this->tokenValue)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(CustomerResetPassword::FIELD_TOKEN_VALUE);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->tokenValue = (string) $data;
-        }
-
-        return $this->tokenValue;
+        $this->tokenValue = $tokenValue;
     }
 
     public function setNewPassword(?string $newPassword): void
@@ -96,10 +101,5 @@ final class CustomerResetPasswordModel extends JsonObjectModel implements Custom
     public function setVersion(?int $version): void
     {
         $this->version = $version;
-    }
-
-    public function setTokenValue(?string $tokenValue): void
-    {
-        $this->tokenValue = $tokenValue;
     }
 }

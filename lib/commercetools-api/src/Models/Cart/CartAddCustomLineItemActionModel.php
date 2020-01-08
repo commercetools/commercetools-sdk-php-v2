@@ -29,29 +29,19 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     protected $action;
 
     /**
-     * @var ?ExternalTaxRateDraft
-     */
-    protected $externalTaxRate;
-
-    /**
-     * @var ?int
-     */
-    protected $quantity;
-
-    /**
      * @var ?Money
      */
     protected $money;
 
     /**
-     * @var ?CustomFieldsDraft
-     */
-    protected $custom;
-
-    /**
      * @var ?LocalizedString
      */
     protected $name;
+
+    /**
+     * @var ?int
+     */
+    protected $quantity;
 
     /**
      * @var ?string
@@ -63,22 +53,32 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
      */
     protected $taxCategory;
 
+    /**
+     * @var ?CustomFieldsDraft
+     */
+    protected $custom;
+
+    /**
+     * @var ?ExternalTaxRateDraft
+     */
+    protected $externalTaxRate;
+
     public function __construct(
-        ExternalTaxRateDraft $externalTaxRate = null,
-        int $quantity = null,
         Money $money = null,
-        CustomFieldsDraft $custom = null,
         LocalizedString $name = null,
+        int $quantity = null,
         string $slug = null,
-        TaxCategoryResourceIdentifier $taxCategory = null
+        TaxCategoryResourceIdentifier $taxCategory = null,
+        CustomFieldsDraft $custom = null,
+        ExternalTaxRateDraft $externalTaxRate = null
     ) {
-        $this->externalTaxRate = $externalTaxRate;
-        $this->quantity = $quantity;
         $this->money = $money;
-        $this->custom = $custom;
         $this->name = $name;
+        $this->quantity = $quantity;
         $this->slug = $slug;
         $this->taxCategory = $taxCategory;
+        $this->custom = $custom;
+        $this->externalTaxRate = $externalTaxRate;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -100,41 +100,6 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * @return null|ExternalTaxRateDraft
-     */
-    public function getExternalTaxRate()
-    {
-        if (is_null($this->externalTaxRate)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddCustomLineItemAction::FIELD_EXTERNAL_TAX_RATE);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
-        }
-
-        return $this->externalTaxRate;
-    }
-
-    /**
-     * @return null|int
-     */
-    public function getQuantity()
-    {
-        if (is_null($this->quantity)) {
-            /** @psalm-var ?int $data */
-            $data = $this->raw(CartAddCustomLineItemAction::FIELD_QUANTITY);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->quantity = (int) $data;
-        }
-
-        return $this->quantity;
-    }
-
-    /**
      * @return null|Money
      */
     public function getMoney()
@@ -153,24 +118,6 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     }
 
     /**
-     * @return null|CustomFieldsDraft
-     */
-    public function getCustom()
-    {
-        if (is_null($this->custom)) {
-            /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(CartAddCustomLineItemAction::FIELD_CUSTOM);
-            if (is_null($data)) {
-                return null;
-            }
-
-            $this->custom = CustomFieldsDraftModel::of($data);
-        }
-
-        return $this->custom;
-    }
-
-    /**
      * @return null|LocalizedString
      */
     public function getName()
@@ -186,6 +133,23 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
         }
 
         return $this->name;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuantity()
+    {
+        if (is_null($this->quantity)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(CartAddCustomLineItemAction::FIELD_QUANTITY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->quantity = (int) $data;
+        }
+
+        return $this->quantity;
     }
 
     /**
@@ -223,14 +187,40 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
         return $this->taxCategory;
     }
 
-    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    /**
+     * @return null|CustomFieldsDraft
+     */
+    public function getCustom()
     {
-        $this->externalTaxRate = $externalTaxRate;
+        if (is_null($this->custom)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartAddCustomLineItemAction::FIELD_CUSTOM);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->custom = CustomFieldsDraftModel::of($data);
+        }
+
+        return $this->custom;
     }
 
-    public function setQuantity(?int $quantity): void
+    /**
+     * @return null|ExternalTaxRateDraft
+     */
+    public function getExternalTaxRate()
     {
-        $this->quantity = $quantity;
+        if (is_null($this->externalTaxRate)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(CartAddCustomLineItemAction::FIELD_EXTERNAL_TAX_RATE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->externalTaxRate = ExternalTaxRateDraftModel::of($data);
+        }
+
+        return $this->externalTaxRate;
     }
 
     public function setMoney(?Money $money): void
@@ -238,14 +228,14 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
         $this->money = $money;
     }
 
-    public function setCustom(?CustomFieldsDraft $custom): void
-    {
-        $this->custom = $custom;
-    }
-
     public function setName(?LocalizedString $name): void
     {
         $this->name = $name;
+    }
+
+    public function setQuantity(?int $quantity): void
+    {
+        $this->quantity = $quantity;
     }
 
     public function setSlug(?string $slug): void
@@ -256,5 +246,15 @@ final class CartAddCustomLineItemActionModel extends JsonObjectModel implements 
     public function setTaxCategory(?TaxCategoryResourceIdentifier $taxCategory): void
     {
         $this->taxCategory = $taxCategory;
+    }
+
+    public function setCustom(?CustomFieldsDraft $custom): void
+    {
+        $this->custom = $custom;
+    }
+
+    public function setExternalTaxRate(?ExternalTaxRateDraft $externalTaxRate): void
+    {
+        $this->externalTaxRate = $externalTaxRate;
     }
 }

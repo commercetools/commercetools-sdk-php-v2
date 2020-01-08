@@ -16,9 +16,34 @@ use Commercetools\Base\Builder;
 final class FacetResultRangeBuilder implements Builder
 {
     /**
+     * @var ?int
+     */
+    private $from;
+
+    /**
+     * @var ?string
+     */
+    private $fromStr;
+
+    /**
+     * @var ?int
+     */
+    private $to;
+
+    /**
      * @var ?string
      */
     private $toStr;
+
+    /**
+     * @var ?int
+     */
+    private $count;
+
+    /**
+     * @var ?int
+     */
+    private $productCount;
 
     /**
      * @var ?int
@@ -31,11 +56,6 @@ final class FacetResultRangeBuilder implements Builder
     private $min;
 
     /**
-     * @var ?string
-     */
-    private $fromStr;
-
-    /**
      * @var ?int
      */
     private $max;
@@ -46,24 +66,28 @@ final class FacetResultRangeBuilder implements Builder
     private $mean;
 
     /**
-     * @var ?int
+     * @return null|int
      */
-    private $count;
+    public function getFrom()
+    {
+        return $this->from;
+    }
 
     /**
-     * @var ?int
+     * @return null|string
      */
-    private $from;
+    public function getFromStr()
+    {
+        return $this->fromStr;
+    }
 
     /**
-     * @var ?int
+     * @return null|int
      */
-    private $to;
-
-    /**
-     * @var ?int
-     */
-    private $productCount;
+    public function getTo()
+    {
+        return $this->to;
+    }
 
     /**
      * @return null|string
@@ -71,6 +95,22 @@ final class FacetResultRangeBuilder implements Builder
     public function getToStr()
     {
         return $this->toStr;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getCount()
+    {
+        return $this->count;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getProductCount()
+    {
+        return $this->productCount;
     }
 
     /**
@@ -90,14 +130,6 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
-     * @return null|string
-     */
-    public function getFromStr()
-    {
-        return $this->fromStr;
-    }
-
-    /**
      * @return null|int
      */
     public function getMax()
@@ -114,35 +146,33 @@ final class FacetResultRangeBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * @return $this
      */
-    public function getCount()
+    public function withFrom(?int $from)
     {
-        return $this->count;
+        $this->from = $from;
+
+        return $this;
     }
 
     /**
-     * @return null|int
+     * @return $this
      */
-    public function getFrom()
+    public function withFromStr(?string $fromStr)
     {
-        return $this->from;
+        $this->fromStr = $fromStr;
+
+        return $this;
     }
 
     /**
-     * @return null|int
+     * @return $this
      */
-    public function getTo()
+    public function withTo(?int $to)
     {
-        return $this->to;
-    }
+        $this->to = $to;
 
-    /**
-     * @return null|int
-     */
-    public function getProductCount()
-    {
-        return $this->productCount;
+        return $this;
     }
 
     /**
@@ -151,6 +181,26 @@ final class FacetResultRangeBuilder implements Builder
     public function withToStr(?string $toStr)
     {
         $this->toStr = $toStr;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withCount(?int $count)
+    {
+        $this->count = $count;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withProductCount(?int $productCount)
+    {
+        $this->productCount = $productCount;
 
         return $this;
     }
@@ -178,16 +228,6 @@ final class FacetResultRangeBuilder implements Builder
     /**
      * @return $this
      */
-    public function withFromStr(?string $fromStr)
-    {
-        $this->fromStr = $fromStr;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
     public function withMax(?int $max)
     {
         $this->max = $max;
@@ -205,59 +245,19 @@ final class FacetResultRangeBuilder implements Builder
         return $this;
     }
 
-    /**
-     * @return $this
-     */
-    public function withCount(?int $count)
-    {
-        $this->count = $count;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withFrom(?int $from)
-    {
-        $this->from = $from;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withTo(?int $to)
-    {
-        $this->to = $to;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withProductCount(?int $productCount)
-    {
-        $this->productCount = $productCount;
-
-        return $this;
-    }
-
     public function build(): FacetResultRange
     {
         return new FacetResultRangeModel(
+            $this->from,
+            $this->fromStr,
+            $this->to,
             $this->toStr,
+            $this->count,
+            $this->productCount,
             $this->total,
             $this->min,
-            $this->fromStr,
             $this->max,
-            $this->mean,
-            $this->count,
-            $this->from,
-            $this->to,
-            $this->productCount
+            $this->mean
         );
     }
 

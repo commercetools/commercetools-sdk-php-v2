@@ -17,16 +17,6 @@ use DateTimeImmutable;
 final class BaseResourceBuilder implements Builder
 {
     /**
-     * @var ?DateTimeImmutable
-     */
-    private $createdAt;
-
-    /**
-     * @var ?DateTimeImmutable
-     */
-    private $lastModifiedAt;
-
-    /**
      * @var ?string
      */
     private $id;
@@ -37,20 +27,14 @@ final class BaseResourceBuilder implements Builder
     private $version;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var ?DateTimeImmutable
      */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
+    private $createdAt;
 
     /**
-     * @return null|DateTimeImmutable
+     * @var ?DateTimeImmutable
      */
-    public function getLastModifiedAt()
-    {
-        return $this->lastModifiedAt;
-    }
+    private $lastModifiedAt;
 
     /**
      * @return null|string
@@ -69,23 +53,19 @@ final class BaseResourceBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|DateTimeImmutable
      */
-    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    public function getCreatedAt()
     {
-        $this->createdAt = $createdAt;
-
-        return $this;
+        return $this->createdAt;
     }
 
     /**
-     * @return $this
+     * @return null|DateTimeImmutable
      */
-    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    public function getLastModifiedAt()
     {
-        $this->lastModifiedAt = $lastModifiedAt;
-
-        return $this;
+        return $this->lastModifiedAt;
     }
 
     /**
@@ -108,13 +88,33 @@ final class BaseResourceBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withCreatedAt(?DateTimeImmutable $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withLastModifiedAt(?DateTimeImmutable $lastModifiedAt)
+    {
+        $this->lastModifiedAt = $lastModifiedAt;
+
+        return $this;
+    }
+
     public function build(): BaseResource
     {
         return new BaseResourceModel(
-            $this->createdAt,
-            $this->lastModifiedAt,
             $this->id,
-            $this->version
+            $this->version,
+            $this->createdAt,
+            $this->lastModifiedAt
         );
     }
 

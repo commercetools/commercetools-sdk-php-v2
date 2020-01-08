@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class CustomerUpdateBuilder implements Builder
 {
     /**
-     * @var ?CustomerUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|CustomerUpdateActionCollection
+     * @var ?CustomerUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class CustomerUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|CustomerUpdateActionCollection
      */
-    public function withActions(?CustomerUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class CustomerUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?CustomerUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): CustomerUpdate
     {
         return new CustomerUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 

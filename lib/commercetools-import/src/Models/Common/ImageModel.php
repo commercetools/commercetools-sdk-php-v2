@@ -16,11 +16,6 @@ final class ImageModel extends JsonObjectModel implements Image
     /**
      * @var ?string
      */
-    protected $label;
-
-    /**
-     * @var ?string
-     */
     protected $url;
 
     /**
@@ -28,31 +23,19 @@ final class ImageModel extends JsonObjectModel implements Image
      */
     protected $dimensions;
 
+    /**
+     * @var ?string
+     */
+    protected $label;
+
     public function __construct(
-        string $label = null,
         string $url = null,
-        AssetDimensions $dimensions = null
+        AssetDimensions $dimensions = null,
+        string $label = null
     ) {
-        $this->label = $label;
         $this->url = $url;
         $this->dimensions = $dimensions;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getLabel()
-    {
-        if (is_null($this->label)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(Image::FIELD_LABEL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->label = (string) $data;
-        }
-
-        return $this->label;
+        $this->label = $label;
     }
 
     /**
@@ -90,9 +73,21 @@ final class ImageModel extends JsonObjectModel implements Image
         return $this->dimensions;
     }
 
-    public function setLabel(?string $label): void
+    /**
+     * @return null|string
+     */
+    public function getLabel()
     {
-        $this->label = $label;
+        if (is_null($this->label)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(Image::FIELD_LABEL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->label = (string) $data;
+        }
+
+        return $this->label;
     }
 
     public function setUrl(?string $url): void
@@ -103,5 +98,10 @@ final class ImageModel extends JsonObjectModel implements Image
     public function setDimensions(?AssetDimensions $dimensions): void
     {
         $this->dimensions = $dimensions;
+    }
+
+    public function setLabel(?string $label): void
+    {
+        $this->label = $label;
     }
 }

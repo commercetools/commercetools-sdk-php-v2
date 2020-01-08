@@ -17,22 +17,14 @@ use Commercetools\Base\Builder;
 final class StagedOrderSetParcelItemsActionBuilder implements Builder
 {
     /**
-     * @var ?DeliveryItemCollection
-     */
-    private $items;
-
-    /**
      * @var ?string
      */
     private $parcelId;
 
     /**
-     * @return null|DeliveryItemCollection
+     * @var ?DeliveryItemCollection
      */
-    public function getItems()
-    {
-        return $this->items;
-    }
+    private $items;
 
     /**
      * @return null|string
@@ -43,13 +35,11 @@ final class StagedOrderSetParcelItemsActionBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|DeliveryItemCollection
      */
-    public function withItems(?DeliveryItemCollection $items)
+    public function getItems()
     {
-        $this->items = $items;
-
-        return $this;
+        return $this->items;
     }
 
     /**
@@ -62,11 +52,21 @@ final class StagedOrderSetParcelItemsActionBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withItems(?DeliveryItemCollection $items)
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
     public function build(): StagedOrderSetParcelItemsAction
     {
         return new StagedOrderSetParcelItemsActionModel(
-            $this->items,
-            $this->parcelId
+            $this->parcelId,
+            $this->items
         );
     }
 

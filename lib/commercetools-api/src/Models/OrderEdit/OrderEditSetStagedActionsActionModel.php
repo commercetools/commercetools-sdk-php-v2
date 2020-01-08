@@ -51,6 +51,8 @@ final class OrderEditSetStagedActionsActionModel extends JsonObjectModel impleme
     }
 
     /**
+     * <p>The actions to edit the <code>resource</code>.</p>.
+     *
      * @return null|StagedOrderUpdateActionCollection
      */
     public function getStagedActions()

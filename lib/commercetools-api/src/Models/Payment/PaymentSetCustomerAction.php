@@ -15,6 +15,8 @@ interface PaymentSetCustomerAction extends PaymentUpdateAction
     const FIELD_CUSTOMER = 'customer';
 
     /**
+     * <p>A reference to the customer this payment belongs to.</p>.
+     *
      * @return null|CustomerResourceIdentifier
      */
     public function getCustomer();

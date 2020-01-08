@@ -16,9 +16,14 @@ use Commercetools\Base\Builder;
 final class ErrorResponseBuilder implements Builder
 {
     /**
+     * @var ?int
+     */
+    private $statusCode;
+
+    /**
      * @var ?string
      */
-    private $error_description;
+    private $message;
 
     /**
      * @var ?string
@@ -28,7 +33,7 @@ final class ErrorResponseBuilder implements Builder
     /**
      * @var ?string
      */
-    private $message;
+    private $error_description;
 
     /**
      * @var ?ErrorObjectCollection
@@ -36,20 +41,23 @@ final class ErrorResponseBuilder implements Builder
     private $errors;
 
     /**
-     * @var ?int
+     * <p>The http status code of the response.</p>.
+     *
+     * @return null|int
      */
-    private $statusCode;
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
 
     /**
-     * <p>This property is only used for OAuth2 errors.
-     * Additional information to assist the client developer in
-     * understanding the error.</p>.
+     * <p>Describes the error.</p>.
      *
      * @return null|string
      */
-    public function getError_description()
+    public function getMessage()
     {
-        return $this->error_description;
+        return $this->message;
     }
 
     /**
@@ -64,13 +72,15 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
-     * <p>Describes the error.</p>.
+     * <p>This property is only used for OAuth2 errors.
+     * Additional information to assist the client developer in
+     * understanding the error.</p>.
      *
      * @return null|string
      */
-    public function getMessage()
+    public function getError_description()
     {
-        return $this->message;
+        return $this->error_description;
     }
 
     /**
@@ -84,31 +94,11 @@ final class ErrorResponseBuilder implements Builder
     }
 
     /**
-     * <p>The http status code of the response.</p>.
-     *
-     * @return null|int
-     */
-    public function getStatusCode()
-    {
-        return $this->statusCode;
-    }
-
-    /**
      * @return $this
      */
-    public function withError_description(?string $error_description)
+    public function withStatusCode(?int $statusCode)
     {
-        $this->error_description = $error_description;
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function withError(?string $error)
-    {
-        $this->error = $error;
+        $this->statusCode = $statusCode;
 
         return $this;
     }
@@ -126,9 +116,9 @@ final class ErrorResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withErrors(?ErrorObjectCollection $errors)
+    public function withError(?string $error)
     {
-        $this->errors = $errors;
+        $this->error = $error;
 
         return $this;
     }
@@ -136,9 +126,19 @@ final class ErrorResponseBuilder implements Builder
     /**
      * @return $this
      */
-    public function withStatusCode(?int $statusCode)
+    public function withError_description(?string $error_description)
     {
-        $this->statusCode = $statusCode;
+        $this->error_description = $error_description;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withErrors(?ErrorObjectCollection $errors)
+    {
+        $this->errors = $errors;
 
         return $this;
     }
@@ -146,11 +146,11 @@ final class ErrorResponseBuilder implements Builder
     public function build(): ErrorResponse
     {
         return new ErrorResponseModel(
-            $this->error_description,
-            $this->error,
+            $this->statusCode,
             $this->message,
-            $this->errors,
-            $this->statusCode
+            $this->error,
+            $this->error_description,
+            $this->errors
         );
     }
 

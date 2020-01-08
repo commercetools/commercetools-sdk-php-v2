@@ -29,6 +29,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
         'OrderCreated' => OrderCreatedMessagePayloadModel::class,
         'OrderCustomLineItemDiscountSet' => OrderCustomLineItemDiscountSetMessagePayloadModel::class,
         'OrderCustomerEmailSet' => OrderCustomerEmailSetMessagePayloadModel::class,
+        'OrderCustomerGroupSet' => OrderCustomerGroupSetMessagePayloadModel::class,
         'OrderCustomerSet' => OrderCustomerSetMessagePayloadModel::class,
         'OrderDeleted' => OrderDeletedMessagePayloadModel::class,
         'OrderDiscountCodeAdded' => OrderDiscountCodeAddedMessagePayloadModel::class,

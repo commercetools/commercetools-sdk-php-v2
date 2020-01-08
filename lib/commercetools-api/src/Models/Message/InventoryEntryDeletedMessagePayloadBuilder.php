@@ -18,22 +18,14 @@ use Commercetools\Base\Builder;
 final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
 {
     /**
-     * @var ChannelReference|?ChannelReferenceBuilder
-     */
-    private $supplyChannel;
-
-    /**
      * @var ?string
      */
     private $sku;
 
     /**
-     * @return null|ChannelReference
+     * @var ChannelReference|?ChannelReferenceBuilder
      */
-    public function getSupplyChannel()
-    {
-        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
-    }
+    private $supplyChannel;
 
     /**
      * @return null|string
@@ -44,13 +36,11 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ChannelReference
      */
-    public function withSupplyChannel(?ChannelReference $supplyChannel)
+    public function getSupplyChannel()
     {
-        $this->supplyChannel = $supplyChannel;
-
-        return $this;
+        return $this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel;
     }
 
     /**
@@ -59,6 +49,16 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     public function withSku(?string $sku)
     {
         $this->sku = $sku;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function withSupplyChannel(?ChannelReference $supplyChannel)
+    {
+        $this->supplyChannel = $supplyChannel;
 
         return $this;
     }
@@ -76,8 +76,8 @@ final class InventoryEntryDeletedMessagePayloadBuilder implements Builder
     public function build(): InventoryEntryDeletedMessagePayload
     {
         return new InventoryEntryDeletedMessagePayloadModel(
-            ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel),
-            $this->sku
+            $this->sku,
+            ($this->supplyChannel instanceof ChannelReferenceBuilder ? $this->supplyChannel->build() : $this->supplyChannel)
         );
     }
 

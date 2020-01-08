@@ -16,9 +16,9 @@ use Commercetools\Base\Builder;
 final class ApiClientDraftBuilder implements Builder
 {
     /**
-     * @var ?int
+     * @var ?string
      */
-    private $deleteDaysAfterCreation;
+    private $name;
 
     /**
      * @var ?string
@@ -26,16 +26,16 @@ final class ApiClientDraftBuilder implements Builder
     private $scope;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    private $name;
+    private $deleteDaysAfterCreation;
 
     /**
-     * @return null|int
+     * @return null|string
      */
-    public function getDeleteDaysAfterCreation()
+    public function getName()
     {
-        return $this->deleteDaysAfterCreation;
+        return $this->name;
     }
 
     /**
@@ -47,19 +47,21 @@ final class ApiClientDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * <p>If set, the client will be deleted after the specified amount of days.</p>.
+     *
+     * @return null|int
      */
-    public function getName()
+    public function getDeleteDaysAfterCreation()
     {
-        return $this->name;
+        return $this->deleteDaysAfterCreation;
     }
 
     /**
      * @return $this
      */
-    public function withDeleteDaysAfterCreation(?int $deleteDaysAfterCreation)
+    public function withName(?string $name)
     {
-        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
+        $this->name = $name;
 
         return $this;
     }
@@ -77,9 +79,9 @@ final class ApiClientDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withName(?string $name)
+    public function withDeleteDaysAfterCreation(?int $deleteDaysAfterCreation)
     {
-        $this->name = $name;
+        $this->deleteDaysAfterCreation = $deleteDaysAfterCreation;
 
         return $this;
     }
@@ -87,9 +89,9 @@ final class ApiClientDraftBuilder implements Builder
     public function build(): ApiClientDraft
     {
         return new ApiClientDraftModel(
-            $this->deleteDaysAfterCreation,
+            $this->name,
             $this->scope,
-            $this->name
+            $this->deleteDaysAfterCreation
         );
     }
 

@@ -22,9 +22,9 @@ final class CustomObjectDraftBuilder implements Builder
     private $container;
 
     /**
-     * @var ?int
+     * @var ?string
      */
-    private $version;
+    private $key;
 
     /**
      * @var ?JsonObject
@@ -32,11 +32,13 @@ final class CustomObjectDraftBuilder implements Builder
     private $value;
 
     /**
-     * @var ?string
+     * @var ?int
      */
-    private $key;
+    private $version;
 
     /**
+     * <p>A namespace to group custom objects.</p>.
+     *
      * @return null|string
      */
     public function getContainer()
@@ -45,11 +47,13 @@ final class CustomObjectDraftBuilder implements Builder
     }
 
     /**
-     * @return null|int
+     * <p>A user-defined key that is unique within the given container.</p>.
+     *
+     * @return null|string
      */
-    public function getVersion()
+    public function getKey()
     {
-        return $this->version;
+        return $this->key;
     }
 
     /**
@@ -61,11 +65,11 @@ final class CustomObjectDraftBuilder implements Builder
     }
 
     /**
-     * @return null|string
+     * @return null|int
      */
-    public function getKey()
+    public function getVersion()
     {
-        return $this->key;
+        return $this->version;
     }
 
     /**
@@ -81,9 +85,9 @@ final class CustomObjectDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withVersion(?int $version)
+    public function withKey(?string $key)
     {
-        $this->version = $version;
+        $this->key = $key;
 
         return $this;
     }
@@ -101,9 +105,9 @@ final class CustomObjectDraftBuilder implements Builder
     /**
      * @return $this
      */
-    public function withKey(?string $key)
+    public function withVersion(?int $version)
     {
-        $this->key = $key;
+        $this->version = $version;
 
         return $this;
     }
@@ -112,9 +116,9 @@ final class CustomObjectDraftBuilder implements Builder
     {
         return new CustomObjectDraftModel(
             $this->container,
-            $this->version,
+            $this->key,
             $this->value,
-            $this->key
+            $this->version
         );
     }
 

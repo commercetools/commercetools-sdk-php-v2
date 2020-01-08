@@ -20,16 +20,6 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     protected $action;
 
     /**
-     * @var ?string
-     */
-    protected $imageUrl;
-
-    /**
-     * @var ?bool
-     */
-    protected $staged;
-
-    /**
      * @var ?int
      */
     protected $variantId;
@@ -39,16 +29,26 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
      */
     protected $sku;
 
+    /**
+     * @var ?string
+     */
+    protected $imageUrl;
+
+    /**
+     * @var ?bool
+     */
+    protected $staged;
+
     public function __construct(
-        string $imageUrl = null,
-        bool $staged = null,
         int $variantId = null,
-        string $sku = null
+        string $sku = null,
+        string $imageUrl = null,
+        bool $staged = null
     ) {
-        $this->imageUrl = $imageUrl;
-        $this->staged = $staged;
         $this->variantId = $variantId;
         $this->sku = $sku;
+        $this->imageUrl = $imageUrl;
+        $this->staged = $staged;
         $this->action = static::DISCRIMINATOR_VALUE;
     }
 
@@ -67,40 +67,6 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
         }
 
         return $this->action;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getImageUrl()
-    {
-        if (is_null($this->imageUrl)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(ProductRemoveImageAction::FIELD_IMAGE_URL);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->imageUrl = (string) $data;
-        }
-
-        return $this->imageUrl;
-    }
-
-    /**
-     * @return null|bool
-     */
-    public function getStaged()
-    {
-        if (is_null($this->staged)) {
-            /** @psalm-var ?bool $data */
-            $data = $this->raw(ProductRemoveImageAction::FIELD_STAGED);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->staged = (bool) $data;
-        }
-
-        return $this->staged;
     }
 
     /**
@@ -137,14 +103,40 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
         return $this->sku;
     }
 
-    public function setImageUrl(?string $imageUrl): void
+    /**
+     * <p>The URL of the image.</p>.
+     *
+     * @return null|string
+     */
+    public function getImageUrl()
     {
-        $this->imageUrl = $imageUrl;
+        if (is_null($this->imageUrl)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(ProductRemoveImageAction::FIELD_IMAGE_URL);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->imageUrl = (string) $data;
+        }
+
+        return $this->imageUrl;
     }
 
-    public function setStaged(?bool $staged): void
+    /**
+     * @return null|bool
+     */
+    public function getStaged()
     {
-        $this->staged = $staged;
+        if (is_null($this->staged)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(ProductRemoveImageAction::FIELD_STAGED);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->staged = (bool) $data;
+        }
+
+        return $this->staged;
     }
 
     public function setVariantId(?int $variantId): void
@@ -155,5 +147,15 @@ final class ProductRemoveImageActionModel extends JsonObjectModel implements Pro
     public function setSku(?string $sku): void
     {
         $this->sku = $sku;
+    }
+
+    public function setImageUrl(?string $imageUrl): void
+    {
+        $this->imageUrl = $imageUrl;
+    }
+
+    public function setStaged(?bool $staged): void
+    {
+        $this->staged = $staged;
     }
 }

@@ -16,22 +16,14 @@ use Commercetools\Base\Builder;
 final class ProjectUpdateBuilder implements Builder
 {
     /**
-     * @var ?ProjectUpdateActionCollection
-     */
-    private $actions;
-
-    /**
      * @var ?int
      */
     private $version;
 
     /**
-     * @return null|ProjectUpdateActionCollection
+     * @var ?ProjectUpdateActionCollection
      */
-    public function getActions()
-    {
-        return $this->actions;
-    }
+    private $actions;
 
     /**
      * @return null|int
@@ -42,13 +34,11 @@ final class ProjectUpdateBuilder implements Builder
     }
 
     /**
-     * @return $this
+     * @return null|ProjectUpdateActionCollection
      */
-    public function withActions(?ProjectUpdateActionCollection $actions)
+    public function getActions()
     {
-        $this->actions = $actions;
-
-        return $this;
+        return $this->actions;
     }
 
     /**
@@ -61,11 +51,21 @@ final class ProjectUpdateBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @return $this
+     */
+    public function withActions(?ProjectUpdateActionCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
     public function build(): ProjectUpdate
     {
         return new ProjectUpdateModel(
-            $this->actions,
-            $this->version
+            $this->version,
+            $this->actions
         );
     }
 
