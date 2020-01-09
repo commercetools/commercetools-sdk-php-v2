@@ -26,7 +26,7 @@ class MiscTest extends TestCase
 {
     public function testMappings()
     {
-        $t = new ByProjectKeyGet(null);
+        $t = new ByProjectKeyGet('');
 
         $tr = new Response(
             500,
